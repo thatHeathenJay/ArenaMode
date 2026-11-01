@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType><TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings><Nullable>disable</Nullable>
+    <AnnouncementSourceRoot Condition="'$(AnnouncementSourceRoot)' == ''">../../ArenaMode.Client</AnnouncementSourceRoot>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(AnnouncementSourceRoot)/Modes/DominationMapLayout.cs" Link="Production/DominationMapLayout.cs" />
+    <!-- DominationMapLayout.ControlPointCount guards with the map catalog; not a mutated input. -->
+    <Compile Include="../../ArenaMode.Shared/ArenaMapCatalog.cs" Link="Production/ArenaMapCatalog.cs" />
+    <Compile Include="$(AnnouncementSourceRoot)/Audio/ArenaAnnouncementSnapshot.cs" Link="Production/Snapshot.cs" />
+    <Compile Include="$(AnnouncementSourceRoot)/Audio/ArenaAnnouncementPolicy.cs" Link="Production/Policy.cs" />
+    <Compile Include="$(AnnouncementSourceRoot)/Audio/ArenaAnnouncementDirector.cs" Link="Production/Director.cs" />
+    <Compile Include="$(AnnouncementSourceRoot)/Modes/ArenaAnnouncerCue.cs" Link="Production/Cue.cs" />
+    <Compile Include="$(AnnouncementSourceRoot)/Modes/DeathmatchRules.cs" Link="Production/DeathmatchRules.cs" />
+    <Compile Include="$(AnnouncementSourceRoot)/Modes/TeamDeathmatchMatchPolicy.cs" Link="Production/TeamRules.cs" />
+    <Compile Include="$(AnnouncementSourceRoot)/Modes/DominationPolicy.cs" Link="Production/DominationPolicy.cs" />
+    <Compile Include="$(AnnouncementSourceRoot)/Modes/DominationMatchPolicy.cs" Link="Production/DominationMatchPolicy.cs" />
+    <Compile Include="$(AnnouncementSourceRoot)/Modes/TeamDeathmatchMode.Domination.cs" Link="Production/TeamScoreAdapter.cs" />
+    <Compile Include="$(AnnouncementSourceRoot)/Modes/RoundsMode.Announcements.cs" Link="Production/DeathmatchAdapter.cs" />
+    <Compile Include="$(AnnouncementSourceRoot)/Modes/TeamDeathmatchMode.Announcements.cs" Link="Production/TeamAdapter.cs" />
+    <Compile Include="$(AnnouncementSourceRoot)/Modes/TacticalMode.Announcements.cs" Link="Production/TacticalAdapter.cs" />
+    <Compile Include="$(AnnouncementSourceRoot)/Modes/GunGameMode.Announcements.cs" Link="Production/GunGameAdapter.cs" />
+  </ItemGroup>
+</Project>

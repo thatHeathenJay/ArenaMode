@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <LaserSource Condition="'$(LaserSource)' == ''">$(MSBuildThisFileDirectory)..\..\ArenaMode.Client\Effects\ArenaTeamLaserColors.cs</LaserSource>
+    <PolicySource Condition="'$(PolicySource)' == ''">$(MSBuildThisFileDirectory)..\..\ArenaMode.Client\Effects\ArenaTeamLaserPolicy.cs</PolicySource>
+    <BrightnessSource Condition="'$(BrightnessSource)' == ''">$(MSBuildThisFileDirectory)..\..\ArenaMode.Client\Effects\ArenaLaserBrightness.cs</BrightnessSource>
+    <TacticalSource Condition="'$(TacticalSource)' == ''">$(MSBuildThisFileDirectory)..\..\ArenaMode.Client\Modes\TacticalMode.Lasers.cs</TacticalSource>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../../ArenaMode.Client/Effects/ArenaTeamPalette.cs" Link="Production/ArenaTeamPalette.cs" />
+    <Compile Include="../../ArenaMode.Shared/DeathmatchSelection.cs" Link="Production/DeathmatchSelection.cs" />
+    <Compile Include="$(LaserSource)" Link="Production/ArenaTeamLaserColors.cs" />
+    <Compile Include="$(PolicySource)" Link="Production/ArenaTeamLaserPolicy.cs" />
+    <Compile Include="$(BrightnessSource)" Link="Production/ArenaLaserBrightness.cs" />
+    <Compile Include="$(TacticalSource)" Link="Production/TacticalMode.Lasers.cs" />
+    <Compile Include="../../ArenaMode.Client/Effects/ArenaTracerColor.cs" Link="Production/ArenaTracerColor.cs" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,135 @@
+# Arena airborne native mantle checks
+
+Run from the repository root:
+
+```powershell
+pwsh -NoProfile -File tools/ArenaAirVaultChecks/Verify.ps1
+```
+
+The fixture links all four production `ArenaAirVault` files and the full native
+`VaultingGameplayRestrictions`. The verifier extracts native component
+strategy/request/commit methods, MovementContext.TryVaulting, Player's held
+ToggleVaulting dispatch, FastAnimatorProcessor.ProcessState and immediate/
+interrupted transition paths, MovementState enter/move/exit callbacks and
+MovementContext.ProcessStateEnter, Unity PlayerStateContainer.OnStateEnter and
+Player.BodyUpdate and VaultingMovementState.ApplyMotion. Only the overridden-state Play call receives
+a host type cast; native control flow stays intact.
+
+It has no client project reference, deploy target or installed-file mutation.
+It requires sibling `_decompiled` sources and .NET 10. Faults rebuild separately
+and must fail their named behavioral assertion, not just fail compilation.
+Production is run again afterward. Source text is normalized for LF/CRLF when
+constructing fault copies; production files are never mutated by the verifier.
+
+## Host fixture limits
+
+Unity raycasts, actual `CanMove` geometry, clip blending, graph data, shared
+player scope and movement-state internals remain doubles. The native processor
+executes real transition ordering through those services; this proves admission,
+callback order and ownership cleanup, not physical climbing or actual stamina
+consumption. Native destination-interruption selection is exercised, while the
+fixture supplies its already-eligible candidate; it does not simulate the
+animation's physical fall detection. Full shared-scope and double-jump behavior
+are covered separately by the parent regression checks.
+
+The historical 70-assertion fixture did not execute graph transitions. Its
+success, and the absence of errors in a log, did not establish live mantle
+acceptance. The user subsequently confirmed failure even when holding vault
+after a second Space press. See AIR-MOVEMENT-REVIEW.md for the correction and
+installed animator-asset hash.
+
+## Contracts
+
+- Airborne Climb waits above the native 1.31m remaining-height limit, retries
+  held input after rising into reach and revalidates before dispatch. Standing
+  Arena climb and the native Vault preference are not narrowed.
+- Actual XZ body-to-selected-surface distance must be at most 0.5m regardless of
+  the velocity-shifted grid's local distance. Checks cover far-to-near held retry,
+  translation/X/Z orientation, diagonal separation, nonfinite points, body drift
+  before dispatch, height exclusion and native standing/Vault preservation.
+- A read-only physical observer logs accepted geometry, incoming motion versus
+  actual controller displacement, exit and post-exit position. Tests control
+  the controller's accepted fraction; they do not certify real collisions.
+  Exact controller/world/body ownership, native exception propagation, timeout,
+  shutdown and a separate twelve-attempt per-world log budget are verified.
+- Exact live local Arena Jump owner, held input and native forward/phase guards.
+  Ordinary raids, bots, stale bodies, inventory/blocked input and automatic
+  vaulting retain their native behavior.
+- Fresh manual geometry, native stamina and full height-dependent hands checks
+  before request and again at animator consumption. Float-setter callbacks
+  cannot change geometry, hands, stamina policy or ownership and retain approval.
+- Four native parameters refresh for a new valid scan; no repeated TryVaulting
+  side effects and no extension of the original 0.5-second expiry. Invalid
+  pending requests cancel immediately. Timeout requires release before retry.
+- Captured game/world/body/context/component/animator wrapper/native handle and
+  FastControllerInfo identity. Replacement objects do not inherit flag writes.
+- One exact processor/base-layer/nonrecursive admission lease, cleared even on
+  native failure. Existing native transitions and foreign ForcePlay are retained.
+- Source is the actual Jump node. The real `Base Layer.JUMP.Jump_Loop` has no
+  behavior; only its exact graph identity and verified Jump_Idle incoming owner
+  authorize this special case. Foreign/unknown behaviorless leaves are denied.
+- Destination comes from the existing native MOVE edge, with the correct bound
+  ClimbState/VaultState, template conditions, native blend seconds and offset,
+  and native interruption policy. No persistent graph edits/listener ownership.
+- Native target entry precedes old Jump movement and runs one complete managed
+  Exit/Enter. Jump flag clears only after confirmed owned entry; ordinary failed
+  attempts preserve Jump. Blend completion cannot repeat entry or jump motion.
+- Pre-entry callback exceptions retire only the injected edge and its pending
+  flag; post-entry exceptions retain native state ownership. Exceptions propagate.
+  Reset, respawn and controller replacement never authorize replacement writes.
+
+## Native anchors
+
+Paths refer to the installed-version sibling `_decompiled` source:
+
+| Source | Contract |
+| --- | --- |
+| EFT/Player.cs:25554-25574 | Held vault subscription and ToggleVaulting dispatch. |
+| EFT/MovementContext.cs:2814 | Native request, hands restrictions and successful side effects. |
+| EFT.Vaulting/VaultingComponent.cs:79-215 | Manual geometry, parameters, flags and ground/air strategy exclusions. |
+| EFT.Vaulting/VaultingGameplayRestrictions.cs:31 | Native height-dependent hands/inventory restrictions. |
+| FastAnimatorSystem/FastAnimatorProcessor.cs:913-1167 | Transition dispatch, target-before-old-move ordering and interruptions. |
+| EFT/MovementContext.cs:2942 | Actual managed Jump.Exit and target.Enter lifecycle. |
+| EFT/MovementState.cs:72-99 | Old movement executes only if it is still current. |
+| EFT/JumpPlayerState.cs:116-148 | Exit does not consume Jump; native landing normally does. |
+| AnimationEventSystem/FastAnimationPlayerStateContainerBehaviour.cs:71 | Graph-to-managed-state binding. |
+| EFT/Player.cs:28117, AnimationSystem/AnimatorFactory.cs:15 | Configuration-dependent direct FastAnimator handle. |
+
+## GPU acceptance still required
+
+Restart the game after comparing the installed client hash with HANDOFF.md.
+Test valid low/high obstacles while airborne, including prolonged/double jumps,
+low stamina, obstruction/roof limits, missed attempts, held/released vault,
+landing, respawn and a normal PMC raid. A failed attempt must leave movement
+usable; an accepted mantle must not trigger an extra jump afterward. Confirm
+native vault fall/interruption during a longer frame if practical.
+
+Bounded Info diagnostics distinguish rejected native checks, queued requests,
+accepted native Climb/Vault, timeout and unsupported animator/entry. There is no
+Animator.Play, fake grounding, teleport, global graph mutation or collision
+bypass. Successful offline checks remain separate from GPU acceptance.
+
+## Unity-specific boundary
+
+The real native Unity controller has initialized Idle, Move and Sprint Jump
+containers sharing one cached managed Jump owner. The fixture exercises each
+leaf against its own container and the exact behaviorless Loop-to-Idle exception;
+valid Idle cannot authorize a missing or foreign Move/Sprint container. It also
+checks bounded rejection reasons, changing detail values and throwing log sinks.
+The native MovePlayerState's stale FallingDown bool is retained during all 16
+main Unity cases; actual FallDown movement remains excluded. Alternating queue
+and refusal reasons have independent 2s log budgets that reset with the world.
+
+`UnityChecks` drives the linked production Unity bridge through extracted native
+BodyUpdate and movement-container callbacks. An explicit engine double supplies
+Auto/Manual callback scheduling, current/next hashes, behavior containers and
+CrossFade recording. It intentionally cannot certify real Unity blending,
+collision, animation events, or GPU timing. Unity dispatch commits the native
+move once; subsequent release/settings changes do not cancel its sibling native
+animation behaviors. Entry proof still retires Jump after disable, dispatch error
+or delay. Temporary source faults verify that dispatch, cleanup, landing,
+destination/context/controller ownership and retained observers matter.
+
+For fast development only, `-ProductionOnly` runs the positive fixture without
+fault controls. Full acceptance always uses the default command above; the
+positive-only path does not emit the full verifier success marker.

@@ -1,0 +1,85 @@
+using ArenaMode.Config;
+using ArenaMode.Session;
+using Comfort.Common;
+using EFT;
+using HarmonyLib;
+using SPT.Reflection.Patching;
+using System.Reflection;
+
+namespace ArenaMode.Movement;
+
+/// <summary>
+/// Shrinks the local deploy countdown for arena raids. The wait is pure padding:
+/// player, loot and the full bot system are initialized BEFORE the countdown
+/// coroutine, and GameTimer/spawn waves start after it — nothing races.
+///
+/// GlobalConfiguration.TimeBeforeDeployLocal is mutated ONLY between the
+/// countdown coroutine's construction and vmethod_6 (restored there, plus
+/// defensively at raid end). The field has exactly one reader (the countdown),
+/// so the "never touch GlobalConfiguration" rule does not bite here — noted
+/// deliberately. Keep one second for the native audio fade rather than skipping
+/// the countdown coroutine entirely.
+/// </summary>
+internal static class FastDeployPatches
+{
+    private const int ArenaCountdownSeconds = 1;
+
+    private static int _saved = -1;
+
+    public static void Enable()
+    {
+        new ArenaFastDeployShortenCountdownPatch().Enable();
+        new ArenaFastDeployRestoreAfterCountdownPatch().Enable();
+    }
+
+    public static void Restore()
+    {
+        if (_saved < 0)
+            return;
+
+        var config = Singleton<GlobalConfiguration>.Instance;
+        if (config != null)
+            config.TimeBeforeDeployLocal = _saved;
+
+        _saved = -1;
+    }
+
+    private sealed class ArenaFastDeployShortenCountdownPatch : ModulePatch
+    {
+        protected override MethodBase GetTargetMethod()
+            => AccessTools.Method(typeof(LocalGame), "vmethod_2");
+
+        [PatchPrefix]
+        private static void Prefix()
+        {
+            // Heal-first, BEFORE any gate: an aborted load can die between this
+            // prefix and the vmethod_6 restore without ever reaching GameEnd —
+            // no other hook fires in that window. Since this prefix runs for
+            // EVERY local raid's countdown before the value is read, restoring
+            // here guarantees a leaked Arena countdown can never reach a normal raid.
+            Restore();
+
+            // ArmedForNextRaid, NOT IsActive: the IsActive latch fires after this
+            // countdown (GameWorld.OnGameStarted).
+            if (!ArenaSession.ArmedForNextRaid || !Settings.FastDeploy.Value)
+                return;
+
+            var config = Singleton<GlobalConfiguration>.Instance;
+            if (config == null || config.TimeBeforeDeployLocal <= ArenaCountdownSeconds)
+                return;
+
+            _saved = config.TimeBeforeDeployLocal;
+            config.TimeBeforeDeployLocal = ArenaCountdownSeconds;
+            Plugin.ModLogger.LogDebug($"Arena fast deploy: countdown {_saved}s -> {ArenaCountdownSeconds}s.");
+        }
+    }
+
+    private sealed class ArenaFastDeployRestoreAfterCountdownPatch : ModulePatch
+    {
+        protected override MethodBase GetTargetMethod()
+            => AccessTools.Method(typeof(BaseLocalGame<EftGamePlayerOwner>), "vmethod_6");
+
+        [PatchPostfix]
+        private static void Postfix() => Restore();
+    }
+}

@@ -1,0 +1,150 @@
+using EFT;
+using ArenaMode.Bots;
+using System;
+using UnityEngine;
+
+namespace ArenaMode.Modes;
+
+public sealed partial class TeamDeathmatchMode
+{
+    private TeamDeathmatchMatchPolicy _rules;
+    private bool _resultPublished, _localDeathCounted, _resultExitRequested;
+    private float _resultDisplayAt = -1f, _nextStopAttempt;
+    private string _resultExitProblem;
+    private float _gateCountdownEndsAt;
+
+    internal bool HasResult => MatchPhase == TdmMatchPhase.Finished;
+    // Read-only: AI admission must never advance clocks or publish a result.
+    internal bool IsSearchActive => IsCurrentMatch() && MatchPhase == TdmMatchPhase.Live;
+    internal bool ResultOwnsCurrentRaid => HasResult && IsCurrentRaid()
+        && ReferenceEquals(ArenaMatchService.Current, _match);
+    internal float PlayingElapsed => IsDomination ? _dominationRules?.Elapsed(Time.time) ?? 0f : _rules?.Elapsed(Time.time) ?? 0f;
+    internal bool TryGetDifficultyClock(out float elapsed, out int duration)
+    {
+        elapsed = 0; duration = 0;
+        if (!IsCurrentMatch() || !MatchRulesReady) return false;
+        elapsed = PlayingElapsed;
+        duration = MatchTimeLimit;
+        return true;
+    }
+    internal string ResultHeading => MatchResult == TdmMatchResult.Won ? "VICTORY"
+        : MatchResult == TdmMatchResult.Lost ? "DEFEAT" : "DRAW";
+    internal string ResultDetail => $"{FriendlyFaction} {FinalFriendlyScore} : {FinalOpponentScore} {OpponentFaction} — {MatchReason}";
+    internal string ResultExitStatus => _resultExitProblem ?? (TdmMatchExit.PipelineRunning
+        ? "Finishing player replacement…" : $"Returning to menu in {ResultDisplayRemaining}s");
+    internal int ResultDisplayRemaining => _resultDisplayAt < 0f ? (int)TeamDeathmatchMatchPolicy.ResultSeconds
+        : Math.Max(0, (int)Math.Ceiling(TeamDeathmatchMatchPolicy.ResultSeconds - (Time.unscaledTime - _resultDisplayAt)));
+    private string RulesStatus => MatchPhase == TdmMatchPhase.Assembling ? "ASSEMBLING TEAMS"
+        : MatchPhase == TdmMatchPhase.Countdown ? "START IN " + MatchCountdownRemaining(Time.time)
+        : (MatchScoreLimit > 0 ? "First to " + MatchScoreLimit + (IsDomination ? " points" : "") : IsDomination ? "No point limit" : "No kill limit")
+          + (MatchTimeLimit > 0 ? $" | {Math.Max(0, (int)Math.Ceiling(MatchTimeLimit - PlayingElapsed)) / 60:00}:{Math.Max(0, (int)Math.Ceiling(MatchTimeLimit - PlayingElapsed)) % 60:00} left" : " | No time limit");
+
+    private void TickMatchStart(bool ready)
+    {
+        if (!MatchRulesReady || _announcedReady) return;
+        var before = MatchPhase;
+        if (ready && before == TdmMatchPhase.Countdown && Time.time >= _gateCountdownEndsAt)
+        {
+            if (!Bots.ArenaTeamBoxRuntime.TryOpenForCombat()) return;
+            if (IsDomination) _domination.VerifyTeamPaths();
+        }
+        if (IsDomination) _dominationRules.UpdateStart(Time.time, ready);
+        else _rules.Update(Time.time, ready, 0, 0);
+        if (before != TdmMatchPhase.Countdown && MatchPhase == TdmMatchPhase.Countdown)
+            _gateCountdownEndsAt = Time.time + TeamDeathmatchMatchPolicy.CountdownSeconds;
+        if (before != MatchPhase)
+            Plugin.ModLogger.LogDebug($"Team Deathmatch phase: {before} -> {MatchPhase}; "
+                + $"killLimit={MatchScoreLimit}, timeLimit={MatchTimeLimit}s.");
+    }
+
+    // Called before a score-bearing event as well as after its bookkeeping.
+    // This makes a hit at/after the deadline unable to change an expired result.
+    internal bool TryBeginScoredEvent()
+    {
+        if (!IsCurrentMatch()) return false;
+        CheckMatchLimits();
+        return !IsComplete && MatchPhase == TdmMatchPhase.Live;
+    }
+
+    internal bool TryRecordLocalDeath()
+    {
+        if (_localDeathCounted || !TryBeginScoredEvent()) return false;
+        _localDeathCounted = true;
+        return true;
+    }
+
+    private void CheckMatchLimits()
+    {
+        if (MatchPhase != TdmMatchPhase.Live || !IsCurrentMatch()) return;
+        if (IsDomination) AdvanceDomination();
+        var friendly = FriendlyTeamScore;
+        var opponent = OpponentTeamScore;
+        if (!IsDomination) _rules.Update(Time.time, false, friendly, opponent);
+        if (!HasResult || _resultPublished) return;
+        _resultPublished = true;
+        _population.Stop();
+        if (IsDomination) DominationObjectiveBridge.Stop();
+        _pendingGiveUpLife = null;
+        // Keep the death driver registered through the final-hit callbacks.
+        // Its terminal hold blocks new engine entries; a started replacement
+        // must unwind before the native raid owner can be safely stopped.
+        Plugin.ModLogger.LogDebug($"Team Deathmatch result: {MatchResult}; {MatchReason}; "
+            + $"{FriendlyFaction} {friendly}:{opponent} {OpponentFaction}; played={PlayingElapsed:F1}s.");
+        ArenaToasts.Show(ResultHeading + " — " + ResultDetail);
+        if (MatchResult == TdmMatchResult.Won) _match.ReportAnnouncerCue(ArenaAnnouncerCue.MatchWon);
+        else if (MatchResult == TdmMatchResult.Lost) _match.ReportAnnouncerCue(ArenaAnnouncerCue.MatchLost);
+    }
+
+    /// <summary>Uses the same captured world even after IsComplete turns true.</summary>
+    internal bool ShouldBlockMatchDamage(Player victim)
+    {
+        if (victim == null || !IsCurrentRaid() || !ReferenceEquals(ArenaMatchService.Current, _match)) return false;
+        if (MatchPhase == TdmMatchPhase.Live && !HasResult) return IsBotSpawnProtected(victim);
+        if (ReferenceEquals(victim, _world.MainPlayer) && victim.ProfileId == _localId) return true;
+        var owner = victim.AIData?.BotOwner;
+        return owner != null && ReferenceEquals(owner.GetPlayer, victim)
+            && _bots.Exists(bot => ReferenceEquals(bot, owner));
+    }
+
+    internal bool TryGetMatchNotice(out string heading, out string detail)
+    {
+        heading = detail = null;
+        if (!IsCurrentRaid() || !ReferenceEquals(ArenaMatchService.Current, _match)) return false;
+        if (HasResult)
+        {
+            heading = ResultHeading;
+            detail = ResultDetail + " | " + ResultExitStatus;
+            return true;
+        }
+        if (MatchPhase == TdmMatchPhase.Live || !MatchRulesReady) return false;
+        heading = Bots.ArenaTeamBoxRuntime.GatesOpening ? "OPENING SPAWN GATES"
+            : MatchPhase == TdmMatchPhase.Countdown
+            ? "MATCH STARTS IN " + MatchCountdownRemaining(Time.time) : "ASSEMBLING TEAMS";
+        detail = $"{FriendlyFaction}: {CountBots(_population.LocalUsec) + (_local?.HealthController?.IsAlive == true ? 1 : 0)}/{TeamSize}"
+            + $"  |  {OpponentFaction}: {CountBots(!_population.LocalUsec)}/{TeamSize}  |  Damage and scoring disabled";
+        return true;
+    }
+
+    internal void RequestResultExit()
+    {
+        if (ResultOwnsCurrentRaid) _resultExitRequested = true;
+    }
+
+    internal void ReportResultExitProblem(string problem)
+    {
+        if (!ResultOwnsCurrentRaid || string.Equals(problem, _resultExitProblem, StringComparison.Ordinal)) return;
+        _resultExitProblem = problem;
+        Plugin.ModLogger.LogWarning("Team Deathmatch result: " + problem);
+    }
+
+    private void TickResult()
+    {
+        if (!ResultOwnsCurrentRaid) return;
+        if (TdmMatchExit.PipelineRunning) return;
+        if (_resultDisplayAt < 0f) _resultDisplayAt = Time.unscaledTime;
+        if (!_resultExitRequested && ResultDisplayRemaining > 0) return;
+        if (Time.unscaledTime < _nextStopAttempt) return;
+        _nextStopAttempt = Time.unscaledTime + 5f;
+        TdmMatchExit.TryStop(_game, _world, _localId, ReportResultExitProblem);
+    }
+}

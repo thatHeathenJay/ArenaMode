@@ -1,0 +1,383 @@
+<!-- ArenaMode description draft of 0.4.1 (Redeploy.Core 1.0.18, identical to the copy in Redeploy 1.1.1). Post it only together with the 0.4.1 package. -->
+## {.tabset}
+
+### Overview
+
+ArenaMode adds arena matches against AI to SPT 4.1. Select **ARENA** next to PMC
+and Scav, then choose a mode, map, equipment and mutators in the raid setup menu.
+
+- Six modes: Team DM (the default for new installations), Domination (WIP), Gun Game,
+  Deathmatch, Tactical (WIP) and Zombies (WIP).
+- Respawns or round/wave-based survival, depending on the mode.
+- Arena kits, a weapon ladder and mode-specific own-gear options.
+- Scoreboard, assists, killfeed, hitmarkers, health/armor and weapon panels.
+- Profile restoration on exit: Arena loot, XP and quest changes are not kept.
+- Optional profile rewards, **on by default**: RUB mail and PMC XP for eligible kills
+  and round wins. The server mod adds a small data block to your profile file at the
+  next normal server start; switch rewards off in the Arena map menu (see *Profile rewards*).
+- Single-player only. **Fika is not supported.**
+- Arena runs only with **whitelisted mods**. With other mods installed, **START ARENA
+  SESSION** restarts the game into a filtered Arena session with a private copy of the
+  server; **RETURN TO NORMAL SESSION** brings the full setup back (see *Whitelist*).
+- **Direct start:** run `maschine-ArenaMode.Session.exe`, choose a profile and start
+  Arena without opening normal EFT first. It manages a local SPT installation only.
+
+Domination, Tactical, Zombies, Akimbo and Molotov are marked **WIP**. Back up your
+profile before playing, particularly when combining mods.
+
+### Modes
+
+- **Gun Game:** each kill advances your weapon. Respawn at the current stage;
+  the ladder repeats after the final weapon.
+- **Deathmatch:** free-for-all or all bots against you. Choose rounds, a
+  per-round kill/time limit, or continuous play without limits.
+- **Team DM:** USEC against BEAR (choose your side), with respawns and team
+  kill/time limits. Default mode for new installations. Does not require PitFireTeam.
+- **Domination (WIP):** capture and hold control points for team score, with
+  continuous team respawns, bot capture/defence assignments and separate score/time
+  limits (200 points / ten minutes by default). Factory varies three points each
+  match; Equator and Bay5 use one original point, Air Pit and Bowl two. **Requires
+  BigBrain 1.5.0 or newer** (separate download) and has no profile rewards.
+- **Tactical (WIP):** round-based elimination. Solo defaults to 1v5 with a kit
+  buy menu. With PitFireTeam, choose own gear or a supplied PMC kit and bring
+  1–4 companions against five opponents. Companions keep their own gear.
+  Spectate after death and return next round with the selected entry loadout.
+- **Zombies (WIP):** increasing waves, with ammunition replenished between
+  waves. Solo death ends the match. A PitFireTeam squad can keep fighting after
+  your death; fallen members return after the wave is cleared. A wipe ends the
+  match. Entry gear is restored between waves, including the surviving player.
+
+Zombie defaults: **32 alive, 50 in the first wave, +20 per wave, own gear**.
+Population and starting equipment can be changed in the menu.
+
+### Maps and mutators
+
+#### Maps
+
+- Factory, day and night; Labs; Labyrinth.
+- Customs: Factory Center, Factory Side and Customs Yard. Only these bounded
+  areas are available, in every mode except Domination.
+- With ArenaMapPort: Bay5, Air Pit and Bowl in all modes; Equator in Gun Game, Deathmatch,
+  Team DM, Domination and solo Zombies. Equator does not support Tactical or PFT Zombies.
+- Domination is offered on Factory day/night and the four ArenaMapPort maps, not on
+  Labs, Labyrinth or Customs.
+- Select participant totals in Deathmatch/Gun Game and team sizes in Team DM,
+  within the chosen map/area's limits.
+- Air Pit Team DM requires ArenaMapPort 0.2.2 or newer for its team-start boxes.
+- Bowl defaults to eight participants in Deathmatch, Gun
+  Game and Team DM. Independent Team DM uses its east/west team boxes for 2v2 to 10v10;
+  combat waits for the spawn gates to open, and the gates stay open for respawns.
+- The wall score/timer monitors in Team DM and Domination need **ArenaMapPort 0.4.0
+  or newer** (published 2026-10-30). ArenaMapPort 0.3.0 still works without
+  monitors and only produces a version advisory.
+
+#### Mutators
+
+- Faster movement, double jump, bunnyhop, air control, sliding, airborne hip
+  fire and vaulting. Less inertia/weight slowdown and shorter landing recovery.
+  A master switch disables the movement group.
+- **Slow walking with CMS/Surv12 or while splinting a leg**, up to 1 m/s with
+  Fast Movement enabled; sprint/jump/prone/vault remain blocked.
+- Faster drawing, holstering, reloading, magazine packing and medical use.
+  Supported weapons select full-auto when drawn; manual changes remain possible.
+- Backpack items and magazines, automatic medical quickslots, instant search.
+- Arena HUD and announcer switches; separate announcer/hitmarker volume.
+  Kill skull, optional combined burst damage, detailed health/ammo/grenade
+  panels and a scoreboard with damage-share assists.
+- Team tracer/laser colors and friendly fire. Friendly fire defaults off for
+  PFT Zombies, on for Team DM and PFT Tactical.
+- Akimbo pistols (WIP), additional Molotov (WIP), bot movement options.
+- Killcam replays with Killcam installed and DeathReplay enabled.
+  PFT team spectating has a target-HP display and works without the replay mod.
+- Pickups on every supported Arena map in Deathmatch and Team DM: health,
+  shield, double damage, jump boots, unlimited ammo and an M60. Checked positions
+  rotate during play, within the selected Customs area where applicable.
+- Visible Team DM bot spawn protection in the fixed team boxes on Equator,
+  Bay5, Air Pit and Bowl, default four seconds; firing, throwing a grenade or dealing
+  damage ends it. Other maps retain player protection without bot spawn shields.
+- Narrow colored body contours identify bot spawn protection, Shield and Double
+  Damage. Opaque cover hides the contour; simultaneous effects share its colors.
+
+Domination, Molotov and deliberate bot pickup steering require BigBrain 1.5.0 or newer
+plus ArenaMode's companion DLL (included). Molotov is unavailable in Zombies.
+
+Labyrinth entrance traps/toxic pool and its center alarm are handled separately
+for Arena. Way Up uses a 10-second countdown. Round-state lighting is available
+on every supported Arena map. Quest/achievement/XP notifications and the
+extraction list are suppressed; the misleading item-loss warning is hidden and
+the post-raid XP page skipped.
+
+### Setup and controls
+
+- Requires **SPT 4.1.x**; native testing has used 4.1.6.
+- Close the game and server. Extract the release into the SPT folder containing
+  `EscapeFromTarkov.exe`, keeping its directory structure.
+- Both the client and server are required. The two Arena client DLLs, audio,
+  assets and notices belong in `BepInEx/plugins/maschine-ArenaMode/`.
+  The server belongs in `SPT_Runtime/user/mods/ArenaMode/`.
+  The Arena session adds the preloader gate
+  `BepInEx/patchers/maschine-ArenaMode/maschine-ArenaMode.Gate.dll`, the helper
+  `maschine-ArenaMode.Session.exe` and the default whitelist `arena-whitelist.json`
+  beside the client DLL; the list is overwritten by updates, your own entries belong in
+  `BepInEx/config/com.maschine.ArenaMode.whitelist.json`.
+  When updating, preserve custom files and remove duplicate old Arena DLLs.
+- To start without opening normal EFT, run the installed Session.exe and choose a
+  profile; its picker can create a desktop shortcut. A short normal-server start and
+  stop before the private server is expected, even with rewards off.
+- Use the supplied `maschine-Redeploy.Core.dll` (Core 1.0.18, identical to the copy
+  in Redeploy 1.1.1); keep only one copy,
+  directly in `BepInEx/plugins/`.
+  Arena requires at least the version its client was built against and disables itself before initialization
+  if Core is missing, unreadable or older. Restart after correcting the files.
+  The full Redeploy mod is not required.
+- Install optional mods separately, with their own prerequisites.
+- Start server and game, select ARENA, then configure and enter the match.
+  Invite 1–4 PFT companions first if using a squad mode.
+
+Default controls:
+
+- **F9:** scoreboard and live Arena settings.
+- **Backspace:** give up the current life; ends solo Zombies.
+- **Escape:** raid menu / leave match.
+- **Left/right mouse** while team spectating: cycle living bots; Tactical also
+  allows observing opponents.
+- **F12:** advanced settings, if a BepInEx configuration UI is installed.
+
+Most switches are in the map-screen Mutators panel. Server configuration is
+also available at the SPT server's HTTPS address plus `/arenamode`. Preserve
+custom settings when updating; restart the game/server after replacing DLLs.
+
+### Whitelist
+
+Many third-party mods break Arena raids, and Arena no longer adapts to each of them
+one by one. Arena therefore runs only with whitelisted mods. The shipped default list
+(`arena-whitelist.json`, next to the client DLL) allows the mods that were installed on
+the author's hosts when it was written, each with its reviewed version: the bot stack
+(SAIN, APBS, ABPS, BigBrain, Waypoints), the author's own mods, PitFireTeam, DynamicMaps,
+UIFixes, WTT-CommonLib and WTT-ContentBackport (with its preloader patcher), SVM, give-ui,
+Continuous Healing, Continuous Load Ammo, Recoil Rework Legacy, Freecam, DoorDash,
+Anvil-WebOverlay, ArmorClassIcon, BetterAmmoLoadingList, BrighterInteriors,
+DevBalaclavaFix, HealingAutoCancel and SmajlecLights. It also lists Fontaine FOV Fix,
+Manimal Ammo Loading Animations, Increase Look Direction, Magazine Check Interrupt,
+Tarkova Cola, Accurate Circular Radar, Simple Crosshair and Better BepInEx, and
+since 0.4.0 Use Items Anywhere 2.1.6, ImpactCue 2.0.3 (client
+and Web Config server), Enemy Markers 1.4.0, Fast Grenade Throw 2.0.0,
+Manimal's Quick Cancel 2.0.0, HUD Breakout 1.2.0 and PiP Disabler 2.1.0, plus
+ArenaMapPort 0.4.0 and the standalone Redeploy mod.
+It denies ORBIT, Questing Bots,
+Adaptive Bot Culling, ISB Special Forces and Aishi. SPT's own plugins and ArenaMode are
+always allowed; a version that differs from the reviewed one only produces a warning.
+Whitelist admission alone does not supply a compatibility adapter. The targeted
+integrations and their limits are listed in the Compatibility tab.
+
+- **Other mods installed:** ARENA is disabled with the reason (`Blocked for Arena: ...`
+  for denied mods, `Not on the whitelist: ...` for unlisted ones; preloader patchers count
+  like plugins) and offers **START ARENA SESSION**. Two clicks, because the game restarts
+  (about two minutes): a preloader gate loads only the whitelisted plugins, the helper
+  `maschine-ArenaMode.Session.exe` starts a private copy of the SPT server on port 6970
+  with only the whitelisted server mods and a **disposable copy of your profile**, and only
+  Arena raids are offered. Profile changes made in the session are discarded. Items,
+  clothing and trader records of mods the session leaves out are removed from that copy
+  only (a modded weapon you carry is missing in the session and back afterwards).
+  **RETURN TO NORMAL SESSION** restarts with your normal server and the full mod set.
+  Closing the Arena game by hand (EXIT, a crash) ends the private server as well.
+- **Only whitelisted mods installed:** Arena plays directly, as before, on your normal
+  server, without a restart.
+- The switch needs a local SPT server in `SPT_Runtime` beside the game and this release's
+  Arena server mod. The session writes `%LOCALAPPDATA%\maschine-ArenaMode\session`
+  (helper log, private server copy); remove it when uninstalling. The first session start
+  copies the server binaries, which an antivirus scan can slow down.
+- A policy file edited while the session runs is noticed at the next character screen:
+  a session that no longer matches your policy refuses Arena and offers the way back.
+
+Your own additions and exclusions belong in
+`BepInEx/config/com.maschine.ArenaMode.whitelist.json`, which updates never touch. An
+entry names a plugin or server mod `guid` or a preloader `patcher` file name; your
+`deny` always wins (a denied mod also excludes the mods that need it), and your `allow`
+lifts a default deny:
+
+```json
+{
+  "schema": 1,
+  "allow": [ { "guid": "com.example.extra", "name": "Extra Mod", "kind": "mod" } ],
+  "deny":  [ "com.example.looting", "Example.Patcher.dll" ]
+}
+```
+
+To let every installed mod load and name only the ones that must stay out (a blacklist;
+nothing has been reviewed for the mods it lets through), add `"unlisted": "allow"`.
+`{ "schema": 1, "unlisted": "allow" }` alone is the testing override: everything loads
+except the default deny list, and the menu, the Arena session notice and the log say so
+(`policy override`). A file that does not parse is ignored as a whole with a warning. Fika
+is never filtered; with Fika, Arena stays unavailable. Full rules and the GPU acceptance
+runs: README and `docs/ARENA-SESSION-20261021.md` in the repository.
+
+### Compatibility
+
+Optional integration targets:
+
+- **PitFireTeam 0.10.0 or 0.10.3+**, client and server: 1–4 companions in Tactical
+  or Zombies; 1.0.0 has been reviewed, including its separate companion databases.
+  PFT 0.10.1 and 0.10.2 remain excluded.
+- **SAIN 4.5.1+:** personality, pursuit and movement adapters.
+- **BigBrain 1.5.0+:** required for Domination; also used for pickup pursuit and Molotov. Arena's bundled integration library handles bot actions; it has no separate plugin GUID and stays inactive without BigBrain (only Domination is then locked). Tested on 1.5.0; newer versions log a warning and retain runtime checks.
+- **APBS 2.4.1+:** equipment/progression adapter.
+- **ArenaMapPort:** Bay5, Equator, Air Pit and Bowl, with client/server and map assets.
+  Score/timer monitors need 0.4.0 or newer (published 2026-10-30); 0.3.0 works without them.
+- **Killcam 1.0.0:** compatible API and enabled DeathReplay required. The former
+  KillcamReplay plugin is not accepted. Team spectating does not require Killcam.
+- **DynamicMaps 1.2.1+:** corpse-marker cleanup integration.
+- **Continuous Healing 1.6.3+:** player-only healing continuation/cancellation
+  does not affect Arena bots or retired player bodies. It remains enabled for
+  the current living player.
+- **Continuous Load Ammo 1.2.0+:** loading follows Arena body changes without old
+  cleanup or delayed completion affecting the replacement player.
+- **SVM 2.2.3+:** SaveLoot/Ignore settings do not bypass Arena's protected raid end;
+  ordinary raids retain those rules. Other SVM settings remain effective.
+- **Tarkova Cola 2.2.1+:** temporary perks and protected Zombie research/achievement
+  transfer; requires both parts and matching lifecycle/catalog contracts.
+- **Fontaine FOV Fix 4.1.0 / Manimal 2.0.0:** the shared Core handles camera and
+  ammo-loading visual ownership after player replacement.
+- **Increase Look Direction 1.3.0:** tested through respawns. With FOV Fix present,
+  FOV Fix's Free Look Angle controls armed free-look.
+- **Magazine Check Interrupt 1.1.1:** its floating panel follows the replacement
+  player through Core 1.0.12. Auto Shoulder Swap 1.1.1 remains unlisted.
+- **Accurate Circular Radar 1.3.4 / Simple Crosshair 1.4.0:** shared Core keeps
+  their HUDs attached to the current player/camera after replacement. Radar
+  colors indicate factions and roles, not Arena teams.
+- **Better BepInEx 1.0.0:** alternate F12 menu; keep ConfigurationManager installed.
+  Other mods that patch the stock F12 window may lose their changes.
+- **Use Items Anywhere 2.1.6:** its configured slots control item
+  access and reloading, including disabled features. Arena's magazine counter
+  follows the same settings; the previous plugin-load collision is resolved.
+- **ImpactCue 2.0.3 / Enemy Markers 1.4.0:** shared Core keeps telemetry and
+  existing markers attached to the current player/camera after respawning.
+  Both passed Arena and standalone Redeploy tests and retain their settings;
+  overlapping HUDs may need configuring.
+- **Fast Grenade Throw 2.0.0:** respects Arena's selected grenade
+  priority and input locks. Priority Molotov, underhand RGD and inventory-blocked
+  input passed native tests. Ordinary raids retain the mod's behavior.
+- **Manimal's Quick Cancel 2.0.0:** Core cleans up pending medical
+  controllers belonging to the retired body. Actual cancellation and firearm
+  recovery after replacement passed; the rare interrupted-drop/death race is
+  covered offline only.
+- **HUD Breakout 1.2.0:** health, ammo and grenade values followed
+  two Arena respawns without a new adapter. Its grenade count still uses
+  rig/pockets, and its spectator display describes the local player.
+- **Picture in Picture Disabler 2.1.0:** Core handles owned optic
+  state/cache retirement; Arena isolates its cold-kit preloads. Two actual scoped
+  Arena deaths and replacement scope rendering passed with FOV Fix 4.1.0.
+- **Recoil Rework Legacy 2.0.0+:** recoil/camera components and weapon state follow
+  Arena's replacement player bodies. Original recoil settings and ordinary raids
+  are preserved. Supplied kits, repeated respawns, PFT refills and firing
+  afterward passed native tests with the former Arena-owned adapter; the shared Core
+  implementation that replaces it was validated natively without PFT, and the full
+  camera/Akimbo matrix remains untested.
+
+The Recoil Rework Legacy, Continuous Load Ammo and Continuous Healing body-replacement fixes
+are provided by the bundled Redeploy.Core (1.0.18; they also apply to standalone Redeploy);
+Arena keeps only its medical fallback for Arena bots.
+
+The newer targets (Fast Grenade Throw, Quick Cancel, HUD Breakout and PiP Disabler)
+are in the default whitelist. Core also passed two Factory respawns in standalone
+Redeploy with Arena absent, including a scoped death, HUD continuity, medical
+cancellation and a grenade throw. See the repository's
+[remaining-mod report](https://github.com/maschine34675/ArenaMode/blob/master/docs/REMAINING-MOD-COMPAT-20261026.md)
+for completed tests and limits.
+
+Targeted Factory tests cover SVM's SaveLoot/Ignore raid ends and CLA loading and
+respawns. Specific timing/UI and replay cases remain open; these checks are not
+exhaustive compatibility certification.
+
+Adapters for other foreign mods (MoreBotsAPI, AI Limit, Looting Bots, Remove The Dead,
+Smoothie, Late To The Party, Classic Movement, StatTrack, Deminvincibility, Skills
+Extended, Pause Continued, EFT Effects Manager / Broken Limbs) were removed on
+2026-10-22: Arena runs only with whitelisted mods, and a mod you allow yourself runs
+unadapted.
+
+Newer versions of integrations marked with `+` are attempted with a warning while keeping
+the required API and protection checks. These targets are not a blanket guarantee for future versions or every mod
+combination. Optional mods keep their own dependencies. RaidInfoPanels and
+CombatSlide functionality is already included for Arena. Fika activation is
+explicitly blocked.
+
+ORBIT, Questing Bots, Adaptive Bot Culling, ISB Special Forces and Aishi are blocked by
+the default deny list of the Arena whitelist, not by code specific to them; ordinary
+PMC/Scav raids remain available. ISB's separate progression is not protected by Arena's
+profile snapshot. An `allow` entry in your own whitelist file lifts a default deny, at
+your own risk.
+
+### Profile rewards
+
+Optional profile rewards are **on by default for every profile that is not yet
+registered, including existing ones** (existing OFF choices stay OFF). At the next
+normal server start ArenaMode.Server adds a small data block to the profile file;
+RUB mail and PMC XP are credited only after Arena matches. Switch rewards off with
+the rewards card in the Arena map menu. Back up your profile first. After a profile
+wipe, a backup restored from before rewards were enrolled or a moved or copied
+install, the old reward folder
+(`user/arena-rewards/<profile>`) is renamed to `.archived-...` (never deleted) and your
+reward choice is kept.
+
+- Domination currently has no profile rewards.
+
+- Per eligible kill: 1,000 RUB + 100 XP; per DM/TDM/Tactical round win:
+  10,000 RUB + 1,000 XP; maximum 200,000 RUB + 20,000 XP per match.
+- Gun Game and Zombies currently award kills only; no-contest results do not pay.
+- Optional Tarkova Cola 2.2.1+: Zombie research and achievements can transfer to the
+  normal profile with rewards enabled. No bottle/grenade refunds; no permanent
+  Cola progress from other Arena modes. Install Tarkova Cola separately on both sides.
+- On supported Windows/loopback installations (tested with SPT 4.1.6), the normal
+  server saves and stops when entering a private Arena
+  session. **RETURN TO NORMAL SESSION** starts it again and processes the final
+  reward setting and results. On return, enabled RUB rewards are in the mailbox
+  and XP is already credited.
+  Direct Arena play without a private session pays at the next normal server start.
+  The mail lists XP already credited; collecting it does not grant XP twice.
+- The Arena map menu controls rewards in either session. Private sessions return
+  signed results, without copying their profile back.
+- Remote or unsupported automatic-return setups retain rewards for a later
+  normal-server start; they do not force-close a server or replace its live profile.
+
+### Notes and credits
+
+- ArenaMapPort 0.4.0 (score/timer monitors, documented map limits such as missing
+  Books impact sounds and an unresolved intermittent audio noise) was published on
+  2026-10-30; 0.3.0 works without monitors.
+- One native BotFirstAid teardown exception was seen once and is unattributed.
+- **Amand's Graphics 1.8.0 remains unlisted.** The camera handover worked on
+  Factory with the mod ON and OFF. On Labyrinth, its own initial activation
+  dereferences a missing `!settings` object before Core attempts replacement.
+  The handover correction does not resolve that separate map blocker.
+- HUD continuity does not align every foreign damage, shield, assist or killfeed
+  rule with Arena. Optional HUDs and sounds can overlap; configure them separately.
+- High bot counts depend on hardware, map and installed AI mods. Zombie defaults
+  are not a performance guarantee.
+- The unsigned `maschine-ArenaMode.Session.exe` (session switching and direct start)
+  has a few unresolved generic VirusTotal detections (see the release page for the current count). Source review
+  and a separate Defender scan found no concrete malicious behavior, but these are not
+  confirmed false positives. Exact reports and hashes are in the GitHub release;
+  an antivirus block can prevent session switching and direct start.
+- Some kits cannot fit large spare magazines/medical items; M60 spare boxes and
+  the Enforcer Grizzly are known examples.
+- Report problems with the mode, map/area, versions and relevant client/server
+  logs. Remove private information before sharing; do not post full profiles.
+- Original code/documentation: MIT. Media licenses are separate; keep the
+  supplied notices when redistributing.
+- Adapted HUD behavior: Drexira's DragonDen.Hitmarker and DragonDen.Killfeed,
+  MIT. Shared respawn library: Redeploy.Core by maschine, MIT.
+- Icons: [Lorc and Skoll / game-icons.net](https://game-icons.net/), CC BY 3.0.
+- Customs preview: [Shebuka / Tarkov.dev](https://github.com/the-hideout/tarkov-dev-svg-maps),
+  ground layer via acidphantasm's DynamicMaps, adapted to grayscale by maschine;
+  CC BY-NC-SA 4.0.
+- Audio: [IENBA](https://freesound.org/people/IENBA/sounds/762911/) and
+  [User391915396](https://freesound.org/people/User391915396/sounds/570335/), CC0.
+  Announcer recordings were supplied from an ElevenLabs Creator workflow for
+  ArenaMode; they are not a CC/MIT voice pack for separate reuse.
+- Weapon-category pictures were generated with OpenAI; the remaining original
+  symbols and Molotov presentation are ArenaMode work. Full sources and terms
+  are listed in `THIRD-PARTY-NOTICES.md` and the asset notices.
+
+Unofficial mod; not affiliated with or endorsed by Battlestate Games.
+
+{.endtabset}

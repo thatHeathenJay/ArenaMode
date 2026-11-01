@@ -1,0 +1,221 @@
+using ArenaMode.Config;
+using ArenaMode.Combat.Fire;
+using ArenaMode.Modes;
+using ArenaMode.Pickups;
+using BepInEx.Configuration;
+using System;
+
+namespace ArenaMode.Session;
+
+internal enum ArenaMutator
+{
+    FastMovement, DoubleJump, Bunnyhop, AirControl, AirFire, AirVault, Slide,
+    InfiniteStamina, NoFallDamage, Backpack, Killcam, Pickups, Tracers, Lasers, Akimbo, Announcer, PmcVoice, FriendlyFire,
+    AutoQuickslots, InstantSearch, ArenaHud, Molotov, FastBots, ZombieCrowd
+}
+
+/// <summary>Menu adapter only: no duplicate preferences, defaults or gameplay policy.</summary>
+internal sealed class ArenaMutatorSelection
+{
+    /// <summary>
+    /// The N/A reason of the two team-only color switches, COLORED TRACERS and
+    /// TEAM LASER COLORS (both follow the same Team DM / protected Tactical 5v5
+    /// rule: <see cref="Settings.TracerEntry"/> returns no entry elsewhere,
+    /// the laser row checks the mode itself).
+    /// </summary>
+    internal const string TeamModesOnly = "Team mode or PitFireTeam required.";
+
+    // Display categories only; enum values, saved preferences and gameplay
+    // dispatch remain unchanged. Keep every control in exactly one group.
+    internal static int Group(ArenaMutator id) => id switch
+    {
+        ArenaMutator.FastMovement or ArenaMutator.DoubleJump or ArenaMutator.Bunnyhop
+            or ArenaMutator.AirControl or ArenaMutator.AirFire or ArenaMutator.AirVault
+            or ArenaMutator.Slide or ArenaMutator.InfiniteStamina or ArenaMutator.NoFallDamage => 0,
+        ArenaMutator.Backpack or ArenaMutator.AutoQuickslots or ArenaMutator.InstantSearch => 1,
+        ArenaMutator.Pickups or ArenaMutator.Akimbo or ArenaMutator.FriendlyFire
+            or ArenaMutator.Molotov or ArenaMutator.FastBots or ArenaMutator.ZombieCrowd => 2,
+        ArenaMutator.Killcam or ArenaMutator.Tracers or ArenaMutator.Lasers
+            or ArenaMutator.Announcer or ArenaMutator.PmcVoice or ArenaMutator.ArenaHud => 3,
+        _ => throw new ArgumentOutOfRangeException(nameof(id))
+    };
+
+    internal string GroupTitle(int group) => group switch
+    {
+        0 => "MOVEMENT",
+        1 => "INVENTORY",
+        2 => "COMBAT",
+        3 => "HUD & AUDIO",
+        _ => throw new ArgumentOutOfRangeException(nameof(group))
+    };
+
+    internal string Mode { get; private set; }
+    private bool _team;
+    internal bool Locked => ArenaSession.IsActive || ArenaSession.ArmedForNextRaid;
+
+    internal void Synchronize(string mode, bool team)
+    { Mode = ArenaModeCatalog.NormalizeId(mode); _team = team; }
+
+    // Share one visual slot instead of compressing every row for a Zombie-only
+    // option. The two preferences remain distinct and never overwrite each other.
+    internal bool Visible(ArenaMutator id) => id switch
+    {
+        ArenaMutator.ZombieCrowd => Mode == ArenaModeCatalog.ZombieId,
+        ArenaMutator.FastBots => Mode != ArenaModeCatalog.ZombieId,
+        _ => true
+    };
+
+    internal static string Title(ArenaMutator id) => id switch
+    {
+        ArenaMutator.FastMovement => "FAST MOVEMENT",
+        ArenaMutator.DoubleJump => "DOUBLE JUMP",
+        ArenaMutator.Bunnyhop => "BUNNYHOP",
+        ArenaMutator.AirControl => "AIR CONTROL",
+        ArenaMutator.AirFire => "AIR HIP FIRE",
+        ArenaMutator.AirVault => "AIR VAULT",
+        ArenaMutator.Slide => "SLIDE",
+        ArenaMutator.InfiniteStamina => "INFINITE STAMINA",
+        ArenaMutator.NoFallDamage => "NO FALL DAMAGE",
+        ArenaMutator.Backpack => "BACKPACK ITEMS",
+        ArenaMutator.Killcam => "KILLCAM",
+        ArenaMutator.Pickups => "PICKUPS",
+        ArenaMutator.Tracers => "TEAM TRACERS",
+        ArenaMutator.Lasers => "TEAM LASERS",
+        ArenaMutator.Akimbo => "AKIMBO (WIP)",
+        ArenaMutator.Announcer => "ANNOUNCER",
+        ArenaMutator.PmcVoice => "PMC VOICELINES",
+        ArenaMutator.FriendlyFire => "FRIENDLY FIRE",
+        ArenaMutator.AutoQuickslots => "AUTO QUICKSLOTS",
+        ArenaMutator.InstantSearch => "INSTANT SEARCH",
+        ArenaMutator.ArenaHud => "ARENA HUD",
+        ArenaMutator.Molotov => "MOLOTOV (WIP)",
+        ArenaMutator.FastBots => "FAST BOTS",
+        ArenaMutator.ZombieCrowd => "HORDE PRESSURE",
+        _ => string.Empty
+    };
+
+    internal static string Description(ArenaMutator id) => id switch
+    {
+        ArenaMutator.FastMovement => "Faster, acrobatic movement.",
+        ArenaMutator.DoubleJump => "One extra jump in the air.",
+        ArenaMutator.Bunnyhop => "Timed hops: up to +25% speed.",
+        ArenaMutator.AirControl => "Steer while airborne.",
+        ArenaMutator.AirFire => "Hip fire while airborne.",
+        ArenaMutator.AirVault => "Climb mid-jump within reach.",
+        ArenaMutator.Slide => "Crouch during a sprint.",
+        ArenaMutator.InfiniteStamina => "No movement or aim fatigue.",
+        ArenaMutator.NoFallDamage => "Land without taking fall damage.",
+        ArenaMutator.Backpack => "Use backpack items/magazines.",
+        ArenaMutator.Killcam => "Replay before respawn.",
+        ArenaMutator.Pickups => "DM, Team DM and Domination.",
+        ArenaMutator.Tracers => "Team colors for every bullet.",
+        ArenaMutator.Lasers => "Team colors; same brightness.",
+        ArenaMutator.Akimbo => "Dual pistols; shared magazine.",
+        // Per-mode, like Killcam: toggles the CURRENTLY SELECTED
+        // mode's own switch, not the global master (see Settings.
+        // AnnouncerEntry/IsAnnouncerEnabledFor). Zombie starts OFF, every
+        // other mode starts ON.
+        // Stingers, round cues AND the HUD's kill/award callouts ("DOUBLE
+        // KILL"); the "WAVE n" / grenade-taunt text is not announcer output.
+        ArenaMutator.Announcer => "Music cues and kill callouts.",
+        ArenaMutator.PmcVoice => "Automatic action callouts.",
+        ArenaMutator.FriendlyFire => "Allow damage between teammates.",
+        ArenaMutator.AutoQuickslots => "Kit meds use free quickslots.",
+        ArenaMutator.InstantSearch => "Search containers instantly.",
+        ArenaMutator.ArenaHud => "Kills, hits, health, weapons.",
+        ArenaMutator.Molotov => "Extra Molotov; G selects first.",
+        ArenaMutator.FastBots => "Faster bot movement.",
+        ArenaMutator.ZombieCrowd => "Moves distant zombies closer.",
+        _ => string.Empty
+    };
+
+    private ConfigEntry<bool> Entry(ArenaMutator id) => id switch
+    {
+        ArenaMutator.FastMovement => Settings.MovementEnabled,
+        ArenaMutator.DoubleJump => Settings.DoubleJumpEnabled,
+        ArenaMutator.Bunnyhop => Settings.BunnyhopEnabled,
+        ArenaMutator.AirControl => Settings.AirControlEnabled,
+        ArenaMutator.AirFire => Settings.AirHipFireEnabled,
+        ArenaMutator.AirVault => Settings.AirVaultEnabled,
+        ArenaMutator.Slide => Settings.SlideEnabled,
+        ArenaMutator.InfiniteStamina => Settings.InfiniteStamina,
+        ArenaMutator.NoFallDamage => Settings.NoFallDamage,
+        ArenaMutator.Backpack => Settings.UseItemsAnywhere,
+        ArenaMutator.Pickups => ArenaPickupSettings.Enabled,
+        ArenaMutator.Tracers => Settings.TracerEntry(Mode, _team),
+        ArenaMutator.Lasers => Settings.TeamLasers,
+        ArenaMutator.Akimbo => Settings.AkimboEnabled,
+        // Every mode maps to a real entry (see Settings.AnnouncerEntry), so
+        // unlike Killcam/the retired OwnGear row this needs no special case
+        // in Enabled()/TryToggle() below — the generic bool-entry path
+        // already used for Tracers/Lasers/Akimbo handles it as-is.
+        ArenaMutator.Announcer => Settings.AnnouncerEntry(Mode),
+        ArenaMutator.PmcVoice => Settings.PmcVoiceEnabled,
+        ArenaMutator.FriendlyFire => Settings.FriendlyFireEntry(Mode, _team),
+        ArenaMutator.AutoQuickslots => Settings.AutoQuickSlots,
+        ArenaMutator.InstantSearch => Settings.InstantSearch,
+        ArenaMutator.ArenaHud => Settings.CombatHudEnabled,
+        ArenaMutator.Molotov => ArenaFireSettings.Enabled,
+        ArenaMutator.FastBots => Settings.BotMovementEnabled,
+        ArenaMutator.ZombieCrowd => Settings.ZombieCrowdEnabled,
+        _ => null
+    };
+
+    internal bool Enabled(ArenaMutator id) => id == ArenaMutator.Killcam
+        ? Settings.GetReplaySeconds(Mode) > 0f : Entry(id)?.Value == true;
+
+    internal string UnavailableReason(ArenaMutator id)
+    {
+        if (id == ArenaMutator.Killcam)
+            return Spectator.KillcamCompat.CanPlay(out string reason) ? null : reason;
+        // Team-only like the lasers: TracerEntry has no entry outside Team DM and
+        // protected Tactical 5v5, which is a mode restriction, not a missing setting.
+        if ((id == ArenaMutator.Tracers || id == ArenaMutator.FriendlyFire)
+            && Entry(id) == null) return TeamModesOnly;
+        if (Entry(id) == null) return "Setting unavailable.";
+        if (id == ArenaMutator.ZombieCrowd && Mode != ArenaModeCatalog.ZombieId)
+            return "Available in Zombies.";
+        if (id == ArenaMutator.FastBots && Mode == ArenaModeCatalog.ZombieId)
+            return "Unavailable in Zombies.";
+        if (id == ArenaMutator.Molotov)
+        {
+            if (Mode == ArenaModeCatalog.ZombieId) return "Unavailable in Zombies.";
+            if (!ArenaFireRuntime.BotEscapeAvailable) return "Requires BigBrain support.";
+        }
+        if (id == ArenaMutator.ArenaHud && Settings.HudEnabled?.Value != true)
+            return "Disabled by HUD master in F12.";
+        if ((id == ArenaMutator.DoubleJump || id == ArenaMutator.Bunnyhop || id == ArenaMutator.AirControl || id == ArenaMutator.AirFire
+            || id == ArenaMutator.AirVault || id == ArenaMutator.Slide
+            || id == ArenaMutator.InfiniteStamina || id == ArenaMutator.NoFallDamage)
+            && Settings.MovementEnabled?.Value != true)
+            return "Requires FAST MOVEMENT.";
+        if (id == ArenaMutator.Pickups && (_team || (Mode != ArenaModeCatalog.DeathmatchId
+            && !Shared.ArenaPopulationPolicy.IsIndependentTeam(Mode))))
+            return "DM, Team DM or Domination only.";
+        if (id == ArenaMutator.Lasers && !Shared.ArenaPopulationPolicy.IsIndependentTeam(Mode)
+            && !((Mode == ArenaModeCatalog.TacticalId || Mode == ArenaModeCatalog.ZombieId) && _team))
+            return TeamModesOnly;
+        return null;
+    }
+
+    internal bool TryToggle(ArenaMutator id)
+    {
+        if (Locked || !Visible(id) || UnavailableReason(id) != null) return false;
+        if (id == ArenaMutator.Killcam) return Settings.TrySelectKillcam(Mode, !Enabled(id));
+        var entry = Entry(id);
+        if (entry == null) return false;
+        bool requested = !entry.Value;
+        try
+        {
+            entry.Value = requested;
+            if (entry.Value != requested) return false;
+            if (Settings.File?.SaveOnConfigSet == false) Settings.File.Save();
+            return true;
+        }
+        catch (Exception ex)
+        {
+            Plugin.ModLogger?.LogWarning($"Arena mutator {id} could not be saved: {ex.Message}");
+            return false;
+        }
+    }
+}

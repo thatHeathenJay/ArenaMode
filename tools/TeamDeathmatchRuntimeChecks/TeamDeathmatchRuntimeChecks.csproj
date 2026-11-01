@@ -1,0 +1,47 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <ModeSource Condition="'$(ModeSource)' == ''">$(MSBuildThisFileDirectory)..\..\ArenaMode.Client\Modes\TeamDeathmatchMode.cs</ModeSource>
+    <FlowSource Condition="'$(FlowSource)' == ''">$(MSBuildThisFileDirectory)..\..\ArenaMode.Client\Modes\TeamDeathmatchMatchFlow.cs</FlowSource>
+    <PolicySource Condition="'$(PolicySource)' == ''">$(MSBuildThisFileDirectory)..\..\ArenaMode.Client\Modes\TeamDeathmatchMatchPolicy.cs</PolicySource>
+    <PopulationSource Condition="'$(PopulationSource)' == ''">$(MSBuildThisFileDirectory)..\..\ArenaMode.Client\Modes\TeamDeathmatchPopulation.cs</PopulationSource>
+    <RelationsSource Condition="'$(RelationsSource)' == ''">$(MSBuildThisFileDirectory)..\..\ArenaMode.Client\Bots\TeamDeathmatchRelations.cs</RelationsSource>
+    <ShieldSource Condition="'$(ShieldSource)' == ''">$(MSBuildThisFileDirectory)..\..\ArenaMode.Client\Modes\TeamDeathmatchMode.SpawnProtection.cs</ShieldSource>
+    <ShieldLeaseSource Condition="'$(ShieldLeaseSource)' == ''">$(MSBuildThisFileDirectory)..\..\ArenaMode.Client\Modes\TeamSpawnProtectionLease.cs</ShieldLeaseSource>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../../ArenaMode.Client/Modes/DominationMapLayout.cs" Link="Production/DominationMapLayout.cs" />
+    <Compile Include="../../ArenaMode.Client/Modes/TeamDeathmatchMode.Domination.cs" Link="Production/TeamDeathmatchMode.Domination.cs" />
+    <Compile Include="../../ArenaMode.Client/Modes/DominationPolicy.cs" Link="Production/DominationPolicy.cs" />
+    <Compile Include="../../ArenaMode.Client/Modes/DominationMatchPolicy.cs" Link="Production/DominationMatchPolicy.cs" />
+    <Compile Include="../../ArenaMode.Shared/ArenaPopulationPolicy.cs" Link="Production/ArenaPopulationPolicy.cs" />
+    <Compile Include="../../ArenaMode.Client/Session/ArenaReplaySelection.cs" Link="Production/ArenaReplaySelection.cs" />
+    <Compile Remove="BurstIntegration/**/*.cs" />
+    <Compile Include="$(ModeSource)" Link="Production/TeamDeathmatchMode.cs" />
+    <Compile Include="$(ShieldSource)" Link="Production/TeamDeathmatchMode.SpawnProtection.cs" />
+    <Compile Include="$(ShieldLeaseSource)" Link="Production/TeamSpawnProtectionLease.cs" />
+    <Compile Include="$(FlowSource)" Link="Production/TeamDeathmatchMatchFlow.cs" />
+    <Compile Include="$(PolicySource)" Link="Production/TeamDeathmatchMatchPolicy.cs" />
+    <Compile Include="$(PopulationSource)" Link="Production/TeamDeathmatchPopulation.cs" />
+    <Compile Include="$(RelationsSource)" Link="Production/TeamDeathmatchRelations.cs" />
+    <Compile Include="../../ArenaMode.Client/Bots/TdmSearchAwareness.cs" Link="Production/TdmSearchAwareness.cs" />
+    <Compile Include="../../ArenaMode.Client/Modes/IArenaMode.cs" Link="Production/IArenaMode.cs" />
+    <Compile Include="../../ArenaMode.Client/Modes/ArenaScoreboard.cs" Link="Production/ArenaScoreboard.cs" />
+    <Compile Include="../../ArenaMode.Client/Combat/ArenaKill.cs" Link="Production/ArenaKill.cs" />
+    <Compile Include="../../ArenaMode.Client/Combat/ScoreRules.cs" Link="Production/ScoreRules.cs" />
+    <Compile Include="../../ArenaMode.Client/Combat/ArenaCombatAwards.cs" Link="Production/ArenaCombatAwards.cs" />
+    <Compile Include="../../ArenaMode.Client/Combat/ArenaAdministrativeDeathGate.cs" Link="Production/ArenaAdministrativeDeathGate.cs" />
+    <Compile Include="../../ArenaMode.Client/Effects/ArenaTracerTeams.cs" Link="Production/ArenaTracerTeams.cs" />
+    <Compile Include="../../ArenaMode.Client/Bots/ArenaNoCorpseLootingPatch.cs" Link="Production/ArenaNoCorpseLootingPatch.cs" />
+    <Compile Include="../../ArenaMode.Shared/ArenaMapCatalog.cs" Link="Production/ArenaMapCatalog.cs" />
+    <Compile Include="../../ArenaMode.Shared/ArenaTeamBoxCatalog.cs" Link="Production/ArenaTeamBoxCatalog.cs" />
+    <Compile Include="../../ArenaMode.Shared/ArenaEquatorTeamSpawns.cs" Link="Production/ArenaEquatorTeamSpawns.cs" />
+    <Compile Include="../../ArenaMode.Shared/ArenaAreaCatalog.cs" Link="Production/ArenaAreaCatalog.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="../../ArenaMode.Client/Combat/ArenaShotAwardHistory.cs" Link="Production/ArenaShotAwardHistory.cs" />
+  </ItemGroup>
+</Project>

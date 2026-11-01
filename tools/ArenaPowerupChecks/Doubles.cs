@@ -1,0 +1,189 @@
+using System.Reflection;
+
+// Boundary doubles only. The production effects, pool policy and administrative
+// gate are linked above; no alternate effects implementation lives in this file.
+public enum EBodyPart { Head, Chest, Stomach, LeftArm, RightArm, LeftLeg, RightLeg, Common }
+namespace UnityEngine
+{
+    public static class Time { public static float time; public static int frameCount = 10; }
+    public class Object
+    {
+        public bool Destroyed;
+        public static void Destroy(Object value)
+        {
+            value.Destroyed = true;
+            if (value is GameObject go)
+                foreach (var child in go.transform.Children.ToArray()) Destroy(child.GameObject);
+        }
+    }
+    public class Transform : Object
+    {
+        public GameObject GameObject;
+        public Transform Parent;
+        public readonly List<Transform> Children = new();
+        public Vector3 position;
+        public void SetParent(Transform parent, bool keepWorld) { Parent = parent; parent?.Children.Add(this); }
+    }
+    public class GameObject : Object
+    {
+        public static readonly List<GameObject> Created = new();
+        public string name;
+        public bool Active = true;
+        public bool activeInHierarchy => Active && !Destroyed;
+        public readonly Transform transform;
+        public readonly List<object> Components = new();
+        public GameObject(string name) { this.name = name; transform = new() { GameObject = this }; Created.Add(this); }
+        public T AddComponent<T>() where T : new() { var value = new T(); Components.Add(value); return value; }
+        public void SetActive(bool value) => Active = value;
+    }
+    public struct Vector3 { public float x, y, z; public Vector3(float x, float y, float z) { this.x = x; this.y = y; this.z = z; } }
+    public struct Color { public float r, g, b, a; public Color(float r, float g, float b, float a = 1) { this.r = r; this.g = g; this.b = b; this.a = a; } }
+    public sealed class Shader
+    {
+        public static bool Missing;
+        public static int Lookups;
+        public static Shader Find(string name) { Lookups++; return Missing ? null : new(); }
+    }
+    public class Material : Object
+    {
+        public static readonly List<Material> Created = new();
+        public string name;
+        public Material(Shader shader) { Created.Add(this); }
+    }
+    public class LineRenderer
+    {
+        public Material sharedMaterial;
+        public bool useWorldSpace, loop, receiveShadows;
+        public int positionCount;
+        public float startWidth, endWidth;
+        public Color startColor, endColor;
+        public Rendering.ShadowCastingMode shadowCastingMode;
+        public Rendering.LightProbeUsage lightProbeUsage;
+        public Rendering.ReflectionProbeUsage reflectionProbeUsage;
+        public readonly Dictionary<int, Vector3> Positions = new();
+        public void SetPosition(int i, Vector3 point) => Positions[i] = point;
+    }
+    public static class Mathf { public const float PI = MathF.PI; public static float Sin(float angle) => MathF.Sin(angle); public static float Cos(float angle) => MathF.Cos(angle); }
+}
+namespace UnityEngine.Rendering
+{
+    public enum ShadowCastingMode { Off }
+    public enum LightProbeUsage { Off }
+    public enum ReflectionProbeUsage { Off }
+}
+namespace Comfort.Common { public static class Singleton<T> where T : class { public static T Instance; public static bool Instantiated => Instance != null; } }
+namespace EFT
+{
+    [Flags] public enum EDamageType { Undefined = 1, Fall = 2, Explosion = 4, Barbed = 8, Flame = 16,
+        GrenadeFragment = 32, Impact = 64, Existence = 128, Medicine = 256, Bullet = 512,
+        Melee = 1024, Landmine = 2048, Sniper = 4096, Blunt = 8192, LightBleeding = 16384,
+        HeavyBleeding = 32768, Dehydration = 65536, Exhaustion = 131072, RadExposure = 262144,
+        Stimulator = 524288, Poison = 1048576, LethalToxin = 2097152, Btr = 4194304,
+        Artillery = 8388608, HotGases = 16777216, ThermobaricExplosion = 33554432, Environment = 67108864 }
+    public interface IPlayer { string ProfileId { get; } }
+    public interface IObserverToPlayerBridge { IPlayer iPlayer { get; } bool IsAI { get; } AIData AIData { get; } }
+    public sealed class Bridge : IObserverToPlayerBridge
+    {
+        public IPlayer iPlayer { get; set; }
+        public bool IsAI => (iPlayer as Player)?.AIData?.IsAI == true;
+        public AIData AIData => (iPlayer as Player)?.AIData;
+    }
+    public class Player : IPlayer
+    {
+        public string ProfileId { get; set; }
+        public int Team;
+        public AIData AIData = new();
+        public bool IsAI => AIData.IsAI;
+        public HealthSystem.ActiveHealthController ActiveHealthController;
+        public UnityEngine.Vector3 Position;
+        public readonly UnityEngine.GameObject gameObject = new("Player");
+        public Player(string id) { ProfileId = id; ActiveHealthController = new() { Player = this }; }
+        public virtual void OnDead(EDamageType type) { }
+    }
+    public class AIData { public bool IsAI; public BotOwner BotOwner = new(); }
+    public class BotOwner { public BotSettings Settings = new(); }
+    public class BotSettings { public BotFile FileSettings = new(); }
+    public class BotFile { public MindSettings Mind = new(); }
+    public class MindSettings { public bool MUTUAL_IGNORE_FRIENDLY_FIRE; }
+    public class GameWorld
+    {
+        public readonly UnityEngine.Transform transform = new();
+        public Player MainPlayer;
+        public readonly Dictionary<string, Player> Ever = new();
+        public Player GetEverExistedPlayerByID(string id) => id != null && Ever.TryGetValue(id, out var p) ? p : null;
+    }
+}
+namespace EFT.Ballistics
+{
+    public struct DamageInfo { public EFT.EDamageType DamageType; public float Damage; public EFT.IObserverToPlayerBridge Player; public EBodyPart? OverDamageFrom; public EFT.InventoryLogic.Item Weapon; }
+}
+namespace EFT.InventoryLogic { public class Item { } public class ThrowWeap : Item { } public class Weapon : Item { public bool IsGrenadeLauncher; } }
+namespace EFT.HealthSystem
+{
+    public class ActiveHealthController
+    {
+        public EFT.Player Player;
+        public bool IsAlive = true;
+        public float DamageCoeff = 1f, DamageMultiplier = 1f;
+        public float ApplyDamage(EBodyPart bodyPart, float damage, EFT.Ballistics.DamageInfo info) => throw new NotSupportedException("Native health is an explicit boundary, not simulated proof");
+    }
+}
+namespace ArenaMode.Session { public static class ArenaSession { public static bool IsActive = true; } }
+namespace ArenaMode.Modes
+{
+    public sealed class RoundsMode { public bool FreeForAll = true; public bool Block; public bool ShouldBlockMatchDamage(EFT.Player victim) => Block; }
+    public sealed class TeamDeathmatchMode { public bool Block; public bool ShouldBlockMatchDamage(EFT.Player victim) => Block; }
+    public sealed class ArenaMatch { public object Mode = new RoundsMode(); }
+    public static class ArenaMatchService { public static ArenaMatch Current = new(); }
+}
+namespace ArenaMode.Bots
+{
+    public static class TeamDeathmatchRelations { public static bool AreOpponents(EFT.IPlayer a, EFT.IPlayer b) => a is EFT.Player x && b is EFT.Player y && x.Team != y.Team; }
+}
+namespace ArenaMode.Pickups
+{
+    public static class ArenaPickupRuntime
+    {
+        public static int Generation;
+        public static bool Live = true;
+        public static readonly HashSet<EFT.Player> Registered = new(ReferenceEqualityComparer.Instance);
+        public static bool IsLiveActor(EFT.Player p) => Live && p != null && Registered.Contains(p) && p.ActiveHealthController?.IsAlive == true;
+    }
+}
+namespace ArenaMode
+{
+    public static class Plugin { public static readonly Logger ModLogger = new(); }
+    public class Logger { public void LogWarning(string value) { } }
+}
+namespace SPT.Reflection.Patching
+{
+    public class PatchPrefixAttribute : Attribute { }
+    public abstract class ModulePatch
+    {
+        public static readonly List<(Type Patch, MethodBase Target)> Enabled = new();
+        protected abstract MethodBase GetTargetMethod();
+        public void Enable() { var target = GetTargetMethod(); if (target == null) throw new MissingMethodException(); Enabled.Add((GetType(), target)); }
+    }
+}
+namespace HarmonyLib
+{
+    public class HarmonyPriority : Attribute { public readonly int priority; public HarmonyPriority(int value) => priority = value; }
+    public static class Priority { public const int Last = 0; }
+    public static class AccessTools
+    {
+        public static MethodInfo DeclaredMethod(Type type, string name, Type[] parameters)
+            => type.GetMethod(name, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.DeclaredOnly, null, parameters, null);
+    }
+}
+namespace ArenaMode.Pickups { internal static class ArenaInfiniteAmmo { internal static bool Enabled = true; } }
+// Rendering is an explicit boundary here. Real renderer lifetime/command-buffer
+// checks live in BotEffectOutlineChecks and GPU pixel/occlusion acceptance is separate.
+namespace ArenaMode.Effects
+{
+    internal static class ArenaBotEffectRenderer
+    {
+        internal static readonly ArenaBotEffectLeases<EFT.Player> Book = new();
+        internal static bool RenderAvailable = true;
+        internal static ArenaBotEffectLeases<EFT.Player>.Lease Acquire(EFT.GameWorld world, EFT.Player body) => Book.Add(body);
+    }
+}

@@ -1,0 +1,108 @@
+<!-- The suite links the server, the shared sources and the client and session sources
+     that do not touch Unity or EFT types (policies, catalogues, the whitelist, the
+     session helper's file, process, junction and socket logic). What stays out on
+     purpose are the Harmony patches against Unity and EFT types, which cannot load
+     outside the game: those seams have the harnesses under tools/. A bare `dotnet test`
+     of this project builds the server and deploys it unless the no-deploy targets
+     and a SPTUserMods sentinel are passed (tools/Run-ArenaVerification.ps1 does). -->
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
+
+    <!-- Not deployed anywhere; keep it out of the mod output folders. -->
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.1" />
+    <PackageReference Include="xunit" Version="2.9.2" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2" />
+    <!-- Skippable tests: the template-existence checks need the game database,
+         which only exists on a machine with Tarkov installed. Skipping is
+         honest there; passing silently is not. -->
+    <PackageReference Include="Xunit.SkippableFact" Version="1.4.13" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ArenaMode.Server\ArenaMode.Server.csproj" />
+  </ItemGroup>
+
+  <!-- The scoreboard is intentionally pure match data even though it ships in
+       the client DLL. Link that rule layer directly so identity and scoring can
+       be exercised without loading Unity or EFT. -->
+  <ItemGroup>
+    <Compile Include="..\ArenaMode.Client\Combat\ArenaKill.cs" Link="ClientRules\ArenaKill.cs" />
+    <Compile Include="..\ArenaMode.Client\Compat\UseItemsAnywhere\UseItemsAnywhereQueryPolicy.cs" Link="ClientRules\UseItemsAnywhereQueryPolicy.cs" />
+    <Compile Include="..\ArenaMode.Client\Session\ArenaRestoreCommit.cs" Link="ClientRules\ArenaRestoreCommit.cs" />
+    <Compile Include="..\ArenaMode.Client\Combat\ArenaHitHistory.cs" Link="ClientRules\ArenaHitHistory.cs" />
+    <Compile Include="..\ArenaMode.Client\Combat\ArenaShotAwardHistory.cs" Link="ClientRules\ArenaShotAwardHistory.cs" />
+    <Compile Include="..\ArenaMode.Client\Combat\ArenaCombatAwards.cs" Link="ClientRules\ArenaCombatAwards.cs" />
+    <Compile Include="..\ArenaMode.Client\Combat\ArenaAdministrativeDeathGate.cs" Link="ClientRules\ArenaAdministrativeDeathGate.cs" />
+    <Compile Include="..\ArenaMode.Client\Combat\ScoreRules.cs" Link="ClientRules\ScoreRules.cs" />
+    <Compile Include="..\ArenaMode.Client\Modes\ArenaScoreboard.cs" Link="ClientRules\ArenaScoreboard.cs" />
+    <Compile Include="..\ArenaMode.Client\Bots\BotLoadBoostPolicy.cs" Link="ClientRules\BotLoadBoostPolicy.cs" />
+    <Compile Include="..\ArenaMode.Client\Kits\AutoQuickSlotLedger.cs" Link="ClientRules\AutoQuickSlotLedger.cs" />
+    <Compile Include="..\ArenaMode.Client\Kits\KitModels.cs" Link="ClientRules\KitModels.cs" />
+    <Compile Include="..\ArenaMode.Client\Kits\KitPreloadPlan.cs" Link="ClientRules\KitPreloadPlan.cs" />
+    <Compile Include="..\ArenaMode.Client\Modes\SoloTacticalRoundStartPolicy.cs" Link="ClientRules\SoloTacticalRoundStartPolicy.cs" />
+    <Compile Include="..\ArenaMode.Client\Modes\ZombieWavePolicy.cs" Link="ClientRules\ZombieWavePolicy.cs" />
+    <Compile Include="..\ArenaMode.Client\Modes\ZombieRoleMix.cs" Link="ClientRules\ZombieRoleMix.cs" />
+    <Compile Include="..\ArenaMode.Client\Modes\ZombieProfilePlan.cs" Link="ClientRules\ZombieProfilePlan.cs" />
+    <Compile Include="..\ArenaMode.Client\Modes\ZombieRefillPolicy.cs" Link="ClientRules\ZombieRefillPolicy.cs" />
+    <Compile Include="..\ArenaMode.Client\Modes\ZombieOwnGearGate.cs" Link="ClientRules\ZombieOwnGearGate.cs" />
+    <Compile Include="..\ArenaMode.Client\Bots\ZombieMeleeGate.cs" Link="ClientRules\ZombieMeleeGate.cs" />
+    <Compile Include="..\ArenaMode.Client\Bots\ZombieCrowdPolicy.cs" Link="ClientRules\ZombieCrowdPolicy.cs" />
+    <Compile Include="..\ArenaMode.Client\Config\ArenaConfigMenuLayout.cs" Link="ClientRules\ArenaConfigMenuLayout.cs" />
+    <Compile Include="..\ArenaMode.Client\Bots\ZombieBodyCullingPolicy.cs" Link="ClientRules\ZombieBodyCullingPolicy.cs" />
+    <Compile Include="..\ArenaMode.Client\Performance\BotHotPathPolicy.cs" Link="ClientRules\BotHotPathPolicy.cs" />
+    <Compile Include="..\ArenaMode.Client\Performance\ProfileBuildBudgetPolicy.cs" Link="ClientRules\ProfileBuildBudgetPolicy.cs" />
+    <Compile Include="..\ArenaMode.Client\Modes\ArenaEquipmentChoice.cs" Link="ClientRules\ArenaEquipmentChoice.cs" />
+    <Compile Include="..\ArenaMode.Client\Session\ArenaEquipmentChoiceState.cs" Link="ClientRules\ArenaEquipmentChoiceState.cs" />
+    <Compile Include="..\ArenaMode.Client\Modes\ArenaAnnouncerGate.cs" Link="ClientRules\ArenaAnnouncerGate.cs" />
+  </ItemGroup>
+
+  <!-- The Arena session helper (net472 exe, docs/ARENA-SESSION-20261021.md section 6) keeps its
+       pure logic and its file system side in two linked-source files, so the argument rewrite,
+       the policy patching, the path safety and the junction handling run against the real file
+       system here. The process and socket side is linked too (see below); only Program.cs, the
+       entry point, is not. All of these are written for C# 7.3 without nullable annotations and
+       need the ArenaMode.Shared.Session types, which this project sees through the
+       ArenaMode.Server reference. -->
+  <ItemGroup>
+    <Compile Include="..\ArenaMode.Session\SessionLogic.cs" Link="SessionHelper\SessionLogic.cs" />
+    <Compile Include="..\ArenaMode.Session\SessionFileSystem.cs" Link="SessionHelper\SessionFileSystem.cs" />
+    <Compile Include="..\ArenaMode.Session\RewardTransfer.cs" Link="SessionHelper\RewardTransfer.cs" />
+    <Compile Include="..\ArenaMode.Session\RewardControlTransfer.cs" Link="SessionHelper\RewardControlTransfer.cs" />
+    <Compile Include="..\ArenaMode.Session\RewardReturn.cs" Link="SessionHelper\RewardReturn.cs" />
+    <Compile Include="..\ArenaMode.Session\HelperOfflineSession.cs" Link="SessionHelper\HelperOfflineSession.cs" />
+    <Compile Include="..\tools\OfflineSessionChecks\HelperTests.cs" Link="SessionHelperTests\OfflineHelperTests.cs" />
+    <!-- The process side as well (runner, process and socket helpers, log): the stop-server identity checks,
+         the listener owner lookup and the leave/recovery path run against real stand-in processes. -->
+    <Compile Include="..\ArenaMode.Session\HelperRunner.cs" Link="SessionHelper\HelperRunner.cs" />
+    <Compile Include="..\ArenaMode.Session\HelperDirectStart.cs" Link="SessionHelper\HelperDirectStart.cs" />
+    <Compile Include="..\ArenaMode.Session\HelperProcesses.cs" Link="SessionHelper\HelperProcesses.cs" />
+    <Compile Include="..\ArenaMode.Session\HelperLog.cs" Link="SessionHelper\HelperLog.cs" />
+    <!-- The order of the steps of one run (stale acknowledgement, mutex, request, acknowledgement, command). -->
+    <Compile Include="..\ArenaMode.Session\HelperHost.cs" Link="SessionHelper\HelperHost.cs" />
+  </ItemGroup>
+
+  <!-- Referenced again here WITHOUT ExcludeAssets, which the server project sets
+       because the live server already provides these at runtime. A test host does
+       not, so without this every test that touches an SPT model type fails to
+       load the assembly rather than failing an assertion. -->
+  <ItemGroup>
+    <PackageReference Include="SPTarkov.Common" Version="4.1.0" />
+    <PackageReference Include="SPTarkov.DI" Version="4.1.0" />
+    <PackageReference Include="SPTarkov.Reflection" Version="4.1.0" />
+    <PackageReference Include="SPTarkov.Server.Core" Version="4.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="../ArenaMode.Client/ArenaAssetPaths.cs" Link="Production/ArenaAssetPaths.cs" />
+  </ItemGroup>
+</Project>

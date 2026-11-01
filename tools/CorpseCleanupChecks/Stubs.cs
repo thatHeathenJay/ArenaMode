@@ -1,0 +1,541 @@
+// Contract fakes, not Unity/runtime proof. Native references are documented in
+// CORPSE-CLEANUP-REVIEW.md. In particular, physical removal, activity pairing
+// and reactive slot/model release are deliberately separate observable steps.
+
+// Global namespace in the game as well. The grenade registry is only ever
+// iterated by index here.
+public abstract class Throwable : UnityEngine.Component { }
+public class DictionaryListHydra<TKey, TValue>
+{
+    private readonly List<TValue> _iteration = new();
+    public int Count => _iteration.Count;
+    public TValue GetByIndex(int index) => _iteration[index];
+    public void Add(TKey key, TValue value) => _iteration.Add(value);
+}
+namespace UnityEngine
+{
+    public class Object
+    {
+        public bool Destroyed;
+        public static bool operator ==(Object a, Object b)
+            => ReferenceEquals(a, b) || (ReferenceEquals(a, null) && b.Destroyed) || (ReferenceEquals(b, null) && a.Destroyed);
+        public static bool operator !=(Object a, Object b) => !(a == b);
+        public override bool Equals(object other) => ReferenceEquals(this, other);
+        public override int GetHashCode() => System.Runtime.CompilerServices.RuntimeHelpers.GetHashCode(this);
+    }
+    public record struct Vector3(float x, float y = 0, float z = 0)
+    {
+        public static float Distance(Vector3 a, Vector3 b)
+            => MathF.Sqrt((a.x-b.x)*(a.x-b.x) + (a.y-b.y)*(a.y-b.y) + (a.z-b.z)*(a.z-b.z));
+    }
+    public class Transform { public Vector3 position = new(50); }
+    public class GameObject
+    {
+        public readonly List<object> Components = new();
+        public bool FailComponentRead;
+        public T[] GetComponentsInChildren<T>(bool includeInactive)
+            => FailComponentRead ? throw new Exception("component read failed") : Components.OfType<T>().ToArray();
+    }
+    public class Component : Object
+    {
+        public GameObject gameObject = new();
+        public Transform transform = new();
+        public T GetComponent<T>() where T : class => gameObject.Components.OfType<T>().FirstOrDefault();
+        public T[] GetComponentsInChildren<T>(bool includeInactive) => gameObject.GetComponentsInChildren<T>(includeInactive);
+    }
+    public class Renderer : Component { public bool forceRenderingOff; }
+    public class Collider : Component { public bool enabled = true; }
+    public static class Time { public static float time; }
+}
+namespace Comfort.Common
+{
+    public static class Singleton<T> where T : class
+    {
+        public static T Instance;
+        public static bool Instantiated => Instance != null;
+    }
+}
+namespace EFT.InventoryLogic
+{
+    public enum CommandStatus { Begin, Succeed, Failed }
+    public class Item
+    {
+        public string TemplateId = "test-template";
+        public Slot Parent;
+        public readonly List<Item> Children = new();
+        public bool RejectRemoval, ThrowBeforeRemoval, ThrowAfterRemoval, ThrowBeginNotification, ThrowSuccessNotification;
+    }
+    public class InventoryEquipment : Item { public readonly List<Slot> Slots = new(); }
+    public class ThrowWeap : Item, IExplosiveItem
+    {
+        public float MaxExplosionDistance { get; set; }
+        public UnityEngine.Vector3 Blindness { get; set; }
+        public UnityEngine.Vector3 Contusion { get; set; }
+    }
+    public class Slot
+    {
+        public string ID;
+        public Item ContainedItem;
+        public Item ReactiveItem;
+        public UnityEngine.Renderer Model;
+        public UnityEngine.GameObject Body;
+        public int Returns;
+        public void ApplyContainedItem()
+        {
+            ReactiveItem = ContainedItem;
+            if (ReactiveItem == null && Model != null)
+            {
+                Returns++;
+                Body.Components.Remove(Model);
+                Model.forceRenderingOff = false; // native pool restoration
+                Model = null;
+            }
+        }
+    }
+    public record ItemEventArgs(Item Item, CommandStatus Status);
+    public record RemoveItemEventArgs(Item Item, CommandStatus Status) : ItemEventArgs(Item, Status);
+    public class ItemController
+    {
+        public Item RootItem;
+        public readonly List<ItemEventArgs> ActiveEvents = new();
+        public readonly List<(Item Item, CommandStatus Status)> Notifications = new();
+        public readonly List<Item> Forgotten = new();
+        public readonly List<string> Stages = new();
+        public int MissingBegin, Attempts, RemoveCalls, ResizeNotifications;
+        public IEnumerable<ItemEventArgs> SelectEvents(Item item)
+            => ActiveEvents.Where(e => ReferenceEquals(e.Item, item));
+        public void RaiseRemoveEvent(RemoveItemEventArgs args)
+        {
+            // ItemController.ProcessActivity pairs by exact event type + item.
+            if (args.Status == CommandStatus.Begin) ActiveEvents.Add(args);
+            else
+            {
+                var prior = ActiveEvents.FirstOrDefault(e => e.GetType() == args.GetType() && ReferenceEquals(e.Item, args.Item));
+                if (prior != null) ActiveEvents.Remove(prior);
+                else MissingBegin++;
+            }
+            Stages.Add(args.Status.ToString());
+            Notifications.Add((args.Item, args.Status));
+        }
+    }
+    public class RemoveResult
+    {
+        private readonly Item _item;
+        private readonly Slot _originalSlot;
+        public RemoveResult(Item item, Slot originalSlot) { _item = item; _originalSlot = originalSlot; }
+        public void RaiseEvents(ItemController controller, CommandStatus status)
+        {
+            // The retained address still belongs to the corpse after detachment.
+            controller.RaiseRemoveEvent(new RemoveItemEventArgs(_item, status));
+            // A raw parent ChildrenChanged observer/cache enumeration can throw
+            // after activity registration, unlike native SafeRemoveItemEvent.
+            if (status == CommandStatus.Begin && _item.ThrowBeginNotification) throw new Exception("begin observer failed");
+            if (status == CommandStatus.Succeed && _item.ThrowSuccessNotification) throw new Exception("success observer failed");
+            if (status == CommandStatus.Succeed) _originalSlot.ApplyContainedItem();
+            controller.ResizeNotifications++;
+            if (status == CommandStatus.Succeed) controller.Forgotten.Add(_item);
+        }
+    }
+    public record OperationResult(bool Succeeded, RemoveResult Value = null, string Error = null);
+    public static class ItemManipulator
+    {
+        public static OperationResult RemoveWithoutRestrictions(Item item, ItemController controller)
+        {
+            controller.Attempts++;
+            if (item.ThrowBeforeRemoval) throw new Exception("before removal");
+            if (item.RejectRemoval) return new(false, Error: "native removal refused");
+            var slot = item.Parent ?? throw new Exception("missing address");
+            slot.ContainedItem = null;
+            item.Parent = null;
+            controller.RemoveCalls++;
+            controller.Stages.Add("detach");
+            // Slot.OnAddOrRemoveItem is invoked after the mutation in vanilla.
+            if (item.ThrowAfterRemoval) throw new Exception("slot observer failed");
+            return new(true, new RemoveResult(item, slot));
+        }
+    }
+}
+namespace EFT
+{
+    public class AbstractGame { }
+    public class LocalGame : AbstractGame { }
+    public class BotOwner : UnityEngine.Object { public Player GetPlayer; }
+    public class HealthController { public bool IsAlive = true; }
+    public class Player : UnityEngine.Component, IPlayer
+    {
+        protected Interactive.Corpse Corpse;
+        public void SetCorpse(Interactive.Corpse corpse) => Corpse = corpse;
+        public bool enabled = true;
+        public string ProfileId { get; set; } = "local-player";
+        public UnityEngine.Vector3 Position;
+        public object InteractableObject;
+        public bool IsYourPlayer;
+        public HealthController HealthController = new();
+
+        // Player.Dispose is the step that unregisters from GameWorld, ends the
+        // audio subscriptions and destroys the hands controller (which is what
+        // pools the corpse's weapon model). Only its ORDER is observable here.
+        public int Disposals;
+        public bool ThrowOnDispose;
+        public void Dispose()
+        {
+            Disposals++;
+            if (ThrowOnDispose) throw new Exception("player dispose failed");
+        }
+    }
+    /// <summary>
+    /// The three registries CorpseDamageSources reads, with the two members of
+    /// MongoID it uses. EqualsToString is the native comparison: case-insensitive
+    /// against the id string the tripwire was planted with.
+    /// </summary>
+    public struct MongoID
+    {
+        private readonly string _id;
+        public MongoID(string id) { _id = id; }
+        public static implicit operator MongoID(string id) => new(id);
+        public override string ToString() => _id ?? string.Empty;
+        public bool EqualsToString(string str) => str.Equals(ToString(), StringComparison.InvariantCultureIgnoreCase);
+    }
+    public class Grenade : Throwable
+    {
+        public string ProfileId { get; set; }
+        public InventoryLogic.ThrowWeap WeaponSource { get; set; }
+    }
+
+    /// <summary>The three numbers the native explosion takes its reach from.</summary>
+    public interface IExplosiveItem
+    {
+        float MaxExplosionDistance { get; }
+        UnityEngine.Vector3 Blindness { get; }
+        UnityEngine.Vector3 Contusion { get; }
+    }
+    public interface IPlayer { string ProfileId { get; } }
+
+    /// <summary>The one member CorpseDamageSources.StillNamedInRegistry reads.</summary>
+    public interface IObserverToPlayerBridge { IPlayer iPlayer { get; } }
+    public sealed class ObserverBridge : IObserverToPlayerBridge
+    {
+        public IPlayer iPlayer { get; }
+        public ObserverBridge(IPlayer player) => iPlayer = player;
+    }
+
+    /// <summary>The shooter is private in the game too (FlareCartridge.cs:30).</summary>
+    public class FlareCartridge : Throwable
+    {
+        private IPlayer _player;
+        public FlareCartridge(IPlayer shooter) { _player = shooter; }
+    }
+    public class GameWorld
+    {
+        public Player MainPlayer = new();
+        public readonly List<Interactive.Corpse> LootList = new();
+        public readonly List<Interactive.Corpse> Removed = new();
+        public bool ThrowOnDestroyLoot;
+
+        // GameWorld.RegisterPlayer (_decompiled/EFT/GameWorld.cs:2012-2083)
+        // overwrites both _allPlayersEverExisted[profileId] and
+        // AllPlayerBridgesEverExisted[profileId] with whichever body
+        // registers under that id, together, every time - one dictionary
+        // models both real ones for that reason: they are never out of step.
+        private readonly Dictionary<string, Player> _everExisted = new();
+        public bool ThrowOnRegistryRead;
+
+        /// <summary>Simulates GameWorld.RegisterPlayer's write to both tables at once.</summary>
+        public void RegisterEverExisted(string profileId, Player player) => _everExisted[profileId] = player;
+
+        public Player GetEverExistedPlayerByID(string profileId)
+        {
+            if (ThrowOnRegistryRead) throw new Exception("registry read failed");
+            return profileId != null && _everExisted.TryGetValue(profileId, out var player) ? player : null;
+        }
+
+        public IObserverToPlayerBridge GetEverExistedBridgeByProfileID(string profileId)
+        {
+            if (ThrowOnRegistryRead) throw new Exception("registry read failed");
+            return profileId != null && _everExisted.TryGetValue(profileId, out var player)
+                ? new ObserverBridge(player)
+                : null;
+        }
+
+        // Created with the world (GameWorld.InitLevel) in the game, so present
+        // by default here; a check that needs one missing removes it.
+        public SynchronizableObjects.SynchronizableObjectLogicProcessor SynchronizableObjectLogicProcessor { get; set; } = new();
+        public readonly DictionaryListHydra<int, Throwable> Grenades = new();
+        public Ballistics.IBallisticsCalculator SharedBallisticsCalculator { get; set; } = new Ballistics.BallisticsCalculator();
+        public Ballistics.IBallisticsCalculator ClientBallisticCalculator { get; set; }
+
+        /// <summary>
+        /// GameWorld.DestroyLoot -> Corpse.Kill (PlayerBody.Dispose) ->
+        /// LootItem.Kill -> AssetPoolObject.ReturnToPool. The last step is where
+        /// IsStub decides between destroying the body and PUSHING IT BACK into
+        /// the shared player pool, so both outcomes are recorded separately.
+        /// </summary>
+        public void DestroyLoot(Interactive.Corpse loot)
+        {
+            if (ThrowOnDestroyLoot) throw new Exception("destroy loot failed");
+            LootList.Remove(loot);
+            Removed.Add(loot);
+            loot.PlayerBodyDisposals++;
+            var pool = loot.GetComponent<AssetsManager.AssetPoolObject>();
+            if (pool == null) return;
+            if (pool.IsStub)
+            {
+                pool.Destroyed = true;
+                loot.Destroyed = true;
+                foreach (var component in loot.gameObject.Components.OfType<UnityEngine.Object>())
+                    component.Destroyed = true;
+            }
+            else
+            {
+                pool.PushedBackIntoPool = true;
+            }
+        }
+    }
+    public class IBotGame { public BotsController BotsController = new(); }
+    public class BotsController
+    {
+        public BotSpawner BotSpawner;
+        public readonly List<Player> Retired = new();
+        public bool ThrowOnDestroyInfo;
+
+        /// <summary>
+        /// BotsController.DestroyInfo -> BotSpawner.DeletePlayer -> every
+        /// BotsGroup.DeletePlayerCauseDead -> RemoveEnemy, which ADDS a DeadBody
+        /// for a person whose health controller says dead. The re-add is the
+        /// reason the dead-body record has to be cleared afterwards.
+        /// </summary>
+        public void DestroyInfo(Player player)
+        {
+            if (ThrowOnDestroyInfo) throw new Exception("destroy info failed");
+            Retired.Add(player);
+            var bodies = BotSpawner?._deadBodiesController;
+            if (bodies != null && player.HealthController?.IsAlive == false)
+                bodies.Bodies.Add(new DeadBody { Player = player });
+        }
+    }
+    public class BotSpawner { public DeadBodiesController _deadBodiesController; }
+    public class DeadBody { public Player Player; }
+    public class DeadBodiesController
+    {
+        public readonly List<DeadBody> Bodies = new();
+        public bool ThrowOnRemove;
+        public void RemoveBody(DeadBody body)
+        {
+            if (ThrowOnRemove) throw new Exception("dead body removal failed");
+            Bodies.Remove(body);
+        }
+    }
+    public class ObjectsFactory
+    {
+        public enum PoolsCategory { Raid }
+        public class BodyPool { public int TotalCreatedObjectsCount; public int CurrentPoolSize; }
+        public class Pools { public BodyPool PlayerAssetPool = new(); }
+        public Pools RaidPools = new();
+        public Pools GetPools(PoolsCategory category) => RaidPools;
+    }
+}
+namespace EFT.SynchronizableObjects
+{
+    // TripwireSynchronizableObject.cs: Wait when planted (168), Active once
+    // triggered (297), Exploding then Exploded around the grenade's end
+    // (360-366), Inert when disarmed or expired (258), None after Reset (405).
+    public enum ETripwireState { None, Wait, Active, Exploding, Exploded, Inert }
+    public class SynchronizableObject : UnityEngine.Component { }
+    public class TripwireSynchronizableObject : SynchronizableObject
+    {
+        public MongoID PlacerPlayerId { get; set; }
+        public ETripwireState TripwireState { get; set; }
+    }
+    public class SynchronizableObjectLogicProcessor
+    {
+        public List<SynchronizableObject> _activeSynchronizableObjects = new();
+        public List<SynchronizableObject> _staticSynchronizableObjects = new();
+    }
+}
+namespace EFT.Ballistics
+{
+    public interface IBallisticsCalculator { }
+    public class BallisticsCalculator : UnityEngine.Component, IBallisticsCalculator { public List<Shot> Shots = new(); }
+
+    // Player is the frozen bridge Shot.method_1 resolves once, at the moment
+    // of firing (real field, see ../../ArenaMode.Client/Bots/CorpseDamageSources.cs
+    // ShotStillInFlightFromBody's doc) - left unset by default, matching a
+    // shot this code has no reason to think came from any particular body.
+    public class Shot { public string PlayerProfileID; public IObserverToPlayerBridge Player; }
+}
+namespace EFT.AssetsManager
+{
+    public class AssetPoolObject : UnityEngine.Component
+    {
+        public UnityEngine.Collider[] Colliders = Array.Empty<UnityEngine.Collider>();
+        public void StoreCollider(UnityEngine.Collider collider) { }
+
+        // The pool's own "this object did not come from a pool" switch.
+        public bool IsStub { get; set; }
+        public bool PushedBackIntoPool;
+    }
+}
+namespace EFT.Interactive
+{
+    public class Ragdoll { public bool _isPhysicsDone = true; }
+    public class Bindable<T> { public T Value; }
+    public class LootItem : UnityEngine.Component { }
+    public class Corpse : LootItem
+    {
+        public bool HasRagdoll = true;
+        public Ragdoll Ragdoll = new();
+        public string PlayerProfileID = "opponent";
+        public InventoryLogic.ItemController ItemOwner = new();
+        public InventoryLogic.Item Item;
+        public Bindable<InventoryLogic.Item> ItemInHands = new();
+        public int PlayerBodyDisposals;
+    }
+}
+namespace ArenaMode
+{
+    public static class Plugin { public const string PluginGuid = "com.maschine.ArenaMode"; public static Logger ModLogger = new(); }
+    public class Logger
+    {
+        public readonly List<string> Warnings = new();
+        public readonly List<string> Infos = new();
+        public void LogInfo(string text) => Infos.Add(text); public void LogDebug(string text) => Infos.Add(text);
+        public void LogWarning(string text) => Warnings.Add(text);
+    }
+}
+namespace ArenaMode.Config
+{
+    public class Setting<T> { public T Value; }
+    public static class Settings
+    {
+        public static Setting<int> MaxCorpses = new() { Value = 1 };
+        public static Setting<bool> StripCorpseGear = new() { Value = true };
+        public static Setting<bool> ReleaseTrimmedCorpses = new() { Value = true };
+    }
+}
+namespace ArenaMode.Session
+{
+    public static class ArenaSession
+    {
+        public static bool IsActive;
+        public static string ActiveMode;
+        public static EFT.AbstractGame StartedGame;
+        public static EFT.GameWorld StartedWorld;
+        public static bool IsExactActiveRaid(EFT.AbstractGame game, EFT.GameWorld world)
+            => IsActive && game != null && world != null
+               && ReferenceEquals(StartedGame, game) && ReferenceEquals(StartedWorld, world);
+    }
+}
+namespace ArenaMode.Modes
+{
+    public static class ArenaModeCatalog { public const string ZombieId = "zombie"; }
+    public class ArenaMatch { public object Mode; }
+    public static class ArenaMatchService { public static ArenaMatch Current; }
+    // Only the surrounding mode state is a double. The retention method is
+    // linked directly from production in both existing cleanup suites and the
+    // dedicated TacticalCorpseChecks integration/fault harness.
+    public sealed partial class TacticalMode
+    {
+        private const int TeamEnemyCount = 5;
+        public bool _teamArena = true;
+        public ArenaMatch _match;
+        public EFT.LocalGame _teamGame;
+        public EFT.BotOwner[] _boundTeamEnemies = Array.Empty<EFT.BotOwner>();
+    }
+}
+namespace ArenaMode.Loot
+{
+    public static class OpenLootTracker
+    {
+        public static object Open;
+        public static bool IsOpen(object item) => Open != null && ReferenceEquals(Open, item);
+    }
+}
+namespace ArenaMode.Compat
+{
+    public static class PitFireTeamCompat
+    {
+        public static string TeamProfile;
+        public static bool IsTeamProfileId(string id) => TeamProfile != null && id == TeamProfile;
+    }
+}
+namespace ArenaMode.Bots
+{
+    public static class CorpseWeaponRegistry
+    {
+        public static readonly List<EFT.Interactive.Corpse> Forgotten = new();
+        public static UnityEngine.GameObject Get(EFT.Interactive.Corpse corpse) => null;
+        public static void Forget(EFT.Interactive.Corpse corpse) => Forgotten.Add(corpse);
+    }
+    public static class CorpseLightService
+    {
+        public static readonly List<EFT.Interactive.LootItem> Forgotten = new();
+        public static void Forget(EFT.Interactive.LootItem loot) => Forgotten.Add(loot);
+    }
+    public static class CorpseAggressors
+    {
+        // Player.OnDead hands LastAggressor to OnBeenKilledByAggressor as its
+        // first statement, so a destroyed aggressor abandons the whole death.
+        public static readonly List<EFT.Player> Pending = new();
+        public static bool FailToRead;
+
+        // How many times IsPendingAggressor was actually called - the harness's
+        // only way to observe whether CorpseCleanupService.QuietWindowKnownOpen
+        // skipped the expensive gauntlet (this stub is cheap either way, but
+        // the real CorpseAggressors.IsPendingAggressor it stands in for is an
+        // O(AllAlivePlayersList.Count) scan; see that pre-check's own doc).
+        public static int CallCount;
+        public static void Reset() { Pending.Clear(); FailToRead = false; CallCount = 0; }
+        public static bool IsPendingAggressor(EFT.Player body, EFT.GameWorld world)
+        {
+            CallCount++;
+            return FailToRead || Pending.Contains(body);
+        }
+    }
+    public static class CorpseTriggerZones
+    {
+        // A MoveInside trigger zone hosts an endless coroutine per player that
+        // reads that player's transform. Only the order matters here: it has to
+        // be retired while the body still exists.
+        public static readonly List<EFT.Player> Retired = new();
+        public static void Reset() => Retired.Clear();
+        public static void Release(EFT.Player player) => Retired.Add(player);
+    }
+}
+namespace ArenaMode.Diagnostics
+{
+    // The release ledger the damage-exception diagnostic reads. Modelled as one
+    // observable step: a confirmed release records the body's profile id, read
+    // while the body was still whole. A failed one records nothing, because a
+    // report that names a body Arena did not take away is worse than no report.
+    public static class CorpseReleaseLedger
+    {
+        public static readonly List<string> Recorded = new();
+        public static void Reset() => Recorded.Clear();
+        public static void Record(string profileId, int sweep) => Recorded.Add(profileId);
+    }
+}
+namespace ArenaMode.Combat.Fire
+{
+    internal static class ArenaFireRuntime
+    {
+        internal static EFT.Player HeldBody;
+        internal static string HoldsSource(string profile, EFT.GameWorld world)
+            => HeldBody != null && HeldBody.ProfileId == profile ? "Arena fire" : null;
+        internal static bool HoldsBody(EFT.Player body, EFT.GameWorld world)
+            => HeldBody != null && ReferenceEquals(body, HeldBody);
+    }
+}
+
+// Explicitly enabled for these diagnostic-observation scenarios; the real
+// default-off BepInEx routing is exercised by tools/LoggingChecks.
+namespace ArenaMode.Diagnostics
+{
+    internal static class ArenaLog
+    {
+        internal static bool DeveloperEnabled = true;
+        internal static void Developer(string message)
+        {
+            if (DeveloperEnabled) ArenaMode.Plugin.ModLogger?.LogInfo("[dev] " + message);
+        }
+    }
+}

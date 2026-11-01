@@ -1,0 +1,147 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\Shared.props" />
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <AssemblyName>maschine-ArenaMode.Client</AssemblyName>
+    <RootNamespace>ArenaMode</RootNamespace>
+    <Description>UT-style arena mode for SPT (instant respawn, kits, dense bots)</Description>
+    <Company>https://github.com/maschine34675/ArenaMode</Company>
+    <Authors>maschine</Authors>
+    <SPTModType>Client</SPTModType>
+    <LangVersion>latest</LangVersion>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <Configurations>Debug;Release</Configurations>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\ArenaMode.Shared\ArenaMolotovItem.cs" Link="Shared\ArenaMolotovItem.cs" />
+    <Compile Include="..\ArenaMode.Shared\DeathmatchSelection.cs" Link="Shared\DeathmatchSelection.cs" />
+    <Compile Include="..\ArenaMode.Shared\Protocol.cs" Link="Shared\Protocol.cs" />
+    <Compile Include="..\ArenaMode.Shared\RewardWire.cs" Link="Shared\RewardWire.cs" />
+    <Compile Include="..\ArenaMode.Shared\TarkovaColaPolicy.cs" Link="Shared\TarkovaColaPolicy.cs" />
+    <Compile Include="..\ArenaMode.Shared\TarkovaColaResearchCatalog.cs" Link="Shared\TarkovaColaResearchCatalog.cs" />
+    <Compile Include="..\ArenaMode.Shared\ArenaDifficultyClock.cs" Link="Shared\ArenaDifficultyClock.cs" />
+    <Compile Include="..\ArenaMode.Shared\ClientSettingsModels.cs" Link="Shared\ClientSettingsModels.cs" />
+    <Compile Include="..\ArenaMode.Shared\ArenaBotSpawnPolicy.cs" Link="Shared\ArenaBotSpawnPolicy.cs" />
+    <Compile Include="..\ArenaMode.Shared\ArenaMapCatalog.cs" Link="Shared\ArenaMapCatalog.cs" />
+    <Compile Include="..\ArenaMode.Shared\ArenaAreaCatalog.cs" Link="Shared\ArenaAreaCatalog.cs" />
+    <Compile Include="..\ArenaMode.Shared\ArenaPopulationPolicy.cs" Link="Shared\ArenaPopulationPolicy.cs" />
+    <Compile Include="..\ArenaMode.Shared\ArenaParticipantPolicy.cs" Link="Shared\ArenaParticipantPolicy.cs" />
+    <Compile Include="..\ArenaMode.Shared\ArenaEquatorTeamSpawns.cs" Link="Shared\ArenaEquatorTeamSpawns.cs" />
+    <Compile Include="..\ArenaMode.Shared\ArenaTeamBoxCatalog.cs" Link="Shared\ArenaTeamBoxCatalog.cs" />
+    <Compile Include="..\ArenaMode.Shared\PitFireTeamVersions.cs" Link="Shared\PitFireTeamVersions.cs" />
+    <Compile Include="..\ArenaMode.Shared\Session\ArenaMiniJson.cs" Link="Shared\Session\ArenaMiniJson.cs" />
+    <Compile Include="..\ArenaMode.Shared\Session\ArenaWhitelistPolicy.cs" Link="Shared\Session\ArenaWhitelistPolicy.cs" />
+    <Compile Include="..\ArenaMode.Shared\Session\ArenaWhitelistDecision.cs" Link="Shared\Session\ArenaWhitelistDecision.cs" />
+    <Compile Include="..\ArenaMode.Shared\Session\ArenaSessionContract.cs" Link="Shared\Session\ArenaSessionContract.cs" />
+    <!-- The session helper's own request parser (HelperRequest): ArenaSessionSwitch runs it on the request file
+         before the game quits, because the helper refuses what it cannot parse and nothing restarts the game
+         after that. Linked source, so the client and the helper cannot disagree about the rules. -->
+    <Compile Include="..\ArenaMode.Session\SessionLogic.cs" Link="Shared\Session\SessionLogic.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\BotEffects\bot-effect-outlines.bundle" LogicalName="ArenaMode.BotEffects.bot-effect-outlines.bundle" />
+    <Reference Include="UnityEngine.AssetBundleModule" Private="false" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- The shared payload writer supplies build, publish and installed assets. -->
+    <ArenaAudioAsset Include="Assets\ArenaMode\**\*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Absorbed, author-generated RaidInfoPanels sprites; no standalone DLL. -->
+    <EmbeddedResource Include="Hud\InfoPanels\Icons\*.png" Exclude="Hud\InfoPanels\Icons\*preview*.png">
+      <LogicalName>ArenaMode.Hud.InfoPanels.Icons.%(Filename)%(Extension)</LogicalName>
+    </EmbeddedResource>
+    <Reference Include="UnityEngine.ImageConversionModule" Private="false" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Categorical artwork. Keep provenance and the complete license texts
+         available in the assembly and as readable files in the mod package. -->
+    <ArenaUiNotice Include="Assets\Ui\NOTICE.md;Assets\Ui\SOURCES.json;Assets\Ui\MIT-LICENSE.txt;Assets\ArenaMode\docs\licenses\CC-BY-3.0.txt" />
+    <EmbeddedResource Include="Assets\Ui\*.png;@(ArenaUiNotice)">
+      <LogicalName>ArenaMode.Ui.%(Filename)%(Extension)</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Static selection maps work without DynamicMaps. Ship the separate map
+         licence and provenance alongside, and inside, the client assembly. -->
+    <EmbeddedResource Include="Assets\MapPreviews\**\*.png;Assets\MapPreviews\**\*.md;Assets\MapPreviews\**\*.json">
+      <LogicalName>ArenaMode.MapPreviews.%(Filename)%(Extension)</LogicalName>
+    </EmbeddedResource>
+    <ArenaMapPreviewAsset Include="Assets\MapPreviews\**\*" Exclude="Assets\MapPreviews\**\.gitattributes" />
+  </ItemGroup>
+
+  <Target Name="DeployArenaAudioAssets" AfterTargets="SPTClientDeploy">
+    <!-- This remains the only installed-asset hook; NoDeploy overrides it. -->
+    <Exec Command='pwsh -NoLogo -NoProfile -File "$(ArenaRepoRoot)tools\Write-ArenaAssets.ps1" -SourceRoot "$(ArenaRepoRoot)." -Destination "$(SPTPath)\BepInEx\plugins\maschine-ArenaMode" -SourceRevision "$(SourceRevisionId)"' />
+  </Target>
+
+  <Target Name="StageArenaAssets" AfterTargets="Build">
+    <!-- Build output only: deliberately independent of live deployment. -->
+    <Exec Command='pwsh -NoLogo -NoProfile -File "$(ArenaRepoRoot)tools\Write-ArenaAssets.ps1" -SourceRoot "$(ArenaRepoRoot)." -Destination "$(TargetDir)maschine-ArenaMode" -SourceRevision "$(SourceRevisionId)"' />
+  </Target>
+
+  <Target Name="StageArenaPublishAssets" AfterTargets="Publish">
+    <Exec Command='pwsh -NoLogo -NoProfile -File "$(ArenaRepoRoot)tools\Write-ArenaAssets.ps1" -SourceRoot "$(ArenaRepoRoot)." -Destination "$(PublishDir)maschine-ArenaMode" -SourceRevision "$(SourceRevisionId)"' />
+  </Target>
+
+  <ItemGroup>
+    <!-- Private="false": Redeploy.Core deploys itself flat to BepInEx/plugins via its
+         own SPTClientDeploy target; a copy here would deploy a duplicate. -->
+    <ProjectReference Include="..\..\Redeploy\Redeploy.Core\Redeploy.Core.csproj" Private="false" />
+  </ItemGroup>
+
+  <!-- Driver skew check (Redeploy docs/RESPAWN-API.md 3.9): stamp the Core version this build
+       is compiled against; Plugin.Awake compares it with the installed Core. The version and
+       the shared check live next to Core in the Redeploy repo. -->
+  <Import Project="..\..\Redeploy\Redeploy.Core\CoreVersion.props" />
+  <ItemGroup>
+    <AssemblyAttribute Include="System.Reflection.AssemblyMetadataAttribute">
+      <_Parameter1>$(RedeployCoreBuiltAgainstKey)</_Parameter1>
+      <_Parameter2>$(RedeployCoreVersion)</_Parameter2>
+    </AssemblyAttribute>
+    <Compile Include="..\..\Redeploy\drivers\CoreVersionGate.cs" Link="Respawn\CoreVersionGate.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="DissonanceVoip" />
+    <Reference Include="spt-common" />
+    <Reference Include="spt-reflection" />
+    <Reference Include="Assembly-CSharp" />
+    <Reference Include="Assembly-CSharp-firstpass" />
+    <Reference Include="AnimationSystem.Types" />
+    <Reference Include="Comfort" />
+    <Reference Include="Comfort.Unity" />
+    <Reference Include="ItemComponent.Types" />
+    <Reference Include="ItemTemplate.Types" />
+    <Reference Include="Newtonsoft.Json" />
+    <Reference Include="Sirenix.Serialization" />
+    <Reference Include="Unity.TextMeshPro" />
+    <Reference Include="Unity.Postprocessing.Runtime" Private="false" />
+    <Reference Include="UnityEngine.AIModule" />
+    <Reference Include="UnityEngine.AnimationModule" Private="false" />
+    <Reference Include="UnityEngine.AudioModule" />
+    <Reference Include="UnityEngine.TextRenderingModule" />
+    <Reference Include="UnityEngine" />
+    <Reference Include="UnityEngine.CoreModule" />
+    <Reference Include="UnityEngine.IMGUIModule" />
+    <Reference Include="UnityEngine.InputLegacyModule" />
+    <Reference Include="UnityEngine.PhysicsModule" />
+    <Reference Include="UnityEngine.ParticleSystemModule" />
+    <Reference Include="UnityEngine.UI" />
+    <Reference Include="UnityEngine.UIModule" />
+    <Reference Include="UnityEngine.UnityWebRequestModule" />
+    <Reference Include="UnityEngine.UnityWebRequestAudioModule" />
+    <PackageReference Include="BepInEx.Analyzers" Version="1.*" PrivateAssets="all" />
+    <PackageReference Include="BepInEx.Core" Version="5.*" />
+    <PackageReference Include="BepInEx.PluginInfoProps" Version="1.*" />
+  </ItemGroup>
+
+</Project>

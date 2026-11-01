@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>annotations</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../../ArenaMode.Client/Audio/AnnouncerCueCatalog.cs"
+             Link="Production/AnnouncerCueCatalog.cs" />
+    <Compile Include="../../ArenaMode.Client/Modes/ArenaAnnouncerCue.cs"
+             Link="Production/ArenaAnnouncerCue.cs" />
+    <Compile Include="../../ArenaMode.Client/Spectator/SpectatorPolicy.cs"
+             Link="Production/SpectatorPolicy.cs" />
+    <Compile Include="../../ArenaMode.Client/Modes/TeamArenaRoundPolicy.cs"
+             Link="Production/TeamArenaRoundPolicy.cs" />
+    <Compile Include="../../ArenaMode.Client/Bots/TeamArenaPursuitPolicy.cs"
+             Link="Production/TeamArenaPursuitPolicy.cs" />
+    <Compile Include="../../ArenaMode.Client/Bots/TeamArenaEnemyIdentityPolicy.cs"
+             Link="Production/TeamArenaEnemyIdentityPolicy.cs" />
+    <Compile Include="../../ArenaMode.Client/Bots/TeamArenaPursuitOwnerPolicy.cs"
+             Link="Production/TeamArenaPursuitOwnerPolicy.cs" />
+    <Compile Include="../../ArenaMode.Client/Bots/TeamArenaSainRebindTransaction.cs"
+             Link="Production/TeamArenaSainRebindTransaction.cs" />
+    <Compile Include="../../ArenaMode.Client/Bots/TeamArenaSainSourcePolicy.cs"
+             Link="Production/TeamArenaSainSourcePolicy.cs" />
+    <Compile Include="../../ArenaMode.Client/Bots/TeamArenaSainAssemblyPolicy.cs"
+             Link="Production/TeamArenaSainAssemblyPolicy.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Mono.Cecil">
+      <HintPath>../../../../BepInEx/core/Mono.Cecil.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+  </ItemGroup>
+</Project>

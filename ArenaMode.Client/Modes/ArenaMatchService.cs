@@ -1,0 +1,456 @@
+using ArenaMode.Config;
+using ArenaMode.Events;
+using ArenaMode.Kits;
+using ArenaMode.Session;
+using EFT;
+using Redeploy.Core.Engine;
+using System;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace ArenaMode.Modes;
+
+/// <summary>
+/// Match lifecycle glue: creates exactly one ArenaMatch when an arena session
+/// begins, ticks it from ArenaController, and tears it down at raid end.
+/// The local death/respawn signals come from ArenaEvents (raised by the
+/// respawn driver — they also cover deaths without an aggressor).
+/// </summary>
+internal static partial class ArenaMatchService
+{
+    public static ArenaMatch Current { get; private set; }
+    private static bool _initialized;
+    private static float _nextScoreboardSyncAt;
+    private static string _lastScoreboardProblem;
+
+    public static void Initialize()
+    {
+        if (_initialized)
+            return;
+
+        _initialized = true;
+        RaidLifecycle.OnRaidStarted += world => StartMatch(world);
+        RaidLifecycle.OnRaidEnded += OnRaidEnded;
+        ArenaEvents.OnPlayerDied += OnLocalDied;
+        ArenaEvents.OnPlayerRespawned += OnLocalRespawned;
+    }
+
+    public static void Tick()
+    {
+        if (TeamStartAbortPending)
+        {
+            if (Current?.Mode is TeamDeathmatchMode team) team.OnNativePresentationStop();
+            TickFailedStartAbort();
+            return;
+        }
+
+        var match = Current;
+        // Stop disposes native bodies before GameEnd clears Current. Do not
+        // advance a round or validate its scoreboard against that teardown.
+        // A pending/failed leave remains Started and must keep normal checks.
+        if (match == null) return;
+        if (ArenaRaidExit.NativeStopOwnsCurrentRaid)
+        {
+            // Stop may dispose bodies before mode.Tick can observe it. Release
+            // only our optional screen claim; native gameplay teardown owns the rest.
+            if (match.Mode is TeamDeathmatchMode team) team.OnNativePresentationStop();
+            return;
+        }
+
+        match.Tick(Time.deltaTime);
+        ArenaRewardCapture.Observe();
+
+        if (ReferenceEquals(Current, match) && Time.unscaledTime >= _nextScoreboardSyncAt)
+        {
+            _nextScoreboardSyncAt = Time.unscaledTime + 0.25f;
+            SynchronizeScoreboard(match);
+        }
+    }
+
+    /// <summary>
+    /// Called explicitly by ArenaSession before it swaps in the raid-start kit,
+    /// and again by the lifecycle event as a backstop. Starting twice would tear
+    /// the first match's HUD off its own match object, so the second call is a
+    /// no-op.
+    /// </summary>
+    public static void StartMatch(GameWorld world)
+    {
+        if (Current != null || TeamStartAbortPending)
+            return;
+
+        // ArenaSession invokes this explicitly and the lifecycle dispatcher
+        // invokes it again. A failed first attempt may already have committed
+        // LocalGame.Stop while IsActive remains latched until GameEnd; never let
+        // that second callback initialize a match inside the Stopping raid.
+        if (!(Comfort.Common.Singleton<AbstractGame>.Instance is LocalGame game)
+            || game.Status != GameStatus.Started)
+            return;
+
+        // ArenaSession's own OnRaidStarted handler decides IsActive; subscription
+        // order between the two handlers is not guaranteed, so defer one frame
+        // via the controller: cheapest is to check lazily here — IsActive is set
+        // synchronously inside the same RaidLifecycle event dispatch, and
+        // ArenaSession.Initialize() runs before ArenaMatchService.Initialize()
+        // in Plugin.Awake, so its handler already ran when this one fires.
+        if (!ArenaSession.IsActive || Areas.ArenaAreaRuntime.IsPending)
+            return;
+
+        var protectedTeam = Compat.PitFireTeamCompat.TeamArenaActive;
+        ArenaMatch partialMatch = null;
+        try
+        {
+            if (protectedTeam
+                && !ArenaServerClient.ValidateProtectedTeamRaid(out var validationFailure))
+            {
+                throw new InvalidOperationException(
+                    "Protected 5v5 server validation failed: " + validationFailure);
+            }
+
+            if (!Effects.ArenaTracerTeams.BeginMatch(game.ProfileId, protectedTeam))
+            {
+                Plugin.ModLogger.LogWarning(
+                    "Arena team tracers stayed unbound because the exact local profile ID was unavailable.");
+            }
+
+            Combat.CombatPatches.ResetRaidState();
+            Audio.AnnouncerService.EnsureLoaded();
+            // The server shaped its per-raid clone from the mode frozen during
+            // LocalRaidStarted. Reading the mutable F12 setting here would let a
+            // loading-screen change create a different client ruleset, including
+            // a respawn mode for a protected PitFireTeam leader.
+            var modeId = ArenaSession.ActiveMode;
+            if (Compat.PitFireTeamCompat.TeamArenaActive
+                && !string.Equals(modeId, "tactical", StringComparison.OrdinalIgnoreCase)
+                && !string.Equals(modeId, "zombie", StringComparison.OrdinalIgnoreCase))
+            {
+                Plugin.ModLogger.LogError(
+                    $"Arena corrected protected PitFireTeam mode drift from '{modeId ?? "<null>"}' to Tactical.");
+                modeId = "tactical";
+            }
+
+            var mode = ModeRegistry.Create(modeId);
+            var local = world?.MainPlayer ?? game.LocalPlayer;
+            var match = new ArenaMatch(
+                mode,
+                game.ProfileId,
+                local?.Profile?.Nickname ?? game.Profile?.Nickname,
+                Combat.RoleClassifier.Label(local));
+            partialMatch = match;
+            Current = match;
+            _nextScoreboardSyncAt = 0f;
+            _lastScoreboardProblem = null;
+            // Subscribe presentation before mode startup. A mode is allowed to
+            // raise its first synchronous cue from OnMatchStart; attaching
+            // afterwards loses it.
+            Audio.AnnouncerService.Attach(match);
+            Audio.HitmarkerAudioService.Attach(match);
+            Effects.ArenaLightingDirector.Attach(match, world);
+            mode.OnMatchStart(match);
+            ArenaRewardCapture.Attach(match);
+            SynchronizeScoreboard(match);
+            Hud.ArenaHud.Attach(match);
+            Plugin.ModLogger.LogDebug($"Arena match started ({mode.DisplayName}).");
+        }
+        catch (Exception ex)
+        {
+            Plugin.ModLogger.LogError($"Arena match start failed: {ex}");
+            Current = null;
+            // A partially attached HUD would tick into the menu forever.
+            Try(Hud.ArenaHud.Detach, "hud detach");
+            Try(Audio.AnnouncerService.Detach, "announcer detach");
+            Try(Audio.HitmarkerAudioService.Detach, "hitmarker audio detach");
+            Try(Effects.ArenaLightingDirector.Reset, "lighting detach");
+            Try(Effects.ArenaTeamLaserColors.Reset, "team laser detach");
+            Effects.ArenaTracerTeams.Reset();
+            Bots.TeamDeathmatchRelations.Reset();
+            if (partialMatch != null)
+                Try(partialMatch.End, "partial mode end");
+
+            // With a frozen PitFireTeam roster, returning without a match would
+            // leave a protected vanilla raid running forever: no Tactical Tick,
+            // no staging guard and no result coordinator. End it immediately as
+            // no contest, preserving the original leader body and both stores.
+            // A failed solo Tactical startup must not fall through to the
+            // generic raid-start random kit either: it has no buy coordinator.
+            if (protectedTeam || Compat.PitFireTeamCompat.HasFrozenTeamRoster
+                || ArenaSession.ActiveMode == Shared.ArenaPopulationPolicy.Domination
+                || string.Equals(ArenaSession.ActiveMode, Shared.ArenaPopulationPolicy.Tactical,
+                    StringComparison.OrdinalIgnoreCase))
+                ScheduleFailedStartAbort(ex.GetBaseException().Message);
+        }
+    }
+
+    private static void OnRaidEnded()
+    {
+        ArenaRewardCapture.OnRaidEnded();
+        TdmMatchExit.Reset();
+        Effects.ArenaTeamLaserColors.Reset();
+        Effects.ArenaLightingDirector.Reset();
+        Effects.ArenaTracerTeams.Reset();
+        Bots.TeamDeathmatchRelations.Reset();
+        var match = Current;
+        Current = null;
+        Try(Audio.HitmarkerAudioService.Detach, "hitmarker audio detach");
+        ResetFailedStartAbort();
+        _nextScoreboardSyncAt = 0f;
+        _lastScoreboardProblem = null;
+
+        if (match == null)
+            return;
+
+        // Independent teardown steps — one failing must not skip the rest.
+        Try(Hud.ArenaHud.Detach, "hud detach");
+        Try(Audio.AnnouncerService.Detach, "announcer detach");
+        Try(match.End, "mode end");
+        Plugin.ModLogger.LogDebug(
+            $"Arena match ended: {match.Kills} kills / {match.Deaths} deaths, "
+            + $"score {match.Score}, best streak {match.BestStreak}, "
+            + $"{match.Elapsed / 60f:0.0} min.");
+    }
+
+    /// <summary>
+    /// A newly started exact GameWorld is a safe lifecycle boundary. If EFT
+    /// skipped the preceding GameEnd callback, discard every match-owned latch
+    /// before the new armed or ordinary raid can tick or receive damage.
+    /// </summary>
+    internal static void RecoverAtNewRaidStart()
+    {
+        TdmMatchExit.Reset();
+        // This boundary also runs for an ordinary raid after a missed GameEnd.
+        // Clear cosmetic state even when no match latch survived.
+        Try(Audio.HitmarkerAudioService.Detach, "hitmarker audio recovery");
+        Effects.ArenaTeamLaserColors.Reset();
+        Effects.ArenaLightingDirector.Reset();
+        Effects.ArenaTracerTeams.Reset();
+        Bots.TeamDeathmatchRelations.Reset();
+        if (Current == null && !TeamStartAbortPending)
+            return;
+
+        Plugin.ModLogger.LogWarning(
+            "Stale Arena match/abort state cleared at the next exact raid start.");
+        OnRaidEnded();
+    }
+
+    /// <summary>
+    /// Consumes the one prepared body-replacement authorization owned by the
+    /// active Tactical round or protected Zombie wave. Keeping explicit mode
+    /// cases here gives the respawn driver one fail-closed doorway and prevents another mode from opting a
+    /// frozen PitFireTeam leader into Redeploy by accident.
+    /// </summary>
+    internal static bool TryTakeTeamRespawnAuthorization(
+        LocalGame game,
+        LocalPlayer deadPlayer,
+        out TeamArenaPreparedLoadoutRestore prepared,
+        out int teamEpoch,
+        out string reason)
+    {
+        prepared = null;
+        teamEpoch = 0;
+        reason = null;
+
+        try
+        {
+            if (Current?.Mode is ZombieMode zombie && zombie.IsTeamArena)
+                return zombie.TryTakeTeamRespawnAuthorization(game, deadPlayer, out prepared, out teamEpoch, out reason);
+            if (Current?.Mode is not TacticalMode tactical)
+            {
+                reason = "the active Arena mode owns no protected team respawn";
+                return false;
+            }
+            return tactical.TryTakeTeamRespawnAuthorization(
+                game,
+                deadPlayer,
+                out prepared,
+                out teamEpoch,
+                out reason);
+        }
+        catch (Exception ex)
+        {
+            prepared = null;
+            teamEpoch = 0;
+            reason = $"Protected team respawn authorization threw: {ex.GetBaseException().Message}";
+            return false;
+        }
+    }
+
+    private static void Try(Action action, string name)
+    {
+        try
+        {
+            action();
+        }
+        catch (Exception ex)
+        {
+            Plugin.ModLogger.LogWarning($"Arena match {name} failed: {ex}");
+        }
+    }
+
+    /// <summary>
+    /// Copies the current physical roster into plain scoreboard data. Tactical
+    /// owns its exact side/account identities; every other Arena mode is a
+    /// player-versus-field board where each generated profile is one bot life.
+    /// </summary>
+    private static void SynchronizeScoreboard(ArenaMatch match)
+    {
+        // A mode's Tick/OnMatchStart can itself commit Stop in the same frame.
+        if (ArenaRaidExit.NativeStopOwnsCurrentRaid || ArenaMatchResult.HasResult(match?.Mode)) return;
+        try
+        {
+            if (match?.Mode is TeamDeathmatchMode teams)
+            {
+                if (!teams.TrySynchronizeScoreboardRoster(out var teamProblem))
+                    NoteScoreboardProblem(teamProblem);
+                else
+                    _lastScoreboardProblem = null;
+                return;
+            }
+            if (match?.Mode is TacticalMode tactical)
+            {
+                if (!tactical.TrySynchronizeScoreboardRoster(out var tacticalProblem))
+                    NoteScoreboardProblem(tacticalProblem);
+                else
+                    _lastScoreboardProblem = null;
+                return;
+            }
+            if (match?.Mode is ZombieMode zombie)
+            {
+                if (zombie.IsTeamArena)
+                {
+                    if (!zombie.TrySynchronizeTeamScoreboard(out var teamProblem)) NoteScoreboardProblem(teamProblem);
+                    else _lastScoreboardProblem = null;
+                    return;
+                }
+                // Zombie owns its entire population and has no opposing roster to
+                // show (every bot is hostile only to the player) — the same reason
+                // TDM/Tactical return early above, just without a per-mode roster
+                // of their own to build instead. An UNCONDITIONAL early return
+                // here, though, would mean every killed infected's permanent
+                // ArenaScoreboardEntry (CombatPatches.ArenaCombatKillCapturePatch captures
+                // every Arena kill unconditionally, independent of mode; see
+                // ArenaMatch.ReportKill -> ArenaScoreboard.ReportKill/Resolve)
+                // keeps IsCurrentRoster=true forever: that flag is only ever
+                // reset inside THIS method's own roster-rebuild loop below, and
+                // ArenaScoreboard.TrimOrdinaryHistory — built exactly because
+                // "endless modes can create thousands of one-life bot
+                // identities" — has that same loop as its one and only call
+                // site. Skipping it here would silently defeat that bound for
+                // the whole endless raid, in the one mode most likely to hit it.
+                // Sync against an EMPTY opponent/friendly list instead of
+                // returning — no per-bot actor snapshot, so this stays as
+                // cheap as the return it replaces — purely so the rebuild loop
+                // can reset IsCurrentRoster for anything that is not the local
+                // player and TrimOrdinaryHistory can actually reclaim it.
+                var zombieWorld = Comfort.Common.Singleton<GameWorld>.Instantiated
+                    ? Comfort.Common.Singleton<GameWorld>.Instance
+                    : null;
+                var zombieLocalPlayer = zombieWorld?.MainPlayer;
+                if (ReferenceEquals(zombieLocalPlayer, null) || zombieLocalPlayer == null)
+                    return;
+
+                ArenaScoreboardActor zombieLocal = SnapshotActor(zombieLocalPlayer);
+                if (zombieLocal == null)
+                    return;
+
+                if (!match.Scoreboard.TrySynchronizeRoster(
+                        1, zombieLocal, Array.Empty<ArenaScoreboardActor>(), Array.Empty<ArenaScoreboardActor>(),
+                        out var zombieProblem))
+                {
+                    NoteScoreboardProblem(zombieProblem);
+                }
+                else
+                {
+                    _lastScoreboardProblem = null;
+                }
+
+                return;
+            }
+
+            var world = Comfort.Common.Singleton<GameWorld>.Instantiated
+                ? Comfort.Common.Singleton<GameWorld>.Instance
+                : null;
+            var localPlayer = world?.MainPlayer;
+            if (ReferenceEquals(world, null)
+                || world == null
+                || ReferenceEquals(localPlayer, null)
+                || localPlayer == null)
+            {
+                NoteScoreboardProblem("the current GameWorld or local player is unavailable");
+                return;
+            }
+
+            ArenaScoreboardActor local = SnapshotActor(localPlayer);
+            var opponents = new List<ArenaScoreboardActor>(world.RegisteredPlayers.Count);
+            foreach (IPlayer player in world.RegisteredPlayers)
+            {
+                if (ReferenceEquals(player, null)
+                    || ReferenceEquals(player, localPlayer)
+                    || player.IsYourPlayer
+                    || string.Equals(player.ProfileId, localPlayer.ProfileId, StringComparison.Ordinal))
+                {
+                    continue;
+                }
+
+                ArenaScoreboardActor actor = SnapshotActor(player);
+                if (actor != null)
+                    opponents.Add(actor);
+            }
+
+            int epoch = match.Mode is RoundsMode rounds ? rounds.Round.Number : 1;
+            if (!match.Scoreboard.TrySynchronizeRoster(
+                    epoch,
+                    local,
+                    Array.Empty<ArenaScoreboardActor>(),
+                    opponents,
+                    out var problem))
+            {
+                NoteScoreboardProblem(problem);
+                return;
+            }
+
+            _lastScoreboardProblem = null;
+        }
+        catch (Exception ex)
+        {
+            NoteScoreboardProblem(ex.GetBaseException().Message);
+        }
+    }
+
+    internal static ArenaScoreboardActor SnapshotActor(IPlayer player, string stableId = null)
+    {
+        if (ReferenceEquals(player, null) || string.IsNullOrWhiteSpace(player.ProfileId))
+            return null;
+
+        return new ArenaScoreboardActor(
+            player.ProfileId,
+            Combat.RoleClassifier.DisplayName(player),
+            Combat.RoleClassifier.Label(player),
+            player.HealthController?.IsAlive == true,
+            stableId);
+    }
+
+    private static void NoteScoreboardProblem(string problem)
+    {
+        if (string.IsNullOrWhiteSpace(problem)
+            || string.Equals(problem, _lastScoreboardProblem, StringComparison.Ordinal))
+        {
+            return;
+        }
+
+        _lastScoreboardProblem = problem;
+        Plugin.ModLogger.LogWarning("Arena scoreboard roster stayed on its last valid snapshot: " + problem);
+    }
+
+    private static void OnLocalDied(Player player)
+    {
+        ArenaRewardCapture.NoticeLocalDeath(player);
+        Current?.ReportLocalDeath();
+    }
+
+    private static void OnLocalRespawned(Player player)
+    {
+        if (!Bots.ArenaTeamBoxRuntime.ReleasePlayerReservation(player))
+            return;
+        Areas.ArenaAreaRuntime.ReleasePlayerReservation(player);
+        Current?.ReportLocalRespawn(player);
+    }
+}

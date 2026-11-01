@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType><TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings><Nullable>disable</Nullable>
+    <PickupSource Condition="'$(PickupSource)' == ''">../../ArenaMode.Client/Pickups/ArenaWeaponPickup.cs</PickupSource>
+  </PropertyGroup>
+  <PropertyGroup><ExaminationSource Condition="'$(ExaminationSource)' == ''">../../ArenaMode.Client/Pickups/ArenaPickupExamination.cs</ExaminationSource></PropertyGroup>
+  <ItemGroup><Compile Remove="Native/**/*.cs;Definition/**/*.cs;artifacts/**/*.cs" /><Compile Include="$(PickupSource)" Link="Production/ArenaWeaponPickup.cs" /><Compile Include="$(ExaminationSource)" Link="Production/ArenaPickupExamination.cs" /></ItemGroup>
+</Project>

@@ -1,0 +1,278 @@
+[
+  [
+    "DOUBLE KILL",
+    "announcements/double_kill.ogg",
+    0,
+    53630
+  ],
+  [
+    "TRIPLE KILL",
+    "announcements/triple_kill.ogg",
+    53630,
+    112482
+  ],
+  [
+    "ULTRA KILL",
+    "announcements/multi_kill.ogg",
+    112482,
+    177396
+  ],
+  [
+    "MONSTER KILL",
+    "announcements/monster_kill.ogg",
+    177396,
+    247328
+  ],
+  [
+    "KILLING SPREE",
+    "announcements/killing_spree.ogg",
+    247328,
+    313271
+  ],
+  [
+    "RAMPAGE",
+    "announcements/rampage.ogg",
+    313271,
+    368142
+  ],
+  [
+    "DOMINATING",
+    "announcements/dominating.ogg",
+    368142,
+    423056
+  ],
+  [
+    "UNSTOPPABLE",
+    "announcements/unstoppable.ogg",
+    423056,
+    483511
+  ],
+  [
+    "GODLIKE",
+    "announcements/godlike.ogg",
+    483511,
+    535721
+  ],
+  [
+    "FIRST BLOOD",
+    "announcements/first_blood.ogg",
+    535721,
+    596299
+  ],
+  [
+    "HEADSHOT",
+    "announcements/headshot.ogg",
+    596299,
+    643741
+  ],
+  [
+    "PAYBACK",
+    "announcements/payback.ogg",
+    643741,
+    688332
+  ],
+  [
+    "LAST MAN STANDING",
+    "announcements/last_man_standing.ogg",
+    688332,
+    769085
+  ],
+  [
+    "ROUND START",
+    "announcements/round_start.ogg",
+    769085,
+    831324
+  ],
+  [
+    "ROUND WINNER",
+    "announcements/round_won.ogg",
+    831324,
+    891459
+  ],
+  [
+    "MISSION FAILED",
+    "announcements/round_lost.ogg",
+    891459,
+    948215
+  ],
+  [
+    "MISSION ACCOMPLISHED",
+    "announcements/match_won.ogg",
+    948215,
+    1009806
+  ],
+  [
+    "GAME OVER",
+    "announcements/match_lost.ogg",
+    1009806,
+    1064798
+  ],
+  [
+    "PREPARE TO FIGHT",
+    "announcements/prepare_to_fight.ogg",
+    1064798,
+    1129540
+  ],
+  [
+    "THREE",
+    "announcements/three.ogg",
+    1129540,
+    1171323
+  ],
+  [
+    "TWO",
+    "announcements/two.ogg",
+    1171323,
+    1207768
+  ],
+  [
+    "ONE",
+    "announcements/one.ogg",
+    1207768,
+    1245535
+  ],
+  [
+    "TAKEN THE LEAD",
+    "announcements/taken_the_lead.ogg",
+    1245535,
+    1303083
+  ],
+  [
+    "LOST THE LEAD",
+    "announcements/lost_the_lead.ogg",
+    1303083,
+    1365135
+  ],
+  [
+    "TIED FOR THE LEAD",
+    "announcements/tied_for_the_lead.ogg",
+    1365135,
+    1432214
+  ],
+  [
+    "ONE MINUTE REMAINING",
+    "announcements/one_minute_remaining.ogg",
+    1432214,
+    1506639
+  ],
+  [
+    "THIRTY SECONDS REMAINING",
+    "announcements/thirty_seconds_remaining.ogg",
+    1506639,
+    1586559
+  ],
+  [
+    "TEN SECONDS REMAINING",
+    "announcements/ten_seconds_remaining.ogg",
+    1586559,
+    1666247
+  ],
+  [
+    "FIVE KILLS REMAINING",
+    "announcements/five_kills_remaining.ogg",
+    1666247,
+    1744630
+  ],
+  [
+    "ONE KILL REMAINING",
+    "announcements/one_kill_remaining.ogg",
+    1744630,
+    1822506
+  ],
+  [
+    "MATCH POINT",
+    "announcements/match_point.ogg",
+    1822506,
+    1878498
+  ],
+  [
+    "FINAL ROUND",
+    "announcements/final_round.ogg",
+    1878498,
+    1937681
+  ],
+  [
+    "FINAL WEAPON",
+    "announcements/final_weapon.ogg",
+    1937681,
+    1990274
+  ],
+  [
+    "LADDER COMPLETE",
+    "announcements/ladder_complete.ogg",
+    1990274,
+    2052417
+  ],
+  [
+    "DRAW",
+    "announcements/draw.ogg",
+    2052417,
+    2087628
+  ],
+  [
+    "SHUTDOWN",
+    "announcements/shutdown.ogg",
+    2087628,
+    2137994
+  ],
+  [
+    "CLUTCH",
+    "announcements/clutch.ogg",
+    2137994,
+    2183194
+  ],
+  [
+    "ROUND WON",
+    "announcements/reserve/round_won.ogg",
+    2183194,
+    2254505
+  ],
+  [
+    "ROUND LOST",
+    "announcements/reserve/round_lost.ogg",
+    2254505,
+    2311866
+  ],
+  [
+    "VICTORY",
+    "announcements/reserve/victory.ogg",
+    2311866,
+    2357728
+  ],
+  [
+    "DEFEAT",
+    "announcements/reserve/defeat.ogg",
+    2357728,
+    2398513
+  ],
+  [
+    "YOUR FLAG HAS BEEN TAKEN",
+    "announcements/reserve/your_flag_has_been_taken.ogg",
+    2398513,
+    2485756
+  ],
+  [
+    "ENEMY FLAG TAKEN",
+    "announcements/reserve/enemy_flag_taken.ogg",
+    2485756,
+    2562333
+  ],
+  [
+    "FLAG DROPPED",
+    "announcements/reserve/flag_dropped.ogg",
+    2562333,
+    2618292
+  ],
+  [
+    "FLAG RETURNED",
+    "announcements/reserve/flag_returned.ogg",
+    2618292,
+    2684108
+  ],
+  [
+    "FLAG CAPTURED",
+    "announcements/reserve/flag_captured.ogg",
+    2684108,
+    2758982
+  ]
+]

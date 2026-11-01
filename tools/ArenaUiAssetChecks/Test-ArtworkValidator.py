@@ -1,0 +1,106 @@
+"""Negative controls for the real decoder/manifest audit; only writes ignored copies."""
+import argparse
+import binascii
+import hashlib
+import json
+from pathlib import Path
+import runpy
+import shutil
+import struct
+import zlib
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--output", type=Path, required=True)
+args = parser.parse_args()
+repo = Path(__file__).resolve().parents[2]
+output = args.output.resolve()
+if not output.is_relative_to((repo / "artifacts").resolve()):
+    raise ValueError("Negative controls must stay under ignored repository artifacts")
+audit = runpy.run_path(str(Path(__file__).with_name("Verify-Artwork.py")))
+validate, decode = audit["validate"], audit["decode_rgba"]
+
+
+def chunk(kind, data):
+    return struct.pack(">I", len(data)) + kind + data + struct.pack(">I", binascii.crc32(kind + data) & 0xffffffff)
+
+
+def encode(size, pixels):
+    width, height = size
+    rows = b"".join(b"\0" + pixels[y * width * 4:(y + 1) * width * 4] for y in range(height))
+    return (b"\x89PNG\r\n\x1a\n" + chunk(b"IHDR", struct.pack(">IIBBBBB", width, height, 8, 6, 0, 0, 0))
+            + chunk(b"IDAT", zlib.compress(rows)) + chunk(b"IEND", b""))
+
+
+def expect_failure(action, reason):
+    try:
+        action()
+    except ValueError as error:
+        if reason not in str(error):
+            raise AssertionError(f"Wrong rejection: {error}; expected {reason}") from error
+    else:
+        raise AssertionError("Invalid input accepted: " + reason)
+    print("Negative artwork control rejected: " + reason)
+
+
+source = repo / "ArenaMode.Client/Assets/Ui"
+validate(repo, source)
+size, pixels = decode((source / "kill.png").read_bytes())
+bad_crc = bytearray(encode(size, pixels))
+bad_crc[-1] ^= 1
+expect_failure(lambda: decode(bad_crc), "PNG CRC")
+expect_failure(lambda: decode(encode(size, pixels) + b"extra"), "PNG exact IEND")
+
+for name, reason in (("color", "tint-neutral white"), ("opaque", "transparent surroundings"),
+                     ("hash", "manifest hash"), ("source", "present repository source"),
+                     ("license", "complete MIT license"), ("duplicate", "exact manifest asset set"),
+                     ("weapon-white", "shaded weapon render"), ("weapon-border", "transparent border"),
+                     ("cc-license", "complete CC BY 3.0 license"),
+                     ("cc-mit", "exact licensed author and license"),
+                     ("cc-source", "exact licensed source identity"),
+                     ("cc-credit", "readable named attribution")):
+    folder = output / name
+    shutil.copytree(source, folder)
+    shutil.copyfile(repo / "ArenaMode.Client/Assets/ArenaMode/docs/licenses/CC-BY-3.0.txt", folder / "CC-BY-3.0.txt")
+    manifest_file = folder / "SOURCES.json"
+    manifest = json.loads(manifest_file.read_text(encoding="utf-8-sig"))
+    if name in ("color", "opaque"):
+        changed = bytearray(pixels)
+        if name == "color":
+            index = next(i for i in range(0, len(changed), 4) if changed[i + 3])
+            changed[index] = 0
+        else:
+            changed = bytearray(b"\xff\xff\xff\xff" * (size[0] * size[1]))
+        png = encode(size, changed)
+        (folder / "kill.png").write_bytes(png)
+        next(entry for entry in manifest["assets"] if entry["file"] == "kill.png")["sha256"] = hashlib.sha256(png).hexdigest()
+    elif name == "hash":
+        manifest["assets"][0]["sha256"] = "0" * 64
+    elif name == "source":
+        manifest["assets"][0]["sourceFile"] = "AGENTS.md"
+    elif name == "license":
+        (folder / "MIT-LICENSE.txt").write_text("MIT", encoding="utf-8")
+    elif name == "duplicate":
+        manifest["assets"][1] = manifest["assets"][0]
+    elif name == "cc-license":
+        (folder / "CC-BY-3.0.txt").write_text("CC BY 3.0", encoding="utf-8")
+    elif name == "cc-mit":
+        next(entry for entry in manifest["assets"] if entry["file"] == "headshot.png")["license"] = "MIT"
+    elif name == "cc-source":
+        next(entry for entry in manifest["assets"] if entry["file"] == "melee.png")["sourceURL"] = "https://game-icons.net/"
+    elif name == "cc-credit":
+        notice = folder / "NOTICE.md"
+        notice.write_text(notice.read_text(encoding="utf-8").replace("Bowie knife", "Knife"), encoding="utf-8")
+    elif name.startswith("weapon-"):
+        gun_size, gun_pixels = decode((source / "assault-rifle.png").read_bytes())
+        changed = bytearray(gun_pixels)
+        if name == "weapon-white":
+            for i in range(0, len(changed), 4):
+                changed[i:i+3] = b"\xff\xff\xff"
+        else:
+            changed[:4] = b"\x80\x80\x80\xff"
+        png = encode(gun_size, changed)
+        (folder / "assault-rifle.png").write_bytes(png)
+        next(entry for entry in manifest["assets"] if entry["file"] == "assault-rifle.png")["sha256"] = hashlib.sha256(png).hexdigest()
+    manifest_file.write_text(json.dumps(manifest), encoding="utf-8")
+    expect_failure(lambda: validate(repo, folder, folder / "CC-BY-3.0.txt"), reason)
+print("ARTWORK VALIDATOR CONTROLS PASSED (14 invalid inputs)")

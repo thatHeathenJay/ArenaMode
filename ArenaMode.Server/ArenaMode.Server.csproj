@@ -1,0 +1,74 @@
+<!-- Sdk.Web, not Sdk: the Blazor config page needs the Razor compiler and
+     the ASP.NET reference assemblies. OutputType stays Library - this is
+     still a mod the server loads, not a host that runs itself. -->
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <Import Project="..\Shared.props" />
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <RootNamespace>ArenaMode.Server</RootNamespace>
+    <AssemblyName>maschine-ArenaMode.Server</AssemblyName>
+    <Company>https://github.com/maschine34675/ArenaMode</Company>
+    <Authors>maschine</Authors>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <OutputType>Library</OutputType>
+    <LangVersion>latest</LangVersion>
+    <Version>0.4.1</Version>
+    <OutputPath>..\build\server\$(Configuration)\$(AssemblyName)\</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <SPTUserMods>$(SPTUserPath)\user\mods\</SPTUserMods>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\ArenaMode.Shared\ArenaMolotovItem.cs" Link="Shared\ArenaMolotovItem.cs" />
+    <Compile Include="..\ArenaMode.Shared\DeathmatchSelection.cs" Link="Shared\DeathmatchSelection.cs" />
+    <Compile Include="..\ArenaMode.Shared\Protocol.cs" Link="Shared\Protocol.cs" />
+    <Compile Include="..\ArenaMode.Shared\RewardWire.cs" Link="Shared\RewardWire.cs" />
+    <Compile Include="..\ArenaMode.Shared\TarkovaColaPolicy.cs" Link="Shared\TarkovaColaPolicy.cs" />
+    <Compile Include="..\ArenaMode.Shared\TarkovaColaResearchCatalog.cs" Link="Shared\TarkovaColaResearchCatalog.cs" />
+    <Compile Include="..\ArenaMode.Shared\ArenaDifficultyClock.cs" Link="Shared\ArenaDifficultyClock.cs" />
+    <Compile Include="..\ArenaMode.Shared\ClientSettingsModels.cs" Link="Shared\ClientSettingsModels.cs" />
+    <Compile Include="..\ArenaMode.Shared\ArenaBotSpawnPolicy.cs" Link="Shared\ArenaBotSpawnPolicy.cs" />
+    <Compile Include="..\ArenaMode.Shared\ArenaMapCatalog.cs" Link="Shared\ArenaMapCatalog.cs" />
+    <Compile Include="..\ArenaMode.Shared\ArenaAreaCatalog.cs" Link="Shared\ArenaAreaCatalog.cs" />
+    <Compile Include="..\ArenaMode.Shared\ArenaPopulationPolicy.cs" Link="Shared\ArenaPopulationPolicy.cs" />
+    <Compile Include="..\ArenaMode.Shared\ArenaParticipantPolicy.cs" Link="Shared\ArenaParticipantPolicy.cs" />
+    <Compile Include="..\ArenaMode.Shared\ArenaEquatorTeamSpawns.cs" Link="Shared\ArenaEquatorTeamSpawns.cs" />
+    <Compile Include="..\ArenaMode.Shared\ArenaTeamBoxCatalog.cs" Link="Shared\ArenaTeamBoxCatalog.cs" />
+    <Compile Include="..\ArenaMode.Shared\PitFireTeamVersions.cs" Link="Shared\PitFireTeamVersions.cs" />
+    <Compile Include="..\ArenaMode.Shared\Session\ArenaMiniJson.cs" Link="Shared\Session\ArenaMiniJson.cs" />
+    <Compile Include="..\ArenaMode.Shared\Session\ArenaWhitelistPolicy.cs" Link="Shared\Session\ArenaWhitelistPolicy.cs" />
+    <Compile Include="..\ArenaMode.Shared\Session\ArenaWhitelistDecision.cs" Link="Shared\Session\ArenaWhitelistDecision.cs" />
+    <Compile Include="..\ArenaMode.Shared\Session\ArenaSessionContract.cs" Link="Shared\Session\ArenaSessionContract.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SPTarkov.Common" Version="4.1.0" ExcludeAssets="runtime" />
+    <PackageReference Include="SPTarkov.DI" Version="4.1.0" ExcludeAssets="runtime" />
+    <PackageReference Include="SPTarkov.Server.Core" Version="4.1.0" ExcludeAssets="runtime" />
+    <PackageReference Include="SPTarkov.Reflection" Version="4.1.0" ExcludeAssets="runtime" />
+    <PackageReference Include="SPTarkov.Server.Web" Version="4.1.0" ExcludeAssets="runtime" />
+  </ItemGroup>
+
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <DebugType>None</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+    <GenerateDependencyFile>false</GenerateDependencyFile>
+    <StaticWebAssetsEnabled>false</StaticWebAssetsEnabled>
+  </PropertyGroup>
+
+  <Target Name="DeployToSpt" AfterTargets="Build" Condition="Exists('$(SPTUserMods)')">
+    <MakeDir Directories="$(SPTUserMods)ArenaMode\" />
+    <Copy SourceFiles="$(OutputPath)$(AssemblyName).dll" DestinationFolder="$(SPTUserMods)ArenaMode\" SkipUnchangedFiles="true" />
+    <!-- Default kit catalog: deployed once, user edits are never overwritten. -->
+    <MakeDir Directories="$(SPTUserMods)ArenaMode\config\" Condition="!Exists('$(SPTUserMods)ArenaMode\config\kits.json')" />
+    <Copy SourceFiles="defaults\kits.json" DestinationFolder="$(SPTUserMods)ArenaMode\config\" Condition="!Exists('$(SPTUserMods)ArenaMode\config\kits.json')" />
+    <Copy SourceFiles="defaults\ladder.json" DestinationFolder="$(SPTUserMods)ArenaMode\config\" Condition="!Exists('$(SPTUserMods)ArenaMode\config\ladder.json')" />
+  </Target>
+
+</Project>
