@@ -225,6 +225,12 @@ public sealed class ArenaRewardStartup(
         return head + " and rewards were enrolled again. Your rewards setting was kept.";
     }
 
+    // Early callbacks reviewed to never touch profiles (database-only work), so they may share the window.
+    private static readonly HashSet<string?> ReviewedEarlyCallbacks = new()
+    {
+        "MapVariants.Server.Variants.VariantSnapshot", // SPT-MapVariants 1.0.3: database pristine snapshot
+    };
+
     internal static string? GetAdmissionFailure(Version? version, string? entryName, string root, string applicationRoot,
         int loadedProfiles, IEnumerable<StartupCallback> callbacks, bool conflictingServer)
     {
@@ -237,7 +243,8 @@ public sealed class ArenaRewardStartup(
         if (loadedProfiles != 0) return "native-profiles-already-loaded";
         if (conflictingServer) return "another-server-or-unknown-process";
         if (callbacks.Any(c => c.Contract == typeof(IOnLoad) && c.Priority is >= OnLoadOrder.Watermark and <= OnLoadOrder.Watermark + 1
-                               && c.Parent != typeof(ArenaRewardStartup) && c.Parent != typeof(Watermark)))
+                               && c.Parent != typeof(ArenaRewardStartup) && c.Parent != typeof(Watermark)
+                               && !ReviewedEarlyCallbacks.Contains(c.Parent.FullName)))
             return "earlier-startup-callback";
         return null;
     }
