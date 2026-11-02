@@ -18,13 +18,15 @@ $data = Join-Path $Arena 'EscapeFromTarkovArena_Data'
 if (-not (Test-Path $ripper)) { throw "AssetRipper not found at $ripper" }
 if (-not (Test-Path "$data\resources.assets")) { throw "Arena data not found under $data (install not finished?)" }
 
-# Settings: PNG sprites + YAML prefabs, scripts at structure level only (IL2CPP, fields needed for TMP/layout).
+# Settings: AssetRipper's JSON uses numeric enums. Defaults already give PNG images, YAML sprites and prefabs,
+# hybrid scripts and dummy shaders; the one thing to force is StreamingAssetsMode = 0 (Ignore) so the 6,000
+# map/item bundles next to the loaded files are not pulled in.
 $settings = @{
-    Import = @{ ScriptContentLevel = 'Level2'; StreamingAssetsMode = 'Ignore' }
-    Processing = @{ EnablePrefabOutlining = $false; EnableStaticMeshSeparation = $false; BundledAssetsExportMode = 'DirectExport' }
-    Export = @{ ImageExportFormat = 'Png'; SpriteExportMode = 'Yaml'; ScriptExportMode = 'Hybrid'; ShaderExportMode = 'Dummy'; TextExportMode = 'Parse'; SaveSettingsToDisk = $true }
+    Import = @{ StreamingAssetsMode = 0 }
+    Processing = @{ EnableStaticMeshSeparation = $false }
+    Export = @{ SaveSettingsToDisk = $true }
 }
-$settings | ConvertTo-Json -Depth 4 | Set-Content -Encoding utf8 (Join-Path (Split-Path $ripper) 'AssetRipper.Settings.json')
+$settings | ConvertTo-Json -Depth 4 | Set-Content -Encoding ascii (Join-Path (Split-Path $ripper) 'AssetRipper.Settings.json')
 
 # Files to load: the serialized files that hold the menu UI. Their .resS/.resource companions are picked up automatically.
 $files = @('globalgamemanagers', 'globalgamemanagers.assets', 'resources.assets', 'sharedassets0.assets', 'level0', 'level1', 'sharedassets1.assets') |
