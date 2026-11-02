@@ -1,0 +1,53 @@
+{
+ "schema": 1,
+ "source": "BSG patch notes 0.2.0.0, 0.2.5.0, 0.3.3.0, 0.3.4.0, 0.3.4.1, 0.4.2.5, 0.5.0 (per-bar limits removed), 0.6.1.0; tarkovbot.eu/arena/metascore (band 7500-10000, 2026)",
+ "band": { "min": 7500, "max": 10000 },
+ "barLimits": { "firepower": [0, 10000], "defense": [0, 10000], "utility": [0, 10000] },
+ "presetSlotsPerClass": 3,
+ "classes": {
+  "assault": {
+   "label": "Assault",
+   "weaponClasses": ["assaultRifle", "assaultCarbine", "shotgun"],
+   "armor": { "rule": "no-neck-protection", "note": "0.4.2.5: all armor vests and armored rigs that don't protect the neck area", "maxClass": 6 },
+   "helmets": { "maxClass": 4, "attachmentsMaxClass": 3, "note": "0.3.4.1: ear/face attachments up to class 3; 0.3.4.0: no helmet armor attachments otherwise" },
+   "ammo": { "unlockNotes": "0.2.5.0: 5.45x39 BP, 7.62x39 BP" },
+   "denied": { "note": "0.3.4.0: extended magazines for specific weapons, assault scopes; 0.3.3.0: Lancer L7AWM 25-round", "tpl": [] }
+  },
+  "enforcer": {
+   "label": "Enforcer",
+   "weaponClasses": ["shotgun", "machinegun", "smg", "assaultRifle"],
+   "weaponNote": "0.3.4.0 removed the 0.3.3 assault rifles/SMGs again; keep shotguns + LMGs as the core, SMG/AR entries only via explicit allow list",
+   "armor": { "rule": "minimal-mobility-penalty", "note": "0.4.2.5: all armor vests and armored rigs that apply minimal mobility penalties; class 5+ heavy armor is this class's feature", "maxClass": 6 },
+   "helmets": { "maxClass": 6, "faceShields": true, "note": "0.3.3.0 removed Maska-1SCh and Vulkan-5 shield; 0.3.4.1 Galvion Caiman added" },
+   "lasers": { "note": "0.3.4.1: lasers for all weapons except machine guns, Saiga-12, Saiga-12 FA" },
+   "denied": { "note": "0.3.3.0: MD Arms 20-round magazine, 12/70 Flechette; eTG-change", "tpl": [] }
+  },
+  "scout": {
+   "label": "Scout",
+   "weaponClasses": ["smg", "assaultCarbine", "shotgun"],
+   "weaponNote": "0.3.4.0: SMGs, assault carbines, pump-action shotguns only (semi-auto shotguns excluded)",
+   "armor": { "rule": "no-groin-or-stomach-protection", "note": "0.4.2.5: all armor vests and armored rigs that don't protect the groin and/or stomach; 0.3.4.0 gave class 5 armor", "maxClass": 5 },
+   "helmets": { "maxClass": 4, "note": "0.3.4.0: class 4 helmets; 0.3.4.1 Galvion Caiman attachments removed" },
+   "optics": { "maxZoom": 1, "note": "no optics beyond 1x" },
+   "ammo": { "unlockNotes": "0.2.5.0: 5.45x39 BS, 4.6x30 AP SX; best ammo access" },
+   "denied": { "tpl": [] }
+  },
+  "marksman": {
+   "label": "Marksman",
+   "weaponClasses": ["sniperRifle", "marksmanRifle", "assaultCarbine", "smg"],
+   "weaponNote": "0.3.4.0: assault carbine, DMR, bolt action, SMG",
+   "armor": { "rule": "no-additional-armor-elements", "note": "0.4.2.5: all armor vests and armored rigs without additional armor elements; 0.3.4.0 removed class 4 armor/helmets; 0.3.4.1 class 4 plates", "maxClass": 4 },
+   "helmets": { "maxClass": 3 },
+   "optics": { "maxZoom": 99, "note": "all scopes" },
+   "ammo": { "unlockNotes": "0.2.5.0: 5.45x39 7N39, 7.62x39 MAI AP, .338 LM AP; 0.3.4.0 armor-piercing ammo" },
+   "denied": { "note": "0.3.3.0: 7.62x39 30-round magazines", "tpl": [] }
+  }
+ },
+ "universal": { "note": "meds, grenades, headsets, backpacks (none in arena), armbands are universal unless denied per class", "denied": { "etg-change": ["assault", "enforcer"] } },
+ "armorRules": {
+  "no-neck-protection": "reject if any armor collider/plate collider covers Neck",
+  "no-groin-or-stomach-protection": "reject if colliders cover Pelvis/Groin or Stomach (RibcageLow)",
+  "no-additional-armor-elements": "reject if the vest/rig has armor plate slots filled or built-in inserts beyond the base soft armor",
+  "minimal-mobility-penalty": "reject if speedPenaltyPercent < -8 or mousePenalty < -4 (knob)"
+ }
+}
