@@ -1,0 +1,124 @@
+table,name,mp,classes,unlock,rub,gp
+AR,Custom Guns NL545 (DI),3286,Assault,AK-12 Lv7,,250
+AR,Custom Guns NL545 (GP),3906,Assault,HK 416A5 Lv10,,250
+AR,Kalashnikov AK-12,2728,Assault,AK-74M Lv10,,80
+AR,Kalashnikov AK-74M,1552,Assault,AK-74N Lv10,600000,
+AR,Kalashnikov AK-74N,1369,Assault,initial,,
+AR,Kalashnikov AK-101,1531,Assault,Gladiator Life - Part 10,,
+AR,Kalashnikov AK-102,1531,Assault,AK-101 Lv10,325000,
+AR,Kalashnikov AK-103,1717,Assault,AKMN Lv10,600000,
+AR,Kalashnikov AK-104,1773,Assault,AKMSN Lv10,500000,
+AR,Kalashnikov AK-105,1605,Assault,AKS-74UN Lv10,480000,
+AR,Kalashnikov AK-308,3363,Assault,Character Lv20,800000,
+AR,Kalashnikov AKMN,1343,Assault,3 daily,800000,
+AR,Kalashnikov AKMSN,1254,Assault,Gladiator Life - Part 1,,
+AR,Kalashnikov AKS-74UN,1543,Assault,initial,,
+AR,ASh-12,4799,Assault,Character Lv17 + Ref LL2,,90
+AR,AS VAL,3713,Assault,Character Lv20,,2LEGA
+AR,Steyr AUG A3 (Black),3093,Assault,Ref LL2,650000,
+AR,HK G36,3330,Assault,initial,650000,
+AR,Colt M16A1,2414,Assault,initial,,
+AR,HK 416A5,3283,Assault,G36 Lv10,,2LEGA
+AR,Colt M4A1,2119,Assault,Character Lv30 + M16A1 Lv10,,3LEGA
+AR,Radian Weapons Model 1 FA,5202,Assault,BP S1 L100,,20BP
+AR,SIG MCX .300 Blackout,4054,Assault,Character Lv30 + MPX Lv15,1500000,
+AR,SIG MCX SPEAR 6.8,4133,Assault,MCX Lv15 + Character Lv35,,2LEGA
+AR,Desert Tech MDR 5.56,2168,Assault,initial,350000,
+AR,Desert Tech MDR 7.62,1876,Assault,Character Lv20 + MDR Lv8,,100
+AR,FN SCAR-L,2295,Assault,initial,,
+AR,FN SCAR-H,3036,Assault,Mk 16 Lv10 + Character Lv25,,
+AR,FN SCAR-H X-17,2812,Assault,Character Lv30 + Mk 17 Lv10,,2LEGA
+AR,CMMG Mk47 Mutant,2745,Assault,AK-103 Lv10,1000000,
+AR,Rifle Dynamics RD-704,2826,Assault,AK-104 Lv8,,145
+AR,DS Arms SA-58,2935,Assault,initial,250000,
+AR,Aklys Defense Velociraptor,3374,Assault,initial,,105
+AR,Kalashnikov AKS-74N,1907,Assault,initial,,
+AR,Steyr AUG A1,?,Assault,initial,,
+SMG,HK MP5 9x19 (Navy 3RB),2006,Scout,initial,,
+SMG,HK MP7A1 4.6x30,3548,Scout,5 daily + Lv15,,75
+SMG,HK MP7A2 4.6x30,3548,Scout,MP7A1 Lv3,900000,
+SMG,B&T MP9 9x19,1669,Scout,All for Show - Death Above,,
+SMG,B&T MP9-N 9x19,2884,Scout,MP9 Lv3,,60
+SMG,SIG MPX 9x19,1504,Scout,Gladiator Life - Part 4,,
+SMG,FN P90 5.7x28,2763,Scout,initial,,40
+SMG,FN P90 Scourge 5.7x28,3148,Scout,BP S3 L100,,
+SMG,PP-19-01 Vityaz 9x19,1821,Scout/Marksman,initial,,
+SMG,PP-9 Klin 9x18PMM,2516,Scout/Marksman,,200000,
+SMG,PP-91-01 Kedr-B 9x18PM,2418,Scout/Marksman,PP-9 Klin Lv2,175000,
+SMG,PPSh-41 7.62x25,3090.5,Assault/Scout,initial,,
+SMG,SR-2M Veresk 9x21,2880,Scout,initial,650000,
+SMG,HK UMP .45 ACP,1090,Scout/Marksman,,350000,
+SMG,IWI UZI PRO 9x19,2374,Scout,initial,800000,
+SMG,TDI KRISS Vector 9x19,3033,Scout,7 daily + Lv22,1000000,
+SMG,TDI KRISS Vector .45 ACP,2842,Scout,Vector 9x19 Lv4,1500000,
+Shotgun,Mossberg 590A1 12ga,2169,Scout,initial,,
+Shotgun,MPS AA-12 Gen 2,1692,Enforcer,All for Show - Soldier,,
+Shotgun,TOZ KS-23M 23x75mm,3949,Scout,Achievement 1000 kills,1000000,
+Shotgun,Benelli M3 Super 90,2162,Enforcer/Scout,initial,,
+Shotgun,Remington M870 12ga,1707,Scout,3 daily,500000,
+Shotgun,MP-133 12ga,1930,Scout,initial,,
+Shotgun,MP-153 12ga,1851,Enforcer,initial,250000,
+Shotgun,MP-155 12ga,1287,Enforcer,MP-153 Lv6,,40
+Shotgun,Saiga-12K 12ga,2145,Enforcer,Lv10,,75
+Shotgun,Saiga-12K FA,3478,Enforcer,Achievement + Lv5,,1LEGA
+Shotgun,Saiga-12 FA RL,3089,Enforcer,BP S2 L100,,21BP
+Shotgun,MP-43 sawed-off,164,All,initial,,
+Carbine,AS VAL MOD.4 9x39,4466,Assault,Assault Carbine Expert,2050000,
+Carbine,9A-91 9x39,2734,Scout,initial,,
+Carbine,AK-545 5.45x39,3308,Marksman,initial,250000,
+Carbine,SVT-40 7.62x54R,4789,Marksman,initial,250000,
+Carbine,AVT-40 7.62x54R,5009,Marksman,SVT-40 Lv5,550000,
+Carbine,RFB 7.62x51,3791,Marksman,initial,300000,
+Carbine,OP-SKS 7.62x39,3838,Marksman,initial,,
+Carbine,SR-3M 9x39,2100,Scout,Lv30 + SR-2M Lv6,,
+Carbine,TX-15 DML 5.56x45,3469,Marksman,Mk 12 SPR Lv8,,
+Carbine,VPO-101 7.62x51,2303,Marksman,initial,,
+Carbine,VPO-209 .366 TKM,1728,Marksman,initial,,
+Carbine,VSK-94 9x39,3591,Assault,initial,,
+DMR,AK-50 .50 BMG,3981,Marksman,multiple masteries,,250
+DMR,Mk-18 Mjolnir .338 LM,4107,Marksman,Marksman Rifle Expert,3000000,
+DMR,TKPD 9.3x64,4568,Marksman,SVDS Lv9,,3LEGA
+DMR,G28 7.62x51,3822,Marksman,Lv10 + 2 daily,,80
+DMR,M1A 7.62x51,1857,Marksman,initial,,
+DMR,RSASS 7.62x51,4365,Marksman,Marksman Rifle Master,900000,
+DMR,SR-25 7.62x51,3128,Marksman,M16A1 Lv8,,70
+DMR,SR-25 Taupe 7.62x51,4743,Marksman,SR-25 Lv8,,1LEGA
+DMR,SVDS 7.62x54R,3411,Marksman,initial,,90
+DMR,VSS Vintorez 9x39,4283,Assault,Lv20 + 8 daily,,2LEGA
+DMR,Mk 12 SPR 5.56x45,3293,Marksman,initial,650000,
+Sniper,AXMC .338 LM,3297,Marksman,Lv15,,80
+Sniper,DVL-10 7.62x51,2775,Marksman,Lv12 + 8 daily,,2LEGA
+Sniper,M700 7.62x51,1587,Marksman,initial,400000,
+Sniper,Mosin Sniper 7.62x54R,1426,Marksman,initial,,
+Sniper,Sako TRG M10 .338 LM,2155,Marksman,Lv25,,1LEGA
+Sniper,SV-98 7.62x54R,541,Marksman,Gladiator Life - Part 3,,
+Sniper,T-5000M 7.62x51,2648,Marksman,Lv10,,50
+Sniper,VPO-215 .366 TKM,1017,Marksman,initial,,
+MG,M60E6 7.62x51,1640,Enforcer,initial,400000,
+MG,PKP 7.62x54R,1851,Enforcer,initial,,80
+MG,RPDN 7.62x39,1532,Enforcer,initial,,
+MG,RPK-16 5.45x39,2295,Assault,Gladiator Life - Part 2,,
+MG,Mk 43 Mod 1 7.62x51,2101,Marksman,initial,,
+Pistol,M1911A1 .45 ACP,272,All,initial,100000,
+Pistol,M45A1 .45 ACP,376,All,M1911A1 Lv5,,
+Pistol,APB 9x18PM,873,Marksman,APS Lv2,80000,
+Pistol,APS 9x18PM,324,All,initial,150000,
+Pistol,CR 50DS .357,100,All,initial,120000,
+Pistol,Desert Eagle L5 .357,362,All,initial,,15
+Pistol,Desert Eagle Mk XIX .50AE,632,All,Desert Eagle L6 Lv2,120000,
+Pistol,Desert Eagle L6 .50 AE,393,All,Gladiator Life - Part 5,,
+Pistol,Desert Eagle L6 WTS .50 AE,657,All,Desert Eagle L6 Lv3,,1LEGA
+Pistol,FN Five-seveN MK2 5.7x28,525,All,initial,180000,
+Pistol,FN Five-seveN FDE 5.7x28,709,All,P90 Lv6,300000,
+Pistol,Glock 17 9x19,658,All,initial,,
+Pistol,Glock 18C 9x19,3108,All,Glock 17 Lv10,120000,
+Pistol,M9A3 9x19,259,All,initial,,
+Pistol,MP-443 Grach 9x19,145,All,initial,,
+Pistol,P226R 9x19,382,All,initial,120000,
+Pistol,PL-15 9x19,926.8,All,initial,,
+Pistol,PB 9x18PM,657,All,PM Lv3,80000,
+Pistol,PM (t) 9x18PM,357,All,initial,80000,
+Pistol,RSh-12 12.7x55,238,All,Jack of All Trades,,
+Pistol,SR-1MP 9x21,123,All,SR-2M Lv4,120000,
+Pistol,TT-33 7.62x25,190,All,,40000,
+Pistol,USP .45 ACP,464,All,UMP 45 Lv5,250000,

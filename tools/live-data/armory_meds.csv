@@ -1,0 +1,26 @@
+table,name,mp,classes,unlock,rub,gp
+Medkit,AFAK,446,All,,,
+Medkit,Salewa,382,All,,,
+Medkit,IFAK,327,All,initial,,
+Medkit,Car first aid kit,204,All,,,
+Medkit,AI-2,80,All,initial,,
+Treatment,CALOK-B,181,All,initial,,
+Treatment,Aluminum splint,67,All,,,
+Treatment,CAT tourniquet,60,All,,,
+Treatment,Esmarch tourniquet,50,All,initial,,
+Treatment,Army bandage,49,All,,,
+Treatment,Aseptic bandage,25,All,initial,,
+Treatment,Immobilizing splint,17,All,initial,,
+Stim,Morphine,194,All,initial,,
+Stim,Trimadol,472,All,initial,200000,
+Stim,Propital,435,All,initial,200000,
+Stim,Adrenaline,191,All,initial,150000,
+Stim,AHF1-M,186,All,initial,150000,
+Stim,Meldonin,146,All,initial,150000,
+Stim,3-(b-TG),98,All,initial,150000,
+Stim,2A2-(b-TG),98,All,initial,150000,
+Stim,P22,0,All,initial,150000,
+Stim,eTG-change,546,Scout/Marksman,Lv15,,30
+Stim,Zagustin,420,All,3 daily / Lv12,,30
+Stim,SJ6,291,All,2 daily / Lv10,,25
+Stim,Perfotoran,256,All,1 daily / Lv8,250000,
