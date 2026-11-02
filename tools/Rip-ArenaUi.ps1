@@ -48,9 +48,12 @@ try {
     $body = ($files | ForEach-Object { 'Path=' + [uri]::EscapeDataString($_) }) -join '&'
     Invoke-WebRequest "$base/LoadFile" -Method Post -Body $body -ContentType 'application/x-www-form-urlencoded' -UseBasicParsing -TimeoutSec 7200 -MaximumRedirection 0 -ErrorAction SilentlyContinue | Out-Null
     Write-Host 'Loaded. Exporting Unity project (prefab YAML + PNG sprites)...'
-    $body = 'Path=' + [uri]::EscapeDataString((Resolve-Path $Out).Path)
+    # Export into an empty subfolder: AssetRipper refuses or wipes a non-empty export directory, and the logs live in $Out.
+    $project = Join-Path $Out 'project'
+    if (Test-Path $project) { Remove-Item -Recurse -Force $project }
+    $body = 'Path=' + [uri]::EscapeDataString($project)
     Invoke-WebRequest "$base/Export/UnityProject" -Method Post -Body $body -ContentType 'application/x-www-form-urlencoded' -UseBasicParsing -TimeoutSec 7200 -MaximumRedirection 0 -ErrorAction SilentlyContinue | Out-Null
-    Write-Host "Done. Output: $Out  (ExportedProject\Assets\...)"
+    Write-Host "Done. Output: $project  (ExportedProject\Assets\...)"
 } finally {
     if (-not $proc.HasExited) { Stop-Process -Id $proc.Id -Force }
 }
