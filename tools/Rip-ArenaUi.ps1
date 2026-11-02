@@ -29,10 +29,23 @@ $settings = @{
 }
 $settings | ConvertTo-Json -Depth 4 | Set-Content -Encoding ascii (Join-Path (Split-Path $ripper) 'AssetRipper.Settings.json')
 
-# Files to load: the serialized files that hold the menu UI. Their .resS/.resource companions are picked up automatically.
-$files = @('globalgamemanagers', 'globalgamemanagers.assets', 'resources.assets', 'sharedassets0.assets', 'level0', 'level1', 'sharedassets1.assets') |
-    ForEach-Object { Join-Path $data $_ } | Where-Object { Test-Path $_ }
-Write-Host "Loading $($files.Count) files from $data"
+# AssetRipper only recovers script layouts (uGUI Image/Text, TextMeshPro, layout groups, Arena screens) when it
+# sees a whole IL2CPP game: the exe, GameAssembly.dll and il2cpp_data next to the data folder. Loading single files
+# gives "Unknown scripting backend" and every MonoBehaviour loses its fields. So build a stub game folder of
+# hardlinks (no copy, same volume) holding only the UI data files, and load that folder.
+$stub = Join-Path (Split-Path $Out) 'arena-stub'
+if (Test-Path $stub) { Remove-Item -Recurse -Force $stub }
+New-Item -ItemType Directory -Force "$stub\EscapeFromTarkovArena_Data\il2cpp_data\Metadata" | Out-Null
+$stubFiles = @('EscapeFromTarkovArena.exe', 'GameAssembly.dll', 'UnityPlayer.dll', 'baselib.dll') +
+    (@('app.info', 'boot.config', 'ScriptingAssemblies.json', 'RuntimeInitializeOnLoads.json', 'globalgamemanagers', 'globalgamemanagers.assets',
+       'resources.assets', 'resources.assets.resS', 'resources.resource', 'sharedassets0.assets', 'level0', 'level1',
+       'sharedassets1.assets', 'sharedassets1.assets.resS', 'sharedassets1.resource', 'il2cpp_data\Metadata\global-metadata.dat') |
+       ForEach-Object { "EscapeFromTarkovArena_Data\$_" })
+foreach ($f in $stubFiles) {
+    $src = Join-Path $Arena $f
+    if (Test-Path $src) { New-Item -ItemType HardLink -Path (Join-Path $stub $f) -Target $src | Out-Null }
+}
+Write-Host "Stub game folder: $stub ($($stubFiles.Count) hardlinks)"
 
 New-Item -ItemType Directory -Force $Out | Out-Null
 $stdout = Join-Path $Out 'assetripper-stdout.txt'; $stderr = Join-Path $Out 'assetripper-stderr.txt'
@@ -47,9 +60,9 @@ try {
         throw "AssetRipper did not start (exit code $($proc.ExitCode)); see $stdout"
     }
 
-    # LoadFile accepts repeated Path form values. The call blocks until loading and processing finish, then redirects to the home page, which is followed harmlessly.
-    $body = ($files | ForEach-Object { 'Path=' + [uri]::EscapeDataString($_) }) -join '&'
-    Invoke-WebRequest "$base/LoadFile" -Method Post -Body $body -ContentType 'application/x-www-form-urlencoded' -UseBasicParsing -TimeoutSec 7200 -SkipHttpErrorCheck | Out-Null
+    # LoadFolder blocks until loading (incl. Cpp2IL on GameAssembly.dll, a few minutes) and processing finish, then redirects home.
+    $body = 'Path=' + [uri]::EscapeDataString($stub)
+    Invoke-WebRequest "$base/LoadFolder" -Method Post -Body $body -ContentType 'application/x-www-form-urlencoded' -UseBasicParsing -TimeoutSec 7200 -SkipHttpErrorCheck | Out-Null
     Write-Host 'Loaded. Exporting Unity project (prefab YAML + PNG sprites)...'
     # Export into an empty subfolder: AssetRipper refuses or wipes a non-empty export directory, and the logs live in $Out.
     $project = Join-Path $Out 'project'
