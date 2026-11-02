@@ -13,7 +13,7 @@ param(
     [int]$Port = 5577
 )
 $ErrorActionPreference = 'Stop'
-$ripper = Join-Path $PSScriptRoot '..\AssetRipper\AssetRipper.GUI.Free.exe'
+$ripper = 'C:\Games\SPT-4.1\Tools\AssetRipper\AssetRipper.GUI.Free.exe'
 $data = Join-Path $Arena 'EscapeFromTarkovArena_Data'
 if (-not (Test-Path $ripper)) { throw "AssetRipper not found at $ripper" }
 if (-not (Test-Path "$data\resources.assets")) { throw "Arena data not found under $data (install not finished?)" }
