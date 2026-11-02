@@ -1,0 +1,10115 @@
+{
+ "schema": 1,
+ "band": {
+  "min": 7500,
+  "max": 10000
+ },
+ "bars": {
+  "firepower": {
+   "base": 1632,
+   "share": 0.5
+  },
+  "defense": {
+   "base": 2040,
+   "share": 0.3
+  },
+  "utility": {
+   "base": 1101,
+   "share": 0.2
+  }
+ },
+ "items": {
+  "5447a9cd4bdc2dbd208b4567": {
+   "bar": "firepower",
+   "score": 902
+  },
+  "5448bd6b4bdc2dfc2f8b4569": {
+   "bar": "firepower",
+   "score": 320
+  },
+  "5448be9a4bdc2dfd2f8b456a": {
+   "bar": "utility",
+   "score": 119
+  },
+  "5448c12b4bdc2d02308b456f": {
+   "bar": "firepower",
+   "score": 17
+  },
+  "5448c1d04bdc2dff2f8b4569": {
+   "bar": "firepower",
+   "score": 49
+  },
+  "54490a4d4bdc2dbc018b4573": {
+   "bar": "firepower",
+   "score": 20
+  },
+  "54491c4f4bdc2db1078b4568": {
+   "bar": "firepower",
+   "score": 366
+  },
+  "544a378f4bdc2d30388b4567": {
+   "bar": "firepower",
+   "score": 83
+  },
+  "544a37c44bdc2d25388b4567": {
+   "bar": "firepower",
+   "score": 116
+  },
+  "544a38634bdc2d58388b4568": {
+   "bar": "firepower",
+   "score": 139
+  },
+  "544a5caa4bdc2d1a388b4568": {
+   "bar": "defense",
+   "score": 5
+  },
+  "544a5cde4bdc2d39388b456b": {
+   "bar": "utility",
+   "score": 36
+  },
+  "544fb25a4bdc2dfb738b4567": {
+   "bar": "utility",
+   "score": 82
+  },
+  "544fb3364bdc2d34748b456a": {
+   "bar": "utility",
+   "score": 97
+  },
+  "544fb37f4bdc2dee738b4567": {
+   "bar": "utility",
+   "score": 69
+  },
+  "544fb3f34bdc2d03748b456a": {
+   "bar": "utility",
+   "score": 90
+  },
+  "544fb45d4bdc2dee738b4568": {
+   "bar": "utility",
+   "score": 399
+  },
+  "54527a984bdc2d4e668b4567": {
+   "bar": "firepower",
+   "score": 451
+  },
+  "54527ac44bdc2d36668b4567": {
+   "bar": "firepower",
+   "score": 587
+  },
+  "545cdae64bdc2d39198b4568": {
+   "bar": "utility",
+   "score": 67
+  },
+  "545cdb794bdc2d3a198b456a": {
+   "bar": "defense",
+   "score": 0
+  },
+  "5580169d4bdc2d9d138b4585": {
+   "bar": "firepower",
+   "score": 128
+  },
+  "55801eed4bdc2d89578b4588": {
+   "bar": "firepower",
+   "score": 475
+  },
+  "5580223e4bdc2d1c128b457f": {
+   "bar": "firepower",
+   "score": 504
+  },
+  "558022b54bdc2dac148b458d": {
+   "bar": "firepower",
+   "score": 85
+  },
+  "55802d5f4bdc2dac148b458e": {
+   "bar": "firepower",
+   "score": 65
+  },
+  "55802f5d4bdc2dac148b458f": {
+   "bar": "firepower",
+   "score": 28
+  },
+  "558032614bdc2de7118b4585": {
+   "bar": "firepower",
+   "score": 43
+  },
+  "559ba5b34bdc2d1f1a8b4582": {
+   "bar": "firepower",
+   "score": 18
+  },
+  "55d355e64bdc2d962f8b4569": {
+   "bar": "firepower",
+   "score": 43
+  },
+  "55d35ee94bdc2d61338b4568": {
+   "bar": "firepower",
+   "score": 37
+  },
+  "55d3632e4bdc2d972f8b4569": {
+   "bar": "firepower",
+   "score": 45
+  },
+  "55d447bb4bdc2d892f8b456f": {
+   "bar": "firepower",
+   "score": 315
+  },
+  "55d448594bdc2d8c2f8b4569": {
+   "bar": "firepower",
+   "score": 94
+  },
+  "55d4491a4bdc2d882f8b456e": {
+   "bar": "firepower",
+   "score": 71
+  },
+  "55d449444bdc2d962f8b456d": {
+   "bar": "firepower",
+   "score": 97
+  },
+  "55d459824bdc2d892f8b4573": {
+   "bar": "firepower",
+   "score": 3
+  },
+  "55d45d3f4bdc2d972f8b456c": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "55d45f484bdc2d972f8b456d": {
+   "bar": "firepower",
+   "score": 40
+  },
+  "55d480c04bdc2d1d4e8b456a": {
+   "bar": "firepower",
+   "score": 65
+  },
+  "55d481904bdc2d8c2f8b456a": {
+   "bar": "firepower",
+   "score": 93
+  },
+  "55d482194bdc2d1d4e8b456b": {
+   "bar": "firepower",
+   "score": 118
+  },
+  "55d4837c4bdc2d1d4e8b456c": {
+   "bar": "firepower",
+   "score": 28
+  },
+  "55d484b44bdc2d1d4e8b456d": {
+   "bar": "firepower",
+   "score": 12
+  },
+  "55d485804bdc2d8c2f8b456b": {
+   "bar": "firepower",
+   "score": 16
+  },
+  "55d485be4bdc2d962f8b456f": {
+   "bar": "firepower",
+   "score": 116
+  },
+  "55d4887d4bdc2d962f8b4570": {
+   "bar": "firepower",
+   "score": 65
+  },
+  "55d4ae6c4bdc2d8b2f8b456e": {
+   "bar": "firepower",
+   "score": 551
+  },
+  "55d4b9964bdc2d1d4e8b456e": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "55d614004bdc2d86028b4568": {
+   "bar": "firepower",
+   "score": 125
+  },
+  "55d617094bdc2d89028b4568": {
+   "bar": "firepower",
+   "score": 20
+  },
+  "55d6190f4bdc2d87028b4567": {
+   "bar": "firepower",
+   "score": 122
+  },
+  "55f84c3c4bdc2d5f408b4576": {
+   "bar": "firepower",
+   "score": 6
+  },
+  "560835c74bdc2dc8488b456f": {
+   "bar": "firepower",
+   "score": 77
+  },
+  "560836484bdc2d20478b456e": {
+   "bar": "firepower",
+   "score": 82
+  },
+  "560836b64bdc2d57468b4567": {
+   "bar": "firepower",
+   "score": 85
+  },
+  "560836fb4bdc2d773f8b4569": {
+   "bar": "firepower",
+   "score": 136
+  },
+  "560837154bdc2da74d8b4568": {
+   "bar": "firepower",
+   "score": 142
+  },
+  "5608373c4bdc2dc8488b4570": {
+   "bar": "firepower",
+   "score": 219
+  },
+  "560837544bdc2de22e8b456e": {
+   "bar": "firepower",
+   "score": 221
+  },
+  "560837824bdc2d57468b4568": {
+   "bar": "firepower",
+   "score": 230
+  },
+  "5608379a4bdc2d26448b4569": {
+   "bar": "firepower",
+   "score": 236
+  },
+  "560838c94bdc2d77798b4569": {
+   "bar": "firepower",
+   "score": 182
+  },
+  "56083a334bdc2dc8488b4571": {
+   "bar": "firepower",
+   "score": 202
+  },
+  "56083be64bdc2d20478b456f": {
+   "bar": "firepower",
+   "score": 698
+  },
+  "56083cba4bdc2de22e8b456f": {
+   "bar": "firepower",
+   "score": 698
+  },
+  "56083eab4bdc2d26448b456a": {
+   "bar": "firepower",
+   "score": 6
+  },
+  "560d5e524bdc2d25448b4571": {
+   "bar": "firepower",
+   "score": 367
+  },
+  "560d61e84bdc2da74d8b4571": {
+   "bar": "firepower",
+   "score": 860
+  },
+  "560e620e4bdc2d724b8b456b": {
+   "bar": "firepower",
+   "score": 139
+  },
+  "5644bd2b4bdc2d3b4c8b4572": {
+   "bar": "firepower",
+   "score": 867
+  },
+  "5645bcc04bdc2d363b8b4572": {
+   "bar": "utility",
+   "score": 149
+  },
+  "5648a69d4bdc2ded0b8b457b": {
+   "bar": "utility",
+   "score": 149
+  },
+  "5648a7494bdc2d9d488b4583": {
+   "bar": "defense",
+   "score": 0
+  },
+  "5648ac824bdc2ded0b8b457d": {
+   "bar": "firepower",
+   "score": 3
+  },
+  "5648ae314bdc2d3d1c8b457f": {
+   "bar": "firepower",
+   "score": 77
+  },
+  "5648b0744bdc2d363b8b4578": {
+   "bar": "firepower",
+   "score": 11
+  },
+  "5648b1504bdc2d9d488b4584": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "5648b4534bdc2d3d1c8b4580": {
+   "bar": "firepower",
+   "score": 82
+  },
+  "5648b62b4bdc2d9d488b4585": {
+   "bar": "firepower",
+   "score": 136
+  },
+  "5649aa744bdc2ded0b8b457e": {
+   "bar": "firepower",
+   "score": 193
+  },
+  "5649ab884bdc2ded0b8b457f": {
+   "bar": "firepower",
+   "score": 250
+  },
+  "5649ad3f4bdc2df8348b4585": {
+   "bar": "firepower",
+   "score": 17
+  },
+  "5649ade84bdc2d1b2b8b4587": {
+   "bar": "firepower",
+   "score": 17
+  },
+  "5649ae4a4bdc2d1b2b8b4588": {
+   "bar": "firepower",
+   "score": 34
+  },
+  "5649af094bdc2df8348b4586": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "5649af884bdc2d1b2b8b4589": {
+   "bar": "firepower",
+   "score": 62
+  },
+  "5649b0fc4bdc2d17108b4588": {
+   "bar": "firepower",
+   "score": 639
+  },
+  "5649b1c04bdc2d16268b457c": {
+   "bar": "firepower",
+   "score": 633
+  },
+  "5649b2314bdc2d79388b4576": {
+   "bar": "firepower",
+   "score": 26
+  },
+  "5649be884bdc2d79388b4577": {
+   "bar": "firepower",
+   "score": 28
+  },
+  "564ca99c4bdc2d16268b4589": {
+   "bar": "firepower",
+   "score": 65
+  },
+  "564ca9df4bdc2d35148b4569": {
+   "bar": "firepower",
+   "score": 94
+  },
+  "564caa3d4bdc2d17108b458e": {
+   "bar": "firepower",
+   "score": 128
+  },
+  "5656d7c34bdc2d9d198b4587": {
+   "bar": "firepower",
+   "score": 521
+  },
+  "56d59856d2720bd8418b456a": {
+   "bar": "firepower",
+   "score": 306
+  },
+  "56d59948d2720bb7418b4582": {
+   "bar": "firepower",
+   "score": 33
+  },
+  "56d59d3ad2720bdb418b4577": {
+   "bar": "firepower",
+   "score": 334
+  },
+  "56d5a1f7d2720bb3418b456a": {
+   "bar": "firepower",
+   "score": 71
+  },
+  "56d5a2bbd2720bb8418b456a": {
+   "bar": "firepower",
+   "score": 17
+  },
+  "56d5a407d2720bb3418b456b": {
+   "bar": "firepower",
+   "score": 9
+  },
+  "56dee2bdd2720bc8328b4567": {
+   "bar": "firepower",
+   "score": 372
+  },
+  "56deec93d2720bec348b4568": {
+   "bar": "firepower",
+   "score": 227
+  },
+  "56deed6ed2720b4c698b4583": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "56deee15d2720bee328b4567": {
+   "bar": "firepower",
+   "score": 10
+  },
+  "56deeefcd2720bc8328b4568": {
+   "bar": "firepower",
+   "score": 11
+  },
+  "56dfef82d2720bbd668b4567": {
+   "bar": "firepower",
+   "score": 594
+  },
+  "56dff026d2720bb8668b4567": {
+   "bar": "firepower",
+   "score": 693
+  },
+  "56dff061d2720bb5668b4567": {
+   "bar": "firepower",
+   "score": 520
+  },
+  "56dff0bed2720bb0668b4567": {
+   "bar": "firepower",
+   "score": 382
+  },
+  "56dff216d2720bbd668b4568": {
+   "bar": "firepower",
+   "score": 238
+  },
+  "56dff2ced2720bb4668b4567": {
+   "bar": "firepower",
+   "score": 482
+  },
+  "56dff338d2720bbd668b4569": {
+   "bar": "firepower",
+   "score": 279
+  },
+  "56dff3afd2720bba668b4567": {
+   "bar": "firepower",
+   "score": 427
+  },
+  "56dff421d2720b5f5a8b4567": {
+   "bar": "firepower",
+   "score": 303
+  },
+  "56dff4a2d2720bbd668b456a": {
+   "bar": "firepower",
+   "score": 346
+  },
+  "56dff4ecd2720b5f5a8b4568": {
+   "bar": "firepower",
+   "score": 322
+  },
+  "56e0598dd2720bb5668b45a6": {
+   "bar": "firepower",
+   "score": 314
+  },
+  "56e05a6ed2720bd0748b4567": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "56e05b06d2720bb2668b4586": {
+   "bar": "firepower",
+   "score": 168
+  },
+  "56e294cdd2720b603a8b4575": {
+   "bar": "utility",
+   "score": 672
+  },
+  "56e335e4d2720b6c058b456d": {
+   "bar": "utility",
+   "score": 45
+  },
+  "56e33634d2720bd8058b456b": {
+   "bar": "utility",
+   "score": 27
+  },
+  "56e33680d2720be2748b4576": {
+   "bar": "utility",
+   "score": 20
+  },
+  "56ea6fafd2720b844b8b4593": {
+   "bar": "firepower",
+   "score": 143
+  },
+  "56ea7165d2720b6e518b4583": {
+   "bar": "firepower",
+   "score": 3
+  },
+  "56ea8180d2720bf2698b456a": {
+   "bar": "firepower",
+   "score": 174
+  },
+  "56ea8d2fd2720b7c698b4570": {
+   "bar": "firepower",
+   "score": 57
+  },
+  "56eabcd4d2720b66698b4574": {
+   "bar": "firepower",
+   "score": 60
+  },
+  "56eabf3bd2720b75698b4569": {
+   "bar": "firepower",
+   "score": 619
+  },
+  "570fd6c2d2720bc6458b457f": {
+   "bar": "firepower",
+   "score": 84
+  },
+  "570fd721d2720bc5458b4596": {
+   "bar": "firepower",
+   "score": 82
+  },
+  "570fd79bd2720bc7458b4583": {
+   "bar": "firepower",
+   "score": 79
+  },
+  "5710c24ad2720bc3458b45a3": {
+   "bar": "utility",
+   "score": 119
+  },
+  "571659bb2459771fb2755a12": {
+   "bar": "firepower",
+   "score": 16
+  },
+  "571a12c42459771f627b58a0": {
+   "bar": "firepower",
+   "score": 224
+  },
+  "571a26d524597720680fbe8a": {
+   "bar": "firepower",
+   "score": 74
+  },
+  "571a279b24597720b4066566": {
+   "bar": "firepower",
+   "score": 78
+  },
+  "571a282c2459771fb2755a69": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "571a28e524597720b4066567": {
+   "bar": "firepower",
+   "score": 165
+  },
+  "571a29dc2459771fb2755a6a": {
+   "bar": "firepower",
+   "score": 17
+  },
+  "572b7adb24597762ae139821": {
+   "bar": "utility",
+   "score": 45
+  },
+  "5735fdcd2459776445391d61": {
+   "bar": "firepower",
+   "score": 258
+  },
+  "5735ff5c245977640e39ba7e": {
+   "bar": "firepower",
+   "score": 248
+  },
+  "573601b42459776410737435": {
+   "bar": "firepower",
+   "score": 223
+  },
+  "573602322459776445391df1": {
+   "bar": "firepower",
+   "score": 215
+  },
+  "5736026a245977644601dc61": {
+   "bar": "firepower",
+   "score": 278
+  },
+  "573603562459776430731618": {
+   "bar": "firepower",
+   "score": 382
+  },
+  "573603c924597764442bd9cb": {
+   "bar": "firepower",
+   "score": 316
+  },
+  "573718ba2459775a75491131": {
+   "bar": "firepower",
+   "score": 306
+  },
+  "573719762459775a626ccbc1": {
+   "bar": "firepower",
+   "score": 154
+  },
+  "573719df2459775a626ccbc2": {
+   "bar": "firepower",
+   "score": 388
+  },
+  "57371aab2459775a77142f22": {
+   "bar": "firepower",
+   "score": 382
+  },
+  "57371b192459775a9f58a5e0": {
+   "bar": "firepower",
+   "score": 192
+  },
+  "57371e4124597760ff7b25f1": {
+   "bar": "firepower",
+   "score": 207
+  },
+  "57371eb62459776125652ac1": {
+   "bar": "firepower",
+   "score": 178
+  },
+  "57371f2b24597761224311f1": {
+   "bar": "firepower",
+   "score": 173
+  },
+  "57371f8d24597761006c6a81": {
+   "bar": "firepower",
+   "score": 158
+  },
+  "5737201124597760fc4431f1": {
+   "bar": "firepower",
+   "score": 237
+  },
+  "5737207f24597760ff7b25f2": {
+   "bar": "firepower",
+   "score": 154
+  },
+  "573720e02459776143012541": {
+   "bar": "firepower",
+   "score": 273
+  },
+  "57372140245977611f70ee91": {
+   "bar": "firepower",
+   "score": 157
+  },
+  "5737218f245977612125ba51": {
+   "bar": "firepower",
+   "score": 127
+  },
+  "57486e672459770abd687134": {
+   "bar": "firepower",
+   "score": 79
+  },
+  "574d967124597745970e7c94": {
+   "bar": "firepower",
+   "score": 599
+  },
+  "574dad8024597745964bf05c": {
+   "bar": "firepower",
+   "score": 329
+  },
+  "5751a25924597722c463c472": {
+   "bar": "utility",
+   "score": 83
+  },
+  "5751a89d24597722aa0e8db0": {
+   "bar": "utility",
+   "score": 54
+  },
+  "5755356824597772cb798962": {
+   "bar": "utility",
+   "score": 119
+  },
+  "5755383e24597772cb798966": {
+   "bar": "utility",
+   "score": 46
+  },
+  "576165642459773c7a400233": {
+   "bar": "firepower",
+   "score": 359
+  },
+  "576167ab2459773cad038c43": {
+   "bar": "firepower",
+   "score": 3
+  },
+  "576169e62459773c69055191": {
+   "bar": "firepower",
+   "score": 26
+  },
+  "57616a9e2459773c7a400234": {
+   "bar": "firepower",
+   "score": 9
+  },
+  "57616c112459773cce774d66": {
+   "bar": "firepower",
+   "score": 6
+  },
+  "57616ca52459773c69055192": {
+   "bar": "firepower",
+   "score": 698
+  },
+  "576a581d2459771e7b1bc4f1": {
+   "bar": "firepower",
+   "score": 262
+  },
+  "576a5ed62459771e9c2096cb": {
+   "bar": "firepower",
+   "score": 40
+  },
+  "576a63cd2459771e796e0e11": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "57838ad32459774a17445cd2": {
+   "bar": "firepower",
+   "score": 976
+  },
+  "57838c962459774a1651ec63": {
+   "bar": "firepower",
+   "score": 383
+  },
+  "57838f0b2459774a256959b2": {
+   "bar": "firepower",
+   "score": 26
+  },
+  "57838f9f2459774a150289a0": {
+   "bar": "firepower",
+   "score": 43
+  },
+  "578395402459774a256959b5": {
+   "bar": "firepower",
+   "score": 6
+  },
+  "578395e82459774a0e553c7b": {
+   "bar": "firepower",
+   "score": 647
+  },
+  "579204f224597773d619e051": {
+   "bar": "firepower",
+   "score": 319
+  },
+  "57a0dfb82459774d3078b56c": {
+   "bar": "firepower",
+   "score": 451
+  },
+  "57a0e5022459774d1673f889": {
+   "bar": "firepower",
+   "score": 665
+  },
+  "57ade1442459771557167e15": {
+   "bar": "firepower",
+   "score": 715
+  },
+  "57af48872459771f0b2ebf11": {
+   "bar": "firepower",
+   "score": 26
+  },
+  "57c44b372459772d2b39b8ce": {
+   "bar": "firepower",
+   "score": 897
+  },
+  "57c44dd02459772d2e0ae249": {
+   "bar": "firepower",
+   "score": 383
+  },
+  "57c44f4f2459772d2c627113": {
+   "bar": "firepower",
+   "score": 6
+  },
+  "57c44fa82459772d2d75e415": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "57c450252459772d28133253": {
+   "bar": "firepower",
+   "score": 539
+  },
+  "57c55efc2459772d2c6271e7": {
+   "bar": "firepower",
+   "score": 26
+  },
+  "57c55f092459772d291a8463": {
+   "bar": "firepower",
+   "score": 26
+  },
+  "57c55f112459772d28133310": {
+   "bar": "firepower",
+   "score": 26
+  },
+  "57c55f172459772d27602381": {
+   "bar": "firepower",
+   "score": 26
+  },
+  "57c9a89124597704ee6faec1": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "57cff947245977638e6f2a19": {
+   "bar": "firepower",
+   "score": 85
+  },
+  "57cffb66245977632f391a99": {
+   "bar": "firepower",
+   "score": 77
+  },
+  "57cffcd624597763133760c5": {
+   "bar": "firepower",
+   "score": 77
+  },
+  "57cffcdd24597763f5110006": {
+   "bar": "firepower",
+   "score": 77
+  },
+  "57cffce524597763b31685d8": {
+   "bar": "firepower",
+   "score": 77
+  },
+  "57cffd8224597763b03fc609": {
+   "bar": "firepower",
+   "score": 85
+  },
+  "57cffddc24597763133760c6": {
+   "bar": "firepower",
+   "score": 85
+  },
+  "57cffe0024597763b03fc60b": {
+   "bar": "firepower",
+   "score": 85
+  },
+  "57cffe20245977632f391a9d": {
+   "bar": "firepower",
+   "score": 85
+  },
+  "57d14d2524597714373db789": {
+   "bar": "firepower",
+   "score": 918
+  },
+  "57d14e1724597714010c3f4b": {
+   "bar": "firepower",
+   "score": 51
+  },
+  "57d1519e24597714373db79d": {
+   "bar": "firepower",
+   "score": 66
+  },
+  "57d152ec245977144076ccdf": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "57da93632459771cb65bf83f": {
+   "bar": "firepower",
+   "score": 139
+  },
+  "57dbb57e2459774673234890": {
+   "bar": "firepower",
+   "score": 139
+  },
+  "57dc2fa62459775949412633": {
+   "bar": "firepower",
+   "score": 866
+  },
+  "57dc324a24597759501edc20": {
+   "bar": "firepower",
+   "score": 165
+  },
+  "57dc32dc245977596d4ef3d3": {
+   "bar": "firepower",
+   "score": 11
+  },
+  "57dc334d245977597164366f": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "57dc347d245977596754e7a1": {
+   "bar": "firepower",
+   "score": 625
+  },
+  "57e3dba62459770f0c32322b": {
+   "bar": "firepower",
+   "score": 17
+  },
+  "57f3a5ae2459772b0e0bf19e": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "57f3c6bd24597738e730fa2f": {
+   "bar": "firepower",
+   "score": 918
+  },
+  "57f3c7e024597738ea4ba286": {
+   "bar": "firepower",
+   "score": 199
+  },
+  "57f3c8cc2459773ec4480328": {
+   "bar": "firepower",
+   "score": 210
+  },
+  "57f4c844245977379d5c14d1": {
+   "bar": "firepower",
+   "score": 918
+  },
+  "57ffa9f4245977728561e844": {
+   "bar": "firepower",
+   "score": 37
+  },
+  "57ffb0e42459777d047111c5": {
+   "bar": "firepower",
+   "score": 121
+  },
+  "5827272a24597748c74bdeea": {
+   "bar": "firepower",
+   "score": 91
+  },
+  "58272b392459774b4c7b3ccd": {
+   "bar": "firepower",
+   "score": 91
+  },
+  "58272d7f2459774f6311ddfd": {
+   "bar": "firepower",
+   "score": 281
+  },
+  "583990e32459771419544dd2": {
+   "bar": "firepower",
+   "score": 866
+  },
+  "5839a40f24597726f856b511": {
+   "bar": "firepower",
+   "score": 866
+  },
+  "5839a7742459773cf9693481": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "58491f3324597764bc48fa02": {
+   "bar": "firepower",
+   "score": 85
+  },
+  "584924ec24597768f12ae244": {
+   "bar": "firepower",
+   "score": 85
+  },
+  "584984812459776a704a82a6": {
+   "bar": "firepower",
+   "score": 82
+  },
+  "587de4282459771bca0ec90b": {
+   "bar": "firepower",
+   "score": 74
+  },
+  "587de5ba2459771c0f1e8a58": {
+   "bar": "firepower",
+   "score": 3
+  },
+  "587df3a12459772c28142567": {
+   "bar": "firepower",
+   "score": 22
+  },
+  "587df583245977373c4f1129": {
+   "bar": "firepower",
+   "score": 40
+  },
+  "587e02ff24597743df3deaeb": {
+   "bar": "firepower",
+   "score": 599
+  },
+  "587e0531245977466077a0f7": {
+   "bar": "firepower",
+   "score": 329
+  },
+  "588200af24597742fa221dfb": {
+   "bar": "firepower",
+   "score": 94
+  },
+  "588200c224597743990da9ed": {
+   "bar": "firepower",
+   "score": 136
+  },
+  "588200cf2459774414733d55": {
+   "bar": "firepower",
+   "score": 210
+  },
+  "58820d1224597753c90aeb13": {
+   "bar": "firepower",
+   "score": 500
+  },
+  "5882163224597757561aa920": {
+   "bar": "firepower",
+   "score": 10
+  },
+  "5882163824597757561aa922": {
+   "bar": "firepower",
+   "score": 10
+  },
+  "5882163e24597758206fee8c": {
+   "bar": "firepower",
+   "score": 10
+  },
+  "588226d124597767ad33f787": {
+   "bar": "firepower",
+   "score": 74
+  },
+  "588226dd24597767ad33f789": {
+   "bar": "firepower",
+   "score": 74
+  },
+  "588226e62459776e3e094af7": {
+   "bar": "firepower",
+   "score": 74
+  },
+  "588226ef24597767af46e39c": {
+   "bar": "firepower",
+   "score": 74
+  },
+  "58864a4f2459770fcc257101": {
+   "bar": "firepower",
+   "score": 239
+  },
+  "5887431f2459777e1612938f": {
+   "bar": "firepower",
+   "score": 656
+  },
+  "588892092459774ac91d4b11": {
+   "bar": "firepower",
+   "score": 550
+  },
+  "5888945a2459774bf43ba385": {
+   "bar": "firepower",
+   "score": 85
+  },
+  "5888956924597752983e182d": {
+   "bar": "firepower",
+   "score": 105
+  },
+  "5888976c24597754281f93f5": {
+   "bar": "firepower",
+   "score": 26
+  },
+  "5888988e24597752fe43a6fa": {
+   "bar": "firepower",
+   "score": 19
+  },
+  "5888996c24597754281f9419": {
+   "bar": "firepower",
+   "score": 221
+  },
+  "58889c7324597754281f9439": {
+   "bar": "firepower",
+   "score": 219
+  },
+  "58889d0c2459775bc215d981": {
+   "bar": "firepower",
+   "score": 744
+  },
+  "588b56d02459771481110ae2": {
+   "bar": "firepower",
+   "score": 6
+  },
+  "58948c8e86f77409493f7266": {
+   "bar": "firepower",
+   "score": 844
+  },
+  "58949dea86f77409483e16a8": {
+   "bar": "firepower",
+   "score": 146
+  },
+  "58949edd86f77409483e16a9": {
+   "bar": "firepower",
+   "score": 3
+  },
+  "5894a05586f774094708ef75": {
+   "bar": "firepower",
+   "score": 65
+  },
+  "5894a13e86f7742405482982": {
+   "bar": "firepower",
+   "score": 559
+  },
+  "5894a2c386f77427140b8342": {
+   "bar": "firepower",
+   "score": 68
+  },
+  "5894a42086f77426d2590762": {
+   "bar": "firepower",
+   "score": 48
+  },
+  "5894a51286f77426d13baf02": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "5894a5b586f77426d2590767": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "58ac60eb86f77401897560ff": {
+   "bar": "defense",
+   "score": 7117
+  },
+  "58aeaaa886f7744fc1560f81": {
+   "bar": "firepower",
+   "score": 48
+  },
+  "58aeac1b86f77457c419f475": {
+   "bar": "firepower",
+   "score": 298
+  },
+  "58c157be86f77403c74b2bb6": {
+   "bar": "firepower",
+   "score": 43
+  },
+  "58c157c886f774032749fb06": {
+   "bar": "firepower",
+   "score": 43
+  },
+  "58d2912286f7744e27117493": {
+   "bar": "firepower",
+   "score": 62
+  },
+  "58d2946386f774496974c37e": {
+   "bar": "firepower",
+   "score": 619
+  },
+  "58d2946c86f7744e271174b5": {
+   "bar": "firepower",
+   "score": 619
+  },
+  "58d2947686f774485c6a1ee5": {
+   "bar": "firepower",
+   "score": 619
+  },
+  "58d2947e86f77447aa070d53": {
+   "bar": "firepower",
+   "score": 619
+  },
+  "58d3db5386f77426186285a0": {
+   "bar": "utility",
+   "score": 119
+  },
+  "58dd3ad986f77403051cba8f": {
+   "bar": "firepower",
+   "score": 652
+  },
+  "590c657e86f77412b013051d": {
+   "bar": "utility",
+   "score": 541
+  },
+  "590c661e86f7741e566b646a": {
+   "bar": "utility",
+   "score": 209
+  },
+  "590c678286f77426c9660122": {
+   "bar": "utility",
+   "score": 336
+  },
+  "590c695186f7741e566b64a2": {
+   "bar": "utility",
+   "score": 52
+  },
+  "591aef7986f774139d495f03": {
+   "bar": "firepower",
+   "score": 562
+  },
+  "591af10186f774139d495f0e": {
+   "bar": "firepower",
+   "score": 562
+  },
+  "591af28e86f77414a27a9e1d": {
+   "bar": "firepower",
+   "score": 71
+  },
+  "591c4e1186f77410354b316e": {
+   "bar": "firepower",
+   "score": 9
+  },
+  "591c4efa86f7741030027726": {
+   "bar": "firepower",
+   "score": 85
+  },
+  "5926bb2186f7744b1c6c6e60": {
+   "bar": "firepower",
+   "score": 851
+  },
+  "5926c0df86f77462f647f764": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "5926c36d86f77467a92a8629": {
+   "bar": "firepower",
+   "score": 28
+  },
+  "5926c3b286f774640d189b6b": {
+   "bar": "firepower",
+   "score": 64
+  },
+  "5926d33d86f77410de68ebc0": {
+   "bar": "firepower",
+   "score": 412
+  },
+  "5926d3c686f77410de68ebc8": {
+   "bar": "firepower",
+   "score": 698
+  },
+  "5926d40686f7740f152b6b7e": {
+   "bar": "firepower",
+   "score": 673
+  },
+  "5926e16e86f7742f5a0f7ecb": {
+   "bar": "firepower",
+   "score": 3
+  },
+  "5926f2e086f7745aae644231": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "5926f34786f77469195bfe92": {
+   "bar": "firepower",
+   "score": 23
+  },
+  "5929a2a086f7744f4b234d43": {
+   "bar": "utility",
+   "score": 90
+  },
+  "592c2d1a86f7746dbe2af32a": {
+   "bar": "utility",
+   "score": 149
+  },
+  "593d489686f7745c6255d58a": {
+   "bar": "firepower",
+   "score": 105
+  },
+  "593d490386f7745ee97a1555": {
+   "bar": "firepower",
+   "score": 111
+  },
+  "593d493f86f7745e6b2ceb22": {
+   "bar": "firepower",
+   "score": 108
+  },
+  "5943d9c186f7745a13413ac9": {
+   "bar": "firepower",
+   "score": 234
+  },
+  "5943ee5a86f77413872d25ec": {
+   "bar": "firepower",
+   "score": 219
+  },
+  "5943eeeb86f77412d6384f6b": {
+   "bar": "firepower",
+   "score": 301
+  },
+  "5947c73886f7747701588af5": {
+   "bar": "firepower",
+   "score": 630
+  },
+  "5947db3f86f77447880cf76f": {
+   "bar": "firepower",
+   "score": 82
+  },
+  "5947e98b86f774778f1448bc": {
+   "bar": "firepower",
+   "score": 673
+  },
+  "5947eab886f77475961d96c5": {
+   "bar": "firepower",
+   "score": 673
+  },
+  "5947f92f86f77427344a76b1": {
+   "bar": "firepower",
+   "score": 31
+  },
+  "5947fa2486f77425b47c1a9b": {
+   "bar": "firepower",
+   "score": 31
+  },
+  "595cf16b86f77427440c32e2": {
+   "bar": "firepower",
+   "score": 54
+  },
+  "595cfa8b86f77427437e845b": {
+   "bar": "firepower",
+   "score": 85
+  },
+  "5996f6cb86f774678763a6ca": {
+   "bar": "firepower",
+   "score": 232
+  },
+  "5996f6d686f77467977ba6cc": {
+   "bar": "firepower",
+   "score": 1452
+  },
+  "5996f6fc86f7745e585b4de3": {
+   "bar": "firepower",
+   "score": 236
+  },
+  "59984ab886f7743e98271174": {
+   "bar": "firepower",
+   "score": 817
+  },
+  "5998517986f7746017232f7e": {
+   "bar": "firepower",
+   "score": 18
+  },
+  "599851db86f77467372f0a18": {
+   "bar": "firepower",
+   "score": 698
+  },
+  "5998529a86f774647f44f421": {
+   "bar": "firepower",
+   "score": 20
+  },
+  "5998597786f77414ea6da093": {
+   "bar": "firepower",
+   "score": 111
+  },
+  "5998598e86f7740b3f498a86": {
+   "bar": "firepower",
+   "score": 139
+  },
+  "59985a6c86f77414ec448d17": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "59985a8086f77414ec448d1a": {
+   "bar": "firepower",
+   "score": 9
+  },
+  "599860ac86f77436b225ed1a": {
+   "bar": "firepower",
+   "score": 66
+  },
+  "59bfc5c886f7743bf6794e62": {
+   "bar": "firepower",
+   "score": 118
+  },
+  "59bfe68886f7746004266202": {
+   "bar": "firepower",
+   "score": 136
+  },
+  "59bffbb386f77435b379b9c2": {
+   "bar": "firepower",
+   "score": 150
+  },
+  "59c0ec5b86f77435b128bfca": {
+   "bar": "firepower",
+   "score": 236
+  },
+  "59c1383d86f774290a37e0ca": {
+   "bar": "firepower",
+   "score": 118
+  },
+  "59ccfdba86f7747f2109a587": {
+   "bar": "firepower",
+   "score": 45
+  },
+  "59d6088586f774275f37482f": {
+   "bar": "firepower",
+   "score": 816
+  },
+  "59d625f086f774661516605d": {
+   "bar": "firepower",
+   "score": 64
+  },
+  "59d6272486f77466146386ff": {
+   "bar": "firepower",
+   "score": 66
+  },
+  "59d64f2f86f77417193ef8b3": {
+   "bar": "firepower",
+   "score": 11
+  },
+  "59d64fc686f774171b243fe2": {
+   "bar": "firepower",
+   "score": 142
+  },
+  "59d6507c86f7741b846413a2": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "59d6514b86f774171a068a08": {
+   "bar": "firepower",
+   "score": 633
+  },
+  "59db3a1d86f77429e05b4e92": {
+   "bar": "firepower",
+   "score": 43
+  },
+  "59db3acc86f7742a2c4ab912": {
+   "bar": "firepower",
+   "score": 31
+  },
+  "59db3b0886f77429d72fb895": {
+   "bar": "firepower",
+   "score": 31
+  },
+  "59e0d99486f7744a32234762": {
+   "bar": "firepower",
+   "score": 651
+  },
+  "59e4cf5286f7741778269d8a": {
+   "bar": "firepower",
+   "score": 470
+  },
+  "59e4d24686f7741776641ac7": {
+   "bar": "firepower",
+   "score": 439
+  },
+  "59e4d3d286f774176a36250a": {
+   "bar": "firepower",
+   "score": 312
+  },
+  "59e5d83b86f7745aed03d262": {
+   "bar": "firepower",
+   "score": 27
+  },
+  "59e5f5a486f7746c530b3ce2": {
+   "bar": "firepower",
+   "score": 83
+  },
+  "59e6152586f77473dc057aa1": {
+   "bar": "firepower",
+   "score": 686
+  },
+  "59e61eb386f77440d64f5daf": {
+   "bar": "firepower",
+   "score": 114
+  },
+  "59e6227d86f77440d64f5dc2": {
+   "bar": "firepower",
+   "score": 633
+  },
+  "59e6284f86f77440d569536f": {
+   "bar": "firepower",
+   "score": 11
+  },
+  "59e62cc886f77440d40b52a1": {
+   "bar": "firepower",
+   "score": 17
+  },
+  "59e6318286f77444dd62c4cc": {
+   "bar": "firepower",
+   "score": 17
+  },
+  "59e6449086f7746c9f75e822": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "59e6542b86f77411dc52a77a": {
+   "bar": "firepower",
+   "score": 457
+  },
+  "59e655cb86f77411dc52a77b": {
+   "bar": "firepower",
+   "score": 476
+  },
+  "59e6658b86f77411d949b250": {
+   "bar": "firepower",
+   "score": 374
+  },
+  "59e6687d86f77411d949b251": {
+   "bar": "firepower",
+   "score": 680
+  },
+  "59e68f6f86f7746c9f75e846": {
+   "bar": "firepower",
+   "score": 316
+  },
+  "59e6906286f7746c9f75e847": {
+   "bar": "firepower",
+   "score": 527
+  },
+  "59e690b686f7746c9f75e848": {
+   "bar": "firepower",
+   "score": 672
+  },
+  "59e6918f86f7746c9f75e849": {
+   "bar": "firepower",
+   "score": 262
+  },
+  "59e6920f86f77411d82aa167": {
+   "bar": "firepower",
+   "score": 370
+  },
+  "59e6927d86f77411da468256": {
+   "bar": "firepower",
+   "score": 231
+  },
+  "59e7635f86f7742cbf2c1095": {
+   "bar": "defense",
+   "score": 0
+  },
+  "59e763f286f7742ee57895da": {
+   "bar": "utility",
+   "score": 78
+  },
+  "59e7643b86f7742cbf2c109a": {
+   "bar": "utility",
+   "score": 75
+  },
+  "59e77a2386f7742ee578960a": {
+   "bar": "firepower",
+   "score": 698
+  },
+  "59e8936686f77467ce798647": {
+   "bar": "defense",
+   "score": 600
+  },
+  "59e898ee86f77427614bd225": {
+   "bar": "firepower",
+   "score": 11
+  },
+  "59e89d0986f77427600d226e": {
+   "bar": "firepower",
+   "score": 633
+  },
+  "59e8a00d86f7742ad93b569c": {
+   "bar": "firepower",
+   "score": 3
+  },
+  "59ecc3dd86f7746dc827481c": {
+   "bar": "firepower",
+   "score": 798
+  },
+  "59ef13ca86f77445fd0e2483": {
+   "bar": "defense",
+   "score": 30
+  },
+  "59f8a37386f7747af3328f06": {
+   "bar": "firepower",
+   "score": 65
+  },
+  "59f98b4986f7746f546d2cef": {
+   "bar": "firepower",
+   "score": 260
+  },
+  "59f99a7d86f7745b134aa97b": {
+   "bar": "firepower",
+   "score": 40
+  },
+  "59f9cabd86f7743a10721f46": {
+   "bar": "firepower",
+   "score": 689
+  },
+  "59f9d81586f7744c7506ee62": {
+   "bar": "firepower",
+   "score": 79
+  },
+  "59fafc5086f7740dbe19f6c3": {
+   "bar": "firepower",
+   "score": 67
+  },
+  "59fafc9386f774067d462453": {
+   "bar": "firepower",
+   "score": 67
+  },
+  "59fb137a86f7740adb646af1": {
+   "bar": "firepower",
+   "score": 468
+  },
+  "59fb257e86f7742981561852": {
+   "bar": "firepower",
+   "score": 111
+  },
+  "59fb375986f7741b681b81a6": {
+   "bar": "firepower",
+   "score": 116
+  },
+  "59fc48e086f77463b1118392": {
+   "bar": "firepower",
+   "score": 77
+  },
+  "59ff346386f77477562ff5e2": {
+   "bar": "firepower",
+   "score": 812
+  },
+  "59ff3b6a86f77477562ff5ed": {
+   "bar": "firepower",
+   "score": 622
+  },
+  "5a0060fc86f7745793204432": {
+   "bar": "firepower",
+   "score": 67
+  },
+  "5a0071d486f77404e23a12b2": {
+   "bar": "firepower",
+   "score": 17
+  },
+  "5a01c29586f77474660c694c": {
+   "bar": "firepower",
+   "score": 65
+  },
+  "5a0c27731526d80618476ac4": {
+   "bar": "utility",
+   "score": 60
+  },
+  "5a0c59791526d8dba737bba7": {
+   "bar": "firepower",
+   "score": 34
+  },
+  "5a0d63621526d8dba31fe3bf": {
+   "bar": "firepower",
+   "score": 149
+  },
+  "5a0d716f1526d8000d26b1e2": {
+   "bar": "firepower",
+   "score": 108
+  },
+  "5a0ec13bfcdbcb00165aa685": {
+   "bar": "firepower",
+   "score": 815
+  },
+  "5a16b9fffcdbcb0176308b34": {
+   "bar": "utility",
+   "score": 194
+  },
+  "5a17f98cfcdbcb0980087290": {
+   "bar": "firepower",
+   "score": 525
+  },
+  "5a17fb03fcdbcbcae668728f": {
+   "bar": "firepower",
+   "score": 42
+  },
+  "5a17fb9dfcdbcbcae6687291": {
+   "bar": "firepower",
+   "score": 767
+  },
+  "5a17fc70fcdbcb0176308b3d": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "5a1eacb3fcdbcb09800872be": {
+   "bar": "firepower",
+   "score": 17
+  },
+  "5a269f97c4a282000b151807": {
+   "bar": "firepower",
+   "score": 370
+  },
+  "5a26abfac4a28232980eabff": {
+   "bar": "firepower",
+   "score": 345
+  },
+  "5a26ac06c4a282000c5a90a8": {
+   "bar": "firepower",
+   "score": 361
+  },
+  "5a26ac0ec4a28200741e1e18": {
+   "bar": "firepower",
+   "score": 463
+  },
+  "5a27b6bec4a282000e496f78": {
+   "bar": "firepower",
+   "score": 156
+  },
+  "5a2a57cfc4a2826c6e06d44a": {
+   "bar": "utility",
+   "score": 60
+  },
+  "5a329052c4a28200741e22d3": {
+   "bar": "firepower",
+   "score": 71
+  },
+  "5a32a064c4a28200741e22de": {
+   "bar": "firepower",
+   "score": 179
+  },
+  "5a339805c4a2826c6e06d73d": {
+   "bar": "firepower",
+   "score": 23
+  },
+  "5a33a8ebc4a282000c5a950d": {
+   "bar": "firepower",
+   "score": 133
+  },
+  "5a33ca0fc4a282000d72292f": {
+   "bar": "firepower",
+   "score": 28
+  },
+  "5a33cae9c4a28232980eb086": {
+   "bar": "firepower",
+   "score": 687
+  },
+  "5a33e75ac4a2826c6e06d759": {
+   "bar": "firepower",
+   "score": 710
+  },
+  "5a34f7f1c4a2826c6e06d75d": {
+   "bar": "firepower",
+   "score": 105
+  },
+  "5a34fae7c4a2826c6e06d760": {
+   "bar": "firepower",
+   "score": 193
+  },
+  "5a34fbadc4a28200741e230a": {
+   "bar": "firepower",
+   "score": 108
+  },
+  "5a34fd2bc4a282329a73b4c5": {
+   "bar": "firepower",
+   "score": 146
+  },
+  "5a34fe59c4a282000b1521a2": {
+   "bar": "firepower",
+   "score": 210
+  },
+  "5a3501acc4a282000d72293a": {
+   "bar": "firepower",
+   "score": 42
+  },
+  "5a351711c4a282000b1521a4": {
+   "bar": "firepower",
+   "score": 97
+  },
+  "5a367e5dc4a282000e49738f": {
+   "bar": "firepower",
+   "score": 767
+  },
+  "5a38e6bac4a2826c6e06d79b": {
+   "bar": "firepower",
+   "score": 400
+  },
+  "5a38ebd9c4a282000d722a5b": {
+   "bar": "firepower",
+   "score": 353
+  },
+  "5a38ed75c4a28232996e40c6": {
+   "bar": "firepower",
+   "score": 7
+  },
+  "5a38ee51c4a282000c5a955c": {
+   "bar": "firepower",
+   "score": 9
+  },
+  "5a38eecdc4a282329a73b512": {
+   "bar": "firepower",
+   "score": 9
+  },
+  "5a38ef1fc4a282000b1521f6": {
+   "bar": "firepower",
+   "score": 698
+  },
+  "5a3c16fe86f77452b62de32a": {
+   "bar": "firepower",
+   "score": 265
+  },
+  "5a6086ea4f39f99cd479502f": {
+   "bar": "firepower",
+   "score": 774
+  },
+  "5a608bf24f39f98ffc77720e": {
+   "bar": "firepower",
+   "score": 643
+  },
+  "5a69a2ed8dc32e000d46d1f1": {
+   "bar": "firepower",
+   "score": 9
+  },
+  "5a6b585a8dc32e5a9c28b4f1": {
+   "bar": "firepower",
+   "score": 3
+  },
+  "5a6b592c8dc32e00094b97bf": {
+   "bar": "firepower",
+   "score": 3
+  },
+  "5a6b59a08dc32e000b452fb7": {
+   "bar": "firepower",
+   "score": 3
+  },
+  "5a6b5b8a8dc32e001207faf3": {
+   "bar": "firepower",
+   "score": 102
+  },
+  "5a6b5e468dc32e001207faf5": {
+   "bar": "firepower",
+   "score": 71
+  },
+  "5a6b5ed88dc32e000c52ec86": {
+   "bar": "firepower",
+   "score": 219
+  },
+  "5a6b5f868dc32e000a311389": {
+   "bar": "firepower",
+   "score": 71
+  },
+  "5a6b60158dc32e000a31138b": {
+   "bar": "firepower",
+   "score": 128
+  },
+  "5a6f5e048dc32e00094b97da": {
+   "bar": "firepower",
+   "score": 9
+  },
+  "5a6f5f078dc32e00094b97dd": {
+   "bar": "firepower",
+   "score": 45
+  },
+  "5a702d198dc32e000b452fc3": {
+   "bar": "firepower",
+   "score": 34
+  },
+  "5a7033908dc32e000a311392": {
+   "bar": "firepower",
+   "score": 40
+  },
+  "5a70366c8dc32e001207fb06": {
+   "bar": "firepower",
+   "score": 170
+  },
+  "5a7037338dc32e000d46d257": {
+   "bar": "firepower",
+   "score": 229
+  },
+  "5a705e128dc32e000d46d258": {
+   "bar": "firepower",
+   "score": 137
+  },
+  "5a718b548dc32e000d46d262": {
+   "bar": "firepower",
+   "score": 37
+  },
+  "5a718da68dc32e000d46d264": {
+   "bar": "firepower",
+   "score": 45
+  },
+  "5a718f958dc32e00094b97e7": {
+   "bar": "firepower",
+   "score": 92
+  },
+  "5a71e1868dc32e00094b97f3": {
+   "bar": "firepower",
+   "score": 6
+  },
+  "5a71e22f8dc32e00094b97f4": {
+   "bar": "firepower",
+   "score": 111
+  },
+  "5a71e4f48dc32e001207fb26": {
+   "bar": "firepower",
+   "score": 227
+  },
+  "5a7828548dc32e5a9c28b516": {
+   "bar": "firepower",
+   "score": 375
+  },
+  "5a787ebcc5856700142fdd98": {
+   "bar": "firepower",
+   "score": 150
+  },
+  "5a787f25c5856700186c4ab9": {
+   "bar": "firepower",
+   "score": 48
+  },
+  "5a787f7ac5856700177af660": {
+   "bar": "firepower",
+   "score": 148
+  },
+  "5a787fadc5856700155a6ca1": {
+   "bar": "firepower",
+   "score": 221
+  },
+  "5a787fdfc5856700142fdd9a": {
+   "bar": "firepower",
+   "score": 34
+  },
+  "5a788031c585673f2b5c1c79": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "5a788068c5856700137e4c8f": {
+   "bar": "firepower",
+   "score": 37
+  },
+  "5a788089c5856700142fdd9c": {
+   "bar": "firepower",
+   "score": 20
+  },
+  "5a7880d0c5856700142fdd9d": {
+   "bar": "firepower",
+   "score": 698
+  },
+  "5a78813bc5856700186c4abe": {
+   "bar": "firepower",
+   "score": 852
+  },
+  "5a788169c5856700142fdd9e": {
+   "bar": "firepower",
+   "score": 187
+  },
+  "5a7882dcc5856700177af662": {
+   "bar": "firepower",
+   "score": 8
+  },
+  "5a78830bc5856700137e4c90": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "5a78832ec5856700155a6ca3": {
+   "bar": "firepower",
+   "score": 16
+  },
+  "5a7ad0c451dfba0013379712": {
+   "bar": "firepower",
+   "score": 229
+  },
+  "5a7ad1fb51dfba0013379715": {
+   "bar": "firepower",
+   "score": 217
+  },
+  "5a7ad2e851dfba0016153692": {
+   "bar": "firepower",
+   "score": 68
+  },
+  "5a7ad74e51dfba0015068f45": {
+   "bar": "firepower",
+   "score": 335
+  },
+  "5a7ae0c351dfba0017554310": {
+   "bar": "firepower",
+   "score": 362
+  },
+  "5a7afa25e899ef00135e31b0": {
+   "bar": "firepower",
+   "score": 71
+  },
+  "5a7b32a2e899ef00135e345a": {
+   "bar": "firepower",
+   "score": 288
+  },
+  "5a7b4960e899ef197b331a2d": {
+   "bar": "firepower",
+   "score": 20
+  },
+  "5a7c147ce899ef00150bd8b8": {
+   "bar": "firepower",
+   "score": 174
+  },
+  "5a7c74b3e899ef0014332c29": {
+   "bar": "firepower",
+   "score": 85
+  },
+  "5a7dbfc1159bd40016548fde": {
+   "bar": "firepower",
+   "score": 97
+  },
+  "5a9548c9159bd400133e97b3": {
+   "bar": "firepower",
+   "score": 17
+  },
+  "5a957c3fa2750c00137fa5f7": {
+   "bar": "firepower",
+   "score": 114
+  },
+  "5a966f51a2750c00156aacf6": {
+   "bar": "firepower",
+   "score": 15
+  },
+  "5a9685b1a2750c0032157104": {
+   "bar": "firepower",
+   "score": 43
+  },
+  "5a9d56c8a2750c0032157146": {
+   "bar": "firepower",
+   "score": 74
+  },
+  "5a9d6d34a2750c00141e07da": {
+   "bar": "firepower",
+   "score": 43
+  },
+  "5a9e81fba2750c00164f6b11": {
+   "bar": "firepower",
+   "score": 64
+  },
+  "5a9ea27ca2750c00137fa672": {
+   "bar": "firepower",
+   "score": 219
+  },
+  "5a9eb32da2750c00171b3f9c": {
+   "bar": "firepower",
+   "score": 605
+  },
+  "5a9fb739a2750c003215717f": {
+   "bar": "firepower",
+   "score": 94
+  },
+  "5a9fbacda2750c00141e080f": {
+   "bar": "firepower",
+   "score": 114
+  },
+  "5a9fbb74a2750c0032157181": {
+   "bar": "firepower",
+   "score": 136
+  },
+  "5a9fbb84a2750c00137fa685": {
+   "bar": "firepower",
+   "score": 108
+  },
+  "5aa2ba71e5b5b000137b758f": {
+   "bar": "utility",
+   "score": 163
+  },
+  "5aaa4194e5b5b055d06310a5": {
+   "bar": "firepower",
+   "score": 66
+  },
+  "5aaa5dfee5b5b000140293d3": {
+   "bar": "firepower",
+   "score": 65
+  },
+  "5aaa5e60e5b5b000140293d6": {
+   "bar": "firepower",
+   "score": 28
+  },
+  "5aaf8a0be5b5b00015693243": {
+   "bar": "firepower",
+   "score": 42
+  },
+  "5aaf8e43e5b5b00015693246": {
+   "bar": "firepower",
+   "score": 767
+  },
+  "5aaf9d53e5b5b00015042a52": {
+   "bar": "firepower",
+   "score": 108
+  },
+  "5aafa1c2e5b5b00015042a56": {
+   "bar": "firepower",
+   "score": 111
+  },
+  "5aafa857e5b5b00018480968": {
+   "bar": "firepower",
+   "score": 673
+  },
+  "5ab372a310e891001717f0d8": {
+   "bar": "firepower",
+   "score": 278
+  },
+  "5ab3afb2d8ce87001660304d": {
+   "bar": "firepower",
+   "score": 54
+  },
+  "5ab626e4d8ce87272e4c6e43": {
+   "bar": "firepower",
+   "score": 625
+  },
+  "5ab8dab586f77441cd04f2a2": {
+   "bar": "utility",
+   "score": 149
+  },
+  "5ab8dced86f774646209ec87": {
+   "bar": "defense",
+   "score": 5
+  },
+  "5ab8e4ed86f7742d8e50c7fa": {
+   "bar": "defense",
+   "score": 0
+  },
+  "5ab8e79e86f7742d8b372e78": {
+   "bar": "defense",
+   "score": 0
+  },
+  "5ab8e9fcd8ce870019439434": {
+   "bar": "firepower",
+   "score": 869
+  },
+  "5ab8ebf186f7742d8b372e80": {
+   "bar": "utility",
+   "score": 78
+  },
+  "5ab8ee7786f7742d8f33f0b9": {
+   "bar": "utility",
+   "score": 18
+  },
+  "5ab8f04f86f774585f4237d8": {
+   "bar": "utility",
+   "score": 13
+  },
+  "5abcbc27d8ce8700182eceeb": {
+   "bar": "firepower",
+   "score": 812
+  },
+  "5abcc328d8ce8700194394f3": {
+   "bar": "firepower",
+   "score": 111
+  },
+  "5abccb7dd8ce87001773e277": {
+   "bar": "firepower",
+   "score": 542
+  },
+  "5abcd472d8ce8700166032ae": {
+   "bar": "firepower",
+   "score": 622
+  },
+  "5ac4cd105acfc40016339859": {
+   "bar": "firepower",
+   "score": 874
+  },
+  "5ac50c185acfc400163398d4": {
+   "bar": "firepower",
+   "score": 639
+  },
+  "5ac50da15acfc4001718d287": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "5ac66bea5acfc43b321d4aec": {
+   "bar": "firepower",
+   "score": 65
+  },
+  "5ac66c5d5acfc4001718d314": {
+   "bar": "firepower",
+   "score": 65
+  },
+  "5ac66cb05acfc40198510a10": {
+   "bar": "firepower",
+   "score": 900
+  },
+  "5ac66d015acfc400180ae6e4": {
+   "bar": "firepower",
+   "score": 892
+  },
+  "5ac66d2e5acfc43b321d4b53": {
+   "bar": "firepower",
+   "score": 840
+  },
+  "5ac66d725acfc43b321d4b60": {
+   "bar": "firepower",
+   "score": 837
+  },
+  "5ac66d9b5acfc4001633997a": {
+   "bar": "firepower",
+   "score": 852
+  },
+  "5ac72e615acfc43f67248aa0": {
+   "bar": "firepower",
+   "score": 193
+  },
+  "5ac72e725acfc400180ae701": {
+   "bar": "firepower",
+   "score": 165
+  },
+  "5ac72e7d5acfc40016339a02": {
+   "bar": "firepower",
+   "score": 193
+  },
+  "5ac72e895acfc43b321d4bd5": {
+   "bar": "firepower",
+   "score": 165
+  },
+  "5ac72e945acfc43f3b691116": {
+   "bar": "firepower",
+   "score": 165
+  },
+  "5ac7655e5acfc40016339a19": {
+   "bar": "firepower",
+   "score": 193
+  },
+  "5addbac75acfc400194dbc56": {
+   "bar": "firepower",
+   "score": 207
+  },
+  "5addbb6e5acfc408fb1393fd": {
+   "bar": "firepower",
+   "score": 141
+  },
+  "5addbb825acfc408fb139400": {
+   "bar": "firepower",
+   "score": 307
+  },
+  "5addbb945acfc4001a5fc44e": {
+   "bar": "firepower",
+   "score": 198
+  },
+  "5addbba15acfc400185c2854": {
+   "bar": "firepower",
+   "score": 115
+  },
+  "5addbbb25acfc40015621bd9": {
+   "bar": "firepower",
+   "score": 168
+  },
+  "5addbf175acfc408fb13965b": {
+   "bar": "firepower",
+   "score": 857
+  },
+  "5addc7005acfc4001669f275": {
+   "bar": "firepower",
+   "score": 221
+  },
+  "5addc7ac5acfc400194dbd90": {
+   "bar": "firepower",
+   "score": 644
+  },
+  "5addc7db5acfc4001669f279": {
+   "bar": "firepower",
+   "score": 17
+  },
+  "5addcce35acfc4001a5fc635": {
+   "bar": "firepower",
+   "score": 61
+  },
+  "5addccf45acfc400185c2989": {
+   "bar": "firepower",
+   "score": 94
+  },
+  "5adf23995acfc400185c2aeb": {
+   "bar": "firepower",
+   "score": 786
+  },
+  "5ae083b25acfc4001a5fc702": {
+   "bar": "firepower",
+   "score": 542
+  },
+  "5ae089fb5acfc408fb13989b": {
+   "bar": "firepower",
+   "score": 3
+  },
+  "5ae08f0a5acfc408fb1398a1": {
+   "bar": "firepower",
+   "score": 463
+  },
+  "5ae096d95acfc400185c2c81": {
+   "bar": "firepower",
+   "score": 596
+  },
+  "5ae0973a5acfc4001562206c": {
+   "bar": "firepower",
+   "score": 10
+  },
+  "5ae09bff5acfc4001562219d": {
+   "bar": "firepower",
+   "score": 247
+  },
+  "5ae30c9a5acfc408fb139a03": {
+   "bar": "firepower",
+   "score": 585
+  },
+  "5ae30db85acfc408fb139a05": {
+   "bar": "firepower",
+   "score": 6
+  },
+  "5ae35b315acfc4001714e8b0": {
+   "bar": "firepower",
+   "score": 28
+  },
+  "5af0454c86f7746bf20992e8": {
+   "bar": "utility",
+   "score": 114
+  },
+  "5af0548586f7743a532b7e99": {
+   "bar": "utility",
+   "score": 70
+  },
+  "5afd7ded5acfc40017541f5e": {
+   "bar": "firepower",
+   "score": 162
+  },
+  "5afd7e095acfc40017541f61": {
+   "bar": "firepower",
+   "score": 28
+  },
+  "5afd7e445acfc4001637e35a": {
+   "bar": "firepower",
+   "score": 28
+  },
+  "5b04473a5acfc40018632f70": {
+   "bar": "firepower",
+   "score": 812
+  },
+  "5b057b4f5acfc4771e1bd3e9": {
+   "bar": "firepower",
+   "score": 79
+  },
+  "5b07db875acfc40dc528a5f6": {
+   "bar": "firepower",
+   "score": 17
+  },
+  "5b0800175acfc400153aebd4": {
+   "bar": "firepower",
+   "score": 625
+  },
+  "5b099a765acfc47a8607efe3": {
+   "bar": "firepower",
+   "score": 39
+  },
+  "5b099a9d5acfc47a8607efe7": {
+   "bar": "firepower",
+   "score": 20
+  },
+  "5b099ac65acfc400186331e1": {
+   "bar": "firepower",
+   "score": 40
+  },
+  "5b099b7d5acfc400186331e4": {
+   "bar": "firepower",
+   "score": 146
+  },
+  "5b099b965acfc400186331e6": {
+   "bar": "firepower",
+   "score": 28
+  },
+  "5b099bb25acfc400186331e8": {
+   "bar": "firepower",
+   "score": 11
+  },
+  "5b0bbe4e5acfc40dc528a72d": {
+   "bar": "firepower",
+   "score": 806
+  },
+  "5b0e794b5acfc47a877359b2": {
+   "bar": "firepower",
+   "score": 838
+  },
+  "5b1fa9b25acfc40018633c01": {
+   "bar": "firepower",
+   "score": 571
+  },
+  "5b1fa9ea5acfc40018633c0a": {
+   "bar": "firepower",
+   "score": 156
+  },
+  "5b1faa0f5acfc40dc528aeb5": {
+   "bar": "firepower",
+   "score": 9
+  },
+  "5b1fb3e15acfc4001637f068": {
+   "bar": "firepower",
+   "score": 83
+  },
+  "5b1fd4e35acfc40018633c39": {
+   "bar": "firepower",
+   "score": 31
+  },
+  "5b222d405acfc400153af4fe": {
+   "bar": "firepower",
+   "score": 764
+  },
+  "5b2240bf5acfc40dc528af69": {
+   "bar": "firepower",
+   "score": 9
+  },
+  "5b237e425acfc4771e1be0b6": {
+   "bar": "firepower",
+   "score": 156
+  },
+  "5b2cfa535acfc432ff4db7a0": {
+   "bar": "firepower",
+   "score": 108
+  },
+  "5b30ac585acfc433000eb79c": {
+   "bar": "firepower",
+   "score": 34
+  },
+  "5b30b0dc5acfc400153b7124": {
+   "bar": "firepower",
+   "score": 79
+  },
+  "5b363dd25acfc4001a598fd2": {
+   "bar": "firepower",
+   "score": 290
+  },
+  "5b363dea5acfc4771e1c5e7e": {
+   "bar": "firepower",
+   "score": 31
+  },
+  "5b363e1b5acfc4771e1c5e80": {
+   "bar": "firepower",
+   "score": 31
+  },
+  "5b39f8db5acfc40016387a1b": {
+   "bar": "firepower",
+   "score": 650
+  },
+  "5b39ffbd5acfc47a8773fb06": {
+   "bar": "firepower",
+   "score": 28
+  },
+  "5b3a16655acfc40016387a2a": {
+   "bar": "firepower",
+   "score": 168
+  },
+  "5b3b713c5acfc4330140bd8d": {
+   "bar": "firepower",
+   "score": 224
+  },
+  "5b3baf8f5acfc40dc5296692": {
+   "bar": "firepower",
+   "score": 74
+  },
+  "5b3cadf35acfc400194776a0": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "5b3cbc235acfc4001863ac44": {
+   "bar": "firepower",
+   "score": 17
+  },
+  "5b432b2f5acfc4771e1c6622": {
+   "bar": "defense",
+   "score": 14
+  },
+  "5b432b965acfc47a8774094e": {
+   "bar": "utility",
+   "score": 149
+  },
+  "5b44c6ae86f7742d1627baea": {
+   "bar": "utility",
+   "score": 67
+  },
+  "5b44c8ea86f7742d1627baf1": {
+   "bar": "utility",
+   "score": 119
+  },
+  "5b44cad286f77402a54ae7e5": {
+   "bar": "defense",
+   "score": 5
+  },
+  "5b44cd8b86f774503d30cba2": {
+   "bar": "defense",
+   "score": 0
+  },
+  "5b44cf1486f77431723e3d05": {
+   "bar": "defense",
+   "score": 0
+  },
+  "5b44d0de86f774503d30cba8": {
+   "bar": "defense",
+   "score": 0
+  },
+  "5b44d22286f774172b0c9de8": {
+   "bar": "defense",
+   "score": 0
+  },
+  "5b7be1125acfc4001876c0e5": {
+   "bar": "firepower",
+   "score": 131
+  },
+  "5b7be1265acfc400161d0798": {
+   "bar": "firepower",
+   "score": 170
+  },
+  "5b7be1ca5acfc400170e2d2f": {
+   "bar": "firepower",
+   "score": 17
+  },
+  "5b7be2345acfc400196d524a": {
+   "bar": "firepower",
+   "score": 26
+  },
+  "5b7bebc85acfc43bca706666": {
+   "bar": "firepower",
+   "score": 26
+  },
+  "5b7bed205acfc400161d08cc": {
+   "bar": "firepower",
+   "score": 20
+  },
+  "5b7bedd75acfc43d825283f9": {
+   "bar": "firepower",
+   "score": 114
+  },
+  "5b7bee755acfc400196d5383": {
+   "bar": "firepower",
+   "score": 97
+  },
+  "5b7bef1e5acfc43d82528402": {
+   "bar": "firepower",
+   "score": 25
+  },
+  "5b7bef5d5acfc43bca7067a3": {
+   "bar": "firepower",
+   "score": 58
+  },
+  "5b7bef9c5acfc43d102852ec": {
+   "bar": "firepower",
+   "score": 91
+  },
+  "5b7c2d1d5acfc43d1028532a": {
+   "bar": "firepower",
+   "score": 43
+  },
+  "5b7d37845acfc400170e2f87": {
+   "bar": "firepower",
+   "score": 59
+  },
+  "5b7d63b75acfc400170e2f8a": {
+   "bar": "firepower",
+   "score": 727
+  },
+  "5b7d63cf5acfc4001876c8df": {
+   "bar": "firepower",
+   "score": 633
+  },
+  "5b7d63de5acfc400170e2f8d": {
+   "bar": "firepower",
+   "score": 730
+  },
+  "5b7d64555acfc4001876c8e2": {
+   "bar": "firepower",
+   "score": 735
+  },
+  "5b7d645e5acfc400170e2f90": {
+   "bar": "firepower",
+   "score": 613
+  },
+  "5b7d671b5acfc43d82528ddd": {
+   "bar": "firepower",
+   "score": 26
+  },
+  "5b7d678a5acfc4001a5c4022": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "5b7d679f5acfc4001a5c4024": {
+   "bar": "firepower",
+   "score": 37
+  },
+  "5b7d68af5acfc400170e30c3": {
+   "bar": "firepower",
+   "score": 233
+  },
+  "5b7d693d5acfc43bca706a3d": {
+   "bar": "firepower",
+   "score": 177
+  },
+  "5b7d6c105acfc40015109a5f": {
+   "bar": "firepower",
+   "score": 6
+  },
+  "5b800e9286f7747a8b04f3ff": {
+   "bar": "firepower",
+   "score": 125
+  },
+  "5b80242286f77429445e0b47": {
+   "bar": "firepower",
+   "score": 128
+  },
+  "5b86a0e586f7745b600ccb23": {
+   "bar": "firepower",
+   "score": 131
+  },
+  "5ba26383d4351e00334c93d9": {
+   "bar": "firepower",
+   "score": 933
+  },
+  "5ba264f6d4351e0034777d52": {
+   "bar": "firepower",
+   "score": 48
+  },
+  "5ba2657ed4351e0035628ff2": {
+   "bar": "firepower",
+   "score": 67
+  },
+  "5ba26586d4351e44f824b340": {
+   "bar": "firepower",
+   "score": 86
+  },
+  "5ba2678ad4351e44f824b344": {
+   "bar": "firepower",
+   "score": 529
+  },
+  "5ba26812d4351e003201fef1": {
+   "bar": "firepower",
+   "score": 326
+  },
+  "5ba26835d4351e0035628ff5": {
+   "bar": "firepower",
+   "score": 654
+  },
+  "5ba26844d4351e00334c9475": {
+   "bar": "firepower",
+   "score": 361
+  },
+  "5ba26acdd4351e003562908e": {
+   "bar": "firepower",
+   "score": 118
+  },
+  "5ba26ae8d4351e00367f9bdb": {
+   "bar": "firepower",
+   "score": 142
+  },
+  "5ba36f85d4351e0085325c81": {
+   "bar": "firepower",
+   "score": 17
+  },
+  "5bae13bad4351e00320204af": {
+   "bar": "firepower",
+   "score": 887
+  },
+  "5bae13ded4351e44f824bf38": {
+   "bar": "firepower",
+   "score": 18
+  },
+  "5bb20d53d4351e4502010a69": {
+   "bar": "firepower",
+   "score": 45
+  },
+  "5bb20d92d4351e00853263eb": {
+   "bar": "firepower",
+   "score": 34
+  },
+  "5bb20d9cd4351e00334c9d8a": {
+   "bar": "firepower",
+   "score": 43
+  },
+  "5bb20da5d4351e0035629dbf": {
+   "bar": "firepower",
+   "score": 85
+  },
+  "5bb20dadd4351e00367faeff": {
+   "bar": "firepower",
+   "score": 114
+  },
+  "5bb20dbcd4351e44f824c04e": {
+   "bar": "firepower",
+   "score": 3
+  },
+  "5bb20de5d4351e0035629e59": {
+   "bar": "firepower",
+   "score": 11
+  },
+  "5bb20df1d4351e00347787d5": {
+   "bar": "firepower",
+   "score": 11
+  },
+  "5bb20dfcd4351e00334c9e24": {
+   "bar": "firepower",
+   "score": 71
+  },
+  "5bb20e0ed4351e3bac1212dc": {
+   "bar": "firepower",
+   "score": 20
+  },
+  "5bb20e18d4351e00320205d5": {
+   "bar": "firepower",
+   "score": 17
+  },
+  "5bb20e58d4351e00320205d7": {
+   "bar": "firepower",
+   "score": 57
+  },
+  "5bb20e70d4351e0035629f8f": {
+   "bar": "firepower",
+   "score": 610
+  },
+  "5bb2475ed4351e00853264e3": {
+   "bar": "firepower",
+   "score": 902
+  },
+  "5bbdb83fd4351e44f824c44b": {
+   "bar": "firepower",
+   "score": 252
+  },
+  "5bbdb870d4351e00367fb67d": {
+   "bar": "firepower",
+   "score": 744
+  },
+  "5bbdb8bdd4351e4502011460": {
+   "bar": "firepower",
+   "score": 281
+  },
+  "5bbde409d4351e003562b036": {
+   "bar": "firepower",
+   "score": 74
+  },
+  "5bbde41ed4351e003562b038": {
+   "bar": "firepower",
+   "score": 23
+  },
+  "5bc09a18d4351e003562b68e": {
+   "bar": "firepower",
+   "score": 3
+  },
+  "5bc09a30d4351e00367fb7c8": {
+   "bar": "firepower",
+   "score": 3
+  },
+  "5bc5a351d4351e003477a414": {
+   "bar": "firepower",
+   "score": 455
+  },
+  "5bc5a35cd4351e450201232f": {
+   "bar": "firepower",
+   "score": 563
+  },
+  "5bcf0213d4351e0085327c17": {
+   "bar": "firepower",
+   "score": 349
+  },
+  "5bd70322209c4d00d7167b8f": {
+   "bar": "firepower",
+   "score": 933
+  },
+  "5bd704e7209c4d00d7167c31": {
+   "bar": "firepower",
+   "score": 349
+  },
+  "5bed61680db834001d2c45ab": {
+   "bar": "firepower",
+   "score": 65
+  },
+  "5bed625c0db834001c062946": {
+   "bar": "firepower",
+   "score": 109
+  },
+  "5beec1bd0db834001e6006f3": {
+   "bar": "firepower",
+   "score": 79
+  },
+  "5beec2820db834001b095426": {
+   "bar": "firepower",
+   "score": 168
+  },
+  "5beec3420db834001b095429": {
+   "bar": "firepower",
+   "score": 168
+  },
+  "5beec3e30db8340019619424": {
+   "bar": "firepower",
+   "score": 45
+  },
+  "5beec8b20db834001961942a": {
+   "bar": "firepower",
+   "score": 28
+  },
+  "5beec8c20db834001d2c465c": {
+   "bar": "firepower",
+   "score": 605
+  },
+  "5beec8ea0db834001a6f9dbf": {
+   "bar": "firepower",
+   "score": 20
+  },
+  "5beec91a0db834001961942d": {
+   "bar": "firepower",
+   "score": 11
+  },
+  "5beed0f50db834001c062b12": {
+   "bar": "firepower",
+   "score": 947
+  },
+  "5bf3e03b0db834001d2c4a9c": {
+   "bar": "firepower",
+   "score": 866
+  },
+  "5bf3e0490db83400196199af": {
+   "bar": "firepower",
+   "score": 867
+  },
+  "5bfd297f0db834001a669119": {
+   "bar": "firepower",
+   "score": 463
+  },
+  "5bfd35380db83400232fe5cc": {
+   "bar": "firepower",
+   "score": 593
+  },
+  "5bfd36290db834001966869a": {
+   "bar": "firepower",
+   "score": 131
+  },
+  "5bfd36ad0db834001c38ef66": {
+   "bar": "firepower",
+   "score": 131
+  },
+  "5bfd37c80db834001d23e842": {
+   "bar": "firepower",
+   "score": 571
+  },
+  "5bfd384c0db834001a6691d3": {
+   "bar": "firepower",
+   "score": 579
+  },
+  "5bfd4cbe0db834001b73449f": {
+   "bar": "firepower",
+   "score": 204
+  },
+  "5bfd4cd60db834001c38f095": {
+   "bar": "firepower",
+   "score": 26
+  },
+  "5bfe86a20db834001d23e8f7": {
+   "bar": "firepower",
+   "score": 26
+  },
+  "5bfe86bd0db83400232fe959": {
+   "bar": "firepower",
+   "score": 6
+  },
+  "5bfe86df0db834001b734685": {
+   "bar": "firepower",
+   "score": 605
+  },
+  "5bfe89510db834001808a127": {
+   "bar": "firepower",
+   "score": 57
+  },
+  "5bfea6e90db834001b7347f3": {
+   "bar": "firepower",
+   "score": 491
+  },
+  "5bfea7ad0db834001c38f1ee": {
+   "bar": "firepower",
+   "score": 11
+  },
+  "5bfeaa0f0db834001b734927": {
+   "bar": "firepower",
+   "score": 20
+  },
+  "5bfeb32b0db834001a6694d9": {
+   "bar": "firepower",
+   "score": 636
+  },
+  "5bfebc250db834001a6694e1": {
+   "bar": "firepower",
+   "score": 216
+  },
+  "5bfebc320db8340019668d79": {
+   "bar": "firepower",
+   "score": 82
+  },
+  "5bffcf7a0db83400232fea79": {
+   "bar": "firepower",
+   "score": 6
+  },
+  "5bffd7ed0db834001d23ebf9": {
+   "bar": "firepower",
+   "score": 229
+  },
+  "5bffe7c50db834001d23ece1": {
+   "bar": "firepower",
+   "score": 125
+  },
+  "5bffec120db834001c38f5fa": {
+   "bar": "firepower",
+   "score": 20
+  },
+  "5bffef760db8340019668fe4": {
+   "bar": "firepower",
+   "score": 34
+  },
+  "5c0006470db834001a6697fe": {
+   "bar": "firepower",
+   "score": 23
+  },
+  "5c00076d0db834001d23ee1f": {
+   "bar": "firepower",
+   "score": 23
+  },
+  "5c0009510db834001966907f": {
+   "bar": "firepower",
+   "score": 37
+  },
+  "5c010a700db834001d23ef5d": {
+   "bar": "firepower",
+   "score": 91
+  },
+  "5c0125fc0db834001a669aa3": {
+   "bar": "firepower",
+   "score": 34
+  },
+  "5c0505e00db834001b735073": {
+   "bar": "firepower",
+   "score": 79
+  },
+  "5c05295e0db834001a66acbb": {
+   "bar": "firepower",
+   "score": 3
+  },
+  "5c05413a0db834001c390617": {
+   "bar": "firepower",
+   "score": 65
+  },
+  "5c0548ae0db834001966a3c2": {
+   "bar": "firepower",
+   "score": 66
+  },
+  "5c0672ed0db834001b7353f3": {
+   "bar": "firepower",
+   "score": 66
+  },
+  "5c0673fb0db8340023300271": {
+   "bar": "firepower",
+   "score": 51
+  },
+  "5c0684e50db834002a12585a": {
+   "bar": "firepower",
+   "score": 23
+  },
+  "5c079ec50db834001966a706": {
+   "bar": "firepower",
+   "score": 37
+  },
+  "5c07a8770db8340023300450": {
+   "bar": "firepower",
+   "score": 94
+  },
+  "5c07c5ed0db834001b73571c": {
+   "bar": "firepower",
+   "score": 304
+  },
+  "5c07c60e0db834002330051f": {
+   "bar": "firepower",
+   "score": 764
+  },
+  "5c07c9660db834001a66b588": {
+   "bar": "firepower",
+   "score": 9
+  },
+  "5c07dd120db834001c39092d": {
+   "bar": "firepower",
+   "score": 128
+  },
+  "5c0a2cec0db834001b7ce47d": {
+   "bar": "firepower",
+   "score": 128
+  },
+  "5c0d56a986f774449d5de529": {
+   "bar": "firepower",
+   "score": 207
+  },
+  "5c0d591486f7744c505b416f": {
+   "bar": "firepower",
+   "score": 340
+  },
+  "5c0d5ae286f7741e46554302": {
+   "bar": "firepower",
+   "score": 193
+  },
+  "5c0d5e4486f77478390952fe": {
+   "bar": "firepower",
+   "score": 764
+  },
+  "5c0d668f86f7747ccb7f13b2": {
+   "bar": "firepower",
+   "score": 528
+  },
+  "5c0d688c86f77413ae3407b2": {
+   "bar": "firepower",
+   "score": 729
+  },
+  "5c0e2f26d174af02a9625114": {
+   "bar": "firepower",
+   "score": 11
+  },
+  "5c0e2f5cd174af02a012cfc9": {
+   "bar": "firepower",
+   "score": 20
+  },
+  "5c0e2f94d174af029f650d56": {
+   "bar": "firepower",
+   "score": 71
+  },
+  "5c0e2ff6d174af02a1659d4a": {
+   "bar": "firepower",
+   "score": 605
+  },
+  "5c0e3eb886f7742015526062": {
+   "bar": "defense",
+   "score": 5
+  },
+  "5c0e446786f7742013381639": {
+   "bar": "defense",
+   "score": 5
+  },
+  "5c0e51be86f774598e797894": {
+   "bar": "defense",
+   "score": 0
+  },
+  "5c0e530286f7747fa1419862": {
+   "bar": "utility",
+   "score": 90
+  },
+  "5c0e531286f7747fa54205c2": {
+   "bar": "utility",
+   "score": 45
+  },
+  "5c0e531d86f7747fa23f4d42": {
+   "bar": "utility",
+   "score": 45
+  },
+  "5c0e533786f7747fa23f4d47": {
+   "bar": "utility",
+   "score": 194
+  },
+  "5c0e534186f7747fa1419867": {
+   "bar": "utility",
+   "score": 60
+  },
+  "5c0e53c886f7747fa54205c7": {
+   "bar": "defense",
+   "score": 0
+  },
+  "5c0e541586f7747fa54205c9": {
+   "bar": "defense",
+   "score": 0
+  },
+  "5c0e57ba86f7747fa141986d": {
+   "bar": "defense",
+   "score": 0
+  },
+  "5c0e5bab86f77461f55ed1f3": {
+   "bar": "defense",
+   "score": 0
+  },
+  "5c0e5edb86f77461f55ed1f7": {
+   "bar": "defense",
+   "score": 0
+  },
+  "5c0e625a86f7742d77340f62": {
+   "bar": "defense",
+   "score": 0
+  },
+  "5c0e655586f774045612eeb2": {
+   "bar": "defense",
+   "score": 0
+  },
+  "5c0e6a1586f77404597b4965": {
+   "bar": "utility",
+   "score": 187
+  },
+  "5c0e722886f7740458316a57": {
+   "bar": "defense",
+   "score": 5
+  },
+  "5c0e746986f7741453628fe5": {
+   "bar": "defense",
+   "score": 5
+  },
+  "5c0e774286f77468413cc5b2": {
+   "bar": "utility",
+   "score": 94
+  },
+  "5c0e805e86f774683f3dd637": {
+   "bar": "utility",
+   "score": 78
+  },
+  "5c0e9f2c86f77432297fe0a3": {
+   "bar": "utility",
+   "score": 119
+  },
+  "5c0faeddd174af02a962601f": {
+   "bar": "firepower",
+   "score": 28
+  },
+  "5c0fafb6d174af02a96260ba": {
+   "bar": "firepower",
+   "score": 139
+  },
+  "5c10c8fd86f7743d7d706df3": {
+   "bar": "utility",
+   "score": 90
+  },
+  "5c165d832e2216398b5a7e36": {
+   "bar": "utility",
+   "score": 158
+  },
+  "5c17664f2e2216398b5a7e3c": {
+   "bar": "firepower",
+   "score": 142
+  },
+  "5c1780312e221602b66cc189": {
+   "bar": "firepower",
+   "score": 3
+  },
+  "5c17804b2e2216152006c02f": {
+   "bar": "firepower",
+   "score": 3
+  },
+  "5c18b90d2e2216152142466b": {
+   "bar": "firepower",
+   "score": 3
+  },
+  "5c18b9192e2216398b5a8104": {
+   "bar": "firepower",
+   "score": 3
+  },
+  "5c1bc4812e22164bef5cfde7": {
+   "bar": "firepower",
+   "score": 65
+  },
+  "5c1bc5612e221602b5429350": {
+   "bar": "firepower",
+   "score": 88
+  },
+  "5c1bc5af2e221602b412949b": {
+   "bar": "firepower",
+   "score": 91
+  },
+  "5c1bc5fb2e221602b1779b32": {
+   "bar": "firepower",
+   "score": 68
+  },
+  "5c1bc7432e221602b412949d": {
+   "bar": "firepower",
+   "score": 71
+  },
+  "5c1bc7752e221602b1779b34": {
+   "bar": "firepower",
+   "score": 43
+  },
+  "5c1cd46f2e22164bef5cfedb": {
+   "bar": "firepower",
+   "score": 91
+  },
+  "5c3df7d588a4501f290594e5": {
+   "bar": "firepower",
+   "score": 279
+  },
+  "5c46fbd72e2216398b5a8c9c": {
+   "bar": "firepower",
+   "score": 588
+  },
+  "5c471b5d2e221602b21d4e14": {
+   "bar": "firepower",
+   "score": 647
+  },
+  "5c471bd12e221602b4129c3a": {
+   "bar": "firepower",
+   "score": 6
+  },
+  "5c471be12e221602b66cd9ac": {
+   "bar": "firepower",
+   "score": 18
+  },
+  "5c471bfc2e221602b21d4e17": {
+   "bar": "firepower",
+   "score": 139
+  },
+  "5c471c442e221602b542a6f8": {
+   "bar": "firepower",
+   "score": 22
+  },
+  "5c471c6c2e221602b66cd9ae": {
+   "bar": "firepower",
+   "score": 17
+  },
+  "5c471c842e221615214259b5": {
+   "bar": "firepower",
+   "score": 57
+  },
+  "5c471cb32e221602b177afaa": {
+   "bar": "firepower",
+   "score": 170
+  },
+  "5c488a752e221602b412af63": {
+   "bar": "firepower",
+   "score": 995
+  },
+  "5c48a14f2e2216152006edd7": {
+   "bar": "firepower",
+   "score": 54
+  },
+  "5c48a2852e221602b21d5923": {
+   "bar": "firepower",
+   "score": 238
+  },
+  "5c48a2a42e221602b66d1e07": {
+   "bar": "firepower",
+   "score": 167
+  },
+  "5c48a2c22e221602b313fb6c": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "5c4ee3d62e2216152006f302": {
+   "bar": "firepower",
+   "score": 377
+  },
+  "5c4eecc32e221602b412b440": {
+   "bar": "firepower",
+   "score": 165
+  },
+  "5c4eecde2e221602b3140418": {
+   "bar": "firepower",
+   "score": 6
+  },
+  "5c501a4d2e221602b412b540": {
+   "bar": "firepower",
+   "score": 533
+  },
+  "5c503ac82e221602b21d6e9a": {
+   "bar": "firepower",
+   "score": 12
+  },
+  "5c503ad32e2216398b5aada2": {
+   "bar": "firepower",
+   "score": 19
+  },
+  "5c503af12e221602b177ca02": {
+   "bar": "firepower",
+   "score": 676
+  },
+  "5c503d0a2e221602b542b7ef": {
+   "bar": "firepower",
+   "score": 6
+  },
+  "5c59529a2e221602b177d160": {
+   "bar": "firepower",
+   "score": 119
+  },
+  "5c5970672e221602b21d7855": {
+   "bar": "firepower",
+   "score": 72
+  },
+  "5c5db5962e2216000e5e46eb": {
+   "bar": "firepower",
+   "score": 20
+  },
+  "5c5db5b82e2216003a0fe71d": {
+   "bar": "firepower",
+   "score": 88
+  },
+  "5c5db5c62e22160012542255": {
+   "bar": "firepower",
+   "score": 159
+  },
+  "5c5db5f22e2216000e5e47e8": {
+   "bar": "firepower",
+   "score": 43
+  },
+  "5c5db5fc2e2216000f1b2842": {
+   "bar": "firepower",
+   "score": 28
+  },
+  "5c5db6302e2216000e5e47f0": {
+   "bar": "firepower",
+   "score": 82
+  },
+  "5c5db63a2e2216000f1b284a": {
+   "bar": "firepower",
+   "score": 133
+  },
+  "5c5db6552e2216001026119d": {
+   "bar": "firepower",
+   "score": 50
+  },
+  "5c5db6652e221600113fba51": {
+   "bar": "firepower",
+   "score": 89
+  },
+  "5c5db6742e2216000f1b2852": {
+   "bar": "firepower",
+   "score": 97
+  },
+  "5c5db6b32e221600102611a0": {
+   "bar": "firepower",
+   "score": 6
+  },
+  "5c5db6ee2e221600113fba54": {
+   "bar": "firepower",
+   "score": 639
+  },
+  "5c5db6f82e2216003a0fe914": {
+   "bar": "firepower",
+   "score": 662
+  },
+  "5c6161fb2e221600113fbde5": {
+   "bar": "firepower",
+   "score": 7
+  },
+  "5c6165902e22160010261b28": {
+   "bar": "firepower",
+   "score": 128
+  },
+  "5c6175362e221600133e3b94": {
+   "bar": "firepower",
+   "score": 116
+  },
+  "5c617a5f2e2216000f1e81b3": {
+   "bar": "firepower",
+   "score": 37
+  },
+  "5c6592372e221600133e47d7": {
+   "bar": "firepower",
+   "score": 106
+  },
+  "5c6beec32e221601da3578f2": {
+   "bar": "firepower",
+   "score": 220
+  },
+  "5c6bf4aa2e2216001219b0ae": {
+   "bar": "firepower",
+   "score": 34
+  },
+  "5c6c2c9c2e2216000f2002e4": {
+   "bar": "firepower",
+   "score": 40
+  },
+  "5c6d10e82e221601da357b07": {
+   "bar": "firepower",
+   "score": 102
+  },
+  "5c6d10fa2e221600106f3f23": {
+   "bar": "firepower",
+   "score": 23
+  },
+  "5c6d11072e2216000e69d2e4": {
+   "bar": "firepower",
+   "score": 57
+  },
+  "5c6d11152e2216000f2003e7": {
+   "bar": "firepower",
+   "score": 116
+  },
+  "5c6d42cb2e2216000e69d7d1": {
+   "bar": "firepower",
+   "score": 66
+  },
+  "5c6d450c2e221600114c997d": {
+   "bar": "firepower",
+   "score": 65
+  },
+  "5c6d46132e221601da357d56": {
+   "bar": "firepower",
+   "score": 66
+  },
+  "5c6d5d8b2e221644fc630b39": {
+   "bar": "firepower",
+   "score": 51
+  },
+  "5c6d710d2e22165df16b81e7": {
+   "bar": "firepower",
+   "score": 144
+  },
+  "5c6d7b3d2e221600114c9b7d": {
+   "bar": "firepower",
+   "score": 20
+  },
+  "5c6d85e02e22165df16b81f4": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "5c78f2492e221600114c9f04": {
+   "bar": "firepower",
+   "score": 119
+  },
+  "5c78f2612e221600114c9f0d": {
+   "bar": "firepower",
+   "score": 114
+  },
+  "5c78f26f2e221601da3581d1": {
+   "bar": "firepower",
+   "score": 57
+  },
+  "5c78f2792e221600106f4683": {
+   "bar": "firepower",
+   "score": 28
+  },
+  "5c78f2882e22165df16b832e": {
+   "bar": "firepower",
+   "score": 171
+  },
+  "5c791e872e2216001219c40a": {
+   "bar": "firepower",
+   "score": 54
+  },
+  "5c793fb92e221644f31bfb64": {
+   "bar": "firepower",
+   "score": 62
+  },
+  "5c793fc42e221600114ca25d": {
+   "bar": "firepower",
+   "score": 74
+  },
+  "5c793fde2e221601da358614": {
+   "bar": "firepower",
+   "score": 627
+  },
+  "5c7951452e221644f31bfd5c": {
+   "bar": "firepower",
+   "score": 340
+  },
+  "5c7955c22e221644f31bfd5e": {
+   "bar": "firepower",
+   "score": 114
+  },
+  "5c7d55de2e221644f31bff68": {
+   "bar": "firepower",
+   "score": 85
+  },
+  "5c7e5f112e221600106f4ede": {
+   "bar": "firepower",
+   "score": 174
+  },
+  "5c7e8fab2e22165df16b889b": {
+   "bar": "firepower",
+   "score": 99
+  },
+  "5c7fb51d2e2216001219ce11": {
+   "bar": "firepower",
+   "score": 174
+  },
+  "5c7fc87d2e221644f31c0298": {
+   "bar": "firepower",
+   "score": 45
+  },
+  "5c878e9d2e2216000f201903": {
+   "bar": "firepower",
+   "score": 307
+  },
+  "5c878ebb2e2216001219d48a": {
+   "bar": "firepower",
+   "score": 363
+  },
+  "5c87a07c2e2216001219d4a2": {
+   "bar": "firepower",
+   "score": 664
+  },
+  "5c87ca002e221600114cb150": {
+   "bar": "firepower",
+   "score": 20
+  },
+  "5c88f24b2e22160bc12c69a6": {
+   "bar": "firepower",
+   "score": 43
+  },
+  "5c920e902e221644f31c3c99": {
+   "bar": "firepower",
+   "score": 42
+  },
+  "5c925fa22e221601da359b7b": {
+   "bar": "firepower",
+   "score": 450
+  },
+  "5c99f3592e221644fc633070": {
+   "bar": "firepower",
+   "score": 849
+  },
+  "5c9a07572e221644f31c4b32": {
+   "bar": "firepower",
+   "score": 68
+  },
+  "5c9a1c3a2e2216000e69fb6a": {
+   "bar": "firepower",
+   "score": 68
+  },
+  "5c9a1c422e221600106f69f0": {
+   "bar": "firepower",
+   "score": 68
+  },
+  "5c9a25172e2216000f20314e": {
+   "bar": "firepower",
+   "score": 6
+  },
+  "5c9a26332e2216001219ea70": {
+   "bar": "firepower",
+   "score": 48
+  },
+  "5ca20abf86f77418567a43f2": {
+   "bar": "utility",
+   "score": 119
+  },
+  "5ca20d5986f774331e7c9602": {
+   "bar": "utility",
+   "score": 45
+  },
+  "5ca2151486f774244a3b8d30": {
+   "bar": "defense",
+   "score": 0
+  },
+  "5ca21c6986f77479963115a7": {
+   "bar": "defense",
+   "score": 0
+  },
+  "5cadc190ae921500103bb3b6": {
+   "bar": "firepower",
+   "score": 277
+  },
+  "5cadc1c6ae9215000f2775a4": {
+   "bar": "firepower",
+   "score": 74
+  },
+  "5cadc2e0ae9215051e1c21e7": {
+   "bar": "firepower",
+   "score": 37
+  },
+  "5cadc390ae921500126a77f1": {
+   "bar": "firepower",
+   "score": 3
+  },
+  "5cadc431ae921500113bb8d5": {
+   "bar": "firepower",
+   "score": 11
+  },
+  "5cadc55cae921500103bb3be": {
+   "bar": "firepower",
+   "score": 3
+  },
+  "5cadf6ddae9215051e1c23b2": {
+   "bar": "firepower",
+   "score": 550
+  },
+  "5cadf6e5ae921500113bb973": {
+   "bar": "firepower",
+   "score": 408
+  },
+  "5cadf6eeae921500134b2799": {
+   "bar": "firepower",
+   "score": 709
+  },
+  "5cadfbf7ae92152ac412eeef": {
+   "bar": "firepower",
+   "score": 858
+  },
+  "5caf1041ae92157c28402e3f": {
+   "bar": "firepower",
+   "score": 19
+  },
+  "5caf1109ae9215753c44119f": {
+   "bar": "firepower",
+   "score": 37
+  },
+  "5caf17c9ae92150b30006be1": {
+   "bar": "firepower",
+   "score": 480
+  },
+  "5caf187cae92157c28402e43": {
+   "bar": "firepower",
+   "score": 309
+  },
+  "5cbda392ae92155f3c17c39f": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "5cbda9f4ae9215000e5b9bfc": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "5cbdaf89ae9215000e5b9c94": {
+   "bar": "firepower",
+   "score": 65
+  },
+  "5cbdb1b0ae9215000d50e105": {
+   "bar": "firepower",
+   "score": 639
+  },
+  "5cbdc23eae9215001136a407": {
+   "bar": "firepower",
+   "score": 107
+  },
+  "5cc6ea85e4a949000e1ea3c3": {
+   "bar": "firepower",
+   "score": 3
+  },
+  "5cc70093e4a949033c734312": {
+   "bar": "firepower",
+   "score": 108
+  },
+  "5cc700b9e4a949000f0f0f25": {
+   "bar": "firepower",
+   "score": 244
+  },
+  "5cc700cae4a949035e43ba72": {
+   "bar": "firepower",
+   "score": 34
+  },
+  "5cc700d4e4a949000f0f0f28": {
+   "bar": "firepower",
+   "score": 62
+  },
+  "5cc701aae4a949000e1ea45c": {
+   "bar": "firepower",
+   "score": 133
+  },
+  "5cc701d7e4a94900100ac4e7": {
+   "bar": "firepower",
+   "score": 332
+  },
+  "5cc80f38e4a949001152b560": {
+   "bar": "firepower",
+   "score": 510
+  },
+  "5cc80f53e4a949000e1ea4f8": {
+   "bar": "firepower",
+   "score": 474
+  },
+  "5cc80f67e4a949035e43bbba": {
+   "bar": "firepower",
+   "score": 418
+  },
+  "5cc80f79e4a949033c7343b2": {
+   "bar": "firepower",
+   "score": 315
+  },
+  "5cc80f8fe4a949033b0224a2": {
+   "bar": "firepower",
+   "score": 386
+  },
+  "5cc82796e24e8d000f5859a8": {
+   "bar": "firepower",
+   "score": 139
+  },
+  "5cc82d76e24e8d00134b4b83": {
+   "bar": "firepower",
+   "score": 893
+  },
+  "5cc86832d7f00c000d3a6e6c": {
+   "bar": "firepower",
+   "score": 257
+  },
+  "5cc86840d7f00c002412c56c": {
+   "bar": "firepower",
+   "score": 261
+  },
+  "5cc9a96cd7f00c011c04e04a": {
+   "bar": "firepower",
+   "score": 278
+  },
+  "5cc9ad73d7f00c000e2579d4": {
+   "bar": "firepower",
+   "score": 307
+  },
+  "5cc9b815d7f00c000e2579d6": {
+   "bar": "firepower",
+   "score": 171
+  },
+  "5cc9bcaed7f00c011c04e179": {
+   "bar": "firepower",
+   "score": 28
+  },
+  "5cda9bcfd7f00c0c0b53e900": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "5cdaa99dd7f00c002412d0b2": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "5cdd7685d7f00c000f260ed2": {
+   "bar": "firepower",
+   "score": 229
+  },
+  "5cdd7693d7f00c0010373aa5": {
+   "bar": "firepower",
+   "score": 200
+  },
+  "5cde739cd7f00c0010373bd3": {
+   "bar": "firepower",
+   "score": 207
+  },
+  "5cde7afdd7f00c000d36b89d": {
+   "bar": "firepower",
+   "score": 114
+  },
+  "5cde8864d7f00c0010373be1": {
+   "bar": "firepower",
+   "score": 1306
+  },
+  "5cdeac22d7f00c000f26168f": {
+   "bar": "firepower",
+   "score": 204
+  },
+  "5cdeac42d7f00c000d36ba73": {
+   "bar": "firepower",
+   "score": 568
+  },
+  "5cdeac5cd7f00c000f261694": {
+   "bar": "firepower",
+   "score": 17
+  },
+  "5cdeb229d7f00c000e7ce174": {
+   "bar": "firepower",
+   "score": 1156
+  },
+  "5ce69cbad7f00c00b61c5098": {
+   "bar": "firepower",
+   "score": 16
+  },
+  "5cebec00d7f00c065c53522a": {
+   "bar": "firepower",
+   "score": 122
+  },
+  "5cebec10d7f00c065703d185": {
+   "bar": "firepower",
+   "score": 244
+  },
+  "5cebec38d7f00c00110a652a": {
+   "bar": "firepower",
+   "score": 88
+  },
+  "5cf12a15d7f00c05464b293f": {
+   "bar": "firepower",
+   "score": 37
+  },
+  "5cf13123d7f00c1085616a50": {
+   "bar": "firepower",
+   "score": 796
+  },
+  "5cf4e3f3d7f00c06595bc7f0": {
+   "bar": "firepower",
+   "score": 99
+  },
+  "5cf4fb76d7f00c065703d3ac": {
+   "bar": "firepower",
+   "score": 40
+  },
+  "5cf50850d7f00c056e24104c": {
+   "bar": "firepower",
+   "score": 23
+  },
+  "5cf508bfd7f00c056e24104e": {
+   "bar": "firepower",
+   "score": 23
+  },
+  "5cf50fc5d7f00c056c53f83c": {
+   "bar": "firepower",
+   "score": 54
+  },
+  "5cf518cfd7f00c065b422214": {
+   "bar": "firepower",
+   "score": 54
+  },
+  "5cf54404d7f00c108840b2ef": {
+   "bar": "firepower",
+   "score": 26
+  },
+  "5cf639aad7f00c065703d455": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "5cf656f2d7f00c06585fb6eb": {
+   "bar": "firepower",
+   "score": 153
+  },
+  "5cf6935bd7f00c06585fb791": {
+   "bar": "firepower",
+   "score": 229
+  },
+  "5cf6937cd7f00c056c53fb39": {
+   "bar": "firepower",
+   "score": 288
+  },
+  "5cf78496d7f00c065703d6ca": {
+   "bar": "firepower",
+   "score": 26
+  },
+  "5cf78720d7f00c06595bc93e": {
+   "bar": "firepower",
+   "score": 162
+  },
+  "5cf79599d7f00c10875d9212": {
+   "bar": "firepower",
+   "score": 28
+  },
+  "5cf8f3b0d7f00c00217872ef": {
+   "bar": "firepower",
+   "score": 16
+  },
+  "5cfe8010d7ad1a59283b14c6": {
+   "bar": "firepower",
+   "score": 97
+  },
+  "5cff9e5ed7ad1a09407397d4": {
+   "bar": "firepower",
+   "score": 170
+  },
+  "5cff9e84d7ad1a049e54ed55": {
+   "bar": "firepower",
+   "score": 122
+  },
+  "5cffa483d7ad1a049e54ef1c": {
+   "bar": "firepower",
+   "score": 135
+  },
+  "5d00e0cbd7ad1a6c6566a42d": {
+   "bar": "firepower",
+   "score": 9
+  },
+  "5d00ec68d7ad1a04a067e5be": {
+   "bar": "firepower",
+   "score": 82
+  },
+  "5d00ede1d7ad1a0940739a76": {
+   "bar": "firepower",
+   "score": 51
+  },
+  "5d00ef6dd7ad1a0940739b16": {
+   "bar": "firepower",
+   "score": 51
+  },
+  "5d00f63bd7ad1a59283b1c1e": {
+   "bar": "firepower",
+   "score": 9
+  },
+  "5d010d1cd7ad1a59283b1ce7": {
+   "bar": "firepower",
+   "score": 122
+  },
+  "5d0236dad7ad1a0940739d29": {
+   "bar": "firepower",
+   "score": 801
+  },
+  "5d023784d7ad1a049d4aa7f2": {
+   "bar": "firepower",
+   "score": 34
+  },
+  "5d025cc1d7ad1a53845279ef": {
+   "bar": "firepower",
+   "score": 43
+  },
+  "5d02676dd7ad1a049e54f6dc": {
+   "bar": "firepower",
+   "score": 227
+  },
+  "5d02677ad7ad1a04a15c0f95": {
+   "bar": "firepower",
+   "score": 203
+  },
+  "5d026791d7ad1a04a067ea63": {
+   "bar": "firepower",
+   "score": 309
+  },
+  "5d02778e86f774203e7dedbe": {
+   "bar": "utility",
+   "score": 150
+  },
+  "5d02797c86f774203f38e30a": {
+   "bar": "utility",
+   "score": 227
+  },
+  "5d0b5cd3d7ad1a3fe32ad263": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "5d120a10d7ad1a4e1026ba85": {
+   "bar": "firepower",
+   "score": 636
+  },
+  "5d120a28d7ad1a1c8962e295": {
+   "bar": "firepower",
+   "score": 62
+  },
+  "5d122e7bd7ad1a07102d6d7f": {
+   "bar": "firepower",
+   "score": 6
+  },
+  "5d123102d7ad1a004e475fe5": {
+   "bar": "firepower",
+   "score": 6
+  },
+  "5d123a3cd7ad1a004e476058": {
+   "bar": "firepower",
+   "score": 6
+  },
+  "5d123b70d7ad1a0ee35e0754": {
+   "bar": "firepower",
+   "score": 9
+  },
+  "5d123b7dd7ad1a004f01b262": {
+   "bar": "firepower",
+   "score": 40
+  },
+  "5d124c01d7ad1a115c7d59fb": {
+   "bar": "firepower",
+   "score": 6
+  },
+  "5d124c0ed7ad1a10d168dd9b": {
+   "bar": "firepower",
+   "score": 9
+  },
+  "5d124c1ad7ad1a12227c53a7": {
+   "bar": "firepower",
+   "score": 40
+  },
+  "5d1340b3d7ad1a0b52682ed7": {
+   "bar": "firepower",
+   "score": 65
+  },
+  "5d1340bdd7ad1a0e8d245aab": {
+   "bar": "firepower",
+   "score": 83
+  },
+  "5d1340cad7ad1a0b0b249869": {
+   "bar": "firepower",
+   "score": 65
+  },
+  "5d135e83d7ad1a21b83f42d8": {
+   "bar": "firepower",
+   "score": 653
+  },
+  "5d135ecbd7ad1a21c176542e": {
+   "bar": "firepower",
+   "score": 653
+  },
+  "5d15ce51d7ad1a1eff619092": {
+   "bar": "firepower",
+   "score": 37
+  },
+  "5d15cf3bd7ad1a67e71518b2": {
+   "bar": "firepower",
+   "score": 28
+  },
+  "5d19cd96d7ad1a4a992c9f52": {
+   "bar": "firepower",
+   "score": 60
+  },
+  "5d1b198cd7ad1a604869ad72": {
+   "bar": "firepower",
+   "score": 17
+  },
+  "5d1c702ad7ad1a632267f429": {
+   "bar": "firepower",
+   "score": 664
+  },
+  "5d1f819086f7744b355c219b": {
+   "bar": "firepower",
+   "score": 170
+  },
+  "5d25a4a98abbc30b917421a4": {
+   "bar": "firepower",
+   "score": 15
+  },
+  "5d25a6538abbc306c62e630d": {
+   "bar": "firepower",
+   "score": 20
+  },
+  "5d25a6a48abbc306c62e6310": {
+   "bar": "firepower",
+   "score": 24
+  },
+  "5d25a7b88abbc3054f3e60bc": {
+   "bar": "firepower",
+   "score": 22
+  },
+  "5d25af8f8abbc3055079fec5": {
+   "bar": "firepower",
+   "score": 23
+  },
+  "5d25d0ac8abbc3054f3e61f7": {
+   "bar": "firepower",
+   "score": 803
+  },
+  "5d2702e88abbc31ed91efc44": {
+   "bar": "firepower",
+   "score": 216
+  },
+  "5d2703038abbc3105103d94c": {
+   "bar": "firepower",
+   "score": 85
+  },
+  "5d270b3c8abbc3105335cfb8": {
+   "bar": "firepower",
+   "score": 3
+  },
+  "5d270ca28abbc31ee25ee821": {
+   "bar": "firepower",
+   "score": 3
+  },
+  "5d2c76ed48f03532f2136169": {
+   "bar": "firepower",
+   "score": 43
+  },
+  "5d2c770c48f0354b4a07c100": {
+   "bar": "firepower",
+   "score": 40
+  },
+  "5d2c772c48f0355d95672c25": {
+   "bar": "firepower",
+   "score": 20
+  },
+  "5d2c829448f0353a5c7d6674": {
+   "bar": "firepower",
+   "score": 37
+  },
+  "5d2da1e948f035477b1ce2ba": {
+   "bar": "firepower",
+   "score": 88
+  },
+  "5d2f0d8048f0356c925bc3b0": {
+   "bar": "firepower",
+   "score": 872
+  },
+  "5d2f213448f0355009199284": {
+   "bar": "firepower",
+   "score": 51
+  },
+  "5d2f259b48f0355a844acd74": {
+   "bar": "firepower",
+   "score": 119
+  },
+  "5d2f25bc48f03502573e5d85": {
+   "bar": "firepower",
+   "score": 9
+  },
+  "5d2f261548f03576f500e7b7": {
+   "bar": "firepower",
+   "score": 17
+  },
+  "5d2f2ab648f03550091993ca": {
+   "bar": "firepower",
+   "score": 1232
+  },
+  "5d3eb3b0a4b93615055e84d2": {
+   "bar": "firepower",
+   "score": 378
+  },
+  "5d3eb44aa4b93650d64e4979": {
+   "bar": "firepower",
+   "score": 9
+  },
+  "5d3eb59ea4b9361c284bb4b2": {
+   "bar": "firepower",
+   "score": 85
+  },
+  "5d3eb5b6a4b9361eab311902": {
+   "bar": "firepower",
+   "score": 85
+  },
+  "5d3eb5eca4b9363b1f22f8e4": {
+   "bar": "firepower",
+   "score": 44
+  },
+  "5d3ef698a4b9361182109872": {
+   "bar": "firepower",
+   "score": 128
+  },
+  "5d43021ca4b9362eab4b5e25": {
+   "bar": "firepower",
+   "score": 781
+  },
+  "5d4405aaa4b9361e6a4e6bd3": {
+   "bar": "firepower",
+   "score": 74
+  },
+  "5d4405f0a4b9361e6a4e6bd9": {
+   "bar": "firepower",
+   "score": 62
+  },
+  "5d440625a4b9361eec4ae6c5": {
+   "bar": "firepower",
+   "score": 167
+  },
+  "5d44064fa4b9361e4f6eb8b5": {
+   "bar": "firepower",
+   "score": 190
+  },
+  "5d44069ca4b9361ebd26fc37": {
+   "bar": "firepower",
+   "score": 690
+  },
+  "5d4406a8a4b9361e4f6eb8b7": {
+   "bar": "firepower",
+   "score": 690
+  },
+  "5d440b93a4b9364276578d4b": {
+   "bar": "firepower",
+   "score": 79
+  },
+  "5d440b9fa4b93601354d480c": {
+   "bar": "firepower",
+   "score": 88
+  },
+  "5d44334ba4b9362b346d1948": {
+   "bar": "firepower",
+   "score": 9
+  },
+  "5d443f8fa4b93678dd4a01aa": {
+   "bar": "firepower",
+   "score": 170
+  },
+  "5d4aaa54a4b9365392071170": {
+   "bar": "firepower",
+   "score": 17
+  },
+  "5d4aaa73a4b9365392071175": {
+   "bar": "firepower",
+   "score": 17
+  },
+  "5d4aab30a4b9365435358c55": {
+   "bar": "firepower",
+   "score": 153
+  },
+  "5d52cc5ba4b9367408500062": {
+   "bar": "firepower",
+   "score": 1127
+  },
+  "5d52d479a4b936793d58c76b": {
+   "bar": "firepower",
+   "score": 136
+  },
+  "5d5d646386f7742797261fd9": {
+   "bar": "defense",
+   "score": 5
+  },
+  "5d5d85c586f774279a21cbdb": {
+   "bar": "utility",
+   "score": 119
+  },
+  "5d5d87f786f77427997cfaef": {
+   "bar": "defense",
+   "score": 5
+  },
+  "5d5d8ca986f7742798716522": {
+   "bar": "utility",
+   "score": 60
+  },
+  "5d5d940f86f7742797262046": {
+   "bar": "utility",
+   "score": 72
+  },
+  "5d67abc1a4b93614ec50137f": {
+   "bar": "firepower",
+   "score": 378
+  },
+  "5d6e6772a4b936088465b17c": {
+   "bar": "firepower",
+   "score": 334
+  },
+  "5d6e67fba4b9361bc73bc779": {
+   "bar": "firepower",
+   "score": 367
+  },
+  "5d6e6806a4b936088465b17e": {
+   "bar": "firepower",
+   "score": 357
+  },
+  "5d6e6869a4b9361c140bcfde": {
+   "bar": "firepower",
+   "score": 484
+  },
+  "5d6e6891a4b9361bd473feea": {
+   "bar": "firepower",
+   "score": 458
+  },
+  "5d6e689ca4b9361bc8618956": {
+   "bar": "firepower",
+   "score": 517
+  },
+  "5d6e68a8a4b9360b6c0d54e2": {
+   "bar": "firepower",
+   "score": 731
+  },
+  "5d6e68b3a4b9361bca7e50b5": {
+   "bar": "firepower",
+   "score": 502
+  },
+  "5d6e68c4a4b9361b93413f79": {
+   "bar": "firepower",
+   "score": 637
+  },
+  "5d6e68d1a4b93622fe60e845": {
+   "bar": "firepower",
+   "score": 371
+  },
+  "5d6e68dea4b9361bcc29e659": {
+   "bar": "firepower",
+   "score": 537
+  },
+  "5d6e68e6a4b9361c140bcfe0": {
+   "bar": "firepower",
+   "score": 568
+  },
+  "5d6e6911a4b9361bd5780d52": {
+   "bar": "firepower",
+   "score": 653
+  },
+  "5d6e695fa4b936359b35d852": {
+   "bar": "firepower",
+   "score": 330
+  },
+  "5d6e69b9a4b9361bc8618958": {
+   "bar": "firepower",
+   "score": 335
+  },
+  "5d6e69c7a4b9360b6c0d54e4": {
+   "bar": "firepower",
+   "score": 352
+  },
+  "5d6e6a05a4b93618084f58d0": {
+   "bar": "firepower",
+   "score": 474
+  },
+  "5d6e6a42a4b9364f07165f52": {
+   "bar": "firepower",
+   "score": 449
+  },
+  "5d6e6a53a4b9361bd473feec": {
+   "bar": "firepower",
+   "score": 387
+  },
+  "5d6e6a5fa4b93614ec501745": {
+   "bar": "firepower",
+   "score": 372
+  },
+  "5dcbd56fdbd3d91b3e5468d5": {
+   "bar": "firepower",
+   "score": 920
+  },
+  "5dcbd6b46ec07c0c4347a564": {
+   "bar": "firepower",
+   "score": 54
+  },
+  "5dcbd6dddbd3d91b3e5468de": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "5dcbe9431e1f4616d354987e": {
+   "bar": "firepower",
+   "score": 267
+  },
+  "5dcbe965e4ed22586443a79d": {
+   "bar": "firepower",
+   "score": 167
+  },
+  "5de652c31b7e3716273428be": {
+   "bar": "firepower",
+   "score": 556
+  },
+  "5de653abf76fdc1ce94a5a2a": {
+   "bar": "firepower",
+   "score": 10
+  },
+  "5de65547883dde217541644b": {
+   "bar": "firepower",
+   "score": 176
+  },
+  "5de6556a205ddc616a6bc4f7": {
+   "bar": "firepower",
+   "score": 3
+  },
+  "5de655be4a9f347bc92edb88": {
+   "bar": "firepower",
+   "score": 843
+  },
+  "5de7bd7bfd6b4e6e2276dc25": {
+   "bar": "firepower",
+   "score": 915
+  },
+  "5de8e67c4a9f347bc92edbd7": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "5de8e8dafd6b4e6e2276dc32": {
+   "bar": "firepower",
+   "score": 39
+  },
+  "5de8ea8ffd6b4e6e2276dc35": {
+   "bar": "firepower",
+   "score": 48
+  },
+  "5de8eaadbbaf010b10528a6d": {
+   "bar": "firepower",
+   "score": 58
+  },
+  "5de8eac42a78646d96665d91": {
+   "bar": "firepower",
+   "score": 67
+  },
+  "5de8f2d5b74cd90030650c72": {
+   "bar": "firepower",
+   "score": 125
+  },
+  "5de8fbad2fbe23140d3ee9c4": {
+   "bar": "firepower",
+   "score": 17
+  },
+  "5de910da8b6c4240ba2651b5": {
+   "bar": "firepower",
+   "score": 378
+  },
+  "5df24cf80dee1b22f862e9bc": {
+   "bar": "firepower",
+   "score": 536
+  },
+  "5df256570dee1b22f862e9c4": {
+   "bar": "firepower",
+   "score": 114
+  },
+  "5df25b6c0b92095fd441e4cf": {
+   "bar": "firepower",
+   "score": 8
+  },
+  "5df25d3bfd6b4e6e2276dc9a": {
+   "bar": "firepower",
+   "score": 88
+  },
+  "5df35ddddfc58d14537c2036": {
+   "bar": "firepower",
+   "score": 542
+  },
+  "5df35e59c41b2312ea3334d5": {
+   "bar": "firepower",
+   "score": 74
+  },
+  "5df35e7f2a78646d96665dd4": {
+   "bar": "firepower",
+   "score": 170
+  },
+  "5df36948bb49d91fb446d5ad": {
+   "bar": "firepower",
+   "score": 45
+  },
+  "5df38a5fb74cd90030650cb6": {
+   "bar": "firepower",
+   "score": 23
+  },
+  "5df8a2ca86f7740bfe6df777": {
+   "bar": "defense",
+   "score": 0
+  },
+  "5df8a42886f77412640e2e75": {
+   "bar": "utility",
+   "score": 179
+  },
+  "5df8a4d786f77412672a1e3b": {
+   "bar": "utility",
+   "score": 107
+  },
+  "5df8ce05b11454561e39243b": {
+   "bar": "firepower",
+   "score": 755
+  },
+  "5df8e085bb49d91fb446d6a8": {
+   "bar": "firepower",
+   "score": 3
+  },
+  "5df8e4080b92095fd441e594": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "5df8f535bb49d91fb446d6b0": {
+   "bar": "firepower",
+   "score": 25
+  },
+  "5df8f541c41b2312ea3335e3": {
+   "bar": "firepower",
+   "score": 41
+  },
+  "5df916dfbb49d91fb446d6b9": {
+   "bar": "firepower",
+   "score": 51
+  },
+  "5df917564a9f347bc92edca3": {
+   "bar": "firepower",
+   "score": 108
+  },
+  "5dfa397fb11454561e39246c": {
+   "bar": "firepower",
+   "score": 196
+  },
+  "5dfa3cd1b33c0951220c079b": {
+   "bar": "firepower",
+   "score": 174
+  },
+  "5dfa3d2b0dee1b22f862eade": {
+   "bar": "firepower",
+   "score": 162
+  },
+  "5dfa3d45dfc58d14537c20b0": {
+   "bar": "firepower",
+   "score": 54
+  },
+  "5dfa3d7ac41b2312ea33362a": {
+   "bar": "firepower",
+   "score": 3
+  },
+  "5dfa3d950dee1b22f862eae0": {
+   "bar": "firepower",
+   "score": 3
+  },
+  "5dfcd0e547101c39625f66f9": {
+   "bar": "firepower",
+   "score": 116
+  },
+  "5dfce88fe9dc277128008b2e": {
+   "bar": "firepower",
+   "score": 6
+  },
+  "5e00903ae9dc277128008b87": {
+   "bar": "firepower",
+   "score": 913
+  },
+  "5e0090f7e9dc277128008b93": {
+   "bar": "firepower",
+   "score": 23
+  },
+  "5e01ea19e9dc277128008c0b": {
+   "bar": "firepower",
+   "score": 136
+  },
+  "5e023cf8186a883be655e54f": {
+   "bar": "firepower",
+   "score": 653
+  },
+  "5e023d34e8a400319a28ed44": {
+   "bar": "firepower",
+   "score": 794
+  },
+  "5e023d48186a883be655e551": {
+   "bar": "firepower",
+   "score": 938
+  },
+  "5e023e53d4353e3302577c4c": {
+   "bar": "firepower",
+   "score": 583
+  },
+  "5e023e6e34d52a55c3304f71": {
+   "bar": "firepower",
+   "score": 480
+  },
+  "5e023e88277cce2b522ff2b1": {
+   "bar": "firepower",
+   "score": 378
+  },
+  "5e208b9842457a4a7a33d074": {
+   "bar": "firepower",
+   "score": 139
+  },
+  "5e217ba4c1434648c13568cd": {
+   "bar": "firepower",
+   "score": 715
+  },
+  "5e2192a498a36665e8337386": {
+   "bar": "firepower",
+   "score": 28
+  },
+  "5e21a3c67e40bd02257a008a": {
+   "bar": "firepower",
+   "score": 66
+  },
+  "5e32f56fcb6d5863cc5e5ee4": {
+   "bar": "utility",
+   "score": 119
+  },
+  "5e340dcdcb6d5863cc5e5efb": {
+   "bar": "utility",
+   "score": 119
+  },
+  "5e4abb5086f77406975c9342": {
+   "bar": "defense",
+   "score": 0
+  },
+  "5e4abc1f86f774069619fbaa": {
+   "bar": "utility",
+   "score": 60
+  },
+  "5e4abc6786f77406812bd572": {
+   "bar": "utility",
+   "score": 107
+  },
+  "5e4abfed86f77406a2713cf7": {
+   "bar": "utility",
+   "score": 104
+  },
+  "5e4ac41886f77406a511c9a8": {
+   "bar": "defense",
+   "score": 5
+  },
+  "5e4d34ca86f774264f758330": {
+   "bar": "utility",
+   "score": 154
+  },
+  "5e56991336989c75ab4f03f6": {
+   "bar": "firepower",
+   "score": 133
+  },
+  "5e5699df2161e06ac158df6f": {
+   "bar": "firepower",
+   "score": 48
+  },
+  "5e569a0156edd02abe09f27d": {
+   "bar": "firepower",
+   "score": 54
+  },
+  "5e81c3cbac2bb513793cdc75": {
+   "bar": "firepower",
+   "score": 233
+  },
+  "5e81c4ca763d9f754677befa": {
+   "bar": "firepower",
+   "score": 15
+  },
+  "5e81c519cb2b95385c177551": {
+   "bar": "firepower",
+   "score": 71
+  },
+  "5e81c539cb2b95385c177553": {
+   "bar": "firepower",
+   "score": 3
+  },
+  "5e81c6a2ac2bb513793cdc7f": {
+   "bar": "firepower",
+   "score": 3
+  },
+  "5e81c6bf763d9f754677beff": {
+   "bar": "firepower",
+   "score": 11
+  },
+  "5e81ebcd8e146c7080625e15": {
+   "bar": "firepower",
+   "score": 480
+  },
+  "5e81edc13397a21db957f6a1": {
+   "bar": "firepower",
+   "score": 9
+  },
+  "5e81f423763d9f754677bf2e": {
+   "bar": "firepower",
+   "score": 419
+  },
+  "5e831507ea0a7c419c2f9bd9": {
+   "bar": "utility",
+   "score": 134
+  },
+  "5e8488fa988a8701445df1e4": {
+   "bar": "utility",
+   "score": 150
+  },
+  "5e848cc2988a8701445df1e8": {
+   "bar": "firepower",
+   "score": 363
+  },
+  "5e848d1c264f7c180b5e35a9": {
+   "bar": "firepower",
+   "score": 102
+  },
+  "5e848d2eea0a7c419c2f9bfd": {
+   "bar": "firepower",
+   "score": 199
+  },
+  "5e848d51e4dbc5266a4ec63b": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "5e848d99865c0f329958c83b": {
+   "bar": "firepower",
+   "score": 23
+  },
+  "5e848db4681bea2ada00daa9": {
+   "bar": "firepower",
+   "score": 698
+  },
+  "5e848dc4e4dbc5266a4ec63d": {
+   "bar": "firepower",
+   "score": 542
+  },
+  "5e85a9a6eacf8c039e4e2ac1": {
+   "bar": "firepower",
+   "score": 442
+  },
+  "5e85a9f4add9fe03027d9bf1": {
+   "bar": "firepower",
+   "score": 0
+  },
+  "5e85aa1a988a8701445df1f5": {
+   "bar": "firepower",
+   "score": 790
+  },
+  "5e85aac65505fa48730d8af2": {
+   "bar": "firepower",
+   "score": 550
+  },
+  "5e870397991fd70db46995c8": {
+   "bar": "firepower",
+   "score": 380
+  },
+  "5e87071478f43e51ca2de5e1": {
+   "bar": "firepower",
+   "score": 159
+  },
+  "5e87076ce2db31558c75a11d": {
+   "bar": "firepower",
+   "score": 20
+  },
+  "5e87080c81c4ed43e83cefda": {
+   "bar": "firepower",
+   "score": 16
+  },
+  "5e87116b81c4ed43e83cefdd": {
+   "bar": "firepower",
+   "score": 673
+  },
+  "5e99711486f7744bfc4af328": {
+   "bar": "utility",
+   "score": 344
+  },
+  "5e99735686f7744bfc4af32c": {
+   "bar": "utility",
+   "score": 299
+  },
+  "5e997f0b86f7741ac73993e2": {
+   "bar": "utility",
+   "score": 36
+  },
+  "5e9dacf986f774054d6b89f4": {
+   "bar": "defense",
+   "score": 0
+  },
+  "5e9db13186f7742f845ee9d3": {
+   "bar": "utility",
+   "score": 134
+  },
+  "5e9dcf5986f7746c417435b3": {
+   "bar": "utility",
+   "score": 45
+  },
+  "5ea02bb600685063ec28bfa1": {
+   "bar": "firepower",
+   "score": 71
+  },
+  "5ea034eb5aad6446a939737b": {
+   "bar": "firepower",
+   "score": 76
+  },
+  "5ea034f65aad6446a939737e": {
+   "bar": "firepower",
+   "score": 126
+  },
+  "5ea03e5009aa976f2e7a514b": {
+   "bar": "firepower",
+   "score": 65
+  },
+  "5ea03e9400685063ec28bfa4": {
+   "bar": "firepower",
+   "score": 647
+  },
+  "5ea03f7400685063ec28bfa8": {
+   "bar": "firepower",
+   "score": 779
+  },
+  "5ea16acdfadf1d18c87b0784": {
+   "bar": "firepower",
+   "score": 23
+  },
+  "5ea16ada09aa976f2e7a51be": {
+   "bar": "firepower",
+   "score": 57
+  },
+  "5ea16d4d5aad6446a939753d": {
+   "bar": "firepower",
+   "score": 6
+  },
+  "5ea172e498dacb342978818e": {
+   "bar": "firepower",
+   "score": 174
+  },
+  "5ea17bbc09aa976f2e7a51cd": {
+   "bar": "firepower",
+   "score": 150
+  },
+  "5ea2a8e200685063ec28c05a": {
+   "bar": "firepower",
+   "score": 266
+  },
+  "5ed515c8d380ab312177c0fa": {
+   "bar": "utility",
+   "score": 45
+  },
+  "5ed515e03a40a50460332579": {
+   "bar": "utility",
+   "score": 75
+  },
+  "5ed515ece452db0eb56fc028": {
+   "bar": "utility",
+   "score": 45
+  },
+  "5ed515f6915ec335206e4152": {
+   "bar": "utility",
+   "score": 194
+  },
+  "5ed5160a87bb8443d10680b5": {
+   "bar": "utility",
+   "score": 45
+  },
+  "5ed51652f6c34d2cc26336a1": {
+   "bar": "utility",
+   "score": 45
+  },
+  "5ed5166ad380ab312177c100": {
+   "bar": "utility",
+   "score": 45
+  },
+  "5ede475339ee016e8c534742": {
+   "bar": "firepower",
+   "score": 466
+  },
+  "5eea21647547d6330471b3c9": {
+   "bar": "firepower",
+   "score": 37
+  },
+  "5eea217fc64c5d0dfc05712a": {
+   "bar": "firepower",
+   "score": 852
+  },
+  "5eeb2ff5ea4f8b73c827350b": {
+   "bar": "firepower",
+   "score": 51
+  },
+  "5ef1b9f0c64c5d0dfc0571a1": {
+   "bar": "firepower",
+   "score": 28
+  },
+  "5ef1ba28c64c5d0dfc0571a5": {
+   "bar": "firepower",
+   "score": 62
+  },
+  "5ef32e4d1c1fd62aea6a150d": {
+   "bar": "firepower",
+   "score": 9
+  },
+  "5ef3448ab37dfd6af863525c": {
+   "bar": "firepower",
+   "score": 22
+  },
+  "5ef3553c43cb350a955a7ccb": {
+   "bar": "firepower",
+   "score": 9
+  },
+  "5ef35bc243cb350a955a7ccd": {
+   "bar": "firepower",
+   "score": 11
+  },
+  "5ef35d2ac64c5d0dfc0571b0": {
+   "bar": "firepower",
+   "score": 6
+  },
+  "5ef35f46382a846010715a96": {
+   "bar": "firepower",
+   "score": 9
+  },
+  "5ef366938cef260c0642acad": {
+   "bar": "firepower",
+   "score": 23
+  },
+  "5ef61964ec7f42238c31e0c1": {
+   "bar": "firepower",
+   "score": 278
+  },
+  "5efaf417aeb21837e749c7f2": {
+   "bar": "firepower",
+   "score": 105
+  },
+  "5efb0c1bd79ff02a1f5e68d9": {
+   "bar": "firepower",
+   "score": 880
+  },
+  "5efb0cabfb3e451d70735af5": {
+   "bar": "firepower",
+   "score": 555
+  },
+  "5efb0d4f4bc50b58e81710f3": {
+   "bar": "firepower",
+   "score": 366
+  },
+  "5efb0da7a29a85116f6ea05f": {
+   "bar": "firepower",
+   "score": 536
+  },
+  "5efb0e16aeb21837e749c7ff": {
+   "bar": "firepower",
+   "score": 252
+  },
+  "5efb0fc6aeb21837e749c801": {
+   "bar": "firepower",
+   "score": 337
+  },
+  "5f0596629e22f464da6bbdd9": {
+   "bar": "firepower",
+   "score": 651
+  },
+  "5f2a9575926fd9352339381f": {
+   "bar": "firepower",
+   "score": 782
+  },
+  "5f2aa4464b50c14bcf07acdb": {
+   "bar": "firepower",
+   "score": 3
+  },
+  "5f2aa4559b44de6b1b4e68d1": {
+   "bar": "firepower",
+   "score": 139
+  },
+  "5f2aa46b878ef416f538b567": {
+   "bar": "firepower",
+   "score": 139
+  },
+  "5f2aa47a200e2c0ee46efa71": {
+   "bar": "firepower",
+   "score": 102
+  },
+  "5f36a0e5fbf956000b716b65": {
+   "bar": "firepower",
+   "score": 255
+  },
+  "5f3e76d86cda304dcc634054": {
+   "bar": "firepower",
+   "score": 6
+  },
+  "5f3e772a670e2a7b01739a52": {
+   "bar": "firepower",
+   "score": 6
+  },
+  "5f3e777688ca2d00ad199d25": {
+   "bar": "firepower",
+   "score": 6
+  },
+  "5f3e778efcd9b651187d7201": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "5f3e77b26cda304dcc634057": {
+   "bar": "firepower",
+   "score": 15
+  },
+  "5f3e77f59103d430b93f94c1": {
+   "bar": "firepower",
+   "score": 74
+  },
+  "5f3e7801153b8571434a924c": {
+   "bar": "firepower",
+   "score": 77
+  },
+  "5f3e7823ddc4f03b010e2045": {
+   "bar": "firepower",
+   "score": 11
+  },
+  "5f5e45cc5021ce62144be7aa": {
+   "bar": "utility",
+   "score": 27
+  },
+  "5f5e467b0bc58666c37e7821": {
+   "bar": "utility",
+   "score": 67
+  },
+  "5f5e46b96bdad616ad46d613": {
+   "bar": "utility",
+   "score": 90
+  },
+  "5f5f41476bdad616ad46d631": {
+   "bar": "defense",
+   "score": 0
+  },
+  "5f5f41f56760b4138443b352": {
+   "bar": "utility",
+   "score": 119
+  },
+  "5f60cd6cf2bcbb675b00dac6": {
+   "bar": "utility",
+   "score": 154
+  },
+  "5f6331e097199b7db2128dc2": {
+   "bar": "firepower",
+   "score": 114
+  },
+  "5f6336bbda967c74a42e9932": {
+   "bar": "firepower",
+   "score": 57
+  },
+  "5f6339d53ada5942720e2dc3": {
+   "bar": "firepower",
+   "score": 162
+  },
+  "5f633f68f5750b524b45f112": {
+   "bar": "firepower",
+   "score": 392
+  },
+  "5f633f791b231926f2329f13": {
+   "bar": "firepower",
+   "score": 363
+  },
+  "5f633ff5c444ce7e3c30a006": {
+   "bar": "firepower",
+   "score": 9
+  },
+  "5f63405df5750b524b45f114": {
+   "bar": "firepower",
+   "score": 769
+  },
+  "5f63407e1b231926f2329f15": {
+   "bar": "firepower",
+   "score": 204
+  },
+  "5f6340d3ca442212f4047eb2": {
+   "bar": "firepower",
+   "score": 74
+  },
+  "5f6341043ada5942720e2dc5": {
+   "bar": "firepower",
+   "score": 34
+  },
+  "5f63418ef5750b524b45f116": {
+   "bar": "firepower",
+   "score": 99
+  },
+  "5f6372e2865db925d54f3869": {
+   "bar": "firepower",
+   "score": 170
+  },
+  "5f647d9f8499b57dc40ddb93": {
+   "bar": "firepower",
+   "score": 0
+  },
+  "5f647f31b6238e5dd066e196": {
+   "bar": "firepower",
+   "score": 432
+  },
+  "5f647fd3f6e4ab66c82faed6": {
+   "bar": "firepower",
+   "score": 367
+  },
+  "5fb64bc92b1b027b1f50bcf2": {
+   "bar": "firepower",
+   "score": 848
+  },
+  "5fb651b52b1b027b1f50bcff": {
+   "bar": "firepower",
+   "score": 28
+  },
+  "5fb651dc85f90547f674b6f4": {
+   "bar": "firepower",
+   "score": 62
+  },
+  "5fb65363d1409e5ca04b54f5": {
+   "bar": "firepower",
+   "score": 85
+  },
+  "5fb653962b1b027b1f50bd03": {
+   "bar": "firepower",
+   "score": 108
+  },
+  "5fb65424956329274326f316": {
+   "bar": "firepower",
+   "score": 139
+  },
+  "5fb6548dd1409e5ca04b54f9": {
+   "bar": "firepower",
+   "score": 3
+  },
+  "5fb6558ad6f0b2136f2d7eb7": {
+   "bar": "firepower",
+   "score": 644
+  },
+  "5fb655a72b1b027b1f50bd06": {
+   "bar": "firepower",
+   "score": 6
+  },
+  "5fb6564947ce63734e3fa1da": {
+   "bar": "firepower",
+   "score": 3
+  },
+  "5fb6567747ce63734e3fa1dc": {
+   "bar": "firepower",
+   "score": 3
+  },
+  "5fbbaa86f9986c4cff3fe5f6": {
+   "bar": "firepower",
+   "score": 650
+  },
+  "5fbbc3324e8a554c40648348": {
+   "bar": "firepower",
+   "score": 139
+  },
+  "5fbbc34106bde7524f03cbe9": {
+   "bar": "firepower",
+   "score": 3
+  },
+  "5fbbc366ca32ed67276c1557": {
+   "bar": "firepower",
+   "score": 85
+  },
+  "5fbbc383d5cb881a7363194a": {
+   "bar": "firepower",
+   "score": 108
+  },
+  "5fbbfabed5cb881a7363194e": {
+   "bar": "firepower",
+   "score": 74
+  },
+  "5fbbfacda56d053a3543f799": {
+   "bar": "firepower",
+   "score": 125
+  },
+  "5fbc210bf24b94483f726481": {
+   "bar": "firepower",
+   "score": 82
+  },
+  "5fbc226eca32ed67276c155d": {
+   "bar": "firepower",
+   "score": 26
+  },
+  "5fbc227aa56d053a3543f79e": {
+   "bar": "firepower",
+   "score": 45
+  },
+  "5fbcbcf593164a5b6278efb2": {
+   "bar": "firepower",
+   "score": 111
+  },
+  "5fbcbd02900b1d5091531dd3": {
+   "bar": "firepower",
+   "score": 111
+  },
+  "5fbcbd10ab884124df0cd563": {
+   "bar": "firepower",
+   "score": 168
+  },
+  "5fbcbd6c187fea44d52eda14": {
+   "bar": "firepower",
+   "score": 17
+  },
+  "5fbcc1d9016cce60e8341ab3": {
+   "bar": "firepower",
+   "score": 894
+  },
+  "5fbcc3e4d6fa9c00c571bb58": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "5fbcc429900b1d5091531dd7": {
+   "bar": "firepower",
+   "score": 596
+  },
+  "5fbcc437d724d907e2077d5c": {
+   "bar": "firepower",
+   "score": 639
+  },
+  "5fbe3ffdf8b6a877a729ea82": {
+   "bar": "firepower",
+   "score": 450
+  },
+  "5fbe760793164a5b6278efc8": {
+   "bar": "firepower",
+   "score": 187
+  },
+  "5fbe7618d6fa9c00c571bb6c": {
+   "bar": "firepower",
+   "score": 162
+  },
+  "5fc0f9b5d724d907e2077d82": {
+   "bar": "firepower",
+   "score": 28
+  },
+  "5fc0f9cbd6fa9c00c571bb90": {
+   "bar": "firepower",
+   "score": 71
+  },
+  "5fc0fa362770a0045c59c677": {
+   "bar": "firepower",
+   "score": 3
+  },
+  "5fc22d7c187fea44d52eda44": {
+   "bar": "firepower",
+   "score": 504
+  },
+  "5fc23426900b1d5091531e15": {
+   "bar": "firepower",
+   "score": 16
+  },
+  "5fc235db2770a0045c59c683": {
+   "bar": "firepower",
+   "score": 22
+  },
+  "5fc23636016cce60e8341b05": {
+   "bar": "firepower",
+   "score": 167
+  },
+  "5fc23678ab884124df0cd590": {
+   "bar": "firepower",
+   "score": 79
+  },
+  "5fc2369685fd526b824a5713": {
+   "bar": "firepower",
+   "score": 684
+  },
+  "5fc275cf85fd526b824a571a": {
+   "bar": "firepower",
+   "score": 782
+  },
+  "5fc278107283c4046c581489": {
+   "bar": "firepower",
+   "score": 45
+  },
+  "5fc382a9d724d907e2077dab": {
+   "bar": "firepower",
+   "score": 1104
+  },
+  "5fc382b6d6fa9c00c571bbc3": {
+   "bar": "firepower",
+   "score": 553
+  },
+  "5fc382c1016cce60e8341b20": {
+   "bar": "firepower",
+   "score": 648
+  },
+  "5fc3e272f8b6a877a729eac5": {
+   "bar": "firepower",
+   "score": 861
+  },
+  "5fc3e466187fea44d52eda90": {
+   "bar": "firepower",
+   "score": 53
+  },
+  "5fc3e4a27283c4046c5814ab": {
+   "bar": "firepower",
+   "score": 125
+  },
+  "5fc3e4ee7283c4046c5814af": {
+   "bar": "firepower",
+   "score": 687
+  },
+  "5fc3f2d5900b1d5091531e57": {
+   "bar": "firepower",
+   "score": 871
+  },
+  "5fc4b9b17283c4046c5814d7": {
+   "bar": "firepower",
+   "score": 142
+  },
+  "5fca138c2a7b221b2852a5c6": {
+   "bar": "utility",
+   "score": 45
+  },
+  "5fca13ca637ee0341a484f46": {
+   "bar": "utility",
+   "score": 45
+  },
+  "5fce0cf655375d18a253eff0": {
+   "bar": "firepower",
+   "score": 77
+  },
+  "5fce16961f152d4312622bc9": {
+   "bar": "firepower",
+   "score": 650
+  },
+  "5fd20ff893a8961fc660a954": {
+   "bar": "firepower",
+   "score": 651
+  },
+  "5fd4c474dd870108a754b241": {
+   "bar": "defense",
+   "score": 0
+  },
+  "5fd4c4fa16cac650092f6771": {
+   "bar": "utility",
+   "score": 60
+  },
+  "5fd4c5477a8d854fa0105061": {
+   "bar": "utility",
+   "score": 45
+  },
+  "5fd4c60f875c30179f5d04c2": {
+   "bar": "utility",
+   "score": 119
+  },
+  "60098ad7c2240c0fe85c570a": {
+   "bar": "utility",
+   "score": 381
+  },
+  "60098af40accd37ef2175f27": {
+   "bar": "utility",
+   "score": 149
+  },
+  "60194943740c5d77f6705eea": {
+   "bar": "firepower",
+   "score": 472
+  },
+  "601949593ae8f707c4608daa": {
+   "bar": "firepower",
+   "score": 713
+  },
+  "601aa3d2b2bcb34913271e6d": {
+   "bar": "firepower",
+   "score": 769
+  },
+  "602286df23506e50807090c6": {
+   "bar": "firepower",
+   "score": 35
+  },
+  "60228924961b8d75ee233c32": {
+   "bar": "firepower",
+   "score": 11
+  },
+  "602a95edda11d6478d5a06da": {
+   "bar": "firepower",
+   "score": 71
+  },
+  "602a95fe4e02ce1eaa358729": {
+   "bar": "firepower",
+   "score": 74
+  },
+  "602a97060ddce744014caf6f": {
+   "bar": "firepower",
+   "score": 125
+  },
+  "602a9740da11d6478d5a06dc": {
+   "bar": "firepower",
+   "score": 389
+  },
+  "602e3f1254072b51b239f713": {
+   "bar": "firepower",
+   "score": 28
+  },
+  "602e620f9b513876d4338d9a": {
+   "bar": "firepower",
+   "score": 582
+  },
+  "602e63fb6335467b0c5ac94d": {
+   "bar": "firepower",
+   "score": 11
+  },
+  "602e71bd53a60014f9705bfa": {
+   "bar": "firepower",
+   "score": 16
+  },
+  "602f85fd9b513876d4338d9c": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "603372b4da11d6478d5a07ff": {
+   "bar": "firepower",
+   "score": 85
+  },
+  "603372d154072b51b239f9e1": {
+   "bar": "firepower",
+   "score": 108
+  },
+  "603372f153a60014f970616d": {
+   "bar": "firepower",
+   "score": 185
+  },
+  "603373004e02ce1eaa358814": {
+   "bar": "firepower",
+   "score": 230
+  },
+  "6033749e88382f4fab3fd2c5": {
+   "bar": "firepower",
+   "score": 3
+  },
+  "60337f5dce399e10262255d1": {
+   "bar": "firepower",
+   "score": 165
+  },
+  "60338ff388382f4fab3fd2c8": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "60339954d62c9b14ed777c06": {
+   "bar": "firepower",
+   "score": 742
+  },
+  "6033fa48ffd42c541047f728": {
+   "bar": "utility",
+   "score": 149
+  },
+  "6034cf5fffd42c541047f72e": {
+   "bar": "utility",
+   "score": 119
+  },
+  "6034d0230ca681766b6a0fb5": {
+   "bar": "utility",
+   "score": 75
+  },
+  "6034d103ca006d2dca39b3f0": {
+   "bar": "utility",
+   "score": 54
+  },
+  "6034d2d697633951dc245ea6": {
+   "bar": "utility",
+   "score": 78
+  },
+  "6034e3cb0ddce744014cb870": {
+   "bar": "firepower",
+   "score": 17
+  },
+  "6034e3d953a60014f970617b": {
+   "bar": "firepower",
+   "score": 44
+  },
+  "6034e3e20ddce744014cb878": {
+   "bar": "firepower",
+   "score": 18
+  },
+  "603648ff5a45383c122086ac": {
+   "bar": "utility",
+   "score": 149
+  },
+  "6038b4b292ec1c3103795a0b": {
+   "bar": "defense",
+   "score": 0
+  },
+  "6038b4ca92ec1c3103795a0d": {
+   "bar": "defense",
+   "score": 0
+  },
+  "6038d614d10cbf667352dd44": {
+   "bar": "utility",
+   "score": 54
+  },
+  "6040dd4ddcf9592f401632d2": {
+   "bar": "utility",
+   "score": 149
+  },
+  "606587252535c57a13424cfd": {
+   "bar": "firepower",
+   "score": 847
+  },
+  "60658776f2cb2e02a42ace2b": {
+   "bar": "firepower",
+   "score": 37
+  },
+  "6065878ac9cf8012264142fd": {
+   "bar": "firepower",
+   "score": 60
+  },
+  "606587a88900dc2d9a55b659": {
+   "bar": "firepower",
+   "score": 40
+  },
+  "606587bd6d0bd7580617bacc": {
+   "bar": "firepower",
+   "score": 3
+  },
+  "606587d11246154cad35d635": {
+   "bar": "firepower",
+   "score": 562
+  },
+  "606587e18900dc2d9a55b65f": {
+   "bar": "firepower",
+   "score": 28
+  },
+  "6065880c132d4d12c81fd8da": {
+   "bar": "firepower",
+   "score": 17
+  },
+  "6065881d1246154cad35d637": {
+   "bar": "firepower",
+   "score": 44
+  },
+  "6065c6e7132d4d12c81fd8e1": {
+   "bar": "firepower",
+   "score": 174
+  },
+  "6065dc8a132d4d12c81fd8e3": {
+   "bar": "firepower",
+   "score": 82
+  },
+  "606dae0ab0e443224b421bb7": {
+   "bar": "firepower",
+   "score": 382
+  },
+  "606ee5c81246154cad35d65e": {
+   "bar": "firepower",
+   "score": 26
+  },
+  "606eef46232e5a31c233d500": {
+   "bar": "firepower",
+   "score": 26
+  },
+  "606eef756d0bd7580617baf8": {
+   "bar": "firepower",
+   "score": 735
+  },
+  "606ef0812535c57a13424d20": {
+   "bar": "firepower",
+   "score": 62
+  },
+  "606f262c6d0bd7580617bafa": {
+   "bar": "firepower",
+   "score": 116
+  },
+  "606f263a8900dc2d9a55b68d": {
+   "bar": "firepower",
+   "score": 136
+  },
+  "606f26752535c57a13424d22": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "6076c1b9f2cb2e02a42acedc": {
+   "bar": "firepower",
+   "score": 71
+  },
+  "6076c87f232e5a31c233d50e": {
+   "bar": "firepower",
+   "score": 10
+  },
+  "60785c0d232e5a31c233d51c": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "60785ce5132d4d12c81fd918": {
+   "bar": "firepower",
+   "score": 51
+  },
+  "607d5a891246154cad35d6aa": {
+   "bar": "firepower",
+   "score": 698
+  },
+  "607d5aa50494a626335e12ed": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "607f20859ee58b18e41ecd90": {
+   "bar": "defense",
+   "score": 0
+  },
+  "607ffb988900dc2d9a55b6e4": {
+   "bar": "firepower",
+   "score": 230
+  },
+  "6086b5731246154cad35d6c7": {
+   "bar": "firepower",
+   "score": 85
+  },
+  "6087e0336d0bd7580617bb7a": {
+   "bar": "firepower",
+   "score": 43
+  },
+  "6087e2a5232e5a31c233d552": {
+   "bar": "firepower",
+   "score": 815
+  },
+  "6087e663132d4d12c81fd96b": {
+   "bar": "firepower",
+   "score": 40
+  },
+  "609269c3b0e443224b421cc1": {
+   "bar": "firepower",
+   "score": 171
+  },
+  "60926df0132d4d12c81fd9df": {
+   "bar": "firepower",
+   "score": 221
+  },
+  "609a63b6e2ff132951242d09": {
+   "bar": "firepower",
+   "score": 78
+  },
+  "609b9e31506cf869cf3eaf41": {
+   "bar": "firepower",
+   "score": 82
+  },
+  "609e8540d5c319764c2bc2e9": {
+   "bar": "defense",
+   "score": 0
+  },
+  "609e860ebd219504d8507525": {
+   "bar": "defense",
+   "score": 5
+  },
+  "60a23797a37c940de7062d02": {
+   "bar": "firepower",
+   "score": 81
+  },
+  "60a272cc93ef783291411d8e": {
+   "bar": "utility",
+   "score": 56
+  },
+  "60a2828e8689911a226117f9": {
+   "bar": "utility",
+   "score": 45
+  },
+  "60a283193cb70855c43a381d": {
+   "bar": "defense",
+   "score": 0
+  },
+  "60a3c68c37ea821725773ef5": {
+   "bar": "defense",
+   "score": 5
+  },
+  "60a3c70cde5f453f634816a3": {
+   "bar": "defense",
+   "score": 5
+  },
+  "60a621c49c197e4e8c4455e6": {
+   "bar": "utility",
+   "score": 134
+  },
+  "60a6220e953894617404b00a": {
+   "bar": "utility",
+   "score": 134
+  },
+  "60a7ad2a2198820d95707a2e": {
+   "bar": "defense",
+   "score": 78
+  },
+  "60a7ad3a0c5cb24b0134664a": {
+   "bar": "defense",
+   "score": 78
+  },
+  "60bf74184a63fc79b60c57f6": {
+   "bar": "defense",
+   "score": 15
+  },
+  "60db29ce99594040e04c4a27": {
+   "bar": "firepower",
+   "score": 383
+  },
+  "60dc519adf4c47305f6d410d": {
+   "bar": "firepower",
+   "score": 9
+  },
+  "6113c3586c780c1e710c90bc": {
+   "bar": "firepower",
+   "score": 31
+  },
+  "6113cc78d3a39d50044c065a": {
+   "bar": "firepower",
+   "score": 37
+  },
+  "6113cce3d92c473c770200c7": {
+   "bar": "firepower",
+   "score": 34
+  },
+  "6113d6c3290d254f5e6b27db": {
+   "bar": "firepower",
+   "score": 79
+  },
+  "611a30addbdd8440277441dc": {
+   "bar": "firepower",
+   "score": 366
+  },
+  "611a31ce5b7ffe001b4649d1": {
+   "bar": "firepower",
+   "score": 68
+  },
+  "6123649463849f3d843da7c4": {
+   "bar": "firepower",
+   "score": 82
+  },
+  "612368f58b401f4f51239b33": {
+   "bar": "firepower",
+   "score": 233
+  },
+  "612781056f3d944a17348d60": {
+   "bar": "firepower",
+   "score": 662
+  },
+  "612e0cfc8004cc50514c2d9e": {
+   "bar": "firepower",
+   "score": 198
+  },
+  "612e0d3767085e45ef14057f": {
+   "bar": "firepower",
+   "score": 198
+  },
+  "612e0d81290d254f5e6b291a": {
+   "bar": "firepower",
+   "score": 283
+  },
+  "612e0e04568c120fdd294258": {
+   "bar": "firepower",
+   "score": 6
+  },
+  "612e0e3c290d254f5e6b291d": {
+   "bar": "firepower",
+   "score": 170
+  },
+  "612e0e55a112697a4b3a66e7": {
+   "bar": "firepower",
+   "score": 170
+  },
+  "6130c3dffaa1272e43151c7d": {
+   "bar": "firepower",
+   "score": 128
+  },
+  "6130c43c67085e45ef1405a1": {
+   "bar": "firepower",
+   "score": 259
+  },
+  "6130c4d51cb55961fa0fd49f": {
+   "bar": "firepower",
+   "score": 182
+  },
+  "6130ca3fd92c473c77020dbd": {
+   "bar": "firepower",
+   "score": 9
+  },
+  "615d8dbd290d254f5e6b2ed6": {
+   "bar": "firepower",
+   "score": 11
+  },
+  "615d8df08004cc50514c3236": {
+   "bar": "firepower",
+   "score": 224
+  },
+  "615d8e2f1cb55961fa0fd9a4": {
+   "bar": "firepower",
+   "score": 224
+  },
+  "615d8e9867085e45ef1409c6": {
+   "bar": "firepower",
+   "score": 26
+  },
+  "615d8eb350224f204c1da1cf": {
+   "bar": "firepower",
+   "score": 169
+  },
+  "615d8f5dd92c473c770212ef": {
+   "bar": "firepower",
+   "score": 338
+  },
+  "615d8f8567085e45ef1409ca": {
+   "bar": "firepower",
+   "score": 88
+  },
+  "615d8faecabb9b7ad90f4d5d": {
+   "bar": "firepower",
+   "score": 20
+  },
+  "615d8fd3290d254f5e6b2edc": {
+   "bar": "firepower",
+   "score": 51
+  },
+  "61659f79d92c473c770213ee": {
+   "bar": "firepower",
+   "score": 85
+  },
+  "6165ac306ef05c2ce828ef74": {
+   "bar": "firepower",
+   "score": 830
+  },
+  "6165ac8c290d254f5e6b2f6c": {
+   "bar": "firepower",
+   "score": 82
+  },
+  "6165adcdd3a39d50044c120f": {
+   "bar": "firepower",
+   "score": 34
+  },
+  "6165aeedfaa1272e431521e3": {
+   "bar": "firepower",
+   "score": 34
+  },
+  "61695095d92c473c7702147a": {
+   "bar": "firepower",
+   "score": 117
+  },
+  "61702be9faa1272e431522c3": {
+   "bar": "firepower",
+   "score": 133
+  },
+  "61702d8a67085e45ef140b24": {
+   "bar": "firepower",
+   "score": 3
+  },
+  "61702f1b67085e45ef140b26": {
+   "bar": "firepower",
+   "score": 54
+  },
+  "61703001d92c473c77021497": {
+   "bar": "firepower",
+   "score": 99
+  },
+  "61712eae6c780c1e710c9a1d": {
+   "bar": "firepower",
+   "score": 11
+  },
+  "617130016c780c1e710c9a24": {
+   "bar": "firepower",
+   "score": 25
+  },
+  "617131a4568c120fdd29482d": {
+   "bar": "firepower",
+   "score": 42
+  },
+  "61713308d92c473c770214a0": {
+   "bar": "firepower",
+   "score": 118
+  },
+  "6171367e1cb55961fa0fdb36": {
+   "bar": "firepower",
+   "score": 233
+  },
+  "61713a8fd92c473c770214a4": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "617153016c780c1e710c9a2f": {
+   "bar": "firepower",
+   "score": 28
+  },
+  "617154aa1cb55961fa0fdb3b": {
+   "bar": "firepower",
+   "score": 664
+  },
+  "617155ee50224f204c1da3cd": {
+   "bar": "firepower",
+   "score": 670
+  },
+  "61715e7e67085e45ef140b33": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "6176aca650224f204c1da3fb": {
+   "bar": "firepower",
+   "score": 740
+  },
+  "617aa4dd8166f034d57de9c5": {
+   "bar": "utility",
+   "score": 60
+  },
+  "617fd91e5539a84ec44ce155": {
+   "bar": "utility",
+   "score": 119
+  },
+  "61816734d8e3106d9806c1f3": {
+   "bar": "firepower",
+   "score": 114
+  },
+  "618167441cb55961fa0fdc71": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "618167528004cc50514c34f9": {
+   "bar": "firepower",
+   "score": 491
+  },
+  "618167616ef05c2ce828f1a8": {
+   "bar": "firepower",
+   "score": 65
+  },
+  "6181688c6c780c1e710c9b04": {
+   "bar": "firepower",
+   "score": 3
+  },
+  "618168b350224f204c1da4d8": {
+   "bar": "firepower",
+   "score": 68
+  },
+  "618168dc8004cc50514c34fc": {
+   "bar": "firepower",
+   "score": 41
+  },
+  "618178aa1cb55961fa0fdc80": {
+   "bar": "firepower",
+   "score": 145
+  },
+  "61825d06d92c473c770215de": {
+   "bar": "firepower",
+   "score": 114
+  },
+  "61825d136ef05c2ce828f1cc": {
+   "bar": "firepower",
+   "score": 491
+  },
+  "61825d24d3a39d50044c13af": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "6183afd850224f204c1da514": {
+   "bar": "firepower",
+   "score": 830
+  },
+  "6183b0711cb55961fa0fdcad": {
+   "bar": "firepower",
+   "score": 133
+  },
+  "6183b084a112697a4b3a6e6c": {
+   "bar": "firepower",
+   "score": 221
+  },
+  "6183d53f1cb55961fa0fdcda": {
+   "bar": "firepower",
+   "score": 41
+  },
+  "6183fc15d3a39d50044c13e9": {
+   "bar": "firepower",
+   "score": 43
+  },
+  "6183fd911cb55961fa0fdce9": {
+   "bar": "firepower",
+   "score": 77
+  },
+  "6183fd9e8004cc50514c358f": {
+   "bar": "firepower",
+   "score": 116
+  },
+  "618405198004cc50514c3594": {
+   "bar": "firepower",
+   "score": 6
+  },
+  "6184055050224f204c1da540": {
+   "bar": "firepower",
+   "score": 905
+  },
+  "618407a850224f204c1da549": {
+   "bar": "firepower",
+   "score": 141
+  },
+  "61840bedd92c473c77021635": {
+   "bar": "firepower",
+   "score": 65
+  },
+  "61840d85568c120fdd2962a5": {
+   "bar": "firepower",
+   "score": 65
+  },
+  "618426d96c780c1e710c9b9f": {
+   "bar": "firepower",
+   "score": 6
+  },
+  "618428466ef05c2ce828f218": {
+   "bar": "firepower",
+   "score": 905
+  },
+  "618a431df1eb8e24b8741deb": {
+   "bar": "utility",
+   "score": 119
+  },
+  "618a5d5852ecee1505530b2a": {
+   "bar": "firepower",
+   "score": 82
+  },
+  "618a760e526131765025aae3": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "618b9643526131765025ab35": {
+   "bar": "firepower",
+   "score": 1
+  },
+  "618b9671d14d6d5ab879c5ea": {
+   "bar": "firepower",
+   "score": 1
+  },
+  "618ba91477b82356f91ae0e8": {
+   "bar": "firepower",
+   "score": 1
+  },
+  "618bab21526131765025ab3f": {
+   "bar": "firepower",
+   "score": 1
+  },
+  "618bb76513f5097c8d5aa2d5": {
+   "bar": "utility",
+   "score": 56
+  },
+  "618cfae774bb2d036a049e7c": {
+   "bar": "utility",
+   "score": 56
+  },
+  "619256e5f8af2c1a4e1f5d92": {
+   "bar": "utility",
+   "score": 60
+  },
+  "619386379fb0c665d5490dbe": {
+   "bar": "firepower",
+   "score": 20
+  },
+  "6193a720f8ee7e52e42109ed": {
+   "bar": "firepower",
+   "score": 288
+  },
+  "6193d3149fb0c665d5490e32": {
+   "bar": "firepower",
+   "score": 28
+  },
+  "6193d338de3cdf1d2614a6fc": {
+   "bar": "firepower",
+   "score": 25
+  },
+  "6193d382ed0429009f543e65": {
+   "bar": "firepower",
+   "score": 9
+  },
+  "6193d3be7c6c7b169525f0da": {
+   "bar": "firepower",
+   "score": 6
+  },
+  "6193d3cded0429009f543e6a": {
+   "bar": "firepower",
+   "score": 6
+  },
+  "6193d5d4f8ee7e52e4210a1b": {
+   "bar": "firepower",
+   "score": 6
+  },
+  "6193dcd0f8ee7e52e4210a28": {
+   "bar": "firepower",
+   "score": 20
+  },
+  "6194ef39de3cdf1d2614a768": {
+   "bar": "firepower",
+   "score": 45
+  },
+  "6194efe07c6c7b169525f11b": {
+   "bar": "firepower",
+   "score": 48
+  },
+  "6194eff92d2c397d6600348b": {
+   "bar": "firepower",
+   "score": 60
+  },
+  "6194f017ed0429009f543eaa": {
+   "bar": "firepower",
+   "score": 70
+  },
+  "6194f02d9bb3d20b0946d2f0": {
+   "bar": "firepower",
+   "score": 98
+  },
+  "6194f1f918a3974e5e7421e4": {
+   "bar": "firepower",
+   "score": 3
+  },
+  "6194f41f9fb0c665d5490e75": {
+   "bar": "firepower",
+   "score": 9
+  },
+  "6194f5722d2c397d6600348f": {
+   "bar": "firepower",
+   "score": 65
+  },
+  "6194f5a318a3974e5e7421eb": {
+   "bar": "firepower",
+   "score": 9
+  },
+  "6194f5d418a3974e5e7421ef": {
+   "bar": "firepower",
+   "score": 131
+  },
+  "619621a4de3cdf1d2614a7a7": {
+   "bar": "firepower",
+   "score": 261
+  },
+  "619624b26db0f2477964e6b0": {
+   "bar": "firepower",
+   "score": 392
+  },
+  "61962b617c6c7b169525f168": {
+   "bar": "firepower",
+   "score": 574
+  },
+  "61962d879bb3d20b0946d385": {
+   "bar": "firepower",
+   "score": 610
+  },
+  "6196364158ef8c428c287d9f": {
+   "bar": "firepower",
+   "score": 355
+  },
+  "6196365d58ef8c428c287da1": {
+   "bar": "firepower",
+   "score": 317
+  },
+  "619636be6db0f2477964e710": {
+   "bar": "firepower",
+   "score": 505
+  },
+  "61965d9058ef8c428c287e0d": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "619666f4af1f5202c57a952d": {
+   "bar": "firepower",
+   "score": 37
+  },
+  "619b5db699fb192e7430664f": {
+   "bar": "firepower",
+   "score": 26
+  },
+  "619b69037b9de8162902673e": {
+   "bar": "firepower",
+   "score": 755
+  },
+  "619cf0335771dd3c390269ae": {
+   "bar": "utility",
+   "score": 56
+  },
+  "619d36da53b4d42ee724fae4": {
+   "bar": "firepower",
+   "score": 35
+  },
+  "619f4ab2d25cbd424731fb95": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "619f4bffd25cbd424731fb97": {
+   "bar": "firepower",
+   "score": 9
+  },
+  "619f54a1d25cbd424731fb99": {
+   "bar": "firepower",
+   "score": 11
+  },
+  "61a4c8884f95bc3b2c5dc96f": {
+   "bar": "firepower",
+   "score": 304
+  },
+  "61a4cda622af7f4f6a3ce617": {
+   "bar": "firepower",
+   "score": -2
+  },
+  "61b9e1aaef9a1b5d6a79899a": {
+   "bar": "utility",
+   "score": 78
+  },
+  "61bc85697113f767765c7fe7": {
+   "bar": "defense",
+   "score": 5
+  },
+  "61bcc89aef0f505f0c6cd0fc": {
+   "bar": "defense",
+   "score": 5
+  },
+  "61f4012adfc9f01a816adda1": {
+   "bar": "firepower",
+   "score": 190
+  },
+  "61f7b234ea4ab34f2f59c3ec": {
+   "bar": "firepower",
+   "score": 642
+  },
+  "61f7b85367ddd414173fdb36": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "61f7c9e189e6fb1a5e3ea78d": {
+   "bar": "firepower",
+   "score": 553
+  },
+  "61f8024263dc1250e26eb029": {
+   "bar": "firepower",
+   "score": 17
+  },
+  "61f803b8ced75b2e852e35f8": {
+   "bar": "firepower",
+   "score": 644
+  },
+  "61faa91878830f069b6b7967": {
+   "bar": "firepower",
+   "score": 585
+  },
+  "620109578d82e67e7911abf2": {
+   "bar": "firepower",
+   "score": 365
+  },
+  "6217726288ed9f0845317459": {
+   "bar": "firepower",
+   "score": 365
+  },
+  "62178be9d0050232da3485d9": {
+   "bar": "firepower",
+   "score": 365
+  },
+  "62178c4d4ecf221597654e3d": {
+   "bar": "firepower",
+   "score": 365
+  },
+  "622b379bf9cfc87d675d2de5": {
+   "bar": "firepower",
+   "score": 34
+  },
+  "622b3858034a3e17ad0b81f5": {
+   "bar": "firepower",
+   "score": 51
+  },
+  "622b38c56762c718e457e246": {
+   "bar": "firepower",
+   "score": 68
+  },
+  "622efbcb99f4ea1a4d6c9a15": {
+   "bar": "firepower",
+   "score": 85
+  },
+  "622f02437762f55aaa68ac85": {
+   "bar": "firepower",
+   "score": 1
+  },
+  "622f07cfae33bc505b2c4dd5": {
+   "bar": "firepower",
+   "score": 146
+  },
+  "622f0ee47762f55aaa68ac87": {
+   "bar": "firepower",
+   "score": 149
+  },
+  "622f128cec80d870d349b4e8": {
+   "bar": "firepower",
+   "score": 174
+  },
+  "622f140da5958f63c67f1735": {
+   "bar": "firepower",
+   "score": 559
+  },
+  "622f14e899892a7f9e08f6c5": {
+   "bar": "firepower",
+   "score": 627
+  },
+  "622f16a1a5958f63c67f1737": {
+   "bar": "firepower",
+   "score": 3
+  },
+  "623063e994fc3f7b302a9696": {
+   "bar": "firepower",
+   "score": 952
+  },
+  "62307b7b10d2321fa8741921": {
+   "bar": "firepower",
+   "score": 65
+  },
+  "6231654c71b5bc3baa1078e5": {
+   "bar": "firepower",
+   "score": 77
+  },
+  "62330b3ed4dc74626d570b95": {
+   "bar": "firepower",
+   "score": 526
+  },
+  "62330bfadc5883093563729b": {
+   "bar": "firepower",
+   "score": 375
+  },
+  "62330c18744e5e31df12f516": {
+   "bar": "firepower",
+   "score": 427
+  },
+  "62330c40bdd19b369e1e53d1": {
+   "bar": "firepower",
+   "score": 324
+  },
+  "62386b2adf47d66e835094b2": {
+   "bar": "firepower",
+   "score": 34
+  },
+  "62386b7153757417e93a4e9f": {
+   "bar": "firepower",
+   "score": 54
+  },
+  "62389aaba63f32501b1b444f": {
+   "bar": "firepower",
+   "score": 131
+  },
+  "62389ba9a63f32501b1b4451": {
+   "bar": "firepower",
+   "score": 131
+  },
+  "62389bc9423ed1685422dc57": {
+   "bar": "firepower",
+   "score": 131
+  },
+  "62389be94d5d474bf712e709": {
+   "bar": "firepower",
+   "score": 131
+  },
+  "623b2e9d11c3296b440d1638": {
+   "bar": "firepower",
+   "score": 142
+  },
+  "623c3be0484b5003161840dc": {
+   "bar": "firepower",
+   "score": 20
+  },
+  "623c3c1f37b4b31470357737": {
+   "bar": "firepower",
+   "score": 82
+  },
+  "6241c2c2117ad530666a5108": {
+   "bar": "firepower",
+   "score": 65
+  },
+  "6241c316234b593b5676b637": {
+   "bar": "firepower",
+   "score": 12
+  },
+  "624c0570c9b794431568f5d5": {
+   "bar": "firepower",
+   "score": 136
+  },
+  "624c09cfbc2e27219346d955": {
+   "bar": "firepower",
+   "score": 136
+  },
+  "624c09da2cec124eb67c1046": {
+   "bar": "firepower",
+   "score": 136
+  },
+  "624c09e49b98e019a3315b66": {
+   "bar": "firepower",
+   "score": 136
+  },
+  "624c0b3340357b5f566e8766": {
+   "bar": "firepower",
+   "score": 365
+  },
+  "624c29ce09cd027dff2f8cd7": {
+   "bar": "firepower",
+   "score": 602
+  },
+  "624c2e8614da335f1e034d8c": {
+   "bar": "firepower",
+   "score": 400
+  },
+  "624c3074dbbd335e8e6becf3": {
+   "bar": "firepower",
+   "score": 11
+  },
+  "6259b864ebedf17603599e88": {
+   "bar": "firepower",
+   "score": 372
+  },
+  "6259bdcabd28e4721447a2aa": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "6259c2c1d714855d182bad85": {
+   "bar": "firepower",
+   "score": 176
+  },
+  "6259c3387d6aab70bc23a18d": {
+   "bar": "firepower",
+   "score": 625
+  },
+  "6259c3d8012d6678ec38eeb8": {
+   "bar": "firepower",
+   "score": 28
+  },
+  "6259c4347d6aab70bc23a190": {
+   "bar": "firepower",
+   "score": 23
+  },
+  "625eb0faa6e3a82193267ad9": {
+   "bar": "firepower",
+   "score": 727
+  },
+  "625ec45bb14d7326ac20f572": {
+   "bar": "firepower",
+   "score": 9
+  },
+  "625ff2ccb8c587128c1a01dd": {
+   "bar": "firepower",
+   "score": 10
+  },
+  "625ff2eb9f5537057932257d": {
+   "bar": "firepower",
+   "score": 18
+  },
+  "625ff3046d721f05d93bf2ee": {
+   "bar": "firepower",
+   "score": 22
+  },
+  "625ff31daaaa8c1130599f64": {
+   "bar": "firepower",
+   "score": 25
+  },
+  "626667e87379c44d557b7550": {
+   "bar": "firepower",
+   "score": 108
+  },
+  "626673016f1edc06f30cf6d5": {
+   "bar": "firepower",
+   "score": 227
+  },
+  "62669bccdb9ebb4daa44cd14": {
+   "bar": "firepower",
+   "score": 169
+  },
+  "6269220d70b6c02e665f2635": {
+   "bar": "firepower",
+   "score": 3
+  },
+  "626a74340be03179a165e30c": {
+   "bar": "firepower",
+   "score": 142
+  },
+  "626a8ae89e664a2e2a75f409": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "626a9cb151cb5849f6002890": {
+   "bar": "firepower",
+   "score": 11
+  },
+  "627254cc9c563e6e442c398f": {
+   "bar": "firepower",
+   "score": 571
+  },
+  "6272874a6c47bd74f92e2087": {
+   "bar": "firepower",
+   "score": 66
+  },
+  "6275303a9f372d6ea97f9ec7": {
+   "bar": "firepower",
+   "score": 396
+  },
+  "627bce33f21bc425b06ab967": {
+   "bar": "firepower",
+   "score": -11
+  },
+  "627e14b21713922ded6f2c15": {
+   "bar": "firepower",
+   "score": 470
+  },
+  "62811cd7308cb521f87a8f99": {
+   "bar": "firepower",
+   "score": 20
+  },
+  "62811e2510e26c1f344e6554": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "62811f828193841aca4a45c3": {
+   "bar": "firepower",
+   "score": 551
+  },
+  "62811fa609427b40ab14e765": {
+   "bar": "firepower",
+   "score": 227
+  },
+  "62811fbf09427b40ab14e767": {
+   "bar": "firepower",
+   "score": 65
+  },
+  "628120415631d45211793c99": {
+   "bar": "firepower",
+   "score": 43
+  },
+  "6281204f308cb521f87a8f9b": {
+   "bar": "firepower",
+   "score": 40
+  },
+  "628120621d5df4475f46a335": {
+   "bar": "firepower",
+   "score": 3
+  },
+  "62812081d23f207deb0ab216": {
+   "bar": "firepower",
+   "score": 224
+  },
+  "6281209662cba23f6c4d7a19": {
+   "bar": "firepower",
+   "score": 79
+  },
+  "628120f210e26c1f344e6558": {
+   "bar": "firepower",
+   "score": 20
+  },
+  "628120fd5631d45211793c9f": {
+   "bar": "firepower",
+   "score": 19
+  },
+  "6281212a09427b40ab14e770": {
+   "bar": "firepower",
+   "score": 43
+  },
+  "628121434fa03b6b6c35dc6a": {
+   "bar": "firepower",
+   "score": 91
+  },
+  "6281214c1d5df4475f46a33a": {
+   "bar": "firepower",
+   "score": 216
+  },
+  "6281215b4fa03b6b6c35dc6c": {
+   "bar": "firepower",
+   "score": 216
+  },
+  "628121651d5df4475f46a33c": {
+   "bar": "firepower",
+   "score": 82
+  },
+  "6284bd5f95250a29bc628a30": {
+   "bar": "firepower",
+   "score": 74
+  },
+  "628a60ae6b1d481ff772e9c8": {
+   "bar": "firepower",
+   "score": 863
+  },
+  "628a664bccaab13006640e47": {
+   "bar": "firepower",
+   "score": 34
+  },
+  "628a665a86cbd9750d2ff5e5": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "628a66b41d5e41750e314f34": {
+   "bar": "firepower",
+   "score": 201
+  },
+  "628a7b23b0f75035732dd565": {
+   "bar": "firepower",
+   "score": 3
+  },
+  "628a83c29179c324ed269508": {
+   "bar": "firepower",
+   "score": 168
+  },
+  "628a85ee6b1d481ff772e9d5": {
+   "bar": "firepower",
+   "score": 437
+  },
+  "628b5638ad252a16da6dd245": {
+   "bar": "firepower",
+   "score": 804
+  },
+  "628b916469015a4e1711ed8d": {
+   "bar": "firepower",
+   "score": 135
+  },
+  "628b9784bcf6e2659e09b8a2": {
+   "bar": "defense",
+   "score": 5
+  },
+  "628b9a40717774443b15e9f2": {
+   "bar": "firepower",
+   "score": 28
+  },
+  "628b9be6cff66b70c002b14c": {
+   "bar": "firepower",
+   "score": 9
+  },
+  "628b9c37a733087d0d7fe84b": {
+   "bar": "firepower",
+   "score": 805
+  },
+  "628b9c7d45122232a872358f": {
+   "bar": "defense",
+   "score": 5
+  },
+  "628baf0b967de16aab5a4f36": {
+   "bar": "utility",
+   "score": 134
+  },
+  "628bc7fb408e2b2e9c0801b1": {
+   "bar": "utility",
+   "score": 31
+  },
+  "628c9ab845c59e5b80768a81": {
+   "bar": "firepower",
+   "score": 34
+  },
+  "628cd624459354321c4b7fa2": {
+   "bar": "defense",
+   "score": 5
+  },
+  "628d0618d1ba6e4fa07ce5a4": {
+   "bar": "defense",
+   "score": 5
+  },
+  "628dc750b910320f4c27a732": {
+   "bar": "defense",
+   "score": 5
+  },
+  "628e1ffc83ec92260c0f437f": {
+   "bar": "utility",
+   "score": 67
+  },
+  "628e4e576d783146b124c64d": {
+   "bar": "utility",
+   "score": 172
+  },
+  "62963c18dbc8ab5f0d382d0b": {
+   "bar": "defense",
+   "score": 11
+  },
+  "62a09d79de7ac81993580530": {
+   "bar": "defense",
+   "score": 0
+  },
+  "62a09e08de7ac81993580532": {
+   "bar": "defense",
+   "score": 14
+  },
+  "62a1b7fbc30cfa1d366af586": {
+   "bar": "utility",
+   "score": 67
+  },
+  "62e14904c2699c0ec93adc47": {
+   "bar": "firepower",
+   "score": 895
+  },
+  "62e153bcdb1a5c41971c1b5b": {
+   "bar": "firepower",
+   "score": 67
+  },
+  "62e15547db1a5c41971c1b5e": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "62e27a7865f0b1592a49e17b": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "62e292e7b6c0ee2f230cee00": {
+   "bar": "firepower",
+   "score": 559
+  },
+  "62e2969582ebf260c20539c2": {
+   "bar": "firepower",
+   "score": 562
+  },
+  "62e2a7138e1ac9380579c122": {
+   "bar": "firepower",
+   "score": 131
+  },
+  "62e2a754b6c0ee2f230cee0f": {
+   "bar": "firepower",
+   "score": 9
+  },
+  "62e7c4fba689e8c9c50dfc38": {
+   "bar": "firepower",
+   "score": 1006
+  },
+  "62e7c7f3c34ea971710c32fc": {
+   "bar": "firepower",
+   "score": 119
+  },
+  "62e7c880f68e7a0676050c7c": {
+   "bar": "firepower",
+   "score": 6
+  },
+  "62e7c98b550c8218d602cbb4": {
+   "bar": "firepower",
+   "score": 65
+  },
+  "62e7e7bbe6da9612f743f1e0": {
+   "bar": "firepower",
+   "score": 128
+  },
+  "62ebbc53e3c1e1ec7c02c44f": {
+   "bar": "firepower",
+   "score": 9
+  },
+  "62ff9920fe938a24c90c10d2": {
+   "bar": "firepower",
+   "score": 82
+  },
+  "62ff9faffe938a24c90c10df": {
+   "bar": "firepower",
+   "score": 6
+  },
+  "63075cc5962d0247b029dc2a": {
+   "bar": "firepower",
+   "score": 11
+  },
+  "630764fea987397c0816d219": {
+   "bar": "firepower",
+   "score": 71
+  },
+  "63076701a987397c0816d21b": {
+   "bar": "firepower",
+   "score": 41
+  },
+  "630767c37d50ff5e8a1ea71a": {
+   "bar": "firepower",
+   "score": 65
+  },
+  "630769c4962d0247b029dc60": {
+   "bar": "firepower",
+   "score": 50
+  },
+  "63088377b5cd696784087147": {
+   "bar": "firepower",
+   "score": 376
+  },
+  "630e1adbbd357927e4007c09": {
+   "bar": "firepower",
+   "score": 25
+  },
+  "630e295c984633f1fb0e7c30": {
+   "bar": "firepower",
+   "score": 87
+  },
+  "630e39c3bd357927e4007c15": {
+   "bar": "firepower",
+   "score": 74
+  },
+  "630f2872911356c17d06abc5": {
+   "bar": "firepower",
+   "score": 142
+  },
+  "630f28f0cadb1fe05e06f004": {
+   "bar": "firepower",
+   "score": 142
+  },
+  "630f291b9f66a28b37094bb8": {
+   "bar": "firepower",
+   "score": 170
+  },
+  "630f2982cdb9e392db0cbcc7": {
+   "bar": "firepower",
+   "score": 108
+  },
+  "63171672192e68c5460cebc5": {
+   "bar": "firepower",
+   "score": 1024
+  },
+  "6333f05d1bc0e6217a0e9d34": {
+   "bar": "firepower",
+   "score": 74
+  },
+  "633a98eab8b0506e48497c1a": {
+   "bar": "firepower",
+   "score": 45
+  },
+  "633ec6ee025b096d320a3b15": {
+   "bar": "firepower",
+   "score": 6
+  },
+  "633ec7c2a6918cb895019c6c": {
+   "bar": "firepower",
+   "score": 173
+  },
+  "633ec8e4025b096d320a3b1e": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "634e61b0767cb15c4601a877": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "634eba08f69c710e0108d386": {
+   "bar": "firepower",
+   "score": 131
+  },
+  "634eff66517ccc8a960fc735": {
+   "bar": "firepower",
+   "score": 204
+  },
+  "634f02331f9f536910079b51": {
+   "bar": "firepower",
+   "score": 204
+  },
+  "634f03d40384a3ba4f06f874": {
+   "bar": "firepower",
+   "score": 11
+  },
+  "634f05ca517ccc8a960fc748": {
+   "bar": "firepower",
+   "score": 6
+  },
+  "634f06262e5def262d0b30ca": {
+   "bar": "firepower",
+   "score": 6
+  },
+  "634f08a21f9f536910079b5a": {
+   "bar": "firepower",
+   "score": 11
+  },
+  "635267f063651329f75a4ee8": {
+   "bar": "firepower",
+   "score": 131
+  },
+  "6357c98711fb55120211f7e1": {
+   "bar": "firepower",
+   "score": 168
+  },
+  "63611865ba5b90db0c0399d1": {
+   "bar": "utility",
+   "score": 90
+  },
+  "63737f448b28897f2802b874": {
+   "bar": "defense",
+   "score": 0
+  },
+  "6374a7e7417239a7bf00f042": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "6374a822e629013b9c0645c8": {
+   "bar": "firepower",
+   "score": 3
+  },
+  "637784c5f7b3f4ac1a0d1a9a": {
+   "bar": "firepower",
+   "score": 28
+  },
+  "637b60c3b7afa97bfc3d7001": {
+   "bar": "utility",
+   "score": 45
+  },
+  "637b612fb7afa97bfc3d7005": {
+   "bar": "utility",
+   "score": 45
+  },
+  "637b6179104668754b72f8f5": {
+   "bar": "utility",
+   "score": 60
+  },
+  "637b620db7afa97bfc3d7009": {
+   "bar": "utility",
+   "score": 90
+  },
+  "637b6251104668754b72f8f9": {
+   "bar": "utility",
+   "score": 194
+  },
+  "637b6d610aef6cfc5e02dd14": {
+   "bar": "firepower",
+   "score": 34
+  },
+  "637b9c37b7e3bc41b21ce71a": {
+   "bar": "firepower",
+   "score": 17
+  },
+  "637ba19df7ca6372bf2613d7": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "637ba29bf7ca6372bf2613db": {
+   "bar": "firepower",
+   "score": 17
+  },
+  "637f57a68d137b27f70c4968": {
+   "bar": "firepower",
+   "score": 20
+  },
+  "637f57b78d137b27f70c496a": {
+   "bar": "firepower",
+   "score": 11
+  },
+  "637f57c532b66e7e320a6676": {
+   "bar": "firepower",
+   "score": 68
+  },
+  "637f57d2f5ef8c33840d36c4": {
+   "bar": "firepower",
+   "score": 40
+  },
+  "637f589af5ef8c33840d36d3": {
+   "bar": "firepower",
+   "score": 20
+  },
+  "6386120cd6baa055ad1e201c": {
+   "bar": "firepower",
+   "score": 168
+  },
+  "638612b607dfed1ccb7206ba": {
+   "bar": "firepower",
+   "score": 230
+  },
+  "6386300124a1dc425c00577a": {
+   "bar": "firepower",
+   "score": 625
+  },
+  "63877c99e785640d436458ea": {
+   "bar": "firepower",
+   "score": 176
+  },
+  "63888bbd28e5cc32cc09d2b6": {
+   "bar": "firepower",
+   "score": 97
+  },
+  "6389f1dfc879ce63f72fc43e": {
+   "bar": "firepower",
+   "score": 85
+  },
+  "638de3603a1a4031d8260b8c": {
+   "bar": "firepower",
+   "score": 43
+  },
+  "638f1ff84822287cad04be9d": {
+   "bar": "firepower",
+   "score": 43
+  },
+  "638f2003bbd47aeb9e0ff637": {
+   "bar": "firepower",
+   "score": 71
+  },
+  "639343fce101f4caa40a4ef3": {
+   "bar": "defense",
+   "score": 5
+  },
+  "639346cc1c8f182ad90c8972": {
+   "bar": "utility",
+   "score": 78
+  },
+  "63969c9019971040b005049b": {
+   "bar": "firepower",
+   "score": 20
+  },
+  "6396aaa9a52ace83df0840ab": {
+   "bar": "firepower",
+   "score": 43
+  },
+  "639af924d0446708ee62294e": {
+   "bar": "firepower",
+   "score": 462
+  },
+  "639c3fbbd0446708ee622ee9": {
+   "bar": "firepower",
+   "score": 506
+  },
+  "63ac5c9658d0485fc039f0b8": {
+   "bar": "firepower",
+   "score": 221
+  },
+  "63b35f281745dd52341e5da7": {
+   "bar": "firepower",
+   "score": 265
+  },
+  "63d3ce0446bd475bcb50f55f": {
+   "bar": "firepower",
+   "score": 51
+  },
+  "63d3ce281fe77d0f2801859e": {
+   "bar": "firepower",
+   "score": 88
+  },
+  "63d3d44a2a49307baf09386d": {
+   "bar": "firepower",
+   "score": 99
+  },
+  "63f4ba71f31d4a33b87bd046": {
+   "bar": "firepower",
+   "score": 37
+  },
+  "63f4da90f31d4a33b87bd054": {
+   "bar": "firepower",
+   "score": 23
+  },
+  "63f5ed14534b2c3d5479a677": {
+   "bar": "firepower",
+   "score": 125
+  },
+  "63f5feead259b42f0b4d6d0f": {
+   "bar": "firepower",
+   "score": 34
+  },
+  "63fc4533b10b17385349b565": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "6405ff6bd4578826ec3e377a": {
+   "bar": "firepower",
+   "score": 204
+  },
+  "640b20359ab20e15ee445fa9": {
+   "bar": "firepower",
+   "score": 77
+  },
+  "6410733d5dd49d77bd07847e": {
+   "bar": "firepower",
+   "score": 639
+  },
+  "6410745d5dd49d77bd078485": {
+   "bar": "firepower",
+   "score": 528
+  },
+  "641074a07fd350b98c0b3f96": {
+   "bar": "firepower",
+   "score": 25
+  },
+  "6410758c857473525b08bb77": {
+   "bar": "firepower",
+   "score": 264
+  },
+  "64119cdbdcf48d656f0aa272": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "64119d1f2c6d6f921a0929f8": {
+   "bar": "firepower",
+   "score": 196
+  },
+  "6415c694da439c6a97048b56": {
+   "bar": "firepower",
+   "score": 20
+  },
+  "6422e1ea3c0f06190302161a": {
+   "bar": "firepower",
+   "score": 17
+  },
+  "643ea5b23db6f9f57107d9fd": {
+   "bar": "firepower",
+   "score": 436
+  },
+  "644674a13d52156624001fbc": {
+   "bar": "firepower",
+   "score": 871
+  },
+  "644675573d52156624001fc9": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "6448f2f6d4928d46d30be3f6": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "6450ec2e7da7133e5a09ca96": {
+   "bar": "firepower",
+   "score": 43
+  },
+  "6450f21a3d52156624001fcf": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "6451167ad4928d46d30be3fd": {
+   "bar": "firepower",
+   "score": 613
+  },
+  "645122f6d4928d46d30be3ff": {
+   "bar": "firepower",
+   "score": 57
+  },
+  "645123013d52156624001fd1": {
+   "bar": "firepower",
+   "score": 57
+  },
+  "6452519e3d52156624001fd5": {
+   "bar": "firepower",
+   "score": 809
+  },
+  "64527a263d52156624001fd7": {
+   "bar": "firepower",
+   "score": 9
+  },
+  "64527a3a7da7133e5a09ca99": {
+   "bar": "firepower",
+   "score": 386
+  },
+  "645e0c6b3b381ede770e1cc9": {
+   "bar": "firepower",
+   "score": 871
+  },
+  "64637076203536ad5600c990": {
+   "bar": "firepower",
+   "score": 835
+  },
+  "646371779f5f0ea59a04c204": {
+   "bar": "firepower",
+   "score": 17
+  },
+  "646371a9f2404ab67905c8e6": {
+   "bar": "firepower",
+   "score": 576
+  },
+  "646371faf2404ab67905c8e9": {
+   "bar": "firepower",
+   "score": 168
+  },
+  "646372518610c40fc20204e8": {
+   "bar": "firepower",
+   "score": 102
+  },
+  "64639a9aab86f8fd4300146c": {
+   "bar": "firepower",
+   "score": 217
+  },
+  "64748cb8de82c85eaf0a273a": {
+   "bar": "firepower",
+   "score": 515
+  },
+  "64748d02d1c009260702b526": {
+   "bar": "firepower",
+   "score": 9
+  },
+  "6477772ea8a38bb2050ed4db": {
+   "bar": "firepower",
+   "score": 82
+  },
+  "64785e7c19d732620e045e15": {
+   "bar": "firepower",
+   "score": 85
+  },
+  "647db1eca8d3399c380d195c": {
+   "bar": "firepower",
+   "score": 45
+  },
+  "647dba3142c479dde701b654": {
+   "bar": "firepower",
+   "score": 65
+  },
+  "647dd2b8a12ebf96c3031655": {
+   "bar": "firepower",
+   "score": 97
+  },
+  "647de824196bf69818044c93": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "647def638295ebcb5b02f05b": {
+   "bar": "firepower",
+   "score": 45
+  },
+  "648067db042be0705c0b3009": {
+   "bar": "firepower",
+   "score": 40
+  },
+  "64806bdd26c80811d408d37a": {
+   "bar": "firepower",
+   "score": 88
+  },
+  "64807a29e5ffe165600abc97": {
+   "bar": "firepower",
+   "score": 88
+  },
+  "648afce7ec6bb25b2608defb": {
+   "bar": "firepower",
+   "score": 28
+  },
+  "6491c6f6ef312a876705191b": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "6492d7847363b8a52206bc52": {
+   "bar": "firepower",
+   "score": 588
+  },
+  "6492e3a97df7d749100e29ee": {
+   "bar": "firepower",
+   "score": 581
+  },
+  "6492ef63cfcf7c89e701abf1": {
+   "bar": "firepower",
+   "score": 110
+  },
+  "6492efb8cfcf7c89e701abf3": {
+   "bar": "firepower",
+   "score": 24
+  },
+  "6492efe46cc7e29a6f03b2a0": {
+   "bar": "firepower",
+   "score": 56
+  },
+  "6494094948796d891603e59f": {
+   "bar": "firepower",
+   "score": 60
+  },
+  "64942bfc6ee699f6890dff95": {
+   "bar": "firepower",
+   "score": 392
+  },
+  "64943b74e9998d641b0412ed": {
+   "bar": "firepower",
+   "score": 193
+  },
+  "6499849fc93611967b034949": {
+   "bar": "firepower",
+   "score": 899
+  },
+  "649ec107961514b22506b10c": {
+   "bar": "firepower",
+   "score": 28
+  },
+  "649ec127c93611967b034957": {
+   "bar": "firepower",
+   "score": 51
+  },
+  "649ec2af961514b22506b10f": {
+   "bar": "firepower",
+   "score": 165
+  },
+  "649ec2f3961514b22506b111": {
+   "bar": "firepower",
+   "score": 20
+  },
+  "649ec30cb013f04a700e60fb": {
+   "bar": "firepower",
+   "score": 66
+  },
+  "649ec87d8007560a9001ab36": {
+   "bar": "firepower",
+   "score": 85
+  },
+  "64a536392d2c4e6e970f4121": {
+   "bar": "defense",
+   "score": 5
+  },
+  "64a5366719bab53bd203bf33": {
+   "bar": "defense",
+   "score": 5
+  },
+  "64abd93857958b4249003418": {
+   "bar": "defense",
+   "score": 0
+  },
+  "64ad2d8d7e2fcecf0305533f": {
+   "bar": "defense",
+   "score": 26
+  },
+  "64ad2dac6f9247c2f4012439": {
+   "bar": "defense",
+   "score": 27
+  },
+  "64ad2dba0b9840e4c80c2485": {
+   "bar": "defense",
+   "score": 23
+  },
+  "64ad2dc66f9247c2f401243d": {
+   "bar": "defense",
+   "score": 23
+  },
+  "64ad2dd30b9840e4c80c2489": {
+   "bar": "defense",
+   "score": 23
+  },
+  "64afc71497cf3a403c01ff38": {
+   "bar": "defense",
+   "score": 87
+  },
+  "64afd81707e2cf40e903a316": {
+   "bar": "defense",
+   "score": 85
+  },
+  "64afdb577bb3bfe8fe03fd1d": {
+   "bar": "defense",
+   "score": 85
+  },
+  "64afdcb83efdfea28601d041": {
+   "bar": "defense",
+   "score": 87
+  },
+  "64afee8e9f589807e30dc68a": {
+   "bar": "defense",
+   "score": 23
+  },
+  "64afeecb977493a0ee026213": {
+   "bar": "defense",
+   "score": 23
+  },
+  "64afef49977493a0ee026217": {
+   "bar": "defense",
+   "score": 24
+  },
+  "64b111fe1be308f1800688c1": {
+   "bar": "defense",
+   "score": 12
+  },
+  "64b11c08506a73f6a10f9364": {
+   "bar": "defense",
+   "score": 89
+  },
+  "64b6979341772715af0f9c39": {
+   "bar": "firepower",
+   "score": 447
+  },
+  "64b7af434b75259c590fa893": {
+   "bar": "firepower",
+   "score": 584
+  },
+  "64b7af5a8532cf95ee0a0dbd": {
+   "bar": "firepower",
+   "score": 411
+  },
+  "64b7af734b75259c590fa895": {
+   "bar": "firepower",
+   "score": 351
+  },
+  "64b7bbb74b75259c590fa897": {
+   "bar": "firepower",
+   "score": 319
+  },
+  "64b8725c4b75259c590fa899": {
+   "bar": "firepower",
+   "score": 603
+  },
+  "64b8ee384b75259c590fa89b": {
+   "bar": "firepower",
+   "score": 577
+  },
+  "64b8f7968532cf95ee0a0dbf": {
+   "bar": "firepower",
+   "score": 583
+  },
+  "64b8f7b5389d7ffd620ccba2": {
+   "bar": "firepower",
+   "score": 537
+  },
+  "64b8f7c241772715af0f9c3d": {
+   "bar": "firepower",
+   "score": 482
+  },
+  "64b9cf0ac12b9c38db26923a": {
+   "bar": "firepower",
+   "score": 48
+  },
+  "64b9e2037fdfb81df81e3c25": {
+   "bar": "firepower",
+   "score": 27
+  },
+  "64b9e265c94d0d15c5027e35": {
+   "bar": "firepower",
+   "score": 48
+  },
+  "64be7095047e826eae02b0c1": {
+   "bar": "utility",
+   "score": 45
+  },
+  "64be7110bf597ba84a0a41ea": {
+   "bar": "utility",
+   "score": 75
+  },
+  "64be79c487d1510151095552": {
+   "bar": "defense",
+   "score": 0
+  },
+  "64be79e2bf8412471d0d9bcc": {
+   "bar": "defense",
+   "score": 0
+  },
+  "64c196ad26a15b84aa07132f": {
+   "bar": "firepower",
+   "score": 156
+  },
+  "64ca3d3954fc657e230529cc": {
+   "bar": "firepower",
+   "score": 835
+  },
+  "64cbad529f7cf7f75c077fd5": {
+   "bar": "firepower",
+   "score": 20
+  },
+  "651178336cad06c37c049eb4": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "65118f531b90b4fc77015083": {
+   "bar": "firepower",
+   "score": 64
+  },
+  "6513ef33e06849f06c0957ca": {
+   "bar": "firepower",
+   "score": 860
+  },
+  "6513eff1e06849f06c0957d4": {
+   "bar": "firepower",
+   "score": 82
+  },
+  "6513f05a94c72326990a3866": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "6513f0a194c72326990a3868": {
+   "bar": "firepower",
+   "score": 108
+  },
+  "6513f0f5e63f29908d0ffab8": {
+   "bar": "firepower",
+   "score": 6
+  },
+  "6513f13a8cb24472490ee32f": {
+   "bar": "firepower",
+   "score": 6
+  },
+  "6513f1798cb24472490ee331": {
+   "bar": "firepower",
+   "score": 670
+  },
+  "65144f546ddb773afa0e35e1": {
+   "bar": "firepower",
+   "score": 48
+  },
+  "65144ff50e00edc79406836f": {
+   "bar": "firepower",
+   "score": 386
+  },
+  "651450ce0e00edc794068371": {
+   "bar": "firepower",
+   "score": 910
+  },
+  "651580dc71a4f10aec4b6056": {
+   "bar": "firepower",
+   "score": 33
+  },
+  "65169d5b30425317755f8e25": {
+   "bar": "firepower",
+   "score": 74
+  },
+  "6516e91f609aaf354b34b3e2": {
+   "bar": "firepower",
+   "score": 608
+  },
+  "6516e971a3d4c6497930b450": {
+   "bar": "firepower",
+   "score": 608
+  },
+  "6516e9bc5901745209404287": {
+   "bar": "firepower",
+   "score": 28
+  },
+  "6516e9d7e239bd0c487e3766": {
+   "bar": "firepower",
+   "score": 51
+  },
+  "651a8bf3a8520e48047bf708": {
+   "bar": "firepower",
+   "score": 60
+  },
+  "651a8e529829226ceb67c319": {
+   "bar": "firepower",
+   "score": 60
+  },
+  "651bf5617b3b552ef6712cb7": {
+   "bar": "firepower",
+   "score": 6
+  },
+  "651bfe4d1065f87f082e7209": {
+   "bar": "firepower",
+   "score": 99
+  },
+  "65266fd43341ed9aa903dd56": {
+   "bar": "firepower",
+   "score": 48
+  },
+  "65268d8ecb944ff1e90ea385": {
+   "bar": "firepower",
+   "score": 862
+  },
+  "65290f395ae2ae97b80fdf2d": {
+   "bar": "firepower",
+   "score": 880
+  },
+  "652910565ae2ae97b80fdf35": {
+   "bar": "firepower",
+   "score": 125
+  },
+  "652910bc24cbe3c74a05e5b9": {
+   "bar": "firepower",
+   "score": 82
+  },
+  "652910ef50dc782999054b97": {
+   "bar": "firepower",
+   "score": 45
+  },
+  "6529113b5ae2ae97b80fdf39": {
+   "bar": "firepower",
+   "score": 203
+  },
+  "652911675ae2ae97b80fdf3c": {
+   "bar": "firepower",
+   "score": 17
+  },
+  "6529119424cbe3c74a05e5bb": {
+   "bar": "firepower",
+   "score": 43
+  },
+  "652911e650dc782999054b9d": {
+   "bar": "firepower",
+   "score": 219
+  },
+  "6529243824cbe3c74a05e5c1": {
+   "bar": "firepower",
+   "score": 669
+  },
+  "6529302b8c26af6326029fb7": {
+   "bar": "firepower",
+   "score": 560
+  },
+  "6529366450dc782999054ba0": {
+   "bar": "firepower",
+   "score": 28
+  },
+  "6529370c405a5f51dd023db8": {
+   "bar": "firepower",
+   "score": 653
+  },
+  "65293c38fc460e50a509cb25": {
+   "bar": "firepower",
+   "score": 43
+  },
+  "65293c7a17e14363030ad308": {
+   "bar": "firepower",
+   "score": 53
+  },
+  "65329ebcc0d50d0c9204ace1": {
+   "bar": "firepower",
+   "score": 43
+  },
+  "653ecc425a1690d9d90491e4": {
+   "bar": "firepower",
+   "score": 17
+  },
+  "653ecd065a1690d9d90491e6": {
+   "bar": "firepower",
+   "score": 11
+  },
+  "653ece125a1690d9d90491e8": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "653ecef836fae5a82f02b869": {
+   "bar": "firepower",
+   "score": 619
+  },
+  "653ed132896b99b40a0292e6": {
+   "bar": "firepower",
+   "score": 610
+  },
+  "6544d4187c5457729210d277": {
+   "bar": "firepower",
+   "score": 82
+  },
+  "654a4a964b446df1ad03f192": {
+   "bar": "defense",
+   "score": 85
+  },
+  "654a4dea7c17dec2f50cc86a": {
+   "bar": "defense",
+   "score": 27
+  },
+  "654a4f8bc721968a4404ef18": {
+   "bar": "defense",
+   "score": 62
+  },
+  "654a8976f414fcea4004d78b": {
+   "bar": "defense",
+   "score": 16
+  },
+  "654a8ae00337d53f9102c2aa": {
+   "bar": "defense",
+   "score": 13
+  },
+  "654a8b0b0337d53f9102c2ae": {
+   "bar": "defense",
+   "score": 16
+  },
+  "654a8b3df414fcea4004d78f": {
+   "bar": "defense",
+   "score": 11
+  },
+  "654a8b60f414fcea4004d793": {
+   "bar": "defense",
+   "score": 11
+  },
+  "654a8b80f414fcea4004d797": {
+   "bar": "defense",
+   "score": 11
+  },
+  "654a8ba90337d53f9102c2b2": {
+   "bar": "defense",
+   "score": 11
+  },
+  "654a8bc5f414fcea4004d79b": {
+   "bar": "defense",
+   "score": 12
+  },
+  "654a90aff4f81a421b0a7c86": {
+   "bar": "defense",
+   "score": 23
+  },
+  "654a91068e1ce698150fd1e2": {
+   "bar": "defense",
+   "score": 23
+  },
+  "654a9189bcc67a392b056c79": {
+   "bar": "defense",
+   "score": 23
+  },
+  "6551fec55d0cf82e51014288": {
+   "bar": "defense",
+   "score": 39
+  },
+  "655200ba0ef76cf7be09d528": {
+   "bar": "defense",
+   "score": 39
+  },
+  "65573fa5655447403702a816": {
+   "bar": "defense",
+   "score": 63
+  },
+  "6557458f83942d705f0c4962": {
+   "bar": "defense",
+   "score": 61
+  },
+  "655746010177119f4a097ff7": {
+   "bar": "defense",
+   "score": 63
+  },
+  "6557519ac9b1d9bdcb0777e1": {
+   "bar": "defense",
+   "score": 12
+  },
+  "655751db58aa1b6dbd0cc295": {
+   "bar": "defense",
+   "score": 12
+  },
+  "655cb6b5d680a544f30607fa": {
+   "bar": "firepower",
+   "score": 43
+  },
+  "655dccfdbdcc6b5df71382b6": {
+   "bar": "firepower",
+   "score": 54
+  },
+  "655df24fdf80b12750626d0a": {
+   "bar": "firepower",
+   "score": 79
+  },
+  "655f13e0a246670fb0373245": {
+   "bar": "firepower",
+   "score": 85
+  },
+  "6565b91666492762f5029c0b": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "6565bb7eb4b12a56eb04b084": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "6565c0c2ff7eb7070409084c": {
+   "bar": "firepower",
+   "score": 43
+  },
+  "6565c3ab977bcc2dbb01c2e7": {
+   "bar": "firepower",
+   "score": 48
+  },
+  "6568a6bf2c5fb7afc70bc424": {
+   "bar": "firepower",
+   "score": 51
+  },
+  "656ddcf0f02d7bcea90bf395": {
+   "bar": "utility",
+   "score": 56
+  },
+  "656e0436d44a1bb4220303a0": {
+   "bar": "utility",
+   "score": 81
+  },
+  "656efaf54772930db4031ff5": {
+   "bar": "defense",
+   "score": 61
+  },
+  "656efd66034e8e01c407f35c": {
+   "bar": "defense",
+   "score": 41
+  },
+  "656f198fb27298d6fd005466": {
+   "bar": "utility",
+   "score": 56
+  },
+  "656f57dc27aed95beb08f628": {
+   "bar": "defense",
+   "score": 26
+  },
+  "656f603f94b480b8a500c0d6": {
+   "bar": "defense",
+   "score": 42
+  },
+  "656f611f94b480b8a500c0db": {
+   "bar": "defense",
+   "score": 61
+  },
+  "656f63c027aed95beb08f62c": {
+   "bar": "defense",
+   "score": 86
+  },
+  "656f664200d62bcd2e024077": {
+   "bar": "defense",
+   "score": 63
+  },
+  "656f66b5c6baea13cd07e108": {
+   "bar": "defense",
+   "score": 86
+  },
+  "656f9d5900d62bcd2e02407c": {
+   "bar": "defense",
+   "score": 28
+  },
+  "656f9fa0498d1b7e3e071d98": {
+   "bar": "defense",
+   "score": 43
+  },
+  "656fa0fb498d1b7e3e071d9c": {
+   "bar": "defense",
+   "score": 43
+  },
+  "656fa25e94b480b8a500c0e0": {
+   "bar": "defense",
+   "score": 44
+  },
+  "656fa53d94b480b8a500c0e4": {
+   "bar": "defense",
+   "score": 63
+  },
+  "656fa61e94b480b8a500c0e8": {
+   "bar": "defense",
+   "score": 87
+  },
+  "656fa76500d62bcd2e024080": {
+   "bar": "defense",
+   "score": 86
+  },
+  "656fa8d700d62bcd2e024084": {
+   "bar": "defense",
+   "score": 64
+  },
+  "656fa99800d62bcd2e024088": {
+   "bar": "defense",
+   "score": 88
+  },
+  "656fac30c6baea13cd07e10c": {
+   "bar": "defense",
+   "score": 26
+  },
+  "656fad8c498d1b7e3e071da0": {
+   "bar": "defense",
+   "score": 42
+  },
+  "656fae5f7c2d57afe200c0d7": {
+   "bar": "defense",
+   "score": 62
+  },
+  "656faf0ca0dce000a2020f77": {
+   "bar": "defense",
+   "score": 86
+  },
+  "656fafe3498d1b7e3e071da4": {
+   "bar": "defense",
+   "score": 86
+  },
+  "656fb0bd7c2d57afe200c0dc": {
+   "bar": "defense",
+   "score": 43
+  },
+  "656fb21fa0dce000a2020f7c": {
+   "bar": "defense",
+   "score": 43
+  },
+  "656fd7c32668ef0402028fb9": {
+   "bar": "defense",
+   "score": 19
+  },
+  "656fd89bf5a9631d4e042575": {
+   "bar": "defense",
+   "score": 19
+  },
+  "65702f87722744627e05cdb8": {
+   "bar": "defense",
+   "score": 15
+  },
+  "65702fe593b7ea9c330f4ce8": {
+   "bar": "defense",
+   "score": 15
+  },
+  "6570305d93b7ea9c330f4ced": {
+   "bar": "defense",
+   "score": 11
+  },
+  "65703472c9030b928a0a8a78": {
+   "bar": "defense",
+   "score": 11
+  },
+  "65703d866584602f7d057a8a": {
+   "bar": "defense",
+   "score": 16
+  },
+  "65703fa06584602f7d057a8e": {
+   "bar": "defense",
+   "score": 16
+  },
+  "65703fe46a912c8b5c03468b": {
+   "bar": "defense",
+   "score": 11
+  },
+  "657040374e67e8ec7a0d261c": {
+   "bar": "defense",
+   "score": 11
+  },
+  "657044e971369562b300ce9b": {
+   "bar": "defense",
+   "score": 27
+  },
+  "657045741bd9beedc40b7299": {
+   "bar": "defense",
+   "score": 27
+  },
+  "657045b97e80617cee095bda": {
+   "bar": "defense",
+   "score": 22
+  },
+  "6570460471369562b300ce9f": {
+   "bar": "defense",
+   "score": 22
+  },
+  "6570495b45d573133d0d6adb": {
+   "bar": "defense",
+   "score": 30
+  },
+  "657049d23425b19bbc0502f0": {
+   "bar": "defense",
+   "score": 30
+  },
+  "65704de13e7bba58ea0285c8": {
+   "bar": "defense",
+   "score": 18
+  },
+  "65705c3c14f2ed6d7d0b7738": {
+   "bar": "defense",
+   "score": 18
+  },
+  "65705c777260e1139e091408": {
+   "bar": "defense",
+   "score": 11
+  },
+  "65705cb314f2ed6d7d0b773c": {
+   "bar": "defense",
+   "score": 11
+  },
+  "65705cea4916448ae1050897": {
+   "bar": "defense",
+   "score": 13
+  },
+  "6570653e89fd4926380b733e": {
+   "bar": "defense",
+   "score": 13
+  },
+  "6570658a89fd4926380b7346": {
+   "bar": "defense",
+   "score": 13
+  },
+  "65707fc348c7a887f2010432": {
+   "bar": "defense",
+   "score": 18
+  },
+  "6570800612755ae0d907acf8": {
+   "bar": "defense",
+   "score": 18
+  },
+  "65708070f65e2491bf00972c": {
+   "bar": "defense",
+   "score": 11
+  },
+  "657080a212755ae0d907ad04": {
+   "bar": "defense",
+   "score": 11
+  },
+  "657080ca12755ae0d907ad5e": {
+   "bar": "defense",
+   "score": 13
+  },
+  "65708122f65e2491bf009755": {
+   "bar": "defense",
+   "score": 11
+  },
+  "65708165696fe382cf073255": {
+   "bar": "defense",
+   "score": 11
+  },
+  "657087577f6d4590ac0d2109": {
+   "bar": "defense",
+   "score": 43
+  },
+  "6570880f4a747dbb63005ee5": {
+   "bar": "defense",
+   "score": 42
+  },
+  "657089638db3adca1009f4ca": {
+   "bar": "defense",
+   "score": 52
+  },
+  "65708afe4a747dbb63005eee": {
+   "bar": "defense",
+   "score": 12
+  },
+  "65708b4c4a747dbb63005ef3": {
+   "bar": "defense",
+   "score": 38
+  },
+  "6570aead4d84f81fd002a033": {
+   "bar": "defense",
+   "score": 19
+  },
+  "6570df294cc0d2ab1e05ed74": {
+   "bar": "defense",
+   "score": 14
+  },
+  "6570df9c615f54368b04fca9": {
+   "bar": "defense",
+   "score": 14
+  },
+  "6570e025615f54368b04fcb0": {
+   "bar": "defense",
+   "score": 28
+  },
+  "6570e0610b57c03ec90b96ef": {
+   "bar": "defense",
+   "score": 28
+  },
+  "6570e479a6560e4ee50c2b02": {
+   "bar": "defense",
+   "score": 14
+  },
+  "6570e5100b57c03ec90b970a": {
+   "bar": "defense",
+   "score": 14
+  },
+  "6570e5674cc0d2ab1e05edbb": {
+   "bar": "defense",
+   "score": 11
+  },
+  "6570e59b0b57c03ec90b970e": {
+   "bar": "defense",
+   "score": 11
+  },
+  "6570e83223c1f638ef0b0ede": {
+   "bar": "defense",
+   "score": 27
+  },
+  "6570e87c23c1f638ef0b0ee2": {
+   "bar": "defense",
+   "score": 27
+  },
+  "6570e8a623c1f638ef0b0ee6": {
+   "bar": "defense",
+   "score": 22
+  },
+  "6570e8e7ab49e964120b4563": {
+   "bar": "defense",
+   "score": 22
+  },
+  "6570e90b3a5689d85f08db97": {
+   "bar": "defense",
+   "score": 24
+  },
+  "6570f30b0921c914bf07964c": {
+   "bar": "defense",
+   "score": 17
+  },
+  "6570f35cd67d0309980a7acb": {
+   "bar": "defense",
+   "score": 17
+  },
+  "6570f3890b4ae5847f060dad": {
+   "bar": "defense",
+   "score": 12
+  },
+  "6570f3bb0b4ae5847f060db2": {
+   "bar": "defense",
+   "score": 12
+  },
+  "6570f6e774d84423df065f21": {
+   "bar": "defense",
+   "score": 27
+  },
+  "6570f71dd67d0309980a7af8": {
+   "bar": "defense",
+   "score": 27
+  },
+  "6570f74774d84423df065f25": {
+   "bar": "defense",
+   "score": 22
+  },
+  "6570f79c4c65ab77a6015121": {
+   "bar": "defense",
+   "score": 22
+  },
+  "6570fa1f4c65ab77a601512f": {
+   "bar": "defense",
+   "score": 16
+  },
+  "6570fae34c65ab77a6015146": {
+   "bar": "defense",
+   "score": 16
+  },
+  "6570fb22584a51c23e03251f": {
+   "bar": "defense",
+   "score": 12
+  },
+  "6570fb6ad3eefd23430f8c7c": {
+   "bar": "defense",
+   "score": 12
+  },
+  "6570fb8f4c65ab77a601514d": {
+   "bar": "defense",
+   "score": 12
+  },
+  "6570fbdd74d84423df065f60": {
+   "bar": "defense",
+   "score": 11
+  },
+  "6570fc41d3eefd23430f8c83": {
+   "bar": "defense",
+   "score": 11
+  },
+  "657112234269e9a568089eac": {
+   "bar": "defense",
+   "score": 38
+  },
+  "657112a4818110db4600aa66": {
+   "bar": "defense",
+   "score": 38
+  },
+  "657112ce22996eaf110881fb": {
+   "bar": "defense",
+   "score": 38
+  },
+  "657112fa818110db4600aa6b": {
+   "bar": "defense",
+   "score": 40
+  },
+  "6571133d22996eaf11088200": {
+   "bar": "defense",
+   "score": 40
+  },
+  "6571138e818110db4600aa71": {
+   "bar": "defense",
+   "score": 40
+  },
+  "6571199565daf6aa960c9b10": {
+   "bar": "defense",
+   "score": 23
+  },
+  "657119d49eb8c145180dbb95": {
+   "bar": "defense",
+   "score": 23
+  },
+  "657119fea330b8c9060f7afc": {
+   "bar": "defense",
+   "score": 23
+  },
+  "65711b07a330b8c9060f7b01": {
+   "bar": "defense",
+   "score": 40
+  },
+  "65711b489eb8c145180dbb9d": {
+   "bar": "defense",
+   "score": 40
+  },
+  "65711b706d197c216005b31c": {
+   "bar": "defense",
+   "score": 40
+  },
+  "65711b9b65daf6aa960c9b1b": {
+   "bar": "defense",
+   "score": 40
+  },
+  "65711bc79eb8c145180dbba1": {
+   "bar": "defense",
+   "score": 41
+  },
+  "6571b27a6d84a2b8b6007f92": {
+   "bar": "defense",
+   "score": 18
+  },
+  "6571baa74cb80d995d0a1490": {
+   "bar": "defense",
+   "score": 18
+  },
+  "6571baac6d84a2b8b6007fa3": {
+   "bar": "defense",
+   "score": 11
+  },
+  "6571bab0f41985531a038091": {
+   "bar": "defense",
+   "score": 11
+  },
+  "6571babb4076795e5e07383f": {
+   "bar": "defense",
+   "score": 13
+  },
+  "6571babf4cb80d995d0a1494": {
+   "bar": "defense",
+   "score": 11
+  },
+  "6571bac34076795e5e073843": {
+   "bar": "defense",
+   "score": 11
+  },
+  "6571dbd388ead79fcf091d71": {
+   "bar": "defense",
+   "score": 16
+  },
+  "6571dbda88ead79fcf091d75": {
+   "bar": "defense",
+   "score": 16
+  },
+  "6571dbe07c02ae206002502e": {
+   "bar": "defense",
+   "score": 11
+  },
+  "6571dbeaee8ec43d520cf89e": {
+   "bar": "defense",
+   "score": 11
+  },
+  "6571dbef88ead79fcf091d79": {
+   "bar": "defense",
+   "score": 12
+  },
+  "6572e048371fccfbf909d5d8": {
+   "bar": "defense",
+   "score": 28
+  },
+  "6572e059371fccfbf909d5dc": {
+   "bar": "defense",
+   "score": 28
+  },
+  "6572e06219b4b511af012f89": {
+   "bar": "defense",
+   "score": 22
+  },
+  "6572e06819b4b511af012f8d": {
+   "bar": "defense",
+   "score": 22
+  },
+  "6572e5221b5bc1185508c24f": {
+   "bar": "defense",
+   "score": 25
+  },
+  "6572e52f73c0eabb700109a0": {
+   "bar": "defense",
+   "score": 25
+  },
+  "6572e53c73c0eabb700109a4": {
+   "bar": "defense",
+   "score": 22
+  },
+  "6572e54873c0eabb700109a8": {
+   "bar": "defense",
+   "score": 22
+  },
+  "6572eb0e55beba16bc04079f": {
+   "bar": "defense",
+   "score": 14
+  },
+  "6572eb1b04ee6483ef039882": {
+   "bar": "defense",
+   "score": 14
+  },
+  "6572eb3004ee6483ef039886": {
+   "bar": "defense",
+   "score": 11
+  },
+  "6572eb3b04ee6483ef03988a": {
+   "bar": "defense",
+   "score": 11
+  },
+  "6572eb865b5eac12f10a03ee": {
+   "bar": "defense",
+   "score": 12
+  },
+  "6572f1ca4c8d903cc60c874e": {
+   "bar": "defense",
+   "score": 16
+  },
+  "6572f1d60103b4a3270332db": {
+   "bar": "defense",
+   "score": 16
+  },
+  "6572f1e10103b4a3270332df": {
+   "bar": "defense",
+   "score": 11
+  },
+  "6572f1edea457732140ce875": {
+   "bar": "defense",
+   "score": 11
+  },
+  "6572f1f7ea457732140ce879": {
+   "bar": "defense",
+   "score": 12
+  },
+  "6572fc809a866b80ab07eb59": {
+   "bar": "defense",
+   "score": 13
+  },
+  "6572fc8c9a866b80ab07eb5d": {
+   "bar": "defense",
+   "score": 13
+  },
+  "6572fc989a866b80ab07eb61": {
+   "bar": "defense",
+   "score": 11
+  },
+  "6572fca39a866b80ab07eb65": {
+   "bar": "defense",
+   "score": 11
+  },
+  "65730c0e292ecadbfa09ad49": {
+   "bar": "defense",
+   "score": 16
+  },
+  "65730c2213a2f660f60bea96": {
+   "bar": "defense",
+   "score": 16
+  },
+  "65730c2b292ecadbfa09ad50": {
+   "bar": "defense",
+   "score": 11
+  },
+  "65730c35292ecadbfa09ad54": {
+   "bar": "defense",
+   "score": 11
+  },
+  "6573101e292ecadbfa09b389": {
+   "bar": "defense",
+   "score": 13
+  },
+  "6573102b292ecadbfa09b38d": {
+   "bar": "defense",
+   "score": 13
+  },
+  "65731038292ecadbfa09b391": {
+   "bar": "defense",
+   "score": 11
+  },
+  "65731045f31d5be00e08a75a": {
+   "bar": "defense",
+   "score": 11
+  },
+  "65731b46cea9255e2102360a": {
+   "bar": "defense",
+   "score": 16
+  },
+  "65731b4fcea9255e2102360e": {
+   "bar": "defense",
+   "score": 16
+  },
+  "65731b576e709cddd001ec3f": {
+   "bar": "defense",
+   "score": 12
+  },
+  "65731b60ff6dc44a7d068c4a": {
+   "bar": "defense",
+   "score": 12
+  },
+  "65731b666e709cddd001ec43": {
+   "bar": "defense",
+   "score": 12
+  },
+  "65731b6b6042b0f210020ef6": {
+   "bar": "defense",
+   "score": 12
+  },
+  "65731b716e709cddd001ec47": {
+   "bar": "defense",
+   "score": 12
+  },
+  "657322988c1cc6dcd9098b2d": {
+   "bar": "defense",
+   "score": 28
+  },
+  "657322a4cea9255e21023651": {
+   "bar": "defense",
+   "score": 28
+  },
+  "657322acd9d89ff7ac0d961b": {
+   "bar": "defense",
+   "score": 23
+  },
+  "657322b7d9d89ff7ac0d961f": {
+   "bar": "defense",
+   "score": 23
+  },
+  "65732688d9d89ff7ac0d9c4c": {
+   "bar": "defense",
+   "score": 29
+  },
+  "657326978c1cc6dcd9098b56": {
+   "bar": "defense",
+   "score": 29
+  },
+  "657326a28c1cc6dcd9098b5a": {
+   "bar": "defense",
+   "score": 22
+  },
+  "657326b08c1cc6dcd9098b5e": {
+   "bar": "defense",
+   "score": 22
+  },
+  "657326bc5d3a3129fb05f36b": {
+   "bar": "defense",
+   "score": 24
+  },
+  "65732de75d3a3129fb05f3dd": {
+   "bar": "defense",
+   "score": 30
+  },
+  "65732df4d0acf75aea06c87b": {
+   "bar": "defense",
+   "score": 30
+  },
+  "65732e05d0acf75aea06c87f": {
+   "bar": "defense",
+   "score": 23
+  },
+  "65732e0f6784ca384b0167ad": {
+   "bar": "defense",
+   "score": 23
+  },
+  "65732e215d3a3129fb05f3e1": {
+   "bar": "defense",
+   "score": 22
+  },
+  "65732e30dd8739f6440ef383": {
+   "bar": "defense",
+   "score": 24
+  },
+  "65733312ca0ca984940a2d53": {
+   "bar": "defense",
+   "score": 26
+  },
+  "657333232cc8dfad2c0a3d97": {
+   "bar": "defense",
+   "score": 26
+  },
+  "657333302cc8dfad2c0a3d9b": {
+   "bar": "defense",
+   "score": 22
+  },
+  "6573333eca0ca984940a2d57": {
+   "bar": "defense",
+   "score": 22
+  },
+  "6573334aca0ca984940a2d5b": {
+   "bar": "defense",
+   "score": 23
+  },
+  "65733375b7a8d286530e3dd7": {
+   "bar": "defense",
+   "score": 22
+  },
+  "6573337f2cc8dfad2c0a3da7": {
+   "bar": "defense",
+   "score": 22
+  },
+  "6575bc88c6700bd6b40e8a57": {
+   "bar": "defense",
+   "score": 26
+  },
+  "6575bca0dc9932aed601c5d7": {
+   "bar": "defense",
+   "score": 26
+  },
+  "6575c2adefc786cd9101a5d9": {
+   "bar": "defense",
+   "score": 29
+  },
+  "6575c2be52b7f8c76a05ee25": {
+   "bar": "defense",
+   "score": 29
+  },
+  "6575c2cd52b7f8c76a05ee29": {
+   "bar": "defense",
+   "score": 23
+  },
+  "6575c2d852b7f8c76a05ee2d": {
+   "bar": "defense",
+   "score": 23
+  },
+  "6575c2e4efc786cd9101a5dd": {
+   "bar": "defense",
+   "score": 24
+  },
+  "6575c2f7efc786cd9101a5e1": {
+   "bar": "defense",
+   "score": 24
+  },
+  "6575c30352b7f8c76a05ee31": {
+   "bar": "defense",
+   "score": 24
+  },
+  "6575c31b52b7f8c76a05ee35": {
+   "bar": "defense",
+   "score": 23
+  },
+  "6575c326c6700bd6b40e8a80": {
+   "bar": "defense",
+   "score": 22
+  },
+  "6575c342efc786cd9101a5e5": {
+   "bar": "defense",
+   "score": 29
+  },
+  "6575c34bc6700bd6b40e8a84": {
+   "bar": "defense",
+   "score": 29
+  },
+  "6575c35bc6700bd6b40e8a88": {
+   "bar": "defense",
+   "score": 23
+  },
+  "6575c366c6700bd6b40e8a8c": {
+   "bar": "defense",
+   "score": 23
+  },
+  "6575c373dc9932aed601c5ec": {
+   "bar": "defense",
+   "score": 24
+  },
+  "6575c385dc9932aed601c5f0": {
+   "bar": "defense",
+   "score": 23
+  },
+  "6575c390efc786cd9101a5e9": {
+   "bar": "defense",
+   "score": 22
+  },
+  "6575c3b3dc9932aed601c5f4": {
+   "bar": "defense",
+   "score": 29
+  },
+  "6575c3beefc786cd9101a5ed": {
+   "bar": "defense",
+   "score": 29
+  },
+  "6575c3cdc6700bd6b40e8a90": {
+   "bar": "defense",
+   "score": 23
+  },
+  "6575c3dfdc9932aed601c5f8": {
+   "bar": "defense",
+   "score": 23
+  },
+  "6575c3ec52b7f8c76a05ee39": {
+   "bar": "defense",
+   "score": 24
+  },
+  "6575c3fd52b7f8c76a05ee3d": {
+   "bar": "defense",
+   "score": 24
+  },
+  "6575c40c52b7f8c76a05ee41": {
+   "bar": "defense",
+   "score": 24
+  },
+  "6575ce3716c2762fba0057fd": {
+   "bar": "defense",
+   "score": 33
+  },
+  "6575ce45dc9932aed601c616": {
+   "bar": "defense",
+   "score": 33
+  },
+  "6575ce5016c2762fba005802": {
+   "bar": "defense",
+   "score": 24
+  },
+  "6575ce5befc786cd9101a671": {
+   "bar": "defense",
+   "score": 24
+  },
+  "6575ce6f16c2762fba005806": {
+   "bar": "defense",
+   "score": 26
+  },
+  "6575ce8bdc9932aed601c61e": {
+   "bar": "defense",
+   "score": 26
+  },
+  "6575ce9db15fef3dd4051628": {
+   "bar": "defense",
+   "score": 24
+  },
+  "6575cea8b15fef3dd405162c": {
+   "bar": "defense",
+   "score": 24
+  },
+  "6575d561b15fef3dd4051670": {
+   "bar": "defense",
+   "score": 31
+  },
+  "6575d56b16c2762fba005818": {
+   "bar": "defense",
+   "score": 31
+  },
+  "6575d57a16c2762fba00581c": {
+   "bar": "defense",
+   "score": 24
+  },
+  "6575d589b15fef3dd4051674": {
+   "bar": "defense",
+   "score": 24
+  },
+  "6575d598b15fef3dd4051678": {
+   "bar": "defense",
+   "score": 25
+  },
+  "6575d5a616c2762fba005820": {
+   "bar": "defense",
+   "score": 25
+  },
+  "6575d5b316c2762fba005824": {
+   "bar": "defense",
+   "score": 24
+  },
+  "6575d5bd16c2762fba005828": {
+   "bar": "defense",
+   "score": 24
+  },
+  "6575d9a79e27f4a85e08112d": {
+   "bar": "defense",
+   "score": 32
+  },
+  "6575d9b8945bf78edd04c427": {
+   "bar": "defense",
+   "score": 32
+  },
+  "6575d9c40546f8b1de093dee": {
+   "bar": "defense",
+   "score": 24
+  },
+  "6575d9cf0546f8b1de093df2": {
+   "bar": "defense",
+   "score": 24
+  },
+  "6575d9d8945bf78edd04c42b": {
+   "bar": "defense",
+   "score": 25
+  },
+  "6575d9e7945bf78edd04c42f": {
+   "bar": "defense",
+   "score": 26
+  },
+  "6575d9f816c2762fba00588d": {
+   "bar": "defense",
+   "score": 23
+  },
+  "6575da07945bf78edd04c433": {
+   "bar": "defense",
+   "score": 24
+  },
+  "6575da159e27f4a85e081131": {
+   "bar": "defense",
+   "score": 24
+  },
+  "6575dd3e9e27f4a85e081142": {
+   "bar": "defense",
+   "score": 30
+  },
+  "6575dd519e27f4a85e081146": {
+   "bar": "defense",
+   "score": 30
+  },
+  "6575dd64945bf78edd04c438": {
+   "bar": "defense",
+   "score": 24
+  },
+  "6575dd6e9d3a0ddf660b9047": {
+   "bar": "defense",
+   "score": 24
+  },
+  "6575dd769d3a0ddf660b904b": {
+   "bar": "defense",
+   "score": 25
+  },
+  "6575dd800546f8b1de093df6": {
+   "bar": "defense",
+   "score": 24
+  },
+  "6575dd94945bf78edd04c43c": {
+   "bar": "defense",
+   "score": 23
+  },
+  "6575e71760703324250610c3": {
+   "bar": "defense",
+   "score": 27
+  },
+  "6575e72660703324250610c7": {
+   "bar": "defense",
+   "score": 27
+  },
+  "6575ea3060703324250610da": {
+   "bar": "defense",
+   "score": 28
+  },
+  "6575ea4cf6a13a7b7100adc4": {
+   "bar": "defense",
+   "score": 28
+  },
+  "6575ea5cf6a13a7b7100adc8": {
+   "bar": "defense",
+   "score": 22
+  },
+  "6575ea6760703324250610de": {
+   "bar": "defense",
+   "score": 22
+  },
+  "6575ea719c7cad336508e418": {
+   "bar": "defense",
+   "score": 24
+  },
+  "6575ea7c60703324250610e2": {
+   "bar": "defense",
+   "score": 23
+  },
+  "6575ef599c7cad336508e453": {
+   "bar": "defense",
+   "score": 26
+  },
+  "6575ef6bf6a13a7b7100b093": {
+   "bar": "defense",
+   "score": 26
+  },
+  "6575ef78da698a4e980677eb": {
+   "bar": "defense",
+   "score": 23
+  },
+  "6575ef7f9c7cad336508e457": {
+   "bar": "defense",
+   "score": 23
+  },
+  "6575f24ff6a13a7b7100b09e": {
+   "bar": "defense",
+   "score": 25
+  },
+  "6575f25ada698a4e98067836": {
+   "bar": "defense",
+   "score": 25
+  },
+  "6575f2649cfdfe416f0399b8": {
+   "bar": "defense",
+   "score": 22
+  },
+  "6575f26d9c7cad336508e480": {
+   "bar": "defense",
+   "score": 22
+  },
+  "6575f5cbf6a13a7b7100b0bf": {
+   "bar": "defense",
+   "score": 24
+  },
+  "6575f5e1da698a4e98067869": {
+   "bar": "defense",
+   "score": 24
+  },
+  "65764275d8537eb26a0355e9": {
+   "bar": "defense",
+   "score": 30
+  },
+  "657642b0e6d5dd75f40688a5": {
+   "bar": "defense",
+   "score": 30
+  },
+  "6576434820cc24d17102b148": {
+   "bar": "defense",
+   "score": 23
+  },
+  "657643732bc38ef78e076477": {
+   "bar": "defense",
+   "score": 23
+  },
+  "657643a220cc24d17102b14c": {
+   "bar": "defense",
+   "score": 24
+  },
+  "65764a4cd8537eb26a0355ee": {
+   "bar": "defense",
+   "score": 31
+  },
+  "65764bc22bc38ef78e076485": {
+   "bar": "defense",
+   "score": 19
+  },
+  "65764c39526e320fbe035777": {
+   "bar": "defense",
+   "score": 12
+  },
+  "65764c6b526e320fbe03577b": {
+   "bar": "defense",
+   "score": 23
+  },
+  "65764e1e2bc38ef78e076489": {
+   "bar": "defense",
+   "score": 42
+  },
+  "65764fae2bc38ef78e07648d": {
+   "bar": "defense",
+   "score": 15
+  },
+  "6576500f526e320fbe03577f": {
+   "bar": "defense",
+   "score": 11
+  },
+  "6576504b526e320fbe035783": {
+   "bar": "defense",
+   "score": 37
+  },
+  "6576f4708ca9c4381d16cd9d": {
+   "bar": "firepower",
+   "score": 525
+  },
+  "6576f93989f0062e741ba952": {
+   "bar": "firepower",
+   "score": 416
+  },
+  "6576f96220d53a5b8f3e395e": {
+   "bar": "firepower",
+   "score": 333
+  },
+  "657857faeff4c850222dff1b": {
+   "bar": "firepower",
+   "score": 768
+  },
+  "65785979bec02a3fe82c181e": {
+   "bar": "firepower",
+   "score": 102
+  },
+  "657b22485f444d6dff0c6c2f": {
+   "bar": "defense",
+   "score": 41
+  },
+  "657b2797c3dbcb01d60c35ea": {
+   "bar": "defense",
+   "score": 60
+  },
+  "657b28d25f444d6dff0c6c77": {
+   "bar": "defense",
+   "score": 84
+  },
+  "657ba096e57570b7f80a17fb": {
+   "bar": "defense",
+   "score": 8
+  },
+  "657ba145e57570b7f80a17ff": {
+   "bar": "defense",
+   "score": 8
+  },
+  "657ba18923918923cb0df568": {
+   "bar": "defense",
+   "score": 8
+  },
+  "657ba2eef58ba5a625010798": {
+   "bar": "defense",
+   "score": 7
+  },
+  "657ba34b9ba22f103e08139b": {
+   "bar": "defense",
+   "score": 7
+  },
+  "657ba50c23918923cb0df56c": {
+   "bar": "defense",
+   "score": 12
+  },
+  "657ba5439ba22f103e08139f": {
+   "bar": "defense",
+   "score": 12
+  },
+  "657ba57af58ba5a62501079e": {
+   "bar": "defense",
+   "score": 12
+  },
+  "657ba6c3c6f689d3a205b857": {
+   "bar": "defense",
+   "score": 15
+  },
+  "657ba737b7e9ca9a02045bf6": {
+   "bar": "defense",
+   "score": 15
+  },
+  "657ba75e23918923cb0df573": {
+   "bar": "defense",
+   "score": 15
+  },
+  "657ba85ecfcf63c951052da7": {
+   "bar": "defense",
+   "score": 13
+  },
+  "657ba8bccfcf63c951052dab": {
+   "bar": "defense",
+   "score": 13
+  },
+  "657ba8eab7e9ca9a02045bfd": {
+   "bar": "defense",
+   "score": 13
+  },
+  "657baaf0b7e9ca9a02045c02": {
+   "bar": "defense",
+   "score": 23
+  },
+  "657bab6ec6f689d3a205b85f": {
+   "bar": "defense",
+   "score": 23
+  },
+  "657babc6f58ba5a6250107a2": {
+   "bar": "defense",
+   "score": 23
+  },
+  "657bae18b7e9ca9a02045c0a": {
+   "bar": "defense",
+   "score": 23
+  },
+  "657baeaacfcf63c951052db3": {
+   "bar": "defense",
+   "score": 23
+  },
+  "657baecbc6f689d3a205b863": {
+   "bar": "defense",
+   "score": 23
+  },
+  "657bb70486c7f9ef7a009936": {
+   "bar": "defense",
+   "score": 26
+  },
+  "657bb79ba1c61ee0c303631a": {
+   "bar": "defense",
+   "score": 26
+  },
+  "657bb7d7b30eca9763051176": {
+   "bar": "defense",
+   "score": 26
+  },
+  "657bb92fa1c61ee0c303631f": {
+   "bar": "defense",
+   "score": 23
+  },
+  "657bb99db30eca976305117f": {
+   "bar": "defense",
+   "score": 23
+  },
+  "657bbad7a1c61ee0c3036323": {
+   "bar": "defense",
+   "score": 24
+  },
+  "657bbb31b30eca9763051183": {
+   "bar": "defense",
+   "score": 24
+  },
+  "657bbcc9a1c61ee0c3036327": {
+   "bar": "defense",
+   "score": 26
+  },
+  "657bbcffbbd440df880b2dd5": {
+   "bar": "defense",
+   "score": 26
+  },
+  "657bbe73a1c61ee0c303632b": {
+   "bar": "defense",
+   "score": 58
+  },
+  "657bbed0aab96fccee08be96": {
+   "bar": "defense",
+   "score": 58
+  },
+  "657bbefeb30eca9763051189": {
+   "bar": "defense",
+   "score": 58
+  },
+  "657bc06daab96fccee08be9b": {
+   "bar": "defense",
+   "score": 58
+  },
+  "657bc0d8a1c61ee0c303632f": {
+   "bar": "defense",
+   "score": 58
+  },
+  "657bc107aab96fccee08be9f": {
+   "bar": "defense",
+   "score": 58
+  },
+  "657bc285aab96fccee08bea3": {
+   "bar": "defense",
+   "score": 59
+  },
+  "657bc2c5a1c61ee0c3036333": {
+   "bar": "defense",
+   "score": 59
+  },
+  "657bc2e7b30eca976305118d": {
+   "bar": "defense",
+   "score": 59
+  },
+  "657f8a8d7db258e5600fe33d": {
+   "bar": "defense",
+   "score": 38
+  },
+  "657f8b05f4c82973640b2348": {
+   "bar": "defense",
+   "score": 38
+  },
+  "657f8b43f92cd718b70154fb": {
+   "bar": "defense",
+   "score": 38
+  },
+  "657f8b94f92cd718b70154ff": {
+   "bar": "defense",
+   "score": 38
+  },
+  "657f8ec5f4c82973640b234c": {
+   "bar": "defense",
+   "score": 39
+  },
+  "657f8f10f4c82973640b2350": {
+   "bar": "defense",
+   "score": 39
+  },
+  "657f925dada5fadd1f07a57a": {
+   "bar": "defense",
+   "score": 38
+  },
+  "657f92acada5fadd1f07a57e": {
+   "bar": "defense",
+   "score": 38
+  },
+  "657f92e7f4c82973640b2354": {
+   "bar": "defense",
+   "score": 38
+  },
+  "657f95bff92cd718b701550c": {
+   "bar": "defense",
+   "score": 38
+  },
+  "657f9605f4c82973640b2358": {
+   "bar": "defense",
+   "score": 38
+  },
+  "657f9897f4c82973640b235e": {
+   "bar": "defense",
+   "score": 39
+  },
+  "657f98fbada5fadd1f07a585": {
+   "bar": "defense",
+   "score": 39
+  },
+  "657f9a55c6679fefb3051e19": {
+   "bar": "defense",
+   "score": 39
+  },
+  "657f9a94ada5fadd1f07a589": {
+   "bar": "defense",
+   "score": 39
+  },
+  "657f9c78ada5fadd1f07a58d": {
+   "bar": "defense",
+   "score": 38
+  },
+  "657f9cb587e11c61f70bfaca": {
+   "bar": "defense",
+   "score": 38
+  },
+  "657f9eb7e9433140ad0baf86": {
+   "bar": "defense",
+   "score": 40
+  },
+  "657f9ef6c6679fefb3051e1f": {
+   "bar": "defense",
+   "score": 40
+  },
+  "657fa009d4caf976440afe3a": {
+   "bar": "defense",
+   "score": 40
+  },
+  "657fa04ac6679fefb3051e24": {
+   "bar": "defense",
+   "score": 40
+  },
+  "657fa07387e11c61f70bface": {
+   "bar": "defense",
+   "score": 40
+  },
+  "657fa0fcd4caf976440afe3e": {
+   "bar": "defense",
+   "score": 24
+  },
+  "657fa168e9433140ad0baf8e": {
+   "bar": "defense",
+   "score": 24
+  },
+  "657fa186d4caf976440afe42": {
+   "bar": "defense",
+   "score": 24
+  },
+  "658188edf026a90c1708c827": {
+   "bar": "defense",
+   "score": 10
+  },
+  "65818e4e566d2de69901b1b1": {
+   "bar": "defense",
+   "score": 10
+  },
+  "65ae4f57e343f0acc00824da": {
+   "bar": "firepower",
+   "score": 105
+  },
+  "65f05b9d39dab9e9ec049cfd": {
+   "bar": "firepower",
+   "score": 85
+  },
+  "65f064eec4da400cbb0dc1fe": {
+   "bar": "firepower",
+   "score": 1
+  },
+  "65f1b1176dbd6c5ba2082eed": {
+   "bar": "firepower",
+   "score": 6
+  },
+  "65fb023261d5829b2d090755": {
+   "bar": "firepower",
+   "score": 836
+  },
+  "6601257f1347bc1a5f0f4db6": {
+   "bar": "firepower",
+   "score": 6
+  },
+  "660125bf1d087a96c60a54db": {
+   "bar": "firepower",
+   "score": 9
+  },
+  "660126161347bc1a5f0f4dba": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "660126a98f2b23af220b27e7": {
+   "bar": "firepower",
+   "score": 6
+  },
+  "660126f7c752a02bbe05e688": {
+   "bar": "firepower",
+   "score": 170
+  },
+  "66012788c752a02bbe05e68e": {
+   "bar": "firepower",
+   "score": 247
+  },
+  "6601279cc752a02bbe05e692": {
+   "bar": "firepower",
+   "score": 324
+  },
+  "6601281fc752a02bbe05e696": {
+   "bar": "firepower",
+   "score": 177
+  },
+  "66012a1d3dff5074ed002e2a": {
+   "bar": "firepower",
+   "score": 204
+  },
+  "66012d003dff5074ed002e2c": {
+   "bar": "firepower",
+   "score": 108
+  },
+  "66012d64c752a02bbe05e69b": {
+   "bar": "firepower",
+   "score": 77
+  },
+  "660137d8481cc6907a0c5cda": {
+   "bar": "firepower",
+   "score": 632
+  },
+  "660137ef76c1b56143052be8": {
+   "bar": "firepower",
+   "score": 552
+  },
+  "6601380580e77cfd080e3418": {
+   "bar": "firepower",
+   "score": 545
+  },
+  "66015072e9f84d5680039678": {
+   "bar": "firepower",
+   "score": 346
+  },
+  "6601546f86889319850bd566": {
+   "bar": "firepower",
+   "score": 2
+  },
+  "66015dc4aaad2f54cb04c56a": {
+   "bar": "firepower",
+   "score": 45
+  },
+  "660ea4453786cc0af808a1be": {
+   "bar": "firepower",
+   "score": 114
+  },
+  "660ea4ba5a58d057b009efab": {
+   "bar": "firepower",
+   "score": 112
+  },
+  "6615202b96461aa8360271eb": {
+   "bar": "firepower",
+   "score": 17
+  },
+  "66152060a031cbb5570e3466": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "6615208aa031cbb5570e346a": {
+   "bar": "firepower",
+   "score": 9
+  },
+  "661520fb6f8e1a96340afaa6": {
+   "bar": "firepower",
+   "score": 17
+  },
+  "6615211ca031cbb5570e346d": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "66152153a031cbb5570e346f": {
+   "bar": "firepower",
+   "score": 9
+  },
+  "661ceb1b9311543c7104149b": {
+   "bar": "firepower",
+   "score": 839
+  },
+  "661cec09b2c6356b4d0c7a36": {
+   "bar": "firepower",
+   "score": 839
+  },
+  "661e52415be02310ed07a07a": {
+   "bar": "firepower",
+   "score": 41
+  },
+  "661e52b5b099f32c28003586": {
+   "bar": "firepower",
+   "score": 41
+  },
+  "661e52e29c8b4dadef008577": {
+   "bar": "firepower",
+   "score": 53
+  },
+  "661e53149c8b4dadef008579": {
+   "bar": "firepower",
+   "score": 53
+  },
+  "661f8995c341ea101e0d33e8": {
+   "bar": "firepower",
+   "score": 20
+  },
+  "661fbe066751ee51930b01f2": {
+   "bar": "firepower",
+   "score": 77
+  },
+  "6621455e3aceea9e2b0b01e7": {
+   "bar": "firepower",
+   "score": 182
+  },
+  "66225d88a1c7e3b81600c76f": {
+   "bar": "firepower",
+   "score": 173
+  },
+  "6642f63667f5cb56a00662eb": {
+   "bar": "firepower",
+   "score": 278
+  },
+  "664301213dd83ddae20dda18": {
+   "bar": "firepower",
+   "score": 221
+  },
+  "66507eabf5ddb0818b085b68": {
+   "bar": "utility",
+   "score": 45
+  },
+  "665745c8a3c672c7b00bb355": {
+   "bar": "firepower",
+   "score": 28
+  },
+  "665d5d9e338229cfd6078da1": {
+   "bar": "firepower",
+   "score": 45
+  },
+  "665edce564fb556f940ab32a": {
+   "bar": "firepower",
+   "score": 45
+  },
+  "6680304edadb7aa61d00cef0": {
+   "bar": "firepower",
+   "score": 931
+  },
+  "668031bde3e7eb26e8004cd7": {
+   "bar": "firepower",
+   "score": 54
+  },
+  "668031ffe3e7eb26e8004cdd": {
+   "bar": "firepower",
+   "score": 48
+  },
+  "6680326874b8f2050c0b9178": {
+   "bar": "firepower",
+   "score": 11
+  },
+  "668032ba74b8f2050c0b917d": {
+   "bar": "firepower",
+   "score": 386
+  },
+  "66866f4ec3d473265104f381": {
+   "bar": "firepower",
+   "score": 58
+  },
+  "66866f622a2296a8d9099639": {
+   "bar": "firepower",
+   "score": 73
+  },
+  "6686700a2b934a68630a7fe6": {
+   "bar": "firepower",
+   "score": 79
+  },
+  "66867023c3d473265104f384": {
+   "bar": "firepower",
+   "score": 106
+  },
+  "668670432b934a68630a7fe8": {
+   "bar": "firepower",
+   "score": 133
+  },
+  "668670e3fb75ee4a5e02eb16": {
+   "bar": "firepower",
+   "score": 3
+  },
+  "668670f52a2296a8d909963c": {
+   "bar": "firepower",
+   "score": 3
+  },
+  "6686717ffb75ee4a5e02eb19": {
+   "bar": "firepower",
+   "score": 380
+  },
+  "66867310f3734a938b077f79": {
+   "bar": "firepower",
+   "score": 449
+  },
+  "66881008f23233ee9a0742e7": {
+   "bar": "firepower",
+   "score": 3
+  },
+  "668e71a8dadf42204c032ce1": {
+   "bar": "firepower",
+   "score": 943
+  },
+  "668fe5a998b5ad715703ddd6": {
+   "bar": "firepower",
+   "score": 216
+  },
+  "668fe5c5f35310705d02b696": {
+   "bar": "firepower",
+   "score": 15
+  },
+  "668fe5d42a0f85eea407cc16": {
+   "bar": "firepower",
+   "score": 11
+  },
+  "668fe5f62a0f85eea407cc18": {
+   "bar": "firepower",
+   "score": 78
+  },
+  "668fe60b56984d93550462c6": {
+   "bar": "firepower",
+   "score": 11
+  },
+  "668fe62ac62660a5d8071446": {
+   "bar": "firepower",
+   "score": 610
+  },
+  "6698c89bfbc8142e60024b0e": {
+   "bar": "firepower",
+   "score": 20
+  },
+  "6698c8ab29e062525d0ad8ab": {
+   "bar": "firepower",
+   "score": 77
+  },
+  "6698c8b7710a4525fe0e9e55": {
+   "bar": "firepower",
+   "score": 128
+  },
+  "6698c8c736ba38d29101770b": {
+   "bar": "firepower",
+   "score": 9
+  },
+  "6698c9aa36ba38d29101770f": {
+   "bar": "firepower",
+   "score": 3
+  },
+  "6698c9ba29e062525d0ad8b1": {
+   "bar": "firepower",
+   "score": 3
+  },
+  "6698c9c636ba38d291017711": {
+   "bar": "firepower",
+   "score": 3
+  },
+  "6698c9e07356874dfe0a0b88": {
+   "bar": "firepower",
+   "score": 662
+  },
+  "6698c9ed36ba38d291017713": {
+   "bar": "firepower",
+   "score": 656
+  },
+  "6699249f3c4fda6471005cba": {
+   "bar": "firepower",
+   "score": 610
+  },
+  "669924a69950f5f4cd060295": {
+   "bar": "firepower",
+   "score": 588
+  },
+  "66992713ae08c5c29e0c4f97": {
+   "bar": "firepower",
+   "score": 48
+  },
+  "6699271b9950f5f4cd060299": {
+   "bar": "firepower",
+   "score": 58
+  },
+  "669927203c4fda6471005cbe": {
+   "bar": "firepower",
+   "score": 73
+  },
+  "66992725ae08c5c29e0c4f9a": {
+   "bar": "firepower",
+   "score": 90
+  },
+  "6699272a3c4fda6471005cc1": {
+   "bar": "firepower",
+   "score": 108
+  },
+  "66992b349950f5f4cd06029f": {
+   "bar": "firepower",
+   "score": 868
+  },
+  "6699313af74fef4dfd0b04f6": {
+   "bar": "firepower",
+   "score": 71
+  },
+  "66993149558c59581e03c028": {
+   "bar": "firepower",
+   "score": 77
+  },
+  "6699370c57df3e2b4e0a0dab": {
+   "bar": "firepower",
+   "score": 51
+  },
+  "66993733f74fef4dfd0b04ff": {
+   "bar": "firepower",
+   "score": 97
+  },
+  "669946c157df3e2b4e0a0dc5": {
+   "bar": "firepower",
+   "score": 6
+  },
+  "669fa39b48fc9f8db6035a0c": {
+   "bar": "firepower",
+   "score": 216
+  },
+  "669fa3d876116c89840b1217": {
+   "bar": "firepower",
+   "score": 216
+  },
+  "669fa3f88abd2662d80eee77": {
+   "bar": "firepower",
+   "score": 223
+  },
+  "669fa409933e898cce0c2166": {
+   "bar": "firepower",
+   "score": 232
+  },
+  "669fa435803b94fb5d0e3a76": {
+   "bar": "firepower",
+   "score": 19
+  },
+  "669fa47da0bab4e8510d9526": {
+   "bar": "firepower",
+   "score": 91
+  },
+  "669fa48fa0bab4e8510d952a": {
+   "bar": "firepower",
+   "score": 91
+  },
+  "669fa4ba1bd4416eaa09b3c6": {
+   "bar": "firepower",
+   "score": 23
+  },
+  "669fa4c61bd4416eaa09b3ca": {
+   "bar": "firepower",
+   "score": 51
+  },
+  "669fa4d97a09bc295603b496": {
+   "bar": "firepower",
+   "score": 11
+  },
+  "669fa5019aa2a422600442f6": {
+   "bar": "firepower",
+   "score": 9
+  },
+  "669fa5127a09bc295603b499": {
+   "bar": "firepower",
+   "score": 9
+  },
+  "669fa5271bd4416eaa09b3ce": {
+   "bar": "firepower",
+   "score": 11
+  },
+  "66a0d1c87d0d369e270bb9de": {
+   "bar": "firepower",
+   "score": 399
+  },
+  "66a0d1e0ed648d72fe064d06": {
+   "bar": "firepower",
+   "score": 561
+  },
+  "66a0d1f88486c69fce00fdf6": {
+   "bar": "firepower",
+   "score": 505
+  },
+  "66a0da76b6f47fcfeb025e96": {
+   "bar": "firepower",
+   "score": 17
+  },
+  "66a9f98f3bd5a41b162030f4": {
+   "bar": "utility",
+   "score": 45
+  },
+  "66ac9d9740e27931602042d4": {
+   "bar": "firepower",
+   "score": 629
+  },
+  "66b5f22b78bbc0200425f904": {
+   "bar": "utility",
+   "score": 67
+  },
+  "66b5f247af44ca0014063c02": {
+   "bar": "utility",
+   "score": 36
+  },
+  "66b5f68de98be930d701c00e": {
+   "bar": "utility",
+   "score": 181
+  },
+  "66b5f693acff495a294927e3": {
+   "bar": "utility",
+   "score": 172
+  },
+  "66b5f6985891c84aab75ca76": {
+   "bar": "utility",
+   "score": 181
+  },
+  "66b5f69ea7f72d197e70bcdb": {
+   "bar": "utility",
+   "score": 172
+  },
+  "66b5f6a28ca68c6461709ed8": {
+   "bar": "utility",
+   "score": 181
+  },
+  "66b61ce0c5d72b027748867e": {
+   "bar": "defense",
+   "score": 39
+  },
+  "66b61cfae98be930d701c029": {
+   "bar": "defense",
+   "score": 39
+  },
+  "66b6295178bbc0200425f995": {
+   "bar": "defense",
+   "score": 5
+  },
+  "66b6295a8ca68c6461709efa": {
+   "bar": "defense",
+   "score": 5
+  },
+  "66b6296d7994640992013b17": {
+   "bar": "defense",
+   "score": 5
+  },
+  "66b884eaacff495a29492849": {
+   "bar": "defense",
+   "score": 16
+  },
+  "66b884f4c5d72b02774886eb": {
+   "bar": "defense",
+   "score": 16
+  },
+  "66b884fd7994640992013b37": {
+   "bar": "defense",
+   "score": 12
+  },
+  "66b8851678bbc0200425fa03": {
+   "bar": "defense",
+   "score": 11
+  },
+  "66b88521a7f72d197e70be3b": {
+   "bar": "defense",
+   "score": 11
+  },
+  "66b8b20c5891c84aab75cb96": {
+   "bar": "defense",
+   "score": 26
+  },
+  "66b8b217c5d72b02774887b4": {
+   "bar": "defense",
+   "score": 26
+  },
+  "66b8b223a7f72d197e70bed3": {
+   "bar": "defense",
+   "score": 23
+  },
+  "66b8b22b78bbc0200425fb20": {
+   "bar": "defense",
+   "score": 23
+  },
+  "66bdc2c90b603c26902b2018": {
+   "bar": "defense",
+   "score": 25
+  },
+  "66bdc2d051aa8c345646d03f": {
+   "bar": "defense",
+   "score": 25
+  },
+  "66bdc2d9408f1e66eb4fd957": {
+   "bar": "defense",
+   "score": 26
+  },
+  "66bdc2e25f17154509115d1e": {
+   "bar": "defense",
+   "score": 25
+  },
+  "66bdc2ea8cbd597c9c2f9360": {
+   "bar": "defense",
+   "score": 25
+  },
+  "66d97834d2985e11480d5c1e": {
+   "bar": "firepower",
+   "score": 136
+  },
+  "66d98233302686954b0c6f81": {
+   "bar": "firepower",
+   "score": 365
+  },
+  "66d9f1abb16d9aacf5068468": {
+   "bar": "firepower",
+   "score": 365
+  },
+  "66d9f3047b82b9a9aa055d81": {
+   "bar": "firepower",
+   "score": 136
+  },
+  "66dae7cbeb28f0f96809f325": {
+   "bar": "utility",
+   "score": 119
+  },
+  "66ec2aa6daf127599c0c31f1": {
+   "bar": "firepower",
+   "score": 328
+  },
+  "66ffa9b66e19cc902401c5e8": {
+   "bar": "firepower",
+   "score": 706
+  },
+  "66ffaab91f7492c901027bb8": {
+   "bar": "firepower",
+   "score": 12
+  },
+  "66ffac601f7492c901027bbb": {
+   "bar": "firepower",
+   "score": 57
+  },
+  "66ffbfb1a73a7bce3d0b45a8": {
+   "bar": "firepower",
+   "score": 26
+  },
+  "66ffc20ba73a7bce3d0b45ab": {
+   "bar": "firepower",
+   "score": 26
+  },
+  "66ffc2bd132225f0fe0611d8": {
+   "bar": "firepower",
+   "score": 681
+  },
+  "66ffc2ecfe9b3825960652f7": {
+   "bar": "firepower",
+   "score": 681
+  },
+  "66ffc6ceb7ff397142017c3a": {
+   "bar": "firepower",
+   "score": 37
+  },
+  "66ffe2fbab3336cc0106382b": {
+   "bar": "firepower",
+   "score": 17
+  },
+  "66ffe5edfe9b38259606530d": {
+   "bar": "firepower",
+   "score": 17
+  },
+  "66ffe66a20771d839f0fb4a9": {
+   "bar": "firepower",
+   "score": 6
+  },
+  "66ffe6916f11538c7d0581e1": {
+   "bar": "firepower",
+   "score": 6
+  },
+  "66ffe811f5d758d71101e89a": {
+   "bar": "firepower",
+   "score": 68
+  },
+  "66ffea06132225f0fe061394": {
+   "bar": "firepower",
+   "score": 68
+  },
+  "66ffea456be19fd81e0ef742": {
+   "bar": "firepower",
+   "score": 26
+  },
+  "66ffeab4ab3336cc01063833": {
+   "bar": "firepower",
+   "score": 26
+  },
+  "67069d66af4890b09f0006ec": {
+   "bar": "firepower",
+   "score": 94
+  },
+  "67069d8dad91f3a63c0bc2b4": {
+   "bar": "firepower",
+   "score": 85
+  },
+  "6706a159c67236b2f703bb95": {
+   "bar": "firepower",
+   "score": 24
+  },
+  "6709133fa532466d5403fb7c": {
+   "bar": "firepower",
+   "score": 23
+  },
+  "670e8eab8c1bb0e5a7075acf": {
+   "bar": "firepower",
+   "score": 135
+  },
+  "670fced86a7e274b1a0964e8": {
+   "bar": "firepower",
+   "score": 153
+  },
+  "670fd03dc424cf758f006946": {
+   "bar": "firepower",
+   "score": 82
+  },
+  "670fd0a8d8d4eae4790c8187": {
+   "bar": "firepower",
+   "score": 131
+  },
+  "670fd0eed8d4eae4790c818a": {
+   "bar": "firepower",
+   "score": 3
+  },
+  "670fd1cc95c92bfc8e0bea39": {
+   "bar": "firepower",
+   "score": 51
+  },
+  "67110d06723c2733410161e8": {
+   "bar": "firepower",
+   "score": 647
+  },
+  "67110d5ed1758189fc0bd221": {
+   "bar": "firepower",
+   "score": 88
+  },
+  "67110d6fa71d1f123d021cd3": {
+   "bar": "firepower",
+   "score": 37
+  },
+  "67110d8d388bded67304ceb4": {
+   "bar": "firepower",
+   "score": 122
+  },
+  "67124dcfa3541f2a1f0e788b": {
+   "bar": "firepower",
+   "score": 711
+  },
+  "6718817435e3cfd9550d2c27": {
+   "bar": "firepower",
+   "score": 1024
+  },
+  "671883292e2eeb98d406f3b8": {
+   "bar": "firepower",
+   "score": 14
+  },
+  "671d85439ae8365d69117ba6": {
+   "bar": "firepower",
+   "score": 135
+  },
+  "671d8617a3e45c1f5908278c": {
+   "bar": "firepower",
+   "score": 135
+  },
+  "671d8ac8a3e45c1f59082799": {
+   "bar": "firepower",
+   "score": 135
+  },
+  "671d8b38b769f0d88c0950f8": {
+   "bar": "firepower",
+   "score": 135
+  },
+  "671d8b8c0959c721a50ca838": {
+   "bar": "firepower",
+   "score": 137
+  },
+  "673cab3e03c6a20581028bc1": {
+   "bar": "firepower",
+   "score": 477
+  },
+  "673cb212e695740be0047a46": {
+   "bar": "firepower",
+   "score": 142
+  },
+  "673cb4054ff4aa8f86076f4a": {
+   "bar": "firepower",
+   "score": 23
+  },
+  "673cb491280680de5e02ff36": {
+   "bar": "firepower",
+   "score": 40
+  },
+  "673cb551093e0ea7fd0b874a": {
+   "bar": "firepower",
+   "score": 148
+  },
+  "673cb5d1280680de5e02ff3b": {
+   "bar": "firepower",
+   "score": 114
+  },
+  "673cb81f5b1511adb10cd326": {
+   "bar": "firepower",
+   "score": 17
+  },
+  "673cbdfad0453ba50c0f76d6": {
+   "bar": "firepower",
+   "score": 17
+  },
+  "673ddbb567c759b3c90e5f76": {
+   "bar": "firepower",
+   "score": 34
+  },
+  "673f0a38259f5945d70e43a6": {
+   "bar": "firepower",
+   "score": 150
+  },
+  "673f0a9370a3ddcf0d0ee0b8": {
+   "bar": "firepower",
+   "score": 227
+  },
+  "673f0b36536d64240f01acd6": {
+   "bar": "firepower",
+   "score": 190
+  },
+  "673f3ef1259f5945d70e43a8": {
+   "bar": "firepower",
+   "score": 141
+  },
+  "673f3f2f40aeca974e0b5c66": {
+   "bar": "firepower",
+   "score": 4
+  },
+  "673f3f5eef7545280c00f026": {
+   "bar": "firepower",
+   "score": 3
+  },
+  "673f3f9840aeca974e0b5c68": {
+   "bar": "firepower",
+   "score": 170
+  },
+  "673f4046259f5945d70e43ab": {
+   "bar": "firepower",
+   "score": 221
+  },
+  "67405d760098dcb5940ea1a6": {
+   "bar": "firepower",
+   "score": 82
+  },
+  "67405e3b83ac5c69ae025406": {
+   "bar": "firepower",
+   "score": 219
+  },
+  "67405ef125beb509e8070276": {
+   "bar": "firepower",
+   "score": 40
+  },
+  "67405fd0812f476fb2020066": {
+   "bar": "firepower",
+   "score": 91
+  },
+  "67458730df3c1da90b0b052b": {
+   "bar": "utility",
+   "score": 101
+  },
+  "67458794e21e5d724e066976": {
+   "bar": "utility",
+   "score": 56
+  },
+  "674589d98dd67746010329e6": {
+   "bar": "utility",
+   "score": 60
+  },
+  "6749c40822a2740bb408d066": {
+   "bar": "firepower",
+   "score": 99
+  },
+  "674d5e287075e056160e0176": {
+   "bar": "firepower",
+   "score": 20
+  },
+  "674d6121c09f69dfb201a888": {
+   "bar": "firepower",
+   "score": 877
+  },
+  "674d91ce6e862d5a95059ed6": {
+   "bar": "defense",
+   "score": 0
+  },
+  "674da107c512807d1a0e7436": {
+   "bar": "utility",
+   "score": 67
+  },
+  "674da9cf0cb4bcde7103c07b": {
+   "bar": "utility",
+   "score": 67
+  },
+  "674fe57721a9aa6be6045b96": {
+   "bar": "firepower",
+   "score": 91
+  },
+  "674fe8cf4472d471fb0f07df": {
+   "bar": "firepower",
+   "score": 1
+  },
+  "674fe8dd362ea1f88b0e2792": {
+   "bar": "firepower",
+   "score": 1
+  },
+  "674fe8f6f34d761ab8020cc8": {
+   "bar": "firepower",
+   "score": 18
+  },
+  "674fe9a75e51f1c47c04ec23": {
+   "bar": "firepower",
+   "score": 534
+  },
+  "675307301f7c19a9780f2668": {
+   "bar": "firepower",
+   "score": 6
+  },
+  "675ea3d6312c0a5c4e04e317": {
+   "bar": "firepower",
+   "score": 365
+  },
+  "675ea4891b2579e8fe0250aa": {
+   "bar": "firepower",
+   "score": 136
+  },
+  "676017fe8cfeeba9f707c8d6": {
+   "bar": "firepower",
+   "score": 6
+  },
+  "6761492dc53ebe8c0f0a5efe": {
+   "bar": "firepower",
+   "score": 4
+  },
+  "6761496fe2cf1419500357e9": {
+   "bar": "firepower",
+   "score": 488
+  },
+  "676149a3e2cf1419500357eb": {
+   "bar": "firepower",
+   "score": 48
+  },
+  "676149c5062e6212f5058c36": {
+   "bar": "firepower",
+   "score": 247
+  },
+  "676149d8e889e1972605d6be": {
+   "bar": "firepower",
+   "score": 349
+  },
+  "676149fbe2cf1419500357ee": {
+   "bar": "firepower",
+   "score": 26
+  },
+  "67614a0be889e1972605d6c0": {
+   "bar": "firepower",
+   "score": 57
+  },
+  "67614a225152c0eaed08ec86": {
+   "bar": "firepower",
+   "score": 43
+  },
+  "67614a31062e6212f5058c38": {
+   "bar": "firepower",
+   "score": 74
+  },
+  "67614a3ce2cf1419500357f4": {
+   "bar": "firepower",
+   "score": 65
+  },
+  "6761763448fa5c377e06fc39": {
+   "bar": "firepower",
+   "score": 54
+  },
+  "6761765f1f08ed5e8800b7a6": {
+   "bar": "firepower",
+   "score": 109
+  },
+  "676176a162e0497044079f46": {
+   "bar": "firepower",
+   "score": 118
+  },
+  "676176b762e0497044079f49": {
+   "bar": "firepower",
+   "score": 65
+  },
+  "676176d362e0497044079f4c": {
+   "bar": "firepower",
+   "score": 834
+  },
+  "6761770e48fa5c377e06fc3c": {
+   "bar": "firepower",
+   "score": 97
+  },
+  "6761777a1f08ed5e8800b7ac": {
+   "bar": "firepower",
+   "score": 619
+  },
+  "6761779c48fa5c377e06fc3f": {
+   "bar": "firepower",
+   "score": 838
+  },
+  "676177df1f08ed5e8800b7ae": {
+   "bar": "firepower",
+   "score": 114
+  },
+  "676307b4d9ec0af3d9001fa8": {
+   "bar": "defense",
+   "score": 39
+  },
+  "676307c004856a0b3c0dfffd": {
+   "bar": "defense",
+   "score": 39
+  },
+  "676307d3d9ec0af3d9001fac": {
+   "bar": "defense",
+   "score": 38
+  },
+  "676307ded8b241b4f703a3e8": {
+   "bar": "defense",
+   "score": 38
+  },
+  "6764139c44b3c96e7b0e2f7b": {
+   "bar": "firepower",
+   "score": 93
+  },
+  "67641bec4ad898aa100c1079": {
+   "bar": "firepower",
+   "score": 6
+  },
+  "67654a6759116d347b0bfb86": {
+   "bar": "firepower",
+   "score": 110
+  },
+  "6768c25aa7b238f14a08d3f6": {
+   "bar": "firepower",
+   "score": 827
+  },
+  "676bf44c5539167c3603e869": {
+   "bar": "firepower",
+   "score": 453
+  },
+  "678f84bb9e85556ca60f0362": {
+   "bar": "defense",
+   "score": 117
+  },
+  "67a4b71ad3228756b6088ee2": {
+   "bar": "defense",
+   "score": 34
+  },
+  "67a5c5b6dfdf568c9009af66": {
+   "bar": "defense",
+   "score": 34
+  },
+  "67a5c5df782ce4655104db14": {
+   "bar": "defense",
+   "score": 34
+  },
+  "67a5c5f37f52620c5b05b4d6": {
+   "bar": "defense",
+   "score": 34
+  },
+  "67a5c6068fcd9fb73f0752cf": {
+   "bar": "defense",
+   "score": 34
+  },
+  "67a5c61c7f52620c5b05b4d8": {
+   "bar": "defense",
+   "score": 34
+  },
+  "67a5c657782ce4655104db16": {
+   "bar": "defense",
+   "score": 34
+  },
+  "67ab2eecfe82855dcc0f2af6": {
+   "bar": "defense",
+   "score": 0
+  },
+  "67ab2f28dafe3b22670c9116": {
+   "bar": "defense",
+   "score": 0
+  },
+  "67ab2f5adafe3b22670c911f": {
+   "bar": "defense",
+   "score": 0
+  },
+  "67ab2f94dafe3b22670c912c": {
+   "bar": "defense",
+   "score": 0
+  },
+  "67ab3ea96d7ece17bf0096f6": {
+   "bar": "utility",
+   "score": 149
+  },
+  "67ab3f146d7ece17bf0096ff": {
+   "bar": "utility",
+   "score": 149
+  },
+  "67ab49aab9c7a1e18c095686": {
+   "bar": "defense",
+   "score": 5
+  },
+  "67ab4b2d6f7ae4aa550bbcf6": {
+   "bar": "defense",
+   "score": 5
+  },
+  "67ade494d748873e5f0161df": {
+   "bar": "firepower",
+   "score": 265
+  },
+  "67b49e7335dec48e3e05e057": {
+   "bar": "utility",
+   "score": 119
+  },
+  "67d0576f29f580ebc10efd08": {
+   "bar": "firepower",
+   "score": 516
+  },
+  "67d416e19bd76ef20f0e743b": {
+   "bar": "firepower",
+   "score": 91
+  },
+  "67d4178bffb910d21f04720a": {
+   "bar": "firepower",
+   "score": 136
+  },
+  "67d417c023ec241bb70d4896": {
+   "bar": "firepower",
+   "score": 91
+  },
+  "67d41883f378a36c4706eeb7": {
+   "bar": "firepower",
+   "score": 216
+  },
+  "67d418d0ffb910d21f04720e": {
+   "bar": "firepower",
+   "score": 17
+  },
+  "67d41936f378a36c4706eeb9": {
+   "bar": "firepower",
+   "score": 679
+  },
+  "67dc212493ce32834b0fa446": {
+   "bar": "firepower",
+   "score": 829
+  },
+  "67dc255ee3028a8b120efc48": {
+   "bar": "firepower",
+   "score": 976
+  },
+  "67dc2648ba5b79876906a166": {
+   "bar": "firepower",
+   "score": 1550
+  },
+  "688b3bfa1ed594eccd0c45ee": {
+   "bar": "defense",
+   "score": 34
+  },
+  "6895bb82c4519957df062f82": {
+   "bar": "firepower",
+   "score": 913
+  },
+  "6895bd19d55f0ebf6a0c0306": {
+   "bar": "firepower",
+   "score": 99
+  },
+  "6895becad55f0ebf6a0c0311": {
+   "bar": "firepower",
+   "score": 162
+  },
+  "6895bf08e2d16810ba0bf43e": {
+   "bar": "firepower",
+   "score": 10
+  },
+  "68a5ab09c44fa287ba0a97b5": {
+   "bar": "firepower",
+   "score": 85
+  },
+  "68a5dc4eed35a7eac1048ff6": {
+   "bar": "firepower",
+   "score": 43
+  },
+  "68a6e8fd4ac5b037cb0e9b86": {
+   "bar": "firepower",
+   "score": 6
+  },
+  "68a6f3b27279296357007cd7": {
+   "bar": "firepower",
+   "score": 57
+  },
+  "68a6fbb07279296357007ce2": {
+   "bar": "firepower",
+   "score": 85
+  },
+  "68a6fbfdd31595bb360c73bd": {
+   "bar": "firepower",
+   "score": 99
+  },
+  "68a6ff732885e0bbd30bb6f9": {
+   "bar": "firepower",
+   "score": 6
+  },
+  "68a6ff952885e0bbd30bb6fd": {
+   "bar": "firepower",
+   "score": 6
+  },
+  "68a85ab8ef22d08bf401fa68": {
+   "bar": "defense",
+   "score": 5
+  },
+  "68a85ac615a5769d50029cd9": {
+   "bar": "utility",
+   "score": 149
+  },
+  "68a89146212dbbeead0d5636": {
+   "bar": "defense",
+   "score": 0
+  },
+  "68a89942431252e29a02dbf6": {
+   "bar": "defense",
+   "score": 0
+  },
+  "68a97093431252e29a02dc06": {
+   "bar": "defense",
+   "score": 0
+  },
+  "68a986615db8a4a66404ff9a": {
+   "bar": "utility",
+   "score": 149
+  },
+  "68a99207aa809946e507c2f6": {
+   "bar": "defense",
+   "score": 5
+  },
+  "68a9a04373d52d47830759c7": {
+   "bar": "defense",
+   "score": 52
+  },
+  "68a9a0b01696fb8c1e0ee9cc": {
+   "bar": "defense",
+   "score": 52
+  },
+  "68a9a1223e1ee5a70504c126": {
+   "bar": "defense",
+   "score": 52
+  },
+  "68a9a15d73d52d47830759c9": {
+   "bar": "defense",
+   "score": 52
+  },
+  "68a9b821cdf661cc5a0626c6": {
+   "bar": "defense",
+   "score": 19
+  },
+  "68a9b852cdf661cc5a0626c9": {
+   "bar": "defense",
+   "score": 19
+  },
+  "68a9b873a4b28d56c80a1818": {
+   "bar": "defense",
+   "score": 19
+  },
+  "68bee22e79c8186398098e6d": {
+   "bar": "defense",
+   "score": 16
+  },
+  "68bee238a48c3c320808abc4": {
+   "bar": "defense",
+   "score": 16
+  },
+  "68bee23f6b0736bebc012add": {
+   "bar": "defense",
+   "score": 6
+  },
+  "68bee246ede5c8489f08e1b3": {
+   "bar": "defense",
+   "score": 16
+  },
+  "68bee2b431902bb4d90c3a2a": {
+   "bar": "utility",
+   "score": 134
+  },
+  "68bf405779c8186398099017": {
+   "bar": "utility",
+   "score": 149
+  },
+  "68c2d8a05a62f5af2d095fe7": {
+   "bar": "defense",
+   "score": 39
+  },
+  "68c2de2248616dad9e081d00": {
+   "bar": "defense",
+   "score": 39
+  },
+  "68c2e040f5b74996770e140c": {
+   "bar": "defense",
+   "score": 24
+  },
+  "68c2e074f9ad4682dd0d5c1d": {
+   "bar": "defense",
+   "score": 25
+  }
+ }
+}
