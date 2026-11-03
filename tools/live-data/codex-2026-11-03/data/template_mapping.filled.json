@@ -1,0 +1,4285 @@
+{
+ "targetSptVersion": "4.1.6",
+ "generatedBy": "tools/map-templates.py",
+ "mappings": [
+  {
+   "recordId": "armory:assault_rifle:custom_guns_nl545_di_5_45x39_assault_rifle:d6328b34",
+   "displayName": "Custom Guns NL545 (DI) 5.45x39 assault rifle",
+   "gameTemplateIds": [
+    "628b5638ad252a16da6dd245"
+   ],
+   "candidateName": "SAG AK-545 5.45x39 carbine",
+   "score": 0.336,
+   "how": "fuzzy",
+   "mappingStatus": "review"
+  },
+  {
+   "recordId": "armory:assault_rifle:custom_guns_nl545_gp_5_45x39_assault_rifle:d976b0f7",
+   "displayName": "Custom Guns NL545 (GP) 5.45x39 assault rifle",
+   "gameTemplateIds": [
+    "628b5638ad252a16da6dd245"
+   ],
+   "candidateName": "SAG AK-545 5.45x39 carbine",
+   "score": 0.336,
+   "how": "fuzzy",
+   "mappingStatus": "review"
+  },
+  {
+   "recordId": "armory:assault_rifle:kalashnikov_ak_12_5_45x39_assault_rifle:4cca8799",
+   "displayName": "Kalashnikov AK-12 5.45x39 assault rifle",
+   "gameTemplateIds": [
+    "6499849fc93611967b034949"
+   ],
+   "candidateName": "Kalashnikov AK-12 5.45x39 assault rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:assault_rifle:kalashnikov_ak_74m_5_45x39_assault_rifle:5e29ecfa",
+   "displayName": "Kalashnikov AK-74M 5.45x39 assault rifle",
+   "gameTemplateIds": [
+    "5ac4cd105acfc40016339859"
+   ],
+   "candidateName": "Kalashnikov AK-74M 5.45x39 assault rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:assault_rifle:kalashnikov_ak_74n_5_45x39_assault_rifle:3b560e86",
+   "displayName": "Kalashnikov AK-74N 5.45x39 assault rifle",
+   "gameTemplateIds": [
+    "5644bd2b4bdc2d3b4c8b4572"
+   ],
+   "candidateName": "Kalashnikov AK-74N 5.45x39 assault rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:assault_rifle:kalashnikov_ak_101_5_56x45_assault_rifle:f28b23aa",
+   "displayName": "Kalashnikov AK-101 5.56x45 assault rifle",
+   "gameTemplateIds": [
+    "5ac66cb05acfc40198510a10"
+   ],
+   "candidateName": "Kalashnikov AK-101 5.56x45 assault rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:assault_rifle:kalashnikov_ak_102_5_56x45_assault_rifle:50d39c90",
+   "displayName": "Kalashnikov AK-102 5.56x45 assault rifle",
+   "gameTemplateIds": [
+    "5ac66d015acfc400180ae6e4"
+   ],
+   "candidateName": "Kalashnikov AK-102 5.56x45 assault rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:assault_rifle:kalashnikov_ak_103_7_62x39_assault_rifle:43441c4b",
+   "displayName": "Kalashnikov AK-103 7.62x39 assault rifle",
+   "gameTemplateIds": [
+    "5ac66d2e5acfc43b321d4b53"
+   ],
+   "candidateName": "Kalashnikov AK-103 7.62x39 assault rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:assault_rifle:kalashnikov_ak_104_7_62x39_assault_rifle:38edec5b",
+   "displayName": "Kalashnikov AK-104 7.62x39 assault rifle",
+   "gameTemplateIds": [
+    "5ac66d725acfc43b321d4b60"
+   ],
+   "candidateName": "Kalashnikov AK-104 7.62x39 assault rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:assault_rifle:kalashnikov_ak_105_5_45x39_assault_rifle:4dc26fde",
+   "displayName": "Kalashnikov AK-105 5.45x39 assault rifle",
+   "gameTemplateIds": [
+    "5ac66d9b5acfc4001633997a"
+   ],
+   "candidateName": "Kalashnikov AK-105 5.45x39 assault rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:assault_rifle:kalashnikov_ak_308_7_62x51_assault_rifle:97fbd31d",
+   "displayName": "Kalashnikov AK-308 7.62x51 assault rifle",
+   "gameTemplateIds": [
+    "5ac66d725acfc43b321d4b60"
+   ],
+   "candidateName": "Kalashnikov AK-104 7.62x39 assault rifle",
+   "score": 0.586,
+   "how": "fuzzy",
+   "mappingStatus": "review"
+  },
+  {
+   "recordId": "armory:assault_rifle:kalashnikov_akmn_7_62x39_assault_rifle:57ea05bb",
+   "displayName": "Kalashnikov AKMN 7.62x39 assault rifle",
+   "gameTemplateIds": [
+    "5a0ec13bfcdbcb00165aa685"
+   ],
+   "candidateName": "Kalashnikov AKMN 7.62x39 assault rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:assault_rifle:kalashnikov_akmsn_7_62x39_assault_rifle:e6dd2606",
+   "displayName": "Kalashnikov AKMSN 7.62x39 assault rifle",
+   "gameTemplateIds": [
+    "5abcbc27d8ce8700182eceeb"
+   ],
+   "candidateName": "Kalashnikov AKMSN 7.62x39 assault rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:assault_rifle:kalashnikov_aks_74un_5_45x39_assault_rifle:08c03ea6",
+   "displayName": "Kalashnikov AKS-74UN 5.45x39 assault rifle",
+   "gameTemplateIds": [
+    "583990e32459771419544dd2"
+   ],
+   "candidateName": "Kalashnikov AKS-74UN 5.45x39 assault rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:assault_rifle:ash_12_12_7x55_assault_rifle:987dcb02",
+   "displayName": "ASh-12 12.7x55 assault rifle",
+   "gameTemplateIds": [
+    "5cadfbf7ae92152ac412eeef"
+   ],
+   "candidateName": "ASh-12 12.7x55 assault rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:assault_rifle:as_val_9x39_special_assault_rifle:cf87e02c",
+   "displayName": "AS VAL 9x39 special assault rifle",
+   "gameTemplateIds": [
+    "57c44b372459772d2b39b8ce"
+   ],
+   "candidateName": "AS VAL 9x39 special assault rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:assault_rifle:steyr_aug_a3_5_56x45_assault_rifle_black:b3f058bc",
+   "displayName": "Steyr AUG A3 5.56x45 assault rifle (Black)",
+   "gameTemplateIds": [
+    "63171672192e68c5460cebc5"
+   ],
+   "candidateName": "Steyr AUG A3 5.56x45 assault rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:assault_rifle:hk_g36_5_56x45_assault_rifle:6bec1d88",
+   "displayName": "HK G36 5.56x45 assault rifle",
+   "gameTemplateIds": [
+    "623063e994fc3f7b302a9696"
+   ],
+   "candidateName": "HK G36 5.56x45 assault rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:assault_rifle:colt_m16a1_5_56x45_assault_rifle:b4c8ee22",
+   "displayName": "Colt M16A1 5.56x45 assault rifle",
+   "gameTemplateIds": [
+    "5447a9cd4bdc2dbd208b4567"
+   ],
+   "candidateName": "Colt M4A1 5.56x45 assault rifle",
+   "score": 0.705,
+   "how": "fuzzy",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:assault_rifle:hk_416a5_5_56x45_assault_rifle:57ada2a1",
+   "displayName": "HK 416A5 5.56x45 assault rifle",
+   "gameTemplateIds": [
+    "5bb2475ed4351e00853264e3"
+   ],
+   "candidateName": "HK 416A5 5.56x45 assault rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:assault_rifle:colt_m4a1_5_56x45_assault_rifle_carbine:c943d317",
+   "displayName": "Colt M4A1 5.56x45 assault rifle Carbine",
+   "gameTemplateIds": [
+    "5447a9cd4bdc2dbd208b4567"
+   ],
+   "candidateName": "Colt M4A1 5.56x45 assault rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:assault_rifle:radian_weapons_model_1_fa_5_56x45_assault_rifle:104d6499",
+   "displayName": "Radian Weapons Model 1 FA 5.56x45 assault rifle",
+   "gameTemplateIds": [
+    "6895bb82c4519957df062f82"
+   ],
+   "candidateName": "Radian Weapons Model 1 FA 5.56x45 assault rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:assault_rifle:sig_mcx_300_blackout_assault_rifle:73bb0094",
+   "displayName": "SIG MCX .300 Blackout assault rifle",
+   "gameTemplateIds": [
+    "5fbcc1d9016cce60e8341ab3"
+   ],
+   "candidateName": "SIG MCX .300 Blackout assault rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:assault_rifle:sig_mcx_spear_6_8x51_assault_rifle:b4d9e7a3",
+   "displayName": "SIG MCX SPEAR 6.8x51 assault rifle",
+   "gameTemplateIds": [
+    "65290f395ae2ae97b80fdf2d"
+   ],
+   "candidateName": "SIG MCX-SPEAR 6.8x51 assault rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:assault_rifle:desert_tech_mdr_5_56x45_assault_rifle:0ef0b591",
+   "displayName": "Desert Tech MDR 5.56x45 assault rifle",
+   "gameTemplateIds": [
+    "5c488a752e221602b412af63"
+   ],
+   "candidateName": "Desert Tech MDR 5.56x45 assault rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:assault_rifle:desert_tech_mdr_7_62x51_assault_rifle:1d6f1301",
+   "displayName": "Desert Tech MDR 7.62x51 assault rifle",
+   "gameTemplateIds": [
+    "5dcbd56fdbd3d91b3e5468d5"
+   ],
+   "candidateName": "Desert Tech MDR 7.62x51 assault rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:assault_rifle:fn_scar_l_5_56x45_assault_rifle_lb:be79ad29",
+   "displayName": "FN SCAR-L 5.56x45 assault rifle LB",
+   "gameTemplateIds": [
+    "618428466ef05c2ce828f218"
+   ],
+   "candidateName": "FN SCAR-L 5.56x45 assault rifle (FDE)",
+   "score": 0.862,
+   "how": "fuzzy",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:assault_rifle:fn_scar_h_7_62x51_assault_rifle_fde:13abc7c4",
+   "displayName": "FN SCAR-H 7.62x51 assault rifle (FDE)",
+   "gameTemplateIds": [
+    "6165ac306ef05c2ce828ef74"
+   ],
+   "candidateName": "FN SCAR-H 7.62x51 assault rifle (FDE)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:assault_rifle:fn_scar_h_7_62x51_assault_rifle_x_17:6e5d4b64",
+   "displayName": "FN SCAR-H 7.62x51 assault rifle X-17",
+   "gameTemplateIds": [
+    "676176d362e0497044079f4c"
+   ],
+   "candidateName": "FN SCAR-H X-17 7.62x51 assault rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:assault_rifle:cmmg_mk47_mutant_7_62x39_assault_rifle:111f4dff",
+   "displayName": "CMMG Mk47 Mutant 7.62x39 assault rifle",
+   "gameTemplateIds": [
+    "606587252535c57a13424cfd"
+   ],
+   "candidateName": "CMMG Mk47 Mutant 7.62x39 assault rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:assault_rifle:rifle_dynamics_rd_704_7_62x39_assault_rifle:d45cfadc",
+   "displayName": "Rifle Dynamics RD-704 7.62x39 assault rifle",
+   "gameTemplateIds": [
+    "628a60ae6b1d481ff772e9c8"
+   ],
+   "candidateName": "Rifle Dynamics RD-704 7.62x39 assault rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:assault_rifle:ds_arms_sa_58_7_62x51_assault_rifle:d5e9f8d7",
+   "displayName": "DS Arms SA-58 7.62x51 assault rifle",
+   "gameTemplateIds": [
+    "5b0bbe4e5acfc40dc528a72d"
+   ],
+   "candidateName": "DS Arms SA58 7.62x51 assault rifle",
+   "score": 0.993,
+   "how": "fuzzy",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:assault_rifle:aklys_defense_velociraptor_300_blackout_assault_rifle:eb8c4a53",
+   "displayName": "Aklys Defense Velociraptor .300 Blackout assault rifle",
+   "gameTemplateIds": [
+    "674d6121c09f69dfb201a888"
+   ],
+   "candidateName": "Aklys Defense Velociraptor .300 Blackout assault rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:assault_rifle:kalashnikov_aks_74n_5_45x39_assault_rifle:58e1e224",
+   "displayName": "Kalashnikov AKS-74N 5.45x39 assault rifle",
+   "gameTemplateIds": [
+    "5ab8e9fcd8ce870019439434"
+   ],
+   "candidateName": "Kalashnikov AKS-74N 5.45x39 assault rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:assault_rifle:steyr_aug_a3_5_56x45_assault_rifle:5787f01e",
+   "displayName": "Steyr AUG A3 5.56x45 assault rifle",
+   "gameTemplateIds": [
+    "63171672192e68c5460cebc5"
+   ],
+   "candidateName": "Steyr AUG A3 5.56x45 assault rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:smg:hk_mp5_9x19_submachine_gun_navy_3_round_burst:176aac45",
+   "displayName": "HK MP5 9x19 submachine gun (Navy 3 Round Burst)",
+   "gameTemplateIds": [
+    "5926bb2186f7744b1c6c6e60"
+   ],
+   "candidateName": "HK MP5 9x19 submachine gun (Navy 3 Round Burst)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:smg:hk_mp7a1_4_6x30_submachine_gun:53b21255",
+   "displayName": "HK MP7A1 4.6x30 submachine gun",
+   "gameTemplateIds": [
+    "5ba26383d4351e00334c93d9"
+   ],
+   "candidateName": "HK MP7A1 4.6x30 submachine gun",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:smg:hk_mp7a2_4_6x30_submachine_gun:60f89ee2",
+   "displayName": "HK MP7A2 4.6x30 submachine gun",
+   "gameTemplateIds": [
+    "5bd70322209c4d00d7167b8f"
+   ],
+   "candidateName": "HK MP7A2 4.6x30 submachine gun",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:smg:b_t_mp9_9x19_submachine_gun:180eb192",
+   "displayName": "B&T MP9 9x19 submachine gun",
+   "gameTemplateIds": [
+    "5e00903ae9dc277128008b87"
+   ],
+   "candidateName": "B&T MP9 9x19 submachine gun",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:smg:b_t_mp9_n_9x19_submachine_gun:def34824",
+   "displayName": "B&T MP9-N 9x19 submachine gun",
+   "gameTemplateIds": [
+    "5de7bd7bfd6b4e6e2276dc25"
+   ],
+   "candidateName": "B&T MP9-N 9x19 submachine gun",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:smg:sig_mpx_9x19_submachine_gun:0226e040",
+   "displayName": "SIG MPX 9x19 submachine gun",
+   "gameTemplateIds": [
+    "58948c8e86f77409493f7266"
+   ],
+   "candidateName": "SIG MPX 9x19 submachine gun",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:smg:fn_p90_5_7x28_submachine_gun:0475db2a",
+   "displayName": "FN P90 5.7x28 submachine gun",
+   "gameTemplateIds": [
+    "5cc82d76e24e8d00134b4b83"
+   ],
+   "candidateName": "FN P90 5.7x28 submachine gun",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:smg:fn_p90_5_7x28_submachine_gun_scourge:a3fb3f1d",
+   "displayName": "FN P90 5.7x28 submachine gun (Scourge)",
+   "gameTemplateIds": [
+    "5cc82d76e24e8d00134b4b83"
+   ],
+   "candidateName": "FN P90 5.7x28 submachine gun",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:smg:pp_19_01_vityaz_9x19_submachine_gun:62a06bc3",
+   "displayName": "PP-19-01 \"Vityaz\" 9x19 submachine gun",
+   "gameTemplateIds": [
+    "59984ab886f7743e98271174"
+   ],
+   "candidateName": "PP-19-01 Vityaz 9x19 submachine gun",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:smg:pp_9_klin_9x18pmm_submachine_gun:769e229a",
+   "displayName": "PP-9 \"Klin\" 9x18PMM submachine gun",
+   "gameTemplateIds": [
+    "57f4c844245977379d5c14d1"
+   ],
+   "candidateName": "PP-9 Klin 9x18PMM submachine gun",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:smg:pp_91_01_kedr_b_9x18pm_submachine_gun:e4386e83",
+   "displayName": "PP-91-01 \"Kedr-B\" 9x18PM submachine gun",
+   "gameTemplateIds": [
+    "57f3c6bd24597738e730fa2f"
+   ],
+   "candidateName": "PP-91-01 Kedr-B 9x18PM submachine gun",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:smg:ppsh_41_7_62x25_submachine_gun:84662a0f",
+   "displayName": "PPSh-41 7.62x25 submachine gun",
+   "gameTemplateIds": [
+    "5ea03f7400685063ec28bfa8"
+   ],
+   "candidateName": "PPSh-41 7.62x25 submachine gun",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:smg:sr_2m_veresk_9x21_submachine_gun:07aa59d9",
+   "displayName": "SR-2M \"Veresk\" 9x21 submachine gun",
+   "gameTemplateIds": [
+    "62e14904c2699c0ec93adc47"
+   ],
+   "candidateName": "SR-2M Veresk 9x21 submachine gun",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:smg:hk_ump_45_acp_submachine_gun:21276d8e",
+   "displayName": "HK UMP .45 ACP submachine gun",
+   "gameTemplateIds": [
+    "5fc3e272f8b6a877a729eac5"
+   ],
+   "candidateName": "HK UMP .45 ACP submachine gun",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:smg:iwi_uzi_pro_pistol_9x19_submachine_gun:9183a368",
+   "displayName": "IWI UZI PRO Pistol 9x19 submachine gun",
+   "gameTemplateIds": [
+    "6680304edadb7aa61d00cef0"
+   ],
+   "candidateName": "IWI UZI PRO Pistol 9x19 submachine gun",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:smg:tdi_kriss_vector_gen_2_9x19_submachine_gun:51657c88",
+   "displayName": "TDI KRISS Vector Gen.2 9x19 submachine gun",
+   "gameTemplateIds": [
+    "5fc3f2d5900b1d5091531e57"
+   ],
+   "candidateName": "TDI KRISS Vector Gen.2 9x19 submachine gun",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:smg:tdi_kriss_vector_gen_2_45_acp_submachine_gun:a8963efb",
+   "displayName": "TDI KRISS Vector Gen.2 .45 ACP submachine gun",
+   "gameTemplateIds": [
+    "5fb64bc92b1b027b1f50bcf2"
+   ],
+   "candidateName": "TDI KRISS Vector Gen.2 .45 ACP submachine gun",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:shotgun:mossberg_590a1_12ga_pump_action_shotgun:92a557ad",
+   "displayName": "Mossberg 590A1 12ga pump-action shotgun",
+   "gameTemplateIds": [
+    "5e870397991fd70db46995c8"
+   ],
+   "candidateName": "Mossberg 590A1 12ga pump-action shotgun",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:shotgun:mps_auto_assault_12_gen_2_automatic_shotguns:d96291be",
+   "displayName": "MPS Auto Assault-12 Gen 2 automatic shotguns.",
+   "gameTemplateIds": [
+    "67124dcfa3541f2a1f0e788b"
+   ],
+   "candidateName": "MPS Auto Assault-12 Gen 2 12ga automatic shotgun",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:shotgun:toz_ks_23m_23x75mm_pump_action_shotgun:790defdd",
+   "displayName": "TOZ KS-23M 23x75mm pump-action shotgun",
+   "gameTemplateIds": [
+    "5e848cc2988a8701445df1e8"
+   ],
+   "candidateName": "TOZ KS-23M 23x75mm pump-action shotgun",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:shotgun:benelli_m3_super_90_dual_mode_12ga_shotgun:bd83fc77",
+   "displayName": "Benelli M3 Super 90 dual-mode 12ga shotgun",
+   "gameTemplateIds": [
+    "6259b864ebedf17603599e88"
+   ],
+   "candidateName": "Benelli M3 Super 90 12ga dual-mode shotgun",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:shotgun:remington_model_870_12ga_pump_action_shotgun:1344f382",
+   "displayName": "Remington Model 870 12ga pump-action shotgun",
+   "gameTemplateIds": [
+    "5a7828548dc32e5a9c28b516"
+   ],
+   "candidateName": "Remington Model 870 12ga pump-action shotgun",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:shotgun:mp_133_12ga_pump_action_shotgun:b160d994",
+   "displayName": "MP-133 12ga pump-action shotgun",
+   "gameTemplateIds": [
+    "54491c4f4bdc2db1078b4568"
+   ],
+   "candidateName": "MP-133 12ga pump-action shotgun",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:shotgun:mp_153_12ga_semi_automatic_shotgun:2246313c",
+   "displayName": "MP-153 12ga semi-automatic shotgun",
+   "gameTemplateIds": [
+    "56dee2bdd2720bc8328b4567"
+   ],
+   "candidateName": "MP-153 12ga semi-automatic shotgun",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:shotgun:mp_155_12ga_semi_automatic_shotgun:af2c8902",
+   "displayName": "MP-155 12ga semi-automatic shotgun",
+   "gameTemplateIds": [
+    "606dae0ab0e443224b421bb7"
+   ],
+   "candidateName": "MP-155 12ga semi-automatic shotgun",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:shotgun:saiga_12k_ver_10_12ga_semi_automatic_shotgun:7260405d",
+   "displayName": "Saiga-12K ver.10 12ga semi-automatic shotgun",
+   "gameTemplateIds": [
+    "576165642459773c7a400233"
+   ],
+   "candidateName": "Saiga-12K ver.10 12ga semi-automatic shotgun",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:shotgun:saiga_12k_12ga_automatic_shotgun:5cf6bfb8",
+   "displayName": "Saiga-12K 12ga automatic shotgun",
+   "gameTemplateIds": [
+    "674fe9a75e51f1c47c04ec23"
+   ],
+   "candidateName": "Saiga-12K 12ga automatic shotgun",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:shotgun:saiga_12k_12ga_automatic_shotgun:7d498fc3",
+   "displayName": "Saiga-12K 12ga automatic shotgun",
+   "gameTemplateIds": [
+    "674fe9a75e51f1c47c04ec23"
+   ],
+   "candidateName": "Saiga-12K 12ga automatic shotgun",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:shotgun:mp_43_12ga_sawed_off_double_barrel_shotgun:f85d6508",
+   "displayName": "MP-43 12ga sawed-off double-barrel shotgun",
+   "gameTemplateIds": [
+    "64748cb8de82c85eaf0a273a"
+   ],
+   "candidateName": "MP-43 12ga sawed-off double-barrel shotgun",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:lmg:u_s_ordnance_m60e6_7_62x51_light_machine_gun_fde:474c1405",
+   "displayName": "U.S Ordnance M60E6 7.62x51 light machine gun (FDE)",
+   "gameTemplateIds": [
+    "661ceb1b9311543c7104149b"
+   ],
+   "candidateName": "U.S. Ordnance M60E6 7.62x51 light machine gun",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:lmg:kalashnikov_pkp_7_62x54r_infantry_machine_gun_pecheneg:b4e9a54e",
+   "displayName": "Kalashnikov PKP 7.62x54R infantry machine gun Pecheneg",
+   "gameTemplateIds": [
+    "64ca3d3954fc657e230529cc"
+   ],
+   "candidateName": "Kalashnikov PKP 7.62x54R infantry machine gun",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:lmg:degtyarev_rpdn_7_62x39_machine_gun:b180be24",
+   "displayName": "Degtyarev RPDN 7.62x39 machine gun",
+   "gameTemplateIds": [
+    "65268d8ecb944ff1e90ea385"
+   ],
+   "candidateName": "Degtyarev RPDN 7.62x39 machine gun",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:lmg:rpk_16_5_45x39_light_machine_gun:8b32f948",
+   "displayName": "RPK-16 5.45x39 light machine gun",
+   "gameTemplateIds": [
+    "5beed0f50db834001c062b12"
+   ],
+   "candidateName": "RPK-16 5.45x39 light machine gun",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:lmg:u_s_ordnance_m60e4_7_62x51_light_machine_gun:cc878137",
+   "displayName": "U.S Ordnance M60E4 7.62x51 light machine gun",
+   "gameTemplateIds": [
+    "65fb023261d5829b2d090755"
+   ],
+   "candidateName": "U.S. Ordnance M60E4 7.62x51 light machine gun",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:marksman_rifle:theakguy_ak_50_50_bmg_sniper_rifle:a1d92734",
+   "displayName": "TheAKGuy AK-50.50 BMG sniper rifle",
+   "gameTemplateIds": [
+    "67d0576f29f580ebc10efd08"
+   ],
+   "candidateName": "TheAKGuy AK-50 .50 BMG sniper rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:marksman_rifle:sword_international_mk_18_338_lm_marksman_rifle:5fda1f8a",
+   "displayName": "SWORD International Mk-18 .338 LM marksman rifle",
+   "gameTemplateIds": [
+    "5fc22d7c187fea44d52eda44"
+   ],
+   "candidateName": "SWORD International Mk-18 .338 LM marksman rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:marksman_rifle:tkpd_9_3x64_carbine:cd95cd4e",
+   "displayName": "TKPD 9.3x64 carbine",
+   "gameTemplateIds": [
+    "5c07c60e0db834002330051f"
+   ],
+   "candidateName": "ADAR 2-15 5.56x45 carbine",
+   "score": 0.364,
+   "how": "fuzzy",
+   "mappingStatus": "review"
+  },
+  {
+   "recordId": "armory:marksman_rifle:hk_g28_7_62x51_marksman_rifle:1aac0a56",
+   "displayName": "HK G28 7.62x51 marksman rifle",
+   "gameTemplateIds": [
+    "6176aca650224f204c1da3fb"
+   ],
+   "candidateName": "HK G28 7.62x51 marksman rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:marksman_rifle:springfield_armory_m1a_7_62x51_rifle:b3f0a40b",
+   "displayName": "Springfield Armory M1A 7.62x51 rifle",
+   "gameTemplateIds": [
+    "5aafa857e5b5b00018480968"
+   ],
+   "candidateName": "Springfield Armory M1A 7.62x51 rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:marksman_rifle:remington_r11_rsass_7_62x51_marksman_rifle:bf2c24ff",
+   "displayName": "Remington R11 RSASS 7.62x51 marksman rifle",
+   "gameTemplateIds": [
+    "5a367e5dc4a282000e49738f"
+   ],
+   "candidateName": "Remington R11 RSASS 7.62x51 marksman rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:marksman_rifle:knight_s_armament_company_sr_25_7_62x51_marksman_rifle:db4e99e7",
+   "displayName": "Knight's Armament Company SR-25 7.62x51 marksman rifle",
+   "gameTemplateIds": [
+    "5df8ce05b11454561e39243b"
+   ],
+   "candidateName": "Knight's Armament Company SR-25 7.62x51 marksman rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:marksman_rifle:knight_s_armament_company_sr_25_7_62x51_marksman_rifle_taupe:f644f415",
+   "displayName": "Knight's Armament Company SR-25 7.62x51 marksman rifle (Taupe)",
+   "gameTemplateIds": [
+    "5df8ce05b11454561e39243b"
+   ],
+   "candidateName": "Knight's Armament Company SR-25 7.62x51 marksman rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:marksman_rifle:svds_7_62x54r_sniper_rifle:2ebfcd58",
+   "displayName": "SVDS 7.62x54R sniper rifle",
+   "gameTemplateIds": [
+    "5c46fbd72e2216398b5a8c9c"
+   ],
+   "candidateName": "SVDS 7.62x54R sniper rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:marksman_rifle:vss_vintorez_9x39_special_sniper_rifle:a1c834e0",
+   "displayName": "VSS Vintorez 9x39 special sniper rifle",
+   "gameTemplateIds": [
+    "57838ad32459774a17445cd2"
+   ],
+   "candidateName": "VSS Vintorez 9x39 special sniper rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:marksman_rifle:mk_12_srp_5_56x45_marksman_rifle_mk12_spr_prototype:38ce3099",
+   "displayName": "MK 12 SRP 5.56x45 marksman rifle Mk12 SPR Prototype",
+   "gameTemplateIds": [
+    "60db29ce99594040e04c4a27"
+   ],
+   "candidateName": "MTs-255-12 12ga shotgun",
+   "score": 0.271,
+   "how": "fuzzy",
+   "mappingStatus": "review"
+  },
+  {
+   "recordId": "armory:bolt_action_rifle:accuracy_international_axmc_338_lm_bolt_action_sniper_rifle:fc29b247",
+   "displayName": "Accuracy International AXMC .338 LM bolt-action sniper rifle",
+   "gameTemplateIds": [
+    "627e14b21713922ded6f2c15"
+   ],
+   "candidateName": "Accuracy International AXMC .338 LM bolt-action sniper rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:bolt_action_rifle:lobaev_arms_dvl_10_7_62x51_bolt_action_sniper_rifle_urbana:99fdc474",
+   "displayName": "Lobaev Arms DVL-10 7.62x51 bolt-action sniper rifle Urbana",
+   "gameTemplateIds": [
+    "588892092459774ac91d4b11"
+   ],
+   "candidateName": "Lobaev Arms DVL-10 7.62x51 bolt-action sniper rifle",
+   "score": 0.895,
+   "how": "fuzzy",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:bolt_action_rifle:remington_model_700_7_62x51_bolt_action_sniper_rifle:523b113d",
+   "displayName": "Remington Model 700 7.62x51 bolt-action sniper rifle",
+   "gameTemplateIds": [
+    "5bfea6e90db834001b7347f3"
+   ],
+   "candidateName": "Remington Model 700 7.62x51 bolt-action sniper rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:bolt_action_rifle:mosin_7_62x54r_bolt_action_rifle_sniper:6fa53455",
+   "displayName": "Mosin 7.62x54R bolt-action rifle (Sniper)",
+   "gameTemplateIds": [
+    "5ae08f0a5acfc408fb1398a1"
+   ],
+   "candidateName": "Mosin 7.62x54R bolt-action rifle (Sniper)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:bolt_action_rifle:sako_trg_m10_338_lm_bolt_action_sniper_rifle:641f86c2",
+   "displayName": "Sako TRG M10 .338 LM bolt-action sniper rifle",
+   "gameTemplateIds": [
+    "673cab3e03c6a20581028bc1"
+   ],
+   "candidateName": "Sako TRG M10 .338 LM bolt-action sniper rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:bolt_action_rifle:sv_98_7_62x54r_bolt_action_sniper_rifle:2a102183",
+   "displayName": "SV-98 7.62x54R bolt-action sniper rifle",
+   "gameTemplateIds": [
+    "55801eed4bdc2d89578b4588"
+   ],
+   "candidateName": "SV-98 7.62x54R bolt-action sniper rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:bolt_action_rifle:orsis_t_5000m_7_62x51_bolt_action_sniper_rifle:f9b85663",
+   "displayName": "ORSIS T-5000M 7.62x51 bolt-action sniper rifle",
+   "gameTemplateIds": [
+    "5df24cf80dee1b22f862e9bc"
+   ],
+   "candidateName": "ORSIS T-5000M 7.62x51 bolt-action sniper rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:bolt_action_rifle:molot_arms_vpo_215_gornostay_366_tkm_bolt_action_rifle:4527ecd8",
+   "displayName": "Molot Arms VPO-215 Gornostay .366 TKM bolt-action rifle",
+   "gameTemplateIds": [
+    "5de652c31b7e3716273428be"
+   ],
+   "candidateName": "Molot Arms VPO-215 Gornostay .366 TKM bolt-action rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:assault_carbine:as_val_mod_4_9x39_special_assault_rifle:2a3ea7e5",
+   "displayName": "AS VAL MOD.4 9x39 special assault rifle",
+   "gameTemplateIds": [
+    "57c44b372459772d2b39b8ce"
+   ],
+   "candidateName": "AS VAL 9x39 special assault rifle",
+   "score": 0.832,
+   "how": "fuzzy",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:assault_carbine:kbp_9a_91_9x39_compact_assault_rifle:ad7edf2a",
+   "displayName": "KBP 9A-91 9x39 compact assault rifle",
+   "gameTemplateIds": [
+    "644674a13d52156624001fbc"
+   ],
+   "candidateName": "KBP 9A-91 9x39 compact assault rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:assault_carbine:sag_ak_545_5_45x39_carbine:b3dc1b95",
+   "displayName": "SAG AK-545 5.45x39 carbine",
+   "gameTemplateIds": [
+    "628b5638ad252a16da6dd245"
+   ],
+   "candidateName": "SAG AK-545 5.45x39 carbine",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:assault_carbine:tokarev_svt_40_7_62x54r_rifle:fcebe555",
+   "displayName": "Tokarev SVT-40 7.62x54R rifle",
+   "gameTemplateIds": [
+    "643ea5b23db6f9f57107d9fd"
+   ],
+   "candidateName": "Tokarev SVT-40 7.62x54R rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:assault_carbine:tokarev_avt_40_7_62x54r_automatic_rifle:6fa9de75",
+   "displayName": "Tokarev AVT-40 7.62x54R automatic rifle",
+   "gameTemplateIds": [
+    "6410733d5dd49d77bd07847e"
+   ],
+   "candidateName": "Tokarev AVT-40 7.62x54R automatic rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:assault_carbine:kel_tec_rfb_7_62x51_rifle:6dda5135",
+   "displayName": "Kel-Tec RFB 7.62x51 rifle",
+   "gameTemplateIds": [
+    "5f2a9575926fd9352339381f"
+   ],
+   "candidateName": "Kel-Tec RFB 7.62x51 rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:assault_carbine:molot_arms_simonov_op_sks_7_62x39_carbine:9135342b",
+   "displayName": "Molot Arms Simonov OP-SKS 7.62x39 carbine",
+   "gameTemplateIds": [
+    "587e02ff24597743df3deaeb"
+   ],
+   "candidateName": "Molot Arms Simonov OP-SKS 7.62x39 carbine",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:assault_carbine:sr_3m_9x39_compact_assault_rifle:c084d847",
+   "displayName": "SR-3M 9x39 compact assault rifle",
+   "gameTemplateIds": [
+    "651450ce0e00edc794068371"
+   ],
+   "candidateName": "SR-3M 9x39 compact assault rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:assault_carbine:lone_star_tx_15_dml_5_56x45_carbine:fb679621",
+   "displayName": "Lone Star TX-15 DML 5.56x45 carbine",
+   "gameTemplateIds": [
+    "5d43021ca4b9362eab4b5e25"
+   ],
+   "candidateName": "Lone Star TX-15 DML 5.56x45 carbine",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:assault_carbine:molot_arms_vpo_101_vepr_hunter_7_62x51_carbine:fb22da53",
+   "displayName": "Molot Arms VPO-101 \"Vepr-Hunter\" 7.62x51 carbine",
+   "gameTemplateIds": [
+    "5c501a4d2e221602b412b540"
+   ],
+   "candidateName": "Molot Arms VPO-101 Vepr-Hunter 7.62x51 carbine",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:assault_carbine:molot_arms_vpo_209_366_tkm_carbine:586b4fda",
+   "displayName": "Molot Arms VPO-209 .366 TKM carbine",
+   "gameTemplateIds": [
+    "59e6687d86f77411d949b251"
+   ],
+   "candidateName": "Molot Arms VPO-209 .366 TKM carbine",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:assault_carbine:kbp_vsk_94_9x39_rifle:4105da56",
+   "displayName": "KBP VSK-94 9x39 rifle",
+   "gameTemplateIds": [
+    "645e0c6b3b381ede770e1cc9"
+   ],
+   "candidateName": "KBP VSK-94 9x39 rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:pistol:colt_m1911a1_45_acp_pistol:470beb7f",
+   "displayName": "Colt M1911A1 .45 ACP pistol",
+   "gameTemplateIds": [
+    "5e81c3cbac2bb513793cdc75"
+   ],
+   "candidateName": "Colt M1911A1 .45 ACP pistol",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:pistol:colt_m45a1_45_acp_pistol_mew_mew:88744a06",
+   "displayName": "Colt M45A1 .45 ACP pistol Mew-mew",
+   "gameTemplateIds": [
+    "5f36a0e5fbf956000b716b65"
+   ],
+   "candidateName": "Colt M45A1 .45 ACP pistol",
+   "score": 0.812,
+   "how": "fuzzy",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:pistol:apb_9x18pm_silenced_machine_pistol:3478bf77",
+   "displayName": "APB 9x18PM silenced machine pistol",
+   "gameTemplateIds": [
+    "5abccb7dd8ce87001773e277"
+   ],
+   "candidateName": "Stechkin APB 9x18PM silenced machine pistol",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:pistol:stechkin_aps_9x18pm_machine_pistol:9ecefc50",
+   "displayName": "Stechkin APS 9x18PM machine pistol",
+   "gameTemplateIds": [
+    "5a17f98cfcdbcb0980087290"
+   ],
+   "candidateName": "Stechkin APS 9x18PM machine pistol",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:pistol:chiappa_rhino_50ds_357_revolver:4c3cbf3a",
+   "displayName": "Chiappa Rhino 50DS .357 revolver",
+   "gameTemplateIds": [
+    "61a4c8884f95bc3b2c5dc96f"
+   ],
+   "candidateName": "Chiappa Rhino 50DS .357 revolver",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:pistol:magnum_research_desert_eagle_l5_357_pistol:4db56289",
+   "displayName": "Magnum Research Desert Eagle L5 .357 pistol",
+   "gameTemplateIds": [
+    "669fa409933e898cce0c2166"
+   ],
+   "candidateName": "Magnum Research Desert Eagle L5 .357 pistol",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:pistol:magnum_research_desert_eagle_mk_xix_50ae_pistol:2a9aa0a9",
+   "displayName": "Magnum Research Desert Eagle Mk.XIX .50AE pistol",
+   "gameTemplateIds": [
+    "668fe5a998b5ad715703ddd6"
+   ],
+   "candidateName": "Magnum Research Desert Eagle Mk XIX .50 AE pistol",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:pistol:magnum_research_desert_eagle_l6_50_ae_pistol:9971e742",
+   "displayName": "Magnum Research Desert Eagle L6 .50 AE pistol",
+   "gameTemplateIds": [
+    "669fa3d876116c89840b1217"
+   ],
+   "candidateName": "Magnum Research Desert Eagle L6 .50 AE pistol (WTS)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:pistol:magnum_research_desert_eagle_l6_50_ae_pistol_wts:9d537d9f",
+   "displayName": "Magnum Research Desert Eagle L6 .50 AE pistol (WTS)",
+   "gameTemplateIds": [
+    "669fa3d876116c89840b1217"
+   ],
+   "candidateName": "Magnum Research Desert Eagle L6 .50 AE pistol (WTS)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:pistol:fn_five_seven_mk2_5_7x28_pistol:4709940a",
+   "displayName": "FN Five-seveN MK2 5.7x28 pistol",
+   "gameTemplateIds": [
+    "5d3eb3b0a4b93615055e84d2"
+   ],
+   "candidateName": "FN Five-seveN MK2 5.7x28 pistol",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:pistol:fn_five_seven_mk2_5_7x28_pistol_fde:4f711a20",
+   "displayName": "FN Five-seveN MK2 5.7x28 pistol (FDE)",
+   "gameTemplateIds": [
+    "5d3eb3b0a4b93615055e84d2"
+   ],
+   "candidateName": "FN Five-seveN MK2 5.7x28 pistol",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:pistol:glock_17_9x19_pistol:6d05fd02",
+   "displayName": "Glock 17 9x19 pistol",
+   "gameTemplateIds": [
+    "5a7ae0c351dfba0017554310"
+   ],
+   "candidateName": "Glock 17 9x19 pistol",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:pistol:glock_18c_9x19_machine_pistol:a06fae5a",
+   "displayName": "Glock 18C 9x19 machine pistol",
+   "gameTemplateIds": [
+    "5b1fa9b25acfc40018633c01"
+   ],
+   "candidateName": "Glock 18C 9x19 machine pistol",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:pistol:beretta_m9a3_9x19_pistol:6a86bcca",
+   "displayName": "Beretta M9A3 9x19 pistol",
+   "gameTemplateIds": [
+    "5cadc190ae921500103bb3b6"
+   ],
+   "candidateName": "Beretta M9A3 9x19 pistol",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:pistol:yarygin_mp_443_grach_9x19_pistol:b72bd39c",
+   "displayName": "Yarygin MP-443 Grach 9x19 pistol",
+   "gameTemplateIds": [
+    "576a581d2459771e7b1bc4f1"
+   ],
+   "candidateName": "Yarygin MP-443 Grach 9x19 pistol",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:pistol:sig_p226r_9x19_pistol:5dc56a3a",
+   "displayName": "SIG P226R 9x19 pistol",
+   "gameTemplateIds": [
+    "56d59856d2720bd8418b456a"
+   ],
+   "candidateName": "SIG P226R 9x19 pistol",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:pistol:lebedev_pl_15_9x19_pistol:fb9afe8c",
+   "displayName": "Lebedev PL-15 9x19 pistol",
+   "gameTemplateIds": [
+    "602a9740da11d6478d5a06dc"
+   ],
+   "candidateName": "Lebedev PL-15 9x19 pistol",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:pistol:pb_9x18pm_silenced_pistol:5b2754ea",
+   "displayName": "PB 9x18PM silenced pistol",
+   "gameTemplateIds": [
+    "56e0598dd2720bb5668b45a6"
+   ],
+   "candidateName": "PB 9x18PM silenced pistol",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:pistol:makarov_pm_t_9x18pm_pistol:9bbc1543",
+   "displayName": "Makarov PM (t) 9x18PM pistol",
+   "gameTemplateIds": [
+    "579204f224597773d619e051"
+   ],
+   "candidateName": "Makarov PM (t) 9x18PM pistol",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:pistol:rsh_12_12_7x55_revolver:356df1ca",
+   "displayName": "RSh-12 12.7x55 revolver",
+   "gameTemplateIds": [
+    "633ec7c2a6918cb895019c6c"
+   ],
+   "candidateName": "RSh-12 12.7x55 revolver",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:pistol:serdyukov_sr_1mp_gyurza_9x21_pistol:2b13f572",
+   "displayName": "Serdyukov SR-1MP Gyurza 9x21 pistol",
+   "gameTemplateIds": [
+    "59f98b4986f7746f546d2cef"
+   ],
+   "candidateName": "Serdyukov SR-1MP Gyurza 9x21 pistol",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:pistol:tt_33_7_62x25_tt_pistol:ab8ee342",
+   "displayName": "TT-33 7.62x25 TT pistol",
+   "gameTemplateIds": [
+    "5b3b713c5acfc4330140bd8d"
+   ],
+   "candidateName": "TT-33 7.62x25 TT pistol (Golden)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:pistol:hk_usp_45_acp_pistol:8f31ac48",
+   "displayName": "HK USP .45 ACP pistol",
+   "gameTemplateIds": [
+    "6193a720f8ee7e52e42109ed"
+   ],
+   "candidateName": "HK USP .45 ACP pistol",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:melee:6kh5_bayonet:3318046c",
+   "displayName": "6Kh5 Bayonet",
+   "gameTemplateIds": [
+    "5bffdc370db834001d23eca8"
+   ],
+   "candidateName": "6Kh5 Bayonet",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:melee:bars_a_2607_damascus_knife:ae32d632",
+   "displayName": "Bars A-2607 Damascus knife",
+   "gameTemplateIds": [
+    "57e26ea924597715ca604a09"
+   ],
+   "candidateName": "Bars A-2607 Damascus knife",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:melee:bars_a_2607_95kh18_knife:a91fc636",
+   "displayName": "Bars A-2607 95Kh18 knife",
+   "gameTemplateIds": [
+    "57e26fc7245977162a14b800"
+   ],
+   "candidateName": "Bars A-2607 95Kh18 knife",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:melee:camper_axe:01f64a57",
+   "displayName": "Camper axe",
+   "gameTemplateIds": [
+    "5c012ffc0db834001d23f03f"
+   ],
+   "candidateName": "Camper axe",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:melee:freeman_crowbar:8261c76b",
+   "displayName": "Freeman crowbar",
+   "gameTemplateIds": [
+    "5c07df7f0db834001b73588a"
+   ],
+   "candidateName": "Freeman crowbar",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:melee:er_fulcrum_bayonet:5411372e",
+   "displayName": "ER FULCRUM BAYONET",
+   "gameTemplateIds": [
+    "54491bb74bdc2d09088b4567"
+   ],
+   "candidateName": "ER FULCRUM BAYONET",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:melee:sog_voodoo_hawk_tactical_tomahawk:b63914d8",
+   "displayName": "SOG Voodoo Hawk tactical tomahawk",
+   "gameTemplateIds": [
+    "63920105a83e15700a00f168"
+   ],
+   "candidateName": "SOG Voodoo Hawk tactical tomahawk",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:melee:miller_bros_blades_m_2_tactical_sword:25600714",
+   "displayName": "Miller Bros. Blades M-2 Tactical Sword",
+   "gameTemplateIds": [
+    "5bffdd7e0db834001b734a1a"
+   ],
+   "candidateName": "Miller Bros. Blades M-2 Tactical Sword",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:melee:mpl_50_entrenching_tool:60be57cd",
+   "displayName": "MPL-50 entrenching tool",
+   "gameTemplateIds": [
+    "5bead2e00db834001c062938"
+   ],
+   "candidateName": "MPL-50 entrenching tool",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:melee:red_rebel_ice_pick:1c211a5d",
+   "displayName": "Red Rebel ice pick",
+   "gameTemplateIds": [
+    "5c0126f40db834002a125382"
+   ],
+   "candidateName": "Red Rebel ice pick",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:melee:crash_axe:d97d3104",
+   "displayName": "Crash Axe",
+   "gameTemplateIds": [
+    "5bffe7930db834001b734a39"
+   ],
+   "candidateName": "Crash Axe",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:melee:sp_8_survival_machete:42334575",
+   "displayName": "SP-8 Survival Machete",
+   "gameTemplateIds": [
+    "5c010e350db83400232feec7"
+   ],
+   "candidateName": "SP-8 Survival Machete",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:melee:uvsr_taiga_1_survival_machete:27ad5351",
+   "displayName": "UVSR Taiga-1 survival machete",
+   "gameTemplateIds": [
+    "601948682627df266209af05"
+   ],
+   "candidateName": "UVSR Taiga-1 survival machete",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:melee:apok_tactical_wasteland_gladius:7afd3de8",
+   "displayName": "APOK Tactical Wasteland Gladius",
+   "gameTemplateIds": [
+    "664a5428d5e33a713b622379"
+   ],
+   "candidateName": "APOK Tactical Wasteland Gladius",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:body_armor:npp_klass_korund_vm_body_armor_black:f2412fe3",
+   "displayName": "NPP KlASS Korund-VM body armor (Black)",
+   "gameTemplateIds": [
+    "5f5f41476bdad616ad46d631"
+   ],
+   "candidateName": "NPP KlASS Korund-VM body armor (Black)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:body_armor:npp_klass_korund_vm_body_armor_kamysh:9a692a4c",
+   "displayName": "NPP KlASS Korund-VM body armor (Kamysh)",
+   "gameTemplateIds": [
+    "5f5f41476bdad616ad46d631"
+   ],
+   "candidateName": "NPP KlASS Korund-VM body armor (Black)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:body_armor:fort_redut_m_body_armor:70ef7c07",
+   "displayName": "FORT Redut-M body armor",
+   "gameTemplateIds": [
+    "67ab2f5adafe3b22670c911f"
+   ],
+   "candidateName": "FORT Redut-M body armor (SK Woodland)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:body_armor:fort_redut_m_body_armor_sk_woodland:6fdd5d2c",
+   "displayName": "FORT Redut-M body armor(SK Woodland)",
+   "gameTemplateIds": [
+    "67ab2f5adafe3b22670c911f"
+   ],
+   "candidateName": "FORT Redut-M body armor (SK Woodland)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:body_armor:fort_redut_m_body_armor_prisoner_of_the_arena:e6a6e2db",
+   "displayName": "FORT Redut-M body armor(Prisoner of the Arena)",
+   "gameTemplateIds": [
+    "67ab2f5adafe3b22670c911f"
+   ],
+   "candidateName": "FORT Redut-M body armor (SK Woodland)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:body_armor:fort_redut_m_body_armor_black:c6813614",
+   "displayName": "FORT Redut-M body armor(Black)",
+   "gameTemplateIds": [
+    "67ab2f5adafe3b22670c911f"
+   ],
+   "candidateName": "FORT Redut-M body armor (SK Woodland)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:body_armor:fort_defender_2_body_armor:3bb6bb4e",
+   "displayName": "FORT Defender-2 body armor",
+   "gameTemplateIds": [
+    "5e9dacf986f774054d6b89f4"
+   ],
+   "candidateName": "FORT Defender-2 body armor",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:body_armor:fort_defender_2_body_armor:df6de8f6",
+   "displayName": "FORT Defender-2 body armor",
+   "gameTemplateIds": [
+    "5e9dacf986f774054d6b89f4"
+   ],
+   "candidateName": "FORT Defender-2 body armor",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:body_armor:fort_gladiator_s_plate_carrier_gray:3d0f4f21",
+   "displayName": "FORT Gladiator-S plate carrier (Gray)",
+   "gameTemplateIds": [
+    "67ab2f5adafe3b22670c911f"
+   ],
+   "candidateName": "FORT Redut-M body armor (SK Woodland)",
+   "score": 0.371,
+   "how": "fuzzy",
+   "mappingStatus": "review"
+  },
+  {
+   "recordId": "armory:body_armor:iotv_gen4_body_armor_high_mobility_kit_multicam:106629ce",
+   "displayName": "IOTV Gen4 body armor (High Mobility Kit, MultiCam)",
+   "gameTemplateIds": [
+    "5b44cd8b86f774503d30cba2"
+   ],
+   "candidateName": "IOTV Gen4 body armor (Full Protection Kit, MultiCam)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:body_armor:bnti_zhuk_body_armor_emr:77bf8920",
+   "displayName": "BNTI Zhuk body armor (EMR)",
+   "gameTemplateIds": [
+    "5c0e625a86f7742d77340f62"
+   ],
+   "candidateName": "BNTI Zhuk body armor (EMR)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:body_armor:bnti_gzhel_k_body_armor:78d74482",
+   "displayName": "BNTI Gzhel-K body armor",
+   "gameTemplateIds": [
+    "5ab8e79e86f7742d8b372e78"
+   ],
+   "candidateName": "BNTI Gzhel-K body armor",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:body_armor:nfm_thor_concealable_reinforced_vest_body_armor:5da90323",
+   "displayName": "NFM THOR Concealable Reinforced Vest body armor",
+   "gameTemplateIds": [
+    "609e8540d5c319764c2bc2e9"
+   ],
+   "candidateName": "NFM THOR Concealable Reinforced Vest body armor",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:body_armor:nfm_thor_concealable_reinforced_vest_body_armor:2d168603",
+   "displayName": "NFM THOR Concealable Reinforced Vest body armor",
+   "gameTemplateIds": [
+    "609e8540d5c319764c2bc2e9"
+   ],
+   "candidateName": "NFM THOR Concealable Reinforced Vest body armor",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:body_armor:highcom_trooper_tfo_body_armor_multicam:80a0c5ca",
+   "displayName": "HighCom Trooper TFO body armor (MultiCam)",
+   "gameTemplateIds": [
+    "67ab2f94dafe3b22670c912c"
+   ],
+   "candidateName": "HighCom Trooper TFO body armor (Coyote)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:body_armor:highcom_trooper_tfo_body_armor_coyote:0e17fdf5",
+   "displayName": "HighCom Trooper TFO body armor (Coyote)",
+   "gameTemplateIds": [
+    "67ab2f94dafe3b22670c912c"
+   ],
+   "candidateName": "HighCom Trooper TFO body armor (Coyote)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:body_armor:lbt_6094a_slick_plate_carrier_olive_drab:e5dc2a02",
+   "displayName": "LBT-6094A Slick Plate Carrier (Olive Drab)",
+   "gameTemplateIds": [
+    "6038b4ca92ec1c3103795a0d"
+   ],
+   "candidateName": "LBT-6094A Slick Plate Carrier (Olive Drab)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:body_armor:lbt_6094a_slick_plate_carrier_black:f450ec19",
+   "displayName": "LBT-6094A Slick Plate Carrier (Black)",
+   "gameTemplateIds": [
+    "6038b4ca92ec1c3103795a0d"
+   ],
+   "candidateName": "LBT-6094A Slick Plate Carrier (Olive Drab)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:body_armor:lbt_6094a_slick_plate_carrier_coyote_tan:8e55d9d3",
+   "displayName": "LBT-6094A Slick Plate Carrier (Coyote Tan)",
+   "gameTemplateIds": [
+    "6038b4ca92ec1c3103795a0d"
+   ],
+   "candidateName": "LBT-6094A Slick Plate Carrier (Olive Drab)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:body_armor:bnti_kirasa_n_body_armor:31d27833",
+   "displayName": "BNTI Kirasa-N body armor",
+   "gameTemplateIds": [
+    "67ab2f28dafe3b22670c9116"
+   ],
+   "candidateName": "BNTI Kirasa-N body armor (Green)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:body_armor:bnti_kirasa_n_body_armor_green:66d682db",
+   "displayName": "BNTI Kirasa-N body armor(Green)",
+   "gameTemplateIds": [
+    "67ab2f28dafe3b22670c9116"
+   ],
+   "candidateName": "BNTI Kirasa-N body armor (Green)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:body_armor:6b23_1_body_armor_emr:160bc0af",
+   "displayName": "6B23-1 body armor (EMR)",
+   "gameTemplateIds": [
+    "5c0e5bab86f77461f55ed1f3"
+   ],
+   "candidateName": "6B23-1 body armor (EMR)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:body_armor:6b23_2_body_armor_mountain_flora:3818b472",
+   "displayName": "6B23-2 body armor (Mountain Flora)",
+   "gameTemplateIds": [
+    "5c0e57ba86f7747fa141986d"
+   ],
+   "candidateName": "6B23-2 body armor (Mountain Flora)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:body_armor:6b13_assault_armor_digital_flora:b07609a6",
+   "displayName": "6B13 assault armor (Digital Flora)",
+   "gameTemplateIds": [
+    "5c0e51be86f774598e797894"
+   ],
+   "candidateName": "6B13 assault armor (Flora)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:body_armor:6b13_assault_armor_flora:43f5e18c",
+   "displayName": "6B13 assault armor (Flora)",
+   "gameTemplateIds": [
+    "5c0e51be86f774598e797894"
+   ],
+   "candidateName": "6B13 assault armor (Flora)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:body_armor:6b45_body_armor_emr:d5129c1f",
+   "displayName": "6B45 body armor(EMR)",
+   "gameTemplateIds": [
+    "5df8a2ca86f7740bfe6df777"
+   ],
+   "candidateName": "6B2 body armor (Flora)",
+   "score": 0.286,
+   "how": "fuzzy",
+   "mappingStatus": "review"
+  },
+  {
+   "recordId": "armory:body_armor:interceptor_otv_body_armor_ucp:bfbb4734",
+   "displayName": "Interceptor OTV body armor (UCP)",
+   "gameTemplateIds": [
+    "64abd93857958b4249003418"
+   ],
+   "candidateName": "Interceptor OTV body armor (UCP)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:body_armor:interceptor_otv_body_armor_ucp:9dd816b1",
+   "displayName": "Interceptor OTV body armor (UCP)",
+   "gameTemplateIds": [
+    "64abd93857958b4249003418"
+   ],
+   "candidateName": "Interceptor OTV body armor (UCP)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:body_armor:hexatac_hpc_plate_carrier_multicam_black:14a163fa",
+   "displayName": "Hexatac HPC Plate Carrier (MultiCam Black)",
+   "gameTemplateIds": [
+    "67ab2eecfe82855dcc0f2af6"
+   ],
+   "candidateName": "Hexatac HPC Plate Carrier (MultiCam)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:body_armor:hexatac_hpc_plate_carrier_multicam:224898ea",
+   "displayName": "Hexatac HPC Plate Carrier (MultiCam)",
+   "gameTemplateIds": [
+    "67ab2eecfe82855dcc0f2af6"
+   ],
+   "candidateName": "Hexatac HPC Plate Carrier (MultiCam)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:body_armor:5_11_tactical_hexgrid_plate_carrier:9b59dd72",
+   "displayName": "5.11 Tactical Hexgrid plate carrier",
+   "gameTemplateIds": [
+    "5fd4c474dd870108a754b241"
+   ],
+   "candidateName": "5.11 Tactical Hexgrid plate carrier",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:body_armor:paca_soft_armor_rivals_edition:777adb04",
+   "displayName": "PACA Soft Armor (Rivals Edition)",
+   "gameTemplateIds": [
+    "607f20859ee58b18e41ecd90"
+   ],
+   "candidateName": "PACA Soft Armor (Rivals Edition)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:eyewear:6b34_anti_fragmentation_glasses:246408a0",
+   "displayName": "6B34 anti-fragmentation glasses",
+   "gameTemplateIds": [
+    "5b432be65acfc433000ed01f"
+   ],
+   "candidateName": "6B34 anti-fragmentation glasses",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:eyewear:anti_fragmentation_glasses:1dd99767",
+   "displayName": "Anti-fragmentation glasses",
+   "gameTemplateIds": [
+    "59e770b986f7742cbd762754"
+   ],
+   "candidateName": "Anti-fragmentation glasses",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:eyewear:crossbow_tactical_glasses:e6e114d4",
+   "displayName": "Crossbow tactical glasses",
+   "gameTemplateIds": [
+    "5d5fca1ea4b93635fd598c07"
+   ],
+   "candidateName": "ESS Crossbow tactical glasses",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:eyewear:dundukk_sport_sunglasses:f26cdf74",
+   "displayName": "Dundukk sport sunglasses",
+   "gameTemplateIds": [
+    "67af41dd1eb308667602db4a"
+   ],
+   "candidateName": "Dundukk sport sunglasses (Orange lenses)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:eyewear:dundukk_sport_sunglasses_orange_lenses:1b0746ba",
+   "displayName": "Dundukk sport sunglasses [Orange lenses]",
+   "gameTemplateIds": [
+    "67af41dd1eb308667602db4a"
+   ],
+   "candidateName": "Dundukk sport sunglasses (Orange lenses)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:eyewear:figley_sunglasses:3907464f",
+   "displayName": "Figley sunglasses",
+   "gameTemplateIds": [
+    "68beded9233f2c935b0eda04"
+   ],
+   "candidateName": "Figley sunglasses",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:eyewear:gas_welder_safety_goggles:b3caa878",
+   "displayName": "Gas welder safety goggles",
+   "gameTemplateIds": [
+    "61c18d83b00456371a66814b"
+   ],
+   "candidateName": "Gas welder safety goggles",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:eyewear:johnb_liquid_dnb_glasses:222b49e7",
+   "displayName": "JohnB Liquid DNB glasses",
+   "gameTemplateIds": [
+    "62a09e410b9d3c46de5b6e78"
+   ],
+   "candidateName": "JohnB Liquid DNB glasses",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:eyewear:npp_klass_condor_glasses:5e4bbcd3",
+   "displayName": "NPP KlASS Condor glasses",
+   "gameTemplateIds": [
+    "603409c80ca681766b6a0fb2"
+   ],
+   "candidateName": "NPP KlASS Condor glasses",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:eyewear:oakley_si_batwolf_glasses:de78fed6",
+   "displayName": "Oakley SI Batwolf glasses",
+   "gameTemplateIds": [
+    "62a61c988ec41a51b34758d5"
+   ],
+   "candidateName": "Oakley SI Batwolf glasses",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:eyewear:oakley_si_gascan_glasses:11f9d7e9",
+   "displayName": "Oakley SI Gascan glasses",
+   "gameTemplateIds": [
+    "5d6d2e22a4b9361bd5780d05"
+   ],
+   "candidateName": "Oakley SI Gascan glasses",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:eyewear:oakley_si_gascan_white_glasses:2b835f4d",
+   "displayName": "Oakley SI Gascan White glasses",
+   "gameTemplateIds": [
+    "5d6d2e22a4b9361bd5780d05"
+   ],
+   "candidateName": "Oakley SI Gascan glasses",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:eyewear:oakley_si_m_frame_safety_glasses:493e710a",
+   "displayName": "Oakley SI M Frame safety glasses",
+   "gameTemplateIds": [
+    "67af42942676ade5750b50e8"
+   ],
+   "candidateName": "Oakley SI M Frame safety glasses (Orange lenses)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:eyewear:oakley_si_m_frame_safety_glasses_orange_lenses:63015da3",
+   "displayName": "Oakley SI M Frame safety glasses [Orange lenses]",
+   "gameTemplateIds": [
+    "67af42942676ade5750b50e8"
+   ],
+   "candidateName": "Oakley SI M Frame safety glasses (Orange lenses)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:eyewear:pyramex_proximity_safety_glasses:828947a3",
+   "displayName": "Pyramex Proximity safety glasses",
+   "gameTemplateIds": [
+    "5c0d32fcd174af02a1659c75"
+   ],
+   "candidateName": "Pyramex Proximity safety glasses",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:eyewear:raybench_aviator_glasses:e7f0781e",
+   "displayName": "RayBench Aviator glasses",
+   "gameTemplateIds": [
+    "67af425c2676ade5750b50e6"
+   ],
+   "candidateName": "RayBench Aviator glasses (Green lenses)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:eyewear:raybench_aviator_glasses_green_lenses:e3abb611",
+   "displayName": "RayBench Aviator glasses [Green lenses]",
+   "gameTemplateIds": [
+    "67af425c2676ade5750b50e6"
+   ],
+   "candidateName": "RayBench Aviator glasses (Green lenses)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:eyewear:raybench_hipster_reserve_sunglasses:42b9f6ea",
+   "displayName": "RayBench Hipster Reserve sunglasses",
+   "gameTemplateIds": [
+    "5aa2b9aee5b5b00015693121"
+   ],
+   "candidateName": "RayBench Hipster Reserve sunglasses",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:eyewear:revision_shadowstrike_tactical_glasses_gray:dc75ce96",
+   "displayName": "Revision ShadowStrike tactical glasses (Gray)",
+   "gameTemplateIds": [
+    "68d6b3568f9527c33609ce83"
+   ],
+   "candidateName": "Shutter glasses (Black)",
+   "score": 0.396,
+   "how": "fuzzy",
+   "mappingStatus": "review"
+  },
+  {
+   "recordId": "armory:eyewear:revision_shadowstrike_tactical_glasses_tan:4c2dee13",
+   "displayName": "Revision ShadowStrike tactical glasses (tan)",
+   "gameTemplateIds": [
+    "68d6b3568f9527c33609ce83"
+   ],
+   "candidateName": "Shutter glasses (Black)",
+   "score": 0.396,
+   "how": "fuzzy",
+   "mappingStatus": "review"
+  },
+  {
+   "recordId": "armory:eyewear:round_frame_sunglasses:68a5efc3",
+   "displayName": "Round frame sunglasses",
+   "gameTemplateIds": [
+    "67af42b38d9ef5c57e0d5126"
+   ],
+   "candidateName": "Round frame sunglasses (Green lenses)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:eyewear:round_frame_sunglasses_green_lenses:5c3e3fff",
+   "displayName": "Round frame sunglasses [Green lenses]",
+   "gameTemplateIds": [
+    "67af42b38d9ef5c57e0d5126"
+   ],
+   "candidateName": "Round frame sunglasses (Green lenses)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:eyewear:sunglasses_deal_with_it:f1eda2b3",
+   "displayName": "Sunglasses (Deal With It)",
+   "gameTemplateIds": [
+    "68bede896b0736bebc012ad7"
+   ],
+   "candidateName": "Sunglasses (Deal With It)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:eyewear:shutter_glasses:332350af",
+   "displayName": "Shutter glasses",
+   "gameTemplateIds": [
+    "68d6b3568f9527c33609ce83"
+   ],
+   "candidateName": "Shutter glasses (Black)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:eyewear:tactical_glasses:05c94687",
+   "displayName": "Tactical glasses",
+   "gameTemplateIds": [
+    "557ff21e4bdc2d89578b4586"
+   ],
+   "candidateName": "Tactical glasses",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:eyewear:twitch_rivals_2020_glasses:dec2d02f",
+   "displayName": "Twitch Rivals 2020 glasses",
+   "gameTemplateIds": [
+    "5e71f70186f77429ee09f183"
+   ],
+   "candidateName": "Twitch Rivals 2020 glasses",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:eyewear:wiley_x_spear_ballistic_goggles_black:4c0c94f0",
+   "displayName": "Wiley X SPEAR ballistic goggles (Black)",
+   "gameTemplateIds": [
+    "61c18d83b00456371a66814b"
+   ],
+   "candidateName": "Gas welder safety goggles",
+   "score": 0.313,
+   "how": "fuzzy",
+   "mappingStatus": "review"
+  },
+  {
+   "recordId": "armory:eyewear:wiley_x_spear_ballistic_goggles_black:41b01cb9",
+   "displayName": "Wiley X SPEAR ballistic goggles (Black)",
+   "gameTemplateIds": [
+    "61c18d83b00456371a66814b"
+   ],
+   "candidateName": "Gas welder safety goggles",
+   "score": 0.313,
+   "how": "fuzzy",
+   "mappingStatus": "review"
+  },
+  {
+   "recordId": "armory:medkit:afak_tactical_individual_first_aid_kit:c68cc28b",
+   "displayName": "AFAK tactical individual first aid kit",
+   "gameTemplateIds": [
+    "60098ad7c2240c0fe85c570a"
+   ],
+   "candidateName": "AFAK tactical individual first aid kit",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:medkit:salewa_first_aid_kit:a19567ee",
+   "displayName": "Salewa first aid kit",
+   "gameTemplateIds": [
+    "544fb45d4bdc2dee738b4568"
+   ],
+   "candidateName": "Salewa first aid kit",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:medkit:ifak_individual_first_aid_kit:123e1b56",
+   "displayName": "IFAK individual first aid kit",
+   "gameTemplateIds": [
+    "590c678286f77426c9660122"
+   ],
+   "candidateName": "IFAK individual first aid kit",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:medkit:car_first_aid_kit:201f399c",
+   "displayName": "Car first aid kit",
+   "gameTemplateIds": [
+    "590c661e86f7741e566b646a"
+   ],
+   "candidateName": "Car first aid kit",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:medkit:ai_2_medkit:9b00065b",
+   "displayName": "AI-2 medkit",
+   "gameTemplateIds": [
+    "5755356824597772cb798962"
+   ],
+   "candidateName": "AI-2 medkit",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:injury_treatment:calok_b_hemostatic_applicator:6a2fe123",
+   "displayName": "CALOK-B hemostatic applicator",
+   "gameTemplateIds": [
+    "5e8488fa988a8701445df1e4"
+   ],
+   "candidateName": "CALOK-B hemostatic applicator",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:injury_treatment:aluminum_splint:e57fafc7",
+   "displayName": "Aluminum splint",
+   "gameTemplateIds": [
+    "5af0454c86f7746bf20992e8"
+   ],
+   "candidateName": "Aluminum splint",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:injury_treatment:cat_hemostatic_tourniquet:58bcf737",
+   "displayName": "CAT hemostatic tourniquet",
+   "gameTemplateIds": [
+    "60098af40accd37ef2175f27"
+   ],
+   "candidateName": "CAT hemostatic tourniquet",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:injury_treatment:esmarch_tourniquet:c6f102a9",
+   "displayName": "Esmarch tourniquet",
+   "gameTemplateIds": [
+    "5e831507ea0a7c419c2f9bd9"
+   ],
+   "candidateName": "Esmarch tourniquet",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:injury_treatment:army_bandage:7de89aa4",
+   "displayName": "Army bandage",
+   "gameTemplateIds": [
+    "5751a25924597722c463c472"
+   ],
+   "candidateName": "Army bandage",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:injury_treatment:aseptic_bandage:3f661cf3",
+   "displayName": "Aseptic bandage",
+   "gameTemplateIds": [
+    "544fb25a4bdc2dfb738b4567"
+   ],
+   "candidateName": "Aseptic bandage",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:injury_treatment:immobilizing_splint:ee187214",
+   "displayName": "Immobilizing splint",
+   "gameTemplateIds": [
+    "544fb3364bdc2d34748b456a"
+   ],
+   "candidateName": "Immobilizing splint",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:pills:augmentin_antibiotic_pills:428564e1",
+   "displayName": "Augmentin antibiotic pills",
+   "gameTemplateIds": [
+    "590c695186f7741e566b64a2"
+   ],
+   "candidateName": "Augmentin antibiotic pills",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:pills:analgin_painkillers:820e9981",
+   "displayName": "Analgin painkillers",
+   "gameTemplateIds": [
+    "544fb37f4bdc2dee738b4567"
+   ],
+   "candidateName": "Analgin painkillers",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:stimulant:morphine_injector:fbe687d5",
+   "displayName": "Morphine injector",
+   "gameTemplateIds": [
+    "544fb3f34bdc2d03748b456a"
+   ],
+   "candidateName": "Morphine injector",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:stimulant:trimadol_stimulant_injector:672acd06",
+   "displayName": "Trimadol stimulant injector",
+   "gameTemplateIds": [
+    "637b620db7afa97bfc3d7009"
+   ],
+   "candidateName": "Trimadol stimulant injector",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:stimulant:propital_regenerative_stimulant_injector:a15326e3",
+   "displayName": "Propital regenerative stimulant injector",
+   "gameTemplateIds": [
+    "5c0e530286f7747fa1419862"
+   ],
+   "candidateName": "Propital regenerative stimulant injector",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:stimulant:adrenaline_injector:c5966112",
+   "displayName": "Adrenaline injector",
+   "gameTemplateIds": [
+    "5c10c8fd86f7743d7d706df3"
+   ],
+   "candidateName": "Adrenaline injector",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:stimulant:ahf1_m_stimulant_injector:046065de",
+   "displayName": "AHF1-M stimulant injector",
+   "gameTemplateIds": [
+    "5ed515f6915ec335206e4152"
+   ],
+   "candidateName": "AHF1-M stimulant injector",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:stimulant:meldonin_injector:bd0bcb39",
+   "displayName": "Meldonin injector",
+   "gameTemplateIds": [
+    "5ed5160a87bb8443d10680b5"
+   ],
+   "candidateName": "Meldonin injector",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:stimulant:3_b_tg_stimulant_injector:de80eb78",
+   "displayName": "3-(b-TG) stimulant injector",
+   "gameTemplateIds": [
+    "5ed515c8d380ab312177c0fa"
+   ],
+   "candidateName": "3-(b-TG) stimulant injector",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:stimulant:2a2_b_tg_stimulant_injector:e9e9bfa9",
+   "displayName": "2A2-(b-TG) stimulant injector",
+   "gameTemplateIds": [
+    "66507eabf5ddb0818b085b68"
+   ],
+   "candidateName": "2A2-(b-TG) stimulant injector",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:stimulant:p22_product_22_stimulant_injector:85c1c39c",
+   "displayName": "P22 (Product 22) stimulant injector",
+   "gameTemplateIds": [
+    "5ed515ece452db0eb56fc028"
+   ],
+   "candidateName": "P22 (Product 22) stimulant injector",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:stimulant:etg_change_regenerative_stimulant_injector:3cae5274",
+   "displayName": "eTG-change regenerative stimulant injector",
+   "gameTemplateIds": [
+    "5c0e534186f7747fa1419867"
+   ],
+   "candidateName": "eTG-change regenerative stimulant injector",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:stimulant:zagustin_hemostatic_drug_injector:a0dfff3b",
+   "displayName": "Zagustin hemostatic drug injector",
+   "gameTemplateIds": [
+    "5c0e533786f7747fa23f4d47"
+   ],
+   "candidateName": "Zagustin hemostatic drug injector",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:stimulant:sj6_tglabs_combat_stimulant_injector:b2e47722",
+   "displayName": "SJ6 TGLabs combat stimulant injector",
+   "gameTemplateIds": [
+    "5c0e531d86f7747fa23f4d42"
+   ],
+   "candidateName": "SJ6 TGLabs combat stimulant injector",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "armory:stimulant:perfotoran_blue_blood_stimulant_injector:06fe011b",
+   "displayName": "Perfotoran (Blue Blood) stimulant injector",
+   "gameTemplateIds": [
+    "637b6251104668754b72f8f9"
+   ],
+   "candidateName": "Perfotoran (Blue Blood) stimulant injector",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:7_62x25mm:7_62x25mm_tt_m995:8a142886",
+   "displayName": "7.62x25mm TT M995",
+   "gameTemplateIds": [
+    "5735ff5c245977640e39ba7e"
+   ],
+   "candidateName": "7.62x25mm TT FMJ43",
+   "score": 0.345,
+   "how": "fuzzy",
+   "mappingStatus": "review"
+  },
+  {
+   "recordId": "ammo:7_62x25mm:7_62x25mm_tt_m855a1:a9b046dd",
+   "displayName": "7.62x25mm TT M855A1",
+   "gameTemplateIds": [
+    "5735fdcd2459776445391d61"
+   ],
+   "candidateName": "7.62x25mm TT AKBS",
+   "score": 0.333,
+   "how": "fuzzy",
+   "mappingStatus": "review"
+  },
+  {
+   "recordId": "ammo:7_62x25mm:7_62x25mm_tt_pst_gzh:a94c799d",
+   "displayName": "7.62x25mm TT Pst gzh",
+   "gameTemplateIds": [
+    "573603562459776430731618"
+   ],
+   "candidateName": "7.62x25mm TT Pst gzh",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:9x18mm:9x18mm_pm_pbm_gzh:ee0e1b4c",
+   "displayName": "9x18mm PM PBM gzh",
+   "gameTemplateIds": [
+    "573719df2459775a626ccbc2"
+   ],
+   "candidateName": "9x18mm PM PBM gzh",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:9x18mm:9x18mm_pmm_pstm_gzh:b17eb53e",
+   "displayName": "9x18mm PMM PstM gzh",
+   "gameTemplateIds": [
+    "57371aab2459775a77142f22"
+   ],
+   "candidateName": "9x18mm PMM PstM gzh",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:9x18mm:9x18mm_pm_sp7_gzh:a1e0edc9",
+   "displayName": "9x18mm PM SP7 gzh",
+   "gameTemplateIds": [
+    "57372140245977611f70ee91"
+   ],
+   "candidateName": "9x18mm PM SP7 gzh",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:357_magnum:357_fmj:73e02372",
+   "displayName": ".357 FMJ",
+   "gameTemplateIds": [
+    "62330b3ed4dc74626d570b95"
+   ],
+   "candidateName": ".357 Magnum FMJ",
+   "score": 0.83,
+   "how": "fuzzy",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:50ae:50ae_fmj:d832a211",
+   "displayName": ".50AE FMJ",
+   "gameTemplateIds": [
+    "668fe62ac62660a5d8071446"
+   ],
+   "candidateName": ".50 AE FMJ",
+   "score": 0.759,
+   "how": "fuzzy",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:4_6x30mm:4_6x30mm_ap_sx:e7181dff",
+   "displayName": "4.6x30mm AP SX",
+   "gameTemplateIds": [
+    "5ba26835d4351e0035628ff5"
+   ],
+   "candidateName": "4.6x30mm AP SX",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:4_6x30mm:4_6x30mm_fmj_sx:70a84fc7",
+   "displayName": "4.6x30mm FMJ SX",
+   "gameTemplateIds": [
+    "5ba2678ad4351e44f824b344"
+   ],
+   "candidateName": "4.6x30mm FMJ SX",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:5_7x28mm:5_7x28mm_ss190:80995967",
+   "displayName": "5.7x28mm SS190",
+   "gameTemplateIds": [
+    "5cc80f38e4a949001152b560"
+   ],
+   "candidateName": "5.7x28mm SS190",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:5_7x28mm:5_7x28mm_r37_f:1e475ae8",
+   "displayName": "5.7x28mm R37.F",
+   "gameTemplateIds": [
+    "5cc86832d7f00c000d3a6e6c"
+   ],
+   "candidateName": "5.7x28mm R37.F",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:5_7x28mm:5_7x28mm_r37_x:c9eec857",
+   "displayName": "5.7x28mm R37.X",
+   "gameTemplateIds": [
+    "5cc86840d7f00c002412c56c"
+   ],
+   "candidateName": "5.7x28mm R37.X",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:9x19mm:9x19mm_pbp_gzh:952980ae",
+   "displayName": "9x19mm PBP gzh",
+   "gameTemplateIds": [
+    "5efb0da7a29a85116f6ea05f"
+   ],
+   "candidateName": "9x19mm PBP gzh",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:9x19mm:9x19mm_rip:96a57c15",
+   "displayName": "9x19mm RIP",
+   "gameTemplateIds": [
+    "5c0d56a986f774449d5de529"
+   ],
+   "candidateName": "9x19mm RIP",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:9x21mm:9x21mm_7n42_zubilo:63d1afd2",
+   "displayName": "9x21mm 7N42 \"Zubilo\"",
+   "gameTemplateIds": [
+    "6576f4708ca9c4381d16cd9d"
+   ],
+   "candidateName": "9x21mm 7N42 Zubilo",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:9x21mm:9x21mm_pe_gzh:67e9f6fb",
+   "displayName": "9x21mm PE gzh",
+   "gameTemplateIds": [
+    "5a26ac06c4a282000c5a90a8"
+   ],
+   "candidateName": "9x21mm PE gzh",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:9x21mm:9x21mm_bt_gzh:40d1a3d4",
+   "displayName": "9x21mm BT gzh",
+   "gameTemplateIds": [
+    "5a26ac0ec4a28200741e1e18"
+   ],
+   "candidateName": "9x21mm BT gzh",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:45_acp:45acp_ap:2d53b75b",
+   "displayName": ".45ACP AP",
+   "gameTemplateIds": [
+    "5efb0cabfb3e451d70735af5"
+   ],
+   "candidateName": ".45 ACP AP",
+   "score": 0.559,
+   "how": "fuzzy",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:45_acp:45acp_rip:e1b3a6eb",
+   "displayName": ".45ACP RIP",
+   "gameTemplateIds": [
+    "5ea2a8e200685063ec28c05a"
+   ],
+   "candidateName": ".45 ACP RIP",
+   "score": 0.761,
+   "how": "fuzzy",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:5_45x39mm:5_45x39mm_bs:c13b8767",
+   "displayName": "5.45x39mm BS",
+   "gameTemplateIds": [
+    "56dff026d2720bb8668b4567"
+   ],
+   "candidateName": "5.45x39mm BS gs",
+   "score": 0.933,
+   "how": "fuzzy",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:5_45x39mm:5_45x39mm_bp:f0be05f7",
+   "displayName": "5.45x39mm BP",
+   "gameTemplateIds": [
+    "56dfef82d2720bbd668b4567"
+   ],
+   "candidateName": "5.45x39mm BP gs",
+   "score": 0.933,
+   "how": "fuzzy",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:5_45x39mm:5_45x39mm_7n40:0678a66e",
+   "displayName": "5.45x39mm 7N40",
+   "gameTemplateIds": [
+    "61962b617c6c7b169525f168"
+   ],
+   "candidateName": "5.45x39mm 7N40",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:5_45x39mm:5_45x39mm_bt:6814b40c",
+   "displayName": "5.45x39mm BT",
+   "gameTemplateIds": [
+    "56dff061d2720bb5668b4567"
+   ],
+   "candidateName": "5.45x39mm BT gs",
+   "score": 0.933,
+   "how": "fuzzy",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:5_45x39mm:5_45x39mm_ppbs_gs_igolnik:3a4e9e46",
+   "displayName": "5.45x39mm PPBS gs \"Igolnik\"",
+   "gameTemplateIds": [
+    "5c0d5e4486f77478390952fe"
+   ],
+   "candidateName": "5.45x39mm PPBS gs Igolnik",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:5_45x39mm:5_45x39mm_pp:8b271f0f",
+   "displayName": "5.45x39mm PP",
+   "gameTemplateIds": [
+    "56dff2ced2720bb4668b4567"
+   ],
+   "candidateName": "5.45x39mm PP gs",
+   "score": 0.933,
+   "how": "fuzzy",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:5_56x45mm:5_56x45mm_m995:77f4326d",
+   "displayName": "5.56x45mm M995",
+   "gameTemplateIds": [
+    "59e690b686f7746c9f75e848"
+   ],
+   "candidateName": "5.56x45mm M995",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:5_56x45mm:5_56x45mm_m855a1:1b93b49d",
+   "displayName": "5.56x45mm M855A1",
+   "gameTemplateIds": [
+    "54527ac44bdc2d36668b4567"
+   ],
+   "candidateName": "5.56x45mm M855A1",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:5_56x45mm:5_56x45mm_ssa_ap:d291f87f",
+   "displayName": "5.56x45mm SSA AP",
+   "gameTemplateIds": [
+    "601949593ae8f707c4608daa"
+   ],
+   "candidateName": "5.56x45mm SSA AP",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:300_blackout:300_blackout_ap:952626bb",
+   "displayName": ".300 Blackout AP",
+   "gameTemplateIds": [
+    "5fd20ff893a8961fc660a954"
+   ],
+   "candidateName": ".300 Blackout AP",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:300_blackout:300_blackout_cbj:e9409b53",
+   "displayName": ".300 Blackout CBJ",
+   "gameTemplateIds": [
+    "64b8725c4b75259c590fa899"
+   ],
+   "candidateName": ".300 Blackout CBJ",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:300_blackout:300_blackout_m62_tracer:ec766991",
+   "displayName": ".300 Blackout M62 Tracer",
+   "gameTemplateIds": [
+    "619636be6db0f2477964e710"
+   ],
+   "candidateName": ".300 Blackout M62 Tracer",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:300_blackout:300_whisper:5d95dff2",
+   "displayName": ".300 Whisper",
+   "gameTemplateIds": [
+    "6196365d58ef8c428c287da1"
+   ],
+   "candidateName": ".300 Whisper",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:7_62x39mm:7_62x39mm_mai_ap:c4edd218",
+   "displayName": "7.62x39mm MAI AP",
+   "gameTemplateIds": [
+    "601aa3d2b2bcb34913271e6d"
+   ],
+   "candidateName": "7.62x39mm MAI AP",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:7_62x39mm:7_62x39mm_bp_gzh:b65876f2",
+   "displayName": "7.62x39mm BP gzh",
+   "gameTemplateIds": [
+    "59e0d99486f7744a32234762"
+   ],
+   "candidateName": "7.62x39mm BP gzh",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:7_62x39mm:7_62x39mm_pp_gzh:c7a8569c",
+   "displayName": "7.62x39mm PP gzh",
+   "gameTemplateIds": [
+    "64b7af434b75259c590fa893"
+   ],
+   "candidateName": "7.62x39mm PP gzh",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:7_62x39mm:7_62x39mm_ps_gzh:83e0b8c0",
+   "displayName": "7.62x39mm PS gzh",
+   "gameTemplateIds": [
+    "5656d7c34bdc2d9d198b4587"
+   ],
+   "candidateName": "7.62x39mm PS gzh",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:6_8x51mm:6_8x51mm_sig_fmj:e74814e7",
+   "displayName": "6.8x51mm SIG FMJ",
+   "gameTemplateIds": [
+    "6529302b8c26af6326029fb7"
+   ],
+   "candidateName": "6.8x51mm SIG FMJ",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:9x39mm:9x39mm_sp_6_gs:0d57a56a",
+   "displayName": "9x39mm SP-6 gs",
+   "gameTemplateIds": [
+    "57a0e5022459774d1673f889"
+   ],
+   "candidateName": "9x39mm SP-6 gs",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:9x39mm:9x39mm_pab_9_gs:23f8b838",
+   "displayName": "9x39mm PAB-9 gs",
+   "gameTemplateIds": [
+    "61962d879bb3d20b0946d385"
+   ],
+   "candidateName": "9x39mm PAB-9 gs",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:9x39mm:9x39mm_spp_gs:79857624",
+   "displayName": "9x39mm SPP gs",
+   "gameTemplateIds": [
+    "5c0d668f86f7747ccb7f13b2"
+   ],
+   "candidateName": "9x39mm SPP gs",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:12_7x55mm_sts_130:12_7x55mm_ps12b:9c5bf044",
+   "displayName": "12.7x55mm PS12B",
+   "gameTemplateIds": [
+    "5cadf6eeae921500134b2799"
+   ],
+   "candidateName": "12.7x55mm PS12B",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:12_7x55mm_sts_130:12_7x55mm_ps12:11880029",
+   "displayName": "12.7x55mm PS12",
+   "gameTemplateIds": [
+    "5cadf6ddae9215051e1c23b2"
+   ],
+   "candidateName": "12.7x55mm PS12",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:12_7x55mm_sts_130:12_7x55mm_ps12a:e95b8578",
+   "displayName": "12.7x55mm PS12A",
+   "gameTemplateIds": [
+    "5cadf6e5ae921500113bb973"
+   ],
+   "candidateName": "12.7x55mm PS12A",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:366_tkm:366_tkm_ap_m:9d5432fa",
+   "displayName": ".366 TKM AP-M",
+   "gameTemplateIds": [
+    "5f0596629e22f464da6bbdd9"
+   ],
+   "candidateName": ".366 TKM AP-M",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:7_62x51mm:7_62x51mm_ball_11_long_range:1ed119ab",
+   "displayName": "7.62x51mm Ball 11 Long Range",
+   "gameTemplateIds": [
+    "5e023e88277cce2b522ff2b1"
+   ],
+   "candidateName": "7.62x51mm Ultra Nosler",
+   "score": 0.079,
+   "how": "fuzzy",
+   "mappingStatus": "review"
+  },
+  {
+   "recordId": "ammo:7_62x51mm:7_62x51mm_m61:1d9d133f",
+   "displayName": "7.62x51mm M61",
+   "gameTemplateIds": [
+    "5a6086ea4f39f99cd479502f"
+   ],
+   "candidateName": "7.62x51mm M61",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:7_62x51mm:7_62x51mm_m80:ab4ffde8",
+   "displayName": "7.62x51mm M80",
+   "gameTemplateIds": [
+    "58dd3ad986f77403051cba8f"
+   ],
+   "candidateName": "7.62x51mm M80",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:7_62x51mm:7_62x51mm_m62_tracer:f8663421",
+   "displayName": "7.62x51mm M62 Tracer",
+   "gameTemplateIds": [
+    "5a608bf24f39f98ffc77720e"
+   ],
+   "candidateName": "7.62x51mm M62 Tracer",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:7_62x51mm:7_62x51mm_bcp_fmj:227c331d",
+   "displayName": "7.62x51mm BCP FMJ",
+   "gameTemplateIds": [
+    "5e023e53d4353e3302577c4c"
+   ],
+   "candidateName": "7.62x51mm BCP FMJ",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:7_62x51mm:7_62x51mm_tcw_sp:6d91bc4b",
+   "displayName": "7.62x51mm TCW SP",
+   "gameTemplateIds": [
+    "5e023e6e34d52a55c3304f71"
+   ],
+   "candidateName": "7.62x51mm TCW SP",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:7_62x54mm_r:7_62x54mm_r_tungsten_carbide_ap:e287cf8f",
+   "displayName": "7.62x54mm R Tungsten Carbide AP",
+   "gameTemplateIds": [
+    "5e023d48186a883be655e551"
+   ],
+   "candidateName": "7.62x54mm R BS gs",
+   "score": 0.135,
+   "how": "fuzzy",
+   "mappingStatus": "review"
+  },
+  {
+   "recordId": "ammo:7_62x54mm_r:7_62x54mm_r_bt_gzh:6219d2d1",
+   "displayName": "7.62x54mm R BT gzh",
+   "gameTemplateIds": [
+    "5e023d34e8a400319a28ed44"
+   ],
+   "candidateName": "7.62x54mm R BT gzh",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:7_62x54mm_r:7_62x54mm_r_lps_gzh:6cff5f87",
+   "displayName": "7.62x54mm R LPS gzh",
+   "gameTemplateIds": [
+    "5887431f2459777e1612938f"
+   ],
+   "candidateName": "7.62x54mm R LPS gzh",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:7_62x54mm_r:7_62x54mm_r_fmj:a0047523",
+   "displayName": "7.62x54mm R FMJ",
+   "gameTemplateIds": [
+    "64b8f7968532cf95ee0a0dbf"
+   ],
+   "candidateName": "7.62x54mm R FMJ",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:7_62x54mm_r:7_62x54mm_r_ps_gzh:f24a9e68",
+   "displayName": "7.62x54mm R PS gzh",
+   "gameTemplateIds": [
+    "59e77a2386f7742ee578960a"
+   ],
+   "candidateName": "7.62x54mm R PS gzh",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:308_marlin_express:308_me:55f44a2e",
+   "displayName": ".308 ME",
+   "gameTemplateIds": [
+    "5f0596629e22f464da6bbdd9"
+   ],
+   "candidateName": ".366 TKM AP-M",
+   "score": 0.095,
+   "how": "fuzzy",
+   "mappingStatus": "review"
+  },
+  {
+   "recordId": "ammo:308_marlin_express:308_me_lokt:8410e095",
+   "displayName": ".308 ME LOKT",
+   "gameTemplateIds": [
+    "62330c18744e5e31df12f516"
+   ],
+   "candidateName": ".357 Magnum JHP",
+   "score": 0.063,
+   "how": "fuzzy",
+   "mappingStatus": "review"
+  },
+  {
+   "recordId": "ammo:9_3x64mm:9_3x64mm_fmj:24f20d9b",
+   "displayName": "9.3x64mm FMJ",
+   "gameTemplateIds": [
+    "6576f96220d53a5b8f3e395e"
+   ],
+   "candidateName": "9x39mm FMJ",
+   "score": 0.225,
+   "how": "fuzzy",
+   "mappingStatus": "review"
+  },
+  {
+   "recordId": "ammo:338_lapua_magnum:338_lapua_magnum_ap:b1723509",
+   "displayName": ".338 Lapua Magnum AP",
+   "gameTemplateIds": [
+    "5fc382a9d724d907e2077dab"
+   ],
+   "candidateName": ".338 Lapua Magnum AP",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:338_lapua_magnum:338_lapua_magnum_fmj:e3ba26a8",
+   "displayName": ".338 Lapua Magnum FMJ",
+   "gameTemplateIds": [
+    "5fc275cf85fd526b824a571a"
+   ],
+   "candidateName": ".338 Lapua Magnum FMJ",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:50_bmg:50_bmg_m903_slap:016fe59b",
+   "displayName": ",50 BMG M903 SLAP",
+   "gameTemplateIds": [
+    "67dc2648ba5b79876906a166"
+   ],
+   "candidateName": ".50 BMG M903 SLAP",
+   "score": 0.934,
+   "how": "fuzzy",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:12_70:12_70_8_5mm_magnum_buckshot:5ae1ff80",
+   "displayName": "12/70 8.5mm Magnum Buckshot",
+   "gameTemplateIds": [
+    "5d6e6806a4b936088465b17e"
+   ],
+   "candidateName": "12/70 8.5mm Magnum buckshot",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:12_70:12_70_6_5mm_express_buckshot:30c2607b",
+   "displayName": "12/70 6.5mm Express buckshot",
+   "gameTemplateIds": [
+    "5d6e67fba4b9361bc73bc779"
+   ],
+   "candidateName": "12/70 6.5mm Express buckshot",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:12_70:12_70_flechette:d3a1460b",
+   "displayName": "12/70 Flechette",
+   "gameTemplateIds": [
+    "5d6e6911a4b9361bd5780d52"
+   ],
+   "candidateName": "12/70 flechette",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:12_70:12_70_piranha:a5821401",
+   "displayName": "12/70 Piranha",
+   "gameTemplateIds": [
+    "64b8ee384b75259c590fa89b"
+   ],
+   "candidateName": "12/70 Piranha",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:12_70:12_70_ap_20_armor_piercing_slug:4c81af25",
+   "displayName": "12/70 AP-20 armor-piercing slug",
+   "gameTemplateIds": [
+    "5d6e68a8a4b9360b6c0d54e2"
+   ],
+   "candidateName": "12/70 AP-20 armor-piercing slug",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:12_70:12_70_rip:9b99f425",
+   "displayName": "12/70 RIP",
+   "gameTemplateIds": [
+    "5c0d591486f7744c505b416f"
+   ],
+   "candidateName": "12/70 RIP",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:23x75mm:23x75mm_shrapnel_10_buckshot:b35eeb2d",
+   "displayName": "23x75mm \"Shrapnel-10\" buckshot",
+   "gameTemplateIds": [
+    "5e85a9a6eacf8c039e4e2ac1"
+   ],
+   "candidateName": "23x75mm Shrapnel-10 buckshot",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "ammo:23x75mm:23x75mm_shrapnel_25_buckshot:5aa928b9",
+   "displayName": "23x75mm \"Shrapnel-25\" buckshot",
+   "gameTemplateIds": [
+    "5f647f31b6238e5dd066e196"
+   ],
+   "candidateName": "23x75mm Shrapnel-25 buckshot",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:common_grenade:model_m7290_flash_bang_grenade:bd95ce7c",
+   "displayName": "Model M7290 Flash Bang grenade",
+   "gameTemplateIds": [
+    "619256e5f8af2c1a4e1f5d92"
+   ],
+   "candidateName": "Model 7290 Flash Bang grenade",
+   "score": 0.824,
+   "how": "fuzzy",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:common_grenade:m18_smoke_grenade:103ad084",
+   "displayName": "M18 smoke grenade",
+   "gameTemplateIds": [
+    "617aa4dd8166f034d57de9c5"
+   ],
+   "candidateName": "M18 smoke grenade (Green)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:common_grenade:v40_mini_grenade:2f041be4",
+   "displayName": "V40 Mini-Grenade",
+   "gameTemplateIds": [
+    "66dae7cbeb28f0f96809f325"
+   ],
+   "candidateName": "V40 Mini-Grenade",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:common_helmet:crye_precision_airframe_helmet_shark:d957df52",
+   "displayName": "Crye Precision AirFrame Helmet(Shark)",
+   "gameTemplateIds": [
+    "5c17a7ed2e2216152142459c"
+   ],
+   "candidateName": "Crye Precision AirFrame helmet (Tan)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:common_helmet:crye_precision_airframe_helmet_old_school_crye_precision_airframe_helmet_black_crye_precision_a:fbd999cd",
+   "displayName": "Crye Precision AirFrame Helmet(Old School) / Crye Precision AirFrame Helmet(Black) / Crye Precision AirFrame Helmet(Bull)",
+   "gameTemplateIds": [
+    "5c17a7ed2e2216152142459c"
+   ],
+   "candidateName": "Crye Precision AirFrame helmet (Tan)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:common_helmet:crye_precision_airframe_m_lok_helmet_tan_crye_precision_airframe_m_lok_helmet_od_green:9fe17e87",
+   "displayName": "Crye Precision AirFrame M-LOK Helmet(Tan) / Crye Precision AirFrame M-LOK Helmet(OD Green)",
+   "gameTemplateIds": [
+    "5c17a7ed2e2216152142459c"
+   ],
+   "candidateName": "Crye Precision AirFrame helmet (Tan)",
+   "score": 0.748,
+   "how": "fuzzy",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:common_helmet:team_wendy_exfil_ballistic_helmet_coyote_brown:040d339c",
+   "displayName": "Team Wendy EXFIL Ballistic Helmet(Coyote Brown)",
+   "gameTemplateIds": [
+    "5e00c1ad86f774747333222c"
+   ],
+   "candidateName": "Team Wendy EXFIL Ballistic Helmet (Black)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:common_helmet:ops_core_fast_mt_super_high_cut_helmet_black:ae609c74",
+   "displayName": "Ops-Core FAST MT Super High Cut helmet(Black)",
+   "gameTemplateIds": [
+    "5a154d5cfcdbcb001a3b00da"
+   ],
+   "candidateName": "Ops-Core FAST MT Super High Cut helmet (Black)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:common_helmet:msa_gallet_tc_800_high_cut_combat_helmet_black:66ae3718",
+   "displayName": "MSA Gallet TC 800 High Cut combat helmet(Black)",
+   "gameTemplateIds": [
+    "5e4bfc1586f774264f7582d3"
+   ],
+   "candidateName": "MSA Gallet TC 800 High Cut combat helmet (Black)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:common_helmet:devtac_ronin_ballistic_helmet_devtac_ronin_ballistic_helmet_prototype_devtac_ronin_ballistic_he:d2b177b5",
+   "displayName": "DevTac Ronin ballistic helmet / DevTac Ronin ballistic helmet(Prototype) / DevTac Ronin ballistic helmet(Raptor) / DevTac Ronin ballistic helmet(Olive Drab)",
+   "gameTemplateIds": [
+    "66bdc28a0b603c26902b2011"
+   ],
+   "candidateName": "DevTac Ronin ballistic helmet",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:common_helmet:diamond_age_novesteel_helmet_custos_mortis_diamond_age_novesteel_helmet_toxin_diamond_age_noves:24eaa0ec",
+   "displayName": "Diamond Age NoveSteel helmet(Custos Mortis) / Diamond Age NoveSteel helmet(Toxin) / Diamond Age NoveSteel helmet(Olive Drab)",
+   "gameTemplateIds": [
+    "5ea17ca01412a1425304d1c0"
+   ],
+   "candidateName": "Diamond Age Bastion helmet (Black)",
+   "score": 0.593,
+   "how": "fuzzy",
+   "mappingStatus": "review"
+  },
+  {
+   "recordId": "blastgang:common_1_armor:interceptor_otv_body_armor_ucp_interceptor_otv_body_armor_woodland:55603394",
+   "displayName": "Interceptor OTV body armor (UCP) / Interceptor OTV body armor (Woodland)",
+   "gameTemplateIds": [
+    "64abd93857958b4249003418"
+   ],
+   "candidateName": "Interceptor OTV body armor (UCP)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:common_1_armor:nfm_thor_concealable_reinforced_vest_body_armor_nfm_thor_concealable_reinforced_vest_body_armor:2587b38a",
+   "displayName": "NFM THOR Concealable Reinforced Vest body armor / NFM THOR Concealable Reinforced Vest body armor (Head Eyes)",
+   "gameTemplateIds": [
+    "609e8540d5c319764c2bc2e9"
+   ],
+   "candidateName": "NFM THOR Concealable Reinforced Vest body armor",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:common_1_armor:blue_force_gear_plateminus_v2_body_armor_wolf_gray_blue_force_gear_plateminus_v2_body_armor_coy:3d98b778",
+   "displayName": "Blue Force Gear PLATEminus V2 body armor (Wolf Gray) / Blue Force Gear PLATEminus V2 body armor (Coyote Brown)",
+   "gameTemplateIds": [
+    "68a99207aa809946e507c2f6"
+   ],
+   "candidateName": "Stich Profi Plate Carrier V2 (MARPAT Woodland)",
+   "score": 0.212,
+   "how": "fuzzy",
+   "mappingStatus": "review"
+  },
+  {
+   "recordId": "blastgang:common_1_armor:highcom_trooper_tfo_body_armor_multicam_highcom_trooper_tfo_body_armor_coyote:f891a7f1",
+   "displayName": "HighCom Trooper TFO body armor (MultiCam) / HighCom Trooper TFO body armor (Coyote)",
+   "gameTemplateIds": [
+    "67ab2f94dafe3b22670c912c"
+   ],
+   "candidateName": "HighCom Trooper TFO body armor (Coyote)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:common_1_armor:lbt_6094a_slick_plate_carrier_black_lbt_6094a_slick_plate_carrier_coyote_tan_lbt_6094a_slick_pl:74083150",
+   "displayName": "LBT-6094A Slick Plate Carrier (Black) / LBT-6094A Slick Plate Carrier (Coyote Tan) / LBT-6094A Slick Plate Carrier (Olive Drab)",
+   "gameTemplateIds": [
+    "6038b4ca92ec1c3103795a0d"
+   ],
+   "candidateName": "LBT-6094A Slick Plate Carrier (Olive Drab)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:common_1_armor:hexatac_hpc_plate_carrier_multicam_black_hexatac_hpc_plate_carrier_multicam:bdaf0325",
+   "displayName": "Hexatac HPC Plate Carrier (MultiCam Black) / Hexatac HPC Plate Carrier (MultiCam)",
+   "gameTemplateIds": [
+    "67ab2eecfe82855dcc0f2af6"
+   ],
+   "candidateName": "Hexatac HPC Plate Carrier (MultiCam)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:common_1_armor:5_11_tactical_hexgrid_plate_carrier:e35035db",
+   "displayName": "5.11 Tactical Hexgrid plate carrier",
+   "gameTemplateIds": [
+    "5fd4c474dd870108a754b241"
+   ],
+   "candidateName": "5.11 Tactical Hexgrid plate carrier",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:common_2_armor:fort_redut_m_body_armor_fort_redut_m_body_armor_sk_woodland_fort_redut_m_body_armor_black_fort_:2263299d",
+   "displayName": "FORT Redut-M body armor / FORT Redut-M body armor (SK Woodland) / FORT Redut-M body armor (Black) / FORT Redut-M body armor (Prisoner of the Arena)",
+   "gameTemplateIds": [
+    "67ab2f5adafe3b22670c911f"
+   ],
+   "candidateName": "FORT Redut-M body armor (SK Woodland)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:common_2_armor:iotv_gen4_body_armor_high_mobility_kit_multicam:554b513b",
+   "displayName": "IOTV Gen4 body armor (High Mobility Kit, MultiCam)",
+   "gameTemplateIds": [
+    "5b44cd8b86f774503d30cba2"
+   ],
+   "candidateName": "IOTV Gen4 body armor (Full Protection Kit, MultiCam)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:common_2_armor:bnti_kirasa_n_body_armor_bnti_kirasa_n_body_armor_green:23782443",
+   "displayName": "BNTI Kirasa-N body armor / BNTI Kirasa-N body armor (Green)",
+   "gameTemplateIds": [
+    "67ab2f28dafe3b22670c9116"
+   ],
+   "candidateName": "BNTI Kirasa-N body armor (Green)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:common_2_armor:fort_gladiator_s_plate_carrier_gray:71c99632",
+   "displayName": "FORT Gladiator-S plate carrier (Gray)",
+   "gameTemplateIds": [
+    "67ab2f5adafe3b22670c911f"
+   ],
+   "candidateName": "FORT Redut-M body armor (SK Woodland)",
+   "score": 0.371,
+   "how": "fuzzy",
+   "mappingStatus": "review"
+  },
+  {
+   "recordId": "blastgang:common_2_armor:fort_defender_2_body_armor_fort_defender_2_body_armor_flecktarn:a2dd5020",
+   "displayName": "FORT Defender-2 body armor / FORT Defender-2 body armor (Flecktarn)",
+   "gameTemplateIds": [
+    "5e9dacf986f774054d6b89f4"
+   ],
+   "candidateName": "FORT Defender-2 body armor",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:attacker_pistol:glock_17:23e50de2",
+   "displayName": "Glock 17",
+   "gameTemplateIds": [
+    "5a7ae0c351dfba0017554310"
+   ],
+   "candidateName": "Glock 17 9x19 pistol",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:attacker_pistol:p226r:8c244dba",
+   "displayName": "P226R",
+   "gameTemplateIds": [
+    "56d59856d2720bd8418b456a"
+   ],
+   "candidateName": "SIG P226R 9x19 pistol",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:attacker_pistol:m9a3:496ad313",
+   "displayName": "M9A3",
+   "gameTemplateIds": [
+    "5cadc190ae921500103bb3b6"
+   ],
+   "candidateName": "Beretta M9A3 9x19 pistol",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:attacker_pistol:sawed_off:375adba5",
+   "displayName": "SAWED-OFF",
+   "gameTemplateIds": [
+    "64748cb8de82c85eaf0a273a"
+   ],
+   "candidateName": "MP-43 12ga sawed-off double-barrel shotgun",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:attacker_pistol:tt:7e2482a7",
+   "displayName": "TT",
+   "gameTemplateIds": [
+    "571a12c42459771f627b58a0"
+   ],
+   "candidateName": "TT-33 7.62x25 TT pistol",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:attacker_pistol:fn_5_7_fde:386b45eb",
+   "displayName": "FN 5-7 FDE",
+   "gameTemplateIds": [
+    "5d67abc1a4b93614ec50137f"
+   ],
+   "candidateName": "FN Five-seveN MK2 5.7x28 pistol (FDE)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:attacker_pistol:desert_eagle_l6:cdb2591a",
+   "displayName": "DESERT EAGLE L6",
+   "gameTemplateIds": [
+    "669fa3d876116c89840b1217"
+   ],
+   "candidateName": "Magnum Research Desert Eagle L6 .50 AE pistol (WTS)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:attacker_pistol:sr_1mp:76875f92",
+   "displayName": "SR-1MP",
+   "gameTemplateIds": [
+    "59f98b4986f7746f546d2cef"
+   ],
+   "candidateName": "Serdyukov SR-1MP Gyurza 9x21 pistol",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:attacker_pistol:aps:24a682fe",
+   "displayName": "APS",
+   "gameTemplateIds": [
+    "5a17f98cfcdbcb0980087290"
+   ],
+   "candidateName": "Stechkin APS 9x18PM machine pistol",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:attacker_eco:pp_9_klin:62e5bce2",
+   "displayName": "PP-9 KLIN",
+   "gameTemplateIds": [
+    "57f4c844245977379d5c14d1"
+   ],
+   "candidateName": "PP-9 Klin 9x18PMM submachine gun",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:attacker_eco:op_sks:b1ab3366",
+   "displayName": "OP-SKS",
+   "gameTemplateIds": [
+    "587e02ff24597743df3deaeb"
+   ],
+   "candidateName": "Molot Arms Simonov OP-SKS 7.62x39 carbine",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:attacker_eco:pp_19_01:01b16187",
+   "displayName": "PP-19-01",
+   "gameTemplateIds": [
+    "59984ab886f7743e98271174"
+   ],
+   "candidateName": "PP-19-01 Vityaz 9x19 submachine gun",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:attacker_eco:vsk_94:cd900f63",
+   "displayName": "VSK-94",
+   "gameTemplateIds": [
+    "645e0c6b3b381ede770e1cc9"
+   ],
+   "candidateName": "KBP VSK-94 9x39 rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:attacker_eco:ks_23m:250f0ffb",
+   "displayName": "KS-23M",
+   "gameTemplateIds": [
+    "5e848cc2988a8701445df1e8"
+   ],
+   "candidateName": "TOZ KS-23M 23x75mm pump-action shotgun",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:attacker_common:mp_155:10c33463",
+   "displayName": "MP-155",
+   "gameTemplateIds": [
+    "606dae0ab0e443224b421bb7"
+   ],
+   "candidateName": "MP-155 12ga semi-automatic shotgun",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:attacker_common:mpx:a7b7d54a",
+   "displayName": "MPX",
+   "gameTemplateIds": [
+    "58948c8e86f77409493f7266"
+   ],
+   "candidateName": "SIG MPX 9x19 submachine gun",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:attacker_common:akmn:17e864fc",
+   "displayName": "AKMN",
+   "gameTemplateIds": [
+    "5a0ec13bfcdbcb00165aa685"
+   ],
+   "candidateName": "Kalashnikov AKMN 7.62x39 assault rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:attacker_common:rd_704:3dea3970",
+   "displayName": "RD-704",
+   "gameTemplateIds": [
+    "628a60ae6b1d481ff772e9c8"
+   ],
+   "candidateName": "Rifle Dynamics RD-704 7.62x39 assault rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:attacker_common:sr_3m:ec1c3900",
+   "displayName": "SR-3M",
+   "gameTemplateIds": [
+    "651450ce0e00edc794068371"
+   ],
+   "candidateName": "SR-3M 9x39 compact assault rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:attacker_common:mk47:18815d73",
+   "displayName": "MK47",
+   "gameTemplateIds": [
+    "606587252535c57a13424cfd"
+   ],
+   "candidateName": "CMMG Mk47 Mutant 7.62x39 assault rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:attacker_common:mcx:db68d5bd",
+   "displayName": "MCX",
+   "gameTemplateIds": [
+    "65290f395ae2ae97b80fdf2d"
+   ],
+   "candidateName": "SIG MCX-SPEAR 6.8x51 assault rifle",
+   "score": 0.513,
+   "how": "fuzzy",
+   "mappingStatus": "review"
+  },
+  {
+   "recordId": "blastgang:attacker_elite:ak_308:cea89805",
+   "displayName": "AK-308",
+   "gameTemplateIds": [
+    "6499849fc93611967b034949"
+   ],
+   "candidateName": "Kalashnikov AK-12 5.45x39 assault rifle",
+   "score": 0.222,
+   "how": "fuzzy",
+   "mappingStatus": "review"
+  },
+  {
+   "recordId": "blastgang:attacker_elite:ak_12:860c2c95",
+   "displayName": "AK-12",
+   "gameTemplateIds": [
+    "6499849fc93611967b034949"
+   ],
+   "candidateName": "Kalashnikov AK-12 5.45x39 assault rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:attacker_elite:mp7a1:1c7a4a70",
+   "displayName": "MP7A1",
+   "gameTemplateIds": [
+    "5ba26383d4351e00334c93d9"
+   ],
+   "candidateName": "HK MP7A1 4.6x30 submachine gun",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:attacker_elite:hk416:8e5754d6",
+   "displayName": "HK416",
+   "gameTemplateIds": [
+    "5bb2475ed4351e00853264e3"
+   ],
+   "candidateName": "HK 416A5 5.56x45 assault rifle",
+   "score": 0.498,
+   "how": "fuzzy",
+   "mappingStatus": "review"
+  },
+  {
+   "recordId": "blastgang:attacker_elite:nl545_gp:84dc5934",
+   "displayName": "NL545 GP",
+   "gameTemplateIds": [
+    "618428466ef05c2ce828f218"
+   ],
+   "candidateName": "FN SCAR-L 5.56x45 assault rifle (FDE)",
+   "score": 0.215,
+   "how": "fuzzy",
+   "mappingStatus": "review"
+  },
+  {
+   "recordId": "blastgang:attacker_special:saiga_12k:055c0222",
+   "displayName": "SAIGA-12K",
+   "gameTemplateIds": [
+    "576165642459773c7a400233"
+   ],
+   "candidateName": "Saiga-12K ver.10 12ga semi-automatic shotgun",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:attacker_special:rpdn:8fc51c9d",
+   "displayName": "RPDN",
+   "gameTemplateIds": [
+    "65268d8ecb944ff1e90ea385"
+   ],
+   "candidateName": "Degtyarev RPDN 7.62x39 machine gun",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:attacker_special:ash_12:b6bd623f",
+   "displayName": "ASH-12",
+   "gameTemplateIds": [
+    "5cadfbf7ae92152ac412eeef"
+   ],
+   "candidateName": "ASh-12 12.7x55 assault rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:attacker_special:pkp:d04de6d1",
+   "displayName": "PKP",
+   "gameTemplateIds": [
+    "64ca3d3954fc657e230529cc"
+   ],
+   "candidateName": "Kalashnikov PKP 7.62x54R infantry machine gun",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:attacker_sniper:trg_m10:17a49dc6",
+   "displayName": "TRG M10",
+   "gameTemplateIds": [
+    "673cab3e03c6a20581028bc1"
+   ],
+   "candidateName": "Sako TRG M10 .338 LM bolt-action sniper rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:attacker_sniper:dvl_10:6d3f6960",
+   "displayName": "DVL-10",
+   "gameTemplateIds": [
+    "588892092459774ac91d4b11"
+   ],
+   "candidateName": "Lobaev Arms DVL-10 7.62x51 bolt-action sniper rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:attacker_sniper:g28:8772d11f",
+   "displayName": "G28",
+   "gameTemplateIds": [
+    "6176aca650224f204c1da3fb"
+   ],
+   "candidateName": "HK G28 7.62x51 marksman rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:attacker_sniper:sv_98:f55a5aec",
+   "displayName": "SV-98",
+   "gameTemplateIds": [
+    "55801eed4bdc2d89578b4588"
+   ],
+   "candidateName": "SV-98 7.62x54R bolt-action sniper rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:attacker_sniper:ak_50:942eadca",
+   "displayName": "AK-50",
+   "gameTemplateIds": [
+    "67d0576f29f580ebc10efd08"
+   ],
+   "candidateName": "TheAKGuy AK-50 .50 BMG sniper rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:attacker_sniper:mk_18_mj_246_lnir:d320c466",
+   "displayName": "MK-18 Mj&#246;lnir",
+   "gameTemplateIds": [
+    "5fc22d7c187fea44d52eda44"
+   ],
+   "candidateName": "SWORD International Mk-18 .338 LM marksman rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:defender_pistol:glock_19x:fb6d2546",
+   "displayName": "Glock 19X",
+   "gameTemplateIds": [
+    "63088377b5cd696784087147"
+   ],
+   "candidateName": "Glock 19X 9x19 pistol",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:defender_pistol:p226r:8c244dba",
+   "displayName": "P226R",
+   "gameTemplateIds": [
+    "56d59856d2720bd8418b456a"
+   ],
+   "candidateName": "SIG P226R 9x19 pistol",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:defender_pistol:m9a3:496ad313",
+   "displayName": "M9A3",
+   "gameTemplateIds": [
+    "5cadc190ae921500103bb3b6"
+   ],
+   "candidateName": "Beretta M9A3 9x19 pistol",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:defender_pistol:sawed_off:375adba5",
+   "displayName": "SAWED-OFF",
+   "gameTemplateIds": [
+    "64748cb8de82c85eaf0a273a"
+   ],
+   "candidateName": "MP-43 12ga sawed-off double-barrel shotgun",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:defender_pistol:fn_5_7_fde:386b45eb",
+   "displayName": "FN 5-7 FDE",
+   "gameTemplateIds": [
+    "5d67abc1a4b93614ec50137f"
+   ],
+   "candidateName": "FN Five-seveN MK2 5.7x28 pistol (FDE)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:defender_pistol:desert_eagle_l6:b11f2635",
+   "displayName": "DESERT EAGLE L6",
+   "gameTemplateIds": [
+    "669fa3d876116c89840b1217"
+   ],
+   "candidateName": "Magnum Research Desert Eagle L6 .50 AE pistol (WTS)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:defender_pistol:sr_1mp:4abeb3b7",
+   "displayName": "SR-1MP",
+   "gameTemplateIds": [
+    "59f98b4986f7746f546d2cef"
+   ],
+   "candidateName": "Serdyukov SR-1MP Gyurza 9x21 pistol",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:defender_pistol:apb:fbbf1e3e",
+   "displayName": "APB",
+   "gameTemplateIds": [
+    "5abccb7dd8ce87001773e277"
+   ],
+   "candidateName": "Stechkin APB 9x18PM silenced machine pistol",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:defender_eco:ppsh41:62f82616",
+   "displayName": "PPSH41",
+   "gameTemplateIds": [
+    "5ea03f7400685063ec28bfa8"
+   ],
+   "candidateName": "PPSh-41 7.62x25 submachine gun",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:defender_eco:590a1:8f3c06f2",
+   "displayName": "590A1",
+   "gameTemplateIds": [
+    "5e870397991fd70db46995c8"
+   ],
+   "candidateName": "Mossberg 590A1 12ga pump-action shotgun",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:defender_eco:kedr_b:e8199525",
+   "displayName": "KEDR-B",
+   "gameTemplateIds": [
+    "57f3c6bd24597738e730fa2f"
+   ],
+   "candidateName": "PP-91-01 Kedr-B 9x18PM submachine gun",
+   "score": 0.636,
+   "how": "fuzzy",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:defender_eco:pp_91_01:3c2eaecb",
+   "displayName": "PP-91-01",
+   "gameTemplateIds": [
+    "57f3c6bd24597738e730fa2f"
+   ],
+   "candidateName": "PP-91-01 Kedr-B 9x18PM submachine gun",
+   "score": 0.764,
+   "how": "fuzzy",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:defender_eco:vpo_209:84b43ab7",
+   "displayName": "VPO-209",
+   "gameTemplateIds": [
+    "59e6687d86f77411d949b251"
+   ],
+   "candidateName": "Molot Arms VPO-209 .366 TKM carbine",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:defender_common:mp5:229c5867",
+   "displayName": "MP5",
+   "gameTemplateIds": [
+    "5926bb2186f7744b1c6c6e60"
+   ],
+   "candidateName": "HK MP5 9x19 submachine gun (Navy 3 Round Burst)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:defender_common:mp_155:6acec20f",
+   "displayName": "MP-155",
+   "gameTemplateIds": [
+    "606dae0ab0e443224b421bb7"
+   ],
+   "candidateName": "MP-155 12ga semi-automatic shotgun",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:defender_common:velociraptor:541d5429",
+   "displayName": "VELOCIRAPTOR",
+   "gameTemplateIds": [
+    "674d6121c09f69dfb201a888"
+   ],
+   "candidateName": "Aklys Defense Velociraptor .300 Blackout assault rifle",
+   "score": 0.588,
+   "how": "fuzzy",
+   "mappingStatus": "review"
+  },
+  {
+   "recordId": "blastgang:defender_common:mp9:85e5b0f2",
+   "displayName": "MP9",
+   "gameTemplateIds": [
+    "5e00903ae9dc277128008b87"
+   ],
+   "candidateName": "B&T MP9 9x19 submachine gun",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:defender_common:as_val:d43f1909",
+   "displayName": "AS VAL",
+   "gameTemplateIds": [
+    "57c44b372459772d2b39b8ce"
+   ],
+   "candidateName": "AS VAL 9x39 special assault rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:defender_common:mk47:18815d73",
+   "displayName": "MK47",
+   "gameTemplateIds": [
+    "606587252535c57a13424cfd"
+   ],
+   "candidateName": "CMMG Mk47 Mutant 7.62x39 assault rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:defender_common:mcx:db68d5bd",
+   "displayName": "MCX",
+   "gameTemplateIds": [
+    "65290f395ae2ae97b80fdf2d"
+   ],
+   "candidateName": "SIG MCX-SPEAR 6.8x51 assault rifle",
+   "score": 0.513,
+   "how": "fuzzy",
+   "mappingStatus": "review"
+  },
+  {
+   "recordId": "blastgang:defender_elite:x_17:6211c222",
+   "displayName": "X-17",
+   "gameTemplateIds": [
+    "676176d362e0497044079f4c"
+   ],
+   "candidateName": "FN SCAR-H X-17 7.62x51 assault rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:defender_elite:aug_a3:91f5f5df",
+   "displayName": "AUG A3",
+   "gameTemplateIds": [
+    "63171672192e68c5460cebc5"
+   ],
+   "candidateName": "Steyr AUG A3 5.56x45 assault rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:defender_elite:mp7a2:d460ff91",
+   "displayName": "MP7A2",
+   "gameTemplateIds": [
+    "5bd70322209c4d00d7167b8f"
+   ],
+   "candidateName": "HK MP7A2 4.6x30 submachine gun",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:defender_elite:mdr:05cb43d2",
+   "displayName": "MDR",
+   "gameTemplateIds": [
+    "5dcbd56fdbd3d91b3e5468d5"
+   ],
+   "candidateName": "Desert Tech MDR 7.62x51 assault rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:defender_elite:m4a1:3b6a9da2",
+   "displayName": "M4A1",
+   "gameTemplateIds": [
+    "5447a9cd4bdc2dbd208b4567"
+   ],
+   "candidateName": "Colt M4A1 5.56x45 assault rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:defender_elite:nl545_di:3940c1d2",
+   "displayName": "NL545 DI",
+   "gameTemplateIds": [
+    "618428466ef05c2ce828f218"
+   ],
+   "candidateName": "FN SCAR-L 5.56x45 assault rifle (FDE)",
+   "score": 0.215,
+   "how": "fuzzy",
+   "mappingStatus": "review"
+  },
+  {
+   "recordId": "blastgang:defender_special:saiga_12k:3887a461",
+   "displayName": "SAIGA-12K",
+   "gameTemplateIds": [
+    "576165642459773c7a400233"
+   ],
+   "candidateName": "Saiga-12K ver.10 12ga semi-automatic shotgun",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:defender_special:rpdn:8fc51c9d",
+   "displayName": "RPDN",
+   "gameTemplateIds": [
+    "65268d8ecb944ff1e90ea385"
+   ],
+   "candidateName": "Degtyarev RPDN 7.62x39 machine gun",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:defender_special:ash_12:b6bd623f",
+   "displayName": "ASH-12",
+   "gameTemplateIds": [
+    "5cadfbf7ae92152ac412eeef"
+   ],
+   "candidateName": "ASh-12 12.7x55 assault rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:defender_special:pkp:d04de6d1",
+   "displayName": "PKP",
+   "gameTemplateIds": [
+    "64ca3d3954fc657e230529cc"
+   ],
+   "candidateName": "Kalashnikov PKP 7.62x54R infantry machine gun",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:defender_sniper:axmc:ca11e940",
+   "displayName": "AXMC",
+   "gameTemplateIds": [
+    "627e14b21713922ded6f2c15"
+   ],
+   "candidateName": "Accuracy International AXMC .338 LM bolt-action sniper rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:defender_sniper:t_5000m:4281b14f",
+   "displayName": "T-5000M",
+   "gameTemplateIds": [
+    "5df24cf80dee1b22f862e9bc"
+   ],
+   "candidateName": "ORSIS T-5000M 7.62x51 bolt-action sniper rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:defender_sniper:g28:8772d11f",
+   "displayName": "G28",
+   "gameTemplateIds": [
+    "6176aca650224f204c1da3fb"
+   ],
+   "candidateName": "HK G28 7.62x51 marksman rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:defender_sniper:sv_98:f55a5aec",
+   "displayName": "SV-98",
+   "gameTemplateIds": [
+    "55801eed4bdc2d89578b4588"
+   ],
+   "candidateName": "SV-98 7.62x54R bolt-action sniper rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:defender_sniper:ak_50:942eadca",
+   "displayName": "AK-50",
+   "gameTemplateIds": [
+    "67d0576f29f580ebc10efd08"
+   ],
+   "candidateName": "TheAKGuy AK-50 .50 BMG sniper rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  },
+  {
+   "recordId": "blastgang:defender_sniper:mk_18_mj_246_lnir:d320c466",
+   "displayName": "MK-18 Mj&#246;lnir",
+   "gameTemplateIds": [
+    "5fc22d7c187fea44d52eda44"
+   ],
+   "candidateName": "SWORD International Mk-18 .338 LM marksman rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
+  }
+ ]
+}

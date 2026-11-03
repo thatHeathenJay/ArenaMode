@@ -20,6 +20,7 @@ import yaml
 Loader = yaml.CSafeLoader if hasattr(yaml, 'CSafeLoader') else yaml.SafeLoader
 Loader.add_multi_constructor('tag:unity3d.com,2011:', lambda loader, suffix, node: loader.construct_mapping(node, deep=True))
 HEADER = re.compile(r'^--- !u!(\d+) &(-?\d+)( stripped)?\s*$', re.M)
+BAR_SCALAR = re.compile(r'^(\s*m_\w+): \|(\S.*)$', re.M)
 GUID = re.compile(r'^guid: ([0-9a-f]{32})', re.M)
 SKIP_FIELDS = {'m_ObjectHideFlags', 'm_CorrespondingSourceObject', 'm_PrefabInstance', 'm_PrefabAsset',
                'm_GameObject', 'm_EditorHideFlags', 'm_EditorClassIdentifier', 'm_Script', 'm_Name', 'serializedVersion'}
@@ -31,6 +32,9 @@ def load_docs(path):
     docs = {}
     for i, h in enumerate(heads):
         body = text[h.end():heads[i + 1].start() if i + 1 < len(heads) else len(text)]
+        # AssetRipper writes a text value that starts with '|' unquoted (e.g. "m_text: ||"), which YAML reads as a
+        # block scalar. Quote such values.
+        body = BAR_SCALAR.sub(lambda m: m.group(1) + ': ' + repr(m.group(2)), body)
         data = yaml.load(body, Loader=Loader) or {}
         cls, payload = next(iter(data.items()))
         docs[int(h.group(2))] = (int(h.group(1)), cls, payload)
@@ -130,9 +134,10 @@ class Prefab:
         cid, cls, tf = self.docs[tf_id]
         go_id = tf['m_GameObject']['fileID']
         go = self.docs[go_id][2]
-        path = (parent_path + '/' if parent_path else '') + go['m_Name']
+        go_name = str(go.get('m_Name', ''))
+        path = (parent_path + '/' if parent_path else '') + go_name
         self.paths[go_id] = path
-        n = {'name': go['m_Name'], 'active': bool(go.get('m_IsActive', 1)), 'layer': go.get('m_Layer', 0),
+        n = {'name': go_name, 'active': bool(go.get('m_IsActive', 1)), 'layer': go.get('m_Layer', 0),
              'rect': self.rect(tf) if cid == 224 else None, 'components': [], 'children': []}
         for c in go.get('m_Component', []):
             fid = c['component']['fileID']
@@ -226,7 +231,11 @@ def main():
         if not os.path.exists(path):
             print('missing prefab', name)
             continue
-        tree = Prefab(rip, path).build()
+        try:
+            tree = Prefab(rip, path).build()
+        except Exception as e:
+            print('FAILED', name, type(e).__name__, str(e).replace(chr(10), ' | ')[:300])
+            continue
         with io.open(os.path.join(out, name + '.json'), 'w', encoding='utf-8') as f:
             json.dump(tree, f, indent=1, ensure_ascii=False)
         # Pull in prefabs this one instantiates so the runtime has them too.
