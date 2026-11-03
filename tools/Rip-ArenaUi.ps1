@@ -11,6 +11,7 @@ Usage (PowerShell 7 or 5.1):
 param(
     [string]$Arena = 'C:\Battlestate Games\Escape from Tarkov Arena',
     [string]$Out = 'C:\Games\SPT-4.1\Tools\arena-rip',
+    [string]$SptRoot = 'C:\Games\SPT-4.1',
     [int]$Port = 5577
 )
 $ErrorActionPreference = 'Stop'
