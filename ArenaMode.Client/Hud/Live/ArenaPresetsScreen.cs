@@ -68,7 +68,6 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
     private RectTransform _viewBody, _customBody, _gears, _items, _presetList, _nameField, _viewTab, _customTab, _removeButton;
     private TextMeshProUGUI _status, _presetName;
     private RectTransform _favoriteToggle;
-    private Slot _modSlot;
     private Image _classIcon;
     private bool _customization;
     private string _itemsTab = "Weapons";
@@ -744,6 +743,7 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
             hit.color = Color.clear; hit.raycastTarget = true;
             node.gameObject.AddComponent<ArenaMenuButton>().Init(node, () =>
             {
+                if (target == "Mods") { OpenBuildEditor(); return; }
                 _itemsTab = target; _focusSlot = null;
                 BindCells(ArenaUiBuilder.Find(_gears, "Gear Panel/Gears"), true);
                 BindItemsPanel();
@@ -844,7 +844,6 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
         bool big = _itemsTab == "Weapons";
         var grid = (RectTransform)ArenaUiBuilder.Find(_items, _itemsTab + "Panel/Content/Scroll Area").GetChild(0);
         foreach (Transform child in grid) Destroy(child.gameObject);
-        if (_itemsTab == "Mods") { BindModsPanel(grid); return; }
         var slots = _focusSlot.HasValue ? new[] { _focusSlot.Value.ToString() } : TabSlots[_itemsTab];
         // What the preset already carries: gear by slot, loaded rounds, rig supplies.
         var current = new HashSet<string>(StringComparer.Ordinal);
@@ -932,100 +931,27 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
     private void Place(string slot, ArenaArmory.Entry entry)
     {
         if (slot is "Meds" or "Throwable") Add(entry);
-        else if (slot == "Mods") { if (_modSlot != null && ItemIn(EquipmentSlot.FirstPrimaryWeapon) is CompoundItem weapon) Swap(ModPath(weapon, _modSlot), entry); }
         else Swap(slot, entry);
     }
 
     // ---------------------------------------------------------------- mods
 
-    /// <summary>
-    /// Live's Mods tab, on the preset's primary: the weapon's slots as cards first (the selected one marked), then
-    /// every armory attachment that slot accepts; an EMPTY card clears an optional slot.
-    /// </summary>
-    private void BindModsPanel(RectTransform grid)
+    /// <summary>Live's weapon build editor on this preset's primary; a stock preset becomes a custom one first.</summary>
+    private void OpenBuildEditor()
     {
-        if (ItemIn(EquipmentSlot.FirstPrimaryWeapon) is not CompoundItem weapon)
+        if (!EnsureCustom()) return;
+        if (ItemIn(EquipmentSlot.FirstPrimaryWeapon) == null) return;
+        gameObject.SetActive(false);
+        ArenaBuildEditor.Show(_shown, () =>
         {
-            var none = HudStyle.CreateText(grid, "None", 16f, TextAlignmentOptions.Midline);
-            none.text = "No primary weapon in this preset."; none.color = Muted;
-            return;
-        }
-        var slots = weapon.AllSlots.Where(s => s != null && s.ID != null && !s.ID.StartsWith("patron", StringComparison.Ordinal) && s.ID != "cartridges").ToList();
-        if (_modSlot == null || !slots.Contains(_modSlot)) _modSlot = slots.FirstOrDefault(s => s.ContainedItem != null) ?? slots.FirstOrDefault();
-        foreach (var slot in slots)
-        {
-            var card = _builder.Build(_cardSmall, grid);
-            card.gameObject.SetActive(true);
-            var up = ArenaUiBuilder.Find(card, "UpPanel");
-            foreach (var path in new[] { "RightHeader/Arrow", "RightHeader/NewLevelMarker", "RightHeader/IncompatibilityMarker", "Star", "MetaverseIcon" })
-                ArenaUiBuilder.SetActive(up, path, false);
-            var item = slot.ContainedItem;
-            SetText(up, "RightHeader/MetaScore/MetaScoreValue", item == null ? "" : ArenaMetascore.ItemScore(item.TemplateId).ToString("N0"));
-            var slotNode = ArenaUiBuilder.Find(card, "Slot");
-            ArenaUiBuilder.SetActive(slotNode, "SecondBackground", ReferenceEquals(slot, _modSlot));
-            foreach (var path in new[] { "Loader", "APCProgressionInfo", "APCLevelProgression", "Buy/BuyButton", "Buy/PriceObject", "Buy/WtRaceContainer", "Buy/Lock", "APCClassesInfo" })
-                ArenaUiBuilder.SetActive(slotNode, path, false);
-            var info = ArenaUiBuilder.Find(slotNode, "APCItemInfo");
-            SetText(info, "ItemName", SlotLabel(slot.ID));
-            ArenaUiBuilder.SetActive(info, "FirstLine", item != null);
-            if (item != null) SetText(info, "FirstLine/Value", item.ShortName.Localized());
-            ArenaUiBuilder.SetActive(info, "SecondLine", false);
-            ArenaUiBuilder.SetActive(info, "ThirdLine", false);
-            var imageNode = ArenaUiBuilder.TryFind(slotNode, "ItemImage");
-            if (imageNode != null)
-            {
-                imageNode.gameObject.SetActive(item != null);
-                if (item != null)
-                {
-                    var image = imageNode.GetComponent<Image>() ?? imageNode.gameObject.AddComponent<Image>();
-                    image.raycastTarget = false;
-                    ArenaItemIcon.Bind(image, item, imageNode.sizeDelta.x - 8f, imageNode.sizeDelta.y - 8f);
-                }
-            }
-            ArenaUiTheme.Rule(card, "SlotEdge", ReferenceEquals(slot, _modSlot) ? ArenaUiTheme.WithAlpha(Gold, 0.8f) : ArenaUiTheme.WithAlpha(Gold, 0.25f), inset: 2f, thickness: 1f);
-            var hit = card.GetComponent<Image>() ?? card.gameObject.AddComponent<Image>();
-            hit.raycastTarget = true;
-            var captured = slot;
-            card.gameObject.AddComponent<ArenaMenuButton>().Init(card, () => { _modSlot = captured; BindItemsPanel(); });
-        }
-        if (_modSlot == null) return;
-        string search = _search.Trim();
-        if (!_modSlot.Required && _modSlot.ContainedItem != null)
-        {
-            var empty = _builder.Build(_cardSmall, grid);
-            empty.gameObject.SetActive(true);
-            foreach (var path in new[] { "UpPanel", "Slot/APCClassesInfo", "Slot/Buy", "Slot/Loader", "Slot/APCLevelProgression", "Slot/APCProgressionInfo", "Slot/ItemImage" })
-                ArenaUiBuilder.SetActive(empty, path, false);
-            SetText(ArenaUiBuilder.Find(empty, "Slot/APCItemInfo"), "ItemName", "EMPTY");
-            foreach (var path in new[] { "FirstLine", "SecondLine", "ThirdLine" }) ArenaUiBuilder.SetActive(ArenaUiBuilder.Find(empty, "Slot/APCItemInfo"), path, false);
-            var emptyHit = empty.GetComponent<Image>() ?? empty.gameObject.AddComponent<Image>();
-            emptyHit.raycastTarget = true;
-            empty.gameObject.AddComponent<ArenaMenuButton>().Init(empty, () =>
-            {
-                if (!EnsureCustom()) return;
-                if (!string.IsNullOrEmpty(ArenaArmory.Edit("swap", _shown.Id, ModPath(weapon, _modSlot), ""))) return;
-                ReloadShown();
-            });
-        }
-        string currentTpl = _modSlot.ContainedItem?.TemplateId;
-        foreach (var entry in ArenaArmory.ForSlot("Mods", null))
-        {
-            if (search.Length > 0 && (entry.Name ?? "").IndexOf(search, StringComparison.OrdinalIgnoreCase) < 0) continue;
-            var candidate = ArmoryItem(entry);
-            if (candidate == null || !Accepts(_modSlot, candidate)) continue;
-            BuildCard(grid, _cardSmall, entry, "Mods", entry.Tpl == currentTpl);
-        }
-    }
-
-    private static string SlotLabel(string slotId)
-    {
-        string label = slotId ?? "";
-        if (label.StartsWith("mod_", StringComparison.Ordinal)) label = label.Substring(4);
-        return label.Replace('_', ' ').ToUpperInvariant();
+            if (this == null || _instance != this) return;
+            gameObject.SetActive(true);
+            ReloadShown();
+        });
     }
 
     /// <summary>The slot's own filters against the item's template family (the live editor's compatibility rule).</summary>
-    private static bool Accepts(Slot slot, Item item)
+    internal static bool Accepts(Slot slot, Item item)
     {
         if (slot?.Filters == null || item?.Template == null) return false;
         var family = new HashSet<string>(StringComparer.Ordinal);
@@ -1041,7 +967,7 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
     }
 
     /// <summary>"mod:primary/&lt;slot&gt;/..." from the weapon down to the slot, for the server's attachment swap.</summary>
-    private static string ModPath(CompoundItem weapon, Slot target)
+    internal static string ModPath(CompoundItem weapon, Slot target)
     {
         var ids = new List<string> { target.ID };
         Item owner = target.ParentItem;
@@ -1089,7 +1015,7 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
     }
 
     /// <summary>An item instance for the card icon: a weapon from its default preset nodes, anything else bare.</summary>
-    private static Item ArmoryItem(ArenaArmory.Entry entry)
+    internal static Item ArmoryItem(ArenaArmory.Entry entry)
     {
         if (ArmoryItems.TryGetValue(entry.Tpl, out var cached)) return cached;
         Item item = null;
