@@ -9,14 +9,14 @@ import io, json, os, re, shutil, struct, sys
 
 sys.stdout.reconfigure(encoding='utf-8', errors='replace')
 
-LAYOUTS = ['ArenaCheckPointWidget', 'ArenaRoundGoalWidget', 'KillLogItemPrefab', 'ArenaTeamTabWidget', 'Arena Final Countdown', 'ArenaBattleBackgroundPanel',
+LAYOUTS = ['ArenaCheckPointWidget', 'ArenaRoundGoalWidget', 'KillLogItemPrefab', 'ArenaTeamTabWidget', 'Arena Final Countdown', 'ArenaBattleBackgroundPanel', 'ArenaMainMenu',
            'ArenaRoundInfoWidget', 'ArenaRoundInfoItem', 'ArenaFinalResultWidget']
 WEAPON = '5422acb9af1c889c16000029'
 
 # In-match sounds. Hit marker clips are downmixed to mono and cut to one second for the client's PCM loader
 # (hitmarker_<cue>_NN.wav); the rest are copied as exported.
 HITMARKER = {'headshot': 'ui_fight_hitmarker_enemy_headshot_', 'kill': 'ui_fight_hitmarker_enemy_kill_'}
-SOUNDS = ['ui_postmatch_end.wav', 'matchend_music.wav', 'arena_tick_timer.wav', 'arena_mvp_widget_02.ogg',
+SOUNDS = ['arena_button_click.wav', 'arena_button_over.wav', 'arena_menu_escape.wav', 'ui_postmatch_end.wav', 'matchend_music.wav', 'arena_tick_timer.wav', 'arena_mvp_widget_02.ogg',
           'arena_match_ready_popup.ogg', 'arena_wait_match_background_music.ogg']
 
 

@@ -44,12 +44,16 @@ internal sealed class ArenaUiBuilder
                         Plugin.ModLogger.LogWarning($"Arena UI: {type} on {go.name} skipped: {ex.Message}");
                     }
                 }
-        if (localizationKey != null && go.GetComponent<TextMeshProUGUI>() is { } text)
-            text.text = _localize(localizationKey) ?? text.text;
-
         if (node["children"] is JArray children)
             foreach (var child in children)
                 if (child is JObject c) Build(c, rect);
+
+        // EFT.UI.LocalizedText sits on the text itself or on a button whose "Label" child carries the text.
+        if (localizationKey != null)
+        {
+            var text = go.GetComponent<TextMeshProUGUI>() ?? go.GetComponentInChildren<TextMeshProUGUI>(true);
+            if (text != null) text.text = _localize(localizationKey) ?? text.text;
+        }
 
         go.SetActive(node.Value<bool?>("active") ?? true);
         return rect;
