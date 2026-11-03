@@ -26,6 +26,8 @@ public static class ArenaContext
     public static string KitsJson { get; internal set; } = "[]";
     /// <summary>Metascore table (config/metascore.json), served verbatim for the preset screens.</summary>
     public static string MetascoreJson { get; internal set; } = "{}";
+    /// <summary>Armory for the preset editor (scored gear by slot with class access), built after load.</summary>
+    public static string ArmoryJson { get; internal set; } = "[]";
 
     /// <summary>
     /// Gun Game weapon ladder, same shape as a kit but carrying only a primary

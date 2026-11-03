@@ -123,6 +123,7 @@ public class Plugin : BaseUnityPlugin
         Bots.ArenaSainDisableSafety.Enable();
         Bots.ArenaSainActionSafety.Enable();
         Bots.ArenaSainPersonalities.Enable();
+        Bots.ArenaSainPreset.Enable();
         Bots.ArenaBotTaunts.Enable();
         Performance.PoolPrewarmMonitor.Initialize();
         Bots.TdmSearchTempo.Enable();

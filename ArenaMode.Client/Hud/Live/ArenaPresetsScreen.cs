@@ -18,7 +18,8 @@ namespace ArenaMode.Hud.Live;
 /// Live Arena's preset screen (ArenaPresetViewScreen): EFT's gear cells with the preset's items as real icons, the
 /// character in the preset, the rig and pocket contents, the metascore against the live band; class tabs and a
 /// preset switcher in Arena's preset-customization header; Select makes the preset the kit for every life.
-/// Customizing a slot (swapping items from the armory) is the next step.
+/// Customize copies a stock preset into a custom one; editing a custom preset makes the gear cells clickable and
+/// swaps a slot from the server's armory (class-allowed items, live ones first), re-scored against the band.
 /// </summary>
 internal sealed class ArenaPresetsScreen : MonoBehaviour
 {
@@ -27,6 +28,12 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
         ("assault", "ASSAULT"), ("enforcer", "ENFORCER"), ("scout", "SCOUT"), ("marksman", "MARKSMAN"),
     };
     // Gear cell -> equipment slot. Arena's panel has one weapon cell (On Back) for the preset's primary.
+    // Gear slots the armory can swap; the rest (armband, scabbard) are fixed.
+    private static readonly HashSet<EquipmentSlot> Editable = new()
+    {
+        EquipmentSlot.FirstPrimaryWeapon, EquipmentSlot.Holster, EquipmentSlot.ArmorVest, EquipmentSlot.TacticalVest,
+        EquipmentSlot.Headwear, EquipmentSlot.Earpiece, EquipmentSlot.Eyewear, EquipmentSlot.FaceCover,
+    };
     private static readonly (string Cell, EquipmentSlot Slot)[] Cells =
     {
         ("first line/Earpiece Slot", EquipmentSlot.Earpiece), ("first line/Headwear Slot", EquipmentSlot.Headwear),
@@ -44,7 +51,8 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
     private ArenaUiPack _pack;
     private ArenaUiBuilder _builder;
     private JObject _apcLayout, _viewLayout, _editorLayout;
-    private RectTransform _body, _presetList, _nameField;
+    private RectTransform _body, _presetList, _nameField, _armoryList;
+    private bool _editing;
     private TextMeshProUGUI _status, _presetName;
     private readonly List<(string id, RectTransform tab)> _tabViews = new();
     private string _class = "assault";
@@ -87,7 +95,12 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) { Hide(); return; }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (_armoryList != null && _armoryList.gameObject.activeSelf) _armoryList.gameObject.SetActive(false);
+            else Hide();
+            return;
+        }
         if (_preview != null && Input.GetMouseButton(0))
         {
             var mouse = Input.mousePosition;
@@ -273,6 +286,8 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
 
     private void ShowPreset(KitDefinition kit)
     {
+        if (!ReferenceEquals(kit, _shown) && kit?.Id != _shown?.Id) _editing = false;
+        if (_armoryList != null) _armoryList.gameObject.SetActive(false);
         _shown = kit;
         try { _preview?.Dispose(); } catch { /* gone */ }
         _preview = null;
@@ -315,6 +330,15 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
             ArenaUiBuilder.SetActive(cell, "Full Border", filled);
             ArenaUiBuilder.SetActive(cell, "Empty Border", !filled);
             ArenaUiBuilder.SetActive(cell, "Selected Border", false);
+            var oldHit = cell.GetComponent<ArenaMenuButton>();
+            if (oldHit != null) Destroy(oldHit);
+            if (_editing && Editable.Contains(slot))
+            {
+                var hit = cell.GetComponent<Image>() ?? cell.gameObject.AddComponent<Image>();
+                hit.color = Color.clear; hit.raycastTarget = true;
+                var capturedCell = cell; var capturedSlot = slot;
+                cell.gameObject.AddComponent<ArenaMenuButton>().Init(cell, () => ShowArmory(capturedCell, capturedSlot));
+            }
             if (!filled) continue;
             var icon = NewRect("ItemIcon", cell);
             icon.anchorMin = icon.anchorMax = new Vector2(0.5f, 0.5f);
@@ -333,24 +357,17 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
         ArenaUiBuilder.SetActive(bottom, "PricePanel/ShopPrice", false);
         ArenaUiBuilder.SetActive(bottom, "PricePanel/LockedText", false);
         ArenaUiBuilder.SetActive(bottom, "PricePanel/FreeText", false);
-        var oldButton = bottom.Find("Select");
-        if (oldButton != null) Destroy(oldButton.gameObject);
-        bool active = _shown != null && !Settings.RandomKit.Value
-                      && string.Equals(Settings.SelectedKit.Value, _shown.Id, StringComparison.OrdinalIgnoreCase);
-        var button = NewRect("Select", bottom);
-        button.anchorMin = button.anchorMax = new Vector2(1f, 0.5f); button.pivot = new Vector2(1f, 0.5f);
-        button.anchoredPosition = new Vector2(-16f, 0f); button.sizeDelta = new Vector2(240f, 48f);
-        var buttonFill = button.gameObject.AddComponent<Image>();
-        buttonFill.color = active ? new Color(0.79f, 0.54f, 0f, 0.18f) : new Color(0.52f, 0.60f, 0.67f, 0.12f);
-        buttonFill.raycastTarget = true;
-        ArenaUiTheme.Rule(button, "Edge", active ? ArenaUiTheme.WithAlpha(Gold, 0.8f) : ArenaUiTheme.Edge, inset: 0f, thickness: 1f);
-        var label = HudStyle.CreateText(button, "Label", 22f, TextAlignmentOptions.Midline);
-        label.text = active ? "SELECTED" : "SELECT";
-        label.color = active ? Gold : Text;
-        ArenaUiBuilder.Stretch(label.rectTransform);
-        button.gameObject.AddComponent<ArenaMenuButton>().Init(button, () =>
+        foreach (var name in new[] { "Select", "Customize", "Delete" })
         {
-            if (_shown == null) return;
+            var old = bottom.Find(name);
+            if (old != null) Destroy(old.gameObject);
+        }
+        if (_shown == null) return;
+        bool active = !Settings.RandomKit.Value
+                      && string.Equals(Settings.SelectedKit.Value, _shown.Id, StringComparison.OrdinalIgnoreCase);
+        bool custom = IsCustom(_shown.Id);
+        BottomButton(bottom, "Select", active ? "SELECTED" : "SELECT", -16f, 240f, active, () =>
+        {
             Settings.SelectedKit.Value = _shown.Id;
             Settings.RandomKit.Value = false;
             Plugin.ModLogger.LogInfo($"Arena preset selected: {_shown.Id}");
@@ -358,6 +375,130 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
             RefreshStatus();
             BindGear();
         });
+        BottomButton(bottom, "Customize", custom ? (_editing ? "DONE" : "EDIT") : "CUSTOMIZE", -270f, 200f, _editing, () =>
+        {
+            if (custom) { _editing = !_editing; BindGear(); return; }
+            if (ArenaArmory.Edit("create", _shown.Id) != null) return;
+            var created = PresetsOf(_class).LastOrDefault(k => IsCustom(k.Id));
+            if (created == null) return;
+            ShowPreset(created);
+            _editing = true;
+            BindGear();
+        });
+        if (custom)
+            BottomButton(bottom, "Delete", "DELETE", -484f, 160f, false, () =>
+            {
+                string id = _shown.Id, fallback = _shown.Base;
+                if (ArenaArmory.Edit("delete", id) != null) return;
+                if (string.Equals(Settings.SelectedKit.Value, id, StringComparison.OrdinalIgnoreCase))
+                {
+                    Settings.SelectedKit.Value = fallback ?? PresetsOf(_class).FirstOrDefault()?.Id ?? "";
+                    ArenaMainMenuOverlay.RefreshCharacter();
+                }
+                SelectClass(_class, null);
+            });
+    }
+
+    private void BottomButton(RectTransform bottom, string name, string caption, float x, float width, bool highlighted, Action onClick)
+    {
+        var button = NewRect(name, bottom);
+        button.anchorMin = button.anchorMax = new Vector2(1f, 0.5f); button.pivot = new Vector2(1f, 0.5f);
+        button.anchoredPosition = new Vector2(x, 0f); button.sizeDelta = new Vector2(width, 48f);
+        var fill = button.gameObject.AddComponent<Image>();
+        fill.color = highlighted ? new Color(0.79f, 0.54f, 0f, 0.18f) : new Color(0.52f, 0.60f, 0.67f, 0.12f);
+        fill.raycastTarget = true;
+        ArenaUiTheme.Rule(button, "Edge", highlighted ? ArenaUiTheme.WithAlpha(Gold, 0.8f) : ArenaUiTheme.Edge, inset: 0f, thickness: 1f);
+        var label = HudStyle.CreateText(button, "Label", 22f, TextAlignmentOptions.Midline);
+        label.text = caption;
+        label.color = highlighted ? Gold : Text;
+        ArenaUiBuilder.Stretch(label.rectTransform);
+        button.gameObject.AddComponent<ArenaMenuButton>().Init(button, onClick);
+    }
+
+    // ---------------------------------------------------------------- armory
+
+    /// <summary>The armory for one gear slot, beside its cell: name and metascore per row, live items first.</summary>
+    private void ShowArmory(RectTransform cell, EquipmentSlot slot)
+    {
+        var root = (RectTransform)transform;
+        if (_armoryList == null)
+        {
+            _armoryList = NewRect("ArmoryList", root);
+            _armoryList.anchorMin = _armoryList.anchorMax = new Vector2(0.5f, 0.5f);
+            _armoryList.pivot = new Vector2(0f, 1f);
+            _armoryList.sizeDelta = new Vector2(440f, 520f);
+            var fill = _armoryList.gameObject.AddComponent<Image>();
+            fill.color = new Color(0.05f, 0.06f, 0.07f, 0.97f);
+            ArenaUiTheme.Rule(_armoryList, "Edge", ArenaUiTheme.Edge, inset: 0f, thickness: 1f);
+            var viewport = NewRect("Viewport", _armoryList);
+            ArenaUiBuilder.Stretch(viewport);
+            viewport.offsetMin = new Vector2(2f, 2f); viewport.offsetMax = new Vector2(-2f, -2f);
+            viewport.gameObject.AddComponent<Image>().color = Color.white;
+            viewport.gameObject.AddComponent<Mask>().showMaskGraphic = false;
+            var content = NewRect("Content", viewport);
+            content.anchorMin = new Vector2(0f, 1f); content.anchorMax = new Vector2(1f, 1f); content.pivot = new Vector2(0.5f, 1f);
+            var layout = content.gameObject.AddComponent<VerticalLayoutGroup>();
+            layout.childForceExpandWidth = true; layout.childForceExpandHeight = false;
+            layout.childControlWidth = true; layout.childControlHeight = true;
+            content.gameObject.AddComponent<ContentSizeFitter>().verticalFit = ContentSizeFitter.FitMode.PreferredSize;
+            var scroll = _armoryList.gameObject.AddComponent<ScrollRect>();
+            scroll.viewport = viewport; scroll.content = content; scroll.horizontal = false; scroll.scrollSensitivity = 40f;
+        }
+        var list = _armoryList.GetComponent<ScrollRect>().content;
+        foreach (Transform child in list) Destroy(child.gameObject);
+        var corners = new Vector3[4];
+        cell.GetWorldCorners(corners);          // 3 = top-right
+        var local = root.InverseTransformPoint(corners[3]);
+        _armoryList.anchoredPosition = new Vector2(Mathf.Min(local.x + 8f, 960f - 440f), Mathf.Max(local.y, -540f + 520f));
+
+        var title = HudStyle.CreateText(list, "Title", 14f, TextAlignmentOptions.MidlineLeft);
+        title.text = slot.ToString().ToUpperInvariant() + "   -   " + _class.ToUpperInvariant() + " ARMORY";
+        title.color = Muted;
+        title.gameObject.AddComponent<LayoutElement>().preferredHeight = 30f;
+        string current = _equipment?.GetSlot(slot)?.ContainedItem?.TemplateId
+                         ?? (slot == EquipmentSlot.FirstPrimaryWeapon ? _equipment?.GetSlot(EquipmentSlot.SecondPrimaryWeapon)?.ContainedItem?.TemplateId : null);
+        int rows = 0;
+        foreach (var entry in ArenaArmory.ForSlot(slot.ToString(), _class))
+        {
+            rows++;
+            var row = NewRect("Item " + entry.Tpl, list);
+            row.gameObject.AddComponent<LayoutElement>().preferredHeight = 34f;
+            var rowImage = row.gameObject.AddComponent<Image>();
+            rowImage.color = Color.clear; rowImage.raycastTarget = true;
+            bool isCurrent = entry.Tpl == current;
+            var name = HudStyle.CreateText(row, "Name", 16f, TextAlignmentOptions.MidlineLeft);
+            name.text = (entry.Name ?? entry.Tpl).ToUpperInvariant() + (entry.Live ? "" : "  <size=11><color=#8A9AA6>(unranked)</color></size>");
+            name.color = isCurrent ? Gold : Text;
+            ArenaUiBuilder.Stretch(name.rectTransform);
+            name.rectTransform.offsetMin = new Vector2(16f, 0f); name.rectTransform.offsetMax = new Vector2(-90f, 0f);
+            var score = HudStyle.CreateText(row, "Score", 15f, TextAlignmentOptions.MidlineRight);
+            score.text = entry.Score.ToString("N0");
+            score.color = entry.Bar == "defense" ? new Color(0.45f, 0.72f, 0.95f) : entry.Bar == "utility" ? new Color(0.55f, 0.85f, 0.55f) : new Color(0.95f, 0.62f, 0.35f);
+            ArenaUiBuilder.Stretch(score.rectTransform);
+            score.rectTransform.offsetMax = new Vector2(-14f, 0f);
+            var captured = entry;
+            row.gameObject.AddComponent<ArenaMenuButton>().Init(row, () =>
+            {
+                _armoryList.gameObject.SetActive(false);
+                if (_shown == null || ArenaArmory.Edit("swap", _shown.Id, slot.ToString(), captured.Tpl) != null) return;
+                var updated = KitCatalog.Kits.FirstOrDefault(k => string.Equals(k.Id, _shown.Id, StringComparison.OrdinalIgnoreCase));
+                bool keepEditing = _editing;
+                ShowPreset(updated);
+                _editing = keepEditing;
+                BindGear();
+                if (string.Equals(Settings.SelectedKit.Value, _shown?.Id, StringComparison.OrdinalIgnoreCase))
+                    ArenaMainMenuOverlay.RefreshCharacter();
+            });
+        }
+        if (rows == 0)
+        {
+            var empty = HudStyle.CreateText(list, "Empty", 15f, TextAlignmentOptions.MidlineLeft);
+            empty.text = "Nothing in the armory for this slot."; empty.color = Muted;
+            empty.gameObject.AddComponent<LayoutElement>().preferredHeight = 34f;
+        }
+        _armoryList.gameObject.SetActive(true);
+        _armoryList.SetAsLastSibling();
+        _armoryList.GetComponent<ScrollRect>().verticalNormalizedPosition = 1f;
     }
 
     private void BindContainers()
@@ -505,9 +646,13 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
         return null;
     }
 
+    private static bool IsCustom(string kitId)
+        => kitId != null && kitId.StartsWith("custom-", StringComparison.OrdinalIgnoreCase);
+
     private static string ClassOf(string kitId)
     {
         if (string.IsNullOrEmpty(kitId)) return null;
+        if (IsCustom(kitId)) kitId = kitId.Substring(7);
         int dash = kitId.IndexOf('-');
         string prefix = dash > 0 ? kitId.Substring(0, dash) : kitId;
         return Classes.Any(c => c.Id == prefix) ? prefix : null;

@@ -16,6 +16,8 @@ public static class Protocol
     public const string ConfigRoute = "/arenamode/config";
     public const string KitsRoute = "/arenamode/kits";
     public const string MetascoreRoute = "/arenamode/metascore";
+    public const string ArmoryRoute = "/arenamode/armory";
+    public const string PresetEditRoute = "/arenamode/presets/edit";
     public const string LadderRoute = "/arenamode/ladder";
 
     /// <summary>Cut a fresh ladder mid-raid, for when the player finishes the one they had.</summary>

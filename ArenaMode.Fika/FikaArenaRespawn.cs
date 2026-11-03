@@ -37,24 +37,15 @@ internal static class FikaArenaRespawn
         if (_running) return;
         _running = true;
         ArenaEvents.RaisePlayerDied(player);
-        bool replay = FikaKillcam.TryBegin(player);
-        player.StartCoroutine(Routine(player, replay));
+        player.StartCoroutine(Routine(player));
     }
 
-    private static IEnumerator Routine(FikaPlayer player, bool replay)
+    private static IEnumerator Routine(FikaPlayer player)
     {
         try
         {
             var corpsePosition = player.Position;
             float waited = 0f;
-            if (replay)
-            {
-                // Killcam starts its coroutine a frame or two after the request; wait for it, then for its end.
-                float deadline = Time.unscaledTime + FikaKillcam.Bound;
-                float startBy = Time.unscaledTime + 1.5f;
-                while (!FikaKillcam.IsPlaying && Time.unscaledTime < startBy && ArenaCoop.RespawnsActive) yield return null;
-                while (FikaKillcam.IsPlaying && Time.unscaledTime < deadline && ArenaCoop.RespawnsActive) yield return null;
-            }
             while (ArenaCoop.RespawnsActive && ArenaMatchService.Current?.Mode?.HoldRespawn == true)
                 yield return null;
             while (ArenaCoop.RespawnsActive && waited < Plugin.RespawnDelaySeconds.Value)

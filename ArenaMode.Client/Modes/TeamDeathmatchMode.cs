@@ -421,16 +421,40 @@ public sealed partial class TeamDeathmatchMode : IArenaMode
             + $"other={occupied - active - preActive}, " + _population.DescribePending(usec, Time.realtimeSinceStartup);
     }
 
+    // Live Arena's team table has fixed seats. A replacement bot takes the seat, and the running stats, of the
+    // body it replaces, so the enemy team's kills survive their deaths instead of leaving with each corpse.
+    private readonly Dictionary<string, string> _seatById = new Dictionary<string, string>(StringComparer.Ordinal);
+
+    private string SeatFor(BotOwner bot, bool usec)
+    {
+        if (_seatById.TryGetValue(bot.ProfileId, out string seat)) return seat;
+        var taken = new HashSet<string>(StringComparer.Ordinal);
+        foreach (BotOwner other in _bots)
+            if (Alive(other) && _seatById.TryGetValue(other.ProfileId, out string held)) taken.Add(held);
+        string prefix = usec ? "usec-" : "bear-";
+        int n = 0;
+        while (taken.Contains(prefix + n)) n++;
+        seat = prefix + n;
+        foreach (string previous in _seatById.Where(pair => pair.Value == seat).Select(pair => pair.Key).ToList())
+            _seatById.Remove(previous);
+        _seatById[bot.ProfileId] = seat;
+        return seat;
+    }
+
     internal bool TrySynchronizeScoreboardRoster(out string problem)
     {
         problem = null;
         if (_population == null || _match == null || _local == null || !IsCurrentRaid() || HasResult) return true;
         var friendly = new List<ArenaScoreboardActor>();
         var opposing = new List<ArenaScoreboardActor>();
-        foreach (BotOwner bot in _bots)
+        foreach (BotOwner bot in _bots.Where(Alive).Concat(_bots.Where(bot => !Alive(bot))))
         {
             if (bot == null || bot.GetPlayer == null || !_usecById.TryGetValue(bot.ProfileId, out bool usec)) continue;
-            (usec == _population.LocalUsec ? friendly : opposing).Add(ArenaMatchService.SnapshotActor(bot.GetPlayer));
+            string seat = Alive(bot) ? SeatFor(bot, usec)
+                : _seatById.TryGetValue(bot.ProfileId, out string kept) ? kept : null;
+            if (seat == null) continue;   // a dead body whose seat a replacement already took
+            var actor = ArenaMatchService.SnapshotActor(bot.GetPlayer, seat);
+            if (actor != null) (usec == _population.LocalUsec ? friendly : opposing).Add(actor);
         }
         return _match.Scoreboard.TrySynchronizeRoster(1, ArenaMatchService.SnapshotActor(_local),
             friendly, opposing, out problem);

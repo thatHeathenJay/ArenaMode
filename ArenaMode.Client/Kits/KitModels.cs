@@ -27,6 +27,8 @@ public class KitDefinition
     /// </summary>
     [JsonProperty("price")] public int Price;
     [JsonProperty("order")] public int Order;
+    /// <summary>Custom presets: the stock preset they were copied from.</summary>
+    [JsonProperty("base")] public string Base;
     [JsonProperty("items")] public List<KitItemNode> Items = new List<KitItemNode>();
     [JsonProperty("fill")] public KitFill Fill = new KitFill();
 }

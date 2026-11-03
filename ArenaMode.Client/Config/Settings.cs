@@ -172,6 +172,7 @@ public static class Settings
     public static ConfigEntry<int> PmcFloor { get; private set; }
     public static ConfigEntry<bool> HuntPlayer { get; private set; }
     public static ConfigEntry<bool> ExcludePassiveSainPersonalities { get; private set; }
+    public static ConfigEntry<string> SainPreset { get; private set; }
     public static ConfigEntry<bool> MaxSkills { get; private set; }
     public static ConfigEntry<int> LegInjurySlowdownReductionPercent { get; private set; }
     public static ConfigEntry<float> MedicalUseSpeed { get; private set; }
@@ -1100,6 +1101,9 @@ public static class Settings
             "actively close in instead of patrolling until they happen to see you. " +
             "Team Deathmatch instead keeps both factions aware of live opponents.");
 
+        SainPreset = config.Bind("Bots", "SainPreset", "",
+            "SAIN preset name this install forces instead of the server's forced preset (empty = server's choice). " +
+            "The Arena client sets this to its own preset; the preset must exist on the server (SAIN Presets folder).");
         ExcludePassiveSainPersonalities = config.Bind(
             "Bots",
             "ExcludePassiveSainPersonalities",

@@ -4,7 +4,10 @@ using SPTarkov.Server.Core.Models.Spt.Bots;
 
 namespace ArenaMode.Server.Services;
 
-/// <summary>One generated bot's final faction marker, never a shared template or player inventory.</summary>
+/// <summary>
+/// One generated bot's final faction marker, never a shared template or player inventory. Live Arena issues no
+/// backpacks, so a generated bot's backpack (and everything in it) goes too.
+/// </summary>
 public static class TeamDeathmatchArmbandPolicy
 {
     // Native SPT forceArmband convention, independent of APBS's weighted pools.
@@ -39,7 +42,8 @@ public static class TeamDeathmatchArmbandPolicy
         var parent = equipment.ToString();
         var template = new MongoId(Equal(details.Side, "Usec") ? UsecBlue : BearRed);
         var bands = source.Where(item => item.ParentId == parent && item.SlotId == "ArmBand").ToList();
-        var removed = bands.Select(item => item.Id.ToString()).ToHashSet(StringComparer.Ordinal);
+        var packs = source.Where(item => item.ParentId == parent && item.SlotId == "Backpack").ToList();
+        var removed = bands.Concat(packs).Select(item => item.Id.ToString()).ToHashSet(StringComparer.Ordinal);
         // Some third-party items use ArmBand as a container slot. Replacing
         // such a bot-only item must remove its descendants too, not orphan them
         // beneath an ordinary cloth band. Other equipment/loot stays identical.
@@ -55,7 +59,7 @@ public static class TeamDeathmatchArmbandPolicy
         // A malformed parent cycle must never remove the inventory root.
         if (removed.Contains(parent))
             return bot;
-        if (bands.Count == 1 && removed.Count == 1 && bands[0].Template == template)
+        if (packs.Count == 0 && bands.Count == 1 && removed.Count == 1 && bands[0].Template == template)
             return bot;
 
         var items = source.Where(item => !removed.Contains(item.Id.ToString())).ToList();

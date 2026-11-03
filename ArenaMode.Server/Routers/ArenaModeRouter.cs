@@ -82,6 +82,15 @@ public class ArenaClientSettingsRequest : ArenaMode.Shared.ClientSettingsSchema,
 {
 }
 
+/// <summary>Preset editor: create (copy a stock preset), swap (one gear slot), delete.</summary>
+public record ArenaPresetEditRequest : IRequestData
+{
+    public string? Action { get; set; }
+    public string? KitId { get; set; }
+    public string? Slot { get; set; }
+    public string? Tpl { get; set; }
+}
+
 [Injectable(TypePriority = OnLoadOrder.Routers + 1)]
 public sealed class ArenaModeRouter : StaticRouter
 {
@@ -123,7 +132,19 @@ public sealed class ArenaModeRouter : StaticRouter
         new RouteAction<EmptyRequestData>(
             Protocol.KitsRoute,
             (url, info, sessionId, output, _) =>
-                new ValueTask<string>(Sessions?.GetKits(sessionId) ?? ArenaContext.KitsJson)),
+                new ValueTask<string>(ArenaPresetEditor.MergeKits(sessionId, Sessions?.GetKits(sessionId) ?? ArenaContext.KitsJson))),
+
+        new RouteAction<EmptyRequestData>(
+            Protocol.ArmoryRoute,
+            (url, info, sessionId, output, _) => new ValueTask<string>(ArenaContext.ArmoryJson)),
+
+        new RouteAction<ArenaPresetEditRequest>(
+            Protocol.PresetEditRoute,
+            (url, info, sessionId, output, _) =>
+            {
+                var kits = ArenaPresetEditor.Handle(sessionId, info.Action ?? "", info.KitId, info.Slot, info.Tpl, out var error);
+                return new ValueTask<string>(Json(new { kits, error }));
+            }),
 
         new RouteAction<EmptyRequestData>(
             Protocol.MetascoreRoute,

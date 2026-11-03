@@ -43,7 +43,6 @@ public class Plugin : BaseUnityPlugin
         var harmony = new Harmony(PluginGuid);
         FikaArenaPatches.Install(harmony);
         FikaDeployScreenPatches.Install(harmony);
-        gameObject.AddComponent<FikaKillcamArmer>();
         ArenaCoop.IsAvailable = true;
         Log.LogInfo($"Co-op arena enabled on Fika {FikaPlugin.FikaVersion}.");
     }
