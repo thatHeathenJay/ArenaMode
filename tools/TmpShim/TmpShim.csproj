@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Serialized-layout shim of Unity 6 TextMeshPro (UGUI 2.0) for AssetRipper. Arena is IL2CPP with encrypted
+       metadata, so AssetRipper reads MonoBehaviour layouts from managed DLLs; the EFT client ships TMP 3.0.6 whose
+       layout differs by three fields. Only field declarations matter: names, types and order. No behaviour. -->
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <AssemblyName>Unity.TextMeshPro</AssemblyName>
+    <RootNamespace>TMPro</RootNamespace>
+    <Nullable>disable</Nullable>
+    <NoWarn>CS0169;CS0649;CS0414;CS0108</NoWarn>
+    <EftManaged>C:\Games\SPT-4.1\EscapeFromTarkov_Data\Managed</EftManaged>
+    <OutDir>bin\</OutDir>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine.CoreModule"><HintPath>$(EftManaged)\UnityEngine.CoreModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.UI"><HintPath>$(EftManaged)\UnityEngine.UI.dll</HintPath><Private>false</Private></Reference>
+  </ItemGroup>
+</Project>

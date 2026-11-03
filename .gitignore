@@ -8,3 +8,5 @@ artifacts/
 .unlazy-hook-state.json
 __pycache__/
 *.pyc
+tools/TmpShim/bin/
+tools/TmpShim/obj/
