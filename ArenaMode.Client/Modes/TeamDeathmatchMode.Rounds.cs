@@ -32,7 +32,7 @@ public sealed partial class TeamDeathmatchMode
     private readonly List<DominationObjectivePoint> _roundObjectives = new();
     private bool _roundBridge;
     private float _roundLiveAt = -1f, _learnGatesAt = -1f;
-    private Vector3? _rushPoint;
+    private readonly List<Vector3> _rushLanes = new();
 
     /// <summary>Live TeamFight rules (rounds, one life, capture point) instead of continuous respawns.</summary>
     public bool IsRounds => _roundsMode && _rounds != null;
@@ -84,16 +84,22 @@ public sealed partial class TeamDeathmatchMode
         {
             if (_rounds.PointActive && _roundPoint.HasValue)
                 _roundObjectives.Add(new DominationObjectivePoint("point", _roundPoint.Value, _rounds.CaptureUsec, false));
-            else if (_rushPoint.HasValue && Time.time - _roundLiveAt < Settings.TeamFightRushSeconds.Value)
-                _roundObjectives.Add(new DominationObjectivePoint("rush", _rushPoint.Value, null, false));
+            else if (_rushLanes.Count > 0 && Time.time - _roundLiveAt < Settings.TeamFightRushSeconds.Value)
+                for (int i = 0; i < _rushLanes.Count; i++)
+                    _roundObjectives.Add(new DominationObjectivePoint("lane-" + i, _rushLanes[i], null, false));
         }
         try { DominationObjectiveBridge.Update(_roundObjectives, _bots.Where(Alive).ToList(), _roundObjectives.Count > 0); }
         catch (Exception ex) { Plugin.ModLogger.LogDebug("TeamFight: objective update failed: " + ex.Message); }
     }
 
-    /// <summary>The middle of the arena as the two teams stand at the start: the mean of each side's positions, halved.</summary>
-    private Vector3? ComputeRushPoint()
+    /// <summary>
+    /// Opening lanes: one point per bot spread across the middle of the arena, side by side at right angles to the
+    /// line between the two teams. The objective layer penalises a point other teammates already hold, so each bot
+    /// takes its own lane instead of the whole team filing down one path.
+    /// </summary>
+    private void ComputeRushLanes()
     {
+        _rushLanes.Clear();
         Vector3 usecSum = Vector3.zero, bearSum = Vector3.zero;
         int usecCount = 0, bearCount = 0;
         foreach (var player in _world?.AllAlivePlayersList ?? new List<Player>())
@@ -103,11 +109,30 @@ public sealed partial class TeamDeathmatchMode
             if (side == EPlayerSide.Usec) { usecSum += player.Position; usecCount++; }
             else if (side == EPlayerSide.Bear) { bearSum += player.Position; bearCount++; }
         }
-        if (usecCount == 0 || bearCount == 0) return _roundPoint;
-        var middle = (usecSum / usecCount + bearSum / bearCount) * 0.5f;
-        if (Physics.Raycast(middle + Vector3.up * 3f, Vector3.down, out var hit, 12f, LayersMaskController.HighPolyWithTerrainMask))
-            middle = hit.point;
-        return middle;
+        if (usecCount == 0 || bearCount == 0)
+        {
+            if (_roundPoint.HasValue) _rushLanes.Add(_roundPoint.Value);
+            return;
+        }
+        Vector3 usecCentre = usecSum / usecCount, bearCentre = bearSum / bearCount;
+        var middle = (usecCentre + bearCentre) * 0.5f;
+        var axis = bearCentre - usecCentre;
+        axis.y = 0f;
+        float length = axis.magnitude;
+        axis = length < 1f ? Vector3.forward : axis / length;
+        var lateral = Vector3.Cross(Vector3.up, axis);
+        float spacing = Mathf.Clamp(length * 0.15f, 6f, 18f);
+        int lanes = Math.Max(1, TeamSize);
+        for (int i = 0; i < lanes; i++)
+        {
+            var point = middle + lateral * ((i - (lanes - 1) * 0.5f) * spacing);
+            if (UnityEngine.AI.NavMesh.SamplePosition(point, out var nav, spacing, UnityEngine.AI.NavMesh.AllAreas)) point = nav.position;
+            else if (Physics.Raycast(point + Vector3.up * 3f, Vector3.down, out var hit, 12f, LayersMaskController.HighPolyWithTerrainMask)) point = hit.point;
+            else continue;
+            _rushLanes.Add(point);
+        }
+        if (_rushLanes.Count == 0 && _roundPoint.HasValue) _rushLanes.Add(_roundPoint.Value);
+        Plugin.ModLogger.LogDebug($"TeamFight: {_rushLanes.Count} opening lanes {spacing:F0} m apart across {middle}.");
     }
 
     /// <summary>Per-client housekeeping that waits on the clock (gate learning after the first opening).</summary>
@@ -239,7 +264,7 @@ public sealed partial class TeamDeathmatchMode
         if (now == TeamFightPhase.Live)
         {
             _roundLiveAt = Time.time;
-            _rushPoint = ComputeRushPoint();
+            ComputeRushLanes();
         }
         OnRoundPhaseLocal(before, now);
     }

@@ -100,7 +100,7 @@ internal sealed class ArenaBattleFlow : MonoBehaviour
     private ArenaUiPack _pack;
     private ArenaUiBuilder _builder;
     private RectTransform _root, _screen, _pins, _description, _info, _header, _nextButton, _respawnsToggle;
-    private TextMeshProUGUI _modeDescription, _respawnsLabel;
+    private TextMeshProUGUI _modeDescription, _respawnsLabel, _playersValue;
     private readonly List<RectTransform> _cards = new();
     private Step _step;
     private string _location, _mode = TeamFightId;
@@ -136,11 +136,19 @@ internal sealed class ArenaBattleFlow : MonoBehaviour
         Start(map.Id, false);
     }
 
+    /// <summary>Players per side on an arena: live's 5, or fewer where the arena's team boxes hold fewer.</summary>
+    internal static int TeamSizeFor(string locationId)
+    {
+        int cap = Shared.ArenaParticipantPolicy.MaximumFor(locationId, ArenaModeCatalog.TeamDeathmatchId) / 2;
+        return Mathf.Clamp(Mathf.Min(Settings.TeamDeathmatchSize.Value, cap), 2, 5);
+    }
+
     private static void Start(string locationId, bool returnToMap)
     {
         Settings.TrySelectGameMode(ArenaModeCatalog.TeamDeathmatchId);   // TeamFight is the fork's team deathmatch
-        if (!ArenaParticipantSettings.TrySelect(locationId, ArenaModeCatalog.TeamDeathmatchId, 10))
-            Plugin.ModLogger.LogWarning($"Arena battle flow: could not set 5v5 participants for {locationId}; the participant setting applies.");
+        int size = TeamSizeFor(locationId);
+        if (!ArenaParticipantSettings.TrySelect(locationId, ArenaModeCatalog.TeamDeathmatchId, 2 * size))
+            Plugin.ModLogger.LogWarning($"Arena battle flow: could not set {size}v{size} participants for {locationId}; the participant setting applies.");
         Hide();
         PendingLocationId = locationId;
         UsedThisSession = true;
@@ -308,7 +316,10 @@ internal sealed class ArenaBattleFlow : MonoBehaviour
         var settings = ArenaUiBuilder.Find(_info, "Content/SettingsBlock");
         var playersBlock = ArenaUiBuilder.Find(settings, "IconsPanel/Players");
         playersBlock.gameObject.SetActive(mode.Players != null);
-        if (mode.Players != null) ArenaUiBuilder.Text(playersBlock, "PlayersList/PlayersTemplate").text = mode.Players;
+        if (mode.Players != null)
+            ArenaUiBuilder.Text(playersBlock, "PlayersList/PlayersTemplate").text = teamFight
+                ? string.Join(" / ", Maps.Select(m => TeamSizeFor(m.Id)).Distinct().OrderByDescending(n => n).Select(n => $"{n}x{n}"))
+                : mode.Players;
         ArenaUiBuilder.SetActive(settings, "IconsPanel/Playtime", teamFight);
         if (teamFight) RefreshPlaytime(settings);
         if (_respawnsToggle != null) _respawnsToggle.gameObject.SetActive(teamFight);
@@ -410,7 +421,7 @@ internal sealed class ArenaBattleFlow : MonoBehaviour
         if (playersValue != null)
         {
             playersValue.gameObject.SetActive(true);
-            playersValue.GetComponent<TextMeshProUGUI>().text = "5x5";
+            _playersValue = playersValue.GetComponent<TextMeshProUGUI>();
         }
 
         FlowButton(screen, "NextButton", StartMatch);
@@ -438,7 +449,7 @@ internal sealed class ArenaBattleFlow : MonoBehaviour
         var tags = ArenaUiBuilder.Find(plate, "AvailbaleModesContiainer");
         var tag = _builder.Build(ArenaMenuChrome.Find(template, "AvailableModeTemplate"), tags);
         tag.gameObject.SetActive(true);
-        ArenaUiBuilder.Text(tag, "Text").text = "TF";
+        ArenaUiBuilder.Text(tag, "Text").text = "TF " + TeamSizeFor(id) + "x" + TeamSizeFor(id);
         var tagImage = tag.GetComponent<Image>();
         if (tagImage != null) tagImage.sprite = _pack.Sprite(ArenaMenuChrome.TagSprite(ArenaMenuChrome.TagTeamFight)) ?? tagImage.sprite;
         Clickable(plate, "ClickHandler", () => SelectLocation(id), selected, false);   // orange under the pointer and when chosen
@@ -456,6 +467,7 @@ internal sealed class ArenaBattleFlow : MonoBehaviour
         }
 
         ArenaUiBuilder.Text(_description, "TitleBlock/NameBlock/Location Name").text = map.Name.ToUpperInvariant();
+        if (_playersValue != null) { int size = TeamSizeFor(map.Id); _playersValue.text = $"{size}x{size}"; }
         var icon = ArenaUiBuilder.TryFind(_description, "TitleBlock/NameBlock/MapIco")?.GetComponent<Image>();
         if (icon != null)
         {
