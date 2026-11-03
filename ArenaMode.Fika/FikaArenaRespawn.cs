@@ -63,7 +63,7 @@ internal static class FikaArenaRespawn
             player.Transform.rotation = rotation;
             StandUp(player);
             RestoreHealth(player);
-            RestoreKitInPlace(player);
+            RestoreKitInPlace(player, CoopEntryKit.LastIssued);
             Restock(player, CoopEntryKit.LastIssued);
             ArenaEvents.RaisePlayerRespawned(player);
             ArenaMatchService.Current?.Mode?.OnLocalRespawn(player);
@@ -139,17 +139,48 @@ internal static class FikaArenaRespawn
         catch (Exception ex) { Plugin.Log.LogWarning($"Co-op arena: health restore incomplete: {ex.Message}"); }
     }
 
-    /// <summary>Refill what a kit respawn would have handed out fresh, without replacing a single item.</summary>
-    private static void RestoreKitInPlace(Player player)
+    /// <summary>
+    /// Refill what a kit respawn would have handed out fresh, without replacing a single item. A magazine shot dry
+    /// has no ammo stack left at all (EFT deletes a stack at zero), so one is created from the kit's round, and an
+    /// empty chamber gets a round too.
+    /// </summary>
+    private static void RestoreKitInPlace(Player player, KitDefinition kit)
     {
         try
         {
-            foreach (var item in player.Profile.Inventory.Equipment.GetAllItems())
+            var factory = Singleton<ItemFactory>.Instance;
+            string ammoTpl = kit?.Items?.FirstOrDefault(n => n.SlotId == "cartridges")?.Tpl;
+            int magazines = 0, refilled = 0;
+            foreach (var item in player.Profile.Inventory.Equipment.GetAllItems().ToList())
             {
                 if (item is Magazine magazine)
                 {
-                    foreach (var round in magazine.Cartridges.Items)
-                        round.StackObjectsCount = Math.Max(1, Math.Min(magazine.MaxCount, round.StackMaxSize));
+                    magazines++;
+                    if (magazine.Cartridges.Items.Any())
+                    {
+                        foreach (var round in magazine.Cartridges.Items)
+                            round.StackObjectsCount = Math.Max(1, Math.Min(magazine.MaxCount, round.StackMaxSize));
+                        ammoTpl ??= magazine.Cartridges.Items.First().TemplateId;
+                    }
+                    else if (ammoTpl != null)
+                    {
+                        var ammo = factory.CreateItem(MongoID.Generate(), ammoTpl, null);
+                        ammo.StackObjectsCount = Math.Max(1, Math.Min(magazine.MaxCount, ammo.StackMaxSize));
+                        var load = magazine.Cartridges.Add(ammo, false);
+                        if (load.Failed) Plugin.Log.LogWarning($"Co-op arena: reloading an empty magazine failed: {load.Error}");
+                        else refilled++;
+                    }
+                }
+                else if (item is Weapon weapon && ammoTpl != null)
+                {
+                    foreach (var chamber in weapon.Chambers)
+                        if (chamber.ContainedItem == null)
+                        {
+                            var round = factory.CreateItem(MongoID.Generate(), ammoTpl, null);
+                            round.StackObjectsCount = 1;
+                            var load = chamber.AddWithoutRestrictions(round);
+                            if (load.Failed) Plugin.Log.LogWarning($"Co-op arena: chambering a round failed: {load.Error}");
+                        }
                 }
                 var repairable = item.GetItemComponent<RepairableComponent>();
                 if (repairable != null)
@@ -158,6 +189,7 @@ internal static class FikaArenaRespawn
                 if (medkit != null)
                     medkit.HpResource = medkit.MaxHpResource;
             }
+            Plugin.Log.LogInfo($"Co-op arena: refilled {magazines} magazine(s), {refilled} of them from empty.");
         }
         catch (Exception ex)
         {

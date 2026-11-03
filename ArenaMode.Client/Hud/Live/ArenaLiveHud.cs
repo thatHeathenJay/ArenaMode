@@ -379,8 +379,8 @@ internal static class ArenaLiveHud
 
     private static void TickTab(Audio.ArenaAnnouncementSnapshot snapshot)
     {
-        // Live Arena shows the team table on its inventory screen, so Tab (inventory) is the key.
-        bool show = Input.GetKey(KeyCode.Tab) || IsInventoryScreen()
+        // Hold O (EFT's "match info" key): Tab must keep opening the inventory so the kit stays reachable.
+        bool show = (Input.GetKey(KeyCode.O) && ArenaHudVisibility.IsBattleUiActive)
                     || (snapshot.Terminal && _resultShownAt >= 0f && Time.unscaledTime - _resultShownAt > 3f);
         _tabCanvas.enabled = show;
         if (!show) return;
