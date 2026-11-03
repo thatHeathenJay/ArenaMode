@@ -269,6 +269,7 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
             Settings.RandomKit.Value = false;
             Plugin.ModLogger.LogInfo($"Arena preset selected: {kit.Id}");
             SelectClass(_class);
+            ArenaMainMenuOverlay.RefreshCharacter();
         });
     }
 

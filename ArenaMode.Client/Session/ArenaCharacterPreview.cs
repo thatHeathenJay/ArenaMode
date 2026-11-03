@@ -1,6 +1,7 @@
 using Comfort.Common;
 using Diz.Resources;
 using EFT;
+using EFT.InventoryLogic;
 using EFT.UI;
 using EFT.UI.Matchmaker;
 using JsonType;
@@ -59,7 +60,8 @@ internal sealed class ArenaCharacterPreview : IDisposable
     /// Standalone preview for screens without a native model view (the Arena main menu): own camera and key light on
     /// the preview layer, the image stretched over <paramref name="host"/>. No native post-processing is copied.
     /// </summary>
-    public ArenaCharacterPreview(Profile profile, RectTransform host, Action onUnavailable)
+    /// <param name="equipment">What the body wears; null = the side's generic preview set.</param>
+    public ArenaCharacterPreview(Profile profile, RectTransform host, Action onUnavailable, InventoryEquipment equipment = null)
     {
         _onUnavailable = onUnavailable;
         try
@@ -67,7 +69,7 @@ internal sealed class ArenaCharacterPreview : IDisposable
             if (profile?.Customization == null || host == null)
                 throw new InvalidOperationException("Profile customization or host is unavailable.");
             var visual = new PlayerVisualRepresentation(new PlayerInfo { Side = profile.Info.Side },
-                new BodyCustomization(profile.Customization), ArenaPreviewEquipment.Build(profile.Info.Side));
+                new BodyCustomization(profile.Customization), equipment ?? ArenaPreviewEquipment.Build(profile.Info.Side));
             CreateStandaloneView(host);
             CreateStandaloneCamera();
             if (!_lifetime.TryBeginLoad()) throw new InvalidOperationException("Preview load already started.");

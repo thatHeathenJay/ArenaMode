@@ -1,3 +1,4 @@
+using ArenaMode.Config;
 using Comfort.Common;
 using EFT;
 using EFT.UI;
@@ -6,6 +7,7 @@ using EFT.UI.Screens;
 using HarmonyLib;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -264,7 +266,8 @@ internal sealed class ArenaMainMenuOverlay : MonoBehaviour
                 Plugin.ModLogger.LogInfo("Arena main menu: no profile yet; character skipped.");
                 return;
             }
-            _preview = new Session.ArenaCharacterPreview(profile, _modelHost, () => Plugin.ModLogger.LogWarning("Arena main menu character unavailable."));
+            _preview = new Session.ArenaCharacterPreview(profile, _modelHost,
+                () => Plugin.ModLogger.LogWarning("Arena main menu character unavailable."), SelectedKitEquipment(profile));
         }
         catch (Exception ex)
         {
@@ -272,6 +275,32 @@ internal sealed class ArenaMainMenuOverlay : MonoBehaviour
             try { _preview?.Dispose(); } catch { /* ignore */ }
             _preview = null;
         }
+    }
+
+    /// <summary>The selected preset worn by the menu character, as live shows it; null keeps the generic set.</summary>
+    private static EFT.InventoryLogic.InventoryEquipment SelectedKitEquipment(Profile profile)
+    {
+        try
+        {
+            if (Settings.RandomKit.Value) return null;
+            var kit = Kits.KitCatalog.Kits.FirstOrDefault(k => string.Equals(k.Id, Settings.SelectedKit.Value, StringComparison.OrdinalIgnoreCase));
+            return kit == null ? null : Kits.TeamArenaEntryKit.Prepare(profile, kit);
+        }
+        catch (Exception ex)
+        {
+            Plugin.ModLogger.LogWarning("Arena main menu: preset preview equipment unavailable: " + ex.Message);
+            return null;
+        }
+    }
+
+    /// <summary>Rebuilds the menu character (after a preset selection).</summary>
+    internal static void RefreshCharacter()
+    {
+        var overlay = Plugin.Instance?.GetComponent<ArenaMainMenuOverlay>();
+        if (overlay == null || overlay._canvasGo == null) return;
+        try { overlay._preview?.Dispose(); } catch { /* gone */ }
+        overlay._preview = null;
+        overlay.ShowCharacter();
     }
 
     private static Profile SessionProfile()

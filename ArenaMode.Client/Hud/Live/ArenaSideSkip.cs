@@ -49,7 +49,12 @@ internal static class ArenaSideSkip
             => AccessTools.Method(typeof(MatchMakerSelectionLocationScreen), nameof(MatchMakerSelectionLocationScreen.ShowInternal));
 
         [PatchPostfix]
-        private static void Postfix() => _cameFromLocation = ArenaUiPack.IsAvailable;
+        private static void Postfix(MatchMakerSelectionLocationScreen __instance)
+        {
+            _cameFromLocation = ArenaUiPack.IsAvailable;
+            // Arena has fixed daytime (the mod pins the phase); the time-phase / weather block is noise here.
+            if (ArenaUiPack.IsAvailable && __instance?._conditions != null) __instance._conditions.gameObject.SetActive(false);
+        }
     }
 
     private static IEnumerator Press(EFT.UI.DefaultUIButton button)
