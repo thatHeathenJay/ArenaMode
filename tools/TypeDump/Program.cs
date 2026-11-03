@@ -30,8 +30,13 @@ if (args.Length >= 2 && args[0] == "--plugins")
     return;
 }
 var dll = args[0]; var dir = args[1]; var filter = args.Length > 2 ? args[2] : "";
-// The game folder carries its own mscorlib/netstandard; do not mix in the host runtime (duplicate core assembly).
-var paths = Directory.GetFiles(dir, "*.dll").ToList();
+// --members: every type (not only public) with its fields, methods (name(param types)) and properties.
+bool members = args.Contains("--members");
+filter = filter == "--members" ? "" : filter;
+// Search dirs are ';'-separated (game Managed + BepInEx/core + plugin folders). The game folder carries its own
+// mscorlib/netstandard; do not mix in the host runtime (duplicate core assembly).
+var paths = dir.Split(';').Where(Directory.Exists).SelectMany(d => Directory.GetFiles(d, "*.dll"))
+    .GroupBy(p => Path.GetFileName(p), StringComparer.OrdinalIgnoreCase).Select(g => g.First()).ToList();
 if (!paths.Any(p => Path.GetFileName(p).Equals(Path.GetFileName(dll), StringComparison.OrdinalIgnoreCase))) paths.Add(dll);
 using var mlc = new MetadataLoadContext(new PathAssemblyResolver(paths), "mscorlib");
 var asm = mlc.LoadFromAssemblyPath(dll);
@@ -40,7 +45,8 @@ try { types = asm.GetTypes(); } catch (ReflectionTypeLoadException e) { types = 
 foreach (var t in types.OrderBy(t => t.FullName))
 {
     if (t.FullName is null || (filter.Length > 0 && !t.FullName.StartsWith(filter))) continue;
-    if (!(t.IsPublic || t.IsNestedPublic)) continue;
+    if (!members && !(t.IsPublic || t.IsNestedPublic)) continue;
+    if (members && t.Name.StartsWith("<")) continue;
     string kind = t.IsEnum ? "enum" : t.IsValueType ? "struct" : t.IsInterface ? "interface" : "class";
     var fields = new List<string>();
     if (kind is "class" or "struct")
@@ -52,6 +58,21 @@ foreach (var t in types.OrderBy(t => t.FullName))
             if (ser) fields.Add(f.FieldType.ToString() + ":" + f.Name);
         }
     }
-    string baseName = t.BaseType?.FullName ?? "";
+    string baseName = "";
+    try { baseName = t.BaseType?.FullName ?? ""; } catch { baseName = "?"; }
     Console.WriteLine($"{kind}|{t.FullName}|{baseName}|{(t.IsAbstract && kind == "class" ? "abstract" : "")}|{string.Join(";", fields)}");
+    if (!members || kind is not ("class" or "struct")) continue;
+    var all = BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.DeclaredOnly;
+    foreach (var f in t.GetFields(all))
+        Console.WriteLine($"    field {(f.IsStatic ? "static " : "")}{f.FieldType.Name} {f.Name}");
+    foreach (var pr in t.GetProperties(all))
+        Console.WriteLine($"    prop {pr.PropertyType.Name} {pr.Name}");
+    foreach (var m in t.GetMethods(all))
+    {
+        if (m.IsSpecialName) continue;
+        string ps;
+        try { ps = string.Join(", ", m.GetParameters().Select(p => p.ParameterType.Name + " " + p.Name)); } catch { ps = "?"; }
+        string ret; try { ret = m.ReturnType.Name; } catch { ret = "?"; }
+        Console.WriteLine($"    method {(m.IsStatic ? "static " : "")}{ret} {m.Name}({ps})");
+    }
 }

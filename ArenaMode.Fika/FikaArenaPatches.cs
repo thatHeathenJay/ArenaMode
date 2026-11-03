@@ -1,4 +1,6 @@
 using ArenaMode.Compat;
+using EFT;
+using EFT.CameraControl;
 using Fika.Core.Main.ClientClasses;
 using Fika.Core.Main.Players;
 using HarmonyLib;
@@ -68,7 +70,23 @@ internal static class FikaArenaPatches
             BleedoutHideUi?.Invoke(bleedout, null);
             UnityEngine.Object.Destroy(bleedout);
         }
+        ClearDeathCameraEffects();
         FikaArenaRespawn.Begin(__instance);
+    }
+
+    /// <summary>Fika's downed state fades and blurs the camera; the killcam (or the respawn) needs a clear view.</summary>
+    private static void ClearDeathCameraEffects()
+    {
+        try
+        {
+            var camera = CameraManager.Instance?.Camera;
+            if (camera == null) return;
+            var fade = camera.GetComponent<DeathFade>();
+            if (fade != null) { fade.DisableEffect(); fade.enabled = false; }
+            var blur = camera.GetComponent<FastBlur>();
+            if (blur != null) { blur.Reset(); blur.enabled = false; }
+        }
+        catch (Exception ex) { Plugin.Log.LogWarning("Co-op arena: death camera effects not cleared: " + ex.Message); }
     }
 
     /// <summary>Observers: keep Fika's state bookkeeping, drop the revive prompt, notification and agony line.</summary>
