@@ -41,12 +41,63 @@ def load_docs(path):
     return docs
 
 
+def _md4(data):
+    """Pure-Python MD4 (RFC 1320); Unity script file IDs use it and OpenSSL builds often omit it."""
+    import struct
+    def lrot(x, n): return ((x << n) | (x >> (32 - n))) & 0xFFFFFFFF
+    msg = bytearray(data) + bytes([0x80])
+    while len(msg) % 64 != 56: msg += bytes([0])
+    msg += struct.pack('<Q', (len(data) * 8) & 0xFFFFFFFFFFFFFFFF)
+    a, b, c, d = 0x67452301, 0xEFCDAB89, 0x98BADCFE, 0x10325476
+    for off in range(0, len(msg), 64):
+        x = list(struct.unpack('<16I', msg[off:off + 64]))
+        aa, bb, cc, dd = a, b, c, d
+        f = lambda x, y, z: (x & y) | (~x & z)
+        g = lambda x, y, z: (x & y) | (x & z) | (y & z)
+        h = lambda x, y, z: x ^ y ^ z
+        for i in range(16):
+            k, s_ = i, [3, 7, 11, 19][i % 4]
+            a, d, c, b = d, c, b, lrot((a + f(b, c, d) + x[k]) & 0xFFFFFFFF, s_)
+        for i in range(16):
+            k, s_ = (i % 4) * 4 + i // 4, [3, 5, 9, 13][i % 4]
+            a, d, c, b = d, c, b, lrot((a + g(b, c, d) + x[k] + 0x5A827999) & 0xFFFFFFFF, s_)
+        order = [0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15]
+        for i in range(16):
+            k, s_ = order[i], [3, 9, 11, 15][i % 4]
+            a, d, c, b = d, c, b, lrot((a + h(b, c, d) + x[k] + 0x6ED9EBA1) & 0xFFFFFFFF, s_)
+        a, b, c, d = [(v + w) & 0xFFFFFFFF for v, w in zip((a, b, c, d), (aa, bb, cc, dd))]
+    return struct.pack('<4I', a, b, c, d)
+
+
+def script_file_id(ns, cls):
+    """Unity MonoScript file ID inside a compiled assembly: int32 LE of MD4(b's' + 3 zero bytes + namespace + class)."""
+    import struct
+    return struct.unpack('<i', _md4(b's' + bytes(3) + ns.encode('utf-8') + cls.encode('utf-8'))[:4])[0]
+
+
+def script_guid(asm, ns, cls):
+    """AssetRipper's deterministic script guid: MD5(assembly + namespace + class) in System.Guid byte order, hex."""
+    import hashlib
+    h = hashlib.md5((asm + ns + cls).encode('utf-8')).digest()
+    return (h[3::-1] + h[5:3:-1] + h[7:5:-1] + h[8:]).hex()
+
+
 class Rip:
     """guid -> what it is, over the whole exported project."""
 
     def __init__(self, assets):
         self.assets = assets
         self.by_guid = {}
+        # Script identities for assemblies AssetRipper did not emit stubs for (uGUI, TextMeshPro, EFT packages):
+        # computed from the MonoScript list extracted from the game files (tools/arena-monoscripts.json).
+        self.script_by_guid = {}
+        ms_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', '..', 'arena-src', 'arena-monoscripts.json')
+        if os.path.exists(ms_path):
+            self.script_by_file_id = {}
+            for m in json.load(io.open(ms_path, encoding='utf-8')):
+                full = (m['namespace'] + '.' if m['namespace'] else '') + m['class']
+                self.script_by_guid[script_guid(m['assembly'], m['namespace'], m['class'])] = full
+                self.script_by_file_id[(m['assembly'], script_file_id(m['namespace'], m['class']))] = full
         for root, _, files in os.walk(assets):
             for f in files:
                 if not f.endswith('.meta'):
@@ -57,8 +108,14 @@ class Rip:
                     self.by_guid[m.group(1)] = os.path.relpath(full[:-5], assets).replace('\\', '/')
         self.sprites = {}
 
-    def script_name(self, guid):
+    def script_name(self, guid, file_id=None):
+        if guid in self.script_by_guid:
+            return self.script_by_guid[guid]
         p = self.by_guid.get(guid, '')
+        if p.endswith('.dll'):
+            # A type inside a referenced assembly: the guid is the assembly's, the class is the file id.
+            asm = os.path.basename(p)[:-4]
+            return getattr(self, 'script_by_file_id', {}).get((asm, file_id))
         if not p.startswith('Scripts/'):
             return None
         parts = p[len('Scripts/'):].split('/')
@@ -167,7 +224,8 @@ class Prefab:
 
     def component(self, cid, cls, d):
         if cid == 114:
-            t = self.rip.script_name(d.get('m_Script', {}).get('guid', '')) or 'MonoBehaviour'
+            ms = d.get('m_Script', {})
+            t = self.rip.script_name(ms.get('guid', ''), ms.get('fileID')) or 'MonoBehaviour'
         else:
             t = cls
         fields = {k: self.value(v) for k, v in d.items() if k not in SKIP_FIELDS}
@@ -193,7 +251,7 @@ class Prefab:
         if fid in self.docs:
             cid, cls, d = self.docs[fid]
             go = fid if cid == 1 else d.get('m_GameObject', {}).get('fileID')
-            t = cls if cid != 114 else (self.rip.script_name(d.get('m_Script', {}).get('guid', '')) or 'MonoBehaviour')
+            t = cls if cid != 114 else (self.rip.script_name(d.get('m_Script', {}).get('guid', ''), d.get('m_Script', {}).get('fileID')) or 'MonoBehaviour')
             return {'ref': self.paths.get(go, str(go)), 'type': t, 'id': fid}
         return {'ref': str(fid)}
 
