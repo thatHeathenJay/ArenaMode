@@ -402,8 +402,12 @@ internal static class ArenaLiveHud
         _tabRightScore.text = _tdm.OpponentTeamScore.ToString();
         foreach (var row in _tabRows) if (row != null) Object.Destroy(row);
         _tabRows.Clear();
-        FillTeam(_leftList, board.Standings(ArenaScoreboardSide.Friendly, true, 12, true));
-        FillTeam(_rightList, board.Standings(ArenaScoreboardSide.Opponent, true, 12, false));
+        var friendly = board.Standings(ArenaScoreboardSide.Friendly, true, 12, true);
+        var opponent = board.Standings(ArenaScoreboardSide.Opponent, true, 12, false);
+        if (snapshot.Terminal && _tabRows.Count == 0)
+            Plugin.ModLogger.LogInfo($"Arena live table: {friendly.Count} friendly rows, first {(friendly.Count > 0 ? friendly[0].DisplayName + " K" + friendly[0].Kills + " D" + friendly[0].Deaths : "-")}; local K{board.Local.Kills} D{board.Local.Deaths}.");
+        FillTeam(_leftList, friendly);
+        FillTeam(_rightList, opponent);
     }
 
     private static void FillTeam(RectTransform list, IReadOnlyList<ArenaScoreboardEntry> rows)

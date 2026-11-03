@@ -86,6 +86,14 @@ internal sealed class ArenaPanel : MonoBehaviour
         // black screen would freeze input around a body that is still being
         // built. The check is edge-triggered on the whole condition, so the
         // scoreboard still shows itself once the player is standing.
+        // The live Arena HUD draws its own table and result; the stock panel stays off while it is active.
+        if (Live.ArenaLiveHud.Active)
+        {
+            if (_open) SetOpen(false);
+            _autoOpenHandled = true;
+            _autoOpened = false;
+            return;
+        }
         var result = ArenaMatchResult.MayAutoOpenPanel(ArenaMatchService.Current?.Mode) && !TdmMatchExit.PipelineRunning;
         var intermission = result && IsBattleUiActive() || ArenaMatchService.Current?.Mode is RoundsMode rounds
             && rounds.InIntermission
