@@ -3,6 +3,32 @@
 using System.Reflection;
 using System.Runtime.InteropServices;
 
+if (args.Length >= 2 && args[0] == "--plugins")
+{
+    // Usage: TypeDump --plugins <BepInEx/plugins dir> <Managed dir> [BepInEx/core dir]
+    // Prints GUID|name|version for every BepInPlugin in the tree (attribute data read from metadata, no loading).
+    var pluginDir = args[1];
+    var search = new List<string>();
+    foreach (var d in args.Skip(2)) search.AddRange(Directory.GetFiles(d, "*.dll"));
+    var pluginDlls = Directory.GetFiles(pluginDir, "*.dll", SearchOption.AllDirectories);
+    search.AddRange(pluginDlls);
+    using var ctx = new MetadataLoadContext(new PathAssemblyResolver(search.Distinct()), "mscorlib");
+    foreach (var pd in pluginDlls)
+    {
+        Type[] ts;
+        try { ts = ctx.LoadFromAssemblyPath(pd).GetTypes(); }
+        catch (ReflectionTypeLoadException e) { ts = e.Types.Where(t => t != null).ToArray()!; }
+        catch (Exception e) { Console.WriteLine($"!|{Path.GetFileName(pd)}|{e.GetType().Name}"); continue; }
+        foreach (var t in ts)
+        {
+            CustomAttributeData? a = null;
+            try { a = t.GetCustomAttributesData().FirstOrDefault(x => x.AttributeType.Name == "BepInPlugin"); } catch { }
+            if (a == null || a.ConstructorArguments.Count < 3) continue;
+            Console.WriteLine($"{a.ConstructorArguments[0].Value}|{a.ConstructorArguments[1].Value}|{a.ConstructorArguments[2].Value}|{Path.GetFileName(pd)}");
+        }
+    }
+    return;
+}
 var dll = args[0]; var dir = args[1]; var filter = args.Length > 2 ? args[2] : "";
 // The game folder carries its own mscorlib/netstandard; do not mix in the host runtime (duplicate core assembly).
 var paths = Directory.GetFiles(dir, "*.dll").ToList();
