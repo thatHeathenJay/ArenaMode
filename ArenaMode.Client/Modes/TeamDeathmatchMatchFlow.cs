@@ -77,6 +77,7 @@ public sealed partial class TeamDeathmatchMode
     {
         if (MatchPhase != TdmMatchPhase.Live || !IsCurrentMatch()) return;
         if (IsDomination) AdvanceDomination();
+        if (IsRounds) AdvanceRounds();
         var friendly = FriendlyTeamScore;
         var opponent = OpponentTeamScore;
         if (!IsDomination) _rules.Update(Time.time, false, friendly, opponent);

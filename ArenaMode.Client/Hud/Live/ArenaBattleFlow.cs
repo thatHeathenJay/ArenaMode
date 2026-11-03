@@ -34,6 +34,8 @@ internal sealed class ArenaBattleFlow : MonoBehaviour
     private const string Unavailable = "Unavailable";                       // arena/matching/UnavailableReason
     private const string TeamFightDescription =
         "A team battle in the 5v5 format. The objective is to eliminate the opposing team sooner than they kill you.";
+    private const string TeamFightRespawnsDescription =
+        "A team battle in the 5v5 format with respawns. The team with more kills when the time runs out wins.";
 
     private const string LogoMedium = "Texture2D/Matchmaker_GameMods_Logo_Medium.png";
     private const string LogoBlocked = "Texture2D/Matchmaker_GameMods_Logo_Blocked_Medium.png";
@@ -80,6 +82,7 @@ internal sealed class ArenaBattleFlow : MonoBehaviour
     private ArenaUiPack _pack;
     private ArenaUiBuilder _builder;
     private RectTransform _root, _screen, _pins, _description;
+    private TextMeshProUGUI _modeDescription, _respawnsLabel;
     private Step _step;
     private string _location;
 
@@ -217,13 +220,15 @@ internal sealed class ArenaBattleFlow : MonoBehaviour
                 continue;
             }
             Clickable(card, "ClickHandler", null);                          // already selected: the click only sounds
+            BuildRespawnsToggle(card);
         }
 
         var info = ArenaUiBuilder.Find(screen, "Mode Description");
         var group = info.GetComponent<CanvasGroup>();
         if (group != null) group.alpha = 1f;                                // faded in by live's panel
         ArenaUiBuilder.SetActive(info, "Content/InvalidModeDescriptionBlock", false);
-        ArenaUiBuilder.Text(info, "Content/DescriptionBlock/ModeDecriprion").text = TeamFightDescription;
+        _modeDescription = ArenaUiBuilder.Text(info, "Content/DescriptionBlock/ModeDecriprion");
+        _modeDescription.text = Settings.TeamFightRespawns.Value ? TeamFightRespawnsDescription : TeamFightDescription;
         var maps = ArenaUiBuilder.Find(info, "Content/MapsBlock/MapsList");
         foreach (var map in Maps)
         {
@@ -242,6 +247,40 @@ internal sealed class ArenaBattleFlow : MonoBehaviour
 
         FlowButton(screen, "NextButton", () => Open(Step.Map));
         FlowButton(screen, "BackButton", () => Open(Step.GameType));
+    }
+
+    /// <summary>TeamFight's one option: Respawns on (kill count, continuous respawns) or off (live rounds).</summary>
+    private void BuildRespawnsToggle(RectTransform card)
+    {
+        var holder = ArenaUiBuilder.TryFind(card, "SubModes/SubModesHolder");
+        if (holder == null) return;
+        ArenaUiBuilder.SetActive(card, "SubModes/Underline", true);
+        var toggle = NewRect("RespawnsToggle", holder);
+        toggle.sizeDelta = new Vector2(150f, 26f);
+        var element = toggle.gameObject.AddComponent<LayoutElement>();
+        element.preferredWidth = 150f; element.preferredHeight = 26f;
+        var hit = toggle.gameObject.AddComponent<Image>();
+        hit.color = Color.clear; hit.raycastTarget = true;
+        _respawnsLabel = HudStyle.CreateText(toggle, "Label", 15f, TextAlignmentOptions.MidlineLeft);
+        ArenaUiBuilder.Stretch(_respawnsLabel.rectTransform);
+        _respawnsLabel.rectTransform.offsetMin = new Vector2(6f, 0f);
+        RefreshRespawnsToggle();
+        toggle.gameObject.AddComponent<ArenaMenuButton>().Init(toggle, () =>
+        {
+            Settings.TeamFightRespawns.Value = !Settings.TeamFightRespawns.Value;
+            RefreshRespawnsToggle();
+            if (_modeDescription != null)
+                _modeDescription.text = Settings.TeamFightRespawns.Value ? TeamFightRespawnsDescription : TeamFightDescription;
+            Plugin.ModLogger.LogInfo("Arena battle flow: TeamFight respawns " + (Settings.TeamFightRespawns.Value ? "on" : "off"));
+        });
+    }
+
+    private void RefreshRespawnsToggle()
+    {
+        if (_respawnsLabel == null) return;
+        bool on = Settings.TeamFightRespawns.Value;
+        _respawnsLabel.text = (on ? "<color=#C98A00>[X]</color> " : "[  ] ") + "RESPAWNS";
+        _respawnsLabel.color = on ? new Color(0.882f, 0.933f, 0.957f) : ArenaUiTheme.Muted;
     }
 
     // ------------------------------------------------------------ SELECT ARENA

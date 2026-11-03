@@ -211,7 +211,17 @@ internal static class ArenaLiveHud
         var widget = _builder.Build(_pack.Layout("ArenaCheckPointWidget"), root);
         ArenaUiBuilder.Stretch(widget);
         var content = ArenaUiBuilder.Find(widget, "Content");
-        ArenaUiBuilder.SetActive(content, "CapturedPoints", false);
+        // TeamFight's capture point: live's single point icon, radial progress tinted by the capturing side.
+        _capturePoint = ArenaUiBuilder.TryFind(content, "CapturedPoints/CapturePoint");
+        if (_capturePoint != null)
+        {
+            _captureFill = ArenaUiBuilder.TryFind(_capturePoint, "CapturePointProgressImage")?.GetComponent<Image>();
+            if (_captureFill != null) { _captureFill.type = Image.Type.Filled; _captureFill.fillMethod = Image.FillMethod.Radial360; _captureFill.fillAmount = 0f; }
+            var name = ArenaUiBuilder.TryFind(_capturePoint, "CapturePointNameLabel")?.GetComponent<TextMeshProUGUI>();
+            if (name != null) name.text = "A";
+            _capturePoint.gameObject.SetActive(false);
+        }
+        ArenaUiBuilder.SetActive(content, "CapturedPoints", tdm.IsRounds);
         ArenaUiBuilder.SetActive(content, "LeftTeam/Progress", false);
         ArenaUiBuilder.SetActive(content, "RightTeam/Progress", false);
         Tint(ArenaUiBuilder.Find(content, "LeftTeam/Background"), ArenaTeamPalette.FriendlyUi, .55f);
@@ -318,13 +328,44 @@ internal static class ArenaLiveHud
         _leftScore.text = friendly.ToString();
         _rightScore.text = opponent.ToString();
         double seconds = snapshot.Countdown ?? snapshot.SecondsRemaining ?? _match.Elapsed;
+        if (_tdm.IsRounds && _tdm.Rounds is { } rounds)
+        {
+            // Round clock: the countdown, then time to the point, then the capture window.
+            seconds = rounds.Phase == TeamFightPhase.Live && !rounds.PointActive ? rounds.UntilPoint(Time.time) : rounds.Remaining(Time.time);
+            TickCapturePoint(rounds);
+        }
         _timer.text = Clock(seconds);
         if (snapshot.Live && !_goalAnnounced)
         {
             _goalAnnounced = true;
-            OnTextCallout(snapshot.KillsRemaining is int remaining
+            OnTextCallout(_tdm.IsRounds ? "Eliminate the enemy team" : snapshot.KillsRemaining is int remaining
                 ? $"Score {Math.Max(friendly, opponent) + remaining} points to win"
                 : "Eliminate the enemy team");
+            _noticeUntil = Time.unscaledTime + 4f;
+        }
+    }
+
+    private static RectTransform _capturePoint;
+    private static Image _captureFill;
+    private static int _captureAnnouncedRound, _roundEndAnnounced;
+
+    private static void TickCapturePoint(TeamFightRoundPolicy rounds)
+    {
+        if (_capturePoint == null) return;
+        bool show = rounds.Phase == TeamFightPhase.Live && rounds.PointActive;
+        if (_capturePoint.gameObject.activeSelf != show) _capturePoint.gameObject.SetActive(show);
+        if (!show) return;
+        if (_captureFill != null)
+        {
+            _captureFill.fillAmount = Mathf.Clamp01(rounds.CaptureProgress);
+            bool? friendlyCapturing = rounds.CaptureUsec == null ? null : rounds.CaptureUsec == (_tdm.FriendlyFaction == "USEC");
+            _captureFill.color = friendlyCapturing == null ? Color.white
+                : friendlyCapturing == true ? ArenaTeamPalette.FriendlyUi : ArenaTeamPalette.OpponentUi;
+        }
+        if (_captureAnnouncedRound != rounds.Round)
+        {
+            _captureAnnouncedRound = rounds.Round;
+            OnTextCallout("Capture the point");
             _noticeUntil = Time.unscaledTime + 4f;
         }
     }
@@ -357,6 +398,20 @@ internal static class ArenaLiveHud
     {
         string text = null;
         if (_noticeOverride != null && Time.unscaledTime < _noticeUntil) text = _noticeOverride;
+        else if (_tdm.IsRounds && _tdm.Rounds is { } rounds && snapshot.Live && !snapshot.Terminal)
+        {
+            // Live's round widgets: "Round starts in", "Round won" / "Round lost", "Prepare for the next round".
+            bool friendlyUsec = _tdm.FriendlyFaction == "USEC";
+            text = rounds.Phase switch
+            {
+                TeamFightPhase.Assembling => "ASSEMBLING TEAMS",
+                TeamFightPhase.Countdown => $"ROUND {rounds.Round} STARTS IN {Math.Max(1, (int)Math.Ceiling(rounds.Remaining(Time.time)))}",
+                TeamFightPhase.RoundEnd => rounds.LastRoundUsecWon == null ? "ROUND DRAW"
+                    : rounds.LastRoundUsecWon == friendlyUsec ? "ROUND WON" : "ROUND LOST",
+                TeamFightPhase.Live when _tdm.LocalAwaitingRound => "PREPARE FOR THE NEXT ROUND",
+                _ => null,
+            };
+        }
         else if (snapshot.Preparing) text = "ASSEMBLING TEAMS";
         else if (snapshot.Countdown is int countdown) text = "MATCH STARTS IN " + countdown;
         else if (!snapshot.Active && !snapshot.Terminal && _tdm.HoldRespawn) text = "PREPARING ARENA";

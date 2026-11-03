@@ -24,9 +24,11 @@ public sealed partial class TeamDeathmatchMode
     private int FinalOpponentScore => IsDomination ? _dominationRules?.OpponentScore ?? 0 : _rules?.OpponentKills ?? 0;
     internal int FriendlyTeamScore => IsDomination ? (_population?.LocalUsec == true
         ? _dominationRules?.UsecScore ?? 0 : _dominationRules?.BearScore ?? 0)
+        : IsRounds ? RoundWins(_population?.LocalUsec == true)
         : _match?.Scoreboard.Totals(ArenaScoreboardSide.Friendly).Kills ?? 0;
     internal int OpponentTeamScore => IsDomination ? (_population?.LocalUsec == true
         ? _dominationRules?.BearScore ?? 0 : _dominationRules?.UsecScore ?? 0)
+        : IsRounds ? RoundWins(_population?.LocalUsec != true)
         : _match?.Scoreboard.Totals(ArenaScoreboardSide.Opponent).Kills ?? 0;
     private int MatchCountdownRemaining(float now) => IsDomination
         ? _dominationRules?.CountdownRemaining(now) ?? 0 : _rules?.CountdownRemaining(now) ?? 0;

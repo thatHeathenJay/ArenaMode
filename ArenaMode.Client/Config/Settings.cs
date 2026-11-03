@@ -204,6 +204,11 @@ public static class Settings
     public static ConfigEntry<int> TeamDeathmatchSize { get; private set; }
     public static ConfigEntry<string> TeamDeathmatchSide { get; private set; }
     public static ConfigEntry<int> TeamDeathmatchKillLimit { get; private set; }
+    public static ConfigEntry<bool> TeamFightRespawns { get; private set; }
+    public static ConfigEntry<int> TeamFightRoundsToWin { get; private set; }
+    public static ConfigEntry<int> TeamFightOpeningSeconds { get; private set; }
+    public static ConfigEntry<int> TeamFightCaptureSeconds { get; private set; }
+    public static ConfigEntry<int> TeamFightCaptureWindowSeconds { get; private set; }
     public static ConfigEntry<int> TeamDeathmatchTimeLimitSeconds { get; private set; }
     public static ConfigEntry<int> DominationScoreLimit { get; private set; }
     public static ConfigEntry<int> DominationTimeLimitSeconds { get; private set; }
@@ -1232,6 +1237,18 @@ public static class Settings
                 "Both teams refill fallen bots; your slot stays reserved while you respawn. " +
                 "Read at match start. PitFireTeam companions are not used in this mode.",
                 new AcceptableValueRange<int>(2, 12)));
+
+        TeamFightRespawns = config.Bind("TeamFight", "Respawns", false,
+            "TeamFight with respawns: a continuous kill-count match (the Team Deathmatch rules below). " +
+            "Off = live TeamFight: one life per round, best of rounds, capture point after the opening phase.");
+        TeamFightRoundsToWin = config.Bind("TeamFight", "RoundsToWin", 5,
+            new ConfigDescription("Round wins that take the match (live unranked TeamFight: 5).", new AcceptableValueRange<int>(1, 9)));
+        TeamFightOpeningSeconds = config.Bind("TeamFight", "OpeningSeconds", 90,
+            new ConfigDescription("Seconds into a round before the capture point appears.", new AcceptableValueRange<int>(0, 600)));
+        TeamFightCaptureSeconds = config.Bind("TeamFight", "CaptureSeconds", 10,
+            new ConfigDescription("Seconds one team must hold the point alone to win the round.", new AcceptableValueRange<int>(1, 60)));
+        TeamFightCaptureWindowSeconds = config.Bind("TeamFight", "CaptureWindowSeconds", 60,
+            new ConfigDescription("Seconds the point stays up; then the team with more players standing takes the round.", new AcceptableValueRange<int>(5, 600)));
 
         TeamDeathmatchKillLimit = config.Bind("Team Deathmatch", "KillLimit", 50,
             new ConfigDescription("Team kills needed to win independent Team Deathmatch (0 = unlimited). " +

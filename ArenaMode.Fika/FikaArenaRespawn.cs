@@ -46,8 +46,15 @@ internal static class FikaArenaRespawn
         {
             var corpsePosition = player.Position;
             float waited = 0f;
+            // Out for the round (TeamFight): spectate until the mode releases the hold for the next round.
+            bool spectating = false;
+            float heldSince = Time.time;
             while (ArenaCoop.RespawnsActive && ArenaMatchService.Current?.Mode?.HoldRespawn == true)
+            {
+                if (!spectating && Time.time - heldSince > 2.5f && player.Downed) { FikaSpectate.Begin(); spectating = true; }
                 yield return null;
+            }
+            if (spectating) FikaSpectate.End();
             while (ArenaCoop.RespawnsActive && waited < Plugin.RespawnDelaySeconds.Value)
             {
                 waited += Time.deltaTime;
@@ -75,6 +82,22 @@ internal static class FikaArenaRespawn
         {
             _running = false;
         }
+    }
+
+    /// <summary>A living local body put back on a spawn with full health and a fresh kit for the next round.</summary>
+    internal static IEnumerator ResetAlive(FikaPlayer player)
+    {
+        if (player == null || !ArenaCoop.RespawnsActive) yield break;
+        var (position, rotation) = PickSpawn(player, player.Position);
+        player.Teleport(position);
+        player.Transform.rotation = rotation;
+        StandUp(player);
+        RestoreHealth(player);
+        yield return Rekit(player, CoopEntryKit.LastIssued);
+        RestoreKitInPlace(player, CoopEntryKit.LastIssued);
+        Restock(player, CoopEntryKit.LastIssued);
+        Plugin.Log.LogInfo($"Co-op arena: round reset at {position}.");
+        player.StartCoroutine(Settle(player));
     }
 
     /// <summary>

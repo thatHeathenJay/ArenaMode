@@ -43,11 +43,12 @@ public sealed partial class TeamDeathmatchMode : IArenaMode
     private int _spawnGateEpoch;
 
     public string Id => IsDomination ? Shared.ArenaPopulationPolicy.Domination : ArenaModeCatalog.TeamDeathmatchId;
-    public string DisplayName => IsDomination ? "Domination" : "Team Deathmatch";
+    public string DisplayName => IsDomination ? "Domination" : IsRounds ? "TeamFight" : "Team Deathmatch";
     public bool IsComplete => _failure != null || HasResult;
     internal bool AssistScoringOpen => !_ended && !IsComplete && IsCurrentRaid() && MatchPhase == TdmMatchPhase.Live;
     public float DeathReplaySeconds => Session.ArenaReplaySelection.Seconds;
-    public bool HoldRespawn => Areas.ArenaAreaRuntime.IsPending || HasResult;
+    public bool HoldRespawn => Areas.ArenaAreaRuntime.IsPending || HasResult
+        || (IsRounds && _rounds.Phase is TeamFightPhase.Live or TeamFightPhase.RoundEnd);
     public bool ControlsOwnSpawns => true;
     public int TeamSize => _population?.TeamSize ?? 5;
     public string FriendlyFaction => _population?.LocalUsec == true ? "USEC" : "BEAR";
@@ -82,8 +83,13 @@ public sealed partial class TeamDeathmatchMode : IArenaMode
         _localId = _local?.ProfileId;
         _spawnShieldSeconds = 0f;
         if (!IsDomination)
-            _rules = new TeamDeathmatchMatchPolicy(Settings.TeamDeathmatchKillLimit.Value,
-                Settings.TeamDeathmatchTimeLimitSeconds.Value);
+        {
+            // Live TeamFight: the kill policy's limit is the rounds needed and its "kills" are round wins.
+            bool rounds = !Settings.TeamFightRespawns.Value;
+            _rules = rounds
+                ? new TeamDeathmatchMatchPolicy(Mathf.Clamp(Settings.TeamFightRoundsToWin.Value, 1, 9), 0)
+                : new TeamDeathmatchMatchPolicy(Settings.TeamDeathmatchKillLimit.Value, Settings.TeamDeathmatchTimeLimitSeconds.Value);
+        }
         EPlayerSide? faction = TeamDeathmatchRelations.Faction(_local);
         if (!IsCurrentRaid() || string.IsNullOrEmpty(_localId)
             || !faction.HasValue || Compat.PitFireTeamCompat.HasFrozenTeamRoster)
@@ -110,6 +116,7 @@ public sealed partial class TeamDeathmatchMode : IArenaMode
         Plugin.ModLogger.LogDebug($"Team Deathmatch: {TeamSize}v{TeamSize}, local {FriendlyFaction}, "
             + $"{TeamSize - 1} friendly / {TeamSize} opposing bot slots; no PFT followers.");
         InitializeDomination();
+        InitializeRounds();
         ClaimMonitors();
     }
 
@@ -130,6 +137,11 @@ public sealed partial class TeamDeathmatchMode : IArenaMode
         if (ObserveNativeStop() || _ended || IsComplete || _population == null
             || !IsCurrentRaid() || Areas.ArenaAreaRuntime.IsPending || Time.time < _nextTick) return;
         _nextTick = Time.time + 1f;
+        if (!Compat.ArenaCoop.IsAuthority)
+        {
+            try { MirrorTick(); } catch (Exception ex) { Plugin.ModLogger.LogDebug("Team Deathmatch mirror tick: " + ex.Message); }
+            return;
+        }
         try
         {
             Player current = _world.MainPlayer;
@@ -171,8 +183,11 @@ public sealed partial class TeamDeathmatchMode : IArenaMode
             TeamDeathmatchRelations.Reconcile(actors);
             if (!TrySynchronizeScoreboardRoster(out var problem))
             { Fail("scoreboard affiliation drift: " + problem); return; }
-            Refill(true);
-            Refill(false);
+            if (!IsRounds || RoundsRefillAllowed)
+            {
+                Refill(true);
+                Refill(false);
+            }
             if (ObserveNativeStop() || !IsCurrentRaid()) return;
             bool stalled = _population.IsStalled(Time.realtimeSinceStartup);
             if (stalled && !_reportedStall)
@@ -189,6 +204,7 @@ public sealed partial class TeamDeathmatchMode : IArenaMode
                 && ReferenceEquals(_world.MainPlayer, _local)
                 && !Respawn.ArenaRespawnDriver.IsRespawnInProgress
                 && !Respawn.LiveKitRespawn.IsInitialSwapPending;
+            _rosterReady = ready;
             TickMatchStart(ready);
             if (!_announcedReady && MatchPhase == TdmMatchPhase.Live)
             {
