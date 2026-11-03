@@ -124,7 +124,7 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
         tabsLayout.spacing = 4f; tabsLayout.childForceExpandWidth = tabsLayout.childForceExpandHeight = false;
         tabsLayout.childControlWidth = tabsLayout.childControlHeight = true; tabsLayout.childAlignment = TextAnchor.MiddleLeft;
         var tabsElement = tabsHost.gameObject.AddComponent<LayoutElement>();
-        tabsElement.preferredWidth = 4 * 190f + 12f; tabsElement.preferredHeight = 32f;
+        tabsElement.preferredWidth = 4 * 200f + 12f; tabsElement.preferredHeight = 32f;
         _tabs = tabsHost;
         var tabTemplate = Find(_apcLayout, "CustomizationTab");
         foreach (var (id, label) in Classes)
@@ -132,11 +132,19 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
             var tab = _builder.Build(tabTemplate, tabsHost);
             tab.gameObject.SetActive(true);
             var element = tab.gameObject.AddComponent<LayoutElement>();
-            element.preferredWidth = 190f; element.preferredHeight = 32f;
+            element.preferredWidth = 200f; element.preferredHeight = 32f;
             foreach (var state in new[] { "SelectedState", "IdleState", "HoverState" })
             {
                 var title = ArenaUiBuilder.TryFind(tab, state + "/Title")?.GetComponent<TextMeshProUGUI>();
-                if (title != null) title.text = label;
+                if (title != null)
+                {
+                    title.text = label;
+                    title.enableAutoSizing = false;
+                    title.fontSize = 14f;
+                    title.alignment = TextAlignmentOptions.Midline;
+                    title.rectTransform.anchorMin = Vector2.zero; title.rectTransform.anchorMax = Vector2.one;
+                    title.rectTransform.offsetMin = new Vector2(12f, 0f); title.rectTransform.offsetMax = new Vector2(-12f, 0f);
+                }
                 ArenaUiBuilder.SetActive(tab, state + "/Image", false);
             }
             ArenaUiBuilder.SetActive(tab, "DisabledState", false);
@@ -201,10 +209,10 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
     private void BuildCard(KitDefinition kit)
     {
         var card = NewRect("Card " + kit.Id, _cards);
-        var frame = card.gameObject.AddComponent<Image>();
-        frame.sprite = _pack.WholeTexture("Texture2D/border_frame.png");
-        frame.type = Image.Type.Sliced;
-        frame.color = new Color(1f, 1f, 1f, 0.9f);
+        var panel = card.gameObject.AddComponent<Image>();
+        panel.color = new Color(0.04f, 0.05f, 0.06f, 0.88f);
+        panel.raycastTarget = false;
+        ArenaUiTheme.Rule(card, "Edge", ArenaUiTheme.Edge, inset: 0f, thickness: 1f);
         var inner = card.gameObject.AddComponent<VerticalLayoutGroup>();
         inner.padding = new RectOffset(24, 24, 20, 20); inner.spacing = 8f;
         inner.childForceExpandWidth = true; inner.childForceExpandHeight = false;
@@ -245,14 +253,16 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
         Label(card, $"METASCORE {score.Total:N0}   ·   BAND {ArenaMetascore.BandMin:N0} – {ArenaMetascore.BandMax:N0}", 16f, inBand ? Text : Bad, 24f);
 
         Spacer(card, 6f);
-        var button = _builder.Build(Find(_menuLayout, "StartMatchingButton"), card);
-        button.gameObject.AddComponent<LayoutElement>().preferredHeight = 56f;
-        var label = button.GetComponentInChildren<TextMeshProUGUI>(true);
-        if (label != null) { label.text = selected ? "SELECTED" : "SELECT"; label.fontSize = 26f; if (selected) label.color = Gold; }
-        ArenaUiBuilder.SetActive(button, "IconContainer", false);
-        var hit = ArenaUiBuilder.TryFind(button, "RaycastTarget") ?? button;
-        var hitImage = hit.GetComponent<Image>() ?? hit.gameObject.AddComponent<Image>();
-        hitImage.color = Color.clear; hitImage.raycastTarget = true;
+        var button = NewRect("Select", card);
+        button.gameObject.AddComponent<LayoutElement>().preferredHeight = 52f;
+        var buttonFill = button.gameObject.AddComponent<Image>();
+        buttonFill.color = selected ? new Color(0.79f, 0.54f, 0f, 0.18f) : new Color(0.52f, 0.60f, 0.67f, 0.12f);
+        buttonFill.raycastTarget = true;
+        ArenaUiTheme.Rule(button, "Edge", selected ? ArenaUiTheme.WithAlpha(Gold, 0.8f) : ArenaUiTheme.Edge, inset: 0f, thickness: 1f);
+        var label = HudStyle.CreateText(button, "Label", 24f, TextAlignmentOptions.Midline);
+        label.text = selected ? "SELECTED" : "SELECT";
+        label.color = selected ? Gold : Text;
+        ArenaUiBuilder.Stretch(label.rectTransform);
         button.gameObject.AddComponent<ArenaMenuButton>().Init(button, () =>
         {
             Settings.SelectedKit.Value = kit.Id;
