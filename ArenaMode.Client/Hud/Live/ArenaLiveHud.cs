@@ -162,6 +162,7 @@ internal static class ArenaLiveHud
         var root = (RectTransform)_canvasGo.transform;
         _tabCanvasGo = NewCanvas("ArenaLiveTabCanvas", 140, out _tabCanvas);
         _tabCanvas.enabled = false;
+        ArenaTabKey.Attach(_tabCanvasGo);
 
         BuildTab((RectTransform)_tabCanvasGo.transform, tdm);   // first: the result card borrows its mode logo
         BuildScoreStrip(root, tdm);
@@ -373,8 +374,8 @@ internal static class ArenaLiveHud
 
     private static void TickTab(Audio.ArenaAnnouncementSnapshot snapshot)
     {
-        // Hold O (EFT's "match info" key): Tab must keep opening the inventory so the kit stays reachable.
-        bool show = (Input.GetKey(KeyCode.O) && ArenaHudVisibility.IsBattleUiActive)
+        // Live: tap Tab = inventory, hold Tab = team table (ArenaTabKey owns the key).
+        bool show = (ArenaTabKey.Held && ArenaHudVisibility.IsBattleUiActive)
                     || (snapshot.Terminal && _resultShownAt >= 0f && Time.unscaledTime - _resultShownAt > 3f);
         _tabCanvas.enabled = show;
         if (!show) return;
