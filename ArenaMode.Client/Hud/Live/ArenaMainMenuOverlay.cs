@@ -119,7 +119,7 @@ internal sealed class ArenaMainMenuOverlay : MonoBehaviour
             BindProfile(menu);
             var buttons = ArenaUiBuilder.Find(menu, "ArenaMainMenuLeftPanel/MainMenuSimpleButtons");
             Wire(buttons, "MatchingButtons/StartMatchingButton", Play);
-            Wire(buttons, "Aresenal_Trading/PresetsButton", ArenaPresetsScreen.Show);
+            Wire(buttons, "Aresenal_Trading/PresetsButton", ArenaPresetListScreen.Show);
             Wire(buttons, "Settings_Quit/SettingsButton", OpenSettings);
             Wire(buttons, "Settings_Quit/QuitButton", Quit);
             foreach (var name in Dimmed)
@@ -159,6 +159,7 @@ internal sealed class ArenaMainMenuOverlay : MonoBehaviour
         try { _preview?.Dispose(); } catch { /* already gone */ }
         _preview = null;
         ArenaPresetsScreen.Hide();
+        ArenaPresetListScreen.Hide();
         ArenaResultOverlay.Hide();
         _menu = null;
         _taskbar = null;

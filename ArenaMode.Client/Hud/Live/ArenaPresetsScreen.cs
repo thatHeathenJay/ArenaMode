@@ -79,12 +79,17 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
 
     internal static bool Visible => _instance != null;
 
-    internal static void Show()
+    internal static void Show() => Show(null, false);
+
+    /// <summary>Opens on a given preset (from the presets list), on its VIEW or CUSTOMIZATION tab.</summary>
+    internal static void Show(KitDefinition kit, bool customization)
     {
         if (_instance != null || !ArenaUiPack.IsAvailable) return;
         var go = new GameObject("ArenaPresetsScreen");
         go.transform.SetParent(Plugin.Instance.transform, false);
         _instance = go.AddComponent<ArenaPresetsScreen>();
+        _instance._initial = kit;
+        _instance._initialCustomization = customization;
         try { _instance.Build(); }
         catch (Exception ex)
         {
@@ -99,7 +104,11 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
         var instance = _instance;
         _instance = null;
         Destroy(instance.gameObject);
+        ArenaPresetListScreen.Refresh();
     }
+
+    private KitDefinition _initial;
+    private bool _initialCustomization;
 
     private void OnDestroy()
     {
@@ -144,7 +153,7 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
 
         var canvas = gameObject.AddComponent<Canvas>();
         canvas.renderMode = RenderMode.ScreenSpaceOverlay;
-        canvas.sortingOrder = 520;
+        canvas.sortingOrder = 530;
         canvas.overrideSorting = true;
         var scaler = gameObject.AddComponent<CanvasScaler>();
         scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
@@ -187,10 +196,11 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
         BuildHeader(root);
 
         string selected = Settings.SelectedKit.Value;
-        var selectedKit = KitCatalog.Kits.FirstOrDefault(k => string.Equals(k.Id, selected, StringComparison.OrdinalIgnoreCase))
+        var selectedKit = _initial
+                          ?? KitCatalog.Kits.FirstOrDefault(k => string.Equals(k.Id, selected, StringComparison.OrdinalIgnoreCase))
                           ?? KitCatalog.Kits.FirstOrDefault();
         ShowPreset(selectedKit);
-        SetTab(false);
+        SetTab(_initialCustomization);
     }
 
     private void BuildHeader(RectTransform root)
