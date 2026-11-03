@@ -308,7 +308,17 @@ public sealed partial class TeamDeathmatchMode : IArenaMode
                 || CountBots(ticket.Usec) >= _population.BotTarget(ticket.Usec)
                 || !ValidGroup(bot, expected) || !TeamDeathmatchRelations.Register(player))
             {
-                Retire(bot, "expired, duplicate, over-capacity or inconsistent faction arrival");
+                // Name the failing gate: co-op bot lifecycles differ from solo and this is the only trace of why.
+                string why;
+                try
+                {
+                    why = $"current={IsRequestCurrent(ticket)} admit={_population.CanAdmit(ticket, Time.realtimeSinceStartup)} alive={Alive(bot)}"
+                        + $" faction={TeamDeathmatchRelations.Faction(player)}/{expected} id={!string.IsNullOrWhiteSpace(bot?.ProfileId)}"
+                        + $" dup={bot?.ProfileId != null && _usecById.ContainsKey(bot.ProfileId)} count={CountBots(ticket.Usec)}/{_population.BotTarget(ticket.Usec)}"
+                        + $" group={ValidGroup(bot, expected)} groupSide={bot?.BotsGroup?.Side} player={player?.GetType().Name} state={bot?.BotState}";
+                }
+                catch (Exception ex) { why = "diagnostic failed: " + ex.Message; }
+                Retire(bot, "expired, duplicate, over-capacity or inconsistent faction arrival (" + why + ")");
                 DelayRetry(ticket);
                 return;
             }

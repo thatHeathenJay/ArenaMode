@@ -81,8 +81,11 @@ internal sealed class ArenaBotDifficultyClockPatch : ModulePatch
         var world = Singleton<GameWorld>.Instance;
         var game = Singleton<AbstractGame>.Instance as LocalGame;
         if (!ArenaSession.IsExactActiveRaid(game, world) || game?.Status != GameStatus.Started
-            || ((IBotGame)game).BotsController?.BotSpawner?._botCreator is not BotCreatorClient creator
-            || !ReferenceEquals(creator._game, game) || !ReferenceEquals(creator._creatorProfile, provider)
+            || !Singleton<IBotGame>.Instantiated
+            || Singleton<IBotGame>.Instance.BotsController?.BotSpawner?._botCreator is not BotCreatorClient creator
+            // Co-op: Fika's host game controller owns the bot creator, not the game object itself.
+            || (!Compat.ArenaCoop.IsAvailable && !ReferenceEquals(creator._game, game))
+            || !ReferenceEquals(creator._creatorProfile, provider)
             || (data != null && !ReferenceEquals(data._botCreator, creator))
             || ArenaMatchService.Current?.Mode is not TeamDeathmatchMode teams
             || Compat.PitFireTeamCompat.HasFrozenTeamRoster || Respawn.ArenaRespawnDriver.StandDown
