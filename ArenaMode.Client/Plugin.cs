@@ -92,6 +92,7 @@ public class Plugin : BaseUnityPlugin
         ArenaPostRaidScreens.Enable();
         Session.Preview.ArenaPreviewFlowPatch.Enable();
         ArenaLocationSelectionPatch.Enable();
+        Hud.Live.ArenaSideSkip.Enable();
         ArenaSessionModeCaptionPatch.Enable();
         ArenaRaidSettingsApplyPatch.EnablePatch();
         SkipPreRaidScreensPatch.Enable();
