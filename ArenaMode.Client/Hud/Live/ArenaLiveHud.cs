@@ -67,6 +67,7 @@ internal static class ArenaLiveHud
     private static RectTransform _result;
     private static TextMeshProUGUI _resultText;
     private static float _resultShownAt = -1f;
+    private static bool _captured;
 
     private sealed class KillRow { internal GameObject Go; internal float ShownAt; }
     private sealed class JObjectRow { internal Newtonsoft.Json.Linq.JObject Node; }
@@ -131,6 +132,7 @@ internal static class ArenaLiveHud
         _noticeOverride = null;
         _goalAnnounced = false;
         _resultShownAt = -1f;
+        _captured = false;
         _leftScore = _rightScore = _timer = _noticeText = _tabLeftScore = _tabRightScore = _resultText = null;
         _killLogRoot = _notice = _tab = _rowTemplate = _leftList = _rightList = _result = null;
     }
@@ -372,6 +374,11 @@ internal static class ArenaLiveHud
         if (_resultShownAt < 0f)
         {
             _resultShownAt = Time.unscaledTime;
+            if (!_captured)
+            {
+                _captured = true;
+                ArenaPostMatch.Capture(_match, _tdm, snapshot.Lead > 0 && !snapshot.Draw, snapshot.Draw);
+            }
             _resultText.text = snapshot.Draw ? "DRAW" : snapshot.Lead > 0 ? "VICTORY" : "DEFEAT";
             _result.gameObject.SetActive(true);
             ArenaLiveSounds.Play(snapshot.Draw ? "draw_shield.wav" : snapshot.Lead > 0 ? "win_shield.ogg" : "loose_shield.ogg");
