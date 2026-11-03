@@ -103,7 +103,9 @@ internal sealed class ArenaCharacterPreview : IDisposable
     {
         _world = new GameObject("ArenaCharacterPreviewWorld");
         _world.SetActive(false);
-        _world.transform.position = new Vector3(128f, -128f, 128f);
+        // Well away from the matchmaker preview's corner (128, -128, 128): both use the preview layer and a 25 m
+        // far plane, so two bodies in one spot would show in each other's camera.
+        _world.transform.position = new Vector3(-192f, -128f, -192f);
         Object.DontDestroyOnLoad(_world);
         var cameraObject = new GameObject("ArenaCharacterCamera");
         cameraObject.transform.SetParent(_world.transform, false);
