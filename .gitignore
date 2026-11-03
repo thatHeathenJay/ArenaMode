@@ -10,3 +10,5 @@ __pycache__/
 *.pyc
 tools/TmpShim/bin/
 tools/TmpShim/obj/
+tools/TypeDump/bin/
+tools/TypeDump/obj/
