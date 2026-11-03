@@ -43,8 +43,6 @@ internal sealed class ArenaMainMenuOverlay : MonoBehaviour
     private ArenaUiPack _pack;
     private MenuScreen _menu;
     private MenuTaskBar _taskbar;
-    private readonly List<CanvasGroup> _addedGroups = new();
-    private readonly List<GameObject> _hiddenObjects = new();
     private bool _taskbarHidden;
     private Session.ArenaCharacterPreview _preview;
     private RectTransform _modelHost;
@@ -109,6 +107,13 @@ internal sealed class ArenaMainMenuOverlay : MonoBehaviour
 
             var menu = builder.Build(_pack.Layout("ArenaMainMenu"), _canvasGo.transform);
             foreach (var path in Hidden) ArenaUiBuilder.SetActive(menu, path, false);
+            foreach (var shadow in new[] { "LeftShadow", "LeftShadow/LeftShadow_2" })
+            {
+                var image = ArenaUiBuilder.TryFind(menu, shadow)?.GetComponent<Image>();
+                if (image == null) continue;
+                image.type = Image.Type.Simple;
+                image.sprite = _pack.WholeTexture("Texture2D/MainMenu_Background_Left_Shadow.png") ?? image.sprite;
+            }
             BindProfile(menu);
             var buttons = ArenaUiBuilder.Find(menu, "ArenaMainMenuLeftPanel/MainMenuSimpleButtons");
             Wire(buttons, "MatchingButtons/StartMatchingButton", Play);
@@ -150,10 +155,6 @@ internal sealed class ArenaMainMenuOverlay : MonoBehaviour
         Visible = false;
         try { _preview?.Dispose(); } catch { /* already gone */ }
         _preview = null;
-        foreach (var group in _addedGroups) if (group != null) Object.Destroy(group);
-        _addedGroups.Clear();
-        foreach (var go in _hiddenObjects) if (go != null) go.SetActive(true);
-        _hiddenObjects.Clear();
         _menu = null;
         _taskbar = null;
         if (_taskbarHidden && MonoBehaviourSingleton<PreloaderUI>.Instantiated)
@@ -219,7 +220,7 @@ internal sealed class ArenaMainMenuOverlay : MonoBehaviour
         foreach (Transform child in _menu.transform)
         {
             var group = child.GetComponent<CanvasGroup>();
-            if (group == null) { group = child.gameObject.AddComponent<CanvasGroup>(); _addedGroups.Add(group); }
+            if (group == null) group = child.gameObject.AddComponent<CanvasGroup>();
             group.alpha = 0f;
             group.blocksRaycasts = false;
         }
@@ -241,11 +242,9 @@ internal sealed class ArenaMainMenuOverlay : MonoBehaviour
         catch { /* no Fika */ }
     }
 
-    private void HideObject(GameObject go)
+    private static void HideObject(GameObject go)
     {
-        if (go == null || !go.activeSelf) return;
-        go.SetActive(false);
-        _hiddenObjects.Add(go);
+        if (go != null && go.activeSelf) go.SetActive(false);
     }
 
     /// <summary>
