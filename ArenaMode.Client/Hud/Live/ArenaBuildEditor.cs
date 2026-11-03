@@ -480,7 +480,7 @@ internal sealed class ArenaBuildEditor : MonoBehaviour
     // ---------------------------------------------------------------- helpers
 
     /// <summary>The preset's pistol subtree as a kit of its own, so the primary-weapon builder can build it.</summary>
-    private static KitDefinition HolsterAsPrimary(KitDefinition kit)
+    internal static KitDefinition HolsterAsPrimary(KitDefinition kit)
     {
         var root = kit.Items.FirstOrDefault(n => string.Equals(n.SlotId, "Holster", StringComparison.OrdinalIgnoreCase));
         if (root == null) return new KitDefinition { Id = kit.Id, Items = new List<KitItemNode>() };

@@ -79,7 +79,8 @@ internal sealed class ArenaMainMenuOverlay : MonoBehaviour
             }
         }
         catch { /* screen manager not ready */ }
-        bool wanted = inMenu || inSettings;
+        // EFT's build screen opens over the menu for preset weapons: keep ours alive underneath like Settings.
+        bool wanted = inMenu || inSettings || ArenaStockBuildEditor.Active;
         if (wanted && _canvasGo == null) Show();
         else if (!wanted && _canvasGo != null) Hide();
         // EFT re-enables its logo, labels and taskbar whenever its menu screen comes back (e.g. from Settings).

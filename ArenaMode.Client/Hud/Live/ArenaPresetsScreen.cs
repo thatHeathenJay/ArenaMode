@@ -956,12 +956,15 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
         if (!EnsureCustom()) return;
         if (ItemIn(holster ? EquipmentSlot.Holster : EquipmentSlot.FirstPrimaryWeapon) == null) return;
         gameObject.SetActive(false);
-        ArenaBuildEditor.Show(_shown, holster, () =>
+        Action back = () =>
         {
             if (this == null || _instance != this) return;
             gameObject.SetActive(true);
             ReloadShown();
-        });
+        };
+        // EFT's own build screen (the extraction client's) with metascore for price; the live-styled editor only
+        // when EFT's item context is not available.
+        if (!ArenaStockBuildEditor.TryShow(_shown, holster, back)) ArenaBuildEditor.Show(_shown, holster, back);
     }
 
     /// <summary>The slot's own filters against the item's template family (the live editor's compatibility rule).</summary>
