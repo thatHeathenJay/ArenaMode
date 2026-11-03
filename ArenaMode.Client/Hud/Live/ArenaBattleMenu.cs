@@ -2,6 +2,7 @@ using ArenaMode.Modes;
 using Comfort.Common;
 using EFT;
 using EFT.UI;
+using EFT.UI.Screens;
 using HarmonyLib;
 using System;
 using System.Collections.Generic;

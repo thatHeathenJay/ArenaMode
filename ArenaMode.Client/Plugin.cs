@@ -183,6 +183,7 @@ public class Plugin : BaseUnityPlugin
         Hud.TacticalBuyPanel.ApplyInputPatch();
         gameObject.AddComponent<ArenaController>();
         gameObject.AddComponent<Hud.Live.ArenaMainMenuOverlay>();
+        gameObject.AddComponent<Hud.Live.ArenaBattleMenu>();
         gameObject.AddComponent<Combat.Akimbo.ArenaAkimbo>();
         gameObject.AddComponent<Areas.ArenaAreaCapture>();
         gameObject.AddComponent<Pickups.ArenaPickupCapture>();
