@@ -73,7 +73,7 @@ internal static class ZombiePerformancePatches
         WildSpawnType sourceRole, LocalGame game)
     {
         var group = listener.BotsGroup;
-        if (group == null || !ReferenceEquals(group.BotGame, game)
+        if (group == null || !Compat.ArenaGameType.IsBotGameOf(group.BotGame, game)
             || !GenericInfected(group.InitialBotType) || !group.Contains(listener)
             || group.Enemies == null || group.Neutrals == null || listener.Memory == null) return false;
         // Current hostility always wins over native suitability/old ally data.

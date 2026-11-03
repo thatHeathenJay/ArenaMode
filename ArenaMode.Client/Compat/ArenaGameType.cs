@@ -25,6 +25,14 @@ internal static class ArenaGameType
         }
     }
 
+    /// <summary>
+    /// Whether a bot group's game is the running raid. Solo, BotsGroup.BotGame is the LocalGame itself; under Fika the
+    /// bot game is Fika's host controller (CoopGame does not implement IBotGame), so the singleton is the reference.
+    /// </summary>
+    internal static bool IsBotGameOf(object botGame, object game)
+        => ReferenceEquals(botGame, game)
+           || (Comfort.Common.Singleton<EFT.IBotGame>.Instantiated && ReferenceEquals(botGame, Comfort.Common.Singleton<EFT.IBotGame>.Instance));
+
     /// <summary>A method declared on the concrete game class, falling back to the inherited one.</summary>
     internal static System.Reflection.MethodInfo Method(string name, Type[] parameters = null)
         => (parameters == null ? AccessTools.DeclaredMethod(Concrete, name) : AccessTools.DeclaredMethod(Concrete, name, parameters))

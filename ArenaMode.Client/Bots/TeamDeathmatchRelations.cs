@@ -172,7 +172,7 @@ internal static class TeamDeathmatchRelations
 
     private static EPlayerSide? GroupFaction(BotsGroup group)
     {
-        if (!Enabled || group == null || !ReferenceEquals(group.BotGame, _game)) return null;
+        if (!Enabled || group == null || !Compat.ArenaGameType.IsBotGameOf(group.BotGame, _game)) return null;
         var first = Faction(group._initialBot);
         if (!first.HasValue || first != group.Side) return null;
         if (first == EPlayerSide.Usec ? group.InitialBotType != WildSpawnType.pmcUSEC
