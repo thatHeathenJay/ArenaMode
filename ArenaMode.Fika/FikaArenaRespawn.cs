@@ -122,6 +122,8 @@ internal static class FikaArenaRespawn
         {
             player.MovementContext.IsInPronePose = false;
             player.MovementContext.SetPoseLevel(1f, false);
+            player.MovementContext.SetTilt(0f, false);        // a lean held at death otherwise survives the respawn
+            player.MovementContext.PlayerAnimatorSetTilt(0f);
         }
         catch (Exception ex) { Plugin.Log.LogWarning($"Co-op arena: stand-up skipped: {ex.Message}"); }
     }

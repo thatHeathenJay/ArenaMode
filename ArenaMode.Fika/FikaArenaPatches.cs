@@ -59,8 +59,15 @@ internal static class FikaArenaPatches
     {
         if (!downed || !__instance.IsYourPlayer || __instance is ObservedPlayer || !ArenaCoop.RespawnsActive)
             return;
-        var bleedout = Traverse.Create(__instance).Field("_bleedout").GetValue();
-        if (bleedout != null) BleedoutHideUi?.Invoke(bleedout, null);
+        // Fika's Bleedout owns the bleed timer panel, the "hold <key> to give up" overlay text and a repeating agony
+        // line; none of that is Arena. Destroying it runs its own teardown (text destroyed, panel closed, repeat
+        // cancelled, events unhooked). Un-downing later sees a destroyed component as null and skips it.
+        var bleedout = Traverse.Create(__instance).Field("_bleedout").GetValue() as UnityEngine.Component;
+        if (bleedout != null)
+        {
+            BleedoutHideUi?.Invoke(bleedout, null);
+            UnityEngine.Object.Destroy(bleedout);
+        }
         FikaArenaRespawn.Begin(__instance);
     }
 
