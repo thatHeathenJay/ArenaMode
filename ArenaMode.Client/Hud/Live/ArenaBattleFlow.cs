@@ -14,9 +14,10 @@ namespace ArenaMode.Hud.Live;
 /// <summary>
 /// Live Arena's "Arena Battle" matchmaking flow, built from the ripped screens: SELECT GAME TYPE
 /// (ArenaRankingModeSelectionScreen), SELECT UNRANKED GAME MODE (ArenaGameModeSelectionScreen) and SELECT ARENA
-/// (ArenaMapSelectionScreen). NEXT on the map screen remembers the location and runs EFT's stock play path;
-/// ArenaSideSkip then selects that location on EFT's map screen and presses its Next, so the stock matchmaker
-/// screens are never seen. Only UNRANKED / TeamFight (the fork's team deathmatch) are playable.
+/// (ArenaMapSelectionScreen), each under live's breadcrumb strip and over its bottom bar (ArenaMenuChrome). NEXT on
+/// the map screen remembers the location and runs EFT's stock play path; ArenaSideSkip then selects that location on
+/// EFT's map screen and presses its Next, so the stock matchmaker screens are never seen. Only UNRANKED / TeamFight
+/// (the fork's team deathmatch) is playable; the other live modes are listed as live lists them, but NEXT stays off.
 /// </summary>
 internal sealed class ArenaBattleFlow : MonoBehaviour
 {
@@ -27,50 +28,55 @@ internal sealed class ArenaBattleFlow : MonoBehaviour
     {
         ["arena/matching/SelectGametype"] = "SELECT GAME TYPE", ["Unranked"] = "UNRANKED", ["Ranked"] = "RANKED",
         ["Arena/UI/CustomMode"] = "Custom", ["Arena/UI/TutorialMode"] = "Tutorial",
-        ["arena/matching/SelectRankedGamemode"] = "SELECT UNRANKED GAME MODE", ["arena/selection/gameMode"] = "game mode",
+        ["arena/matching/SelectRankedGamemode"] = "SELECT UNRANKED GAME MODE", ["arena/selection/gameMode"] = "GAME MODE",
         ["Description"] = "Description", ["arena/matching/AvailableArenaMaps"] = "AVAILABLE LOCATIONS", ["SETTINGS"] = "SETTINGS",
-        ["arena/matching/SelectArenaMap"] = "SELECT ARENA", ["arena/matching/AvailableModes"] = "Available game modes",
+        ["arena/matching/SelectArenaMap"] = "SELECT ARENA", ["arena/matching/AvailableModes"] = "AVAILABLE GAME MODES",
     };
-    private const string Unavailable = "Unavailable";                       // arena/matching/UnavailableReason
     private const string TeamFightDescription =
         "A team battle in the 5v5 format. The objective is to eliminate the opposing team sooner than they kill you.";
     private const string TeamFightRespawnsDescription =
         "A team battle in the 5v5 format with respawns. The team with more kills when the time runs out wins.";
+    private const string NotAvailable = "\n\n<color=#FF8D00><i>Not available in this build yet.</i></color>";
 
     private const string LogoMedium = "Texture2D/Matchmaker_GameMods_Logo_Medium.png";
-    private const string LogoBlocked = "Texture2D/Matchmaker_GameMods_Logo_Blocked_Medium.png";
+    private const string LogoBig = "Texture2D/Matchmaker_GameMods_Logo_Big.png";
     private const string LogoSmall = "Texture2D/Matchmaker_GameMods_Logo_Small.png";
     private const string MapIcons = "Texture2D/Matchmaker_MapButton_MapIcons-All.png";
+    private const string TeamFightId = "teamfight";
 
-    // Live's unranked modes in live order; logo rects from the rip's sprite assets (unavailable ones use the
-    // blocked atlas where it has the mode; the medium atlas has no blastgang, the small one does).
-    private static readonly (string Name, bool Available, string Atlas, float[] Logo)[] Modes =
+    // Live's unranked modes in live order (LAST HERO, CHECKPOINT, CHECKPOINT BLOODLUST, SHOOTOUT TOURNAMENT,
+    // TEAMFIGHT, BLASTGANG). Card = the list logo (medium atlas; BlastGang only exists in the big one), Small = the
+    // description logo; rects are the logos' tight bounds measured in the rip (TestBackendLocaleEn descriptions).
+    private static readonly (string Id, string Title, string Tag, float TagX, string Players, string Description, string Atlas, float[] Card, float[] Small)[] Modes =
     {
-        ("TeamFight", true, LogoMedium, new[] { 284.0934f, 27.07612f, 251.89714f, 117.847755f }),
-        ("CheckPoint", false, LogoBlocked, new[] { 1505.4973f, 31.07612f, 154.88097f, 56.847763f }),
-        ("BlastGang", false, LogoBlocked, new[] { 1320.3489f, 25.012913f, 153.87256f, 63.967297f }),
-        ("ShootOut", false, LogoBlocked, new[] { 1123.1176f, 17.07612f, 174.89713f, 82.84776f }),
-        ("LastHero", false, LogoMedium, new[] { 553.2094f, 27.07612f, 257.84778f, 79.84776f }),
+        ("lasthero", "LAST HERO", "LH", ArenaMenuChrome.TagLastHero, null,
+            "A chaotic free-for-all gunfight. There will be only one winner.",
+            LogoMedium, new[] { 562f, 36f, 241f, 63f }, new[] { 277f, 11f, 130f, 35f }),
+        ("checkpoint", "CHECKPOINT", "CPT", ArenaMenuChrome.TagCheckPoint, "5x5",
+            "A team battle in the 5v5 format. Fight for control over the game location along with your team by capturing and holding the objectives.",
+            LogoMedium, new[] { 2212f, 51f, 219f, 75f }, new[] { 1101f, 19f, 118f, 42f }),
+        ("bloodlust", "CHECKPOINT BLOODLUST", "CPBL", ArenaMenuChrome.TagBloodlust, "5x5",
+            "A team battle in the 5v5 format. Fight for control over the game location along with your team by capturing and holding the objectives. Bloodlust rules: no armor, no healing.",
+            LogoMedium, new[] { 3859f, 37f, 213f, 97f }, new[] { 1926f, 11f, 109f, 50f }),
+        ("shootout", "SHOOTOUT TOURNAMENT", "SO", ArenaMenuChrome.TagShootOut, "2x2",
+            "Shootout - a round-robin tournament style match where each team plays against the others. The two teams with the highest number of victory points meet in the final, where the winner is determined.",
+            LogoMedium, new[] { 1656f, 35f, 238f, 102f }, new[] { 822f, 11f, 130f, 55f }),
+        (TeamFightId, "TEAMFIGHT", "TF", ArenaMenuChrome.TagTeamFight, "5x5", TeamFightDescription,
+            LogoMedium, new[] { 293f, 36f, 234f, 99f }, new[] { 142f, 11f, 126f, 54f }),
+        ("blastgang", "BLASTGANG", "BG", ArenaMenuChrome.TagBlastGang, "5x5",
+            "A team battle in the 5v5 format. A classic Search and Destroy game mode with one side attacking and the other defending.",
+            LogoBig, new[] { 2642f, 66f, 305f, 120f }, new[] { 965f, 14f, 120f, 47f }),
     };
 
-    // Map pins: position over Main_Map_Screen (normalized inside the sprite), and the MapIcons-All rects of the
-    // pin column whose symbol fits the map (top row = hover glow, middle = idle, bottom = selected).
-    // ponytail: pin symbols and positions are picked by eye (the rip has no location -> icon table); swap the
-    // rects if live data turns up.
-    private static readonly (string Id, string Name, string Banner, Vector2 At, float[] Hover, float[] Idle, float[] Selected)[] Maps =
+    // Maps: name plate position over Main_Map_Screen (normalized inside the sprite) and the MapIcons-All rect of
+    // the pin symbol that fits the map. ponytail: symbols and positions are picked by eye (the rip has no
+    // location -> icon table); swap the rects if live data turns up.
+    private static readonly (string Id, string Name, string Banner, Vector2 At, float[] Icon)[] Maps =
     {
-        ("arena_airpit", "Air Pit", "AirPit", new Vector2(0.886f, 0.202f),
-            new[] { 246.07613f, 161.07613f, 67.84776f, 77.84776f }, new[] { 268.0761f, 103.07612f, 23.872564f, 33.872566f },
-            new[] { 245.07613f, 2.0761204f, 69.84776f, 76.84776f }),
-        ("arena_bay5", "Bay 5", "Bay5", new Vector2(0.251f, 0.140f),
-            new[] { 86.07612f, 161.07613f, 67.84776f, 77.84776f }, new[] { 108.07612f, 103.07612f, 23.872564f, 33.872566f },
-            new[] { 85.07612f, 2.0761204f, 69.84776f, 76.84776f }),
-        ("arena_bowl", "Bowl", "Bowl", new Vector2(0.900f, 0.663f),
-            new[] { 166.07613f, 161.07613f, 67.84776f, 77.84776f }, new[] { 188.07613f, 103.07612f, 23.872564f, 33.872566f },
-            new[] { 165.07613f, 2.0761204f, 69.84776f, 76.84776f }),
-        ("arena_equator", "Equator", "Equator", new Vector2(0.525f, 0.453f),
-            new[] { 965.0761f, 161.07613f, 69.84776f, 77.84776f }, new[] { 987.02673f, 102.07612f, 25.946497f, 34.872566f },
-            new[] { 965.0761f, 2.0761204f, 69.84776f, 76.84776f }),
+        ("arena_airpit", "Air Pit", "AirPit", new Vector2(0.886f, 0.202f), new[] { 268.0761f, 103.07612f, 23.872564f, 33.872566f }),
+        ("arena_bay5", "Bay 5", "Bay5", new Vector2(0.251f, 0.140f), new[] { 108.07612f, 103.07612f, 23.872564f, 33.872566f }),
+        ("arena_bowl", "Bowl", "Bowl", new Vector2(0.900f, 0.663f), new[] { 188.07613f, 103.07612f, 23.872564f, 33.872566f }),
+        ("arena_equator", "Equator", "Equator", new Vector2(0.525f, 0.453f), new[] { 987.02673f, 102.07612f, 25.946497f, 34.872566f }),
     };
 
     private static ArenaBattleFlow _instance;
@@ -78,6 +84,9 @@ internal sealed class ArenaBattleFlow : MonoBehaviour
 
     /// <summary>Set once a match was started through this flow; backing out of what follows returns to SELECT ARENA.</summary>
     internal static bool UsedThisSession;
+
+    /// <summary>False after QUICK GAME: backing out returns to the main menu instead of SELECT ARENA.</summary>
+    internal static bool ReturnToMap = true;
 
     internal static void ReopenAtMap()
     {
@@ -90,10 +99,11 @@ internal sealed class ArenaBattleFlow : MonoBehaviour
 
     private ArenaUiPack _pack;
     private ArenaUiBuilder _builder;
-    private RectTransform _root, _screen, _pins, _description;
+    private RectTransform _root, _screen, _pins, _description, _info, _header, _nextButton, _respawnsToggle;
     private TextMeshProUGUI _modeDescription, _respawnsLabel;
+    private readonly List<RectTransform> _cards = new();
     private Step _step;
-    private string _location;
+    private string _location, _mode = TeamFightId;
 
     internal static bool Visible => _instance != null;
 
@@ -117,6 +127,24 @@ internal sealed class ArenaBattleFlow : MonoBehaviour
         var instance = _instance;
         _instance = null;
         Destroy(instance.gameObject);
+    }
+
+    /// <summary>Live's QUICK GAME: straight into matchmaking, here TeamFight on a random arena.</summary>
+    internal static void QuickGame()
+    {
+        var map = Maps[UnityEngine.Random.Range(0, Maps.Length)];
+        Start(map.Id, false);
+    }
+
+    private static void Start(string locationId, bool returnToMap)
+    {
+        Settings.TrySelectGameMode(ArenaModeCatalog.TeamDeathmatchId);   // TeamFight is the fork's team deathmatch
+        Hide();
+        PendingLocationId = locationId;
+        UsedThisSession = true;
+        ReturnToMap = returnToMap;
+        Plugin.ModLogger.LogInfo($"Arena battle flow: TeamFight on {locationId}, starting matchmaking.");
+        ArenaMainMenuOverlay.StartStockMatchmaking();
     }
 
     private void OnDestroy()
@@ -150,22 +178,16 @@ internal sealed class ArenaBattleFlow : MonoBehaviour
         scaler.matchWidthOrHeight = 0.5f;
         gameObject.AddComponent<GraphicRaycaster>();
         _root = (RectTransform)transform;
-
-        // Same backdrop as the presets screen: it also swallows clicks meant for the menu underneath.
-        var fill = NewRect("Backdrop", _root);
-        ArenaUiBuilder.Stretch(fill);
-        fill.gameObject.AddComponent<Image>().color = new Color(0.03f, 0.035f, 0.04f, 1f);
-        var backdrop = _builder.Build(_pack.Layout("ArenaBattleBackgroundPanel"), _root);
-        ArenaUiBuilder.Stretch(backdrop);
-        backdrop.GetComponentInChildren<Image>().color = new Color(1f, 1f, 1f, 0.08f);
-
+        // No backdrop: live draws these screens over the faded menu scene (each layout's Underlay); the main menu
+        // overlay switches itself off while this flow is up.
         Open(Step.GameType);
     }
 
     private void Open(Step step)
     {
         if (_screen != null) Destroy(_screen.gameObject);
-        _screen = _pins = _description = null;
+        _screen = _pins = _description = _info = _header = _nextButton = _respawnsToggle = null;
+        _cards.Clear();
         _step = step;
         switch (step)
         {
@@ -185,7 +207,15 @@ internal sealed class ArenaBattleFlow : MonoBehaviour
     {
         _screen = _builder.Build(_pack.Layout(layout), _root);
         ArenaUiBuilder.SetActive(_screen, "ArenaMenuSparks", false);     // a render texture in live
+        ArenaMenuChrome.BuildFooter(_pack, _screen, SessionProfile(), Hide, ArenaMainMenuOverlay.ShowSettings,
+            () => { Hide(); ArenaPresetListScreen.Show(); });
         return _screen;
+    }
+
+    private void Header(string modeTag, float? tagX, string location)
+    {
+        if (_header != null) Destroy(_header.gameObject);
+        _header = ArenaMenuChrome.BuildHeader(_pack, _screen, "UNRANKED", modeTag, tagX, location);
     }
 
     // ------------------------------------------------------- SELECT GAME TYPE
@@ -208,60 +238,111 @@ internal sealed class ArenaBattleFlow : MonoBehaviour
         var layout = _pack.Layout("ArenaGameModeSelectionScreen");
         var screen = BuildScreen("ArenaGameModeSelectionScreen");
         ArenaUiBuilder.Text(screen, "TitlePanel/Header").text = "SELECT UNRANKED GAME MODE";
+        ArenaUiBuilder.Text(screen, "Modes List/Header/GameModes").text = "GAME MODE";
 
         var list = ArenaUiBuilder.Find(screen, "Modes List/Viewport/DepensOfTiers/DependsContainer");
-        var template = Find(layout, "GameModeViewTemplate");
-        foreach (var (name, available, atlas, logo) in Modes)
+        var template = ArenaMenuChrome.Find(layout, "GameModeViewTemplate");
+        foreach (var mode in Modes)
         {
             var card = _builder.Build(template, list);
-            card.name = name;
+            card.name = mode.Id;
             card.gameObject.SetActive(true);
             var image = ArenaUiBuilder.TryFind(card, "ModeIcon/ModeImage")?.GetComponent<Image>();
-            if (image != null) image.sprite = _pack.Sprite(SpriteRef(atlas, name, logo, 78f)) ?? image.sprite;
-            // TeamFight, the only playable mode, is the selected one.
-            ArenaUiBuilder.SetActive(card, "ModeIcon/ModeSelectedBack", available);
-            ArenaUiBuilder.SetActive(card, "ModeIcon/ModeSelected", available);
-            ArenaUiBuilder.SetActive(card, "ModeIcon/UnavailableBackground", !available);
-            if (!available)
-            {
-                var reason = ArenaUiBuilder.TryFind(card, "ModeIcon/UnavailableBackground/UnavailableReason")?.GetComponent<TextMeshProUGUI>();
-                if (reason != null) reason.text = Unavailable;
-                continue;
-            }
-            Clickable(card, "ClickHandler", null);                          // already selected: the click only sounds
+            if (image != null) image.sprite = _pack.Sprite(SpriteRef(mode.Atlas, mode.Id, mode.Card, 78f)) ?? image.sprite;
+            ArenaUiBuilder.SetActive(card, "ModeIcon/UnavailableBackground", false);
+            var hover = ArenaUiBuilder.TryFind(card, "ModeIcon/ModeHover");
+            if (hover != null) hover.gameObject.SetActive(true);
+            string id = mode.Id;
+            Clickable(card, "ClickHandler", () => SelectMode(id), hover?.GetComponent<Image>());
+            _cards.Add(card);
         }
 
-        var info = ArenaUiBuilder.Find(screen, "Mode Description");
-        var group = info.GetComponent<CanvasGroup>();
+        _info = ArenaUiBuilder.Find(screen, "Mode Description");
+        var group = _info.GetComponent<CanvasGroup>();
         if (group != null) group.alpha = 1f;                                // faded in by live's panel
-        ArenaUiBuilder.SetActive(info, "Content/InvalidModeDescriptionBlock", false);
-        _modeDescription = ArenaUiBuilder.Text(info, "Content/DescriptionBlock/ModeDecriprion");
-        _modeDescription.text = Settings.TeamFightRespawns.Value ? TeamFightRespawnsDescription : TeamFightDescription;
-        var maps = ArenaUiBuilder.Find(info, "Content/MapsBlock/MapsList");
-        foreach (var map in Maps)
-        {
-            var row = _builder.Build(Find(layout, "MapTemplate"), maps);
-            row.gameObject.SetActive(true);
-            var icon = ArenaUiBuilder.TryFind(row, "MapIcoBlock/MapIco")?.GetComponent<Image>();
-            if (icon != null) icon.sprite = _pack.Sprite(SpriteRef(MapIcons, map.Name, map.Idle, 100f)) ?? icon.sprite;
-            ArenaUiBuilder.Text(row, "MapName").text = map.Name;
-        }
-        // Live's settings block: players per match. Its "90 MIN" playtime is not this fork's rule, so it goes.
-        var settings = ArenaUiBuilder.Find(info, "Content/SettingsBlock");
-        ArenaUiBuilder.SetActive(settings, "IconsPanel/Playtime", false);
-        var players = _builder.Build(Find(layout, "PlayersTemplate"), ArenaUiBuilder.Find(settings, "IconsPanel/Players/PlayersList"));
+        ArenaUiBuilder.SetActive(_info, "Content/InvalidModeDescriptionBlock", false);
+        _modeDescription = ArenaUiBuilder.Text(_info, "Content/DescriptionBlock/ModeDecriprion");
+        var settings = ArenaUiBuilder.Find(_info, "Content/SettingsBlock");
+        var players = _builder.Build(ArenaMenuChrome.Find(layout, "PlayersTemplate"), ArenaUiBuilder.Find(settings, "IconsPanel/Players/PlayersList"));
         players.gameObject.SetActive(true);
-        players.GetComponent<TextMeshProUGUI>().text = "5x5";
         BuildRespawnsToggle(settings);
 
-        FlowButton(screen, "NextButton", () => Open(Step.Map));
+        _nextButton = FlowButton(screen, "NextButton", () => Open(Step.Map));
+        _nextButton.gameObject.AddComponent<CanvasGroup>();
         FlowButton(screen, "BackButton", () => Open(Step.GameType));
+        SelectMode(_mode);
+    }
+
+    private void SelectMode(string id)
+    {
+        var mode = Modes.FirstOrDefault(m => m.Id == id);
+        if (mode.Id == null) mode = Modes.First(m => m.Id == TeamFightId);
+        _mode = mode.Id;
+        bool teamFight = mode.Id == TeamFightId;
+        foreach (var card in _cards)
+        {
+            bool on = card.name == mode.Id;
+            ArenaUiBuilder.SetActive(card, "ModeIcon/ModeSelectedBack", on);
+            ArenaUiBuilder.SetActive(card, "ModeIcon/ModeSelected", on);
+        }
+
+        var icon = ArenaUiBuilder.TryFind(_info, "ModeIcon/ModeImage")?.GetComponent<Image>();
+        if (icon != null) icon.sprite = _pack.Sprite(SpriteRef(LogoSmall, mode.Id, mode.Small, 68f)) ?? icon.sprite;
+        RefreshDescription();
+
+        // Locations: this fork's arenas all run TeamFight; the other modes have none here.
+        var maps = ArenaUiBuilder.Find(_info, "Content/MapsBlock");
+        maps.gameObject.SetActive(teamFight);
+        var mapsList = ArenaUiBuilder.Find(maps, "MapsList");
+        foreach (Transform old in mapsList.Cast<Transform>().ToArray()) Destroy(old.gameObject);
+        var mapTemplate = ArenaMenuChrome.Find(_pack.Layout("ArenaGameModeSelectionScreen"), "MapTemplate");
+        if (teamFight)
+            foreach (var map in Maps)
+            {
+                var row = _builder.Build(mapTemplate, mapsList);
+                row.gameObject.SetActive(true);
+                var ico = ArenaUiBuilder.TryFind(row, "MapIcoBlock/MapIco")?.GetComponent<Image>();
+                if (ico != null) ico.sprite = _pack.Sprite(SpriteRef(MapIcons, map.Name, map.Icon, 100f)) ?? ico.sprite;
+                ArenaUiBuilder.Text(row, "MapName").text = map.Name;
+            }
+
+        var settings = ArenaUiBuilder.Find(_info, "Content/SettingsBlock");
+        var playersBlock = ArenaUiBuilder.Find(settings, "IconsPanel/Players");
+        playersBlock.gameObject.SetActive(mode.Players != null);
+        if (mode.Players != null) ArenaUiBuilder.Text(playersBlock, "PlayersList/PlayersTemplate").text = mode.Players;
+        ArenaUiBuilder.SetActive(settings, "IconsPanel/Playtime", teamFight);
+        if (teamFight) RefreshPlaytime(settings);
+        if (_respawnsToggle != null) _respawnsToggle.gameObject.SetActive(teamFight);
+
+        var next = _nextButton.GetComponent<CanvasGroup>();
+        next.alpha = teamFight ? 1f : 0.35f;
+        next.interactable = next.blocksRaycasts = teamFight;
+        Header(mode.Tag, mode.TagX, null);
+    }
+
+    private void RefreshDescription()
+    {
+        if (_modeDescription == null) return;
+        var mode = Modes.First(m => m.Id == _mode);
+        _modeDescription.text = mode.Id == TeamFightId
+            ? Settings.TeamFightRespawns.Value ? TeamFightRespawnsDescription : TeamFightDescription
+            : mode.Description + NotAvailable;
+    }
+
+    /// <summary>Live's clock: match minutes with respawns, best-of rounds without.</summary>
+    private static void RefreshPlaytime(RectTransform settings)
+    {
+        var text = ArenaUiBuilder.TryFind(settings, "IconsPanel/Playtime/Playtime")?.GetComponent<TextMeshProUGUI>();
+        if (text == null) return;
+        text.text = Settings.TeamFightRespawns.Value
+            ? Mathf.Max(1, Settings.TeamDeathmatchTimeLimitSeconds.Value / 60) + " MIN"
+            : "BO" + (2 * Settings.TeamFightRoundsToWin.Value - 1);
     }
 
     /// <summary>TeamFight's one option: Respawns on (kill count, continuous respawns) or off (live rounds).</summary>
     private void BuildRespawnsToggle(RectTransform settingsBlock)
     {
-        var toggle = NewRect("RespawnsToggle", settingsBlock);
+        var toggle = _respawnsToggle = NewRect("RespawnsToggle", settingsBlock);
         toggle.sizeDelta = new Vector2(500f, 30f);
         var element = toggle.gameObject.AddComponent<LayoutElement>();
         element.preferredWidth = 500f; element.preferredHeight = 30f; element.minHeight = 30f;
@@ -275,8 +356,8 @@ internal sealed class ArenaBattleFlow : MonoBehaviour
         {
             Settings.TeamFightRespawns.Value = !Settings.TeamFightRespawns.Value;
             RefreshRespawnsToggle();
-            if (_modeDescription != null)
-                _modeDescription.text = Settings.TeamFightRespawns.Value ? TeamFightRespawnsDescription : TeamFightDescription;
+            RefreshDescription();
+            RefreshPlaytime(settingsBlock);
             Plugin.ModLogger.LogInfo("Arena battle flow: TeamFight respawns " + (Settings.TeamFightRespawns.Value ? "on" : "off"));
         });
     }
@@ -306,16 +387,21 @@ internal sealed class ArenaBattleFlow : MonoBehaviour
         fitter.aspectRatio = 1f;
         _pins = ArenaUiBuilder.Find(mapImage, "LocationsContainer");
         _pins.SetAsLastSibling();
-        foreach (var map in Maps) BuildPin(map.Id, map.Name, map.At, map.Hover, map.Idle, map.Selected);
+        // Live's name plates (ArenaMatchingScreen's Location Template): grey plate, green under the pointer,
+        // orange when selected, the map's symbol on the left and the mode tags underneath.
+        var plate = ArenaMenuChrome.Find(_pack.Layout("ArenaMatchingScreen"), "Location Template");
+        foreach (var map in Maps) BuildPlate(plate, map.Id, map.Name, map.At, map.Icon);
 
         _description = ArenaUiBuilder.Find(screen, "Description");
         var group = _description.GetComponent<CanvasGroup>();
         if (group != null) group.alpha = 1f;
         // Every map here runs TeamFight only.
         var modeList = ArenaUiBuilder.Find(_description, "Content/ModesBlock/ModeList");
-        var mode = _builder.Build(Find(layout, "ModeTemplate"), modeList);
+        var mode = _builder.Build(ArenaMenuChrome.Find(layout, "ModeTemplate"), modeList);
         mode.gameObject.SetActive(true);
-        ArenaUiBuilder.Text(mode, "ModeTemplate/Title").text = "TeamFight";
+        ArenaUiBuilder.Text(mode, "ModeTemplate/Title").text = "TEAMFIGHT";
+        var tag = ArenaUiBuilder.TryFind(mode, "ModeTemplate/Background")?.GetComponent<Image>();
+        if (tag != null) tag.sprite = _pack.Sprite(ArenaMenuChrome.TagSprite(ArenaMenuChrome.TagTeamFight)) ?? tag.sprite;
         var playersValue = ArenaUiBuilder.TryFind(mode, "PlayersHolder/PlayersValue");
         if (playersValue != null)
         {
@@ -328,33 +414,26 @@ internal sealed class ArenaBattleFlow : MonoBehaviour
         SelectLocation(_lastLocation);
     }
 
-    private void BuildPin(string id, string name, Vector2 at, float[] hover, float[] idle, float[] selected)
+    private void BuildPlate(JObject template, string id, string name, Vector2 at, float[] icon)
     {
-        var pin = NewRect(id, _pins);
-        pin.anchorMin = pin.anchorMax = at;
-        pin.sizeDelta = new Vector2(120f, 120f);
-        var hit = pin.gameObject.AddComponent<Image>();
-        hit.color = Color.clear;
-        hit.raycastTarget = true;
-        // ArenaMenuButton fades a child named "Background" in on hover: the glowing pin.
-        PinImage(pin, "Idle", idle, name, Color.white);
-        PinImage(pin, "Background", hover, name, Color.clear);
-        PinImage(pin, "Selected", selected, name, Color.white);
-        var label = HudStyle.CreateText(pin, "Label", 16f, TextAlignmentOptions.Midline);
-        label.text = name.ToUpperInvariant();
-        label.color = ArenaUiTheme.Muted;
-        label.rectTransform.anchoredPosition = new Vector2(0f, -36f);
-        label.rectTransform.sizeDelta = new Vector2(160f, 22f);
-        pin.gameObject.AddComponent<ArenaMenuButton>().Init(pin, () => SelectLocation(id));
-    }
-
-    private void PinImage(RectTransform pin, string node, float[] rect, string name, Color color)
-    {
-        var image = NewRect(node, pin).gameObject.AddComponent<Image>();
-        image.sprite = _pack.Sprite(SpriteRef(MapIcons, name, rect, 100f));
-        image.color = color;
-        image.raycastTarget = false;
-        image.rectTransform.sizeDelta = new Vector2(rect[2], rect[3]);
+        var plate = _builder.Build(template, _pins);
+        plate.name = id;
+        plate.gameObject.SetActive(true);
+        plate.anchorMin = plate.anchorMax = at;
+        plate.pivot = new Vector2(15f / 186f, 0.5f);                       // the map symbol sits on the spot
+        plate.anchoredPosition = Vector2.zero;
+        ArenaUiBuilder.Text(plate, "Button/MapButton/View/Label").text = name.ToUpperInvariant();
+        var symbol = ArenaUiBuilder.TryFind(plate, "Button/IconHandler/Available Icon")?.GetComponent<Image>();
+        if (symbol != null) symbol.sprite = _pack.Sprite(SpriteRef(MapIcons, name, icon, 100f)) ?? symbol.sprite;
+        ArenaUiBuilder.SetActive(plate, "Button/IconHandler/Scanline Icon", false);
+        var tags = ArenaUiBuilder.Find(plate, "AvailbaleModesContiainer");
+        var tag = _builder.Build(ArenaMenuChrome.Find(template, "AvailableModeTemplate"), tags);
+        tag.gameObject.SetActive(true);
+        ArenaUiBuilder.Text(tag, "Text").text = "TF";
+        var tagImage = tag.GetComponent<Image>();
+        if (tagImage != null) tagImage.sprite = _pack.Sprite(ArenaMenuChrome.TagSprite(ArenaMenuChrome.TagTeamFight)) ?? tagImage.sprite;
+        var hover = ArenaUiBuilder.TryFind(plate, "Button/MapButton/ScanlineBackground")?.GetComponent<Image>();
+        Clickable(plate, "ClickHandler", () => SelectLocation(id), hover, false);
     }
 
     private void SelectLocation(string id)
@@ -364,14 +443,13 @@ internal sealed class ArenaBattleFlow : MonoBehaviour
         _location = _lastLocation = map.Id;
         foreach (Transform pin in _pins)
         {
-            bool on = pin.name == map.Id;
-            ArenaUiBuilder.SetActive((RectTransform)pin, "Selected", on);
-            ArenaUiBuilder.SetActive((RectTransform)pin, "Idle", !on);
+            var selected = ArenaUiBuilder.TryFind((RectTransform)pin, "Button/MapButton/View")?.GetComponent<Image>();
+            if (selected != null) selected.enabled = pin.name == map.Id;
         }
 
         ArenaUiBuilder.Text(_description, "TitleBlock/NameBlock/Location Name").text = map.Name.ToUpperInvariant();
         var icon = ArenaUiBuilder.TryFind(_description, "TitleBlock/NameBlock/MapIco")?.GetComponent<Image>();
-        if (icon != null) icon.sprite = _pack.Sprite(SpriteRef(MapIcons, map.Name, map.Idle, 100f)) ?? icon.sprite;
+        if (icon != null) icon.sprite = _pack.Sprite(SpriteRef(MapIcons, map.Name, map.Icon, 100f)) ?? icon.sprite;
         // The ripped locale has no arena map descriptions; show EFT's own when the server provides one.
         string description = MapDescription(map.Id);
         var text = ArenaUiBuilder.Text(_description, "Content/DescriptionBlock/Descriprion");
@@ -381,24 +459,18 @@ internal sealed class ArenaBattleFlow : MonoBehaviour
         var art = LocationBanner(map.Id) ?? _pack.WholeTexture($"Texture2D/ArenaBackgroundPanel_{map.Banner}.png");
         if (banner != null && art != null) banner.sprite = art;
         ArenaUiBuilder.Text(_screen, "MapsCounter/Counter/Counter").text = "01";
+        Header("TF", ArenaMenuChrome.TagTeamFight, map.Name);
     }
 
     private void StartMatch()
     {
-        string id = _location;
-        if (id == null) return;
-        Settings.TrySelectGameMode(ArenaModeCatalog.TeamDeathmatchId);   // TeamFight is the fork's team deathmatch
-        Hide();
-        PendingLocationId = id;
-        UsedThisSession = true;
-        Plugin.ModLogger.LogInfo($"Arena battle flow: TeamFight on {id}, starting matchmaking.");
-        ArenaMainMenuOverlay.StartStockMatchmaking();
+        if (_location != null) Start(_location, true);
     }
 
     // ---------------------------------------------------------------- helpers
 
     /// <summary>Live's NEXT / BACK buttons; their transparent "___NEXT___" sizing label stays invisible on hover.</summary>
-    private static void FlowButton(RectTransform screen, string path, Action action)
+    private static RectTransform FlowButton(RectTransform screen, string path, Action action)
     {
         var button = ArenaUiBuilder.Find(screen, path);
         button.gameObject.SetActive(true);
@@ -409,9 +481,10 @@ internal sealed class ArenaBattleFlow : MonoBehaviour
             size.text = "<alpha=#00>" + size.text;   // ArenaMenuButton tints the first label white on hover
         }
         Clickable(button, "RaycastTarget", action);
+        return button;
     }
 
-    private static void Clickable(RectTransform node, string hitPath, Action action)
+    private static void Clickable(RectTransform node, string hitPath, Action action, Image hover = null, bool tintLabel = true)
     {
         var hit = ArenaUiBuilder.TryFind(node, hitPath) ?? node;
         var image = hit.GetComponent<Image>();
@@ -421,7 +494,7 @@ internal sealed class ArenaBattleFlow : MonoBehaviour
             image.color = Color.clear;
         }
         image.raycastTarget = true;
-        node.gameObject.AddComponent<ArenaMenuButton>().Init(node, action);
+        node.gameObject.AddComponent<ArenaMenuButton>().Init(node, action, hover, tintLabel);
     }
 
     private static JObject SpriteRef(string atlas, string name, float[] rect, float ppu) => new()
@@ -468,6 +541,12 @@ internal sealed class ArenaBattleFlow : MonoBehaviour
         catch { return null; }
     }
 
+    private static Profile SessionProfile()
+    {
+        try { return SPT.Reflection.Utils.ClientAppUtils.GetMainApp()?.GetClientBackEndSession()?.Profile; }
+        catch { return null; }
+    }
+
     private static RectTransform NewRect(string name, Transform parent)
     {
         var go = new GameObject(name, typeof(RectTransform));
@@ -475,14 +554,5 @@ internal sealed class ArenaBattleFlow : MonoBehaviour
         var rect = (RectTransform)go.transform;
         rect.SetParent(parent, false);
         return rect;
-    }
-
-    private static JObject Find(JObject node, string name)
-    {
-        if (node.Value<string>("name") == name) return node;
-        if (node["children"] is JArray children)
-            foreach (var child in children)
-                if (child is JObject c && Find(c, name) is { } found) return found;
-        return null;
     }
 }

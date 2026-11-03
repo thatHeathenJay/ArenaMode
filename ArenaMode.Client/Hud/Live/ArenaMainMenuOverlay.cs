@@ -26,18 +26,22 @@ internal sealed class ArenaMainMenuOverlay : MonoBehaviour
 {
     private static readonly Dictionary<string, string> English = new(StringComparer.OrdinalIgnoreCase)
     {
-        ["arena/button/ArenaBattle"] = "ARENA BATTLE", ["FASTGAME"] = "FAST GAME", ["arena/button/Presets"] = "PRESETS",
+        ["arena/button/ArenaBattle"] = "ARENA BATTLE", ["FASTGAME"] = "QUICK GAME", ["arena/button/Presets"] = "MY PRESETS",
         ["arena/button/Armory"] = "ARMORY", ["MERCHANTS"] = "TRADERS", ["arena/button/Career"] = "CAREER",
         ["SETTINGS"] = "SETTINGS", ["arena/button/QuitGame"] = "QUIT GAME",
         ["arena/info/Total GLP"] = "TOTAL GLP", ["arena/info/Main GLP Scores"] = "MAIN GLP SCORES",
-        ["QuestWidget/Objectives"] = "OBJECTIVES",
+        ["QuestWidget/Objectives"] = "TASKS",
     };
     private static readonly string[] Dimmed = { "ArmoryButton", "MerchantsButton", "CareerButton" };
+    // ponytail: patch notes / survey buttons stay hidden (nothing behind them); everything else live shows is drawn.
+    private const string BattlePass = "ArenaMainMenuLeftPanel/WidgetContainer/ArenaBattlePassMainMenuWidget";
     private static readonly string[] Hidden =
     {
-        "PatchNewsButton", "PatchNewsButtonTarget", "ArenaQuestsWidgetDropdown", "SurveyButton", "SquadPanel",
-        "ArenaMainMenuLeftPanel/WidgetContainer", "ArenaMainMenuLeftPanel/MainMenuSimpleButtons/MatchingButtons/FastGameButton",
-        "AccountInfoPanel/GLP Scores Big", "ProfileInfoPanel/InfoGroup/RankNameGroup", "ProfileInfoPanel/InfoGroup/BpBlock",
+        "PatchNewsButton", "PatchNewsButtonTarget", "SurveyButton",
+        "ArenaQuestsWidgetDropdown/NewCountContainer", "ArenaQuestsWidgetDropdown/ReadyCountContainer",
+        BattlePass + "/BackgroundsContainer/MultiplyIcon", BattlePass + "/BackgroundsContainer/LevelUpGlow",
+        BattlePass + "/BackgroundsContainer/HoverNotMaxLevel", BattlePass + "/Content/Progress/ProgressContainer/Progress/PositiveChangeValue",
+        "AccountInfoPanel/GLP Scores Big", "ProfileInfoPanel/InfoGroup/RankNameGroup",
         "ProfileInfoPanel/InfoGroup/TcBlock", "ProfileInfoPanel/RankImageFroup",
     };
 
@@ -74,12 +78,14 @@ internal sealed class ArenaMainMenuOverlay : MonoBehaviour
         bool wanted = inMenu || inSettings;
         if (wanted && _canvasGo == null) Show();
         else if (!wanted && _canvasGo != null) Hide();
+        // Live's matchmaking and preset screens replace the menu over the same 3D scene.
+        bool drawn = inMenu && !ArenaBattleFlow.Visible && !ArenaPresetListScreen.Visible && !ArenaPresetsScreen.Visible;
         if (_canvas != null)
         {
-            _canvas.enabled = inMenu;
-            if (_raycaster != null) _raycaster.enabled = inMenu;
+            _canvas.enabled = drawn;
+            if (_raycaster != null) _raycaster.enabled = drawn;
         }
-        if (_preview != null && inMenu && Input.GetMouseButton(0) && Input.mousePosition.x > Screen.width * 0.55f)
+        if (_preview != null && drawn && Input.GetMouseButton(0) && Input.mousePosition.x > Screen.width * 0.55f)
             _preview.Rotate(-Input.GetAxis("Mouse X"), 1f);
     }
 
@@ -117,8 +123,10 @@ internal sealed class ArenaMainMenuOverlay : MonoBehaviour
                 image.sprite = _pack.WholeTexture("Texture2D/MainMenu_Background_Left_Shadow.png") ?? image.sprite;
             }
             BindProfile(menu);
+            BindWidgets(builder, menu);
             var buttons = ArenaUiBuilder.Find(menu, "ArenaMainMenuLeftPanel/MainMenuSimpleButtons");
             Wire(buttons, "MatchingButtons/StartMatchingButton", ArenaBattleFlow.Show);
+            Wire(buttons, "MatchingButtons/FastGameButton", ArenaBattleFlow.QuickGame);
             Wire(buttons, "Aresenal_Trading/PresetsButton", ArenaPresetListScreen.Show);
             Wire(buttons, "Settings_Quit/SettingsButton", OpenSettings);
             Wire(buttons, "Settings_Quit/QuitButton", Quit);
@@ -184,6 +192,7 @@ internal sealed class ArenaMainMenuOverlay : MonoBehaviour
         ArenaUiBuilder.Text(info, "PlayerNameLabel").text = profile?.Nickname ?? "";
         ArenaUiBuilder.Text(info, "MoneyBlock/Money").text = Roubles(profile).ToString("N0");
         ArenaUiBuilder.Text(info, "GpBlock/GP").text = "0";
+        ArenaUiBuilder.Text(info, "BpBlock/BP").text = "0";
         var stats = ArenaUiBuilder.Find(menu, "AccountInfoPanel");
         foreach (var block in new[] { "GLP", "GLPLeft", "KDRatioValue", "MatchesValue" })
         {
@@ -194,7 +203,40 @@ internal sealed class ArenaMainMenuOverlay : MonoBehaviour
         ArenaUiBuilder.SetActive(stats, "GLPLeft", false);
     }
 
-    private static long Roubles(Profile profile)
+    /// <summary>Battle pass widget, tasks widget and party slots as a fresh live account shows them.</summary>
+    private void BindWidgets(ArenaUiBuilder builder, RectTransform menu)
+    {
+        var pass = ArenaUiBuilder.TryFind(menu, BattlePass);
+        if (pass != null)
+        {
+            ArenaUiBuilder.Text(pass, "Content/Progress/LevelContainer/Level").text = "1";
+            var values = ArenaUiBuilder.TryFind(pass, "Content/Progress/ProgressContainer/Values/Values");
+            if (values != null)
+            {
+                ArenaUiBuilder.Text(values, "CurrentValue").text = "0";
+                ArenaUiBuilder.Text(values, "TotalValue").text = "1 000";
+            }
+            var current = ArenaUiBuilder.TryFind(pass, "Content/Progress/ProgressContainer/Progress/CurrentValue")?.GetComponent<LayoutElement>();
+            if (current != null) { current.preferredWidth = 0f; current.flexibleWidth = 0f; current.minWidth = 0f; }
+        }
+        var quests = ArenaUiBuilder.TryFind(menu, "ArenaQuestsWidgetDropdown");
+        if (quests != null)
+        {
+            ArenaUiBuilder.SetActive(quests, "HoverState", false);
+            var count = ArenaUiBuilder.TryFind(quests, "AllCount")?.GetComponent<TextMeshProUGUI>();
+            if (count != null) count.text = "(0)";
+        }
+        var squad = ArenaUiBuilder.TryFind(menu, "SquadPanel");
+        if (squad != null)
+        {
+            foreach (var state in new[] { "GroupButton/HoverState", "GroupButton/DisableState" })
+                ArenaUiBuilder.SetActive(squad, state, false);
+            var container = ArenaUiBuilder.TryFind(squad, "ArenaGroupPanel/GroupContainer");
+            if (container != null) ArenaMenuChrome.BuildParty(builder, _pack.Layout("ArenaMainMenu"), container, SessionProfile());
+        }
+    }
+
+    internal static long Roubles(Profile profile)
     {
         const string rub = "5449016a4bdc2d6f028b456f";
         long total = 0;
@@ -238,8 +280,6 @@ internal sealed class ArenaMainMenuOverlay : MonoBehaviour
             HideObject(Traverse.Create(root).Field("_regularLogo").GetValue<GameObject>());
             HideObject(Traverse.Create(root).Field("_pveLogo").GetValue<GameObject>());
         }
-        if (MonoBehaviourSingleton<PreloaderUI>.Instantiated)
-            HideObject(Traverse.Create(MonoBehaviourSingleton<PreloaderUI>.Instance).Field("_alphaVersionLabel").GetValue<LocalizedText>()?.gameObject);
         try
         {
             var fikaMenu = AccessTools.TypeByName("Fika.Core.UI.Custom.MainMenuUIScript");
@@ -325,6 +365,9 @@ internal sealed class ArenaMainMenuOverlay : MonoBehaviour
     // Arena exit popup (ArenaExitGamePopup in the rip) replaces the confirmation.
     private void Quit() => ArenaExitPopup.Show("EXIT", "Are you sure you want to exit?", "YES", "NO", Application.Quit);
 
+    /// <summary>EFT's settings screen over the menu (the live bottom bar's gear).</summary>
+    internal static void ShowSettings() => Plugin.Instance?.GetComponent<ArenaMainMenuOverlay>()?.OpenSettings();
+
     private void OpenSettings()
     {
         try
@@ -351,13 +394,24 @@ internal sealed class ArenaMenuButton : MonoBehaviour, IPointerEnterHandler, IPo
     private Image _background, _highlight;
     private TextMeshProUGUI _label;
     private Color _labelColor;
+    private GameObject _hoverState;
+    private float _hoverAlpha = 1f;
 
-    internal void Init(RectTransform node, Action action)
+    /// <param name="hover">Image faded in under the pointer instead of the "Background" child.</param>
+    /// <param name="tintLabel">False keeps the label colour (dark text on a plate).</param>
+    /// <param name="hoverState">Object switched on under the pointer (live's HoverState).</param>
+    internal void Init(RectTransform node, Action action, Image hover = null, bool tintLabel = true, RectTransform hoverState = null)
     {
         _action = action;
-        _background = ArenaUiBuilder.TryFind(node, "Background")?.GetComponent<Image>();
+        _background = hover != null ? hover : ArenaUiBuilder.TryFind(node, "Background")?.GetComponent<Image>();
+        if (hover != null)
+        {
+            _hoverAlpha = hover.color.a > 0f ? hover.color.a : 1f;
+            hover.color = new Color(1f, 1f, 1f, 0f);
+        }
         _highlight = ArenaUiBuilder.TryFind(node, "IconContainer/IconHighlight")?.GetComponent<Image>();
-        _label = node.GetComponentInChildren<TextMeshProUGUI>(true);
+        _label = tintLabel ? node.GetComponentInChildren<TextMeshProUGUI>(true) : null;
+        _hoverState = hoverState?.gameObject;
         if (_label != null) _labelColor = _label.color;
         var idle = ArenaUiBuilder.TryFind(node, "IconContainer/IconIdle")?.GetComponent<Image>();
         if (idle != null) idle.color = new Color(1f, 1f, 1f, 1f);
@@ -381,7 +435,8 @@ internal sealed class ArenaMenuButton : MonoBehaviour, IPointerEnterHandler, IPo
 
     private void Tint(float alpha)
     {
-        if (_background != null) _background.color = new Color(1f, 1f, 1f, alpha);
+        if (_hoverState != null) _hoverState.SetActive(alpha > 0f);
+        if (_background != null) _background.color = new Color(1f, 1f, 1f, alpha * _hoverAlpha);
         if (_highlight != null) _highlight.color = new Color(1f, 1f, 1f, alpha);
         if (_label != null) _label.color = alpha > 0f ? Color.white : _labelColor;
     }

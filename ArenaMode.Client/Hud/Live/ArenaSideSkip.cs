@@ -65,7 +65,7 @@ internal static class ArenaSideSkip
                 // Backing out of the Fika screen lands here; live goes back to SELECT ARENA, so do we.
                 if (!ArenaBattleFlow.UsedThisSession || !ArenaUiPack.IsAvailable) return;
                 Plugin.Instance.StartCoroutine(Press(__instance._backButton));
-                ArenaBattleFlow.ReopenAtMap();
+                if (ArenaBattleFlow.ReturnToMap) ArenaBattleFlow.ReopenAtMap();   // QUICK GAME goes back to the menu
                 return;
             }
             ArenaBattleFlow.PendingLocationId = null;
