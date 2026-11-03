@@ -72,6 +72,7 @@ internal static class FikaArenaRespawn
             player.Transform.rotation = rotation;
             StandUp(player);
             RestoreHealth(player);
+            yield return Rekit(player, CoopEntryKit.LastIssued);
             RestoreKitInPlace(player, CoopEntryKit.LastIssued);
             Restock(player, CoopEntryKit.LastIssued);
             ArenaEvents.RaisePlayerRespawned(player);
@@ -158,6 +159,108 @@ internal static class FikaArenaRespawn
             AccessTools.Method(typeof(Player), "UpdateSpeedLimitByHealth")?.Invoke(player, null);
         }
         catch (Exception ex) { Plugin.Log.LogWarning($"Co-op arena: health restore incomplete: {ex.Message}"); }
+    }
+
+    private static readonly EquipmentSlot[] WeaponSlots = { EquipmentSlot.FirstPrimaryWeapon, EquipmentSlot.SecondPrimaryWeapon, EquipmentSlot.Holster };
+
+    /// <summary>
+    /// Live hands the preset back each life. Weapons picked up last life are dropped (hands emptied first), the kit's
+    /// primary is rebuilt with its magazines when it is missing or replaced, foreign grid items (the picked-up gun's
+    /// magazines and ammo) are discarded, and the kit's primary is drawn. Armour slots are left as they are.
+    /// ponytail: peers see the rebuilt gun as its bare template (Fika's spawn packet carries one item, no mods).
+    /// </summary>
+    private static IEnumerator Rekit(FikaPlayer player, KitDefinition kit)
+    {
+        if (kit?.Items == null) yield break;
+        var equipment = player.Profile?.Inventory?.Equipment;
+        var controller = player.InventoryController;
+        if (equipment == null || controller == null) yield break;
+        var expected = new HashSet<string>(StringComparer.Ordinal);
+        foreach (var node in kit.Items) if (node.Tpl != null) expected.Add(node.Tpl);
+        foreach (var stack in kit.Fill?.RigContents ?? new List<KitStackedItem>()) if (stack.Tpl != null) expected.Add(stack.Tpl);
+        string kitPrimary = kit.Items.FirstOrDefault(n => n.SlotId == "FirstPrimaryWeapon")?.Tpl;
+
+        // Foreign weapons in the weapon slots.
+        var foreign = new List<Item>();
+        foreach (var slotName in WeaponSlots)
+        {
+            var slot = equipment.GetSlot(slotName);
+            var item = slot?.ContainedItem;
+            if (item == null) continue;
+            string wanted = kit.Items.FirstOrDefault(n => n.SlotId == slotName.ToString())?.Tpl;
+            if (!string.Equals(item.TemplateId, wanted, StringComparison.Ordinal)) foreign.Add(item);
+        }
+        bool handsHeldForeign = foreign.Any(f => ReferenceEquals(player.HandsController?.Item, f));
+        if (handsHeldForeign)
+        {
+            bool done = false;
+            try { player.SetEmptyHands(_ => done = true); } catch { done = true; }
+            float until = Time.unscaledTime + 3f;
+            while (!done && Time.unscaledTime < until) yield return null;
+        }
+        int dropped = 0;
+        foreach (var item in foreign)
+        {
+            var result = ItemManipulator.RemoveWithoutRestrictions(item, controller);
+            if (result.Succeeded) dropped++;
+            else Plugin.Log.LogWarning($"Co-op arena rekit: could not drop {item.LocalizedShortName()}: {result.Error}");
+        }
+
+        // Foreign grid items (magazines and ammo for the dropped gun, loot).
+        foreach (var container in KitBuilder.GridContainersOf(equipment))
+        {
+            if (ReferenceEquals(container, equipment.GetSlot(EquipmentSlot.SecuredContainer)?.ContainedItem)) continue;
+            foreach (var item in container.Grids.SelectMany(g => g.Items).ToList())
+            {
+                if (expected.Contains(item.TemplateId)) continue;
+                var result = ItemManipulator.RemoveWithoutRestrictions(item, controller);
+                if (result.Succeeded) dropped++;
+            }
+        }
+
+        // The kit's primary, rebuilt when missing.
+        var primarySlot = equipment.GetSlot(EquipmentSlot.FirstPrimaryWeapon);
+        Weapon drawn = primarySlot?.ContainedItem as Weapon;
+        if (kitPrimary != null && primarySlot != null && primarySlot.ContainedItem == null)
+        {
+            var weapon = KitBuilder.BuildPrimaryWeapon(kit, kit.Fill?.SpareMagazines ?? 0, out var spares);
+            if (weapon != null)
+            {
+                var add = ItemManipulator.AddWithoutRestrictions(weapon, primarySlot.CreateItemAddress(), controller);
+                if (add.Succeeded)
+                {
+                    drawn = weapon;
+                    var containers = KitBuilder.GridContainersOf(equipment);
+                    foreach (var spare in spares) KitBuilder.AddToAnyGridOf(containers, spare, out _);
+                    KitBuilder.RegisterMagazinesAsChecked(player.Profile);
+                    AnnounceSpawn(player, weapon);
+                }
+                else Plugin.Log.LogWarning($"Co-op arena rekit: could not place the kit weapon: {add.Error}");
+            }
+        }
+        if (dropped > 0 || handsHeldForeign)
+            Plugin.Log.LogInfo($"Co-op arena rekit: dropped {dropped} foreign item(s).");
+        if (drawn != null && !ReferenceEquals(player.HandsController?.Item, drawn))
+        {
+            bool done = false;
+            try { player.SetItemInHands(drawn, _ => done = true); } catch { done = true; }
+            float until = Time.unscaledTime + 3f;
+            while (!done && Time.unscaledTime < until) yield return null;
+        }
+    }
+
+    /// <summary>Peers learn of a rebuilt gun as a bare template at the same address.</summary>
+    private static void AnnounceSpawn(FikaPlayer player, Item item)
+    {
+        try
+        {
+            var packet = new SpawnItemInInventoryPacket
+            {
+                NetId = player.NetId, ItemId = item.Id, TemplateId = item.TemplateId, Amount = 1, ItemAddress = item.Parent,
+            };
+            Singleton<IFikaNetworkManager>.Instance.SendData(ref packet, global::Fika.Core.Networking.LiteNetLib.DeliveryMethod.ReliableOrdered);
+        }
+        catch (Exception ex) { Plugin.Log.LogWarning("Co-op arena rekit: peer spawn packet failed: " + ex.Message); }
     }
 
     /// <summary>
