@@ -29,21 +29,28 @@ $settings = @{
 }
 $settings | ConvertTo-Json -Depth 4 | Set-Content -Encoding ascii (Join-Path (Split-Path $ripper) 'AssetRipper.Settings.json')
 
-# AssetRipper only recovers script layouts (uGUI Image/Text, TextMeshPro, layout groups, Arena screens) when it
-# sees a whole IL2CPP game: the exe, GameAssembly.dll and il2cpp_data next to the data folder. Loading single files
-# gives "Unknown scripting backend" and every MonoBehaviour loses its fields. So build a stub game folder of
-# hardlinks (no copy, same volume) holding only the UI data files, and load that folder.
+# AssetRipper only recovers MonoBehaviour field layouts (uGUI Image/Text, TextMeshPro, layout groups, EFT's shared
+# UI classes) when it can read script assemblies. Arena is IL2CPP with an encrypted global-metadata.dat, so Cpp2IL
+# fails ("magic number check failed"). Fallback: present the Arena data files as a Mono game whose Managed folder is
+# the EFT client's own DLLs. UGUI, TextMeshPro, DOTween and the shared BSG UI assemblies carry the same serialized
+# layouts, so every layout-relevant component deserializes; Arena-only classes (ArenaButton etc.) stay dummies,
+# which is fine because the transpiler rebinds those by object name. Hardlinks, no copies.
 $stub = Join-Path (Split-Path $Out) 'arena-stub'
+$eftManaged = Join-Path $SptRoot 'EscapeFromTarkov_Data\Managed'
+if (-not (Test-Path "$eftManaged\UnityEngine.UI.dll")) { throw "EFT managed DLLs not found at $eftManaged" }
 if (Test-Path $stub) { Remove-Item -Recurse -Force $stub }
-New-Item -ItemType Directory -Force "$stub\EscapeFromTarkovArena_Data\il2cpp_data\Metadata" | Out-Null
-$stubFiles = @('EscapeFromTarkovArena.exe', 'GameAssembly.dll', 'UnityPlayer.dll', 'baselib.dll') +
+New-Item -ItemType Directory -Force "$stub\EscapeFromTarkovArena_Data\Managed" | Out-Null
+$stubFiles = @('EscapeFromTarkovArena.exe', 'UnityPlayer.dll', 'baselib.dll') +
     (@('app.info', 'boot.config', 'ScriptingAssemblies.json', 'RuntimeInitializeOnLoads.json', 'globalgamemanagers', 'globalgamemanagers.assets',
        'resources.assets', 'resources.assets.resS', 'resources.resource', 'sharedassets0.assets', 'level0', 'level1',
-       'sharedassets1.assets', 'sharedassets1.assets.resS', 'sharedassets1.resource', 'il2cpp_data\Metadata\global-metadata.dat') |
+       'sharedassets1.assets', 'sharedassets1.assets.resS', 'sharedassets1.resource') |
        ForEach-Object { "EscapeFromTarkovArena_Data\$_" })
 foreach ($f in $stubFiles) {
     $src = Join-Path $Arena $f
     if (Test-Path $src) { New-Item -ItemType HardLink -Path (Join-Path $stub $f) -Target $src | Out-Null }
+}
+foreach ($dll in Get-ChildItem $eftManaged -Filter *.dll) {
+    New-Item -ItemType HardLink -Path "$stub\EscapeFromTarkovArena_Data\Managed\$($dll.Name)" -Target $dll.FullName | Out-Null
 }
 Write-Host "Stub game folder: $stub ($($stubFiles.Count) hardlinks)"
 
