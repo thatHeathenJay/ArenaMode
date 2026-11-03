@@ -59,7 +59,13 @@ public static class ArenaPresetEditor
         try
         {
             string file = FileFor(profileId);
-            if (File.Exists(file) && JsonNode.Parse(File.ReadAllText(file)) is JsonArray array) return array;
+            if (File.Exists(file) && JsonNode.Parse(File.ReadAllText(file)) is JsonArray array)
+            {
+                if (_templates != null)
+                    foreach (var kit in array.OfType<JsonObject>())
+                        try { TrimSupplies(kit); } catch { /* served as stored */ }
+                return array;
+            }
         }
         catch { /* corrupt file: start over */ }
         return new JsonArray();
@@ -181,6 +187,7 @@ public static class ArenaPresetEditor
         if (slot is "FirstPrimaryWeapon" or "Holster")
             ArmWeapon(nodes, template, newRootId, oldAmmo, ClassOf(kitId));
         FillPlates(nodes);
+        TrimSupplies(kit);
     }
 
     private static JsonObject CustomKit(JsonArray customs, string kitId)
@@ -219,46 +226,102 @@ public static class ArenaPresetEditor
                     entry["tpl"] = tpl;
     }
 
-    private static int CellsOf(TemplateItem template)
-        => Math.Max(1, (int)(template.Properties?.Width ?? 1)) * Math.Max(1, (int)(template.Properties?.Height ?? 1));
+    private static (int W, int H) SizeOf(TemplateItem template)
+        => (Math.Max(1, Convert.ToInt32(template.Properties?.Width ?? 1)), Math.Max(1, Convert.ToInt32(template.Properties?.Height ?? 1)));
 
-    private static int GridCellsOf(TemplateItem? template)
+    /// <summary>A container grid being packed first-fit, either rotation, the way the client's AddToAnyGrid fills it.</summary>
+    private sealed class GridSim
     {
-        int cells = 0;
-        foreach (var grid in template?.Properties?.Grids ?? [])
-            cells += (int)(grid.Properties?.CellsH ?? 0) * (int)(grid.Properties?.CellsV ?? 0);
-        return cells;
+        private readonly bool[,] _cells;
+        private readonly int _w, _h;
+        internal GridSim(int w, int h) { _w = Math.Max(0, w); _h = Math.Max(0, h); _cells = new bool[_w, _h]; }
+        internal bool TryPlace(int w, int h) => Fit(w, h) || (w != h && Fit(h, w));
+
+        private bool Fit(int w, int h)
+        {
+            for (int y = 0; y + h <= _h; y++)
+                for (int x = 0; x + w <= _w; x++)
+                {
+                    bool free = true;
+                    for (int dy = 0; dy < h && free; dy++)
+                        for (int dx = 0; dx < w; dx++)
+                            if (_cells[x + dx, y + dy]) { free = false; break; }
+                    if (!free) continue;
+                    for (int dy = 0; dy < h; dy++)
+                        for (int dx = 0; dx < w; dx++)
+                            _cells[x + dx, y + dy] = true;
+                    return true;
+                }
+            return false;
+        }
     }
 
-    /// <summary>Rig and pocket cells the preset's supplies (spare magazines, rig contents) still leave free.</summary>
-    private static int FreeCells(JsonObject kit)
+    private static JsonObject? EquipmentNode(JsonArray nodes, string rootId, params string[] slots)
+        => nodes.OfType<JsonObject>().FirstOrDefault(n => n["parentId"]?.GetValue<string>() == rootId && slots.Contains(n["slotId"]?.GetValue<string>()));
+
+    private static TemplateItem? TemplateOf(JsonObject? node)
     {
-        var templates = _templates!;
-        var nodes = kit["items"] as JsonArray ?? new JsonArray();
-        var rootId = nodes.FirstOrDefault(n => n?["parentId"] == null)?["_id"]?.GetValue<string>() ?? "";
-        int capacity = 0;
+        try { return node != null && _templates!.Items.TryGetValue(new MongoId(node["_tpl"]!.GetValue<string>()), out var template) ? template : null; }
+        catch { return null; }
+    }
+
+    /// <summary>The preset's rig and pocket grids, empty.</summary>
+    private static List<GridSim> GridsOf(JsonArray nodes, string rootId)
+    {
+        var grids = new List<GridSim>();
         foreach (var slot in new[] { "TacticalVest", "Pockets" })
         {
-            var node = nodes.FirstOrDefault(n => n?["parentId"]?.GetValue<string>() == rootId && n?["slotId"]?.GetValue<string>() == slot);
-            if (node == null) { if (slot == "Pockets") capacity += 4; continue; }
-            templates.Items.TryGetValue(new MongoId(node["_tpl"]!.GetValue<string>()), out var template);
-            capacity += GridCellsOf(template);
+            var template = TemplateOf(EquipmentNode(nodes, rootId, slot));
+            if (template == null) { if (slot == "Pockets") for (int i = 0; i < 4; i++) grids.Add(new GridSim(1, 1)); continue; }
+            foreach (var grid in template.Properties?.Grids ?? [])
+                grids.Add(new GridSim(Convert.ToInt32(grid.Properties?.CellsH ?? 0), Convert.ToInt32(grid.Properties?.CellsV ?? 0)));
         }
-        int used = 0;
+        return grids;
+    }
+
+    /// <summary>
+    /// Packs the preset's supplies the way the client fills grids (spare magazines, then rig contents, the optional
+    /// grenade last). The first required rig entry that finds no room, else null.
+    /// </summary>
+    private static string? Unpackable(JsonObject kit)
+    {
+        var nodes = kit["items"] as JsonArray ?? new JsonArray();
+        var rootId = nodes.FirstOrDefault(n => n?["parentId"] == null)?["_id"]?.GetValue<string>() ?? "";
+        var grids = GridsOf(nodes, rootId);
         var fill = kit["fill"] as JsonObject;
         int spare = fill?["spareMagazines"]?.GetValue<int>() ?? 0;
-        var weapon = nodes.FirstOrDefault(n => n?["parentId"]?.GetValue<string>() == rootId && n?["slotId"]?.GetValue<string>() is "FirstPrimaryWeapon" or "SecondPrimaryWeapon");
-        var magazine = weapon == null ? null : nodes.FirstOrDefault(n => n?["parentId"]?.GetValue<string>() == weapon["_id"]?.GetValue<string>() && n?["slotId"]?.GetValue<string>() == "mod_magazine");
-        if (magazine != null && templates.Items.TryGetValue(new MongoId(magazine["_tpl"]!.GetValue<string>()), out var magazineTemplate))
-            used += spare * CellsOf(magazineTemplate);
-        else used += spare;     // loose ammunition stacks
-        foreach (var entry in (fill?["rigContents"] as JsonArray)?.OfType<JsonObject>() ?? [])
+        var weapon = EquipmentNode(nodes, rootId, "FirstPrimaryWeapon", "SecondPrimaryWeapon");
+        var magazine = weapon == null ? null : EquipmentNode(nodes, weapon["_id"]!.GetValue<string>(), "mod_magazine");
+        var (mw, mh) = TemplateOf(magazine) is { } magazineTemplate ? SizeOf(magazineTemplate) : (1, 1);
+        for (int i = 0; i < spare; i++) grids.Any(g => g.TryPlace(mw, mh));     // a spare without room is skipped client-side too
+        var entries = (fill?["rigContents"] as JsonArray)?.OfType<JsonObject>()
+            .OrderBy(e => e["optionalQuickUseOnly"]?.GetValue<bool>() == true).ToList() ?? new List<JsonObject>();
+        foreach (var entry in entries)
         {
-            if (!templates.Items.TryGetValue(new MongoId(entry["tpl"]?.GetValue<string>() ?? ""), out var template)) continue;
-            int count = entry["optionalQuickUseOnly"]?.GetValue<bool>() == true ? 1 : Math.Max(1, entry["count"]?.GetValue<int>() ?? 1);
-            used += count * CellsOf(template);
+            TemplateItem? template = null;
+            try { _templates!.Items.TryGetValue(new MongoId(entry["tpl"]?.GetValue<string>() ?? ""), out template); } catch { /* unknown */ }
+            if (template == null) continue;
+            bool optional = entry["optionalQuickUseOnly"]?.GetValue<bool>() == true;
+            var (w, h) = SizeOf(template);
+            int count = optional ? 1 : Math.Max(1, entry["count"]?.GetValue<int>() ?? 1);
+            for (int i = 0; i < count; i++)
+                if (!grids.Any(g => g.TryPlace(w, h)) && !optional) return entry["tpl"]?.GetValue<string>();
         }
-        return capacity - used;
+        return null;
+    }
+
+    /// <summary>Drops rig supplies that no longer fit after a gear change (a smaller rig, a bigger magazine).</summary>
+    internal static void TrimSupplies(JsonObject kit)
+    {
+        for (int guard = 0; guard < 64; guard++)
+        {
+            string? tpl = Unpackable(kit);
+            if (tpl == null || kit["fill"]?["rigContents"] is not JsonArray contents) return;
+            var entry = contents.OfType<JsonObject>().LastOrDefault(e => e["tpl"]?.GetValue<string>() == tpl && e["optionalQuickUseOnly"]?.GetValue<bool>() != true);
+            if (entry == null) return;
+            int count = entry["count"]?.GetValue<int>() ?? 1;
+            if (count > 1) entry["count"] = count - 1; else contents.Remove(entry);
+        }
     }
 
     /// <summary>Adds one of a med, stimulant or grenade to the preset's rig contents, if it still fits.</summary>
@@ -268,12 +331,18 @@ public static class ArenaPresetEditor
         var templates = _templates ?? throw new InvalidOperationException("templates unavailable");
         if (!templates.Items.TryGetValue(new MongoId(tpl), out var template) || SlotOf(template.Id) is not ("Meds" or "Throwable" or "Ammo"))
             throw new InvalidOperationException("not a carried supply");
-        if (FreeCells(kit) < CellsOf(template)) throw new InvalidOperationException("no room left in the rig or pockets");
         var fill = kit["fill"] as JsonObject ?? (JsonObject)(kit["fill"] = new JsonObject { ["spareMagazines"] = 3 });
         var contents = fill["rigContents"] as JsonArray ?? (JsonArray)(fill["rigContents"] = new JsonArray());
         var existing = contents.OfType<JsonObject>().FirstOrDefault(e => e["tpl"]?.GetValue<string>() == tpl && e["optionalQuickUseOnly"]?.GetValue<bool>() != true);
+        JsonObject? added = null;
         if (existing != null) existing["count"] = (existing["count"]?.GetValue<int>() ?? 1) + 1;
-        else contents.Add(new JsonObject { ["tpl"] = tpl, ["count"] = 1 });
+        else contents.Add(added = new JsonObject { ["tpl"] = tpl, ["count"] = 1 });
+        if (Unpackable(kit) != null)
+        {
+            if (added != null) contents.Remove(added);
+            else existing!["count"] = (existing["count"]?.GetValue<int>() ?? 2) - 1;
+            throw new InvalidOperationException("no room left in the rig or pockets");
+        }
     }
 
     private static void RemoveSupply(JsonArray customs, string kitId, string tpl)
