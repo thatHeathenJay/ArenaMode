@@ -13,12 +13,13 @@ Two mechanical rules the generator exists to enforce:
     what a twenty-five cell chest rig can, and the old corpus asked every kit
     for the same three regardless.
 """
-import json, io, collections, uuid, sys
+import json, io, collections, uuid, sys, os
 
 sys.stdout.reconfigure(encoding='utf-8', errors='replace')
 
-DB = r'D:\SPT41\SPT_Runtime\SPT_Data\database'
-KITS = r'D:\SPT41\Development\ArenaMode\ArenaMode.Server\defaults\kits.json'
+# Importable by generate-arena-kits.py: paths come from the environment, the rebuild only runs as a script.
+DB = os.environ.get('ARENA_SPT_DB', r'C:\Games\SPT-4.1\SPT_Runtime\SPT_Data\database')
+KITS = os.environ.get('ARENA_KITS', os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'ArenaMode.Server', 'defaults', 'kits.json'))
 
 items = json.load(io.open(DB + r'\templates\items.json', encoding='utf-8-sig'))
 glob = json.load(io.open(DB + r'\globals.json', encoding='utf-8-sig'))
@@ -550,4 +551,5 @@ def rebuild():
     print(f"\ngeschrieben: {KITS}")
 
 
-rebuild()
+if __name__ == '__main__':
+    rebuild()

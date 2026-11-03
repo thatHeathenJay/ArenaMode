@@ -35,6 +35,9 @@ internal static class ArenaHud
         Detach();
         if (!Settings.HudEnabled.Value || match == null)
             return;
+        // Live Arena widgets whenever the player's own UI rip is installed; stock panels otherwise.
+        if (Live.ArenaLiveHud.TryAttach(match))
+            return;
 
         try
         {
@@ -55,6 +58,7 @@ internal static class ArenaHud
 
     public static void Detach()
     {
+        Live.ArenaLiveHud.Detach();
         _infoPanels?.Dispose();
         _infoPanels = null;
         _friendlyMarkers?.Dispose();
@@ -88,6 +92,7 @@ internal static class ArenaHud
 
     public static void Tick()
     {
+        if (Live.ArenaLiveHud.Active) { Live.ArenaLiveHud.Tick(); return; }
         if (_match == null || _canvasGo == null)
             return;
 
@@ -199,6 +204,7 @@ internal static class ArenaHud
 
     internal static void ShowUncreditedDeath(ArenaMatch match, ArenaUncreditedDeath death)
     {
+        if (Live.ArenaLiveHud.Active) { Live.ArenaLiveHud.ShowUncreditedDeath(match, death); return; }
         if (!Settings.CombatHudEnabled.Value || !ReferenceEquals(_match, match) || _killfeed == null || !Settings.ShowKillfeed.Value
             || (!death.LocalIsVictim && !Settings.KillfeedOtherKills.Value)) return;
         _killfeed.PushUncreditedDeath(death);
