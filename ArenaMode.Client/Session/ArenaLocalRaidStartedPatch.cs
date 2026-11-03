@@ -270,6 +270,10 @@ internal sealed class ArenaLocalRaidStartedPatch : ModulePatch
             // Zombies never enter this mutation, and companions are untouched.
             await Kits.TacticalTeamKitEntry.IssueAsync(kitRequest, () => session.Profile);
 
+            // Co-op: no body swap exists under Fika, so the kit goes into the profile here, before the raid is created.
+            if (kitRequest == null && Compat.ArenaCoop.IsAvailable)
+                await Kits.CoopEntryKit.IssueAsync(session.Profile, OwnsStart);
+
             // The raid's kit bundles, while the loading screen still has the
             // loader to itself. This is the earliest point where the arena is
             // armed AND the map's GameWorld exists with its raid pools: the

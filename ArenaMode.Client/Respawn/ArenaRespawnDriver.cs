@@ -35,7 +35,7 @@ internal sealed class ArenaRespawnDriver : IDeathInterceptionDriver
 
     public int Priority => 100;
 
-    public bool WantsToHandleDeath(LocalGame game)
+    public bool WantsToHandleDeath(EFT.LocalGame game)
     {
         return ArenaSession.IsActive
                && !StandDown
@@ -43,7 +43,7 @@ internal sealed class ArenaRespawnDriver : IDeathInterceptionDriver
                && game?.Location?.Id != "hideout";
     }
 
-    public void OnPlayerDied(LocalGame game)
+    public void OnPlayerDied(EFT.LocalGame game)
     {
         var deadPlayer = game.LocalPlayer;
         if (deadPlayer == null || !deadPlayer.IsYourPlayer)
@@ -249,7 +249,7 @@ internal sealed class ArenaRespawnDriver : IDeathInterceptionDriver
         var request = new RespawnRequest
         {
             EnablePipelineTiming = ArenaMode.Diagnostics.ArenaLog.DeveloperEnabled,
-            Game = game,
+            Game = (EFT.LocalGame)game,
             DeadPlayer = deadPlayer,
             // Random and away from the body, rather than the engine's "farthest
             // from everyone", which is stable enough to hand out the same corner
@@ -366,7 +366,7 @@ internal sealed class ArenaRespawnDriver : IDeathInterceptionDriver
         var request = new RespawnRequest
         {
             EnablePipelineTiming = ArenaMode.Diagnostics.ArenaLog.DeveloperEnabled,
-            Game = game,
+            Game = (EFT.LocalGame)game,
             DeadPlayer = deadPlayer,
             SpawnSelector = new ArenaSpawnSelector(
                 new InfilSpawnSelector(new NearPositionSpawnSelector(() => corpsePosition, () => 25f)),
@@ -482,7 +482,7 @@ internal sealed class ArenaRespawnDriver : IDeathInterceptionDriver
         var request = new RespawnRequest
         {
             EnablePipelineTiming = ArenaMode.Diagnostics.ArenaLog.DeveloperEnabled,
-            Game = game,
+            Game = (EFT.LocalGame)game,
             DeadPlayer = deadPlayer,
             SpawnSelector = preparedSpawn,
             EquipmentStrategy = (profile, dead) =>
@@ -595,10 +595,10 @@ internal sealed class ArenaRespawnDriver : IDeathInterceptionDriver
         }
     }
 
-    public bool ShouldBlockDeathScreen(LocalGame game)
+    public bool ShouldBlockDeathScreen(EFT.LocalGame game)
         => ArenaSession.IsActive && (IsRespawnInProgress || IsTerminalTdmHold) && !StandDown;
 
-    public bool ShouldBlockKilledStop(LocalGame game)
+    public bool ShouldBlockKilledStop(EFT.LocalGame game)
         => ArenaSession.IsActive && (IsRespawnInProgress || IsTerminalTdmHold) && !StandDown;
 
     public void OnExternalStop()

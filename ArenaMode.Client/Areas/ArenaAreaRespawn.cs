@@ -21,7 +21,7 @@ internal static class ArenaAreaRespawn
         if (area == null) return true;
         try
         {
-            var point = original.Resolve(game);
+            var point = original.Resolve((EFT.LocalGame)game);
             ArenaAreaRuntime.RequirePosition(point.position);
             var reservation = original is Respawn.ArenaSpawnSelector
                 ? ArenaAreaRuntime.ReservePlayerPosition(point.position) : null;
@@ -46,7 +46,7 @@ internal static class ArenaAreaRespawn
         internal Prepared(LocalGame game, GameWorld world, string areaId, Vector3 position, Quaternion rotation,
             ArenaAreaRuntime.TeamSpawnLease reservation)
         { _game = game; _world = world; _areaId = areaId; _position = position; _rotation = rotation; _reservation = reservation; }
-        public (Vector3 position, Quaternion rotation) Resolve(LocalGame game)
+        public (Vector3 position, Quaternion rotation) Resolve(EFT.LocalGame game)
         {
             if (!ReferenceEquals(game, _game) || !ArenaSession.IsExactActiveRaid(_game, _world)
                 || ArenaAreaRuntime.CurrentArea?.Id != _areaId)

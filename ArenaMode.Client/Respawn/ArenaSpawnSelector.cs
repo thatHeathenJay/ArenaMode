@@ -43,7 +43,7 @@ internal sealed class ArenaSpawnSelector : ISpawnSelector
 
     public static void Reset() => Recent.Clear();
 
-    public (Vector3 position, Quaternion rotation) Resolve(LocalGame game)
+    public (Vector3 position, Quaternion rotation) Resolve(EFT.LocalGame game)
     {
         // Team-box admission must not fall through to an arbitrary native point
         // if its exact loading state, occupancy or navigation is unavailable.

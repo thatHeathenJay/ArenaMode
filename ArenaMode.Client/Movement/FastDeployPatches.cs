@@ -47,7 +47,7 @@ internal static class FastDeployPatches
     private sealed class ArenaFastDeployShortenCountdownPatch : ModulePatch
     {
         protected override MethodBase GetTargetMethod()
-            => AccessTools.Method(typeof(LocalGame), "vmethod_2");
+            => Compat.ArenaGameType.Method("vmethod_2");
 
         [PatchPrefix]
         private static void Prefix()

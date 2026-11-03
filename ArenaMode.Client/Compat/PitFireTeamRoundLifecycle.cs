@@ -1907,8 +1907,8 @@ internal static class PitFireTeamRoundLifecycle
                 "BotCreationData.Create is not the exact SPT 4.1 creation seam used by PitFireTeam 0.10.0");
         }
         _localGameCreateBotByProfileMethod = RequireMethod(
-            typeof(LocalGame),
-            nameof(LocalGame.CreateBotByProfile),
+            typeof(EFT.LocalGame),
+            nameof(EFT.LocalGame.CreateBotByProfile),
             BindingFlags.Public | BindingFlags.Instance,
             typeof(Task<LocalPlayer>),
             typeof(GameWorld),

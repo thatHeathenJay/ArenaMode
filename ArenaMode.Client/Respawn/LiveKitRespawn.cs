@@ -39,7 +39,7 @@ internal static class LiveKitRespawn
             _rotation = rotation;
         }
 
-        public (Vector3 position, Quaternion rotation) Resolve(LocalGame game) => (_position, _rotation);
+        public (Vector3 position, Quaternion rotation) Resolve(EFT.LocalGame game) => (_position, _rotation);
     }
 
     /// <summary>Raid start: same spot, fresh kit, no protection.</summary>
@@ -313,7 +313,7 @@ internal static class LiveKitRespawn
         var request = new RespawnRequest
         {
             EnablePipelineTiming = ArenaMode.Diagnostics.ArenaLog.DeveloperEnabled,
-            Game = game,
+            Game = (EFT.LocalGame)game,
             DeadPlayer = oldBody,
             // Resolved here, not by the caller: for the raid-start swap "where
             // the player is" means where they are NOW, after the waits above.

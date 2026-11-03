@@ -16,6 +16,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <!-- Co-op: a game reference means "the running raid": EFT.LocalGame solo, Fika's CoopGame in co-op. Both
+         derive from BaseLocalGame<EftGamePlayerOwner>, so the name is aliased to that base type project-wide.
+         Harmony targets that need the concrete class go through ArenaGameType. -->
+    <Using Include="EFT.BaseLocalGame&lt;EFT.EftGamePlayerOwner&gt;" Alias="LocalGame" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Include="..\ArenaMode.Shared\ArenaMolotovItem.cs" Link="Shared\ArenaMolotovItem.cs" />
     <Compile Include="..\ArenaMode.Shared\DeathmatchSelection.cs" Link="Shared\DeathmatchSelection.cs" />
     <Compile Include="..\ArenaMode.Shared\Protocol.cs" Link="Shared\Protocol.cs" />

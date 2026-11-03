@@ -579,7 +579,9 @@ public static class ArenaSession
         else if (Comfort.Common.Singleton<AbstractGame>.Instance is LocalGame game)
         {
             Redeploy.Core.Spawning.SpawnSystemCache.Warm(game);
-            Respawn.LiveKitRespawn.AtRaidStart(game);
+            // Co-op: the kit was written into the profile before the raid was created (no body swap under Fika).
+            if (!Compat.ArenaCoop.IsAvailable)
+                Respawn.LiveKitRespawn.AtRaidStart(game);
         }
     }
 

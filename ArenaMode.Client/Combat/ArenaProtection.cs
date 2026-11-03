@@ -82,7 +82,7 @@ internal static class ArenaProtection
             if (player.ActiveHealthController.DamageCoeff <= 0f)
                 return true;
 
-            RespawnEngine.ApplyProtection(game, player, new SpawnProtectionOptions
+            RespawnEngine.ApplyProtection((EFT.LocalGame)game, player, new SpawnProtectionOptions
             {
                 DurationSeconds = seconds,
                 // A scoreboard is not a fight: drawing a weapon must not end it.

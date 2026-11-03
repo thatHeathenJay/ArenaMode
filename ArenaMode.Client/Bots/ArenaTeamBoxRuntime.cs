@@ -86,7 +86,7 @@ internal static class ArenaTeamBoxRuntime
                 prefix: new HarmonyMethod(typeof(ArenaTeamBoxRuntime), nameof(BeforeLoad)),
                 postfix: new HarmonyMethod(typeof(ArenaTeamBoxRuntime), nameof(AfterLoad)),
                 finalizer: new HarmonyMethod(typeof(ArenaTeamBoxRuntime), nameof(FinalizeLoad)));
-            var stop = AccessTools.DeclaredMethod(typeof(LocalGame), nameof(LocalGame.Stop),
+            var stop = Compat.ArenaGameType.Method(nameof(LocalGame.Stop),
                 new[] { typeof(string), typeof(ExitStatus), typeof(string), typeof(float) });
             if (stop == null) throw new MissingMethodException("LocalGame.Stop contract changed.");
             LoadingPatches.Patch(stop,
@@ -484,7 +484,7 @@ internal static class ArenaTeamBoxRuntime
         {
             if (!Current || !ReferenceEquals(game, _game))
                 throw new InvalidOperationException("The team-box respawn lost its exact raid owner.");
-            var position = original.Resolve(game);
+            var position = original.Resolve((EFT.LocalGame)game);
             var point = Points.Values.SingleOrDefault(p => (p.Position - position.position).sqrMagnitude < .0001f);
             bool usec = LocalSide == EPlayerSide.Usec;
             if (point == null || !PointCurrent(point, usec) || !Unoccupied(point.Position, _world.MainPlayer, null))
@@ -565,7 +565,7 @@ internal static class ArenaTeamBoxRuntime
         private readonly LocalGame _owner;
         private readonly Lease _lease;
         internal Prepared(LocalGame game, Lease lease) { _owner = game; _lease = lease; }
-        public (Vector3 position, Quaternion rotation) Resolve(LocalGame game)
+        public (Vector3 position, Quaternion rotation) Resolve(EFT.LocalGame game)
         {
             if (!ReferenceEquals(game, _owner) || !_lease.CanReleasePlayer)
                 throw new InvalidOperationException("The prepared team-box spawn lost its exact safe reservation.");

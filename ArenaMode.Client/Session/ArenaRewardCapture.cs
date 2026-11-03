@@ -290,7 +290,7 @@ internal static class ArenaRewardCapture
 
     private sealed class StopPatch : ModulePatch
     {
-        protected override MethodBase GetTargetMethod() => AccessTools.Method(typeof(LocalGame), nameof(LocalGame.Stop),
+        protected override MethodBase GetTargetMethod() => Compat.ArenaGameType.Method(nameof(LocalGame.Stop),
             new[] { typeof(string), typeof(ExitStatus), typeof(string), typeof(float) });
 
         [PatchPrefix, HarmonyPriority(Priority.Last)]
