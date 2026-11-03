@@ -145,7 +145,6 @@ internal sealed class ArenaMainMenuOverlay : MonoBehaviour
             ShowCharacter();
             Visible = true;
             Plugin.ModLogger.LogInfo("Arena main menu shown over EFT's.");
-            if (ArenaPostMatch.Pending) ArenaResultOverlay.Show();
         }
         catch (Exception ex)
         {

@@ -95,16 +95,19 @@ internal sealed class ArenaResultOverlay : MonoBehaviour
 {
     private static ArenaResultOverlay _instance;
     private ArenaUiPack _pack;
+    private bool _inRaid;
 
     internal static bool Visible => _instance != null;
 
-    internal static void Show()
+    /// <param name="inRaid">Shown at the match end inside the raid (live): no Continue button, it ends with the raid.</param>
+    internal static void Show(bool inRaid = false)
     {
         if (_instance != null || ArenaPostMatch.Last == null || !ArenaUiPack.IsAvailable) return;
         ArenaPostMatch.Consume();
         var go = new GameObject("ArenaResultOverlay");
         go.transform.SetParent(Plugin.Instance.transform, false);
         _instance = go.AddComponent<ArenaResultOverlay>();
+        _instance._inRaid = inRaid;
         try { _instance.Build(ArenaPostMatch.Last); }
         catch (Exception ex)
         {
@@ -130,6 +133,7 @@ internal sealed class ArenaResultOverlay : MonoBehaviour
 
     private void Update()
     {
+        if (_inRaid) return;
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space)) Hide();
     }
 
@@ -199,6 +203,8 @@ internal sealed class ArenaResultOverlay : MonoBehaviour
             }
         }
 
+        ArenaLiveSounds.Play("matchend_music.wav", 0.9f);
+        if (_inRaid) return;
         var button = new GameObject("Continue", typeof(RectTransform), typeof(Image));
         var buttonRect = (RectTransform)button.transform;
         buttonRect.SetParent(root, false);
@@ -213,8 +219,6 @@ internal sealed class ArenaResultOverlay : MonoBehaviour
         label.text = "CONTINUE";
         ArenaUiBuilder.Stretch(label.rectTransform);
         button.AddComponent<ArenaMenuButton>().Init(buttonRect, Hide);
-
-        ArenaLiveSounds.Play(result.Draw ? "result_music_start.wav" : result.Won ? "result_music_end_winner.wav" : "result_music_end_looser.wav", 0.9f);
     }
 
     private static void FillTeam(RectTransform list, RectTransform template, ArenaPostMatch.Result result, bool friendly)

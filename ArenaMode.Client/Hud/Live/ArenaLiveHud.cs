@@ -112,6 +112,7 @@ internal static class ArenaLiveHud
             ArenaEvents.OnPlayerRespawned -= OnLocalRespawned;
         }
         ArenaDeathCard.Hide();
+        ArenaResultOverlay.Hide();
         _match = null;
         _tdm = null;
         ArenaLiveAnnouncer.Detach();
@@ -383,15 +384,17 @@ internal static class ArenaLiveHud
             _result.gameObject.SetActive(true);
             ArenaLiveSounds.Play(snapshot.Draw ? "draw_shield.wav" : snapshot.Lead > 0 ? "win_shield.ogg" : "loose_shield.ogg");
         }
-        else if (Time.unscaledTime - _resultShownAt > 6f && _result.gameObject.activeSelf)
+        else if (Time.unscaledTime - _resultShownAt > 3f && _result.gameObject.activeSelf)
+        {
             _result.gameObject.SetActive(false);
+            ArenaResultOverlay.Show(inRaid: true);
+        }
     }
 
     private static void TickTab(Audio.ArenaAnnouncementSnapshot snapshot)
     {
         // Live: tap Tab = inventory, hold Tab = team table (ArenaTabKey owns the key).
-        bool show = (ArenaTabKey.Held && ArenaHudVisibility.IsBattleUiActive)
-                    || (snapshot.Terminal && _resultShownAt >= 0f && Time.unscaledTime - _resultShownAt > 3f);
+        bool show = ArenaTabKey.Held && ArenaHudVisibility.IsBattleUiActive && !ArenaResultOverlay.Visible;
         _tabCanvas.enabled = show;
         if (!show) return;
         var board = _match.Scoreboard;
