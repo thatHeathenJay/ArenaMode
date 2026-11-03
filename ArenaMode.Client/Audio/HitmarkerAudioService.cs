@@ -16,6 +16,9 @@ internal static class HitmarkerAudioService
     private enum Cue { None, Hit, Headshot, Kill }
     private static readonly string[] Names = { "", "hit", "headshot", "kill" };
     private static readonly HitmarkerPcmClip[] Clips = new HitmarkerPcmClip[4];
+    // Live Arena's own clips (arena-ui/sounds/hitmarker_<cue>_NN.wav, from the player's rip) outrank the stock ones.
+    private static readonly List<HitmarkerPcmClip>[] Live = { new(), new(), new(), new() };
+    private static readonly System.Random Pick = new();
     private static readonly ArenaMasterAudioOutput Output = new();
     private static readonly HashSet<string> Reported = new();
     private static ArenaMatch _match;
@@ -46,6 +49,7 @@ internal static class HitmarkerAudioService
             }
             catch (Exception ex) { Report("load_" + Names[i], ex.Message); }
         }
+        LoadLive();
         ArenaEvents.OnLocalDamageDealt += OnDamage;
         Plugin.ModLogger.LogDebug($"Arena hitmarker audio attached: enabled={Settings.HitmarkerSounds.Value}, "
             + $"volume={Settings.HitmarkerVolume.Value:0.##}, clips={ReadyCount()}/3, route=Arena.Master (independent source).");
@@ -98,7 +102,8 @@ internal static class HitmarkerAudioService
         if (age > ExpireSeconds) { _skipped++; return; }
         try
         {
-            var cached = Clips[(int)cue];
+            var live = Live[(int)cue];
+            var cached = live.Count > 0 ? live[Pick.Next(live.Count)] : Clips[(int)cue];
             if (cached == null) { Report("missing_" + Names[(int)cue], "clip unavailable; retry next match"); return; }
             if (!Output.TryPlay(cached.GetRuntime(), Volume, out string problem))
             { Report("output", problem); return; }
@@ -107,6 +112,22 @@ internal static class HitmarkerAudioService
                 ArenaMode.Diagnostics.ArenaLog.Developer($"Arena hitmarker audio play request: {Names[(int)cue]}, volume={Volume:0.##}.");
         }
         catch (Exception ex) { Report("play_" + Names[(int)cue], ex.Message); }
+    }
+
+    private static void LoadLive()
+    {
+        for (int i = 1; i < Live.Length; i++) Live[i].Clear();
+        if (string.IsNullOrEmpty(_pluginDirectory)) return;
+        string sounds = Path.Combine(ArenaAssetPaths.FromPluginDirectory(_pluginDirectory), "arena-ui", "sounds");
+        if (!Directory.Exists(sounds)) return;
+        for (int i = 1; i < Live.Length; i++)
+            foreach (string file in Directory.GetFiles(sounds, "hitmarker_" + Names[i] + "_*.wav"))
+            {
+                try { Live[i].Add(HitmarkerPcmClip.Load(file)); }
+                catch (Exception ex) { Report("live_" + Path.GetFileName(file), ex.Message); }
+            }
+        if (Live[2].Count + Live[3].Count > 0)
+            Plugin.ModLogger.LogInfo($"Arena hitmarker audio: live Arena clips (headshot {Live[2].Count}, kill {Live[3].Count}).");
     }
 
     private static void Report(string key, string problem)

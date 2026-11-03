@@ -84,7 +84,6 @@ internal static class ArenaLiveHud
             _tdm = tdm;
             match.OnKill += OnKill;
             match.OnCallout += OnAwardCallout;
-            match.OnTextCallout += OnTextCallout;
             ArenaEvents.OnLocalDamageDealt += OnDamage;
             Plugin.ModLogger.LogInfo("Arena live HUD attached from " + ArenaUiPack.Directory);
             return true;
@@ -103,7 +102,6 @@ internal static class ArenaLiveHud
         {
             _match.OnKill -= OnKill;
             _match.OnCallout -= OnAwardCallout;
-            _match.OnTextCallout -= OnTextCallout;
             ArenaEvents.OnLocalDamageDealt -= OnDamage;
         }
         _match = null;
@@ -367,6 +365,7 @@ internal static class ArenaLiveHud
             _resultShownAt = Time.unscaledTime;
             _resultText.text = snapshot.Draw ? "DRAW" : snapshot.Lead > 0 ? "VICTORY" : "DEFEAT";
             _result.gameObject.SetActive(true);
+            ArenaLiveSounds.Play("ui_postmatch_end.wav");
         }
         else if (Time.unscaledTime - _resultShownAt > 6f && _result.gameObject.activeSelf)
             _result.gameObject.SetActive(false);
