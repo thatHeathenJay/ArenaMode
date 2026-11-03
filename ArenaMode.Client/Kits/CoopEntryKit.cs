@@ -13,6 +13,9 @@ namespace ArenaMode.Kits;
 /// </summary>
 internal static class CoopEntryKit
 {
+    /// <summary>The kit written into the profile for this raid; the co-op respawn restocks against it.</summary>
+    internal static KitDefinition LastIssued { get; private set; }
+
     internal static async Task IssueAsync(Profile profile, Func<bool> stillCurrent)
     {
         if (profile?.Inventory?.Equipment == null)
@@ -25,6 +28,7 @@ internal static class CoopEntryKit
         if (!stillCurrent())
             throw new InvalidOperationException("Co-op arena entry kit: the raid start was superseded during preload.");
         TeamArenaEntryKit.Commit(profile, original, equipment);
+        LastIssued = kit;
         if (!ReferenceEquals(profile.Inventory.Equipment, equipment))
             throw new InvalidOperationException("Co-op arena entry kit did not retain its prepared equipment.");
         Plugin.ModLogger.LogInfo($"Co-op arena: issued kit '{kit.Name ?? kit.Id}' to the PMC profile before raid creation.");

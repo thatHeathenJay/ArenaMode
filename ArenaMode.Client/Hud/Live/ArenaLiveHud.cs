@@ -107,6 +107,7 @@ internal static class ArenaLiveHud
         }
         _match = null;
         _tdm = null;
+        RestoreRaidClock();
         _markers?.Dispose();
         _markers = null;
         _hitmarker = null;
@@ -160,12 +161,13 @@ internal static class ArenaLiveHud
         _tabCanvasGo = NewCanvas("ArenaLiveTabCanvas", 140, out _tabCanvas);
         _tabCanvas.enabled = false;
 
+        BuildTab((RectTransform)_tabCanvasGo.transform, tdm);   // first: the result card borrows its mode logo
         BuildScoreStrip(root, tdm);
         BuildGoal(root);
         BuildKillLog(root);
         BuildNotice(root);
         BuildResult(root);
-        BuildTab((RectTransform)_tabCanvasGo.transform, tdm);
+        HideRaidClock();
 
         var combat = new GameObject("ArenaLiveCombat", typeof(RectTransform));
         var combatRect = (RectTransform)combat.transform;
@@ -377,7 +379,8 @@ internal static class ArenaLiveHud
 
     private static void TickTab(Audio.ArenaAnnouncementSnapshot snapshot)
     {
-        bool show = Input.GetKey(KeyCode.Tab)
+        // Live Arena shows the team table on its inventory screen, so Tab (inventory) is the key.
+        bool show = Input.GetKey(KeyCode.Tab) || IsInventoryScreen()
                     || (snapshot.Terminal && _resultShownAt >= 0f && Time.unscaledTime - _resultShownAt > 3f);
         _tabCanvas.enabled = show;
         if (!show) return;
@@ -510,6 +513,33 @@ internal static class ArenaLiveHud
     }
 
     // ---------------------------------------------------------------- helpers
+
+    private static bool IsInventoryScreen()
+    {
+        var screens = EFT.UI.Screens.EftScreenManager.Instance;
+        return screens != null && screens.CheckCurrentScreen(EFT.UI.Screens.EEftScreenType.Inventory);
+    }
+
+    private static readonly List<GameObject> _hiddenClocks = new();
+
+    /// <summary>Arena has a match clock, not a raid clock: hide EFT's location time panel for the match.</summary>
+    private static void HideRaidClock()
+    {
+        var type = HarmonyLib.AccessTools.TypeByName("LocationTimeUIPanel") ?? HarmonyLib.AccessTools.TypeByName("EFT.UI.LocationTimeUIPanel");
+        if (type == null) return;
+        foreach (var panel in Object.FindObjectsOfType(type))
+            if (panel is Component c && c.gameObject.activeSelf)
+            {
+                c.gameObject.SetActive(false);
+                _hiddenClocks.Add(c.gameObject);
+            }
+    }
+
+    private static void RestoreRaidClock()
+    {
+        foreach (var go in _hiddenClocks) if (go != null) go.SetActive(true);
+        _hiddenClocks.Clear();
+    }
 
     private static void Tint(RectTransform node, Color color, float alpha)
     {
