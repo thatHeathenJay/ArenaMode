@@ -1,0 +1,3800 @@
+[
+  {
+    "id": "ammo:7_62x25mm:7_62x25mm_tt_m995:8a142886",
+    "name": "7.62x25mm TT M995",
+    "caliber": "7.62x25mm",
+    "mpPerRound": 6,
+    "stats": {
+      "damage": 32,
+      "penetration": 37,
+      "armorDamagePercent": null,
+      "accuracyPercent": null,
+      "recoil": null,
+      "lightBleedPercent": 14,
+      "heavyBleedPercent": 4,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 940,
+      "damageRaw": "32",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Enforcer": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Scout": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Marksman": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 19,
+      "section": "7.62x25mm",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "8a1428864bff0b410b31e3ccaa55c48d4130aca9b80e861449f577985bcf5944"
+    }
+  },
+  {
+    "id": "ammo:7_62x25mm:7_62x25mm_tt_m855a1:a9b046dd",
+    "name": "7.62x25mm TT M855A1",
+    "caliber": "7.62x25mm",
+    "mpPerRound": 5.5,
+    "stats": {
+      "damage": 34,
+      "penetration": 31,
+      "armorDamagePercent": null,
+      "accuracyPercent": null,
+      "recoil": null,
+      "lightBleedPercent": 17,
+      "heavyBleedPercent": 6,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 900,
+      "damageRaw": "34",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Enforcer": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Scout": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Marksman": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 20,
+      "section": "7.62x25mm",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "a9b046ddc0ffeb87199c36049ee32ffb30ac863d166ec228d09acae024f2fbe0"
+    }
+  },
+  {
+    "id": "ammo:7_62x25mm:7_62x25mm_tt_pst_gzh:a94c799d",
+    "name": "7.62x25mm TT Pst gzh",
+    "caliber": "7.62x25mm",
+    "mpPerRound": 3,
+    "stats": {
+      "damage": 50,
+      "penetration": 25,
+      "armorDamagePercent": 36,
+      "accuracyPercent": null,
+      "recoil": null,
+      "lightBleedPercent": null,
+      "heavyBleedPercent": null,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 430,
+      "damageRaw": "50",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Enforcer": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Scout": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Marksman": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [
+      "unavailable_to_all_listed_classes"
+    ],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 21,
+      "section": "7.62x25mm",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "a94c799d80c2e3740261469500849cbe97cbf8e12816bab065b147f52fab064d"
+    }
+  },
+  {
+    "id": "ammo:9x18mm:9x18mm_pm_pbm_gzh:ee0e1b4c",
+    "name": "9x18mm PM PBM gzh",
+    "caliber": "9x18mm",
+    "mpPerRound": 2.9,
+    "stats": {
+      "damage": 40,
+      "penetration": 28,
+      "armorDamagePercent": 30,
+      "accuracyPercent": null,
+      "recoil": 4,
+      "lightBleedPercent": null,
+      "heavyBleedPercent": null,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 519,
+      "damageRaw": "40",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Enforcer": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Scout": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Marksman": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 47,
+      "section": "9x18mm",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "ee0e1b4cb06d4029fc1789a99886e0f2976bd29ebe4acc0287f031373e330fa7"
+    }
+  },
+  {
+    "id": "ammo:9x18mm:9x18mm_pmm_pstm_gzh:b17eb53e",
+    "name": "9x18mm PMM PstM gzh",
+    "caliber": "9x18mm",
+    "mpPerRound": 4.3,
+    "stats": {
+      "damage": 58,
+      "penetration": 24,
+      "armorDamagePercent": 33,
+      "accuracyPercent": null,
+      "recoil": 5,
+      "lightBleedPercent": null,
+      "heavyBleedPercent": null,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 420,
+      "damageRaw": "58",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Enforcer": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Scout": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Marksman": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      }
+    },
+    "specialEffectsRaw": "過圧((サブマシンガンPP-91 \"Kedr\"、PP-91-01 \"Kedr-B\"からは発射できない。))",
+    "notesRaw": "この弾薬とPP-91-01 \"Kedr-B\"が / プリセット内に存在する場合、他にこの弾薬 / を発射可能な銃を装備している場合を除き / 使用不可(NOT READY)状態になる。",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [
+      "class_table_and_note_disagree_or_are_incomplete",
+      "unavailable_to_all_listed_classes"
+    ],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 48,
+      "section": "9x18mm",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "b17eb53e10cc187d47bb8b0579ad70403b2963757890602a6a1c19e96d84ac79"
+    }
+  },
+  {
+    "id": "ammo:9x18mm:9x18mm_pm_sp7_gzh:a1e0edc9",
+    "name": "9x18mm PM SP7 gzh",
+    "caliber": "9x18mm",
+    "mpPerRound": 1.6,
+    "stats": {
+      "damage": 77,
+      "penetration": 2,
+      "armorDamagePercent": 5,
+      "accuracyPercent": null,
+      "recoil": null,
+      "lightBleedPercent": 25,
+      "heavyBleedPercent": 10,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 420,
+      "damageRaw": "77",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Enforcer": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Scout": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Marksman": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 49,
+      "section": "9x18mm",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "a1e0edc9e5dab9a70aad50915f4d8f348f5e5e771cc6c4c660c87febfd133577"
+    }
+  },
+  {
+    "id": "ammo:357_magnum:357_fmj:73e02372",
+    "name": ".357 FMJ",
+    "caliber": ".357 Magnum",
+    "mpPerRound": 4.8,
+    "stats": {
+      "damage": 70,
+      "penetration": 35,
+      "armorDamagePercent": 43,
+      "accuracyPercent": null,
+      "recoil": 12,
+      "lightBleedPercent": null,
+      "heavyBleedPercent": 10,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 385,
+      "damageRaw": "70",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Enforcer": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Scout": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Marksman": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 73,
+      "section": ".357 Magnum",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "73e023728c7a3118439ef2d7e35dd21d1c08852aec327e1a52a6bb6a104d9fec"
+    }
+  },
+  {
+    "id": "ammo:50ae:50ae_fmj:d832a211",
+    "name": ".50AE FMJ",
+    "caliber": ".50AE",
+    "mpPerRound": 9,
+    "stats": {
+      "damage": 85,
+      "penetration": 40,
+      "armorDamagePercent": 50,
+      "accuracyPercent": null,
+      "recoil": 10,
+      "lightBleedPercent": null,
+      "heavyBleedPercent": 10,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 440,
+      "damageRaw": "85",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Enforcer": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Scout": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Marksman": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 94,
+      "section": ".50AE",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "d832a2119fcfa0286985f508925220ede9db2eeb5cf047c39931491398addb32"
+    }
+  },
+  {
+    "id": "ammo:4_6x30mm:4_6x30mm_ap_sx:e7181dff",
+    "name": "4.6x30mm AP SX",
+    "caliber": "4.6x30mm",
+    "mpPerRound": 6.1,
+    "stats": {
+      "damage": 35,
+      "penetration": 53,
+      "armorDamagePercent": 46,
+      "accuracyPercent": null,
+      "recoil": 10,
+      "lightBleedPercent": null,
+      "heavyBleedPercent": null,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 680,
+      "damageRaw": "35",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Enforcer": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Scout": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Marksman": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [
+      "unavailable_to_all_listed_classes"
+    ],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 120,
+      "section": "4.6x30mm",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "e7181dff6fe4c8c1c45945a5babe0332861101b393db54b12734bc31484bf98e"
+    }
+  },
+  {
+    "id": "ammo:4_6x30mm:4_6x30mm_fmj_sx:70a84fc7",
+    "name": "4.6x30mm FMJ SX",
+    "caliber": "4.6x30mm",
+    "mpPerRound": 5,
+    "stats": {
+      "damage": 46,
+      "penetration": 40,
+      "armorDamagePercent": 41,
+      "accuracyPercent": null,
+      "recoil": null,
+      "lightBleedPercent": null,
+      "heavyBleedPercent": null,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 620,
+      "damageRaw": "46",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Enforcer": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Scout": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Marksman": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 121,
+      "section": "4.6x30mm",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "70a84fc7c7b7cb2371b91dd6ea61c957c51f9bff13a50897f1a373ca0de9d57f"
+    }
+  },
+  {
+    "id": "ammo:5_7x28mm:5_7x28mm_ss190:80995967",
+    "name": "5.7x28mm SS190",
+    "caliber": "5.7x28mm",
+    "mpPerRound": 5.4,
+    "stats": {
+      "damage": 49,
+      "penetration": 38,
+      "armorDamagePercent": 43,
+      "accuracyPercent": null,
+      "recoil": null,
+      "lightBleedPercent": null,
+      "heavyBleedPercent": null,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 715,
+      "damageRaw": "49",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Enforcer": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Scout": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Marksman": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 144,
+      "section": "5.7x28mm",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "80995967cb27b3774e4172fd6e2cd555da5e7aba5bae845a586a40cfdf6a19e8"
+    }
+  },
+  {
+    "id": "ammo:5_7x28mm:5_7x28mm_r37_f:1e475ae8",
+    "name": "5.7x28mm R37.F",
+    "caliber": "5.7x28mm",
+    "mpPerRound": 1.8,
+    "stats": {
+      "damage": 98,
+      "penetration": 8,
+      "armorDamagePercent": 7,
+      "accuracyPercent": null,
+      "recoil": null,
+      "lightBleedPercent": 20,
+      "heavyBleedPercent": null,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 729,
+      "damageRaw": "98",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Enforcer": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Scout": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Marksman": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 145,
+      "section": "5.7x28mm",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "1e475ae8eec423faf6dc938555fe9f8f5678584a3081f17679beade41dca7288"
+    }
+  },
+  {
+    "id": "ammo:5_7x28mm:5_7x28mm_r37_x:c9eec857",
+    "name": "5.7x28mm R37.X",
+    "caliber": "5.7x28mm",
+    "mpPerRound": 12.9,
+    "stats": {
+      "damage": 81,
+      "penetration": 11,
+      "armorDamagePercent": 9,
+      "accuracyPercent": -5,
+      "recoil": null,
+      "lightBleedPercent": 10,
+      "heavyBleedPercent": null,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 724,
+      "damageRaw": "81",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Enforcer": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Scout": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Marksman": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [
+      "unavailable_to_all_listed_classes"
+    ],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 146,
+      "section": "5.7x28mm",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "c9eec8573fdea5d62d6ac606482f824ceb6b6b80ba47a9de354ed242d6df9237"
+    }
+  },
+  {
+    "id": "ammo:9x19mm:9x19mm_pbp_gzh:952980ae",
+    "name": "9x19mm PBP gzh",
+    "caliber": "9x19mm",
+    "mpPerRound": 8.8,
+    "stats": {
+      "damage": 51,
+      "penetration": 40,
+      "armorDamagePercent": 55,
+      "accuracyPercent": 5,
+      "recoil": 5,
+      "lightBleedPercent": null,
+      "heavyBleedPercent": null,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 560,
+      "damageRaw": "51",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Enforcer": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Scout": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Marksman": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 168,
+      "section": "9x19mm",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "952980ae389ffb8ad9aead896300af343cba2c1664d1961f4fc926f9bb74e6f0"
+    }
+  },
+  {
+    "id": "ammo:9x19mm:9x19mm_rip:96a57c15",
+    "name": "9x19mm RIP",
+    "caliber": "9x19mm",
+    "mpPerRound": 1.5,
+    "stats": {
+      "damage": 102,
+      "penetration": 2,
+      "armorDamagePercent": 11,
+      "accuracyPercent": null,
+      "recoil": 5,
+      "lightBleedPercent": 30,
+      "heavyBleedPercent": 10,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 381,
+      "damageRaw": "102",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Enforcer": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Scout": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Marksman": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 169,
+      "section": "9x19mm",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "96a57c152e6919c2da7c2cf8cafd6056e9a154297319c33e2471f29901c67237"
+    }
+  },
+  {
+    "id": "ammo:9x21mm:9x21mm_7n42_zubilo:63d1afd2",
+    "name": "9x21mm 7N42 \"Zubilo\"",
+    "caliber": "9x21mm",
+    "mpPerRound": 8.6,
+    "stats": {
+      "damage": 53,
+      "penetration": 39,
+      "armorDamagePercent": 47,
+      "accuracyPercent": -3,
+      "recoil": 10,
+      "lightBleedPercent": null,
+      "heavyBleedPercent": null,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 400,
+      "damageRaw": "53",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Enforcer": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Scout": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Marksman": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 192,
+      "section": "9x21mm",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "63d1afd2e82a5f31f503734d2bac696e9887ea510be9551112d0284de3502397"
+    }
+  },
+  {
+    "id": "ammo:9x21mm:9x21mm_pe_gzh:67e9f6fb",
+    "name": "9x21mm PE gzh",
+    "caliber": "9x21mm",
+    "mpPerRound": 2.6,
+    "stats": {
+      "damage": 80,
+      "penetration": 15,
+      "armorDamagePercent": 63,
+      "accuracyPercent": 3,
+      "recoil": -5,
+      "lightBleedPercent": 15,
+      "heavyBleedPercent": 10,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 415,
+      "damageRaw": "80",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Enforcer": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Scout": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Marksman": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 193,
+      "section": "9x21mm",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "67e9f6fb86bc82994d5f5739fff19237be2163ae18ec9f126f74b82be500a6c7"
+    }
+  },
+  {
+    "id": "ammo:9x21mm:9x21mm_bt_gzh:40d1a3d4",
+    "name": "9x21mm BT gzh",
+    "caliber": "9x21mm",
+    "mpPerRound": 4.1,
+    "stats": {
+      "damage": 52,
+      "penetration": 32,
+      "armorDamagePercent": 42,
+      "accuracyPercent": -5,
+      "recoil": 5,
+      "lightBleedPercent": null,
+      "heavyBleedPercent": null,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 410,
+      "damageRaw": "52",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Enforcer": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Scout": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Marksman": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      }
+    },
+    "specialEffectsRaw": "曳光弾 / (赤)",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [
+      "unavailable_to_all_listed_classes"
+    ],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 194,
+      "section": "9x21mm",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "40d1a3d458e924ff7eb22ac6fec8a9ca609eaf4aea2a90de56e970896e19f651"
+    }
+  },
+  {
+    "id": "ammo:45_acp:45acp_ap:2d53b75b",
+    "name": ".45ACP AP",
+    "caliber": ".45 ACP",
+    "mpPerRound": 5.4,
+    "stats": {
+      "damage": 61,
+      "penetration": 37,
+      "armorDamagePercent": 48,
+      "accuracyPercent": -5,
+      "recoil": 7,
+      "lightBleedPercent": null,
+      "heavyBleedPercent": null,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 299,
+      "damageRaw": "61",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Enforcer": {
+        "status": "unavailable",
+        "sourceSymbol": ""
+      },
+      "Scout": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Marksman": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      }
+    },
+    "specialEffectsRaw": "亜音速",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 217,
+      "section": ".45 ACP",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "2d53b75bab1b95520246a0dacf8f8a9976a379555dbdfa3b4677d09e5e02e623"
+    }
+  },
+  {
+    "id": "ammo:45_acp:45acp_rip:e1b3a6eb",
+    "name": ".45ACP RIP",
+    "caliber": ".45 ACP",
+    "mpPerRound": 1.1,
+    "stats": {
+      "damage": 130,
+      "penetration": 3,
+      "armorDamagePercent": 12,
+      "accuracyPercent": -5,
+      "recoil": null,
+      "lightBleedPercent": 30,
+      "heavyBleedPercent": 20,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 293,
+      "damageRaw": "130",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Enforcer": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Scout": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Marksman": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      }
+    },
+    "specialEffectsRaw": "亜音速",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 218,
+      "section": ".45 ACP",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "e1b3a6eb00619189930f05cb03471383afb98a88461255dcfc95d5fb83870cc3"
+    }
+  },
+  {
+    "id": "ammo:5_45x39mm:5_45x39mm_bs:c13b8767",
+    "name": "5.45x39mm BS",
+    "caliber": "5.45x39mm",
+    "mpPerRound": 23.7,
+    "stats": {
+      "damage": 45,
+      "penetration": 54,
+      "armorDamagePercent": 57,
+      "accuracyPercent": -4,
+      "recoil": 10,
+      "lightBleedPercent": null,
+      "heavyBleedPercent": null,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 830,
+      "damageRaw": "45",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "conditional",
+        "sourceSymbol": "△",
+        "condition": {
+          "kind": "unresolved"
+        }
+      },
+      "Enforcer": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Scout": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Marksman": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [
+      "conditional_access_missing_weapon_rule"
+    ],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 242,
+      "section": "5.45x39mm",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "c13b87674ae33b0cd437beef82d116d9f37ce808b2e9826693b24352485936b9"
+    }
+  },
+  {
+    "id": "ammo:5_45x39mm:5_45x39mm_bp:f0be05f7",
+    "name": "5.45x39mm BP",
+    "caliber": "5.45x39mm",
+    "mpPerRound": 12.2,
+    "stats": {
+      "damage": 48,
+      "penetration": 45,
+      "armorDamagePercent": 46,
+      "accuracyPercent": -3,
+      "recoil": 7,
+      "lightBleedPercent": null,
+      "heavyBleedPercent": null,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 890,
+      "damageRaw": "48",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Enforcer": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Scout": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Marksman": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 243,
+      "section": "5.45x39mm",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "f0be05f7be34e54fb5ecc5b99f9cbcf07b897a4753791b43de09685671f02370"
+    }
+  },
+  {
+    "id": "ammo:5_45x39mm:5_45x39mm_7n40:0678a66e",
+    "name": "5.45x39mm 7N40",
+    "caliber": "5.45x39mm",
+    "mpPerRound": 11,
+    "stats": {
+      "damage": 52,
+      "penetration": 42,
+      "armorDamagePercent": 45,
+      "accuracyPercent": 50,
+      "recoil": -10,
+      "lightBleedPercent": 20,
+      "heavyBleedPercent": 15,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 915,
+      "damageRaw": "52",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Enforcer": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Scout": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Marksman": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 244,
+      "section": "5.45x39mm",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "0678a66e06f22d250e3214303b1edc78814598f992a201e41b0fc8c7de45fe11"
+    }
+  },
+  {
+    "id": "ammo:5_45x39mm:5_45x39mm_bt:6814b40c",
+    "name": "5.45x39mm BT",
+    "caliber": "5.45x39mm",
+    "mpPerRound": 7.1,
+    "stats": {
+      "damage": 54,
+      "penetration": 37,
+      "armorDamagePercent": 44,
+      "accuracyPercent": -4,
+      "recoil": 5,
+      "lightBleedPercent": null,
+      "heavyBleedPercent": null,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 880,
+      "damageRaw": "54",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Enforcer": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Scout": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Marksman": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      }
+    },
+    "specialEffectsRaw": "曳光弾 / (赤)",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 245,
+      "section": "5.45x39mm",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "6814b40cdccfddfa80c9df7debed860ae167260ade84887d29c83a99a82a67e9"
+    }
+  },
+  {
+    "id": "ammo:5_45x39mm:5_45x39mm_ppbs_gs_igolnik:3a4e9e46",
+    "name": "5.45x39mm PPBS gs \"Igolnik\"",
+    "caliber": "5.45x39mm",
+    "mpPerRound": 12.9,
+    "stats": {
+      "damage": 37,
+      "penetration": 62,
+      "armorDamagePercent": 59,
+      "accuracyPercent": -5,
+      "recoil": 15,
+      "lightBleedPercent": null,
+      "heavyBleedPercent": null,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 905,
+      "damageRaw": "37",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "unavailable",
+        "sourceSymbol": ""
+      },
+      "Enforcer": {
+        "status": "unavailable",
+        "sourceSymbol": ""
+      },
+      "Scout": {
+        "status": "unavailable",
+        "sourceSymbol": ""
+      },
+      "Marksman": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 246,
+      "section": "5.45x39mm",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "3a4e9e4658dfa742e242dfb5f11aa2f94302947165e8c440b7508e9dc22bbcd9"
+    }
+  },
+  {
+    "id": "ammo:5_45x39mm:5_45x39mm_pp:8b271f0f",
+    "name": "5.45x39mm PP",
+    "caliber": "5.45x39mm",
+    "mpPerRound": 8.8,
+    "stats": {
+      "damage": 51,
+      "penetration": 34,
+      "armorDamagePercent": 42,
+      "accuracyPercent": -2,
+      "recoil": 3,
+      "lightBleedPercent": null,
+      "heavyBleedPercent": null,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 886,
+      "damageRaw": "51",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "unavailable",
+        "sourceSymbol": ""
+      },
+      "Enforcer": {
+        "status": "conditional",
+        "sourceSymbol": "△",
+        "condition": {
+          "kind": "unresolved"
+        }
+      },
+      "Scout": {
+        "status": "unavailable",
+        "sourceSymbol": ""
+      },
+      "Marksman": {
+        "status": "unavailable",
+        "sourceSymbol": ""
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [
+      "conditional_access_missing_weapon_rule"
+    ],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 247,
+      "section": "5.45x39mm",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "8b271f0f52515dcb62cb4017e4d0c8310a123b7543e743af4729a9c8a3ca87dd"
+    }
+  },
+  {
+    "id": "ammo:5_56x45mm:5_56x45mm_m995:77f4326d",
+    "name": "5.56x45mm M995",
+    "caliber": "5.56x45mm",
+    "mpPerRound": 22.9,
+    "stats": {
+      "damage": 42,
+      "penetration": 53,
+      "armorDamagePercent": 52,
+      "accuracyPercent": -7,
+      "recoil": 8,
+      "lightBleedPercent": null,
+      "heavyBleedPercent": null,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 1013,
+      "damageRaw": "42",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "conditional",
+        "sourceSymbol": "△",
+        "condition": {
+          "kind": "deny_weapons",
+          "aliases": [
+            "M4A1",
+            "HK416",
+            "Model 1",
+            "G36"
+          ]
+        }
+      },
+      "Enforcer": {
+        "status": "unavailable",
+        "sourceSymbol": ""
+      },
+      "Scout": {
+        "status": "unavailable",
+        "sourceSymbol": ""
+      },
+      "Marksman": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "M4A1、HK416、Model 1、G36は使用不可",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 269,
+      "section": "5.56x45mm",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "77f4326d9978c9a13579cba0f2a1494e99719b598052e96ee55d9a96362b7342"
+    }
+  },
+  {
+    "id": "ammo:5_56x45mm:5_56x45mm_m855a1:1b93b49d",
+    "name": "5.56x45mm M855A1",
+    "caliber": "5.56x45mm",
+    "mpPerRound": 11.9,
+    "stats": {
+      "damage": 49,
+      "penetration": 44,
+      "armorDamagePercent": 47,
+      "accuracyPercent": -5,
+      "recoil": 5,
+      "lightBleedPercent": null,
+      "heavyBleedPercent": null,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 945,
+      "damageRaw": "49",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Enforcer": {
+        "status": "unavailable",
+        "sourceSymbol": ""
+      },
+      "Scout": {
+        "status": "unavailable",
+        "sourceSymbol": ""
+      },
+      "Marksman": {
+        "status": "unavailable",
+        "sourceSymbol": ""
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 270,
+      "section": "5.56x45mm",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "1b93b49db571e5435865d9a3377d1c9e6ab7c7daa63ebd5b7108a92069b32e2d"
+    }
+  },
+  {
+    "id": "ammo:5_56x45mm:5_56x45mm_ssa_ap:d291f87f",
+    "name": "5.56x45mm SSA AP",
+    "caliber": "5.56x45mm",
+    "mpPerRound": 11.2,
+    "stats": {
+      "damage": 39,
+      "penetration": 57,
+      "armorDamagePercent": 58,
+      "accuracyPercent": -9,
+      "recoil": 6,
+      "lightBleedPercent": null,
+      "heavyBleedPercent": null,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 1013,
+      "damageRaw": "39",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "unavailable",
+        "sourceSymbol": ""
+      },
+      "Enforcer": {
+        "status": "unavailable",
+        "sourceSymbol": ""
+      },
+      "Scout": {
+        "status": "unavailable",
+        "sourceSymbol": ""
+      },
+      "Marksman": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 271,
+      "section": "5.56x45mm",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "d291f87f3e2031402ccb5922e857f3c19b086ac3568822ce727be21314fd609c"
+    }
+  },
+  {
+    "id": "ammo:300_blackout:300_blackout_ap:952626bb",
+    "name": ".300 Blackout AP",
+    "caliber": ".300 Blackout",
+    "mpPerRound": 136.3,
+    "stats": {
+      "damage": 51,
+      "penetration": 48,
+      "armorDamagePercent": 65,
+      "accuracyPercent": null,
+      "recoil": 3,
+      "lightBleedPercent": 15,
+      "heavyBleedPercent": 15,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 635,
+      "damageRaw": "51",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "conditional",
+        "sourceSymbol": "△",
+        "condition": {
+          "kind": "allow_weapons",
+          "aliases": [
+            "Velociraptor .300 BLK"
+          ]
+        }
+      },
+      "Enforcer": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Scout": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Marksman": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "Velociraptor .300 BLKのみ使用可",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 292,
+      "section": ".300 Blackout",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "952626bb22f10abf3688e88e29b38c6f72aac9f55dc83d90ff551dd39b6f78c5"
+    }
+  },
+  {
+    "id": "ammo:300_blackout:300_blackout_cbj:e9409b53",
+    "name": ".300 Blackout CBJ",
+    "caliber": ".300 Blackout",
+    "mpPerRound": 11.2,
+    "stats": {
+      "damage": 58,
+      "penetration": 43,
+      "armorDamagePercent": 57,
+      "accuracyPercent": null,
+      "recoil": 5,
+      "lightBleedPercent": null,
+      "heavyBleedPercent": null,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 725,
+      "damageRaw": "58",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Enforcer": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Scout": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Marksman": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 293,
+      "section": ".300 Blackout",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "e9409b53f2edce9b668c221a1afef423c85559ece5b4f8ed7103888f92d2f6b4"
+    }
+  },
+  {
+    "id": "ammo:300_blackout:300_blackout_m62_tracer:ec766991",
+    "name": ".300 Blackout M62 Tracer",
+    "caliber": ".300 Blackout",
+    "mpPerRound": 7.7,
+    "stats": {
+      "damage": 54,
+      "penetration": 36,
+      "armorDamagePercent": 40,
+      "accuracyPercent": null,
+      "recoil": 1,
+      "lightBleedPercent": null,
+      "heavyBleedPercent": null,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 442,
+      "damageRaw": "54",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Enforcer": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Scout": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Marksman": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      }
+    },
+    "specialEffectsRaw": "曳光弾 / (赤)",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [
+      "unavailable_to_all_listed_classes"
+    ],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 294,
+      "section": ".300 Blackout",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "ec766991a40540c4e8569a26511c7d33e8f12caed358cfb86366e2c92304ee3d"
+    }
+  },
+  {
+    "id": "ammo:300_blackout:300_whisper:5d95dff2",
+    "name": ".300 Whisper",
+    "caliber": ".300 Blackout",
+    "mpPerRound": 21.8,
+    "stats": {
+      "damage": 90,
+      "penetration": 14,
+      "armorDamagePercent": 19,
+      "accuracyPercent": 5,
+      "recoil": -5,
+      "lightBleedPercent": null,
+      "heavyBleedPercent": 20,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 853,
+      "damageRaw": "90",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Enforcer": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Scout": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Marksman": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [
+      "unavailable_to_all_listed_classes"
+    ],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 295,
+      "section": ".300 Blackout",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "5d95dff236125650541e7b1b00de49ae4cfb924165a15bcf033cb3bdca4a5cd6"
+    }
+  },
+  {
+    "id": "ammo:7_62x39mm:7_62x39mm_mai_ap:c4edd218",
+    "name": "7.62x39mm MAI AP",
+    "caliber": "7.62x39mm",
+    "mpPerRound": 43,
+    "stats": {
+      "damage": 53,
+      "penetration": 58,
+      "armorDamagePercent": 76,
+      "accuracyPercent": -5,
+      "recoil": 10,
+      "lightBleedPercent": 10,
+      "heavyBleedPercent": 10,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 875,
+      "damageRaw": "53",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "conditional",
+        "sourceSymbol": "△",
+        "condition": {
+          "kind": "deny_weapons",
+          "aliases": [
+            "RD-704"
+          ]
+        }
+      },
+      "Enforcer": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Scout": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Marksman": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "RD-704のみ使用不可。",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 318,
+      "section": "7.62x39mm",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "c4edd2189fb56c5857bbac36dd812f3d39977278a8e8c8caa0ce7b68d0d4b666"
+    }
+  },
+  {
+    "id": "ammo:7_62x39mm:7_62x39mm_bp_gzh:b65876f2",
+    "name": "7.62x39mm BP gzh",
+    "caliber": "7.62x39mm",
+    "mpPerRound": 17.9,
+    "stats": {
+      "damage": 58,
+      "penetration": 47,
+      "armorDamagePercent": 63,
+      "accuracyPercent": -3,
+      "recoil": 7,
+      "lightBleedPercent": null,
+      "heavyBleedPercent": null,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 730,
+      "damageRaw": "58",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Enforcer": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Scout": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Marksman": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 319,
+      "section": "7.62x39mm",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "b65876f23d27198e6396664a998a88161ff2a4e7e1fb6330435be44b72a548d9"
+    }
+  },
+  {
+    "id": "ammo:7_62x39mm:7_62x39mm_pp_gzh:c7a8569c",
+    "name": "7.62x39mm PP gzh",
+    "caliber": "7.62x39mm",
+    "mpPerRound": 12.9,
+    "stats": {
+      "damage": 59,
+      "penetration": 41,
+      "armorDamagePercent": 57,
+      "accuracyPercent": -1,
+      "recoil": 5,
+      "lightBleedPercent": null,
+      "heavyBleedPercent": null,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 732,
+      "damageRaw": "59",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Enforcer": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Scout": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Marksman": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 320,
+      "section": "7.62x39mm",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "c7a8569caca03a28a6b006b8b6b820ae9bf9e2952bf553d141bd050d336064c5"
+    }
+  },
+  {
+    "id": "ammo:7_62x39mm:7_62x39mm_ps_gzh:83e0b8c0",
+    "name": "7.62x39mm PS gzh",
+    "caliber": "7.62x39mm",
+    "mpPerRound": 10.3,
+    "stats": {
+      "damage": 61,
+      "penetration": 35,
+      "armorDamagePercent": 52,
+      "accuracyPercent": null,
+      "recoil": null,
+      "lightBleedPercent": null,
+      "heavyBleedPercent": null,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 717,
+      "damageRaw": "61",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Enforcer": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Scout": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Marksman": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 321,
+      "section": "7.62x39mm",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "83e0b8c0575b59e514d92de1c3fabfaa1bf54c8b81556abbdd804ced7a0ad5a3"
+    }
+  },
+  {
+    "id": "ammo:6_8x51mm:6_8x51mm_sig_fmj:e74814e7",
+    "name": "6.8x51mm SIG FMJ",
+    "caliber": "6.8x51mm",
+    "mpPerRound": 11,
+    "stats": {
+      "damage": 80,
+      "penetration": 36,
+      "armorDamagePercent": 49,
+      "accuracyPercent": null,
+      "recoil": null,
+      "lightBleedPercent": null,
+      "heavyBleedPercent": null,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 899,
+      "damageRaw": "80",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Enforcer": {
+        "status": "unavailable",
+        "sourceSymbol": ""
+      },
+      "Scout": {
+        "status": "unavailable",
+        "sourceSymbol": ""
+      },
+      "Marksman": {
+        "status": "unavailable",
+        "sourceSymbol": ""
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 346,
+      "section": "6.8x51mm",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "e74814e7a03abec8ff9a1dc44ded714d2be4e3af107d816908d41795b418a90c"
+    }
+  },
+  {
+    "id": "ammo:9x39mm:9x39mm_sp_6_gs:0d57a56a",
+    "name": "9x39mm SP-6 gs",
+    "caliber": "9x39mm",
+    "mpPerRound": 14.4,
+    "stats": {
+      "damage": 60,
+      "penetration": 48,
+      "armorDamagePercent": 64,
+      "accuracyPercent": null,
+      "recoil": 5,
+      "lightBleedPercent": 10,
+      "heavyBleedPercent": 10,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 305,
+      "damageRaw": "60",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "conditional",
+        "sourceSymbol": "△",
+        "condition": {
+          "kind": "allow_weapons",
+          "aliases": [
+            "VSK-94"
+          ]
+        }
+      },
+      "Enforcer": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Scout": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Marksman": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      }
+    },
+    "specialEffectsRaw": "亜音速",
+    "notesRaw": "VSK-94のみ使用可",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 372,
+      "section": "9x39mm",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "0d57a56a6b42ce50b31b7a52543ba2a8e53c729f2a878f2c2d1b293af65add2a"
+    }
+  },
+  {
+    "id": "ammo:9x39mm:9x39mm_pab_9_gs:23f8b838",
+    "name": "9x39mm PAB-9 gs",
+    "caliber": "9x39mm",
+    "mpPerRound": 11.9,
+    "stats": {
+      "damage": 62,
+      "penetration": 43,
+      "armorDamagePercent": 57,
+      "accuracyPercent": -15,
+      "recoil": 10,
+      "lightBleedPercent": 10,
+      "heavyBleedPercent": 12,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 320,
+      "damageRaw": "62",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "conditional",
+        "sourceSymbol": "△",
+        "condition": {
+          "kind": "deny_weapons",
+          "aliases": [
+            "AS VAL MOD.4"
+          ]
+        }
+      },
+      "Enforcer": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Scout": {
+        "status": "conditional",
+        "sourceSymbol": "△",
+        "condition": {
+          "kind": "allow_weapons",
+          "aliases": [
+            "9A-91"
+          ]
+        }
+      },
+      "Marksman": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      }
+    },
+    "specialEffectsRaw": "亜音速",
+    "notesRaw": "アサルトではAS VAL MOD.4のみ使用不可 / スカウトでは9A-91のみ使用可",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 373,
+      "section": "9x39mm",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "23f8b83830ff4481dba774cece10c334d9afbdccc277d3cfeef8fe8eda416e8e"
+    }
+  },
+  {
+    "id": "ammo:9x39mm:9x39mm_spp_gs:79857624",
+    "name": "9x39mm SPP gs",
+    "caliber": "9x39mm",
+    "mpPerRound": 8.3,
+    "stats": {
+      "damage": 68,
+      "penetration": 37,
+      "armorDamagePercent": 48,
+      "accuracyPercent": 10,
+      "recoil": 7,
+      "lightBleedPercent": 10,
+      "heavyBleedPercent": 20,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 310,
+      "damageRaw": "68",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Enforcer": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Scout": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Marksman": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      }
+    },
+    "specialEffectsRaw": "亜音速",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 374,
+      "section": "9x39mm",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "798576244e34746ca5d1a58ed4344b64303f55686632ef021db0803b22d8d57b"
+    }
+  },
+  {
+    "id": "ammo:12_7x55mm_sts_130:12_7x55mm_ps12b:9c5bf044",
+    "name": "12.7x55mm PS12B",
+    "caliber": "12.7x55mm STs-130",
+    "mpPerRound": 16.2,
+    "stats": {
+      "damage": 102,
+      "penetration": 45,
+      "armorDamagePercent": 57,
+      "accuracyPercent": null,
+      "recoil": 15,
+      "lightBleedPercent": null,
+      "heavyBleedPercent": 15,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 570,
+      "damageRaw": "102",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Enforcer": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Scout": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Marksman": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 397,
+      "section": "12.7x55mm STs-130",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "9c5bf044b73dda9fa96777c31fbdfbb4ad30f4432ea05fe7a59c2bea993776d9"
+    }
+  },
+  {
+    "id": "ammo:12_7x55mm_sts_130:12_7x55mm_ps12:11880029",
+    "name": "12.7x55mm PS12",
+    "caliber": "12.7x55mm STs-130",
+    "mpPerRound": 11.6,
+    "stats": {
+      "damage": 115,
+      "penetration": 28,
+      "armorDamagePercent": 60,
+      "accuracyPercent": 10,
+      "recoil": null,
+      "lightBleedPercent": 30,
+      "heavyBleedPercent": 20,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 300,
+      "damageRaw": "115",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Enforcer": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Scout": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Marksman": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      }
+    },
+    "specialEffectsRaw": "亜音速",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 398,
+      "section": "12.7x55mm STs-130",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "118800292a261b983257665b1bc2cb6fc72373f03a2084285c8e2fd6449b4f8b"
+    }
+  },
+  {
+    "id": "ammo:12_7x55mm_sts_130:12_7x55mm_ps12a:e95b8578",
+    "name": "12.7x55mm PS12A",
+    "caliber": "12.7x55mm STs-130",
+    "mpPerRound": 32,
+    "stats": {
+      "damage": 165,
+      "penetration": 10,
+      "armorDamagePercent": 22,
+      "accuracyPercent": -15,
+      "recoil": -12,
+      "lightBleedPercent": 35,
+      "heavyBleedPercent": 30,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 870,
+      "damageRaw": "165",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Enforcer": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Scout": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Marksman": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [
+      "unavailable_to_all_listed_classes"
+    ],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 399,
+      "section": "12.7x55mm STs-130",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "e95b8578043b0d3c9d798ef92beeb4b5823d947c04c30e43172f7eef7e591605"
+    }
+  },
+  {
+    "id": "ammo:366_tkm:366_tkm_ap_m:9d5432fa",
+    "name": ".366 TKM AP-M",
+    "caliber": ".366 TKM",
+    "mpPerRound": 13.1,
+    "stats": {
+      "damage": 90,
+      "penetration": 42,
+      "armorDamagePercent": 60,
+      "accuracyPercent": -22,
+      "recoil": 35,
+      "lightBleedPercent": null,
+      "heavyBleedPercent": 10,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 602,
+      "damageRaw": "90",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Enforcer": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Scout": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Marksman": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 421,
+      "section": ".366 TKM",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "9d5432fa49c96d6ce82156a66ebbef9f4091cdaf2276e7280ba6185a69bb8eb1"
+    }
+  },
+  {
+    "id": "ammo:7_62x51mm:7_62x51mm_ball_11_long_range:1ed119ab",
+    "name": "7.62x51mm Ball 11 Long Range",
+    "caliber": "7.62x51mm",
+    "mpPerRound": 110,
+    "stats": {
+      "damage": 95,
+      "penetration": 63,
+      "armorDamagePercent": 88,
+      "accuracyPercent": 15,
+      "recoil": 15,
+      "lightBleedPercent": 10,
+      "heavyBleedPercent": 10,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 805,
+      "damageRaw": "95",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Enforcer": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Scout": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Marksman": {
+        "status": "conditional",
+        "sourceSymbol": "△",
+        "condition": {
+          "kind": "allow_weapon_category",
+          "category": "bolt_action_rifle",
+          "forbidDmrChamberAndMagazineLoading": true
+        }
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "Arena専用弾薬 / ボルトアクションライフルのみ発射可能 / マークスマンライフルのチャンバーや / マガジンには装填不可。",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 445,
+      "section": "7.62x51mm",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "1ed119abeb61f8c5defb0db7b76c50b97905712aff31b7ac03c5642568c650cd"
+    }
+  },
+  {
+    "id": "ammo:7_62x51mm:7_62x51mm_m61:1d9d133f",
+    "name": "7.62x51mm M61",
+    "caliber": "7.62x51mm",
+    "mpPerRound": 22.4,
+    "stats": {
+      "damage": 75,
+      "penetration": 55,
+      "armorDamagePercent": 79,
+      "accuracyPercent": -2,
+      "recoil": 3,
+      "lightBleedPercent": 7,
+      "heavyBleedPercent": 7,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 838,
+      "damageRaw": "75",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Enforcer": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Scout": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Marksman": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 446,
+      "section": "7.62x51mm",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "1d9d133f03dfeadf505e0459d490a572c053059db878de6f7c50b930a26ed623"
+    }
+  },
+  {
+    "id": "ammo:7_62x51mm:7_62x51mm_m80:ab4ffde8",
+    "name": "7.62x51mm M80",
+    "caliber": "7.62x51mm",
+    "mpPerRound": 13.7,
+    "stats": {
+      "damage": 80,
+      "penetration": 43,
+      "armorDamagePercent": 67,
+      "accuracyPercent": -3,
+      "recoil": 1,
+      "lightBleedPercent": 8,
+      "heavyBleedPercent": 8,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 838,
+      "damageRaw": "80",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Enforcer": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Scout": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Marksman": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 447,
+      "section": "7.62x51mm",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "ab4ffde81b95d09351e0c80f1a4065d53c462089111a8a254728469cb96cca39"
+    }
+  },
+  {
+    "id": "ammo:7_62x51mm:7_62x51mm_m62_tracer:f8663421",
+    "name": "7.62x51mm M62 Tracer",
+    "caliber": "7.62x51mm",
+    "mpPerRound": 13.1,
+    "stats": {
+      "damage": 82,
+      "penetration": 42,
+      "armorDamagePercent": 65,
+      "accuracyPercent": -5,
+      "recoil": 1,
+      "lightBleedPercent": 10,
+      "heavyBleedPercent": 10,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 838,
+      "damageRaw": "82",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Enforcer": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Scout": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Marksman": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      }
+    },
+    "specialEffectsRaw": "曳光弾 / (緑)",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 448,
+      "section": "7.62x51mm",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "f866342128a95818c07360a742fee20c6d13fc4bc7bb30839ccb2103129feba5"
+    }
+  },
+  {
+    "id": "ammo:7_62x51mm:7_62x51mm_bcp_fmj:227c331d",
+    "name": "7.62x51mm BCP FMJ",
+    "caliber": "7.62x51mm",
+    "mpPerRound": 11.1,
+    "stats": {
+      "damage": 83,
+      "penetration": 37,
+      "armorDamagePercent": 56,
+      "accuracyPercent": null,
+      "recoil": null,
+      "lightBleedPercent": 12,
+      "heavyBleedPercent": 12,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 800,
+      "damageRaw": "83",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Enforcer": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Scout": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Marksman": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 449,
+      "section": "7.62x51mm",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "227c331d58549aa59f86f1187ef4d37d9b652287fee881ba09bd74a0a48b3937"
+    }
+  },
+  {
+    "id": "ammo:7_62x51mm:7_62x51mm_tcw_sp:6d91bc4b",
+    "name": "7.62x51mm TCW SP",
+    "caliber": "7.62x51mm",
+    "mpPerRound": 12,
+    "stats": {
+      "damage": 85,
+      "penetration": 30,
+      "armorDamagePercent": 25,
+      "accuracyPercent": -1,
+      "recoil": -3,
+      "lightBleedPercent": 15,
+      "heavyBleedPercent": 15,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 771,
+      "damageRaw": "85",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Enforcer": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Scout": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Marksman": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [
+      "unavailable_to_all_listed_classes"
+    ],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 450,
+      "section": "7.62x51mm",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "6d91bc4b5f0968fbfcf437d6f57b22bb79121209eebd17d5669d8ba08739ae6b"
+    }
+  },
+  {
+    "id": "ammo:7_62x54mm_r:7_62x54mm_r_tungsten_carbide_ap:e287cf8f",
+    "name": "7.62x54mm R Tungsten Carbide AP",
+    "caliber": "7.62x54mm R",
+    "mpPerRound": 99.2,
+    "stats": {
+      "damage": 98,
+      "penetration": 66,
+      "armorDamagePercent": 94,
+      "accuracyPercent": 10,
+      "recoil": 10,
+      "lightBleedPercent": 10,
+      "heavyBleedPercent": 10,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 984,
+      "damageRaw": "98",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Enforcer": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Scout": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Marksman": {
+        "status": "conditional",
+        "sourceSymbol": "△",
+        "condition": {
+          "kind": "allow_weapon_category",
+          "category": "bolt_action_rifle"
+        }
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "Arena専用弾薬 / ボルトアクションライフルのみ / 発射可能",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 474,
+      "section": "7.62x54mm R",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "e287cf8faa05956613b02ffa872ec1b50768a0d11502d26358c0df3dd23a198a"
+    }
+  },
+  {
+    "id": "ammo:7_62x54mm_r:7_62x54mm_r_bt_gzh:6219d2d1",
+    "name": "7.62x54mm R BT gzh",
+    "caliber": "7.62x54mm R",
+    "mpPerRound": 30.1,
+    "stats": {
+      "damage": 78,
+      "penetration": 55,
+      "armorDamagePercent": 87,
+      "accuracyPercent": -2,
+      "recoil": -4,
+      "lightBleedPercent": null,
+      "heavyBleedPercent": null,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 875,
+      "damageRaw": "78",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Enforcer": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Scout": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Marksman": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      }
+    },
+    "specialEffectsRaw": "曳光弾 / (緑)",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 475,
+      "section": "7.62x54mm R",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "6219d2d16861aeed0ecf2d89fced8e6ab0331c1f5d964a75576644c51e710d42"
+    }
+  },
+  {
+    "id": "ammo:7_62x54mm_r:7_62x54mm_r_lps_gzh:6cff5f87",
+    "name": "7.62x54mm R LPS gzh",
+    "caliber": "7.62x54mm R",
+    "mpPerRound": 14,
+    "stats": {
+      "damage": 81,
+      "penetration": 42,
+      "armorDamagePercent": 78,
+      "accuracyPercent": -5,
+      "recoil": null,
+      "lightBleedPercent": null,
+      "heavyBleedPercent": null,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 865,
+      "damageRaw": "81",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Enforcer": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Scout": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Marksman": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "ARMORY上ではEnforcerで使用可能となっているが、 / PKPで使用できない。",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [
+      "class_table_and_note_disagree_or_are_incomplete",
+      "unavailable_to_all_listed_classes"
+    ],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 476,
+      "section": "7.62x54mm R",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "6cff5f878ba85d5deca23d38e900e6c73b1762818a71a6b86c1c69ba0285f7c2"
+    }
+  },
+  {
+    "id": "ammo:7_62x54mm_r:7_62x54mm_r_fmj:a0047523",
+    "name": "7.62x54mm R FMJ",
+    "caliber": "7.62x54mm R",
+    "mpPerRound": 11.4,
+    "stats": {
+      "damage": 84,
+      "penetration": 36,
+      "armorDamagePercent": 63,
+      "accuracyPercent": null,
+      "recoil": null,
+      "lightBleedPercent": null,
+      "heavyBleedPercent": null,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 760,
+      "damageRaw": "84",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Enforcer": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Scout": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Marksman": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 477,
+      "section": "7.62x54mm R",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "a0047523465479bb98431e9b7c940f47119e10e6acb883396bb32caf85b0f4dd"
+    }
+  },
+  {
+    "id": "ammo:7_62x54mm_r:7_62x54mm_r_ps_gzh:f24a9e68",
+    "name": "7.62x54mm R PS gzh",
+    "caliber": "7.62x54mm R",
+    "mpPerRound": 15.1,
+    "stats": {
+      "damage": 84,
+      "penetration": 45,
+      "armorDamagePercent": 84,
+      "accuracyPercent": 10,
+      "recoil": 8,
+      "lightBleedPercent": null,
+      "heavyBleedPercent": null,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 875,
+      "damageRaw": "84",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Enforcer": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Scout": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Marksman": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [
+      "unavailable_to_all_listed_classes"
+    ],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 478,
+      "section": "7.62x54mm R",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "f24a9e682a41fd0309dca0084c16345e674b32d83d07c36d9ecd1481b2add09c"
+    }
+  },
+  {
+    "id": "ammo:308_marlin_express:308_me:55f44a2e",
+    "name": ".308 ME",
+    "caliber": ".308 Marlin Express",
+    "mpPerRound": 14.3,
+    "stats": {
+      "damage": 80,
+      "penetration": 42,
+      "armorDamagePercent": null,
+      "accuracyPercent": -2,
+      "recoil": 3,
+      "lightBleedPercent": 35,
+      "heavyBleedPercent": 17,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 838,
+      "damageRaw": "80",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Enforcer": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Scout": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Marksman": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 499,
+      "section": ".308 Marlin Express",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "55f44a2e9ff2c514961e3006a552362a6776032e20efcc60252ba2af1afc92e8"
+    }
+  },
+  {
+    "id": "ammo:308_marlin_express:308_me_lokt:8410e095",
+    "name": ".308 ME LOKT",
+    "caliber": ".308 Marlin Express",
+    "mpPerRound": 12.1,
+    "stats": {
+      "damage": 96,
+      "penetration": 24,
+      "armorDamagePercent": null,
+      "accuracyPercent": -2,
+      "recoil": -3,
+      "lightBleedPercent": 45,
+      "heavyBleedPercent": 22,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 838,
+      "damageRaw": "96",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Enforcer": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Scout": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Marksman": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 500,
+      "section": ".308 Marlin Express",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "8410e0951a8049c4bb6007e9b4cee4215fd9312205baa327868253da9f439702"
+    }
+  },
+  {
+    "id": "ammo:9_3x64mm:9_3x64mm_fmj:24f20d9b",
+    "name": "9.3x64mm FMJ",
+    "caliber": "9.3x64mm",
+    "mpPerRound": 22.5,
+    "stats": {
+      "damage": 115,
+      "penetration": 44,
+      "armorDamagePercent": null,
+      "accuracyPercent": 15,
+      "recoil": null,
+      "lightBleedPercent": 80,
+      "heavyBleedPercent": 50,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 793,
+      "damageRaw": "115",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Enforcer": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Scout": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Marksman": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 521,
+      "section": "9.3x64mm",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "24f20d9ba5c5a71c05b53227535be8e21a60dc3df8afe3af8f76729ca03ae9a6"
+    }
+  },
+  {
+    "id": "ammo:338_lapua_magnum:338_lapua_magnum_ap:b1723509",
+    "name": ".338 Lapua Magnum AP",
+    "caliber": ".338 Lapua Magnum",
+    "mpPerRound": 143,
+    "stats": {
+      "damage": 115,
+      "penetration": 79,
+      "armorDamagePercent": 89,
+      "accuracyPercent": null,
+      "recoil": 10,
+      "lightBleedPercent": 20,
+      "heavyBleedPercent": 55,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 849,
+      "damageRaw": "115",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Enforcer": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Scout": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Marksman": {
+        "status": "conditional",
+        "sourceSymbol": "△",
+        "condition": {
+          "kind": "deny_weapons",
+          "aliases": [
+            "Mk-18"
+          ]
+        }
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "Mk-18のみ使用不可",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 543,
+      "section": ".338 Lapua Magnum",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "b17235095fc0f5225c07870e275074387e3b75fd8deb9aa59d40f0abcc68c1c8"
+    }
+  },
+  {
+    "id": "ammo:338_lapua_magnum:338_lapua_magnum_fmj:e3ba26a8",
+    "name": ".338 Lapua Magnum FMJ",
+    "caliber": ".338 Lapua Magnum",
+    "mpPerRound": 37.2,
+    "stats": {
+      "damage": 122,
+      "penetration": 47,
+      "armorDamagePercent": null,
+      "accuracyPercent": null,
+      "recoil": null,
+      "lightBleedPercent": 35,
+      "heavyBleedPercent": null,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 900,
+      "damageRaw": "122",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Enforcer": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Scout": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Marksman": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 544,
+      "section": ".338 Lapua Magnum",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "e3ba26a8de66a43f3317d42ba1b1a0437e0e2a387a8fc254532eb76371e31622"
+    }
+  },
+  {
+    "id": "ammo:50_bmg:50_bmg_m903_slap:016fe59b",
+    "name": ",50 BMG M903 SLAP",
+    "caliber": ".50 BMG",
+    "mpPerRound": 94.2,
+    "stats": {
+      "damage": 160,
+      "penetration": 115,
+      "armorDamagePercent": null,
+      "accuracyPercent": null,
+      "recoil": 28,
+      "lightBleedPercent": 30,
+      "heavyBleedPercent": 15,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 1220,
+      "damageRaw": "160",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Enforcer": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Scout": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Marksman": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 565,
+      "section": ".50 BMG",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "016fe59bdd36787c01c73c73bd563df87844365ca25d75b0c97b3d2ed018e679"
+    }
+  },
+  {
+    "id": "ammo:12_70:12_70_8_5mm_magnum_buckshot:5ae1ff80",
+    "name": "12/70 8.5mm Magnum Buckshot",
+    "caliber": "12/70",
+    "mpPerRound": 11.8,
+    "stats": {
+      "damage": null,
+      "penetration": 2,
+      "armorDamagePercent": 26,
+      "accuracyPercent": -15,
+      "recoil": 115,
+      "lightBleedPercent": 20,
+      "heavyBleedPercent": 10,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 385,
+      "damageRaw": "400(8x50)",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Enforcer": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Scout": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Marksman": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 587,
+      "section": "12/70",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "5ae1ff8021e85e6bc1d305f14c3a102d2f8c570fd9074ba1495d55da33413f65"
+    }
+  },
+  {
+    "id": "ammo:12_70:12_70_6_5mm_express_buckshot:30c2607b",
+    "name": "12/70 6.5mm Express buckshot",
+    "caliber": "12/70",
+    "mpPerRound": 9.7,
+    "stats": {
+      "damage": null,
+      "penetration": 3,
+      "armorDamagePercent": 26,
+      "accuracyPercent": 15,
+      "recoil": null,
+      "lightBleedPercent": null,
+      "heavyBleedPercent": null,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 430,
+      "damageRaw": "315(9x35)",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Enforcer": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Scout": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Marksman": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 588,
+      "section": "12/70",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "30c2607b36818b058909f21c8a43211617211dc8ecad9415c6721bf79fc1820e"
+    }
+  },
+  {
+    "id": "ammo:12_70:12_70_flechette:d3a1460b",
+    "name": "12/70 Flechette",
+    "caliber": "12/70",
+    "mpPerRound": 7.9,
+    "stats": {
+      "damage": null,
+      "penetration": 31,
+      "armorDamagePercent": 26,
+      "accuracyPercent": -10,
+      "recoil": null,
+      "lightBleedPercent": 25,
+      "heavyBleedPercent": 25,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 320,
+      "damageRaw": "200(8x25)",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Enforcer": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Scout": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Marksman": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 589,
+      "section": "12/70",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "d3a1460be82034db68c3152550c04de533767b26126fdd6bda57f534137b0b0b"
+    }
+  },
+  {
+    "id": "ammo:12_70:12_70_piranha:a5821401",
+    "name": "12/70 Piranha",
+    "caliber": "12/70",
+    "mpPerRound": 9.1,
+    "stats": {
+      "damage": null,
+      "penetration": 24,
+      "armorDamagePercent": 22,
+      "accuracyPercent": -5,
+      "recoil": null,
+      "lightBleedPercent": 15,
+      "heavyBleedPercent": 15,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 310,
+      "damageRaw": "250(10x25)",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Enforcer": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Scout": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Marksman": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 590,
+      "section": "12/70",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "a58214015ef2e33948be3abdffae3b1d82ea4adb7dde0d7f84a5c9d70d0dbef6"
+    }
+  },
+  {
+    "id": "ammo:12_70:12_70_ap_20_armor_piercing_slug:4c81af25",
+    "name": "12/70 AP-20 armor-piercing slug",
+    "caliber": "12/70",
+    "mpPerRound": 25.7,
+    "stats": {
+      "damage": 164,
+      "penetration": 48,
+      "armorDamagePercent": 65,
+      "accuracyPercent": 80,
+      "recoil": 50,
+      "lightBleedPercent": null,
+      "heavyBleedPercent": 10,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 510,
+      "damageRaw": "164",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Enforcer": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Scout": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Marksman": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 591,
+      "section": "12/70",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "4c81af251f6b2b5fae3a307307d2f7a57ec878709407e428c7e22e0cee3c7768"
+    }
+  },
+  {
+    "id": "ammo:12_70:12_70_rip:9b99f425",
+    "name": "12/70 RIP",
+    "caliber": "12/70",
+    "mpPerRound": 14.9,
+    "stats": {
+      "damage": 265,
+      "penetration": 2,
+      "armorDamagePercent": 11,
+      "accuracyPercent": 80,
+      "recoil": 35,
+      "lightBleedPercent": 40,
+      "heavyBleedPercent": 25,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 410,
+      "damageRaw": "265",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Enforcer": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Scout": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Marksman": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 592,
+      "section": "12/70",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "9b99f425c9478c3ed765f27679c1b1058e38c183c13646935c22114c4acd336e"
+    }
+  },
+  {
+    "id": "ammo:23x75mm:23x75mm_shrapnel_10_buckshot:b35eeb2d",
+    "name": "23x75mm \"Shrapnel-10\" buckshot",
+    "caliber": "23x75mm",
+    "mpPerRound": 5.4,
+    "stats": {
+      "damage": null,
+      "penetration": 11,
+      "armorDamagePercent": 20,
+      "accuracyPercent": null,
+      "recoil": null,
+      "lightBleedPercent": null,
+      "heavyBleedPercent": null,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 270,
+      "damageRaw": "696(8x87)",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Enforcer": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Scout": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Marksman": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 615,
+      "section": "23x75mm",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "b35eeb2dedf8bfadf77e180f30a09bdece6203cbda01bf1d1b5c5855f53f9e59"
+    }
+  },
+  {
+    "id": "ammo:23x75mm:23x75mm_shrapnel_25_buckshot:5aa928b9",
+    "name": "23x75mm \"Shrapnel-25\" buckshot",
+    "caliber": "23x75mm",
+    "mpPerRound": 7.3,
+    "stats": {
+      "damage": null,
+      "penetration": 10,
+      "armorDamagePercent": 20,
+      "accuracyPercent": 20,
+      "recoil": 10,
+      "lightBleedPercent": null,
+      "heavyBleedPercent": null,
+      "durabilityBurnPercent": null,
+      "heatPercent": null,
+      "velocityMetersPerSecond": 375,
+      "damageRaw": "624(8x78)",
+      "damagePerPellet": null,
+      "pelletCount": null
+    },
+    "classAccess": {
+      "Assault": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Enforcer": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      },
+      "Scout": {
+        "status": "allowed",
+        "sourceSymbol": "○"
+      },
+      "Marksman": {
+        "status": "unavailable",
+        "sourceSymbol": "-"
+      }
+    },
+    "specialEffectsRaw": "",
+    "notesRaw": "",
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 616,
+      "section": "23x75mm",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "5aa928b97ba3db0b0ac79a0f4979fa9d3f1da342c08757b89f65fc890b2b4a6e"
+    }
+  }
+]

@@ -1,0 +1,9 @@
+{
+  "result": "PASS",
+  "checks": 2698,
+  "armoryRows": 224,
+  "ammoRows": 70,
+  "shopRows": 95,
+  "estimatedPurchasePrices": 91,
+  "validationScope": "Data integrity, transcription and fallback behavior; no mod/gameplay parity testing."
+}

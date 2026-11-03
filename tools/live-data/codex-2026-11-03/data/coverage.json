@@ -1,0 +1,53 @@
+{
+  "armoryRows": 224,
+  "armoryByCategory": {
+    "assault_rifle": 35,
+    "smg": 17,
+    "shotgun": 12,
+    "lmg": 5,
+    "marksman_rifle": 11,
+    "bolt_action_rifle": 8,
+    "assault_carbine": 12,
+    "pistol": 23,
+    "melee": 14,
+    "body_armor": 32,
+    "eyewear": 28,
+    "medkit": 5,
+    "injury_treatment": 7,
+    "pills": 2,
+    "stimulant": 13
+  },
+  "armoryRowsWithNumericMp": 224,
+  "ammoRows": 70,
+  "ammoCalibers": 25,
+  "blastgangShopRows": 95,
+  "blastgangEconomyRows": 15,
+  "battlePassXpRows": 30,
+  "cosmeticRows": 32,
+  "excludedCommentedRows": 20,
+  "numericMpRowsTotal": 294,
+  "unknownMpCategories": [
+    "helmet",
+    "helmet_attachment",
+    "headset_or_earplug",
+    "chest_rig",
+    "armored_rig",
+    "individual_armor_plate",
+    "grenade",
+    "weapon_attachment",
+    "magazine"
+  ],
+  "otherGaps": [
+    "Exact starter preset item trees",
+    "Runtime item template IDs",
+    "Full attachment unlock trees",
+    "Full season reward manifests",
+    "Current PMC/weapon XP and rouble payout formula",
+    "Normal-mode Ref crate contents and odds",
+    "TeamFight event timeline",
+    "Armor rule predicates and special plate caps",
+    "Current-source verification of older medical/armor MP",
+    "ShootOut battle pass XP",
+    "BlastGang grenade limits, economy stacking and overtime edge cases"
+  ]
+}

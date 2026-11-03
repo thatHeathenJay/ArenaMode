@@ -1,0 +1,562 @@
+{
+  "latestPatchAnnouncement": {
+    "version": "0.6.2",
+    "installationDate": "2026-10-29",
+    "source": {
+      "sourceId": "bsg_recent",
+      "url": "https://t.me/s/escapefromtarkovEN?q=%23tarkovarena",
+      "line": 206,
+      "section": "installation",
+      "sectionPatch": "0.6.2",
+      "retrievedOn": "2026-11-03"
+    },
+    "complete062ChangelogObtained": false
+  },
+  "weaponMpDeltaNotice": {
+    "source": {
+      "sourceId": "bsg_recent",
+      "url": "https://t.me/s/escapefromtarkovEN?q=%23tarkovarena",
+      "line": 56,
+      "section": "weapon_MP_increase",
+      "sectionPatch": null,
+      "retrievedOn": "2026-11-03"
+    },
+    "applyAutomatically": false,
+    "reason": "Whether the wiki snapshot already includes these deltas is unknown; do not double-apply.",
+    "deltas": [
+      {
+        "weaponAlias": "IWI UZI PRO Pistol 9x19",
+        "deltaMp": 500
+      },
+      {
+        "weaponAlias": "TDI KRISS Vector Gen.2 9x19",
+        "deltaMp": 400
+      },
+      {
+        "weaponAlias": "TDI KRISS Vector Gen.2 .45 ACP",
+        "deltaMp": 150
+      },
+      {
+        "weaponAlias": "HK G36 5.56x45",
+        "deltaMp": 150
+      }
+    ]
+  },
+  "arenaStashGpSale": {
+    "source": {
+      "sourceId": "bsg_061",
+      "url": "https://telegra.ph/Patch-Notes-061-10-15",
+      "line": 19,
+      "section": "Selling items for GP",
+      "sectionPatch": "0.6.1",
+      "retrievedOn": "2026-11-03"
+    },
+    "allowedItemLabels": [
+      "Sealed Gear Case (Battle Pass: Season 0)",
+      "Sealed Gear Case (Rare)",
+      "Sealed Valuables Case (Rare)",
+      "Sealed Supply Case (Rare)",
+      "Sealed Weapon Case (Rare)",
+      "Red Christmas Ball Ornament",
+      "Silver Christmas Ball Ornament",
+      "Purple Christmas Ball Ornament"
+    ],
+    "priceDependsOn": "Ref_loyalty_level",
+    "exactPriceTable": null,
+    "resultCurrency": "GP",
+    "sourceInventory": "Arena_stash",
+    "normalModeTransferPolicy": "separate_integration_rule"
+  },
+  "standardAlphaPresetDelta": {
+    "source": {
+      "sourceId": "bsg_061",
+      "url": "https://telegra.ph/Patch-Notes-061-10-15",
+      "line": 56,
+      "section": "Weapons",
+      "sectionPatch": "0.6.1",
+      "retrievedOn": "2026-11-03"
+    },
+    "replaceAmmo": "7.62x39 PP gs",
+    "withAmmo": "7.62x39 PS gs",
+    "completePresetKnown": false
+  },
+  "events": {
+    "Wildcard": {
+      "source": {
+        "sourceId": "bsg_061",
+        "url": "https://telegra.ph/Patch-Notes-061-10-15",
+        "line": 10,
+        "section": "Wildcard",
+        "sectionPatch": "0.6.1",
+        "retrievedOn": "2026-11-03"
+      },
+      "optionalClass": "Wildcard",
+      "baseClassCountUnchanged": 4,
+      "initialRule": "Cross-class equipment access within MP budget",
+      "laterAmmoRestrictionRows": [
+        {
+          "caliber": "7.62x51mm",
+          "ammoLabels": [
+            "BPZ FMJ"
+          ],
+          "deniedWeaponAliases": [
+            "M1A",
+            "G28",
+            "SR-25",
+            "SR-25 (tau)",
+            "R11 RSASS",
+            "RFB",
+            "VPO-101",
+            "DVL-10",
+            "Model 700",
+            "T-5000M"
+          ],
+          "scope": "Wildcard_event_class",
+          "applyToBaseClassesAutomatically": false,
+          "source": {
+            "sourceId": "bsg_0615",
+            "url": "https://telegra.ph/Patch-Notes-065-10-22",
+            "line": 14,
+            "section": "Wildcard ammunition restrictions",
+            "sectionPatch": "0.6.1.5",
+            "retrievedOn": "2026-11-03"
+          }
+        },
+        {
+          "caliber": "7.62x51mm",
+          "ammoLabels": [
+            "M61"
+          ],
+          "deniedWeaponAliases": [
+            "AK-308",
+            "SA-58",
+            "MDR 7.62x51",
+            "SCAR-H",
+            "SCAR-H \"X-17\"",
+            "M60E6"
+          ],
+          "scope": "Wildcard_event_class",
+          "applyToBaseClassesAutomatically": false,
+          "source": {
+            "sourceId": "bsg_0615",
+            "url": "https://telegra.ph/Patch-Notes-065-10-22",
+            "line": 15,
+            "section": "Wildcard ammunition restrictions",
+            "sectionPatch": "0.6.1.5",
+            "retrievedOn": "2026-11-03"
+          }
+        },
+        {
+          "caliber": "7.62x54mm R",
+          "ammoLabels": [
+            "LPS Gzh",
+            "FMJ"
+          ],
+          "deniedWeaponAliases": [
+            "SVDS",
+            "AVT-40",
+            "SVT-40",
+            "Mosin 1891",
+            "SV-98"
+          ],
+          "scope": "Wildcard_event_class",
+          "applyToBaseClassesAutomatically": false,
+          "source": {
+            "sourceId": "bsg_0615",
+            "url": "https://telegra.ph/Patch-Notes-065-10-22",
+            "line": 19,
+            "section": "Wildcard ammunition restrictions",
+            "sectionPatch": "0.6.1.5",
+            "retrievedOn": "2026-11-03"
+          }
+        },
+        {
+          "caliber": "7.62x54mm R",
+          "ammoLabels": [
+            "BT Gzh"
+          ],
+          "deniedWeaponAliases": [
+            "PKP"
+          ],
+          "scope": "Wildcard_event_class",
+          "applyToBaseClassesAutomatically": false,
+          "source": {
+            "sourceId": "bsg_0615",
+            "url": "https://telegra.ph/Patch-Notes-065-10-22",
+            "line": 20,
+            "section": "Wildcard ammunition restrictions",
+            "sectionPatch": "0.6.1.5",
+            "retrievedOn": "2026-11-03"
+          }
+        },
+        {
+          "caliber": "7.62x39mm",
+          "ammoLabels": [
+            "PS Gzh"
+          ],
+          "deniedWeaponAliases": [
+            "OP-SKS",
+            "RD-704",
+            "AK-103",
+            "AK-104",
+            "AKMN",
+            "AKMSN",
+            "Mk47 Mutant"
+          ],
+          "scope": "Wildcard_event_class",
+          "applyToBaseClassesAutomatically": false,
+          "source": {
+            "sourceId": "bsg_0615",
+            "url": "https://telegra.ph/Patch-Notes-065-10-22",
+            "line": 23,
+            "section": "Wildcard ammunition restrictions",
+            "sectionPatch": "0.6.1.5",
+            "retrievedOn": "2026-11-03"
+          }
+        },
+        {
+          "caliber": "7.62x39mm",
+          "ammoLabels": [
+            "PP Gzh"
+          ],
+          "deniedWeaponAliases": [
+            "OP-SKS",
+            "RPDN"
+          ],
+          "scope": "Wildcard_event_class",
+          "applyToBaseClassesAutomatically": false,
+          "source": {
+            "sourceId": "bsg_0615",
+            "url": "https://telegra.ph/Patch-Notes-065-10-22",
+            "line": 24,
+            "section": "Wildcard ammunition restrictions",
+            "sectionPatch": "0.6.1.5",
+            "retrievedOn": "2026-11-03"
+          }
+        },
+        {
+          "caliber": "7.62x39mm",
+          "ammoLabels": [
+            "BP Gzh"
+          ],
+          "deniedWeaponAliases": [
+            "RPDN"
+          ],
+          "scope": "Wildcard_event_class",
+          "applyToBaseClassesAutomatically": false,
+          "source": {
+            "sourceId": "bsg_0615",
+            "url": "https://telegra.ph/Patch-Notes-065-10-22",
+            "line": 25,
+            "section": "Wildcard ammunition restrictions",
+            "sectionPatch": "0.6.1.5",
+            "retrievedOn": "2026-11-03"
+          }
+        },
+        {
+          "caliber": "7.62x39mm",
+          "ammoLabels": [
+            "MAI AP"
+          ],
+          "deniedWeaponAliases": [
+            "RPDN",
+            "RD-704",
+            "Mk47 Mutant"
+          ],
+          "scope": "Wildcard_event_class",
+          "applyToBaseClassesAutomatically": false,
+          "source": {
+            "sourceId": "bsg_0615",
+            "url": "https://telegra.ph/Patch-Notes-065-10-22",
+            "line": 26,
+            "section": "Wildcard ammunition restrictions",
+            "sectionPatch": "0.6.1.5",
+            "retrievedOn": "2026-11-03"
+          }
+        },
+        {
+          "caliber": "5.56x45mm",
+          "ammoLabels": [
+            "M855A1"
+          ],
+          "deniedWeaponAliases": [
+            "Mk 12 SPR",
+            "TX-15 DML"
+          ],
+          "scope": "Wildcard_event_class",
+          "applyToBaseClassesAutomatically": false,
+          "source": {
+            "sourceId": "bsg_0615",
+            "url": "https://telegra.ph/Patch-Notes-065-10-22",
+            "line": 30,
+            "section": "Wildcard ammunition restrictions",
+            "sectionPatch": "0.6.1.5",
+            "retrievedOn": "2026-11-03"
+          }
+        },
+        {
+          "caliber": "5.56x45mm",
+          "ammoLabels": [
+            "M995"
+          ],
+          "deniedWeaponAliases": [
+            "M16A1",
+            "M4A1",
+            "HK 416A5",
+            "HK G36",
+            "Model 1 FA AR-15"
+          ],
+          "scope": "Wildcard_event_class",
+          "applyToBaseClassesAutomatically": false,
+          "source": {
+            "sourceId": "bsg_0615",
+            "url": "https://telegra.ph/Patch-Notes-065-10-22",
+            "line": 31,
+            "section": "Wildcard ammunition restrictions",
+            "sectionPatch": "0.6.1.5",
+            "retrievedOn": "2026-11-03"
+          }
+        },
+        {
+          "caliber": "5.45x39mm",
+          "ammoLabels": [
+            "BT GS"
+          ],
+          "deniedWeaponAliases": [
+            "RPK-16",
+            "AK-105",
+            "AK-12",
+            "AK-74M",
+            "AK-74N",
+            "AKS-74UN",
+            "NL545 (DI)",
+            "NL545 (GP)"
+          ],
+          "scope": "Wildcard_event_class",
+          "applyToBaseClassesAutomatically": false,
+          "source": {
+            "sourceId": "bsg_0615",
+            "url": "https://telegra.ph/Patch-Notes-065-10-22",
+            "line": 35,
+            "section": "Wildcard ammunition restrictions",
+            "sectionPatch": "0.6.1.5",
+            "retrievedOn": "2026-11-03"
+          }
+        },
+        {
+          "caliber": "5.45x39mm",
+          "ammoLabels": [
+            "BS GS"
+          ],
+          "deniedWeaponAliases": [
+            "NL545 (DI)",
+            "NL545 (GP)"
+          ],
+          "scope": "Wildcard_event_class",
+          "applyToBaseClassesAutomatically": false,
+          "source": {
+            "sourceId": "bsg_0615",
+            "url": "https://telegra.ph/Patch-Notes-065-10-22",
+            "line": 36,
+            "section": "Wildcard ammunition restrictions",
+            "sectionPatch": "0.6.1.5",
+            "retrievedOn": "2026-11-03"
+          }
+        },
+        {
+          "caliber": "9x39mm",
+          "ammoLabels": [
+            "SP-6 GS"
+          ],
+          "deniedWeaponAliases": [
+            "VSS Vintorez",
+            "9A-91",
+            "AS VAL",
+            "AS VAL MOD.4",
+            "SR-3M"
+          ],
+          "scope": "Wildcard_event_class",
+          "applyToBaseClassesAutomatically": false,
+          "source": {
+            "sourceId": "bsg_0615",
+            "url": "https://telegra.ph/Patch-Notes-065-10-22",
+            "line": 40,
+            "section": "Wildcard ammunition restrictions",
+            "sectionPatch": "0.6.1.5",
+            "retrievedOn": "2026-11-03"
+          }
+        },
+        {
+          "caliber": "9x39mm",
+          "ammoLabels": [
+            "PAB-9 GS"
+          ],
+          "deniedWeaponAliases": [
+            "AS VAL MOD.4",
+            "SR-3M"
+          ],
+          "scope": "Wildcard_event_class",
+          "applyToBaseClassesAutomatically": false,
+          "source": {
+            "sourceId": "bsg_0615",
+            "url": "https://telegra.ph/Patch-Notes-065-10-22",
+            "line": 41,
+            "section": "Wildcard ammunition restrictions",
+            "sectionPatch": "0.6.1.5",
+            "retrievedOn": "2026-11-03"
+          }
+        },
+        {
+          "caliber": "12/70",
+          "ammoLabels": [
+            "AP-20"
+          ],
+          "deniedWeaponAliases": [
+            "Auto Assault-12 Gen 2",
+            "Saiga-12K",
+            "Saiga-12K \"Redline\"",
+            "Saiga-12K Ver. 10",
+            "Benelli M3",
+            "MP-153",
+            "MP-155"
+          ],
+          "scope": "Wildcard_event_class",
+          "applyToBaseClassesAutomatically": false,
+          "source": {
+            "sourceId": "bsg_0615",
+            "url": "https://telegra.ph/Patch-Notes-065-10-22",
+            "line": 44,
+            "section": "Wildcard ammunition restrictions",
+            "sectionPatch": "0.6.1.5",
+            "retrievedOn": "2026-11-03"
+          }
+        },
+        {
+          "caliber": "12/70",
+          "ammoLabels": [
+            "Piranha"
+          ],
+          "deniedWeaponAliases": [
+            "MP-133",
+            "Mossberg 590A1",
+            "Remington 870"
+          ],
+          "scope": "Wildcard_event_class",
+          "applyToBaseClassesAutomatically": false,
+          "source": {
+            "sourceId": "bsg_0615",
+            "url": "https://telegra.ph/Patch-Notes-065-10-22",
+            "line": 45,
+            "section": "Wildcard ammunition restrictions",
+            "sectionPatch": "0.6.1.5",
+            "retrievedOn": "2026-11-03"
+          }
+        },
+        {
+          "caliber": "12/70",
+          "ammoLabels": [
+            "8.5mm Magnum"
+          ],
+          "deniedWeaponAliases": [
+            "MP-133",
+            "Mossberg 590A1",
+            "Remington 870"
+          ],
+          "scope": "Wildcard_event_class",
+          "applyToBaseClassesAutomatically": false,
+          "source": {
+            "sourceId": "bsg_0615",
+            "url": "https://telegra.ph/Patch-Notes-065-10-22",
+            "line": 46,
+            "section": "Wildcard ammunition restrictions",
+            "sectionPatch": "0.6.1.5",
+            "retrievedOn": "2026-11-03"
+          }
+        },
+        {
+          "caliber": "12/70",
+          "ammoLabels": [
+            "Flechette"
+          ],
+          "deniedWeaponAliases": [
+            "Mossberg 590A1"
+          ],
+          "scope": "Wildcard_event_class",
+          "applyToBaseClassesAutomatically": false,
+          "source": {
+            "sourceId": "bsg_0615",
+            "url": "https://telegra.ph/Patch-Notes-065-10-22",
+            "line": 47,
+            "section": "Wildcard ammunition restrictions",
+            "sectionPatch": "0.6.1.5",
+            "retrievedOn": "2026-11-03"
+          }
+        },
+        {
+          "caliber": "Other Calibers",
+          "ammoLabels": [
+            ".338 Lapua Magnum AP"
+          ],
+          "deniedWeaponAliases": [
+            "SWORD International Mk-18"
+          ],
+          "scope": "Wildcard_event_class",
+          "applyToBaseClassesAutomatically": false,
+          "source": {
+            "sourceId": "bsg_0615",
+            "url": "https://telegra.ph/Patch-Notes-065-10-22",
+            "line": 51,
+            "section": "Wildcard ammunition restrictions",
+            "sectionPatch": "0.6.1.5",
+            "retrievedOn": "2026-11-03"
+          }
+        },
+        {
+          "caliber": "Other Calibers",
+          "ammoLabels": [
+            ".300 Blackout AP"
+          ],
+          "deniedWeaponAliases": [
+            "SIG MCX"
+          ],
+          "scope": "Wildcard_event_class",
+          "applyToBaseClassesAutomatically": false,
+          "source": {
+            "sourceId": "bsg_0615",
+            "url": "https://telegra.ph/Patch-Notes-065-10-22",
+            "line": 52,
+            "section": "Wildcard ammunition restrictions",
+            "sectionPatch": "0.6.1.5",
+            "retrievedOn": "2026-11-03"
+          }
+        }
+      ],
+      "defaultEnabled": false,
+      "endedByCompilationDate": true,
+      "endAnnouncementConflict": "Initial end October 30; later October 28 announcement says ends tomorrow (October 29). Exact cutoff time not established.",
+      "unavailableInMode": "BlastGang"
+    },
+    "BloodLust": {
+      "source": {
+        "sourceId": "bsg_recent",
+        "url": "https://t.me/s/escapefromtarkovEN?q=%23tarkovarena",
+        "line": 214,
+        "section": "BloodLust",
+        "sectionPatch": "0.6.2",
+        "retrievedOn": "2026-11-03"
+      },
+      "variantOf": "CheckPoint",
+      "maps": [
+        "Fort",
+        "Stadium"
+      ],
+      "weapons": "melee_only",
+      "matchXpMultiplier": 2,
+      "battlePassXpMultiplier": 1.5,
+      "announcedEndDate": "2026-11-05",
+      "exactEndTime": null,
+      "defaultEnabled": false,
+      "applyToOrdinaryCheckpoint": false
+    }
+  }
+}

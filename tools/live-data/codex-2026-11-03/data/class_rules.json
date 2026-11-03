@@ -1,0 +1,111 @@
+{
+  "classes": [
+    "Assault",
+    "Enforcer",
+    "Scout",
+    "Marksman"
+  ],
+  "totalPresetMp": {
+    "minimum": 7500,
+    "maximum": 10000,
+    "inclusive": true,
+    "source": {
+      "sourceId": "presets",
+      "url": "https://wikiwiki.jp/eft/Arena/プリセット",
+      "line": 23,
+      "section": "preset_budget",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03"
+    },
+    "currentClientVerified": false
+  },
+  "separateFirepowerDefenseUtilityCaps": {
+    "applyHistoricalCaps": false,
+    "reason": "Patch history reports restrictions removed in 0.5.0 and bars removed in 0.5.1.5; historical folded tables must not be imported.",
+    "evidence": "patch_history_followup_needed",
+    "sourceId": "changelog_lead"
+  },
+  "weaponModificationShare": {
+    "reportedShare": 0.4,
+    "enforceAsHardCap": false,
+    "hardCapValidationObserved": false,
+    "source": {
+      "sourceId": "bsg_060",
+      "url": "https://telegra.ph/Patch-notes-060-09-17",
+      "line": 149,
+      "section": "Armory",
+      "sectionPatch": "0.6.0",
+      "retrievedOn": "2026-11-03"
+    }
+  },
+  "armorPolicyResearchLeads": [
+    {
+      "class": "Assault",
+      "reportedRule": "No neck protection",
+      "requires": "Coverage mapping and primary patch verification"
+    },
+    {
+      "class": "Enforcer",
+      "reportedRule": "Minimal mobility penalties",
+      "requires": "Explicit threshold or item allowlist; no numerical threshold published here"
+    },
+    {
+      "class": "Scout",
+      "reportedRule": "No groin and/or stomach protection",
+      "requires": "Resolve and/or logic against live allowed items"
+    },
+    {
+      "class": "Marksman",
+      "reportedRule": "No additional armor elements",
+      "requires": "Define additional elements for target armor component schema"
+    }
+  ],
+  "armorPolicyEvidence": {
+    "sourceId": "changelog_lead",
+    "status": "reproduced_patch_notes_search_lead_not_runtime_rule",
+    "exactPatchForCoverageRules": null
+  },
+  "historicalCapsDoNotEnable": {
+    "bodyArmor": {
+      "Assault": 4,
+      "Enforcer": 5,
+      "Scout": 5,
+      "Marksman": 4
+    },
+    "helmet": {
+      "Assault": 4,
+      "Enforcer": 5,
+      "Scout": 4,
+      "Marksman": 3
+    },
+    "source": {
+      "sourceId": "presets",
+      "url": "https://wikiwiki.jp/eft/Arena/プリセット",
+      "line": 33,
+      "section": "class_table",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03"
+    },
+    "reason": "Subsequent armor rebalance reported in patch history; special plates/masks prevent a simple universal cap"
+  },
+  "opticsResearchLead": {
+    "nonMarksmanMagnifiedOptic": "HHS-1 only",
+    "marksman": "Source says unrestricted except extreme magnification",
+    "currentScopeAllowlist": null,
+    "source": {
+      "sourceId": "presets",
+      "url": "https://wikiwiki.jp/eft/Arena/プリセット",
+      "line": 35,
+      "section": "class_table",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03"
+    }
+  },
+  "implementationPolicy": {
+    "weaponEligibility": "Use mapped item-level class data; do not grant an entire weapon category from prose.",
+    "armorEligibility": "Unknown item coverage or missing class list requires review.",
+    "ammoEligibility": "Class status AND conditional weapon rule AND chamber/magazine compatibility.",
+    "unknownCondition": "Exclude from strict presets until resolved.",
+    "olderVersion": "Keep available as reference; select a versioned policy before enabling."
+  }
+}

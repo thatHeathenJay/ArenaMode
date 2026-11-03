@@ -1,0 +1,5196 @@
+{
+  "purpose": "Numeric and categorical source-cell audit; no icons or source article prose. Source lines use retrieval labels L0, L1, etc.",
+  "layouts": {
+    "armory_standard": [
+      "name",
+      "mp",
+      "classes",
+      "unlock",
+      "price"
+    ],
+    "eyewear": [
+      "name",
+      "mp",
+      "weight",
+      "durability",
+      "coverage",
+      "armorClassAndMaterial",
+      "flashResistance",
+      "ergonomics",
+      "unlock",
+      "classes",
+      "price"
+    ],
+    "ammo": [
+      "name",
+      "damage",
+      "penetration",
+      "armorDamage",
+      "accuracy",
+      "recoil",
+      "lightBleed",
+      "heavyBleed",
+      "durabilityBurn",
+      "heat",
+      "velocity",
+      "specialEffects",
+      "mp",
+      "Assault",
+      "Enforcer",
+      "Scout",
+      "Marksman",
+      "notes"
+    ],
+    "blastgang_shop": [
+      "name",
+      "price",
+      "optionalAmmoAndMagazines"
+    ]
+  },
+  "rows": [
+    {
+      "id": "armory:assault_rifle:custom_guns_nl545_di_5_45x39_assault_rifle:d6328b34",
+      "cells": [
+        "Custom Guns NL545 (DI) 5.45x39 assault rifle / / 「NL545 DI」",
+        "3286",
+        "アサルト",
+        "AK-12 Lv7",
+        "GP250枚"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:assault_rifle:custom_guns_nl545_gp_5_45x39_assault_rifle:d976b0f7",
+      "cells": [
+        "Custom Guns NL545 (GP) 5.45x39 assault rifle / / 「NL545 GP」",
+        "3906",
+        "アサルト",
+        "HK 416A5 Lv10",
+        "GP250枚"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:assault_rifle:kalashnikov_ak_12_5_45x39_assault_rifle:4cca8799",
+      "cells": [
+        "Kalashnikov AK-12 5.45x39 assault rifle / / 「AK-12」",
+        "2728",
+        "アサルト",
+        "AK-74M Lv10",
+        "GP80枚"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:assault_rifle:kalashnikov_ak_74m_5_45x39_assault_rifle:5e29ecfa",
+      "cells": [
+        "Kalashnikov AK-74M 5.45x39 assault rifle / / 「AK-74M」",
+        "1552",
+        "アサルト",
+        "AK-74N Lv10",
+        "600,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:assault_rifle:kalashnikov_ak_74n_5_45x39_assault_rifle:3b560e86",
+      "cells": [
+        "Kalashnikov AK-74N 5.45x39 assault rifle / / 「AK-74N」",
+        "1369",
+        "アサルト",
+        "初期解放",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:assault_rifle:kalashnikov_ak_101_5_56x45_assault_rifle:f28b23aa",
+      "cells": [
+        "Kalashnikov AK-101 5.56x45 assault rifle / / 「AK-101」",
+        "1531",
+        "アサルト",
+        "Gladiator Life - Part 10",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:assault_rifle:kalashnikov_ak_102_5_56x45_assault_rifle:50d39c90",
+      "cells": [
+        "Kalashnikov AK-102 5.56x45 assault rifle / / 「AK-102」",
+        "1531",
+        "アサルト",
+        "AK-101 Lv10",
+        "325,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:assault_rifle:kalashnikov_ak_103_7_62x39_assault_rifle:43441c4b",
+      "cells": [
+        "Kalashnikov AK-103 7.62x39 assault rifle / / 「AK-103」",
+        "1717",
+        "アサルト",
+        "AKMN Lv10",
+        "600,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:assault_rifle:kalashnikov_ak_104_7_62x39_assault_rifle:38edec5b",
+      "cells": [
+        "Kalashnikov AK-104 7.62x39 assault rifle / / 「AK-104」",
+        "1773",
+        "アサルト",
+        "AKMSN Lv10",
+        "500,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:assault_rifle:kalashnikov_ak_105_5_45x39_assault_rifle:4dc26fde",
+      "cells": [
+        "Kalashnikov AK-105 5.45x39 assault rifle / / 「AK-105」",
+        "1605",
+        "アサルト",
+        "AKS-74UN Lv10",
+        "480,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:assault_rifle:kalashnikov_ak_308_7_62x51_assault_rifle:97fbd31d",
+      "cells": [
+        "Kalashnikov AK-308 7.62x51 assault rifle / / 「AK-308」",
+        "3363",
+        "アサルト",
+        "キャラクターLv20",
+        "800,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:assault_rifle:kalashnikov_akmn_7_62x39_assault_rifle:57ea05bb",
+      "cells": [
+        "Kalashnikov AKMN 7.62x39 assault rifle / / 「AKMN」",
+        "1343",
+        "アサルト",
+        "デイリータスク3個",
+        "800,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:assault_rifle:kalashnikov_akmsn_7_62x39_assault_rifle:e6dd2606",
+      "cells": [
+        "Kalashnikov AKMSN 7.62x39 assault rifle / / 「AKMSN」",
+        "1254",
+        "アサルト",
+        "タスク「Gladiator Life - Part 1」完了",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:assault_rifle:kalashnikov_aks_74un_5_45x39_assault_rifle:08c03ea6",
+      "cells": [
+        "Kalashnikov AKS-74UN 5.45x39 assault rifle / / 「AKS-74UN」",
+        "1543",
+        "アサルト",
+        "初期開放",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:assault_rifle:ash_12_12_7x55_assault_rifle:987dcb02",
+      "cells": [
+        "ASh-12 12.7x55 assault rifle / / 「ASh-12」",
+        "4799",
+        "アサルト",
+        "キャラクターLv17 / Ref LL2",
+        "GP90枚"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:assault_rifle:as_val_9x39_special_assault_rifle:cf87e02c",
+      "cells": [
+        "AS VAL 9x39 special assault rifle / / 「AS VAL」",
+        "3713",
+        "アサルト",
+        "キャラクターLv20",
+        "LEGA2枚"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:assault_rifle:steyr_aug_a3_5_56x45_assault_rifle_black:b3f058bc",
+      "cells": [
+        "Steyr AUG A3 5.56x45 assault rifle (Black) / / 「AUG A3」",
+        "3093",
+        "アサルト",
+        "Ref LL2",
+        "650,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:assault_rifle:hk_g36_5_56x45_assault_rifle:6bec1d88",
+      "cells": [
+        "HK G36 5.56x45 assault rifle / / 「G36」",
+        "3330",
+        "アサルト",
+        "初期開放",
+        "650,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:assault_rifle:colt_m16a1_5_56x45_assault_rifle:b4c8ee22",
+      "cells": [
+        "Colt M16A1 5.56x45 assault rifle / / 「M16A1」",
+        "2414",
+        "アサルト",
+        "初期開放",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:assault_rifle:hk_416a5_5_56x45_assault_rifle:57ada2a1",
+      "cells": [
+        "HK 416A5 5.56x45 assault rifle / / 「HK 416A5」",
+        "3283",
+        "アサルト",
+        "G36 Lv10",
+        "LEGA2枚"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:assault_rifle:colt_m4a1_5_56x45_assault_rifle_carbine:c943d317",
+      "cells": [
+        "Colt M4A1 5.56x45 assault rifle Carbine / / 「M4A1」",
+        "2119",
+        "アサルト",
+        "キャラクターLv30 / M16A1 Lv10",
+        "LEGA3枚"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:assault_rifle:radian_weapons_model_1_fa_5_56x45_assault_rifle:104d6499",
+      "cells": [
+        "Radian Weapons Model 1 FA 5.56x45 assault rifle / / 「Model 1」",
+        "5202",
+        "アサルト",
+        "バトルパスシーズン１Lv100",
+        "BP20"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:assault_rifle:sig_mcx_300_blackout_assault_rifle:73bb0094",
+      "cells": [
+        "SIG MCX .300 Blackout assault rifle / / 「MCX .300 BLK」",
+        "4054",
+        "アサルト",
+        "キャラクターLv30 / MPX Lv15",
+        "1,500,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:assault_rifle:sig_mcx_spear_6_8x51_assault_rifle:b4d9e7a3",
+      "cells": [
+        "SIG MCX SPEAR 6.8x51 assault rifle / / 「SPEAR 6.8」",
+        "4133",
+        "アサルト",
+        "MCX Lv15 / キャラクターLv35",
+        "LEGA2枚"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:assault_rifle:desert_tech_mdr_5_56x45_assault_rifle:0ef0b591",
+      "cells": [
+        "Desert Tech MDR 5.56x45 assault rifle / / 「MDR」",
+        "2168",
+        "アサルト",
+        "初期開放",
+        "350,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:assault_rifle:desert_tech_mdr_7_62x51_assault_rifle:1d6f1301",
+      "cells": [
+        "Desert Tech MDR 7.62x51 assault rifle / / 「MDR」",
+        "1876",
+        "アサルト",
+        "キャラクターLv20 / MDR 5.56x45 Lv8",
+        "GP100枚"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:assault_rifle:fn_scar_l_5_56x45_assault_rifle_lb:be79ad29",
+      "cells": [
+        "FN SCAR-L 5.56x45 assault rifle LB / / 「Mk 16 LB」",
+        "2295",
+        "アサルト",
+        "初期開放",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:assault_rifle:fn_scar_h_7_62x51_assault_rifle_fde:13abc7c4",
+      "cells": [
+        "FN SCAR-H 7.62x51 assault rifle (FDE) / / 「Mk 17」",
+        "3036",
+        "アサルト",
+        "Mk 16 Lv10 / キャラクターLv25",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:assault_rifle:fn_scar_h_7_62x51_assault_rifle_x_17:6e5d4b64",
+      "cells": [
+        "FN SCAR-H 7.62x51 assault rifle X-17 / / 「X-17」",
+        "2812",
+        "アサルト",
+        "キャラクターLv30 / Mk 17 Lv10",
+        "Lega2枚"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:assault_rifle:cmmg_mk47_mutant_7_62x39_assault_rifle:111f4dff",
+      "cells": [
+        "CMMG Mk47 Mutant 7.62x39 assault rifle / / 「Mk47」",
+        "2745",
+        "アサルト",
+        "AK-103 Lv10",
+        "1,000,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:assault_rifle:rifle_dynamics_rd_704_7_62x39_assault_rifle:d45cfadc",
+      "cells": [
+        "Rifle Dynamics RD-704 7.62x39 assault rifle / / 「RD-704」",
+        "2826",
+        "アサルト",
+        "AK-104 Lv8",
+        "GP145枚"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:assault_rifle:ds_arms_sa_58_7_62x51_assault_rifle:d5e9f8d7",
+      "cells": [
+        "DS Arms SA-58 7.62x51 assault rifle / / 「SA-58」",
+        "2935",
+        "アサルト",
+        "初期開放",
+        "250,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:assault_rifle:aklys_defense_velociraptor_300_blackout_assault_rifle:eb8c4a53",
+      "cells": [
+        "Aklys Defense Velociraptor .300 Blackout assault rifle / / 「Verociraptor .300 BLK」",
+        "3374",
+        "アサルト",
+        "初期開放",
+        "GP105枚"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:assault_rifle:kalashnikov_aks_74n_5_45x39_assault_rifle:58e1e224",
+      "cells": [
+        "Kalashnikov AKS-74N 5.45x39 assault rifle / / 「AKS-74N」",
+        "1907",
+        "-",
+        "初期開放",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:assault_rifle:steyr_aug_a3_5_56x45_assault_rifle:5787f01e",
+      "cells": [
+        "Steyr AUG A3 5.56x45 assault rifle / / 「AUG A3」",
+        "30093",
+        "-",
+        "AUG A1 Lv18",
+        "200,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:smg:hk_mp5_9x19_submachine_gun_navy_3_round_burst:176aac45",
+      "cells": [
+        "HK MP5 9x19 submachine gun (Navy 3 Round Burst) / / 「MP5」",
+        "2006",
+        "スカウト",
+        "初期開放",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:smg:hk_mp7a1_4_6x30_submachine_gun:53b21255",
+      "cells": [
+        "HK MP7A1 4.6x30 submachine gun / / 「MP7A1」",
+        "3548",
+        "スカウト",
+        "デイリータスク5個完了 / キャラクターLv15",
+        "GP75枚"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:smg:hk_mp7a2_4_6x30_submachine_gun:60f89ee2",
+      "cells": [
+        "HK MP7A2 4.6x30 submachine gun / / 「MP7A2」",
+        "3548",
+        "スカウト",
+        "MP7A1 Lv3",
+        "900,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:smg:b_t_mp9_9x19_submachine_gun:180eb192",
+      "cells": [
+        "B&T MP9 9x19 submachine gun / / 「MP9」",
+        "1669",
+        "スカウト",
+        "タスク「All for the Show - Death from Above」完了",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:smg:b_t_mp9_n_9x19_submachine_gun:def34824",
+      "cells": [
+        "B&T MP9-N 9x19 submachine gun / / 「MP9-N」",
+        "2884",
+        "スカウト",
+        "MP9 Lv3",
+        "GP60枚"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:smg:sig_mpx_9x19_submachine_gun:0226e040",
+      "cells": [
+        "SIG MPX 9x19 submachine gun / / 「MPX」",
+        "1504",
+        "スカウト",
+        "タスク「Gladiator Life - Part 4」完了",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:smg:fn_p90_5_7x28_submachine_gun:0475db2a",
+      "cells": [
+        "FN P90 5.7x28 submachine gun / / 「P90」",
+        "2763",
+        "スカウト",
+        "初期開放",
+        "GP40枚"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:smg:fn_p90_5_7x28_submachine_gun_scourge:a3fb3f1d",
+      "cells": [
+        "FN P90 5.7x28 submachine gun (Scourge) / / 「P90 Scourge」",
+        "3148",
+        "スカウト",
+        "バトルパスシーズン3 Lv100",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:smg:pp_19_01_vityaz_9x19_submachine_gun:62a06bc3",
+      "cells": [
+        "PP-19-01 \"Vityaz\" 9x19 submachine gun / / 「PP-19-01」",
+        "1821",
+        "スカウト / マークスマン",
+        "初期開放",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:smg:pp_9_klin_9x18pmm_submachine_gun:769e229a",
+      "cells": [
+        "PP-9 \"Klin\" 9x18PMM submachine gun / / 「PP-9 Klin」",
+        "2516",
+        "スカウト / マークスマン",
+        "-",
+        "200,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:smg:pp_91_01_kedr_b_9x18pm_submachine_gun:e4386e83",
+      "cells": [
+        "PP-91-01 \"Kedr-B\" 9x18PM submachine gun / / 「PP-91-01 Kedr-B」",
+        "2418",
+        "スカウト / マークスマン",
+        "PP-9 Klin Lv2",
+        "175,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:smg:ppsh_41_7_62x25_submachine_gun:84662a0f",
+      "cells": [
+        "PPSh-41 7.62x25 submachine gun / / 「PPSh41」",
+        "3090.5",
+        "アサルト / スカウト",
+        "初期開放",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:smg:sr_2m_veresk_9x21_submachine_gun:07aa59d9",
+      "cells": [
+        "SR-2M \"Veresk\" 9x21 submachine gun / / 「SR-2M」",
+        "2880",
+        "スカウト",
+        "初期開放",
+        "650,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:smg:hk_ump_45_acp_submachine_gun:21276d8e",
+      "cells": [
+        "HK UMP .45 ACP submachine gun / / 「UMP 45」",
+        "1090",
+        "スカウト / マークスマン",
+        "-",
+        "350,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:smg:iwi_uzi_pro_pistol_9x19_submachine_gun:9183a368",
+      "cells": [
+        "IWI UZI PRO Pistol 9x19 submachine gun / / 「UZI PRO Pistol」",
+        "2374",
+        "スカウト",
+        "初期開放",
+        "800,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:smg:tdi_kriss_vector_gen_2_9x19_submachine_gun:51657c88",
+      "cells": [
+        "TDI KRISS Vector Gen.2 9x19 submachine gun / / 「Vector 9x19」",
+        "3033",
+        "スカウト",
+        "デイリータスク7個完了 / キャラクターLv22",
+        "1,000,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:smg:tdi_kriss_vector_gen_2_45_acp_submachine_gun:a8963efb",
+      "cells": [
+        "TDI KRISS Vector Gen.2 .45 ACP submachine gun / / 「Vector .45ACP」",
+        "2842",
+        "スカウト",
+        "Vector 9x19 Lv4",
+        "1,500,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:shotgun:mossberg_590a1_12ga_pump_action_shotgun:92a557ad",
+      "cells": [
+        "Mossberg 590A1 12ga pump-action shotgun / / 「590A1」",
+        "2169",
+        "スカウト",
+        "初期開放",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:shotgun:mps_auto_assault_12_gen_2_automatic_shotguns:d96291be",
+      "cells": [
+        "MPS Auto Assault-12 Gen 2 automatic shotguns. / / 「AA-12 Gen 2」",
+        "1692",
+        "エンフォーサー",
+        "タスク「All for the Show - Soldier」完了",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:shotgun:toz_ks_23m_23x75mm_pump_action_shotgun:790defdd",
+      "cells": [
+        "TOZ KS-23M 23x75mm pump-action shotgun / / 「KS-23M」",
+        "3949",
+        "スカウト",
+        "実績「Shotgun Expert」完了 / ショットガンで1000キル",
+        "1,000,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:shotgun:benelli_m3_super_90_dual_mode_12ga_shotgun:bd83fc77",
+      "cells": [
+        "Benelli M3 Super 90 dual-mode 12ga shotgun / / 「M3 Super 90」",
+        "2162",
+        "エンフォーサー / スカウト",
+        "初期開放",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:shotgun:remington_model_870_12ga_pump_action_shotgun:1344f382",
+      "cells": [
+        "Remington Model 870 12ga pump-action shotgun / / 「M870」",
+        "1707",
+        "スカウト",
+        "デイリータスク3個完了",
+        "500,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:shotgun:mp_133_12ga_pump_action_shotgun:b160d994",
+      "cells": [
+        "MP-133 12ga pump-action shotgun / / 「MP-133」",
+        "1930",
+        "スカウト",
+        "初期開放",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:shotgun:mp_153_12ga_semi_automatic_shotgun:2246313c",
+      "cells": [
+        "MP-153 12ga semi-automatic shotgun / / 「MP-153」",
+        "1851",
+        "エンフォーサー",
+        "初期開放",
+        "250,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:shotgun:mp_155_12ga_semi_automatic_shotgun:af2c8902",
+      "cells": [
+        "MP-155 12ga semi-automatic shotgun / / 「MP-155」",
+        "1287",
+        "エンフォーサー",
+        "MP-153 Lv6",
+        "GPコイン40枚"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:shotgun:saiga_12k_ver_10_12ga_semi_automatic_shotgun:7260405d",
+      "cells": [
+        "Saiga-12K ver.10 12ga semi-automatic shotgun / / 「Saiga-12K」",
+        "2145",
+        "エンフォーサー",
+        "キャラクターLv10",
+        "GPコイン75枚"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:shotgun:saiga_12k_12ga_automatic_shotgun:5cf6bfb8",
+      "cells": [
+        "Saiga-12K 12ga automatic shotgun / / 「Saiga-12 FA」",
+        "3478",
+        "エンフォーサー",
+        "実績「Shotgun Master」獲得 / Saiga-12K Lv5",
+        "LEGAメダル1枚"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:shotgun:saiga_12k_12ga_automatic_shotgun:7d498fc3",
+      "cells": [
+        "Saiga-12K 12ga automatic shotgun / / 「Saiga-12 FA RL」",
+        "3089",
+        "エンフォーサー",
+        "バトルパスシーズン2 / Lv.100",
+        "21BP"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:shotgun:mp_43_12ga_sawed_off_double_barrel_shotgun:f85d6508",
+      "cells": [
+        "MP-43 12ga sawed-off double-barrel shotgun / / 「Sawed-off」",
+        "164",
+        "全クラス使用可",
+        "初期開放",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:lmg:u_s_ordnance_m60e6_7_62x51_light_machine_gun_fde:474c1405",
+      "cells": [
+        "U.S Ordnance M60E6 7.62x51 light machine gun (FDE) / / 「M60E6」",
+        "1640",
+        "エンフォーサー",
+        "初期開放",
+        "400,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:lmg:kalashnikov_pkp_7_62x54r_infantry_machine_gun_pecheneg:b4e9a54e",
+      "cells": [
+        "Kalashnikov PKP 7.62x54R infantry machine gun Pecheneg / / 「PKP」",
+        "1851",
+        "エンフォーサー",
+        "初期開放",
+        "GPコイン80枚"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:lmg:degtyarev_rpdn_7_62x39_machine_gun:b180be24",
+      "cells": [
+        "Degtyarev RPDN 7.62x39 machine gun / / 「RPDN」",
+        "1532",
+        "エンフォーサー",
+        "初期解放",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:lmg:rpk_16_5_45x39_light_machine_gun:8b32f948",
+      "cells": [
+        "RPK-16 5.45x39 light machine gun / / 「RPK-16」",
+        "2295",
+        "アサルト",
+        "タスク「Gladiator Life - Part 2」完了",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:lmg:u_s_ordnance_m60e4_7_62x51_light_machine_gun:cc878137",
+      "cells": [
+        "U.S Ordnance M60E4 7.62x51 light machine gun / / 「Mk 43 Mod 1」",
+        "2101",
+        "-",
+        "初期解放",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:marksman_rifle:theakguy_ak_50_50_bmg_sniper_rifle:a1d92734",
+      "cells": [
+        "TheAKGuy AK-50.50 BMG sniper rifle / / 「AK-50」",
+        "3981",
+        "マークスマン",
+        "AK-50 MB(SVDS Lv10)、AK-50 Handguard(AK-12 Lv8)、AK-50 24\" barrel(AK-308 Lv6)、AK-50 DC(AK-101 Lv12)、M82(T-5000M Lv3)解除",
+        "GPコイン250枚"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:marksman_rifle:sword_international_mk_18_338_lm_marksman_rifle:5fda1f8a",
+      "cells": [
+        "SWORD International Mk-18 .338 LM marksman rifle / / 「Mk-18 Mj&#246;lnir」",
+        "4107",
+        "マークスマン",
+        "アチーブ「Marksman Rifle Expert」獲得",
+        "3,000,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:marksman_rifle:tkpd_9_3x64_carbine:cd95cd4e",
+      "cells": [
+        "TKPD 9.3x64 carbine / / 「TKPD」",
+        "4568",
+        "マークスマン",
+        "SVDS Lv9",
+        "Legaメダル3枚"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:marksman_rifle:hk_g28_7_62x51_marksman_rifle:1aac0a56",
+      "cells": [
+        "HK G28 7.62x51 marksman rifle / / 「G28」",
+        "3822",
+        "マークスマン",
+        "キャラクターLv10 / デイリータスク2個完了",
+        "GP80枚"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:marksman_rifle:springfield_armory_m1a_7_62x51_rifle:b3f0a40b",
+      "cells": [
+        "Springfield Armory M1A 7.62x51 rifle / / 「M1A」",
+        "1857",
+        "マークスマン",
+        "初期開放",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:marksman_rifle:remington_r11_rsass_7_62x51_marksman_rifle:bf2c24ff",
+      "cells": [
+        "Remington R11 RSASS 7.62x51 marksman rifle / / 「RSASS」",
+        "4365",
+        "マークスマン",
+        "実績「Marksman Rifle Master」獲得",
+        "900,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:marksman_rifle:knight_s_armament_company_sr_25_7_62x51_marksman_rifle:db4e99e7",
+      "cells": [
+        "Knight's Armament Company SR-25 7.62x51 marksman rifle / / 「SR-25」",
+        "3128",
+        "マークスマン",
+        "M16A1 Lv8",
+        "GPコイン70枚"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:marksman_rifle:knight_s_armament_company_sr_25_7_62x51_marksman_rifle_taupe:f644f415",
+      "cells": [
+        "Knight's Armament Company SR-25 7.62x51 marksman rifle (Taupe) / / 「SR-25」",
+        "4743",
+        "マークスマン",
+        "SR-25 Lv8",
+        "Legaメダル1枚"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:marksman_rifle:svds_7_62x54r_sniper_rifle:2ebfcd58",
+      "cells": [
+        "SVDS 7.62x54R sniper rifle / / 「SVDS」",
+        "3411",
+        "マークスマン",
+        "初期開放",
+        "GPコイン90枚"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:marksman_rifle:vss_vintorez_9x39_special_sniper_rifle:a1c834e0",
+      "cells": [
+        "VSS Vintorez 9x39 special sniper rifle / / 「VSS \"Vintorez\"」",
+        "4283",
+        "アサルト",
+        "キャラクターLv20 / デイリータスク8個完了",
+        "LEGA2枚"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:marksman_rifle:mk_12_srp_5_56x45_marksman_rifle_mk12_spr_prototype:38ce3099",
+      "cells": [
+        "MK 12 SRP 5.56x45 marksman rifle Mk12 SPR Prototype / / 「Mk 12 SPR」",
+        "3293",
+        "マークスマン",
+        "初期開放",
+        "650,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:bolt_action_rifle:accuracy_international_axmc_338_lm_bolt_action_sniper_rifle:fc29b247",
+      "cells": [
+        "Accuracy International AXMC .338 LM bolt-action sniper rifle / / 「AXMC」",
+        "3297",
+        "マークスマン",
+        "キャラクターLv15",
+        "GP80枚"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:bolt_action_rifle:lobaev_arms_dvl_10_7_62x51_bolt_action_sniper_rifle_urbana:99fdc474",
+      "cells": [
+        "Lobaev Arms DVL-10 7.62x51 bolt-action sniper rifle Urbana / / 「DVL-10 Urbana」",
+        "2775",
+        "マークスマン",
+        "キャラクターLv12 / デイリータスク8個完了",
+        "LEGA2枚"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:bolt_action_rifle:remington_model_700_7_62x51_bolt_action_sniper_rifle:523b113d",
+      "cells": [
+        "Remington Model 700 7.62x51 bolt-action sniper rifle / / 「M700」",
+        "1587",
+        "マークスマン",
+        "初期開放",
+        "400,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:bolt_action_rifle:mosin_7_62x54r_bolt_action_rifle_sniper:6fa53455",
+      "cells": [
+        "Mosin 7.62x54R bolt-action rifle (Sniper) / / 「Mosin Sniper」",
+        "1426",
+        "マークスマン",
+        "初期開放",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:bolt_action_rifle:sako_trg_m10_338_lm_bolt_action_sniper_rifle:641f86c2",
+      "cells": [
+        "Sako TRG M10 .338 LM bolt-action sniper rifle / / 「TRG M10」",
+        "2155",
+        "マークスマン",
+        "キャラクターLv25",
+        "LEGAメダル1枚"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:bolt_action_rifle:sv_98_7_62x54r_bolt_action_sniper_rifle:2a102183",
+      "cells": [
+        "SV-98 7.62x54R bolt-action sniper rifle / / 「SV-98」",
+        "541",
+        "マークスマン",
+        "タスク「Gladiator Life - Part 3」完了",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:bolt_action_rifle:orsis_t_5000m_7_62x51_bolt_action_sniper_rifle:f9b85663",
+      "cells": [
+        "ORSIS T-5000M 7.62x51 bolt-action sniper rifle / / 「T-5000M」",
+        "2648",
+        "マークスマン",
+        "キャラクターLv10",
+        "GP50枚"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:bolt_action_rifle:molot_arms_vpo_215_gornostay_366_tkm_bolt_action_rifle:4527ecd8",
+      "cells": [
+        "Molot Arms VPO-215 Gornostay .366 TKM bolt-action rifle / / 「VPO-215」",
+        "1017",
+        "マークスマン",
+        "初期開放",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:assault_carbine:as_val_mod_4_9x39_special_assault_rifle:2a3ea7e5",
+      "cells": [
+        "AS VAL MOD.4 9x39 special assault rifle / / 「AS VAL MOD.4」",
+        "4466",
+        "アサルト",
+        "アチーブ「Assault Carbine Expert」獲得",
+        "2,050,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:assault_carbine:kbp_9a_91_9x39_compact_assault_rifle:ad7edf2a",
+      "cells": [
+        "KBP 9A-91 9x39 compact assault rifle / / 「9A-91」",
+        "2734",
+        "スカウト",
+        "初期開放",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:assault_carbine:sag_ak_545_5_45x39_carbine:b3dc1b95",
+      "cells": [
+        "SAG AK-545 5.45x39 carbine / / 「AK-545」",
+        "3308",
+        "マークスマン",
+        "初期開放",
+        "250,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:assault_carbine:tokarev_svt_40_7_62x54r_rifle:fcebe555",
+      "cells": [
+        "Tokarev SVT-40 7.62x54R rifle / / 「SVT-40」",
+        "4789",
+        "マークスマン",
+        "初期開放",
+        "250,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:assault_carbine:tokarev_avt_40_7_62x54r_automatic_rifle:6fa9de75",
+      "cells": [
+        "Tokarev AVT-40 7.62x54R automatic rifle / / 「AVT-40」",
+        "5009",
+        "マークスマン",
+        "SVT-40 Lv5",
+        "550,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:assault_carbine:kel_tec_rfb_7_62x51_rifle:6dda5135",
+      "cells": [
+        "Kel-Tec RFB 7.62x51 rifle / / 「RFB」",
+        "3791",
+        "マークスマン",
+        "初期開放",
+        "300,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:assault_carbine:molot_arms_simonov_op_sks_7_62x39_carbine:9135342b",
+      "cells": [
+        "Molot Arms Simonov OP-SKS 7.62x39 carbine / / 「OP-SKS」",
+        "3838",
+        "マークスマン",
+        "初期開放",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:assault_carbine:sr_3m_9x39_compact_assault_rifle:c084d847",
+      "cells": [
+        "SR-3M 9x39 compact assault rifle / / 「SR-3M」",
+        "2100",
+        "スカウト",
+        "キャラクターLv30 / SR-2M Lv6",
+        "LEGAメダル2枚"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:assault_carbine:lone_star_tx_15_dml_5_56x45_carbine:fb679621",
+      "cells": [
+        "Lone Star TX-15 DML 5.56x45 carbine / / 「TX-15 DML」",
+        "3469",
+        "マークスマン",
+        "Mk 12 SRP Lv8",
+        "Legaメダル1枚"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:assault_carbine:molot_arms_vpo_101_vepr_hunter_7_62x51_carbine:fb22da53",
+      "cells": [
+        "Molot Arms VPO-101 \"Vepr-Hunter\" 7.62x51 carbine / / 「VPO-101 \"Vepr-Hunter\"」",
+        "2303",
+        "マークスマン",
+        "初期開放",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:assault_carbine:molot_arms_vpo_209_366_tkm_carbine:586b4fda",
+      "cells": [
+        "Molot Arms VPO-209 .366 TKM carbine / / 「VPO-209」",
+        "1728",
+        "マークスマン",
+        "初期開放",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:assault_carbine:kbp_vsk_94_9x39_rifle:4105da56",
+      "cells": [
+        "KBP VSK-94 9x39 rifle / / 「VSK-94」",
+        "3591",
+        "アサルト",
+        "初期開放",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:pistol:colt_m1911a1_45_acp_pistol:470beb7f",
+      "cells": [
+        "Colt M1911A1 .45 ACP pistol / / 「M1911A1」",
+        "272",
+        "全クラス使用可",
+        "初期開放",
+        "100,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:pistol:colt_m45a1_45_acp_pistol_mew_mew:88744a06",
+      "cells": [
+        "Colt M45A1 .45 ACP pistol Mew-mew / / 「M45A1 Mew-mew」",
+        "376",
+        "全クラス使用可",
+        "M1911A1 Lv5",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:pistol:apb_9x18pm_silenced_machine_pistol:3478bf77",
+      "cells": [
+        "APB 9x18PM silenced machine pistol / / 「APB」",
+        "873",
+        "マークスマン",
+        "APS Lv2",
+        "80,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:pistol:stechkin_aps_9x18pm_machine_pistol:9ecefc50",
+      "cells": [
+        "Stechkin APS 9x18PM machine pistol / / 「APS」",
+        "324",
+        "全クラス使用可",
+        "初期開放",
+        "150,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:pistol:chiappa_rhino_50ds_357_revolver:4c3cbf3a",
+      "cells": [
+        "Chiappa Rhino 50DS .357 revolver / / 「CR 50DS」",
+        "100",
+        "全クラス使用可",
+        "初期開放",
+        "120,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:pistol:magnum_research_desert_eagle_l5_357_pistol:4db56289",
+      "cells": [
+        "Magnum Research Desert Eagle L5 .357 pistol / / 「Desert Eagle L5」",
+        "362",
+        "全クラス使用可",
+        "初期開放",
+        "GPコイン15枚"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:pistol:magnum_research_desert_eagle_mk_xix_50ae_pistol:2a9aa0a9",
+      "cells": [
+        "Magnum Research Desert Eagle Mk.XIX .50AE pistol / / 「Desert Eagle Mk XIX」",
+        "632",
+        "全クラス使用可",
+        "Desert Eagle L6 Lv2",
+        "120,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:pistol:magnum_research_desert_eagle_l6_50_ae_pistol:9971e742",
+      "cells": [
+        "Magnum Research Desert Eagle L6 .50 AE pistol / / 「Desert Eagle L6」",
+        "393",
+        "全クラス使用可",
+        "タスク「Gladiator Life - Part 5」完了",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:pistol:magnum_research_desert_eagle_l6_50_ae_pistol_wts:9d537d9f",
+      "cells": [
+        "Magnum Research Desert Eagle L6 .50 AE pistol (WTS) / / 「Desert Eagle L6」",
+        "657",
+        "全クラス使用可",
+        "Desert Eagle L6 Lv3",
+        "Legaメダル1枚"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:pistol:fn_five_seven_mk2_5_7x28_pistol:4709940a",
+      "cells": [
+        "FN Five-seveN MK2 5.7x28 pistol / / 「FN 5-7」",
+        "525",
+        "全クラス使用可",
+        "初期開放",
+        "180,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:pistol:fn_five_seven_mk2_5_7x28_pistol_fde:4f711a20",
+      "cells": [
+        "FN Five-seveN MK2 5.7x28 pistol (FDE) / / 「FN 5-7 FDE」",
+        "709",
+        "全クラス使用可",
+        "P90 Lv6",
+        "300,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:pistol:glock_17_9x19_pistol:6d05fd02",
+      "cells": [
+        "Glock 17 9x19 pistol / / 「Glock 17」",
+        "658",
+        "全クラス使用可",
+        "初期開放",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:pistol:glock_18c_9x19_machine_pistol:a06fae5a",
+      "cells": [
+        "Glock 18C 9x19 machine pistol / / 「Glock 18C」",
+        "3108",
+        "全クラス使用可",
+        "Glock 17 Lv10",
+        "120,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:pistol:beretta_m9a3_9x19_pistol:6a86bcca",
+      "cells": [
+        "Beretta M9A3 9x19 pistol / / 「M9A3」",
+        "259",
+        "全クラス使用可",
+        "初期開放",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:pistol:yarygin_mp_443_grach_9x19_pistol:b72bd39c",
+      "cells": [
+        "Yarygin MP-443 Grach 9x19 pistol / / 「MP-443 Grach」",
+        "145",
+        "全クラス使用可",
+        "初期開放",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:pistol:sig_p226r_9x19_pistol:5dc56a3a",
+      "cells": [
+        "SIG P226R 9x19 pistol / / 「P226R」",
+        "382",
+        "全クラス使用可",
+        "初期開放",
+        "120,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:pistol:lebedev_pl_15_9x19_pistol:fb9afe8c",
+      "cells": [
+        "Lebedev PL-15 9x19 pistol / / 「PL-15」",
+        "926.8",
+        "全クラス使用可",
+        "初期開放",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:pistol:pb_9x18pm_silenced_pistol:5b2754ea",
+      "cells": [
+        "PB 9x18PM silenced pistol / / 「PB」",
+        "657",
+        "全クラス使用可",
+        "PM (t) Lv3",
+        "80,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:pistol:makarov_pm_t_9x18pm_pistol:9bbc1543",
+      "cells": [
+        "Makarov PM (t) 9x18PM pistol / / 「PM (t)」",
+        "357",
+        "全クラス使用可",
+        "初期開放",
+        "80,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:pistol:rsh_12_12_7x55_revolver:356df1ca",
+      "cells": [
+        "RSh-12 12.7x55 revolver / / 「RSh-12」",
+        "238",
+        "全クラス使用可",
+        "タスク「Jack of All Traders」完了",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:pistol:serdyukov_sr_1mp_gyurza_9x21_pistol:2b13f572",
+      "cells": [
+        "Serdyukov SR-1MP Gyurza 9x21 pistol / / 「SR-1MP」",
+        "123",
+        "全クラス使用可",
+        "SR-2M Lv4",
+        "120,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:pistol:tt_33_7_62x25_tt_pistol:ab8ee342",
+      "cells": [
+        "TT-33 7.62x25 TT pistol / / 「TT」",
+        "190",
+        "全クラス使用可",
+        "-",
+        "40,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:pistol:hk_usp_45_acp_pistol:8f31ac48",
+      "cells": [
+        "HK USP .45 ACP pistol / / 「USP .45」",
+        "464",
+        "全クラス使用可",
+        "UMP 45 Lv5",
+        "250,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:melee:6kh5_bayonet:3318046c",
+      "cells": [
+        "6Kh5 Bayonet / / 「6Kh5」",
+        "1",
+        "全クラス使用可",
+        "初期解放",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:melee:bars_a_2607_damascus_knife:ae32d632",
+      "cells": [
+        "Bars A-2607 Damascus knife / / 「A-2607」",
+        "1",
+        "全クラス使用可",
+        "初期解放",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:melee:bars_a_2607_95kh18_knife:a91fc636",
+      "cells": [
+        "Bars A-2607 95Kh18 knife / / 「A-2607」",
+        "1",
+        "全クラス使用可",
+        "初期解放",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:melee:camper_axe:01f64a57",
+      "cells": [
+        "Camper axe / / 「Camper」",
+        "1",
+        "全クラス使用可",
+        "初期解放",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:melee:freeman_crowbar:8261c76b",
+      "cells": [
+        "Freeman crowbar / / 「Crowbar」",
+        "1",
+        "全クラス使用可",
+        "初期解放",
+        "200,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:melee:er_fulcrum_bayonet:5411372e",
+      "cells": [
+        "ER FULCRUM BAYONET / / 「ER BAYONET」",
+        "1",
+        "全クラス使用可",
+        "初期解放",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:melee:sog_voodoo_hawk_tactical_tomahawk:b63914d8",
+      "cells": [
+        "SOG Voodoo Hawk tactical tomahawk / / 「Hawk」",
+        "1",
+        "全クラス使用可",
+        "タスク「Gladiator Life - Part 8」",
+        ""
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:melee:miller_bros_blades_m_2_tactical_sword:25600714",
+      "cells": [
+        "Miller Bros. Blades M-2 Tactical Sword / / 「M-2」",
+        "1",
+        "全クラス使用可",
+        "初期開放",
+        "LEGAメダル2枚"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:melee:mpl_50_entrenching_tool:60be57cd",
+      "cells": [
+        "MPL-50 entrenching tool / / 「MPL-50」",
+        "1",
+        "全クラス使用可",
+        "初期解放",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:melee:red_rebel_ice_pick:1c211a5d",
+      "cells": [
+        "Red Rebel ice pick / / 「RedRebel」",
+        "1",
+        "全クラス使用可",
+        "デイリータスク9個完了 / キャラクターLv12",
+        "400,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:melee:crash_axe:d97d3104",
+      "cells": [
+        "Crash Axe / / 「SCA」",
+        "1",
+        "全クラス使用可",
+        "タスク「Superhuman」完了",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:melee:sp_8_survival_machete:42334575",
+      "cells": [
+        "SP-8 Survival Machete / / 「SP-8」",
+        "1",
+        "全クラス使用可",
+        "初期解放",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:melee:uvsr_taiga_1_survival_machete:27ad5351",
+      "cells": [
+        "UVSR Taiga-1 survival machete / / 「Taiga-1」",
+        "1",
+        "全クラス使用可",
+        "デイリータスク15個完了 / キャラクターLv15",
+        "GP100枚"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:melee:apok_tactical_wasteland_gladius:7afd3de8",
+      "cells": [
+        "APOK Tactical Wasteland Gladius / / 「TWG」",
+        "1",
+        "全クラス使用可",
+        "タスク「To Great Heights! - Part 6」完了",
+        "LEGAメダル1枚"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:body_armor:npp_klass_korund_vm_body_armor_black:f2412fe3",
+      "cells": [
+        "NPP KlASS Korund-VM body armor / (Black) / / 「Korund-VM」",
+        "3906",
+        "エンフォーサー",
+        "初期解放",
+        "120,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:body_armor:npp_klass_korund_vm_body_armor_kamysh:9a692a4c",
+      "cells": [
+        "NPP KlASS Korund-VM body armor / (Kamysh) / / 「Korund-VM」",
+        "3906",
+        "エンフォーサー",
+        "バトルパスシーズン1 Level 85",
+        "BP8"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:body_armor:fort_redut_m_body_armor:70ef7c07",
+      "cells": [
+        "FORT Redut-M body armor / / 「Redut-M」",
+        "2619",
+        "エンフォーサー",
+        "Lv15",
+        "GP16枚"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:body_armor:fort_redut_m_body_armor_sk_woodland:6fdd5d2c",
+      "cells": [
+        "FORT Redut-M body armor(SK Woodland) / / 「Redut-M」",
+        "2619",
+        "エンフォーサー",
+        "バトルパスシーズン0 Level148",
+        "BP10"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:body_armor:fort_redut_m_body_armor_prisoner_of_the_arena:e6a6e2db",
+      "cells": [
+        "FORT Redut-M body armor(Prisoner of the Arena) / / 「Redut-M」",
+        "2619",
+        "エンフォーサー",
+        "Echo Belliクレート",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:body_armor:fort_redut_m_body_armor_black:c6813614",
+      "cells": [
+        "FORT Redut-M body armor(Black) / / 「Redut-M」",
+        "2619",
+        "エンフォーサー",
+        "バトルパスシーズン2 Level 24",
+        "BP10"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:body_armor:fort_defender_2_body_armor:3bb6bb4e",
+      "cells": [
+        "FORT Defender-2 body armor / / 「Defender-2」",
+        "2567",
+        "エンフォーサー",
+        "初期解放",
+        "GP16枚"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:body_armor:fort_defender_2_body_armor:df6de8f6",
+      "cells": [
+        "FORT Defender-2 body armor / / 「Defender-2」",
+        "2567",
+        "エンフォーサー",
+        "バトルパスシーズン2 Level 19",
+        "BP10"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:body_armor:fort_gladiator_s_plate_carrier_gray:3d0f4f21",
+      "cells": [
+        "FORT Gladiator-S plate carrier (Gray) / / 「Gladiator-S」",
+        "1319",
+        "アサルト / エンフォーサー / スカウト",
+        "バトルパスシーズン2 Level54",
+        "BP12"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:body_armor:iotv_gen4_body_armor_high_mobility_kit_multicam:106629ce",
+      "cells": [
+        "IOTV Gen4 body armor / (High Mobility Kit, MultiCam) / / 「Gen4 HMK」",
+        "2598",
+        "エンフォーサー",
+        "Lv15 Ref2",
+        "GP20枚"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:body_armor:bnti_zhuk_body_armor_emr:77bf8920",
+      "cells": [
+        "BNTI Zhuk body armor (EMR) / / 「Zhuk EMR」",
+        "2555",
+        "エンフォーサー",
+        "初期解放",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:body_armor:bnti_gzhel_k_body_armor:78d74482",
+      "cells": [
+        "BNTI Gzhel-K body armor / / 「Gzhel-K」",
+        "2552",
+        "エンフォーサー",
+        "Lv12 デイリー8個",
+        "200,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:body_armor:nfm_thor_concealable_reinforced_vest_body_armor:5da90323",
+      "cells": [
+        "NFM THOR / Concealable Reinforced Vest body armor / / 「THOR CRV」",
+        "1286",
+        "全クラス",
+        "初期解放",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:body_armor:nfm_thor_concealable_reinforced_vest_body_armor:2d168603",
+      "cells": [
+        "NFM THOR / Concealable Reinforced Vest body armor / / 「THOR CRV」",
+        "1286",
+        "全クラス",
+        "CUSTOMSタクティカルマップ",
+        "グレネードトークン1, ショットガントークン1"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:body_armor:highcom_trooper_tfo_body_armor_multicam:80a0c5ca",
+      "cells": [
+        "HighCom Trooper TFO body armor (MultiCam) / / 「Trooper」",
+        "1278",
+        "全クラス使用可",
+        "初期解放",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:body_armor:highcom_trooper_tfo_body_armor_coyote:0e17fdf5",
+      "cells": [
+        "HighCom Trooper TFO body armor (Coyote) / / 「Trooper」",
+        "1278",
+        "全クラス使用可",
+        "バトルパス S-0 Level73",
+        "GP4枚"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:body_armor:lbt_6094a_slick_plate_carrier_olive_drab:e5dc2a02",
+      "cells": [
+        "LBT-6094A Slick Plate Carrier (Olive Drab) / / 「Slick」",
+        "1257",
+        "アサルト / スカウト / マークスマン",
+        "LBT-6094A Slick Plate Carrier (Coyote Tan) 解除",
+        "LEGA1枚"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:body_armor:lbt_6094a_slick_plate_carrier_black:f450ec19",
+      "cells": [
+        "LBT-6094A Slick Plate Carrier (Black) / / 「Slick」",
+        "1257",
+        "アサルト / スカウト / マークスマン",
+        "初期解放",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:body_armor:lbt_6094a_slick_plate_carrier_coyote_tan:8e55d9d3",
+      "cells": [
+        "LBT-6094A Slick Plate Carrier (Coyote Tan) / / 「Slick」",
+        "1257",
+        "アサルト / スカウト / マークスマン",
+        "Lv12 LBT-6094A Slick Plate Carrier (Black) 解除",
+        "GP30枚"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:body_armor:bnti_kirasa_n_body_armor:31d27833",
+      "cells": [
+        "BNTI Kirasa-N body armor / / 「Kirasa-N」",
+        "1323",
+        "アサルト",
+        "初期解放",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:body_armor:bnti_kirasa_n_body_armor_green:66d682db",
+      "cells": [
+        "BNTI Kirasa-N body armor(Green) / / 「Kirasa-N」",
+        "1323",
+        "アサルト",
+        "バトルパス S-0 Lv10",
+        "BP4"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:body_armor:6b23_1_body_armor_emr:160bc0af",
+      "cells": [
+        "6B23-1 body armor (EMR) / / 「6B23-1 EMR」",
+        "3068",
+        "エンフォーサー",
+        "初期解放",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:body_armor:6b23_2_body_armor_mountain_flora:3818b472",
+      "cells": [
+        "6B23-2 body armor (Mountain Flora) / / 「6B23-2 MF」",
+        "2862",
+        "エンフォーサー",
+        "初期解放",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:body_armor:6b13_assault_armor_digital_flora:b07609a6",
+      "cells": [
+        "6B13 assault armor (Digital Flora) / / 「6B13 EMR」",
+        "2198",
+        "エンフォーサー",
+        "初期解放",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:body_armor:6b13_assault_armor_flora:43f5e18c",
+      "cells": [
+        "6B13 assault armor (Flora) / / 「6B13 FL」",
+        "2198",
+        "エンフォーサー",
+        "初期解放",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:body_armor:6b45_body_armor_emr:d5129c1f",
+      "cells": [
+        "6B45 body armor(EMR) / / 「6B45」",
+        "1339",
+        "CENETR:アサルト / エンフォーサー",
+        "初期解放",
+        "250,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:body_armor:interceptor_otv_body_armor_ucp:bfbb4734",
+      "cells": [
+        "Interceptor OTV body armor (UCP) / / 「OTV」",
+        "1297",
+        "全クラス使用可",
+        "デイリー2個",
+        "120,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:body_armor:interceptor_otv_body_armor_ucp:9dd816b1",
+      "cells": [
+        "Interceptor OTV body armor (UCP) / / 「OTV」",
+        "1297",
+        "全クラス使用可",
+        "バトルパスシーズン1 Level 66",
+        "BP8"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:body_armor:hexatac_hpc_plate_carrier_multicam_black:14a163fa",
+      "cells": [
+        "Hexatac HPC Plate Carrier (MultiCam Black) / / 「HPC」",
+        "1151",
+        "アサルト / スカウト / マークスマン",
+        "初期解放",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:body_armor:hexatac_hpc_plate_carrier_multicam:224898ea",
+      "cells": [
+        "Hexatac HPC Plate Carrier (MultiCam) / / 「HPC」",
+        "1151",
+        "アサルト / スカウト / マークスマン",
+        "バトルパス S-0 Level39",
+        "GP4枚"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:body_armor:5_11_tactical_hexgrid_plate_carrier:9b59dd72",
+      "cells": [
+        "5.11 Tactical Hexgrid plate carrier / / 「Hexgrid」",
+        "1151",
+        "アサルト / スカウト / マークスマン",
+        "初期解放",
+        "120,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:body_armor:paca_soft_armor_rivals_edition:777adb04",
+      "cells": [
+        "PACA Soft Armor (Rivals Edition) / / 「PACA TR」",
+        "176",
+        "全クラス使用可",
+        "2024年にTwitchDropsイベントにて配布されたコレクションプリセット「Athlete」を所持していれば解放",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:eyewear:6b34_anti_fragmentation_glasses:246408a0",
+      "cells": [
+        "6B34 anti-fragmentation glasses / / 「6B34」",
+        "14",
+        "0.120",
+        "25",
+        "目",
+        "1 / ガラス",
+        "+10%",
+        "-2%",
+        "-",
+        "-",
+        "-"
+      ],
+      "columnLayout": "eyewear"
+    },
+    {
+      "id": "armory:eyewear:anti_fragmentation_glasses:1dd99767",
+      "cells": [
+        "Anti-fragmentation glasses / / 「AFGlass」",
+        "14",
+        "0.110",
+        "25",
+        "目",
+        "1 / ガラス",
+        "+10%",
+        "-2%",
+        "-",
+        "-",
+        "-"
+      ],
+      "columnLayout": "eyewear"
+    },
+    {
+      "id": "armory:eyewear:crossbow_tactical_glasses:e6e114d4",
+      "cells": [
+        "Crossbow tactical glasses / / 「Crossbow」",
+        "40",
+        "0.030",
+        "-",
+        "-",
+        "-",
+        "+30%",
+        "-6%",
+        "-",
+        "-",
+        "250,000RUB"
+      ],
+      "columnLayout": "eyewear"
+    },
+    {
+      "id": "armory:eyewear:dundukk_sport_sunglasses:f26cdf74",
+      "cells": [
+        "Dundukk sport sunglasses / / 「Dundukk」",
+        "21",
+        "0.050",
+        "-",
+        "-",
+        "-",
+        "+15%",
+        "-3%",
+        "-",
+        "-",
+        "85,000RUB"
+      ],
+      "columnLayout": "eyewear"
+    },
+    {
+      "id": "armory:eyewear:dundukk_sport_sunglasses_orange_lenses:1b0746ba",
+      "cells": [
+        "Dundukk sport sunglasses [Orange lenses] / / 「Dundukk」",
+        "21",
+        "0.050",
+        "-",
+        "-",
+        "-",
+        "+15%",
+        "-3%",
+        "-",
+        "-",
+        "-"
+      ],
+      "columnLayout": "eyewear"
+    },
+    {
+      "id": "armory:eyewear:figley_sunglasses:3907464f",
+      "cells": [
+        "Figley sunglasses / / 「Figley」",
+        "34",
+        "0.027",
+        "-",
+        "-",
+        "-",
+        "+25%",
+        "-5%",
+        "バトルパスシーズン1 Lv24",
+        "",
+        "BP4"
+      ],
+      "columnLayout": "eyewear"
+    },
+    {
+      "id": "armory:eyewear:gas_welder_safety_goggles:b3caa878",
+      "cells": [
+        "Gas welder safety goggles / / 「Gaswelder」",
+        "47",
+        "0.150",
+        "-",
+        "-",
+        "-",
+        "+35%",
+        "-7%",
+        "-",
+        "-",
+        "-"
+      ],
+      "columnLayout": "eyewear"
+    },
+    {
+      "id": "armory:eyewear:johnb_liquid_dnb_glasses:222b49e7",
+      "cells": [
+        "JohnB Liquid DNB glasses / / 「JohnB」",
+        "34",
+        "0.060",
+        "-",
+        "-",
+        "-",
+        "+25%",
+        "-5%",
+        "-",
+        "-",
+        "GP75枚"
+      ],
+      "columnLayout": "eyewear"
+    },
+    {
+      "id": "armory:eyewear:npp_klass_condor_glasses:5e4bbcd3",
+      "cells": [
+        "NPP KlASS Condor glasses / / 「Condor」",
+        "14",
+        "0.030",
+        "25",
+        "目",
+        "1 / ガラス",
+        "+10%",
+        "-2%",
+        "-",
+        "-",
+        "50,000RUB"
+      ],
+      "columnLayout": "eyewear"
+    },
+    {
+      "id": "armory:eyewear:oakley_si_batwolf_glasses:de78fed6",
+      "cells": [
+        "Oakley SI Batwolf glasses / / 「Batwolf」",
+        "24",
+        "0.050",
+        "20",
+        "目",
+        "1 / ガラス",
+        "+18%",
+        "-4%",
+        "-",
+        "-",
+        "GP40枚"
+      ],
+      "columnLayout": "eyewear"
+    },
+    {
+      "id": "armory:eyewear:oakley_si_gascan_glasses:11f9d7e9",
+      "cells": [
+        "Oakley SI Gascan glasses / / 「Gascan」",
+        "21",
+        "0.034",
+        "-",
+        "-",
+        "-",
+        "+15%",
+        "-3%",
+        "-",
+        "-",
+        "-"
+      ],
+      "columnLayout": "eyewear"
+    },
+    {
+      "id": "armory:eyewear:oakley_si_gascan_white_glasses:2b835f4d",
+      "cells": [
+        "Oakley SI Gascan White glasses / / 「Gascan」",
+        "24",
+        "0.034",
+        "-",
+        "-",
+        "-",
+        "+15%",
+        "0%",
+        "-",
+        "-",
+        "-"
+      ],
+      "columnLayout": "eyewear"
+    },
+    {
+      "id": "armory:eyewear:oakley_si_m_frame_safety_glasses:493e710a",
+      "cells": [
+        "Oakley SI M Frame safety glasses / / 「M Frame」",
+        "21",
+        "0.032",
+        "-",
+        "-",
+        "-",
+        "+15%",
+        "-3%",
+        "-",
+        "-",
+        "250,000RUB"
+      ],
+      "columnLayout": "eyewear"
+    },
+    {
+      "id": "armory:eyewear:oakley_si_m_frame_safety_glasses_orange_lenses:63015da3",
+      "cells": [
+        "Oakley SI M Frame safety glasses [Orange lenses] / / 「M Frame」",
+        "21",
+        "0.032",
+        "-",
+        "-",
+        "-",
+        "+15%",
+        "-3%",
+        "-",
+        "-",
+        "-"
+      ],
+      "columnLayout": "eyewear"
+    },
+    {
+      "id": "armory:eyewear:pyramex_proximity_safety_glasses:828947a3",
+      "cells": [
+        "Pyramex Proximity safety glasses / / 「Proximity」",
+        "21",
+        "0.026",
+        "-",
+        "-",
+        "-",
+        "+15%",
+        "-3%",
+        "-",
+        "-",
+        "-"
+      ],
+      "columnLayout": "eyewear"
+    },
+    {
+      "id": "armory:eyewear:raybench_aviator_glasses:e7f0781e",
+      "cells": [
+        "RayBench Aviator glasses / / 「Aviator」",
+        "34",
+        "0.027",
+        "-",
+        "-",
+        "-",
+        "+25%",
+        "-5%",
+        "-",
+        "-",
+        "LEGA1枚"
+      ],
+      "columnLayout": "eyewear"
+    },
+    {
+      "id": "armory:eyewear:raybench_aviator_glasses_green_lenses:e3abb611",
+      "cells": [
+        "RayBench Aviator glasses [Green lenses] / / 「Aviator」",
+        "34",
+        "0.027",
+        "-",
+        "-",
+        "-",
+        "+25%",
+        "-5%",
+        "-",
+        "-",
+        "-"
+      ],
+      "columnLayout": "eyewear"
+    },
+    {
+      "id": "armory:eyewear:raybench_hipster_reserve_sunglasses:42b9f6ea",
+      "cells": [
+        "RayBench Hipster Reserve sunglasses / / 「RayBench」",
+        "34",
+        "0.080",
+        "-",
+        "-",
+        "-",
+        "+25%",
+        "-5%",
+        "-",
+        "-",
+        "85,000RUB"
+      ],
+      "columnLayout": "eyewear"
+    },
+    {
+      "id": "armory:eyewear:revision_shadowstrike_tactical_glasses_gray:dc75ce96",
+      "cells": [
+        "Revision ShadowStrike tactical glasses (Gray) / / 「ShadowStrike」",
+        "45",
+        "0.030",
+        "-",
+        "-",
+        "-",
+        "+30%",
+        "-1%",
+        "-",
+        "-",
+        "-"
+      ],
+      "columnLayout": "eyewear"
+    },
+    {
+      "id": "armory:eyewear:revision_shadowstrike_tactical_glasses_tan:4c2dee13",
+      "cells": [
+        "Revision ShadowStrike tactical glasses (tan) / / 「ShadowStrike」",
+        "45",
+        "0.030",
+        "-",
+        "-",
+        "-",
+        "+30%",
+        "-1%",
+        "-",
+        "-",
+        "-"
+      ],
+      "columnLayout": "eyewear"
+    },
+    {
+      "id": "armory:eyewear:round_frame_sunglasses:68a5efc3",
+      "cells": [
+        "Round frame sunglasses / / 「RGlasses」",
+        "27",
+        "0.040",
+        "-",
+        "-",
+        "-",
+        "+20%",
+        "-4%",
+        "-",
+        "-",
+        "250,000RUB"
+      ],
+      "columnLayout": "eyewear"
+    },
+    {
+      "id": "armory:eyewear:round_frame_sunglasses_green_lenses:5c3e3fff",
+      "cells": [
+        "Round frame sunglasses [Green lenses] / / 「RGlasses」",
+        "27",
+        "0.040",
+        "-",
+        "-",
+        "-",
+        "+20%",
+        "-4%",
+        "-",
+        "-",
+        "-"
+      ],
+      "columnLayout": "eyewear"
+    },
+    {
+      "id": "armory:eyewear:sunglasses_deal_with_it:f1eda2b3",
+      "cells": [
+        "Sunglasses (Deal With It) / / 「Deal With It」",
+        "34",
+        "0.027",
+        "-",
+        "-",
+        "-",
+        "+25%",
+        "-5%",
+        "タクティカルマップCUSTOMS / チェックポイント3-2",
+        "",
+        ""
+      ],
+      "columnLayout": "eyewear"
+    },
+    {
+      "id": "armory:eyewear:shutter_glasses:332350af",
+      "cells": [
+        "Shutter glasses (Black) / / 「Shutter」",
+        "34",
+        "0.027",
+        "-",
+        "-",
+        "-",
+        "+25%",
+        "-5%",
+        "タクティカルマップCUSTOMS / チェックポイント4-3など",
+        "",
+        ""
+      ],
+      "columnLayout": "eyewear"
+    },
+    {
+      "id": "armory:eyewear:tactical_glasses:05c94687",
+      "cells": [
+        "Tactical glasses / / 「TGlasses」",
+        "14",
+        "0.050",
+        "-",
+        "-",
+        "-",
+        "+10%",
+        "-2%",
+        "-",
+        "-",
+        "-"
+      ],
+      "columnLayout": "eyewear"
+    },
+    {
+      "id": "armory:eyewear:twitch_rivals_2020_glasses:dec2d02f",
+      "cells": [
+        "Twitch Rivals 2020 glasses / / 「Rivals」",
+        "40",
+        "0.034",
+        "-",
+        "-",
+        "-",
+        "+30%",
+        "-6%",
+        "2024年にTwitchDropsイベントにて / 配布されたコレクションプリセット / 「Athlete」を所持していれば解放",
+        "-",
+        "-"
+      ],
+      "columnLayout": "eyewear"
+    },
+    {
+      "id": "armory:eyewear:wiley_x_spear_ballistic_goggles_black:4c0c94f0",
+      "cells": [
+        "Wiley X SPEAR ballistic goggles (Black)",
+        "22",
+        "0.120",
+        "25",
+        "目",
+        "1 / ガラス",
+        "&color(blue){+15%}",
+        "-2%",
+        "FACTORYタクティカルマップ",
+        "-",
+        ""
+      ],
+      "columnLayout": "eyewear"
+    },
+    {
+      "id": "armory:eyewear:wiley_x_spear_ballistic_goggles_black:41b01cb9",
+      "cells": [
+        "Wiley X SPEAR ballistic goggles (Black)",
+        "22",
+        "0.120",
+        "25",
+        "目",
+        "1 / ガラス",
+        "&color(blue){+15%}",
+        "-2%",
+        "バトルパスシーズン2 Level 5",
+        "-",
+        "BP2"
+      ],
+      "columnLayout": "eyewear"
+    },
+    {
+      "id": "armory:medkit:afak_tactical_individual_first_aid_kit:c68cc28b",
+      "cells": [
+        "AFAK tactical individual first aid kit / AFAK ファーストエイドキット / 「AFAK」",
+        "446",
+        "全クラス使用可",
+        "",
+        ""
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:medkit:salewa_first_aid_kit:a19567ee",
+      "cells": [
+        "Salewa first aid kit / Salewa ファーストエイドキット / 「Salewa」",
+        "382",
+        "全クラス使用可",
+        "",
+        ""
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:medkit:ifak_individual_first_aid_kit:123e1b56",
+      "cells": [
+        "IFAK individual first aid kit / IFAK ファーストエイドキット / 「IFAK」",
+        "327",
+        "全クラス使用可",
+        "初期解放",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:medkit:car_first_aid_kit:201f399c",
+      "cells": [
+        "Car first aid kit / カー ファーストエイドキット / 「Car」",
+        "204",
+        "全クラス使用可",
+        "",
+        ""
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:medkit:ai_2_medkit:9b00065b",
+      "cells": [
+        "AI-2 medkit / AI-2 メディキット / 「AI-2」",
+        "80",
+        "全クラス使用可",
+        "初期解放",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:injury_treatment:calok_b_hemostatic_applicator:6a2fe123",
+      "cells": [
+        "CALOK-B hemostatic applicator / キャロック-B 止血剤 / 「CALOK-B」",
+        "181",
+        "全クラス使用可",
+        "初期解放",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:injury_treatment:aluminum_splint:e57fafc7",
+      "cells": [
+        "Aluminum splint / アルミスプリント / 「Alu splint」",
+        "67",
+        "全クラス使用可",
+        "",
+        ""
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:injury_treatment:cat_hemostatic_tourniquet:58bcf737",
+      "cells": [
+        "CAT hemostatic tourniquet / CAT ターニケット / 「CAT」",
+        "60",
+        "全クラス使用可",
+        "",
+        ""
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:injury_treatment:esmarch_tourniquet:c6f102a9",
+      "cells": [
+        "Esmarch tourniquet / エスマルヒ 止血帯 / 「Esmarch」",
+        "50",
+        "全クラス使用可",
+        "初期解放",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:injury_treatment:army_bandage:7de89aa4",
+      "cells": [
+        "Army bandage / 軍用 救急包帯 / 「Bandage」",
+        "49",
+        "全クラス使用可",
+        "",
+        ""
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:injury_treatment:aseptic_bandage:3f661cf3",
+      "cells": [
+        "Aseptic bandage / 救急包帯 / 「Bandage」",
+        "25",
+        "全クラス使用可",
+        "初期解放",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:injury_treatment:immobilizing_splint:ee187214",
+      "cells": [
+        "Immobilizing splint / イモビライジング スプリント / 「Splint」",
+        "17",
+        "全クラス使用可",
+        "初期解放",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:pills:augmentin_antibiotic_pills:428564e1",
+      "cells": [
+        "Augmentin antibiotic pills / オーグメンチン / 「Augmentin」",
+        "126",
+        "全クラス使用可",
+        "",
+        ""
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:pills:analgin_painkillers:820e9981",
+      "cells": [
+        "Analgin painkillers / アナルジン / 「Analgin」",
+        "108",
+        "全クラス使用可",
+        "",
+        ""
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:stimulant:morphine_injector:fbe687d5",
+      "cells": [
+        "Morphine injector / モルヒネの注射器 / 「Morphine」",
+        "194",
+        "全クラス使用可",
+        "初期解放",
+        "-"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:stimulant:trimadol_stimulant_injector:672acd06",
+      "cells": [
+        "Trimadol stimulant injector / トリマドールの注射器 / 「Trimadol」",
+        "472",
+        "全クラス使用可",
+        "初期解放",
+        "200,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:stimulant:propital_regenerative_stimulant_injector:a15326e3",
+      "cells": [
+        "Propital regenerative stimulant injector / プロピタルの注射器 / 「Propital」",
+        "435",
+        "全クラス使用可",
+        "初期解放",
+        "200,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:stimulant:adrenaline_injector:c5966112",
+      "cells": [
+        "Adrenaline injector / アドレナリンの注射器 / 「Adrenaline」",
+        "191",
+        "全クラス使用可",
+        "初期解放",
+        "150,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:stimulant:ahf1_m_stimulant_injector:046065de",
+      "cells": [
+        "AHF1-M stimulant injector / AHF1-M の注射器 / 「AHF1-M」",
+        "186",
+        "全クラス使用可",
+        "初期解放",
+        "150,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:stimulant:meldonin_injector:bd0bcb39",
+      "cells": [
+        "Meldonin injector / メルドニンの注射器 / 「Meldonin」",
+        "146",
+        "全クラス使用可",
+        "初期解放",
+        "150,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:stimulant:3_b_tg_stimulant_injector:de80eb78",
+      "cells": [
+        "3-(b-TG) stimulant injector / 3-(b-TG) の注射器 / 「3-(b-TG)」",
+        "98",
+        "全クラス使用可",
+        "初期解放",
+        "150,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:stimulant:2a2_b_tg_stimulant_injector:e9e9bfa9",
+      "cells": [
+        "2A2-(b-TG) stimulant injector / 2A2-(b-TG) の注射器 / 「2A2-(b-TG)」",
+        "98",
+        "全クラス使用可",
+        "初期解放",
+        "150,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:stimulant:p22_product_22_stimulant_injector:85c1c39c",
+      "cells": [
+        "P22 (Product 22) stimulant injector / P22 (Product 22) の注射器 / 「P22」",
+        "0",
+        "全クラス使用可",
+        "初期解放",
+        "150,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:stimulant:etg_change_regenerative_stimulant_injector:3cae5274",
+      "cells": [
+        "eTG-change regenerative stimulant injector / eTG-チェンジの注射器 / 「eTG-c」",
+        "546",
+        "スカウト / マークスマン",
+        "Lv15",
+        "GP30枚"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:stimulant:zagustin_hemostatic_drug_injector:a0dfff3b",
+      "cells": [
+        "Zagustin hemostatic drug injector / ザグスティンの注射器 / 「Zagustin」",
+        "420",
+        "全クラス使用可",
+        "デイリータスク3個 Lv12",
+        "GP30枚"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:stimulant:sj6_tglabs_combat_stimulant_injector:b2e47722",
+      "cells": [
+        "SJ6 TGLabs combat stimulant injector / TGLabs SJ6 の注射器 / 「SJ6」",
+        "291",
+        "全クラス使用可",
+        "デイリータスク2個 Lv10",
+        "GP25枚"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "armory:stimulant:perfotoran_blue_blood_stimulant_injector:06fe011b",
+      "cells": [
+        "Perfotoran (Blue Blood) stimulant injector / ペルフォトラン (ブルーブラッド) の注射器 / 「Perfotoran」",
+        "256",
+        "全クラス使用可",
+        "デイリータスク1個 Lv8",
+        "250,000 / RUB"
+      ],
+      "columnLayout": "armory_standard"
+    },
+    {
+      "id": "ammo:7_62x25mm:7_62x25mm_tt_m995:8a142886",
+      "cells": [
+        "7.62x25mm / TT M995",
+        "32",
+        "37",
+        "",
+        "",
+        "",
+        "+14",
+        "+4",
+        "",
+        "",
+        "940",
+        "",
+        "6",
+        "○",
+        "-",
+        "○",
+        "-",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:7_62x25mm:7_62x25mm_tt_m855a1:a9b046dd",
+      "cells": [
+        "7.62x25mm / TT M855A1",
+        "34",
+        "31",
+        "",
+        "",
+        "",
+        "+17",
+        "+6",
+        "",
+        "",
+        "900",
+        "",
+        "5.5",
+        "○",
+        "-",
+        "○",
+        "-",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:7_62x25mm:7_62x25mm_tt_pst_gzh:a94c799d",
+      "cells": [
+        "7.62x25mm / TT Pst gzh",
+        "50",
+        "25",
+        "36",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "430",
+        "",
+        "3",
+        "-",
+        "-",
+        "-",
+        "-",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:9x18mm:9x18mm_pm_pbm_gzh:ee0e1b4c",
+      "cells": [
+        "9x18mm / PM PBM gzh",
+        "40",
+        "28",
+        "30",
+        "",
+        "+4",
+        "",
+        "",
+        "",
+        "",
+        "519",
+        "",
+        "2.9",
+        "○",
+        "○",
+        "○",
+        "○",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:9x18mm:9x18mm_pmm_pstm_gzh:b17eb53e",
+      "cells": [
+        "9x18mm / PMM PstM gzh",
+        "58",
+        "24",
+        "33",
+        "",
+        "+5",
+        "",
+        "",
+        "",
+        "",
+        "420",
+        "過圧((サブマシンガンPP-91 \"Kedr\"、PP-91-01 \"Kedr-B\"からは発射できない。))",
+        "4.3",
+        "-",
+        "-",
+        "-",
+        "-",
+        "この弾薬とPP-91-01 \"Kedr-B\"が / プリセット内に存在する場合、他にこの弾薬 / を発射可能な銃を装備している場合を除き / 使用不可(NOT READY)状態になる。"
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:9x18mm:9x18mm_pm_sp7_gzh:a1e0edc9",
+      "cells": [
+        "9x18mm / PM SP7 gzh",
+        "77",
+        "2",
+        "5",
+        "",
+        "",
+        "+25",
+        "+10",
+        "",
+        "",
+        "420",
+        "",
+        "1.6",
+        "○",
+        "○",
+        "○",
+        "○",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:357_magnum:357_fmj:73e02372",
+      "cells": [
+        ".357 / FMJ",
+        "70",
+        "35",
+        "43",
+        "",
+        "+12",
+        "",
+        "+10",
+        "",
+        "",
+        "385",
+        "",
+        "4.8",
+        "○",
+        "○",
+        "○",
+        "○",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:50ae:50ae_fmj:d832a211",
+      "cells": [
+        ".50AE / FMJ",
+        "85",
+        "40",
+        "50",
+        "",
+        "+10",
+        "",
+        "+10",
+        "",
+        "",
+        "440",
+        "",
+        "9",
+        "○",
+        "○",
+        "○",
+        "○",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:4_6x30mm:4_6x30mm_ap_sx:e7181dff",
+      "cells": [
+        "4.6x30mm / AP SX",
+        "35",
+        "53",
+        "46",
+        "",
+        "+10",
+        "",
+        "",
+        "",
+        "",
+        "680",
+        "",
+        "6.1",
+        "-",
+        "-",
+        "-",
+        "-",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:4_6x30mm:4_6x30mm_fmj_sx:70a84fc7",
+      "cells": [
+        "4.6x30mm / FMJ SX",
+        "46",
+        "40",
+        "41",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "620",
+        "",
+        "5",
+        "-",
+        "-",
+        "○",
+        "-",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:5_7x28mm:5_7x28mm_ss190:80995967",
+      "cells": [
+        "5.7x28mm / SS190",
+        "49",
+        "38",
+        "43",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "715",
+        "",
+        "5.4",
+        "○",
+        "-",
+        "○",
+        "○",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:5_7x28mm:5_7x28mm_r37_f:1e475ae8",
+      "cells": [
+        "5.7x28mm / R37.F",
+        "98",
+        "8",
+        "7",
+        "",
+        "",
+        "+20",
+        "",
+        "",
+        "",
+        "729",
+        "",
+        "1.8",
+        "○",
+        "○",
+        "○",
+        "○",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:5_7x28mm:5_7x28mm_r37_x:c9eec857",
+      "cells": [
+        "5.7x28mm / R37.X",
+        "81",
+        "11",
+        "9",
+        "-5",
+        "",
+        "+10",
+        "",
+        "",
+        "",
+        "724",
+        "",
+        "12.9",
+        "-",
+        "-",
+        "-",
+        "-",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:9x19mm:9x19mm_pbp_gzh:952980ae",
+      "cells": [
+        "9x19mm / PBP gzh",
+        "51",
+        "40",
+        "55",
+        "+5",
+        "+5",
+        "",
+        "",
+        "",
+        "",
+        "560",
+        "",
+        "8.8",
+        "○",
+        "○",
+        "○",
+        "○",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:9x19mm:9x19mm_rip:96a57c15",
+      "cells": [
+        "9x19mm / RIP",
+        "102",
+        "2",
+        "11",
+        "",
+        "+5",
+        "+30",
+        "+10",
+        "",
+        "",
+        "381",
+        "",
+        "1.5",
+        "○",
+        "○",
+        "○",
+        "○",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:9x21mm:9x21mm_7n42_zubilo:63d1afd2",
+      "cells": [
+        "9x21mm / 7N42 / \"Zubilo\"",
+        "53",
+        "39",
+        "47",
+        "-3",
+        "+10",
+        "",
+        "",
+        "",
+        "",
+        "400",
+        "",
+        "8.6",
+        "○",
+        "○",
+        "○",
+        "○",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:9x21mm:9x21mm_pe_gzh:67e9f6fb",
+      "cells": [
+        "9x21mm / PE gzh",
+        "80",
+        "15",
+        "63",
+        "+3",
+        "-5",
+        "+15",
+        "+10",
+        "",
+        "",
+        "415",
+        "",
+        "2.6",
+        "○",
+        "○",
+        "○",
+        "○",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:9x21mm:9x21mm_bt_gzh:40d1a3d4",
+      "cells": [
+        "9x21mm / BT gzh",
+        "52",
+        "32",
+        "42",
+        "-5",
+        "+5",
+        "",
+        "",
+        "",
+        "",
+        "410",
+        "曳光弾 / (赤)",
+        "4.1",
+        "-",
+        "-",
+        "-",
+        "-",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:45_acp:45acp_ap:2d53b75b",
+      "cells": [
+        ".45ACP / AP",
+        "61",
+        "37",
+        "48",
+        "-5",
+        "+7",
+        "",
+        "",
+        "",
+        "",
+        "299",
+        "亜音速",
+        "5.4",
+        "○",
+        "",
+        "○",
+        "○",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:45_acp:45acp_rip:e1b3a6eb",
+      "cells": [
+        ".45ACP / RIP",
+        "130",
+        "3",
+        "12",
+        "-5",
+        "",
+        "+30",
+        "+20",
+        "",
+        "",
+        "293",
+        "亜音速",
+        "1.1",
+        "○",
+        "○",
+        "○",
+        "○",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:5_45x39mm:5_45x39mm_bs:c13b8767",
+      "cells": [
+        "5.45x39mm / BS",
+        "45",
+        "54",
+        "57",
+        "-4",
+        "+10",
+        "",
+        "",
+        "",
+        "",
+        "830",
+        "",
+        "23.7",
+        "△",
+        "-",
+        "-",
+        "○",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:5_45x39mm:5_45x39mm_bp:f0be05f7",
+      "cells": [
+        "5.45x39mm / BP",
+        "48",
+        "45",
+        "46",
+        "-3",
+        "+7",
+        "",
+        "",
+        "",
+        "",
+        "890",
+        "",
+        "12.2",
+        "○",
+        "-",
+        "-",
+        "○",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:5_45x39mm:5_45x39mm_7n40:0678a66e",
+      "cells": [
+        "5.45x39mm / 7N40",
+        "52",
+        "42",
+        "45",
+        "+50",
+        "-10",
+        "+20",
+        "+15",
+        "",
+        "",
+        "915",
+        "",
+        "11",
+        "○",
+        "-",
+        "-",
+        "○",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:5_45x39mm:5_45x39mm_bt:6814b40c",
+      "cells": [
+        "5.45x39mm / BT",
+        "54",
+        "37",
+        "44",
+        "-4",
+        "+5",
+        "",
+        "",
+        "",
+        "",
+        "880",
+        "曳光弾 / (赤)",
+        "7.1",
+        "○",
+        "-",
+        "○",
+        "○",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:5_45x39mm:5_45x39mm_ppbs_gs_igolnik:3a4e9e46",
+      "cells": [
+        "5.45x39mm / PPBS gs / \"Igolnik\"",
+        "37",
+        "62",
+        "59",
+        "-5",
+        "+15",
+        "",
+        "",
+        "",
+        "",
+        "905",
+        "",
+        "12.9",
+        "",
+        "",
+        "",
+        "○",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:5_45x39mm:5_45x39mm_pp:8b271f0f",
+      "cells": [
+        "5.45x39mm / PP",
+        "51",
+        "34",
+        "42",
+        "-2",
+        "+3",
+        "",
+        "",
+        "",
+        "",
+        "886",
+        "",
+        "8.8",
+        "",
+        "△",
+        "",
+        "",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:5_56x45mm:5_56x45mm_m995:77f4326d",
+      "cells": [
+        "5.56x45mm / M995",
+        "42",
+        "53",
+        "52",
+        "-7",
+        "+8",
+        "",
+        "",
+        "",
+        "",
+        "1013",
+        "",
+        "22.9",
+        "△",
+        "",
+        "",
+        "○",
+        "M4A1、HK416、Model 1、G36は使用不可"
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:5_56x45mm:5_56x45mm_m855a1:1b93b49d",
+      "cells": [
+        "5.56x45mm / M855A1",
+        "49",
+        "44",
+        "47",
+        "-5",
+        "+5",
+        "",
+        "",
+        "",
+        "",
+        "945",
+        "",
+        "11.9",
+        "○",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:5_56x45mm:5_56x45mm_ssa_ap:d291f87f",
+      "cells": [
+        "5.56x45mm / SSA AP",
+        "39",
+        "57",
+        "58",
+        "-9",
+        "+6",
+        "",
+        "",
+        "",
+        "",
+        "1013",
+        "",
+        "11.2",
+        "",
+        "",
+        "",
+        "○",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:300_blackout:300_blackout_ap:952626bb",
+      "cells": [
+        ".300 Blackout / AP",
+        "51",
+        "48",
+        "65",
+        "",
+        "+3",
+        "+15",
+        "+15",
+        "",
+        "",
+        "635",
+        "",
+        "136.3",
+        "△",
+        "-",
+        "-",
+        "-",
+        "Velociraptor .300 BLKのみ使用可"
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:300_blackout:300_blackout_cbj:e9409b53",
+      "cells": [
+        ".300 Blackout / CBJ",
+        "58",
+        "43",
+        "57",
+        "",
+        "+5",
+        "",
+        "",
+        "",
+        "",
+        "725",
+        "",
+        "11.2",
+        "○",
+        "-",
+        "-",
+        "-",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:300_blackout:300_blackout_m62_tracer:ec766991",
+      "cells": [
+        ".300 Blackout / M62 Tracer",
+        "54",
+        "36",
+        "40",
+        "",
+        "+1",
+        "",
+        "",
+        "",
+        "",
+        "442",
+        "曳光弾 / (赤)",
+        "7.7",
+        "-",
+        "-",
+        "-",
+        "-",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:300_blackout:300_whisper:5d95dff2",
+      "cells": [
+        ".300 Whisper",
+        "90",
+        "14",
+        "19",
+        "+5",
+        "-5",
+        "",
+        "+20",
+        "",
+        "",
+        "853",
+        "",
+        "21.8",
+        "-",
+        "-",
+        "-",
+        "-",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:7_62x39mm:7_62x39mm_mai_ap:c4edd218",
+      "cells": [
+        "7.62x39mm / MAI AP",
+        "53",
+        "58",
+        "76",
+        "-5",
+        "+10",
+        "+10",
+        "+10",
+        "",
+        "",
+        "875",
+        "",
+        "43",
+        "△",
+        "-",
+        "-",
+        "○",
+        "RD-704のみ使用不可。"
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:7_62x39mm:7_62x39mm_bp_gzh:b65876f2",
+      "cells": [
+        "7.62x39mm / BP gzh",
+        "58",
+        "47",
+        "63",
+        "-3",
+        "+7",
+        "",
+        "",
+        "",
+        "",
+        "730",
+        "",
+        "17.9",
+        "○",
+        "-",
+        "-",
+        "○",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:7_62x39mm:7_62x39mm_pp_gzh:c7a8569c",
+      "cells": [
+        "7.62x39mm / PP gzh",
+        "59",
+        "41",
+        "57",
+        "-1",
+        "+5",
+        "",
+        "",
+        "",
+        "",
+        "732",
+        "",
+        "12.9",
+        "○",
+        "-",
+        "-",
+        "-",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:7_62x39mm:7_62x39mm_ps_gzh:83e0b8c0",
+      "cells": [
+        "7.62x39mm / PS gzh",
+        "61",
+        "35",
+        "52",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "717",
+        "",
+        "10.3",
+        "-",
+        "○",
+        "-",
+        "-",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:6_8x51mm:6_8x51mm_sig_fmj:e74814e7",
+      "cells": [
+        "6.8x51mm SIG / FMJ",
+        "80",
+        "36",
+        "49",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "899",
+        "",
+        "11",
+        "○",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:9x39mm:9x39mm_sp_6_gs:0d57a56a",
+      "cells": [
+        "9x39mm / SP-6 gs",
+        "60",
+        "48",
+        "64",
+        "",
+        "+5",
+        "+10",
+        "+10",
+        "",
+        "",
+        "305",
+        "亜音速",
+        "14.4",
+        "△",
+        "-",
+        "-",
+        "-",
+        "VSK-94のみ使用可"
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:9x39mm:9x39mm_pab_9_gs:23f8b838",
+      "cells": [
+        "9x39mm / PAB-9 gs",
+        "62",
+        "43",
+        "57",
+        "-15",
+        "+10",
+        "+10",
+        "+12",
+        "",
+        "",
+        "320",
+        "亜音速",
+        "11.9",
+        "△",
+        "-",
+        "△",
+        "-",
+        "アサルトではAS VAL MOD.4のみ使用不可 / スカウトでは9A-91のみ使用可"
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:9x39mm:9x39mm_spp_gs:79857624",
+      "cells": [
+        "9x39mm / SPP gs",
+        "68",
+        "37",
+        "48",
+        "+10",
+        "+7",
+        "+10",
+        "+20",
+        "",
+        "",
+        "310",
+        "亜音速",
+        "8.3",
+        "○",
+        "-",
+        "○",
+        "-",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:12_7x55mm_sts_130:12_7x55mm_ps12b:9c5bf044",
+      "cells": [
+        "12.7x55mm / PS12B",
+        "102",
+        "45",
+        "57",
+        "",
+        "+15",
+        "",
+        "+15",
+        "",
+        "",
+        "570",
+        "",
+        "16.2",
+        "○",
+        "-",
+        "-",
+        "○",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:12_7x55mm_sts_130:12_7x55mm_ps12:11880029",
+      "cells": [
+        "12.7x55mm / PS12",
+        "115",
+        "28",
+        "60",
+        "+10",
+        "",
+        "+30",
+        "+20",
+        "",
+        "",
+        "300",
+        "亜音速",
+        "11.6",
+        "○",
+        "○",
+        "○",
+        "○",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:12_7x55mm_sts_130:12_7x55mm_ps12a:e95b8578",
+      "cells": [
+        "12.7x55mm / PS12A",
+        "165",
+        "10",
+        "22",
+        "-15",
+        "-12",
+        "+35",
+        "+30",
+        "",
+        "",
+        "870",
+        "",
+        "32",
+        "-",
+        "-",
+        "-",
+        "-",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:366_tkm:366_tkm_ap_m:9d5432fa",
+      "cells": [
+        ".366 TKM / AP-M",
+        "90",
+        "42",
+        "60",
+        "-22",
+        "+35",
+        "",
+        "+10",
+        "",
+        "",
+        "602",
+        "",
+        "13.1",
+        "-",
+        "-",
+        "-",
+        "○",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:7_62x51mm:7_62x51mm_ball_11_long_range:1ed119ab",
+      "cells": [
+        "7.62x51mm / Ball 11 Long Range",
+        "95",
+        "63",
+        "88",
+        "+15",
+        "+15",
+        "+10",
+        "+10",
+        "",
+        "",
+        "805",
+        "",
+        "110",
+        "-",
+        "-",
+        "-",
+        "△",
+        "Arena専用弾薬 / ボルトアクションライフルのみ発射可能 / マークスマンライフルのチャンバーや / マガジンには装填不可。"
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:7_62x51mm:7_62x51mm_m61:1d9d133f",
+      "cells": [
+        "7.62x51mm / M61",
+        "75",
+        "55",
+        "79",
+        "-2",
+        "+3",
+        "+7",
+        "+7",
+        "",
+        "",
+        "838",
+        "",
+        "22.4",
+        "-",
+        "-",
+        "-",
+        "○",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:7_62x51mm:7_62x51mm_m80:ab4ffde8",
+      "cells": [
+        "7.62x51mm / M80",
+        "80",
+        "43",
+        "67",
+        "-3",
+        "+1",
+        "+8",
+        "+8",
+        "",
+        "",
+        "838",
+        "",
+        "13.7",
+        "○",
+        "○",
+        "-",
+        "○",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:7_62x51mm:7_62x51mm_m62_tracer:f8663421",
+      "cells": [
+        "7.62x51mm / M62 Tracer",
+        "82",
+        "42",
+        "65",
+        "-5",
+        "+1",
+        "+10",
+        "+10",
+        "",
+        "",
+        "838",
+        "曳光弾 / (緑)",
+        "13.1",
+        "○",
+        "○",
+        "-",
+        "○",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:7_62x51mm:7_62x51mm_bcp_fmj:227c331d",
+      "cells": [
+        "7.62x51mm / BCP FMJ",
+        "83",
+        "37",
+        "56",
+        "",
+        "",
+        "+12",
+        "+12",
+        "",
+        "",
+        "800",
+        "",
+        "11.1",
+        "-",
+        "○",
+        "-",
+        "-",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:7_62x51mm:7_62x51mm_tcw_sp:6d91bc4b",
+      "cells": [
+        "7.62x51mm / TCW SP",
+        "85",
+        "30",
+        "25",
+        "-1",
+        "-3",
+        "+15",
+        "+15",
+        "",
+        "",
+        "771",
+        "",
+        "12",
+        "-",
+        "-",
+        "-",
+        "-",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:7_62x54mm_r:7_62x54mm_r_tungsten_carbide_ap:e287cf8f",
+      "cells": [
+        "7.62x54mm / R Tungsten Carbide AP",
+        "98",
+        "66",
+        "94",
+        "+10",
+        "+10",
+        "+10",
+        "+10",
+        "",
+        "",
+        "984",
+        "",
+        "99.2",
+        "-",
+        "-",
+        "-",
+        "△",
+        "Arena専用弾薬 / ボルトアクションライフルのみ / 発射可能"
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:7_62x54mm_r:7_62x54mm_r_bt_gzh:6219d2d1",
+      "cells": [
+        "7.62x54mm / R BT gzh",
+        "78",
+        "55",
+        "87",
+        "-2",
+        "-4",
+        "",
+        "",
+        "",
+        "",
+        "875",
+        "曳光弾 / (緑)",
+        "30.1",
+        "-",
+        "-",
+        "-",
+        "○",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:7_62x54mm_r:7_62x54mm_r_lps_gzh:6cff5f87",
+      "cells": [
+        "7.62x54mm / R LPS gzh",
+        "81",
+        "42",
+        "78",
+        "-5",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "865",
+        "",
+        "14",
+        "-",
+        "-",
+        "-",
+        "-",
+        "ARMORY上ではEnforcerで使用可能となっているが、 / PKPで使用できない。"
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:7_62x54mm_r:7_62x54mm_r_fmj:a0047523",
+      "cells": [
+        "7.62x54mm / R FMJ",
+        "84",
+        "36",
+        "63",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "760",
+        "",
+        "11.4",
+        "-",
+        "○",
+        "-",
+        "-",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:7_62x54mm_r:7_62x54mm_r_ps_gzh:f24a9e68",
+      "cells": [
+        "7.62x54mm / R PS gzh",
+        "84",
+        "45",
+        "84",
+        "+10",
+        "+8",
+        "",
+        "",
+        "",
+        "",
+        "875",
+        "",
+        "15.1",
+        "-",
+        "-",
+        "-",
+        "-",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:308_marlin_express:308_me:55f44a2e",
+      "cells": [
+        ".308 ME",
+        "80",
+        "42",
+        "",
+        "-2",
+        "+3",
+        "+35",
+        "+17",
+        "",
+        "",
+        "838",
+        "",
+        "14.3",
+        "○",
+        "○",
+        "○",
+        "○",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:308_marlin_express:308_me_lokt:8410e095",
+      "cells": [
+        ".308 ME LOKT",
+        "96",
+        "24",
+        "",
+        "-2",
+        "-3",
+        "+45",
+        "+22",
+        "",
+        "",
+        "838",
+        "",
+        "12.1",
+        "○",
+        "○",
+        "○",
+        "○",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:9_3x64mm:9_3x64mm_fmj:24f20d9b",
+      "cells": [
+        "9.3x64mm / FMJ",
+        "115",
+        "44",
+        "",
+        "+15",
+        "",
+        "+80",
+        "+50",
+        "",
+        "",
+        "793",
+        "",
+        "22.5",
+        "-",
+        "-",
+        "-",
+        "○",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:338_lapua_magnum:338_lapua_magnum_ap:b1723509",
+      "cells": [
+        ".338 / Lapua Magnum / AP",
+        "115",
+        "79",
+        "89",
+        "",
+        "+10",
+        "+20",
+        "+55",
+        "",
+        "",
+        "849",
+        "",
+        "143",
+        "-",
+        "-",
+        "-",
+        "△",
+        "Mk-18のみ使用不可"
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:338_lapua_magnum:338_lapua_magnum_fmj:e3ba26a8",
+      "cells": [
+        ".338 / Lapua Magnum / FMJ",
+        "122",
+        "47",
+        "",
+        "",
+        "",
+        "+35",
+        "+5o",
+        "",
+        "",
+        "900",
+        "",
+        "37.2",
+        "-",
+        "-",
+        "-",
+        "○",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:50_bmg:50_bmg_m903_slap:016fe59b",
+      "cells": [
+        ",50 BMG / M903 SLAP",
+        "160",
+        "115",
+        "",
+        "",
+        "+28",
+        "+30",
+        "+15",
+        "",
+        "",
+        "1220",
+        "",
+        "94.2",
+        "-",
+        "-",
+        "-",
+        "○",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:12_70:12_70_8_5mm_magnum_buckshot:5ae1ff80",
+      "cells": [
+        "12/70 / 8.5mm / Magnum Buckshot",
+        "400(8x50)",
+        "2",
+        "26",
+        "-15",
+        "+115",
+        "+20",
+        "+10",
+        "",
+        "",
+        "385",
+        "",
+        "11.8",
+        "-",
+        "○",
+        "-",
+        "-",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:12_70:12_70_6_5mm_express_buckshot:30c2607b",
+      "cells": [
+        "12/70 / 6.5mm / Express buckshot",
+        "315(9x35)",
+        "3",
+        "26",
+        "+15",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "430",
+        "",
+        "9.7",
+        "○",
+        "○",
+        "○",
+        "○",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:12_70:12_70_flechette:d3a1460b",
+      "cells": [
+        "12/70 / Flechette",
+        "200(8x25)",
+        "31",
+        "26",
+        "-10",
+        "",
+        "+25",
+        "+25",
+        "",
+        "",
+        "320",
+        "",
+        "7.9",
+        "-",
+        "○",
+        "○",
+        "-",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:12_70:12_70_piranha:a5821401",
+      "cells": [
+        "12/70 / Piranha",
+        "250(10x25)",
+        "24",
+        "22",
+        "-5",
+        "",
+        "+15",
+        "+15",
+        "",
+        "",
+        "310",
+        "",
+        "9.1",
+        "-",
+        "○",
+        "-",
+        "-",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:12_70:12_70_ap_20_armor_piercing_slug:4c81af25",
+      "cells": [
+        "12/70 / AP-20 / armor-piercing slug",
+        "164",
+        "48",
+        "65",
+        "+80",
+        "+50",
+        "",
+        "+10",
+        "",
+        "",
+        "510",
+        "",
+        "25.7",
+        "-",
+        "-",
+        "○",
+        "-",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:12_70:12_70_rip:9b99f425",
+      "cells": [
+        "12/70 / RIP",
+        "265",
+        "2",
+        "11",
+        "+80",
+        "+35",
+        "+40",
+        "+25",
+        "",
+        "",
+        "410",
+        "",
+        "14.9",
+        "○",
+        "○",
+        "○",
+        "○",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:23x75mm:23x75mm_shrapnel_10_buckshot:b35eeb2d",
+      "cells": [
+        "23x75mm / \"Shrapnel-10\" / buckshot",
+        "696(8x87)",
+        "11",
+        "20",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "270",
+        "",
+        "5.4",
+        "-",
+        "-",
+        "○",
+        "-",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "ammo:23x75mm:23x75mm_shrapnel_25_buckshot:5aa928b9",
+      "cells": [
+        "23x75mm / \"Shrapnel-25\" / buckshot",
+        "624(8x78)",
+        "10",
+        "20",
+        "+20",
+        "+10",
+        "",
+        "",
+        "",
+        "",
+        "375",
+        "",
+        "7.3",
+        "-",
+        "-",
+        "○",
+        "-",
+        ""
+      ],
+      "columnLayout": "ammo"
+    },
+    {
+      "id": "blastgang:common_grenade:model_m7290_flash_bang_grenade:bd95ce7c",
+      "cells": [
+        "Model M7290 Flash Bang grenade",
+        "150"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:common_grenade:m18_smoke_grenade:103ad084",
+      "cells": [
+        "M18 smoke grenade",
+        "250"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:common_grenade:v40_mini_grenade:2f041be4",
+      "cells": [
+        "V40 Mini-Grenade",
+        "600"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:common_helmet:crye_precision_airframe_helmet_shark:d957df52",
+      "cells": [
+        "Crye Precision AirFrame Helmet(Shark)",
+        "1600"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:common_helmet:crye_precision_airframe_helmet_old_school_crye_precision_airframe_helmet_black_crye_precision_a:fbd999cd",
+      "cells": [
+        "Crye Precision AirFrame Helmet(Old School) / Crye Precision AirFrame Helmet(Black) / Crye Precision AirFrame Helmet(Bull)",
+        "1400"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:common_helmet:crye_precision_airframe_m_lok_helmet_tan_crye_precision_airframe_m_lok_helmet_od_green:9fe17e87",
+      "cells": [
+        "Crye Precision AirFrame M-LOK Helmet(Tan) / Crye Precision AirFrame M-LOK Helmet(OD Green)",
+        "1400"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:common_helmet:team_wendy_exfil_ballistic_helmet_coyote_brown:040d339c",
+      "cells": [
+        "Team Wendy EXFIL Ballistic Helmet(Coyote Brown)",
+        "1600"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:common_helmet:ops_core_fast_mt_super_high_cut_helmet_black:ae609c74",
+      "cells": [
+        "Ops-Core FAST MT Super High Cut helmet(Black)",
+        "1600"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:common_helmet:msa_gallet_tc_800_high_cut_combat_helmet_black:66ae3718",
+      "cells": [
+        "MSA Gallet TC 800 High Cut combat helmet(Black)",
+        "1600"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:common_helmet:devtac_ronin_ballistic_helmet_devtac_ronin_ballistic_helmet_prototype_devtac_ronin_ballistic_he:d2b177b5",
+      "cells": [
+        "DevTac Ronin ballistic helmet / DevTac Ronin ballistic helmet(Prototype) / DevTac Ronin ballistic helmet(Raptor) / DevTac Ronin ballistic helmet(Olive Drab)",
+        "1500"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:common_helmet:diamond_age_novesteel_helmet_custos_mortis_diamond_age_novesteel_helmet_toxin_diamond_age_noves:24eaa0ec",
+      "cells": [
+        "Diamond Age NoveSteel helmet(Custos Mortis) / Diamond Age NoveSteel helmet(Toxin) / Diamond Age NoveSteel helmet(Olive Drab)",
+        "1500"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:common_1_armor:interceptor_otv_body_armor_ucp_interceptor_otv_body_armor_woodland:55603394",
+      "cells": [
+        "Interceptor OTV body armor (UCP) / Interceptor OTV body armor (Woodland)",
+        "450"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:common_1_armor:nfm_thor_concealable_reinforced_vest_body_armor_nfm_thor_concealable_reinforced_vest_body_armor:2587b38a",
+      "cells": [
+        "NFM THOR Concealable Reinforced Vest body armor / NFM THOR Concealable Reinforced Vest body armor (Head Eyes)",
+        "450"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:common_1_armor:blue_force_gear_plateminus_v2_body_armor_wolf_gray_blue_force_gear_plateminus_v2_body_armor_coy:3d98b778",
+      "cells": [
+        "Blue Force Gear PLATEminus V2 body armor (Wolf Gray) / Blue Force Gear PLATEminus V2 body armor (Coyote Brown)",
+        "450"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:common_1_armor:highcom_trooper_tfo_body_armor_multicam_highcom_trooper_tfo_body_armor_coyote:f891a7f1",
+      "cells": [
+        "HighCom Trooper TFO body armor (MultiCam) / HighCom Trooper TFO body armor (Coyote)",
+        "400"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:common_1_armor:lbt_6094a_slick_plate_carrier_black_lbt_6094a_slick_plate_carrier_coyote_tan_lbt_6094a_slick_pl:74083150",
+      "cells": [
+        "LBT-6094A Slick Plate Carrier (Black) / LBT-6094A Slick Plate Carrier (Coyote Tan) / LBT-6094A Slick Plate Carrier (Olive Drab)",
+        "400"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:common_1_armor:hexatac_hpc_plate_carrier_multicam_black_hexatac_hpc_plate_carrier_multicam:bdaf0325",
+      "cells": [
+        "Hexatac HPC Plate Carrier (MultiCam Black) / Hexatac HPC Plate Carrier (MultiCam)",
+        "350"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:common_1_armor:5_11_tactical_hexgrid_plate_carrier:e35035db",
+      "cells": [
+        "5.11 Tactical Hexgrid plate carrier",
+        "350"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:common_2_armor:fort_redut_m_body_armor_fort_redut_m_body_armor_sk_woodland_fort_redut_m_body_armor_black_fort_:2263299d",
+      "cells": [
+        "FORT Redut-M body armor / FORT Redut-M body armor (SK Woodland) / FORT Redut-M body armor (Black) / FORT Redut-M body armor (Prisoner of the Arena)",
+        "1200"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:common_2_armor:iotv_gen4_body_armor_high_mobility_kit_multicam:554b513b",
+      "cells": [
+        "IOTV Gen4 body armor (High Mobility Kit, MultiCam)",
+        "1200"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:common_2_armor:bnti_kirasa_n_body_armor_bnti_kirasa_n_body_armor_green:23782443",
+      "cells": [
+        "BNTI Kirasa-N body armor / BNTI Kirasa-N body armor (Green)",
+        "1200"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:common_2_armor:fort_gladiator_s_plate_carrier_gray:71c99632",
+      "cells": [
+        "FORT Gladiator-S plate carrier (Gray)",
+        "1200"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:common_2_armor:fort_defender_2_body_armor_fort_defender_2_body_armor_flecktarn:a2dd5020",
+      "cells": [
+        "FORT Defender-2 body armor / FORT Defender-2 body armor (Flecktarn)",
+        "1200"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:attacker_pistol:glock_17:23e50de2",
+      "cells": [
+        "Glock 17",
+        "0 (初期武器)",
+        "AP6.3 (ダメージ50 貫通29) / 17連マガジンx4"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:attacker_pistol:p226r:8c244dba",
+      "cells": [
+        "P226R",
+        "200",
+        "AP6.3 (ダメージ50 貫通29) / 20連マガジンx3"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:attacker_pistol:m9a3:496ad313",
+      "cells": [
+        "M9A3",
+        "250",
+        "AP6.3 (ダメージ50 貫通29) / 17連マガジンx3"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:attacker_pistol:sawed_off:375adba5",
+      "cells": [
+        "SAWED-OFF",
+        "300",
+        "Flechette (ダメージ25x8 貫通31)"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:attacker_pistol:tt:7e2482a7",
+      "cells": [
+        "TT",
+        "350",
+        "TT 855A1 (ダメージ34 貫通31) / 8連マガジンx5"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:attacker_pistol:fn_5_7_fde:386b45eb",
+      "cells": [
+        "FN 5-7 FDE",
+        "450",
+        "L191 (ダメージ53 貫通33) / 20連マガジンx2"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:attacker_pistol:desert_eagle_l6:cdb2591a",
+      "cells": [
+        "DESERT EAGLE L6",
+        "500",
+        "FMJ (ダメージ85 貫通40) / 7連マガジンx54"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:attacker_pistol:sr_1mp:76875f92",
+      "cells": [
+        "SR-1MP",
+        "600",
+        "BT (ダメージ52 貫通32 / 18連マガジンx2"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:attacker_pistol:aps:24a682fe",
+      "cells": [
+        "APS",
+        "650",
+        "PBM (ダメージ40 貫通28) / 20連マガジンx3"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:attacker_eco:pp_9_klin:62e5bce2",
+      "cells": [
+        "PP-9 KLIN",
+        "900",
+        "PBM (ダメージ40 貫通28) / 30連マガジンx3"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:attacker_eco:op_sks:b1ab3366",
+      "cells": [
+        "OP-SKS",
+        "900",
+        "T-45M1 (ダメージ65 貫通30) / 20連マガジンx2"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:attacker_eco:pp_19_01:01b16187",
+      "cells": [
+        "PP-19-01",
+        "1000",
+        "AP6.3 (ダメージ50 貫通29) / 30連マガジンx4"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:attacker_eco:vsk_94:cd900f63",
+      "cells": [
+        "VSK-94",
+        "1100",
+        "SP-5 (ダメージ75 貫通28) / 20連マガジンx5"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:attacker_eco:ks_23m:250f0ffb",
+      "cells": [
+        "KS-23M",
+        "1200",
+        "Shrapnel-25 (ダメージ78x8 貫通10)"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:attacker_common:mp_155:10c33463",
+      "cells": [
+        "MP-155",
+        "1600",
+        "Magnum (ダメージ50x8 貫通2)"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:attacker_common:mpx:a7b7d54a",
+      "cells": [
+        "MPX",
+        "1700",
+        "AP6.3 (ダメージ50 貫通29) / 30連マガジンx3"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:attacker_common:akmn:17e864fc",
+      "cells": [
+        "AKMN",
+        "1900",
+        "T-45M1 (ダメージ65 貫通30) / 30連マガジンx4"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:attacker_common:rd_704:3dea3970",
+      "cells": [
+        "RD-704",
+        "1900",
+        "T-45M1 (ダメージ65 貫通30) / 30連マガジンx4"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:attacker_common:sr_3m:ec1c3900",
+      "cells": [
+        "SR-3M",
+        "2000",
+        "SP-5 (ダメ―ジ71 貫通28) / 30連マガジンx4"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:attacker_common:mk47:18815d73",
+      "cells": [
+        "MK47",
+        "2200",
+        "T-45M1 (ダメージ65 貫通30) / 30連マガジンx5"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:attacker_common:mcx:db68d5bd",
+      "cells": [
+        "MCX",
+        "2400",
+        "BCP FMJ (ダメージ60 貫通30) / 30連マガジンx3"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:attacker_elite:ak_308:cea89805",
+      "cells": [
+        "AK-308",
+        "3000",
+        "M80 (ダメージ80 貫通43) / 20連マガジンx4"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:attacker_elite:ak_12:860c2c95",
+      "cells": [
+        "AK-12",
+        "3100",
+        "BP (ダメージ48 貫通45) / 30連マガジンx5"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:attacker_elite:mp7a1:1c7a4a70",
+      "cells": [
+        "MP7A1",
+        "3200",
+        "FMJ SX (ダメージ46 貫通40) / 20連マガジンx4"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:attacker_elite:hk416:8e5754d6",
+      "cells": [
+        "HK416",
+        "3300",
+        "M855A1 (ダメージ49 貫通44) / 30連マガジンx4"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:attacker_elite:nl545_gp:84dc5934",
+      "cells": [
+        "NL545 GP",
+        "3400",
+        "7N40 (ダメージ52 貫通42) / 30連マガジンx4"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:attacker_special:saiga_12k:055c0222",
+      "cells": [
+        "SAIGA-12K",
+        "2300",
+        "Flechette (ダメージ25x8 貫通31) / 5連マガジンx5"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:attacker_special:rpdn:8fc51c9d",
+      "cells": [
+        "RPDN",
+        "2900",
+        "T-45M1 (ダメージ65 貫通30) / 100連マガジンx1"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:attacker_special:ash_12:b6bd623f",
+      "cells": [
+        "ASH-12",
+        "3900",
+        "PS12B (ダメージ102 貫通45) / 20連マガジンx2"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:attacker_special:pkp:d04de6d1",
+      "cells": [
+        "PKP",
+        "4500",
+        "T-46M (ダメージ82 貫通41) / 100連マガジンx1"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:attacker_sniper:trg_m10:17a49dc6",
+      "cells": [
+        "TRG M10",
+        "3700",
+        "AP (ダメージ115 貫通79) / 8連マガジンx3"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:attacker_sniper:dvl_10:6d3f6960",
+      "cells": [
+        "DVL-10",
+        "4000",
+        "Ball 11 LR (ダメージ95 貫通63) / 10連マガジンx3"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:attacker_sniper:g28:8772d11f",
+      "cells": [
+        "G28",
+        "4300",
+        "M61 (ダメージ73 貫通55) / 20連マガジンx3"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:attacker_sniper:sv_98:f55a5aec",
+      "cells": [
+        "SV-98",
+        "4400",
+        "TC AP (ダメージ98 貫通66) / 10連マガジンx2"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:attacker_sniper:ak_50:942eadca",
+      "cells": [
+        "AK-50",
+        "4500",
+        "M33 (ダメージ190 貫通56) / 10連マガジンx3"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:attacker_sniper:mk_18_mj_246_lnir:d320c466",
+      "cells": [
+        "MK-18 Mj&#246;lnir",
+        "5000",
+        "FMJ (ダメージ122 貫通47) / 10連マガジンx1"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:defender_pistol:glock_19x:fb6d2546",
+      "cells": [
+        "Glock 19X",
+        "0 (初期武器)",
+        "AP6.3 (ダメージ50 貫通29) / 19連マガジンx4"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:defender_pistol:p226r:8c244dba",
+      "cells": [
+        "P226R",
+        "200",
+        "AP6.3 (ダメージ50 貫通29) / 20連マガジンx3"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:defender_pistol:m9a3:496ad313",
+      "cells": [
+        "M9A3",
+        "250",
+        "AP6.3 (ダメージ50 貫通29) / 17連マガジンx3"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:defender_pistol:sawed_off:375adba5",
+      "cells": [
+        "SAWED-OFF",
+        "300",
+        "Flechette (ダメージ25x8 貫通31)"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:defender_pistol:fn_5_7_fde:386b45eb",
+      "cells": [
+        "FN 5-7 FDE",
+        "450",
+        "L191 (ダメージ53 貫通33) / 20連マガジンx2"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:defender_pistol:desert_eagle_l6:b11f2635",
+      "cells": [
+        "DESERT EAGLE L6",
+        "500",
+        "FMJ (ダメージ85 貫通40) / 7連マガジンx5"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:defender_pistol:sr_1mp:4abeb3b7",
+      "cells": [
+        "SR-1MP",
+        "600",
+        "BT (ダメージ52 貫通32) / 18連マガジンx2"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:defender_pistol:apb:fbbf1e3e",
+      "cells": [
+        "APB",
+        "650",
+        "PBM (ダメージ40 貫通28) / 20連マガジンx4"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:defender_eco:ppsh41:62f82616",
+      "cells": [
+        "PPSH41",
+        "700",
+        "TT 855A1 (ダメージ41 貫通31) / 35連マガジンx5"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:defender_eco:590a1:8f3c06f2",
+      "cells": [
+        "590A1",
+        "700",
+        "Piranha (ダメージ25x10 貫通24)"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:defender_eco:kedr_b:e8199525",
+      "cells": [
+        "KEDR-B",
+        "900",
+        "PBM (ダメージ40 貫通28) / 30連マガジンx4"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:defender_eco:pp_91_01:3c2eaecb",
+      "cells": [
+        "PP-91-01",
+        "1000",
+        "AP6.3 (ダメージ50 貫通29) / 30連マガジンx4"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:defender_eco:vpo_209:84b43ab7",
+      "cells": [
+        "VPO-209",
+        "1100",
+        "EKO (ダメージ73 貫通30) / 20連マガジンx3"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:defender_common:mp5:229c5867",
+      "cells": [
+        "MP5",
+        "1500",
+        "AP6.3 (ダメージ50 貫通29) / 30連マガジンx5"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:defender_common:mp_155:6acec20f",
+      "cells": [
+        "MP-155",
+        "1600",
+        "Magnum (ダメージ40x8 貫通2)"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:defender_common:velociraptor:541d5429",
+      "cells": [
+        "VELOCIRAPTOR",
+        "1600",
+        "BCP FMJ (ダメージ60 貫通30) / 30連マガジンx5"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:defender_common:mp9:85e5b0f2",
+      "cells": [
+        "MP9",
+        "1700",
+        "AP6.3 (ダメージ50 貫通29) / 25連マガジンx4"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:defender_common:as_val:d43f1909",
+      "cells": [
+        "AS VAL",
+        "1900",
+        "SP-5 (ダメージ71 貫通28) / 30連マガジンx4"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:defender_common:mk47:18815d73",
+      "cells": [
+        "MK47",
+        "2200",
+        "T-45M1 (ダメージ65 貫通30) / 30連マガジンx5"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:defender_common:mcx:db68d5bd",
+      "cells": [
+        "MCX",
+        "2400",
+        "BCP FMJ (ダメージ60 貫通30) / 30連マガジンx3"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:defender_elite:x_17:6211c222",
+      "cells": [
+        "X-17",
+        "2800",
+        "M80 (ダメージ80 貫通43) / 20連マガジンx4"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:defender_elite:aug_a3:91f5f5df",
+      "cells": [
+        "AUG A3",
+        "2900",
+        "M995 (ダメージ42 貫通53) / 30連マガジンx5"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:defender_elite:mp7a2:d460ff91",
+      "cells": [
+        "MP7A2",
+        "3100",
+        "FMJ SX (ダメージ46 貫通40) / 20連マガジンx4"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:defender_elite:mdr:05cb43d2",
+      "cells": [
+        "MDR",
+        "3100",
+        "M80 (ダメージ80 貫通43) / 20連マガジンx4"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:defender_elite:m4a1:3b6a9da2",
+      "cells": [
+        "M4A1",
+        "3200",
+        "M855A1 (ダメージ49 貫通44) / 30連マガジンx4"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:defender_elite:nl545_di:3940c1d2",
+      "cells": [
+        "NL545 DI",
+        "3300",
+        "7N40 (ダメージ52 貫通42) / 30連マガジンx4"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:defender_special:saiga_12k:3887a461",
+      "cells": [
+        "SAIGA-12K",
+        "2300",
+        "Flechette ダメージ25x8 貫通31 / 5連マガジンx5"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:defender_special:rpdn:8fc51c9d",
+      "cells": [
+        "RPDN",
+        "2900",
+        "T-45M1 (ダメージ65 貫通30) / 100連マガジンx1"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:defender_special:ash_12:b6bd623f",
+      "cells": [
+        "ASH-12",
+        "3900",
+        "PS12B (ダメージ102 貫通45) / 20連マガジンx2"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:defender_special:pkp:d04de6d1",
+      "cells": [
+        "PKP",
+        "4500",
+        "T-46M (ダメージ82 貫通41) / 100連マガジンx1"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:defender_sniper:axmc:ca11e940",
+      "cells": [
+        "AXMC",
+        "3800",
+        "AP (ダメージ115 貫通79) / 10連マガジンx2"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:defender_sniper:t_5000m:4281b14f",
+      "cells": [
+        "T-5000M",
+        "4100",
+        "Ball 11 LR (ダメージ95 貫通63) / 5連マガジンx3"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:defender_sniper:g28:8772d11f",
+      "cells": [
+        "G28",
+        "4300",
+        "M61 (ダメージ73 貫通55) / 20連マガジンx3"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:defender_sniper:sv_98:f55a5aec",
+      "cells": [
+        "SV-98",
+        "4400",
+        "TC AP (ダメージ98 貫通66) / 10連マガジンx2"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:defender_sniper:ak_50:942eadca",
+      "cells": [
+        "AK-50",
+        "4500",
+        "M33 (ダメージ190 貫通56) / 10連マガジンx3"
+      ],
+      "columnLayout": "blastgang_shop"
+    },
+    {
+      "id": "blastgang:defender_sniper:mk_18_mj_246_lnir:d320c466",
+      "cells": [
+        "MK-18 Mj&#246;lnir",
+        "5000",
+        "FMJ (ダメージ122 貫通47) / 10連マガジンx1"
+      ],
+      "columnLayout": "blastgang_shop"
+    }
+  ]
+}

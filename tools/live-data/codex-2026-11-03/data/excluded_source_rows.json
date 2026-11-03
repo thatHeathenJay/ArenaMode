@@ -1,0 +1,242 @@
+[
+  {
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 117,
+      "section": "アサルトライフル",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03"
+    },
+    "reason": "commented_out_source_row",
+    "name": "Steyr AUG A1 5.56x45 assault rifle"
+  },
+  {
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 123,
+      "section": "アサルトライフル",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03"
+    },
+    "reason": "commented_out_source_row",
+    "name": "FN SCAR-L 5.56x45 assault rifle (FDE)"
+  },
+  {
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 126,
+      "section": "アサルトライフル",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03"
+    },
+    "reason": "commented_out_source_row",
+    "name": "FN SCAR-H 7.62x51 assault rifle LB"
+  },
+  {
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 191,
+      "section": "サブマシンガン",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03"
+    },
+    "reason": "commented_out_source_row",
+    "name": "HK MP5K 9x19 submachine gun"
+  },
+  {
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 194,
+      "section": "サブマシンガン",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03"
+    },
+    "reason": "commented_out_source_row",
+    "name": "IWI UZI 9x19 submachine gun"
+  },
+  {
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 197,
+      "section": "サブマシンガン",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03"
+    },
+    "reason": "commented_out_source_row",
+    "name": "IWI UZI PRO SMG 9x19 submachine gun"
+  },
+  {
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 200,
+      "section": "サブマシンガン",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03"
+    },
+    "reason": "commented_out_source_row",
+    "name": "Soyuz-TM STM-9 Gen.2 9x19 carbine"
+  },
+  {
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 249,
+      "section": "ショットガン",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03"
+    },
+    "reason": "commented_out_source_row",
+    "name": "MTs-255-12 12ga shotgun"
+  },
+  {
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 273,
+      "section": "ライトマシンガン",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03"
+    },
+    "reason": "commented_out_source_row",
+    "name": "Kalashnikov PKM 7.62x54R machine gun"
+  },
+  {
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 358,
+      "section": "ボルトアクションライフル",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03"
+    },
+    "reason": "commented_out_source_row",
+    "name": "Mosin 7.62x54R bolt-action rifle (Infantry)"
+  },
+  {
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 407,
+      "section": "アサルトカービン",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03"
+    },
+    "reason": "commented_out_source_row",
+    "name": "ADAR 2-15 5.56x45 carbine"
+  },
+  {
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 410,
+      "section": "アサルトカービン",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03"
+    },
+    "reason": "commented_out_source_row",
+    "name": "SAG AK-545 Short 5.45x39 carbine"
+  },
+  {
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 413,
+      "section": "アサルトカービン",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03"
+    },
+    "reason": "commented_out_source_row",
+    "name": "Molot Arms VPO-136 \"Vepr-KM\" 7.62x39 carbine"
+  },
+  {
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 495,
+      "section": "ピストル",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03"
+    },
+    "reason": "commented_out_source_row",
+    "name": "Chiappa Rhino 200DS 9x19 revolver"
+  },
+  {
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 498,
+      "section": "ピストル",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03"
+    },
+    "reason": "commented_out_source_row",
+    "name": "TT-33 7.62x25 TT pistol (Golden)"
+  },
+  {
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 501,
+      "section": "ピストル",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03"
+    },
+    "reason": "commented_out_source_row",
+    "name": "Makarov PM 9x18PM pistol"
+  },
+  {
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 504,
+      "section": "ピストル",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03"
+    },
+    "reason": "commented_out_source_row",
+    "name": "Glock 19X 9x19 pistol"
+  },
+  {
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 652,
+      "section": "ボディアーマー",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03"
+    },
+    "reason": "commented_out_source_row",
+    "name": "NPP KlASS Kora-Kulon body armor (Black)"
+  },
+  {
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 655,
+      "section": "ボディアーマー",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03"
+    },
+    "reason": "commented_out_source_row",
+    "name": "NPP KlASS Kora-Kulon body armor (Digital Flora)"
+  },
+  {
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 673,
+      "section": "ボディアーマー",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03"
+    },
+    "reason": "commented_out_source_row",
+    "name": "BNTI Zhuk body armor (Press)"
+  }
+]

@@ -1,0 +1,233 @@
+{
+  "events": [
+    {
+      "event": "eco_kill",
+      "label": "Eco kill",
+      "amount": 750,
+      "currency": "BLASTGANG_MATCH_DOLLARS",
+      "source": {
+        "sourceId": "blastgang",
+        "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+        "line": 53,
+        "section": "round_economy",
+        "sectionPatch": "0.6.0.0.47752",
+        "retrievedOn": "2026-11-03",
+        "rowSha256": "be043c99bbbadbbf17ac910d4c80c55f45028c838aed3142b838c7f55b99d326"
+      }
+    },
+    {
+      "event": "common_weapon_kill",
+      "label": "Common weapon kill",
+      "amount": 350,
+      "currency": "BLASTGANG_MATCH_DOLLARS",
+      "source": {
+        "sourceId": "blastgang",
+        "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+        "line": 54,
+        "section": "round_economy",
+        "sectionPatch": "0.6.0.0.47752",
+        "retrievedOn": "2026-11-03",
+        "rowSha256": "dcf25410e7546b7be1c77210a574f48eb7a04c69d881428a90fa5e4c45d0e814"
+      }
+    },
+    {
+      "event": "elite_weapon_kill",
+      "label": "Elite weapon kill",
+      "amount": 200,
+      "currency": "BLASTGANG_MATCH_DOLLARS",
+      "source": {
+        "sourceId": "blastgang",
+        "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+        "line": 55,
+        "section": "round_economy",
+        "sectionPatch": "0.6.0.0.47752",
+        "retrievedOn": "2026-11-03",
+        "rowSha256": "e71354d1aecfc102d9b2f50af7bb4219731d0a2b242234298eb2a6674bda1d43"
+      }
+    },
+    {
+      "event": "pistol_kill",
+      "label": "Pistol kill",
+      "amount": 100,
+      "currency": "BLASTGANG_MATCH_DOLLARS",
+      "source": {
+        "sourceId": "blastgang",
+        "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+        "line": 56,
+        "section": "round_economy",
+        "sectionPatch": "0.6.0.0.47752",
+        "retrievedOn": "2026-11-03",
+        "rowSha256": "05932810a83e5d4cf8c6411a153f0966e0a0433fe0e8f1488035743e35e0fc4b"
+      }
+    },
+    {
+      "event": "sniper_kill",
+      "label": "Sniper kill",
+      "amount": 100,
+      "currency": "BLASTGANG_MATCH_DOLLARS",
+      "source": {
+        "sourceId": "blastgang",
+        "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+        "line": 57,
+        "section": "round_economy",
+        "sectionPatch": "0.6.0.0.47752",
+        "retrievedOn": "2026-11-03",
+        "rowSha256": "be74a8943b1e642d60c5eeed06b5682f7afe900849b0b1ea0a0da2db044f7c81"
+      }
+    },
+    {
+      "event": "special_weapon_kill",
+      "label": "Special weapon kill",
+      "amount": 50,
+      "currency": "BLASTGANG_MATCH_DOLLARS",
+      "source": {
+        "sourceId": "blastgang",
+        "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+        "line": 58,
+        "section": "round_economy",
+        "sectionPatch": "0.6.0.0.47752",
+        "retrievedOn": "2026-11-03",
+        "rowSha256": "2332030d2f99a5d1453514a10f659a0c1bba3a9dffaf836a5a7f2d8dbf9c400a"
+      }
+    },
+    {
+      "event": "grenade_kill",
+      "label": "Grenade kill",
+      "amount": 50,
+      "currency": "BLASTGANG_MATCH_DOLLARS",
+      "source": {
+        "sourceId": "blastgang",
+        "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+        "line": 59,
+        "section": "round_economy",
+        "sectionPatch": "0.6.0.0.47752",
+        "retrievedOn": "2026-11-03",
+        "rowSha256": "bb51b3a8e43ccf26cef892305300db9ef6057c2c9c27b08478ddd2c6cba12e14"
+      }
+    },
+    {
+      "event": "melee_kill",
+      "label": "Melee kill",
+      "amount": 1200,
+      "currency": "BLASTGANG_MATCH_DOLLARS",
+      "source": {
+        "sourceId": "blastgang",
+        "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+        "line": 60,
+        "section": "round_economy",
+        "sectionPatch": "0.6.0.0.47752",
+        "retrievedOn": "2026-11-03",
+        "rowSha256": "045c67c85bb2ab74e59c27ac4745729d243ca59b6d73e848e2ff7edb0f23fb81"
+      }
+    },
+    {
+      "event": "device_planted",
+      "label": "Device planted",
+      "amount": 200,
+      "currency": "BLASTGANG_MATCH_DOLLARS",
+      "source": {
+        "sourceId": "blastgang",
+        "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+        "line": 61,
+        "section": "round_economy",
+        "sectionPatch": "0.6.0.0.47752",
+        "retrievedOn": "2026-11-03",
+        "rowSha256": "71c4742867ea2c23bda85064f2a35cc77a5ec139ae640702c378907985c6366c"
+      }
+    },
+    {
+      "event": "round_win",
+      "label": "Round win",
+      "amount": 2800,
+      "currency": "BLASTGANG_MATCH_DOLLARS",
+      "source": {
+        "sourceId": "blastgang",
+        "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+        "line": 62,
+        "section": "round_economy",
+        "sectionPatch": "0.6.0.0.47752",
+        "retrievedOn": "2026-11-03",
+        "rowSha256": "63bafaf17409e9250b2c140f72d6d8956a660ebc20d2e926d2c6bf4db8437c9c"
+      }
+    },
+    {
+      "event": "round_win_by_device",
+      "label": "Round win by Device",
+      "amount": 3200,
+      "currency": "BLASTGANG_MATCH_DOLLARS",
+      "source": {
+        "sourceId": "blastgang",
+        "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+        "line": 63,
+        "section": "round_economy",
+        "sectionPatch": "0.6.0.0.47752",
+        "retrievedOn": "2026-11-03",
+        "rowSha256": "dd812e32f4ab96a9994ae3125785f7c736a097a2257dd3e261b29f35591b9c37"
+      }
+    },
+    {
+      "event": "round_loss_1",
+      "label": "Round lose",
+      "amount": 1600,
+      "currency": "BLASTGANG_MATCH_DOLLARS",
+      "source": {
+        "sourceId": "blastgang",
+        "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+        "line": 64,
+        "section": "round_economy",
+        "sectionPatch": "0.6.0.0.47752",
+        "retrievedOn": "2026-11-03",
+        "rowSha256": "216463ba1e92d8c98a09b55d1313333ad2051d203ca2a9618ad026d3e5c18d8e"
+      }
+    },
+    {
+      "event": "round_loss_2",
+      "label": "Round lose (2連敗)",
+      "amount": 2300,
+      "currency": "BLASTGANG_MATCH_DOLLARS",
+      "source": {
+        "sourceId": "blastgang",
+        "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+        "line": 65,
+        "section": "round_economy",
+        "sectionPatch": "0.6.0.0.47752",
+        "retrievedOn": "2026-11-03",
+        "rowSha256": "64e51626ad19821ae3e4bee5f0fc8ae45e330eecfe229fefa4006675b503a471"
+      }
+    },
+    {
+      "event": "round_loss_3",
+      "label": "Round lose (3連敗)",
+      "amount": 3000,
+      "currency": "BLASTGANG_MATCH_DOLLARS",
+      "source": {
+        "sourceId": "blastgang",
+        "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+        "line": 66,
+        "section": "round_economy",
+        "sectionPatch": "0.6.0.0.47752",
+        "retrievedOn": "2026-11-03",
+        "rowSha256": "9dd8845df754d76f92aef9aaffea107aa9568cb86a0b958493b7c8752e81cb98"
+      }
+    },
+    {
+      "event": "round_loss_4_or_more",
+      "label": "Round lose (4連敗~)",
+      "amount": 3600,
+      "currency": "BLASTGANG_MATCH_DOLLARS",
+      "source": {
+        "sourceId": "blastgang",
+        "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+        "line": 67,
+        "section": "round_economy",
+        "sectionPatch": "0.6.0.0.47752",
+        "retrievedOn": "2026-11-03",
+        "rowSha256": "9021964272093efdd2da7bf9aa27da71167a7a806e2647e2926a54bafd1356a8"
+      }
+    }
+  ],
+  "roundWinRewardsStack": null,
+  "roundWinRewardSelectionRequiresVerification": true,
+  "walletScope": "match_only",
+  "persistence": "must_not_credit_normal_wallet"
+}

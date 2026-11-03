@@ -1,0 +1,1910 @@
+[
+  {
+    "recordId": "armory:assault_rifle:kalashnikov_aks_74n_5_45x39_assault_rifle:58e1e224",
+    "name": "Kalashnikov AKS-74N 5.45x39 assault rifle",
+    "flags": [
+      "class_eligibility_not_listed"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 114,
+      "section": "アサルトライフル",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "58e1e224f75bb298af76cc0c63da13e7b18927c027b9fbc6f311209903cf2727"
+    }
+  },
+  {
+    "recordId": "armory:assault_rifle:steyr_aug_a3_5_56x45_assault_rifle:5787f01e",
+    "name": "Steyr AUG A3 5.56x45 assault rifle",
+    "flags": [
+      "class_eligibility_not_listed",
+      "mp_exceeds_entire_preset_budget"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 120,
+      "section": "アサルトライフル",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "5787f01e4e4285223941f64f5979b915b92447ce72aeb0a063d079b18dd6b17a"
+    }
+  },
+  {
+    "recordId": "armory:shotgun:saiga_12k_12ga_automatic_shotgun:5cf6bfb8",
+    "name": "Saiga-12K 12ga automatic shotgun",
+    "flags": [
+      "duplicate_display_name_check_variant_label_and_image"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 240,
+      "section": "ショットガン",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "5cf6bfb814340dc439f2b12b5f13a9ffe5e475793e75d8a9b92544489c698c45"
+    }
+  },
+  {
+    "recordId": "armory:shotgun:saiga_12k_12ga_automatic_shotgun:7d498fc3",
+    "name": "Saiga-12K 12ga automatic shotgun",
+    "flags": [
+      "duplicate_display_name_check_variant_label_and_image"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 243,
+      "section": "ショットガン",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "7d498fc3893dff9e60dcaefa3e869e3b218a41d371036d6007361bb66b5c7646"
+    }
+  },
+  {
+    "recordId": "armory:lmg:u_s_ordnance_m60e4_7_62x51_light_machine_gun:cc878137",
+    "name": "U.S Ordnance M60E4 7.62x51 light machine gun",
+    "flags": [
+      "class_eligibility_not_listed"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 276,
+      "section": "ライトマシンガン",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "cc8781375fb72dfb3655a803527eed02141ccd2cf7648788cd55e137ed5258d0"
+    }
+  },
+  {
+    "recordId": "armory:body_armor:npp_klass_korund_vm_body_armor_black:f2412fe3",
+    "name": "NPP KlASS Korund-VM body armor (Black)",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 574,
+      "section": "ボディアーマー",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "f2412fe3c8d9c176d4cc3373c0cad7c662737926103896610e7e34b2a8ea9698"
+    }
+  },
+  {
+    "recordId": "armory:body_armor:npp_klass_korund_vm_body_armor_kamysh:9a692a4c",
+    "name": "NPP KlASS Korund-VM body armor (Kamysh)",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 577,
+      "section": "ボディアーマー",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "9a692a4c033f5abcc987c6357c2d6d24895fde5eec9019e026bb1480227fda8e"
+    }
+  },
+  {
+    "recordId": "armory:body_armor:fort_redut_m_body_armor:70ef7c07",
+    "name": "FORT Redut-M body armor",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 580,
+      "section": "ボディアーマー",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "70ef7c076dd0951ffe71241914a1c4b84f4c1ea26bdf039fad470335405030ef"
+    }
+  },
+  {
+    "recordId": "armory:body_armor:fort_redut_m_body_armor_sk_woodland:6fdd5d2c",
+    "name": "FORT Redut-M body armor(SK Woodland)",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 583,
+      "section": "ボディアーマー",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "6fdd5d2c58d8b1b56aebabd76a37e6903daa13a3413ec89c0a5b97a540d0bd7e"
+    }
+  },
+  {
+    "recordId": "armory:body_armor:fort_redut_m_body_armor_prisoner_of_the_arena:e6a6e2db",
+    "name": "FORT Redut-M body armor(Prisoner of the Arena)",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 586,
+      "section": "ボディアーマー",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "e6a6e2db771973421d070392707e6fa75ce9618ee20716466bc9c9f6740cf2cd"
+    }
+  },
+  {
+    "recordId": "armory:body_armor:fort_redut_m_body_armor_black:c6813614",
+    "name": "FORT Redut-M body armor(Black)",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 589,
+      "section": "ボディアーマー",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "c6813614638d3480ba69a6fea9b8c14d9d9f363e4afe55a5c1f431552a0b67b2"
+    }
+  },
+  {
+    "recordId": "armory:body_armor:fort_defender_2_body_armor:3bb6bb4e",
+    "name": "FORT Defender-2 body armor",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible",
+      "duplicate_display_name_check_variant_label_and_image"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 592,
+      "section": "ボディアーマー",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "3bb6bb4e2ed110ceb0a2cb825beda79f52f723fb643af3b91865b58f5e0c5c8d"
+    }
+  },
+  {
+    "recordId": "armory:body_armor:fort_defender_2_body_armor:df6de8f6",
+    "name": "FORT Defender-2 body armor",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible",
+      "duplicate_display_name_check_variant_label_and_image"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 595,
+      "section": "ボディアーマー",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "df6de8f6ae48af302755f3da763bafc527df257d7b390322b547eac312d1f06e"
+    }
+  },
+  {
+    "recordId": "armory:body_armor:fort_gladiator_s_plate_carrier_gray:3d0f4f21",
+    "name": "FORT Gladiator-S plate carrier (Gray)",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 598,
+      "section": "ボディアーマー",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "3d0f4f21c74ade15831ae5ca96de6b12ec699a3771a894ac831bdc150b394699"
+    }
+  },
+  {
+    "recordId": "armory:body_armor:iotv_gen4_body_armor_high_mobility_kit_multicam:106629ce",
+    "name": "IOTV Gen4 body armor (High Mobility Kit, MultiCam)",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 601,
+      "section": "ボディアーマー",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "106629ce3e4b7e06c22dae8b90884825872e6407d49f3e47559d19de8e65d4cc"
+    }
+  },
+  {
+    "recordId": "armory:body_armor:bnti_zhuk_body_armor_emr:77bf8920",
+    "name": "BNTI Zhuk body armor (EMR)",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 604,
+      "section": "ボディアーマー",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "77bf8920cc3747c39f38d778c823b927e6086a45966ccd4a190000ef4e544229"
+    }
+  },
+  {
+    "recordId": "armory:body_armor:bnti_gzhel_k_body_armor:78d74482",
+    "name": "BNTI Gzhel-K body armor",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 607,
+      "section": "ボディアーマー",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "78d74482447f0fea5a61921cb99a0f7846e2292a40a365b820c497efbc7981dc"
+    }
+  },
+  {
+    "recordId": "armory:body_armor:nfm_thor_concealable_reinforced_vest_body_armor:5da90323",
+    "name": "NFM THOR Concealable Reinforced Vest body armor",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible",
+      "duplicate_display_name_check_variant_label_and_image"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 610,
+      "section": "ボディアーマー",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "5da90323339f4dbf48c4ccd062c6b65126c285069ef1ef36ee8bba21ba856804"
+    }
+  },
+  {
+    "recordId": "armory:body_armor:nfm_thor_concealable_reinforced_vest_body_armor:2d168603",
+    "name": "NFM THOR Concealable Reinforced Vest body armor",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible",
+      "duplicate_display_name_check_variant_label_and_image"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 613,
+      "section": "ボディアーマー",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "2d168603ec14c472fe9d965e412d2f40a4c8f3b0d8e451561cbb4336bb215647"
+    }
+  },
+  {
+    "recordId": "armory:body_armor:highcom_trooper_tfo_body_armor_multicam:80a0c5ca",
+    "name": "HighCom Trooper TFO body armor (MultiCam)",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 616,
+      "section": "ボディアーマー",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "80a0c5cad1f76cf9e2a2e478e2822ac2f09ae90843199cd5672a684bd2d1570c"
+    }
+  },
+  {
+    "recordId": "armory:body_armor:highcom_trooper_tfo_body_armor_coyote:0e17fdf5",
+    "name": "HighCom Trooper TFO body armor (Coyote)",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 619,
+      "section": "ボディアーマー",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "0e17fdf5307579841fe6cbd61def81979b08053654278dcd8c7f7d4c8be853ea"
+    }
+  },
+  {
+    "recordId": "armory:body_armor:lbt_6094a_slick_plate_carrier_olive_drab:e5dc2a02",
+    "name": "LBT-6094A Slick Plate Carrier (Olive Drab)",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 622,
+      "section": "ボディアーマー",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "e5dc2a02916c05622ecde77ea951a279ee54cb1b0c05f97d1c26a982ba563451"
+    }
+  },
+  {
+    "recordId": "armory:body_armor:lbt_6094a_slick_plate_carrier_black:f450ec19",
+    "name": "LBT-6094A Slick Plate Carrier (Black)",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 625,
+      "section": "ボディアーマー",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "f450ec1938f13db264f2f96c3d4e52468139805f99034a10cc158aae62fba86e"
+    }
+  },
+  {
+    "recordId": "armory:body_armor:lbt_6094a_slick_plate_carrier_coyote_tan:8e55d9d3",
+    "name": "LBT-6094A Slick Plate Carrier (Coyote Tan)",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 628,
+      "section": "ボディアーマー",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "8e55d9d3cc254af75c707ea29a781746b6930e5441c1dfa151fe663a4dbc233c"
+    }
+  },
+  {
+    "recordId": "armory:body_armor:bnti_kirasa_n_body_armor:31d27833",
+    "name": "BNTI Kirasa-N body armor",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 631,
+      "section": "ボディアーマー",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "31d278331b38ac9fe699d76fae65d9f77950b9f47e87582acabc1ac1a52a1c91"
+    }
+  },
+  {
+    "recordId": "armory:body_armor:bnti_kirasa_n_body_armor_green:66d682db",
+    "name": "BNTI Kirasa-N body armor(Green)",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 634,
+      "section": "ボディアーマー",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "66d682db9a9a5ada37e7d97c0cc8a08c867818d87e69df33ce4343200792c09c"
+    }
+  },
+  {
+    "recordId": "armory:body_armor:6b23_1_body_armor_emr:160bc0af",
+    "name": "6B23-1 body armor (EMR)",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 637,
+      "section": "ボディアーマー",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "160bc0aff197ccc89b2761b6048f13a6388a7b14ffa152233742842513fa27fd"
+    }
+  },
+  {
+    "recordId": "armory:body_armor:6b23_2_body_armor_mountain_flora:3818b472",
+    "name": "6B23-2 body armor (Mountain Flora)",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 640,
+      "section": "ボディアーマー",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "3818b472a3be67ce7084d27716f2ad091237fd91891aa8dda3d18c9f094074fd"
+    }
+  },
+  {
+    "recordId": "armory:body_armor:6b13_assault_armor_digital_flora:b07609a6",
+    "name": "6B13 assault armor (Digital Flora)",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 643,
+      "section": "ボディアーマー",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "b07609a6ebce8b9705ede297c7bd94b47c23ce3d40b0f3bcdffee795ac1c1c76"
+    }
+  },
+  {
+    "recordId": "armory:body_armor:6b13_assault_armor_flora:43f5e18c",
+    "name": "6B13 assault armor (Flora)",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 646,
+      "section": "ボディアーマー",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "43f5e18c9da91d27bf7600f35fce1093eb805d3d1e3b05cad647623c2fc8d866"
+    }
+  },
+  {
+    "recordId": "armory:body_armor:6b45_body_armor_emr:d5129c1f",
+    "name": "6B45 body armor(EMR)",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 649,
+      "section": "ボディアーマー",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "d5129c1f7d8a316a41680dc87d73f8127776cdf34f3100227e4aeeab6bcd9c8b"
+    }
+  },
+  {
+    "recordId": "armory:body_armor:interceptor_otv_body_armor_ucp:bfbb4734",
+    "name": "Interceptor OTV body armor (UCP)",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible",
+      "duplicate_display_name_check_variant_label_and_image"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 658,
+      "section": "ボディアーマー",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "bfbb4734c7695a43448a17dd83c232bedb71621f7ea8197580f2558a9c08f70d"
+    }
+  },
+  {
+    "recordId": "armory:body_armor:interceptor_otv_body_armor_ucp:9dd816b1",
+    "name": "Interceptor OTV body armor (UCP)",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible",
+      "duplicate_display_name_check_variant_label_and_image"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 661,
+      "section": "ボディアーマー",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "9dd816b1b77a5ec944279e013bb4c9e91b5cd51ae8d9d0898bf5a0183431e21a"
+    }
+  },
+  {
+    "recordId": "armory:body_armor:hexatac_hpc_plate_carrier_multicam_black:14a163fa",
+    "name": "Hexatac HPC Plate Carrier (MultiCam Black)",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 664,
+      "section": "ボディアーマー",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "14a163fadc21f6616f4f00a927bf9bccc8a6778be9d993dfe27ec7ba2dcfd8c3"
+    }
+  },
+  {
+    "recordId": "armory:body_armor:hexatac_hpc_plate_carrier_multicam:224898ea",
+    "name": "Hexatac HPC Plate Carrier (MultiCam)",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 667,
+      "section": "ボディアーマー",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "224898ea4ac66d7479f67d9ff88bab23dae6b1d9ede9048d9365747be22ab172"
+    }
+  },
+  {
+    "recordId": "armory:body_armor:5_11_tactical_hexgrid_plate_carrier:9b59dd72",
+    "name": "5.11 Tactical Hexgrid plate carrier",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 670,
+      "section": "ボディアーマー",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "9b59dd72c280571964532de71bbd000b08b5d158230234059ad51c1813c2d7fb"
+    }
+  },
+  {
+    "recordId": "armory:body_armor:paca_soft_armor_rivals_edition:777adb04",
+    "name": "PACA Soft Armor (Rivals Edition)",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 676,
+      "section": "ボディアーマー",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "777adb04fb4156aafcb1cd9df97af0e958383c1a1d098a128744a1d84154c4d5"
+    }
+  },
+  {
+    "recordId": "armory:eyewear:6b34_anti_fragmentation_glasses:246408a0",
+    "name": "6B34 anti-fragmentation glasses",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "class_eligibility_not_listed"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 688,
+      "section": "アイウェア",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "246408a0c3e69566513e481f7fd0df522fd3413815640bf893636c4b83f6dba7"
+    }
+  },
+  {
+    "recordId": "armory:eyewear:anti_fragmentation_glasses:1dd99767",
+    "name": "Anti-fragmentation glasses",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "class_eligibility_not_listed"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 692,
+      "section": "アイウェア",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "1dd99767f874c2d760372fde73496f52f4802b84623def6aa73211bbcb515fb7"
+    }
+  },
+  {
+    "recordId": "armory:eyewear:crossbow_tactical_glasses:e6e114d4",
+    "name": "Crossbow tactical glasses",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "class_eligibility_not_listed"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 696,
+      "section": "アイウェア",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "e6e114d42f9b5c7305441d6210d5b607c64a7df7c3703ab0e5f13d38068aa520"
+    }
+  },
+  {
+    "recordId": "armory:eyewear:dundukk_sport_sunglasses:f26cdf74",
+    "name": "Dundukk sport sunglasses",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "class_eligibility_not_listed"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 700,
+      "section": "アイウェア",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "f26cdf745c4ab534557dee07339059a9403787cb4b88afbbdca38bcad9c9e140"
+    }
+  },
+  {
+    "recordId": "armory:eyewear:dundukk_sport_sunglasses_orange_lenses:1b0746ba",
+    "name": "Dundukk sport sunglasses [Orange lenses]",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "class_eligibility_not_listed"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 703,
+      "section": "アイウェア",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "1b0746ba854f7d64f1ce12e8d734991b1e14e5f57fc87c28b7dc942a816de18b"
+    }
+  },
+  {
+    "recordId": "armory:eyewear:figley_sunglasses:3907464f",
+    "name": "Figley sunglasses",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "class_eligibility_not_listed"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 707,
+      "section": "アイウェア",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "3907464fbed52529b208cd20cdc8ca52b672757c2e05d4357dc8dbda5fbd1d57"
+    }
+  },
+  {
+    "recordId": "armory:eyewear:gas_welder_safety_goggles:b3caa878",
+    "name": "Gas welder safety goggles",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "class_eligibility_not_listed"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 710,
+      "section": "アイウェア",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "b3caa878c7de9fb9de5a758b04c4e575c14482820beb330bf8da2d346fe85cbb"
+    }
+  },
+  {
+    "recordId": "armory:eyewear:johnb_liquid_dnb_glasses:222b49e7",
+    "name": "JohnB Liquid DNB glasses",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "class_eligibility_not_listed"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 714,
+      "section": "アイウェア",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "222b49e70f739d18ef781d3318fdbf6ffaaff0a6aa96c26929cdeff9f538c9ad"
+    }
+  },
+  {
+    "recordId": "armory:eyewear:npp_klass_condor_glasses:5e4bbcd3",
+    "name": "NPP KlASS Condor glasses",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "class_eligibility_not_listed"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 718,
+      "section": "アイウェア",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "5e4bbcd3f3ae134cf5db9c9459400eae612c914a8da5f08985b3939bbadb0f4a"
+    }
+  },
+  {
+    "recordId": "armory:eyewear:oakley_si_batwolf_glasses:de78fed6",
+    "name": "Oakley SI Batwolf glasses",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "class_eligibility_not_listed"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 722,
+      "section": "アイウェア",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "de78fed690b69d17e7c892f7026e0b95f164aa7862bedff947380979a6e8326f"
+    }
+  },
+  {
+    "recordId": "armory:eyewear:oakley_si_gascan_glasses:11f9d7e9",
+    "name": "Oakley SI Gascan glasses",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "class_eligibility_not_listed"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 724,
+      "section": "アイウェア",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "11f9d7e9536d2406746406409f8e0b6024bb7a45a9382b99dcae567d42ee6e3b"
+    }
+  },
+  {
+    "recordId": "armory:eyewear:oakley_si_gascan_white_glasses:2b835f4d",
+    "name": "Oakley SI Gascan White glasses",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "class_eligibility_not_listed"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 726,
+      "section": "アイウェア",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "2b835f4dd12b006174d89960945e8654337fb75fd2c2a147d382b6a285416d26"
+    }
+  },
+  {
+    "recordId": "armory:eyewear:oakley_si_m_frame_safety_glasses:493e710a",
+    "name": "Oakley SI M Frame safety glasses",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "class_eligibility_not_listed"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 728,
+      "section": "アイウェア",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "493e710a410602cf18edc057f47514968715a4d5a86bad0d53846ca773b56751"
+    }
+  },
+  {
+    "recordId": "armory:eyewear:oakley_si_m_frame_safety_glasses_orange_lenses:63015da3",
+    "name": "Oakley SI M Frame safety glasses [Orange lenses]",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "class_eligibility_not_listed"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 730,
+      "section": "アイウェア",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "63015da321bb0f2b89a49c4db592b61d535cfbd93a68e7f6fa8e60a7bf51ea2d"
+    }
+  },
+  {
+    "recordId": "armory:eyewear:pyramex_proximity_safety_glasses:828947a3",
+    "name": "Pyramex Proximity safety glasses",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "class_eligibility_not_listed"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 734,
+      "section": "アイウェア",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "828947a3b4a688b7e035310a2b5225a8269fdd15839382e80e405bea3941515c"
+    }
+  },
+  {
+    "recordId": "armory:eyewear:raybench_aviator_glasses:e7f0781e",
+    "name": "RayBench Aviator glasses",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "class_eligibility_not_listed"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 738,
+      "section": "アイウェア",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "e7f0781e18462dbf8b5360c2132e08cde63fe810d1da7eca731aebb35e0f88ad"
+    }
+  },
+  {
+    "recordId": "armory:eyewear:raybench_aviator_glasses_green_lenses:e3abb611",
+    "name": "RayBench Aviator glasses [Green lenses]",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "class_eligibility_not_listed"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 741,
+      "section": "アイウェア",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "e3abb61146ed77e93c6c5cec20a48c3877548eebd21894775b3cf653e27b308f"
+    }
+  },
+  {
+    "recordId": "armory:eyewear:raybench_hipster_reserve_sunglasses:42b9f6ea",
+    "name": "RayBench Hipster Reserve sunglasses",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "class_eligibility_not_listed"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 744,
+      "section": "アイウェア",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "42b9f6ea549487e99841b67b807ca13916755aee34ee97778ece58e3467e39ce"
+    }
+  },
+  {
+    "recordId": "armory:eyewear:revision_shadowstrike_tactical_glasses_gray:dc75ce96",
+    "name": "Revision ShadowStrike tactical glasses (Gray)",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "class_eligibility_not_listed"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 747,
+      "section": "アイウェア",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "dc75ce96329b052158029effc37aaf0b0d3008c55341633750d2fbc2f1222102"
+    }
+  },
+  {
+    "recordId": "armory:eyewear:revision_shadowstrike_tactical_glasses_tan:4c2dee13",
+    "name": "Revision ShadowStrike tactical glasses (tan)",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "class_eligibility_not_listed"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 750,
+      "section": "アイウェア",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "4c2dee13ca70182eb2660d0c2e361fe69e43de784ada262b47622fb18b4696af"
+    }
+  },
+  {
+    "recordId": "armory:eyewear:round_frame_sunglasses:68a5efc3",
+    "name": "Round frame sunglasses",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "class_eligibility_not_listed"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 753,
+      "section": "アイウェア",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "68a5efc341821fb323fa72f6b6015b7eb5dbfb6fb73e710ea43ae5da9275f273"
+    }
+  },
+  {
+    "recordId": "armory:eyewear:round_frame_sunglasses_green_lenses:5c3e3fff",
+    "name": "Round frame sunglasses [Green lenses]",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "class_eligibility_not_listed"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 756,
+      "section": "アイウェア",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "5c3e3fff3eeaab8eed2a11be1201cf942edce3619c9fe56daa7493f3fde9e0b2"
+    }
+  },
+  {
+    "recordId": "armory:eyewear:sunglasses_deal_with_it:f1eda2b3",
+    "name": "Sunglasses (Deal With It)",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "class_eligibility_not_listed"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 760,
+      "section": "アイウェア",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "f1eda2b3b9b8710c9b9596d9e1728e38b9ab1c584c04f7321bf9a64f977f7118"
+    }
+  },
+  {
+    "recordId": "armory:eyewear:shutter_glasses:332350af",
+    "name": "Shutter glasses",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "class_eligibility_not_listed"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 762,
+      "section": "アイウェア",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "332350afb6f043098b148d75dec69c4c7232e56ad0cc4c093d92b9850c421979"
+    }
+  },
+  {
+    "recordId": "armory:eyewear:tactical_glasses:05c94687",
+    "name": "Tactical glasses",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "class_eligibility_not_listed"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 765,
+      "section": "アイウェア",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "05c9468746fc968ea7eff4dff1226cb105fd83f5c3649653818399fc569f7749"
+    }
+  },
+  {
+    "recordId": "armory:eyewear:twitch_rivals_2020_glasses:dec2d02f",
+    "name": "Twitch Rivals 2020 glasses",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "class_eligibility_not_listed"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 767,
+      "section": "アイウェア",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "dec2d02f2519ba28efdaa35dd92da9e38c0327599eccdead96c6679b4e809997"
+    }
+  },
+  {
+    "recordId": "armory:eyewear:wiley_x_spear_ballistic_goggles_black:4c0c94f0",
+    "name": "Wiley X SPEAR ballistic goggles (Black)",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "class_eligibility_not_listed",
+      "duplicate_display_name_check_variant_label_and_image"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 770,
+      "section": "アイウェア",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "4c0c94f02369f746426a7e43a92be958aa240815ca2aae42fb01c94b789d7087"
+    }
+  },
+  {
+    "recordId": "armory:eyewear:wiley_x_spear_ballistic_goggles_black:41b01cb9",
+    "name": "Wiley X SPEAR ballistic goggles (Black)",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "class_eligibility_not_listed",
+      "duplicate_display_name_check_variant_label_and_image"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 773,
+      "section": "アイウェア",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "41b01cb915b2581d7f7d65015148f1ffa3ed3b0ba67d6f1b3a99a72682cdeb12"
+    }
+  },
+  {
+    "recordId": "armory:medkit:afak_tactical_individual_first_aid_kit:c68cc28b",
+    "name": "AFAK tactical individual first aid kit",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 787,
+      "section": "メディキット",
+      "sectionPatch": "0.4.2.5.42886",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "c68cc28be2f8671dd6b3d41b2fc1752221f4485cc423a0c2fc7f5fc2f523cb6d"
+    }
+  },
+  {
+    "recordId": "armory:medkit:salewa_first_aid_kit:a19567ee",
+    "name": "Salewa first aid kit",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 790,
+      "section": "メディキット",
+      "sectionPatch": "0.4.2.5.42886",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "a19567ee6ebcbac27dcd3cf78010a41adf8df0d756e3a641837d0f1f99e0ddbd"
+    }
+  },
+  {
+    "recordId": "armory:medkit:ifak_individual_first_aid_kit:123e1b56",
+    "name": "IFAK individual first aid kit",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 793,
+      "section": "メディキット",
+      "sectionPatch": "0.4.2.5.42886",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "123e1b56273044139d48dabce25171e17feaa61fe29ba7126f4d53be05aab30b"
+    }
+  },
+  {
+    "recordId": "armory:medkit:car_first_aid_kit:201f399c",
+    "name": "Car first aid kit",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 796,
+      "section": "メディキット",
+      "sectionPatch": "0.4.2.5.42886",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "201f399c7b89739b9951e6e2eff821b0ba89bffd370cdccc4f6173aa73480659"
+    }
+  },
+  {
+    "recordId": "armory:medkit:ai_2_medkit:9b00065b",
+    "name": "AI-2 medkit",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 799,
+      "section": "メディキット",
+      "sectionPatch": "0.4.2.5.42886",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "9b00065b89fc3c4bb1ceac77b3c9deb553dc5a5290abf9b917795acb8d2c17fa"
+    }
+  },
+  {
+    "recordId": "armory:injury_treatment:calok_b_hemostatic_applicator:6a2fe123",
+    "name": "CALOK-B hemostatic applicator",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 812,
+      "section": "怪我の治療",
+      "sectionPatch": "0.4.2.5.42886",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "6a2fe1236faf2ea06469909f053dc5e45dee4fcbaa295cde1b16e7d62286ff91"
+    }
+  },
+  {
+    "recordId": "armory:injury_treatment:aluminum_splint:e57fafc7",
+    "name": "Aluminum splint",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 815,
+      "section": "怪我の治療",
+      "sectionPatch": "0.4.2.5.42886",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "e57fafc78d3b27b0adf0dc2e573088e85568c6fd5d3d4f4c451c1dd3e0666de2"
+    }
+  },
+  {
+    "recordId": "armory:injury_treatment:cat_hemostatic_tourniquet:58bcf737",
+    "name": "CAT hemostatic tourniquet",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 818,
+      "section": "怪我の治療",
+      "sectionPatch": "0.4.2.5.42886",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "58bcf737f99eed60969d52c406c495cbbf1884c0ea4e9f62c7e7af027c89b7d1"
+    }
+  },
+  {
+    "recordId": "armory:injury_treatment:esmarch_tourniquet:c6f102a9",
+    "name": "Esmarch tourniquet",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 821,
+      "section": "怪我の治療",
+      "sectionPatch": "0.4.2.5.42886",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "c6f102a90cd154a57425f30c3a55f3c4ec831f7f372e2cc1f72011c70b69e580"
+    }
+  },
+  {
+    "recordId": "armory:injury_treatment:army_bandage:7de89aa4",
+    "name": "Army bandage",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 824,
+      "section": "怪我の治療",
+      "sectionPatch": "0.4.2.5.42886",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "7de89aa4a504db62fe74808181b8271046924b99f17605409fd4608e47764796"
+    }
+  },
+  {
+    "recordId": "armory:injury_treatment:aseptic_bandage:3f661cf3",
+    "name": "Aseptic bandage",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 827,
+      "section": "怪我の治療",
+      "sectionPatch": "0.4.2.5.42886",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "3f661cf3d8fca6d5921177651750d9bb0b4b58c81b961f661aa74b85bad9be22"
+    }
+  },
+  {
+    "recordId": "armory:injury_treatment:immobilizing_splint:ee187214",
+    "name": "Immobilizing splint",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 830,
+      "section": "怪我の治療",
+      "sectionPatch": "0.4.2.5.42886",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "ee1872142d6e229303ff33cab392540a778e66a6f51668ecdd54e8cf094ace01"
+    }
+  },
+  {
+    "recordId": "armory:pills:augmentin_antibiotic_pills:428564e1",
+    "name": "Augmentin antibiotic pills",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 844,
+      "section": "ピル",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "428564e103c3cda9f0842017f66010f2bd6762299ba8902dc743e33c08d76037"
+    }
+  },
+  {
+    "recordId": "armory:pills:analgin_painkillers:820e9981",
+    "name": "Analgin painkillers",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 847,
+      "section": "ピル",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "820e9981fd9f9237cbbefee0ad67d469b47c3cbfede7812368bc13230111b6a6"
+    }
+  },
+  {
+    "recordId": "armory:stimulant:morphine_injector:fbe687d5",
+    "name": "Morphine injector",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 859,
+      "section": "注射器",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "fbe687d519d76a9ad7ce9506696917a960a68679f6aae139a85cd3dc43463f93"
+    }
+  },
+  {
+    "recordId": "armory:stimulant:trimadol_stimulant_injector:672acd06",
+    "name": "Trimadol stimulant injector",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 862,
+      "section": "注射器",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "672acd06294262bc6b05d14fb48b7c57836fdd6ae883ad58b877a537f27846c1"
+    }
+  },
+  {
+    "recordId": "armory:stimulant:propital_regenerative_stimulant_injector:a15326e3",
+    "name": "Propital regenerative stimulant injector",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 865,
+      "section": "注射器",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "a15326e37798e17e49ac831c2e14288b20127a93ae9fb57bcf7e443482f8eae8"
+    }
+  },
+  {
+    "recordId": "armory:stimulant:adrenaline_injector:c5966112",
+    "name": "Adrenaline injector",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 868,
+      "section": "注射器",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "c596611208453bd8760692a7e60a0798100cbe7e6ef0860794512e9349922454"
+    }
+  },
+  {
+    "recordId": "armory:stimulant:ahf1_m_stimulant_injector:046065de",
+    "name": "AHF1-M stimulant injector",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 871,
+      "section": "注射器",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "046065de288e830d0bdcdba15cd08054a1906242d6506aba14d2cb67e735c66f"
+    }
+  },
+  {
+    "recordId": "armory:stimulant:meldonin_injector:bd0bcb39",
+    "name": "Meldonin injector",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 874,
+      "section": "注射器",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "bd0bcb39586c6d721f257e9820cabdd9028b0282159f6b70887edfa365e81e90"
+    }
+  },
+  {
+    "recordId": "armory:stimulant:3_b_tg_stimulant_injector:de80eb78",
+    "name": "3-(b-TG) stimulant injector",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 877,
+      "section": "注射器",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "de80eb78af1c3db66512d136b425ba8d056d81a1b05000632c86372ef3e6ad8a"
+    }
+  },
+  {
+    "recordId": "armory:stimulant:2a2_b_tg_stimulant_injector:e9e9bfa9",
+    "name": "2A2-(b-TG) stimulant injector",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 880,
+      "section": "注射器",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "e9e9bfa909743ed93cd12612544b308eb2500559cdd9b2b83dd939c01fdcb152"
+    }
+  },
+  {
+    "recordId": "armory:stimulant:p22_product_22_stimulant_injector:85c1c39c",
+    "name": "P22 (Product 22) stimulant injector",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible",
+      "zero_mp_needs_confirmation"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 883,
+      "section": "注射器",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "85c1c39cdcb60fc16bf09a58a9b9362fef6203b09a22436a7174286a85476ba3"
+    }
+  },
+  {
+    "recordId": "armory:stimulant:etg_change_regenerative_stimulant_injector:3cae5274",
+    "name": "eTG-change regenerative stimulant injector",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible",
+      "class_conflict_with_patch_history_requires_verification"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 886,
+      "section": "注射器",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "3cae5274afb63c332127e0512176a93b7245df5e6ba3c63741b9ac45faf2e8f6"
+    }
+  },
+  {
+    "recordId": "armory:stimulant:zagustin_hemostatic_drug_injector:a0dfff3b",
+    "name": "Zagustin hemostatic drug injector",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 889,
+      "section": "注射器",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "a0dfff3bb69ae4eaae8e7348dbd9f155adf5fa9222a18a38d9e52932e49310de"
+    }
+  },
+  {
+    "recordId": "armory:stimulant:sj6_tglabs_combat_stimulant_injector:b2e47722",
+    "name": "SJ6 TGLabs combat stimulant injector",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 892,
+      "section": "注射器",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "b2e47722b86ef86ba88716c67e2c34ca8ebf666166cda6bdeeb7b3741e96a378"
+    }
+  },
+  {
+    "recordId": "armory:stimulant:perfotoran_blue_blood_stimulant_injector:06fe011b",
+    "name": "Perfotoran (Blue Blood) stimulant injector",
+    "flags": [
+      "older_than_0_6_snapshot",
+      "mp_rebalance_after_source_possible"
+    ],
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 895,
+      "section": "注射器",
+      "sectionPatch": "0.5.0.0.44689",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "06fe011b3af236bc68355e03a43c818ac20130583a8a65bf0189c0a682214f53"
+    }
+  },
+  {
+    "recordId": "ammo:7_62x25mm:7_62x25mm_tt_pst_gzh:a94c799d",
+    "name": "7.62x25mm TT Pst gzh",
+    "flags": [
+      "unavailable_to_all_listed_classes"
+    ],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 21,
+      "section": "7.62x25mm",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "a94c799d80c2e3740261469500849cbe97cbf8e12816bab065b147f52fab064d"
+    }
+  },
+  {
+    "recordId": "ammo:9x18mm:9x18mm_pmm_pstm_gzh:b17eb53e",
+    "name": "9x18mm PMM PstM gzh",
+    "flags": [
+      "class_table_and_note_disagree_or_are_incomplete",
+      "unavailable_to_all_listed_classes"
+    ],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 48,
+      "section": "9x18mm",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "b17eb53e10cc187d47bb8b0579ad70403b2963757890602a6a1c19e96d84ac79"
+    }
+  },
+  {
+    "recordId": "ammo:4_6x30mm:4_6x30mm_ap_sx:e7181dff",
+    "name": "4.6x30mm AP SX",
+    "flags": [
+      "unavailable_to_all_listed_classes"
+    ],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 120,
+      "section": "4.6x30mm",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "e7181dff6fe4c8c1c45945a5babe0332861101b393db54b12734bc31484bf98e"
+    }
+  },
+  {
+    "recordId": "ammo:5_7x28mm:5_7x28mm_r37_x:c9eec857",
+    "name": "5.7x28mm R37.X",
+    "flags": [
+      "unavailable_to_all_listed_classes"
+    ],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 146,
+      "section": "5.7x28mm",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "c9eec8573fdea5d62d6ac606482f824ceb6b6b80ba47a9de354ed242d6df9237"
+    }
+  },
+  {
+    "recordId": "ammo:9x21mm:9x21mm_bt_gzh:40d1a3d4",
+    "name": "9x21mm BT gzh",
+    "flags": [
+      "unavailable_to_all_listed_classes"
+    ],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 194,
+      "section": "9x21mm",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "40d1a3d458e924ff7eb22ac6fec8a9ca609eaf4aea2a90de56e970896e19f651"
+    }
+  },
+  {
+    "recordId": "ammo:5_45x39mm:5_45x39mm_bs:c13b8767",
+    "name": "5.45x39mm BS",
+    "flags": [
+      "conditional_access_missing_weapon_rule"
+    ],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 242,
+      "section": "5.45x39mm",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "c13b87674ae33b0cd437beef82d116d9f37ce808b2e9826693b24352485936b9"
+    }
+  },
+  {
+    "recordId": "ammo:5_45x39mm:5_45x39mm_pp:8b271f0f",
+    "name": "5.45x39mm PP",
+    "flags": [
+      "conditional_access_missing_weapon_rule"
+    ],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 247,
+      "section": "5.45x39mm",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "8b271f0f52515dcb62cb4017e4d0c8310a123b7543e743af4729a9c8a3ca87dd"
+    }
+  },
+  {
+    "recordId": "ammo:300_blackout:300_blackout_m62_tracer:ec766991",
+    "name": ".300 Blackout M62 Tracer",
+    "flags": [
+      "unavailable_to_all_listed_classes"
+    ],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 294,
+      "section": ".300 Blackout",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "ec766991a40540c4e8569a26511c7d33e8f12caed358cfb86366e2c92304ee3d"
+    }
+  },
+  {
+    "recordId": "ammo:300_blackout:300_whisper:5d95dff2",
+    "name": ".300 Whisper",
+    "flags": [
+      "unavailable_to_all_listed_classes"
+    ],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 295,
+      "section": ".300 Blackout",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "5d95dff236125650541e7b1b00de49ae4cfb924165a15bcf033cb3bdca4a5cd6"
+    }
+  },
+  {
+    "recordId": "ammo:12_7x55mm_sts_130:12_7x55mm_ps12a:e95b8578",
+    "name": "12.7x55mm PS12A",
+    "flags": [
+      "unavailable_to_all_listed_classes"
+    ],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 399,
+      "section": "12.7x55mm STs-130",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "e95b8578043b0d3c9d798ef92beeb4b5823d947c04c30e43172f7eef7e591605"
+    }
+  },
+  {
+    "recordId": "ammo:7_62x51mm:7_62x51mm_tcw_sp:6d91bc4b",
+    "name": "7.62x51mm TCW SP",
+    "flags": [
+      "unavailable_to_all_listed_classes"
+    ],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 450,
+      "section": "7.62x51mm",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "6d91bc4b5f0968fbfcf437d6f57b22bb79121209eebd17d5669d8ba08739ae6b"
+    }
+  },
+  {
+    "recordId": "ammo:7_62x54mm_r:7_62x54mm_r_lps_gzh:6cff5f87",
+    "name": "7.62x54mm R LPS gzh",
+    "flags": [
+      "class_table_and_note_disagree_or_are_incomplete",
+      "unavailable_to_all_listed_classes"
+    ],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 476,
+      "section": "7.62x54mm R",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "6cff5f878ba85d5deca23d38e900e6c73b1762818a71a6b86c1c69ba0285f7c2"
+    }
+  },
+  {
+    "recordId": "ammo:7_62x54mm_r:7_62x54mm_r_ps_gzh:f24a9e68",
+    "name": "7.62x54mm R PS gzh",
+    "flags": [
+      "unavailable_to_all_listed_classes"
+    ],
+    "source": {
+      "sourceId": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "line": 478,
+      "section": "7.62x54mm R",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "f24a9e682a41fd0309dca0084c16345e674b32d83d07c36d9ecd1481b2add09c"
+    }
+  },
+  {
+    "recordId": "blastgang:attacker_pistol:desert_eagle_l6:cdb2591a",
+    "name": "DESERT EAGLE L6",
+    "flags": [
+      "suspect_magazine_quantity_54"
+    ],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 123,
+      "section": "attacker/PISTOL",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "cdb2591ada534a48b79897a9ca3faf88f22cf6933f18c949454d21878ce3f0c2"
+    }
+  },
+  {
+    "recordId": "blastgang:attacker_eco:vsk_94:cd900f63",
+    "name": "VSK-94",
+    "flags": [
+      "ammo_damage_differs_between_source_rows"
+    ],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 133,
+      "section": "attacker/ECO",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "cd900f631bf69b33356d956ca3cfd8f967d72ba704344c7b80c30d0a8f5de944"
+    }
+  },
+  {
+    "recordId": "blastgang:attacker_common:mp_155:10c33463",
+    "name": "MP-155",
+    "flags": [
+      "ammo_damage_differs_between_source_rows"
+    ],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 140,
+      "section": "attacker/COMMON",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "10c334633986ffce26d32be838f8fcf9e1d417eade1c0dd9403c006117c821fc"
+    }
+  },
+  {
+    "recordId": "blastgang:attacker_sniper:g28:8772d11f",
+    "name": "G28",
+    "flags": [
+      "ammo_damage_differs_between_source_rows"
+    ],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 171,
+      "section": "attacker/SNIPER",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "8772d11f1a5599e19aa48550a5ded26d59ef65ec621a96710378a2286199b994"
+    }
+  },
+  {
+    "recordId": "blastgang:defender_eco:ppsh41:62f82616",
+    "name": "PPSH41",
+    "flags": [
+      "ammo_damage_compare_with_ammo_table"
+    ],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 194,
+      "section": "defender/ECO",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "62f826162856499e864ee49212af08e266bc8a38d589ff59947afaa210dcd1d4"
+    }
+  },
+  {
+    "recordId": "blastgang:defender_eco:pp_91_01:3c2eaecb",
+    "name": "PP-91-01",
+    "flags": [
+      "name_icon_and_ammo_caliber_mismatch"
+    ],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 197,
+      "section": "defender/ECO",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "3c2eaecbd30640cd84449612265c670c103579cf9caa0c57432031e2822d6a19"
+    }
+  },
+  {
+    "recordId": "blastgang:defender_common:mp_155:6acec20f",
+    "name": "MP-155",
+    "flags": [
+      "ammo_damage_differs_between_source_rows"
+    ],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 205,
+      "section": "defender/COMMON",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "6acec20f733af30f4d87b4677a4a725f17212568fb36e03d5d87331552335d15"
+    }
+  },
+  {
+    "recordId": "blastgang:defender_sniper:g28:8772d11f",
+    "name": "G28",
+    "flags": [
+      "ammo_damage_differs_between_source_rows"
+    ],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 237,
+      "section": "defender/SNIPER",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "8772d11f1a5599e19aa48550a5ded26d59ef65ec621a96710378a2286199b994"
+    }
+  }
+]

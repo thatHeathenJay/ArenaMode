@@ -1,0 +1,2609 @@
+{
+  "policy": "Use reasonable estimates where a needed price is absent; never substitute missing with zero.",
+  "purchaseEstimates": [
+    {
+      "recordId": "armory:assault_rifle:kalashnikov_ak_74n_5_45x39_assault_rifle:3b560e86",
+      "name": "Kalashnikov AK-74N 5.45x39 assault rifle",
+      "amount": 565000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:assault_rifle:kalashnikov_akmn_7_62x39_assault_rifle:57ea05bb",
+        "armory:assault_rifle:kalashnikov_ak_102_5_56x45_assault_rifle:50d39c90",
+        "armory:assault_rifle:kalashnikov_ak_74m_5_45x39_assault_rifle:5e29ecfa"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        807706.7359248508,
+        307324.7165210046,
+        563517.1216491585
+      ],
+      "tuningRangeRoubles": [
+        395000,
+        735000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:assault_rifle:kalashnikov_ak_101_5_56x45_assault_rifle:f28b23aa",
+      "name": "Kalashnikov AK-101 5.56x45 assault rifle",
+      "amount": 470000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:assault_rifle:kalashnikov_ak_102_5_56x45_assault_rifle:50d39c90",
+        "armory:assault_rifle:kalashnikov_ak_74m_5_45x39_assault_rifle:5e29ecfa",
+        "armory:assault_rifle:kalashnikov_ak_105_5_45x39_assault_rifle:4dc26fde"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        325000.0,
+        595926.8965060911,
+        468804.0062346761
+      ],
+      "tuningRangeRoubles": [
+        330000,
+        610000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:assault_rifle:kalashnikov_akmsn_7_62x39_assault_rifle:e6dd2606",
+      "name": "Kalashnikov AKMSN 7.62x39 assault rifle",
+      "amount": 540000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:assault_rifle:kalashnikov_akmn_7_62x39_assault_rifle:57ea05bb",
+        "armory:assault_rifle:kalashnikov_ak_102_5_56x45_assault_rifle:50d39c90",
+        "armory:assault_rifle:kalashnikov_ak_74m_5_45x39_assault_rifle:5e29ecfa"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        773037.832639826,
+        294133.52917506214,
+        539329.4806143957
+      ],
+      "tuningRangeRoubles": [
+        380000,
+        700000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:assault_rifle:kalashnikov_aks_74un_5_45x39_assault_rifle:08c03ea6",
+      "name": "Kalashnikov AKS-74UN 5.45x39 assault rifle",
+      "amount": 470000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:assault_rifle:kalashnikov_ak_74m_5_45x39_assault_rifle:5e29ecfa",
+        "armory:assault_rifle:kalashnikov_ak_102_5_56x45_assault_rifle:50d39c90",
+        "armory:assault_rifle:kalashnikov_ak_105_5_45x39_assault_rifle:4dc26fde"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        598257.7798357666,
+        326271.1912930696,
+        470637.66645277356
+      ],
+      "tuningRangeRoubles": [
+        330000,
+        610000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:assault_rifle:colt_m16a1_5_56x45_assault_rifle:b4c8ee22",
+      "name": "Colt M16A1 5.56x45 assault rifle",
+      "amount": 370000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:assault_rifle:desert_tech_mdr_5_56x45_assault_rifle:0ef0b591",
+        "armory:assault_rifle:cmmg_mk47_mutant_7_62x39_assault_rifle:111f4dff",
+        "armory:assault_rifle:ds_arms_sa_58_7_62x51_assault_rifle:d5e9f8d7"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        369323.58136067825,
+        937772.4255063555,
+        226727.70330958872
+      ],
+      "tuningRangeRoubles": [
+        260000,
+        480000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:assault_rifle:fn_scar_l_5_56x45_assault_rifle_lb:be79ad29",
+      "name": "FN SCAR-L 5.56x45 assault rifle LB",
+      "amount": 360000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:assault_rifle:desert_tech_mdr_5_56x45_assault_rifle:0ef0b591",
+        "armory:assault_rifle:cmmg_mk47_mutant_7_62x39_assault_rifle:111f4dff",
+        "armory:assault_rifle:ds_arms_sa_58_7_62x51_assault_rifle:d5e9f8d7"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        360105.4965349548,
+        914366.2142547108,
+        221068.72211551174
+      ],
+      "tuningRangeRoubles": [
+        250000,
+        470000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:assault_rifle:fn_scar_h_7_62x51_assault_rifle_fde:13abc7c4",
+      "name": "FN SCAR-H 7.62x51 assault rifle (FDE)",
+      "amount": 620000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:assault_rifle:steyr_aug_a3_5_56x45_assault_rifle_black:b3f058bc",
+        "armory:assault_rifle:ds_arms_sa_58_7_62x51_assault_rifle:d5e9f8d7",
+        "armory:assault_rifle:hk_g36_5_56x45_assault_rifle:6bec1d88"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        643982.8181163671,
+        254265.15020718187,
+        620643.3744093288
+      ],
+      "tuningRangeRoubles": [
+        435000,
+        805000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:assault_rifle:kalashnikov_aks_74n_5_45x39_assault_rifle:58e1e224",
+      "name": "Kalashnikov AKS-74N 5.45x39 assault rifle",
+      "amount": 520000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:assault_rifle:kalashnikov_ak_104_7_62x39_assault_rifle:38edec5b",
+        "armory:assault_rifle:kalashnikov_ak_103_7_62x39_assault_rifle:43441c4b",
+        "armory:assault_rifle:desert_tech_mdr_5_56x45_assault_rifle:0ef0b591"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        518550.4112878644,
+        632326.5966800364,
+        328256.81546674547
+      ],
+      "tuningRangeRoubles": [
+        365000,
+        675000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:smg:hk_mp5_9x19_submachine_gun_navy_3_round_burst:176aac45",
+      "name": "HK MP5 9x19 submachine gun (Navy 3 Round Burst)",
+      "amount": 180000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:smg:iwi_uzi_pro_pistol_9x19_submachine_gun:9183a368",
+        "armory:smg:pp_91_01_kedr_b_9x18pm_submachine_gun:e4386e83",
+        "armory:smg:pp_9_klin_9x18pmm_submachine_gun:769e229a"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        735385.5535596017,
+        159395.24616369972,
+        178583.0112073707
+      ],
+      "tuningRangeRoubles": [
+        125000,
+        235000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:smg:b_t_mp9_9x19_submachine_gun:180eb192",
+      "name": "B&T MP9 9x19 submachine gun",
+      "amount": 165000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:smg:iwi_uzi_pro_pistol_9x19_submachine_gun:9183a368",
+        "armory:smg:pp_91_01_kedr_b_9x18pm_submachine_gun:e4386e83",
+        "armory:smg:pp_9_klin_9x18pmm_submachine_gun:769e229a"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        670776.4365279832,
+        145391.18249420662,
+        162893.15897257192
+      ],
+      "tuningRangeRoubles": [
+        115000,
+        215000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:smg:sig_mpx_9x19_submachine_gun:0226e040",
+      "name": "SIG MPX 9x19 submachine gun",
+      "amount": 410000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:smg:hk_ump_45_acp_submachine_gun:21276d8e",
+        "armory:smg:iwi_uzi_pro_pistol_9x19_submachine_gun:9183a368",
+        "armory:smg:pp_91_01_kedr_b_9x18pm_submachine_gun:e4386e83"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        411129.5695225288,
+        636756.7358817786,
+        138017.3926058013
+      ],
+      "tuningRangeRoubles": [
+        285000,
+        535000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:smg:fn_p90_5_7x28_submachine_gun_scourge:a3fb3f1d",
+      "name": "FN P90 5.7x28 submachine gun (Scourge)",
+      "amount": 1020000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:smg:tdi_kriss_vector_gen_2_9x19_submachine_gun:51657c88",
+        "armory:smg:sr_2m_veresk_9x21_submachine_gun:07aa59d9",
+        "armory:smg:tdi_kriss_vector_gen_2_45_acp_submachine_gun:a8963efb"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        1018781.7501965106,
+        679570.4321276951,
+        1578689.0043813377
+      ],
+      "tuningRangeRoubles": [
+        715000,
+        1325000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:smg:pp_19_01_vityaz_9x19_submachine_gun:62a06bc3",
+      "name": "PP-19-01 \"Vityaz\" 9x19 submachine gun",
+      "amount": 170000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:smg:iwi_uzi_pro_pistol_9x19_submachine_gun:9183a368",
+        "armory:smg:pp_91_01_kedr_b_9x18pm_submachine_gun:e4386e83",
+        "armory:smg:pp_9_klin_9x18pmm_submachine_gun:769e229a"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        700655.6082567486,
+        151867.51033314888,
+        170149.09762118533
+      ],
+      "tuningRangeRoubles": [
+        120000,
+        220000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:smg:ppsh_41_7_62x25_submachine_gun:84662a0f",
+      "name": "PPSh-41 7.62x25 submachine gun",
+      "amount": 1010000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:smg:tdi_kriss_vector_gen_2_9x19_submachine_gun:51657c88",
+        "armory:smg:sr_2m_veresk_9x21_submachine_gun:07aa59d9",
+        "armory:smg:tdi_kriss_vector_gen_2_45_acp_submachine_gun:a8963efb"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        1009434.558189253,
+        673335.4604958148,
+        1564204.7350657044
+      ],
+      "tuningRangeRoubles": [
+        705000,
+        1315000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:shotgun:mossberg_590a1_12ga_pump_action_shotgun:92a557ad",
+      "name": "Mossberg 590A1 12ga pump-action shotgun",
+      "amount": 565000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:shotgun:mp_153_12ga_semi_automatic_shotgun:2246313c",
+        "armory:shotgun:remington_model_870_12ga_pump_action_shotgun:1344f382",
+        "armory:shotgun:toz_ks_23m_23x75mm_pump_action_shotgun:790defdd"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        270624.165997869,
+        563615.6189328829,
+        741116.0337199698
+      ],
+      "tuningRangeRoubles": [
+        395000,
+        735000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:shotgun:mps_auto_assault_12_gen_2_automatic_shotguns:d96291be",
+      "name": "MPS Auto Assault-12 Gen 2 automatic shotguns.",
+      "amount": 500000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:shotgun:remington_model_870_12ga_pump_action_shotgun:1344f382",
+        "armory:shotgun:mp_153_12ga_semi_automatic_shotgun:2246313c",
+        "armory:shotgun:toz_ks_23m_23x75mm_pump_action_shotgun:790defdd"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        497798.31603234634,
+        239021.50612231303,
+        654570.7769221801
+      ],
+      "tuningRangeRoubles": [
+        350000,
+        650000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:shotgun:benelli_m3_super_90_dual_mode_12ga_shotgun:bd83fc77",
+      "name": "Benelli M3 Super 90 dual-mode 12ga shotgun",
+      "amount": 565000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:shotgun:mp_153_12ga_semi_automatic_shotgun:2246313c",
+        "armory:shotgun:remington_model_870_12ga_pump_action_shotgun:1344f382",
+        "armory:shotgun:toz_ks_23m_23x75mm_pump_action_shotgun:790defdd"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        270187.12126418727,
+        562705.4073959084,
+        739919.1677328172
+      ],
+      "tuningRangeRoubles": [
+        395000,
+        735000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:shotgun:mp_133_12ga_pump_action_shotgun:b160d994",
+      "name": "MP-133 12ga pump-action shotgun",
+      "amount": 530000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:shotgun:mp_153_12ga_semi_automatic_shotgun:2246313c",
+        "armory:shotgun:remington_model_870_12ga_pump_action_shotgun:1344f382",
+        "armory:shotgun:toz_ks_23m_23x75mm_pump_action_shotgun:790defdd"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        255279.21388048446,
+        531657.4430868899,
+        699093.2158059614
+      ],
+      "tuningRangeRoubles": [
+        370000,
+        690000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:shotgun:mp_43_12ga_sawed_off_double_barrel_shotgun:f85d6508",
+      "name": "MP-43 12ga sawed-off double-barrel shotgun",
+      "amount": 250000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:shotgun:remington_model_870_12ga_pump_action_shotgun:1344f382",
+        "armory:shotgun:mp_153_12ga_semi_automatic_shotgun:2246313c",
+        "armory:shotgun:toz_ks_23m_23x75mm_pump_action_shotgun:790defdd"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        250000.0,
+        125000.0,
+        500000.0
+      ],
+      "tuningRangeRoubles": [
+        175000,
+        325000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:lmg:degtyarev_rpdn_7_62x39_machine_gun:b180be24",
+      "name": "Degtyarev RPDN 7.62x39 machine gun",
+      "amount": 385000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:lmg:u_s_ordnance_m60e6_7_62x51_light_machine_gun_fde:474c1405"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        386604.9852680981
+      ],
+      "tuningRangeRoubles": [
+        270000,
+        500000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:lmg:rpk_16_5_45x39_light_machine_gun:8b32f948",
+      "name": "RPK-16 5.45x39 light machine gun",
+      "amount": 475000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:lmg:u_s_ordnance_m60e6_7_62x51_light_machine_gun_fde:474c1405"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        473183.3038309681
+      ],
+      "tuningRangeRoubles": [
+        335000,
+        620000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:lmg:u_s_ordnance_m60e4_7_62x51_light_machine_gun:cc878137",
+      "name": "U.S Ordnance M60E4 7.62x51 light machine gun",
+      "amount": 455000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:lmg:u_s_ordnance_m60e6_7_62x51_light_machine_gun_fde:474c1405"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        452742.3215871226
+      ],
+      "tuningRangeRoubles": [
+        320000,
+        590000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:marksman_rifle:springfield_armory_m1a_7_62x51_rifle:b3f0a40b",
+      "name": "Springfield Armory M1A 7.62x51 rifle",
+      "amount": 585000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:marksman_rifle:mk_12_srp_5_56x45_marksman_rifle_mk12_spr_prototype:38ce3099",
+        "armory:marksman_rifle:sword_international_mk_18_338_lm_marksman_rifle:5fda1f8a",
+        "armory:marksman_rifle:remington_r11_rsass_7_62x51_marksman_rifle:bf2c24ff"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        488116.44899566704,
+        2017273.8331823882,
+        587024.6486684608
+      ],
+      "tuningRangeRoubles": [
+        410000,
+        760000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:bolt_action_rifle:mosin_7_62x54r_bolt_action_rifle_sniper:6fa53455",
+      "name": "Mosin 7.62x54R bolt-action rifle (Sniper)",
+      "amount": 380000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:bolt_action_rifle:remington_model_700_7_62x51_bolt_action_sniper_rifle:523b113d"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        379167.6620467903
+      ],
+      "tuningRangeRoubles": [
+        265000,
+        495000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:bolt_action_rifle:sv_98_7_62x54r_bolt_action_sniper_rifle:2a102183",
+      "name": "SV-98 7.62x54R bolt-action sniper rifle",
+      "amount": 235000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:bolt_action_rifle:remington_model_700_7_62x51_bolt_action_sniper_rifle:523b113d"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        233544.77772154997
+      ],
+      "tuningRangeRoubles": [
+        165000,
+        305000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:bolt_action_rifle:molot_arms_vpo_215_gornostay_366_tkm_bolt_action_rifle:4527ecd8",
+      "name": "Molot Arms VPO-215 Gornostay .366 TKM bolt-action rifle",
+      "amount": 320000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:bolt_action_rifle:remington_model_700_7_62x51_bolt_action_sniper_rifle:523b113d"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        320207.8719916864
+      ],
+      "tuningRangeRoubles": [
+        225000,
+        415000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:assault_carbine:kbp_9a_91_9x39_compact_assault_rifle:ad7edf2a",
+      "name": "KBP 9A-91 9x39 compact assault rifle",
+      "amount": 255000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:assault_carbine:sag_ak_545_5_45x39_carbine:b3dc1b95",
+        "armory:assault_carbine:kel_tec_rfb_7_62x51_rifle:6dda5135",
+        "armory:assault_carbine:as_val_mod_4_9x39_special_assault_rifle:2a3ea7e5"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        227277.5364996281,
+        254767.26077284492,
+        1603960.824619624
+      ],
+      "tuningRangeRoubles": [
+        180000,
+        330000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:assault_carbine:molot_arms_simonov_op_sks_7_62x39_carbine:9135342b",
+      "name": "Molot Arms Simonov OP-SKS 7.62x39 carbine",
+      "amount": 300000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:assault_carbine:kel_tec_rfb_7_62x51_rifle:6dda5135",
+        "armory:assault_carbine:sag_ak_545_5_45x39_carbine:b3dc1b95",
+        "armory:assault_carbine:as_val_mod_4_9x39_special_assault_rifle:2a3ea7e5"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        301853.93914991705,
+        269283.50002503226,
+        1900408.5991459878
+      ],
+      "tuningRangeRoubles": [
+        210000,
+        390000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:assault_carbine:molot_arms_vpo_101_vepr_hunter_7_62x51_carbine:fb22da53",
+      "name": "Molot Arms VPO-101 \"Vepr-Hunter\" 7.62x51 carbine",
+      "amount": 235000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:assault_carbine:sag_ak_545_5_45x39_carbine:b3dc1b95",
+        "armory:assault_carbine:kel_tec_rfb_7_62x51_rifle:6dda5135",
+        "armory:assault_carbine:as_val_mod_4_9x39_special_assault_rifle:2a3ea7e5"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        208595.15993833056,
+        233825.2091536944,
+        1472114.0940688371
+      ],
+      "tuningRangeRoubles": [
+        165000,
+        305000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:assault_carbine:molot_arms_vpo_209_366_tkm_carbine:586b4fda",
+      "name": "Molot Arms VPO-209 .366 TKM carbine",
+      "amount": 205000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:assault_carbine:sag_ak_545_5_45x39_carbine:b3dc1b95",
+        "armory:assault_carbine:kel_tec_rfb_7_62x51_rifle:6dda5135",
+        "armory:assault_carbine:as_val_mod_4_9x39_special_assault_rifle:2a3ea7e5"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        180687.92365773552,
+        202542.5304849233,
+        1275164.9612734313
+      ],
+      "tuningRangeRoubles": [
+        145000,
+        265000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:assault_carbine:kbp_vsk_94_9x39_rifle:4105da56",
+      "name": "KBP VSK-94 9x39 rifle",
+      "amount": 290000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:assault_carbine:kel_tec_rfb_7_62x51_rifle:6dda5135",
+        "armory:assault_carbine:sag_ak_545_5_45x39_carbine:b3dc1b95",
+        "armory:assault_carbine:as_val_mod_4_9x39_special_assault_rifle:2a3ea7e5"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        291979.3013625495,
+        260474.34871049164,
+        1838239.9668021011
+      ],
+      "tuningRangeRoubles": [
+        205000,
+        375000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:pistol:colt_m45a1_45_acp_pistol_mew_mew:88744a06",
+      "name": "Colt M45A1 .45 ACP pistol Mew-mew",
+      "amount": 120000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:pistol:sig_p226r_9x19_pistol:5dc56a3a",
+        "armory:pistol:makarov_pm_t_9x18pm_pistol:9bbc1543",
+        "armory:pistol:stechkin_aps_9x18pm_machine_pistol:9ecefc50"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        119053.86171615265,
+        82101.25605920167,
+        161589.3285805443
+      ],
+      "tuningRangeRoubles": [
+        85000,
+        155000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:pistol:magnum_research_desert_eagle_l6_50_ae_pistol:9971e742",
+      "name": "Magnum Research Desert Eagle L6 .50 AE pistol",
+      "amount": 120000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:pistol:sig_p226r_9x19_pistol:5dc56a3a",
+        "armory:pistol:makarov_pm_t_9x18pm_pistol:9bbc1543",
+        "armory:pistol:hk_usp_45_acp_pistol:8f31ac48"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        121715.48663117556,
+        83936.75089768786,
+        230079.16553611084
+      ],
+      "tuningRangeRoubles": [
+        85000,
+        155000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:pistol:glock_17_9x19_pistol:6d05fd02",
+      "name": "Glock 17 9x19 pistol",
+      "amount": 120000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:pistol:pb_9x18pm_silenced_pistol:5b2754ea",
+        "armory:pistol:magnum_research_desert_eagle_mk_xix_50ae_pistol:2a9aa0a9",
+        "armory:pistol:fn_five_seven_mk2_5_7x28_pistol_fde:4f711a20"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        80060.85965125164,
+        122443.47701405387,
+        289008.81143809017
+      ],
+      "tuningRangeRoubles": [
+        85000,
+        155000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:pistol:beretta_m9a3_9x19_pistol:6a86bcca",
+      "name": "Beretta M9A3 9x19 pistol",
+      "amount": 100000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:pistol:colt_m1911a1_45_acp_pistol:470beb7f",
+        "armory:pistol:stechkin_aps_9x18pm_machine_pistol:9ecefc50",
+        "armory:pistol:tt_33_7_62x25_tt_pistol:ab8ee342"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        97581.0372128182,
+        134112.30782859234,
+        46701.74120500163
+      ],
+      "tuningRangeRoubles": [
+        70000,
+        130000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:pistol:yarygin_mp_443_grach_9x19_pistol:b72bd39c",
+      "name": "Yarygin MP-443 Grach 9x19 pistol",
+      "amount": 130000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:pistol:serdyukov_sr_1mp_gyurza_9x21_pistol:2b13f572",
+        "armory:pistol:tt_33_7_62x25_tt_pistol:ab8ee342",
+        "armory:pistol:chiappa_rhino_50ds_357_revolver:4c3cbf3a"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        130290.48221607579,
+        34943.56352146912,
+        144499.13494550757
+      ],
+      "tuningRangeRoubles": [
+        90000,
+        170000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:pistol:lebedev_pl_15_9x19_pistol:fb9afe8c",
+      "name": "Lebedev PL-15 9x19 pistol",
+      "amount": 95000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:pistol:apb_9x18pm_silenced_machine_pistol:3478bf77",
+        "armory:pistol:fn_five_seven_mk2_5_7x28_pistol_fde:4f711a20",
+        "armory:pistol:pb_9x18pm_silenced_pistol:5b2754ea"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        82428.21167648413,
+        342997.65406065714,
+        95016.78134246543
+      ],
+      "tuningRangeRoubles": [
+        65000,
+        125000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:pistol:rsh_12_12_7x55_revolver:356df1ca",
+      "name": "RSh-12 12.7x55 revolver",
+      "amount": 95000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:pistol:colt_m1911a1_45_acp_pistol:470beb7f",
+        "armory:pistol:tt_33_7_62x25_tt_pistol:ab8ee342",
+        "armory:pistol:stechkin_aps_9x18pm_machine_pistol:9ecefc50"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        93541.43466934853,
+        44768.40991498123,
+        128560.40517117927
+      ],
+      "tuningRangeRoubles": [
+        65000,
+        125000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:melee:6kh5_bayonet:3318046c",
+      "name": "6Kh5 Bayonet",
+      "amount": 300000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "low",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0,
+      "comparators": [
+        "armory:melee:freeman_crowbar:8261c76b",
+        "armory:melee:red_rebel_ice_pick:1c211a5d"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        200000.0,
+        400000.0
+      ],
+      "tuningRangeRoubles": [
+        210000,
+        390000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:melee:bars_a_2607_damascus_knife:ae32d632",
+      "name": "Bars A-2607 Damascus knife",
+      "amount": 300000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "low",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0,
+      "comparators": [
+        "armory:melee:freeman_crowbar:8261c76b",
+        "armory:melee:red_rebel_ice_pick:1c211a5d"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        200000.0,
+        400000.0
+      ],
+      "tuningRangeRoubles": [
+        210000,
+        390000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:melee:bars_a_2607_95kh18_knife:a91fc636",
+      "name": "Bars A-2607 95Kh18 knife",
+      "amount": 300000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "low",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0,
+      "comparators": [
+        "armory:melee:freeman_crowbar:8261c76b",
+        "armory:melee:red_rebel_ice_pick:1c211a5d"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        200000.0,
+        400000.0
+      ],
+      "tuningRangeRoubles": [
+        210000,
+        390000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:melee:camper_axe:01f64a57",
+      "name": "Camper axe",
+      "amount": 300000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "low",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0,
+      "comparators": [
+        "armory:melee:freeman_crowbar:8261c76b",
+        "armory:melee:red_rebel_ice_pick:1c211a5d"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        200000.0,
+        400000.0
+      ],
+      "tuningRangeRoubles": [
+        210000,
+        390000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:melee:er_fulcrum_bayonet:5411372e",
+      "name": "ER FULCRUM BAYONET",
+      "amount": 300000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "low",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0,
+      "comparators": [
+        "armory:melee:freeman_crowbar:8261c76b",
+        "armory:melee:red_rebel_ice_pick:1c211a5d"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        200000.0,
+        400000.0
+      ],
+      "tuningRangeRoubles": [
+        210000,
+        390000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:melee:sog_voodoo_hawk_tactical_tomahawk:b63914d8",
+      "name": "SOG Voodoo Hawk tactical tomahawk",
+      "amount": 300000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "low",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0,
+      "comparators": [
+        "armory:melee:freeman_crowbar:8261c76b",
+        "armory:melee:red_rebel_ice_pick:1c211a5d"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        200000.0,
+        400000.0
+      ],
+      "tuningRangeRoubles": [
+        210000,
+        390000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:melee:mpl_50_entrenching_tool:60be57cd",
+      "name": "MPL-50 entrenching tool",
+      "amount": 300000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "low",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0,
+      "comparators": [
+        "armory:melee:freeman_crowbar:8261c76b",
+        "armory:melee:red_rebel_ice_pick:1c211a5d"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        200000.0,
+        400000.0
+      ],
+      "tuningRangeRoubles": [
+        210000,
+        390000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:melee:crash_axe:d97d3104",
+      "name": "Crash Axe",
+      "amount": 300000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "low",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0,
+      "comparators": [
+        "armory:melee:freeman_crowbar:8261c76b",
+        "armory:melee:red_rebel_ice_pick:1c211a5d"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        200000.0,
+        400000.0
+      ],
+      "tuningRangeRoubles": [
+        210000,
+        390000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:melee:sp_8_survival_machete:42334575",
+      "name": "SP-8 Survival Machete",
+      "amount": 300000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "low",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0,
+      "comparators": [
+        "armory:melee:freeman_crowbar:8261c76b",
+        "armory:melee:red_rebel_ice_pick:1c211a5d"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        200000.0,
+        400000.0
+      ],
+      "tuningRangeRoubles": [
+        210000,
+        390000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:body_armor:fort_redut_m_body_armor_prisoner_of_the_arena:e6a6e2db",
+      "name": "FORT Redut-M body armor(Prisoner of the Arena)",
+      "amount": 205000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:body_armor:bnti_gzhel_k_body_armor:78d74482",
+        "armory:body_armor:npp_klass_korund_vm_body_armor_black:f2412fe3",
+        "armory:body_armor:6b45_body_armor_emr:d5129c1f"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        202608.3826987717,
+        98261.38376376808,
+        349637.06777679466
+      ],
+      "tuningRangeRoubles": [
+        145000,
+        265000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:body_armor:bnti_zhuk_body_armor_emr:77bf8920",
+      "name": "BNTI Zhuk body armor (EMR)",
+      "amount": 200000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:body_armor:bnti_gzhel_k_body_armor:78d74482",
+        "armory:body_armor:npp_klass_korund_vm_body_armor_black:f2412fe3",
+        "armory:body_armor:6b45_body_armor_emr:d5129c1f"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        200117.52033136348,
+        97053.36078008673,
+        345338.6384483745
+      ],
+      "tuningRangeRoubles": [
+        140000,
+        260000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:body_armor:nfm_thor_concealable_reinforced_vest_body_armor:5da90323",
+      "name": "NFM THOR Concealable Reinforced Vest body armor",
+      "amount": 125000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:body_armor:interceptor_otv_body_armor_ucp:bfbb4734",
+        "armory:body_armor:6b45_body_armor_emr:d5129c1f",
+        "armory:body_armor:5_11_tactical_hexgrid_plate_carrier:9b59dd72"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        119490.04984657158,
+        245002.32429435043,
+        126842.28836007534
+      ],
+      "tuningRangeRoubles": [
+        90000,
+        165000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:body_armor:highcom_trooper_tfo_body_armor_multicam:80a0c5ca",
+      "name": "HighCom Trooper TFO body armor (MultiCam)",
+      "amount": 125000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:body_armor:interceptor_otv_body_armor_ucp:bfbb4734",
+        "armory:body_armor:6b45_body_armor_emr:d5129c1f",
+        "armory:body_armor:5_11_tactical_hexgrid_plate_carrier:9b59dd72"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        119117.80579607547,
+        244239.07532346627,
+        126447.14008409774
+      ],
+      "tuningRangeRoubles": [
+        90000,
+        165000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:body_armor:lbt_6094a_slick_plate_carrier_black:f450ec19",
+      "name": "LBT-6094A Slick Plate Carrier (Black)",
+      "amount": 125000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:body_armor:interceptor_otv_body_armor_ucp:bfbb4734",
+        "armory:body_armor:6b45_body_armor_emr:d5129c1f",
+        "armory:body_armor:5_11_tactical_hexgrid_plate_carrier:9b59dd72"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        118135.08465598586,
+        242224.10450569275,
+        125403.95198275507
+      ],
+      "tuningRangeRoubles": [
+        90000,
+        165000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:body_armor:bnti_kirasa_n_body_armor:31d27833",
+      "name": "BNTI Kirasa-N body armor",
+      "amount": 130000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:body_armor:6b45_body_armor_emr:d5129c1f",
+        "armory:body_armor:interceptor_otv_body_armor_ucp:bfbb4734",
+        "armory:body_armor:5_11_tactical_hexgrid_plate_carrier:9b59dd72"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        248501.8591690122,
+        121196.80751843253,
+        128654.06305640307
+      ],
+      "tuningRangeRoubles": [
+        90000,
+        170000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:body_armor:6b23_1_body_armor_emr:160bc0af",
+      "name": "6B23-1 body armor (EMR)",
+      "amount": 220000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:body_armor:bnti_gzhel_k_body_armor:78d74482",
+        "armory:body_armor:npp_klass_korund_vm_body_armor_black:f2412fe3",
+        "armory:body_armor:6b45_body_armor_emr:d5129c1f"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        219289.24801428558,
+        106351.30031335309,
+        378422.8897611053
+      ],
+      "tuningRangeRoubles": [
+        155000,
+        285000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:body_armor:6b23_2_body_armor_mountain_flora:3818b472",
+      "name": "6B23-2 body armor (Mountain Flora)",
+      "amount": 210000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:body_armor:bnti_gzhel_k_body_armor:78d74482",
+        "armory:body_armor:npp_klass_korund_vm_body_armor_black:f2412fe3",
+        "armory:body_armor:6b45_body_armor_emr:d5129c1f"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        211799.27801878596,
+        102718.80097495648,
+        365497.604478827
+      ],
+      "tuningRangeRoubles": [
+        145000,
+        275000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:body_armor:6b13_assault_armor_digital_flora:b07609a6",
+      "name": "6B13 assault armor (Digital Flora)",
+      "amount": 185000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:body_armor:bnti_gzhel_k_body_armor:78d74482",
+        "armory:body_armor:6b45_body_armor_emr:d5129c1f",
+        "armory:body_armor:interceptor_otv_body_armor_ucp:bfbb4734"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        185610.9120130258,
+        320304.88649670477,
+        156215.85208967037
+      ],
+      "tuningRangeRoubles": [
+        130000,
+        240000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:body_armor:6b13_assault_armor_flora:43f5e18c",
+      "name": "6B13 assault armor (Flora)",
+      "amount": 185000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:body_armor:bnti_gzhel_k_body_armor:78d74482",
+        "armory:body_armor:6b45_body_armor_emr:d5129c1f",
+        "armory:body_armor:interceptor_otv_body_armor_ucp:bfbb4734"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        185610.9120130258,
+        320304.88649670477,
+        156215.85208967037
+      ],
+      "tuningRangeRoubles": [
+        130000,
+        240000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:body_armor:hexatac_hpc_plate_carrier_multicam_black:14a163fa",
+      "name": "Hexatac HPC Plate Carrier (MultiCam Black)",
+      "amount": 120000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:body_armor:5_11_tactical_hexgrid_plate_carrier:9b59dd72",
+        "armory:body_armor:interceptor_otv_body_armor_ucp:bfbb4734",
+        "armory:body_armor:6b45_body_armor_emr:d5129c1f"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        120000.0,
+        113044.36530571019,
+        231786.09669877283
+      ],
+      "tuningRangeRoubles": [
+        85000,
+        155000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:body_armor:paca_soft_armor_rivals_edition:777adb04",
+      "name": "PACA Soft Armor (Rivals Edition)",
+      "amount": 60000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:body_armor:5_11_tactical_hexgrid_plate_carrier:9b59dd72",
+        "armory:body_armor:interceptor_otv_body_armor_ucp:bfbb4734",
+        "armory:body_armor:6b45_body_armor_emr:d5129c1f"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        60000.0,
+        60000.0,
+        125000.0
+      ],
+      "tuningRangeRoubles": [
+        40000,
+        80000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:eyewear:6b34_anti_fragmentation_glasses:246408a0",
+      "name": "6B34 anti-fragmentation glasses",
+      "amount": 70000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:eyewear:npp_klass_condor_glasses:5e4bbcd3",
+        "armory:eyewear:dundukk_sport_sunglasses:f26cdf74",
+        "armory:eyewear:oakley_si_m_frame_safety_glasses:493e710a"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        50000.0,
+        69402.20937885671,
+        204124.1452319315
+      ],
+      "tuningRangeRoubles": [
+        50000,
+        90000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:eyewear:anti_fragmentation_glasses:1dd99767",
+      "name": "Anti-fragmentation glasses",
+      "amount": 70000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:eyewear:npp_klass_condor_glasses:5e4bbcd3",
+        "armory:eyewear:dundukk_sport_sunglasses:f26cdf74",
+        "armory:eyewear:oakley_si_m_frame_safety_glasses:493e710a"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        50000.0,
+        69402.20937885671,
+        204124.1452319315
+      ],
+      "tuningRangeRoubles": [
+        50000,
+        90000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:eyewear:dundukk_sport_sunglasses_orange_lenses:1b0746ba",
+      "name": "Dundukk sport sunglasses [Orange lenses]",
+      "amount": 85000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_alias_variant",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0,
+      "comparators": [
+        "armory:eyewear:dundukk_sport_sunglasses:f26cdf74"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        85000.0
+      ],
+      "tuningRangeRoubles": [
+        60000,
+        110000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:eyewear:gas_welder_safety_goggles:b3caa878",
+      "name": "Gas welder safety goggles",
+      "amount": 270000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:eyewear:crossbow_tactical_glasses:e6e114d4",
+        "armory:eyewear:raybench_hipster_reserve_sunglasses:42b9f6ea",
+        "armory:eyewear:round_frame_sunglasses:68a5efc3"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        270993.542358485,
+        99937.48045653342,
+        329842.8357510533
+      ],
+      "tuningRangeRoubles": [
+        190000,
+        350000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:eyewear:oakley_si_gascan_glasses:11f9d7e9",
+      "name": "Oakley SI Gascan glasses",
+      "amount": 220000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:eyewear:dundukk_sport_sunglasses:f26cdf74",
+        "armory:eyewear:oakley_si_m_frame_safety_glasses:493e710a",
+        "armory:eyewear:round_frame_sunglasses:68a5efc3"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        85000.0,
+        250000.0,
+        220479.27592204922
+      ],
+      "tuningRangeRoubles": [
+        155000,
+        285000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:eyewear:oakley_si_gascan_white_glasses:2b835f4d",
+      "name": "Oakley SI Gascan White glasses",
+      "amount": 235000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:eyewear:round_frame_sunglasses:68a5efc3",
+        "armory:eyewear:dundukk_sport_sunglasses:f26cdf74",
+        "armory:eyewear:oakley_si_m_frame_safety_glasses:493e710a"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        235702.26039551583,
+        90868.8222502243,
+        267261.2419124244
+      ],
+      "tuningRangeRoubles": [
+        165000,
+        305000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:eyewear:oakley_si_m_frame_safety_glasses_orange_lenses:63015da3",
+      "name": "Oakley SI M Frame safety glasses [Orange lenses]",
+      "amount": 250000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_alias_variant",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0,
+      "comparators": [
+        "armory:eyewear:oakley_si_m_frame_safety_glasses:493e710a"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        250000.0
+      ],
+      "tuningRangeRoubles": [
+        175000,
+        325000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:eyewear:pyramex_proximity_safety_glasses:828947a3",
+      "name": "Pyramex Proximity safety glasses",
+      "amount": 220000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:eyewear:dundukk_sport_sunglasses:f26cdf74",
+        "armory:eyewear:oakley_si_m_frame_safety_glasses:493e710a",
+        "armory:eyewear:round_frame_sunglasses:68a5efc3"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        85000.0,
+        250000.0,
+        220479.27592204922
+      ],
+      "tuningRangeRoubles": [
+        155000,
+        285000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:eyewear:raybench_aviator_glasses_green_lenses:e3abb611",
+      "name": "RayBench Aviator glasses [Green lenses]",
+      "amount": 230000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:eyewear:raybench_hipster_reserve_sunglasses:42b9f6ea",
+        "armory:eyewear:crossbow_tactical_glasses:e6e114d4",
+        "armory:eyewear:round_frame_sunglasses:68a5efc3"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        85000.0,
+        230488.61143232218,
+        280541.80384339107
+      ],
+      "tuningRangeRoubles": [
+        160000,
+        300000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:eyewear:revision_shadowstrike_tactical_glasses_gray:dc75ce96",
+      "name": "Revision ShadowStrike tactical glasses (Gray)",
+      "amount": 265000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:eyewear:crossbow_tactical_glasses:e6e114d4",
+        "armory:eyewear:raybench_hipster_reserve_sunglasses:42b9f6ea",
+        "armory:eyewear:round_frame_sunglasses:68a5efc3"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        265165.0429449553,
+        97788.03607803973,
+        322748.6121839514
+      ],
+      "tuningRangeRoubles": [
+        185000,
+        345000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:eyewear:revision_shadowstrike_tactical_glasses_tan:4c2dee13",
+      "name": "Revision ShadowStrike tactical glasses (tan)",
+      "amount": 265000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:eyewear:crossbow_tactical_glasses:e6e114d4",
+        "armory:eyewear:raybench_hipster_reserve_sunglasses:42b9f6ea",
+        "armory:eyewear:round_frame_sunglasses:68a5efc3"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        265165.0429449553,
+        97788.03607803973,
+        322748.6121839514
+      ],
+      "tuningRangeRoubles": [
+        185000,
+        345000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:eyewear:round_frame_sunglasses_green_lenses:5c3e3fff",
+      "name": "Round frame sunglasses [Green lenses]",
+      "amount": 250000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_alias_variant",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0,
+      "comparators": [
+        "armory:eyewear:round_frame_sunglasses:68a5efc3"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        250000.0
+      ],
+      "tuningRangeRoubles": [
+        175000,
+        325000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:eyewear:sunglasses_deal_with_it:f1eda2b3",
+      "name": "Sunglasses (Deal With It)",
+      "amount": 230000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:eyewear:raybench_hipster_reserve_sunglasses:42b9f6ea",
+        "armory:eyewear:crossbow_tactical_glasses:e6e114d4",
+        "armory:eyewear:round_frame_sunglasses:68a5efc3"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        85000.0,
+        230488.61143232218,
+        280541.80384339107
+      ],
+      "tuningRangeRoubles": [
+        160000,
+        300000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:eyewear:shutter_glasses:332350af",
+      "name": "Shutter glasses",
+      "amount": 230000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:eyewear:raybench_hipster_reserve_sunglasses:42b9f6ea",
+        "armory:eyewear:crossbow_tactical_glasses:e6e114d4",
+        "armory:eyewear:round_frame_sunglasses:68a5efc3"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        85000.0,
+        230488.61143232218,
+        280541.80384339107
+      ],
+      "tuningRangeRoubles": [
+        160000,
+        300000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:eyewear:tactical_glasses:05c94687",
+      "name": "Tactical glasses",
+      "amount": 70000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:eyewear:npp_klass_condor_glasses:5e4bbcd3",
+        "armory:eyewear:dundukk_sport_sunglasses:f26cdf74",
+        "armory:eyewear:oakley_si_m_frame_safety_glasses:493e710a"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        50000.0,
+        69402.20937885671,
+        204124.1452319315
+      ],
+      "tuningRangeRoubles": [
+        50000,
+        90000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:eyewear:twitch_rivals_2020_glasses:dec2d02f",
+      "name": "Twitch Rivals 2020 glasses",
+      "amount": 250000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:eyewear:crossbow_tactical_glasses:e6e114d4",
+        "armory:eyewear:raybench_hipster_reserve_sunglasses:42b9f6ea",
+        "armory:eyewear:round_frame_sunglasses:68a5efc3"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        250000.0,
+        92195.44457292887,
+        304290.3097250923
+      ],
+      "tuningRangeRoubles": [
+        175000,
+        325000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:eyewear:wiley_x_spear_ballistic_goggles_black:4c0c94f0",
+      "name": "Wiley X SPEAR ballistic goggles (Black)",
+      "amount": 225000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:eyewear:dundukk_sport_sunglasses:f26cdf74",
+        "armory:eyewear:oakley_si_m_frame_safety_glasses:493e710a",
+        "armory:eyewear:round_frame_sunglasses:68a5efc3"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        87000.27367225703,
+        255883.15785957949,
+        225667.73346211
+      ],
+      "tuningRangeRoubles": [
+        160000,
+        295000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:medkit:afak_tactical_individual_first_aid_kit:c68cc28b",
+      "name": "AFAK tactical individual first aid kit",
+      "amount": 120000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "medical_family_nearest_mp",
+      "confidence": "low",
+      "categoryDiscount": 0.6,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:stimulant:propital_regenerative_stimulant_injector:a15326e3",
+        "armory:stimulant:trimadol_stimulant_injector:672acd06",
+        "armory:stimulant:perfotoran_blue_blood_stimulant_injector:06fe011b"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        121507.76901513121,
+        116648.10183203561,
+        197987.92576821445
+      ],
+      "tuningRangeRoubles": [
+        85000,
+        155000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:medkit:salewa_first_aid_kit:a19567ee",
+      "name": "Salewa first aid kit",
+      "amount": 110000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "medical_family_nearest_mp",
+      "confidence": "low",
+      "categoryDiscount": 0.6,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:stimulant:propital_regenerative_stimulant_injector:a15326e3",
+        "armory:stimulant:trimadol_stimulant_injector:672acd06",
+        "armory:stimulant:perfotoran_blue_blood_stimulant_injector:06fe011b"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        112452.2887333971,
+        107954.79279835423,
+        183232.69017836312
+      ],
+      "tuningRangeRoubles": [
+        75000,
+        145000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:medkit:ifak_individual_first_aid_kit:123e1b56",
+      "name": "IFAK individual first aid kit",
+      "amount": 105000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "medical_family_nearest_mp",
+      "confidence": "low",
+      "categoryDiscount": 0.6,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:stimulant:perfotoran_blue_blood_stimulant_injector:06fe011b",
+        "armory:stimulant:propital_regenerative_stimulant_injector:a15326e3",
+        "armory:stimulant:trimadol_stimulant_injector:672acd06"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        169529.44987523553,
+        104042.43166231216,
+        99881.28546650108
+      ],
+      "tuningRangeRoubles": [
+        75000,
+        135000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:medkit:car_first_aid_kit:201f399c",
+      "name": "Car first aid kit",
+      "amount": 95000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "medical_family_nearest_mp",
+      "confidence": "low",
+      "categoryDiscount": 0.6,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:stimulant:adrenaline_injector:c5966112",
+        "armory:stimulant:ahf1_m_stimulant_injector:046065de",
+        "armory:stimulant:perfotoran_blue_blood_stimulant_injector:06fe011b"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        93012.41261532549,
+        94254.28885595569,
+        133901.78303517844
+      ],
+      "tuningRangeRoubles": [
+        65000,
+        125000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:medkit:ai_2_medkit:9b00065b",
+      "name": "AI-2 medkit",
+      "amount": 80000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "medical_family_nearest_mp",
+      "confidence": "low",
+      "categoryDiscount": 0.6,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:stimulant:3_b_tg_stimulant_injector:de80eb78",
+        "armory:stimulant:2a2_b_tg_stimulant_injector:e9e9bfa9",
+        "armory:stimulant:meldonin_injector:bd0bcb39"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        81315.7112614726,
+        81315.7112614726,
+        66620.98891778447
+      ],
+      "tuningRangeRoubles": [
+        55000,
+        105000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:injury_treatment:calok_b_hemostatic_applicator:6a2fe123",
+      "name": "CALOK-B hemostatic applicator",
+      "amount": 60000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "medical_family_nearest_mp",
+      "confidence": "low",
+      "categoryDiscount": 0.4,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:stimulant:ahf1_m_stimulant_injector:046065de",
+        "armory:stimulant:adrenaline_injector:c5966112",
+        "armory:stimulant:meldonin_injector:bd0bcb39"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        59188.05459255789,
+        58408.204257683945,
+        66805.79090640375
+      ],
+      "tuningRangeRoubles": [
+        40000,
+        80000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:injury_treatment:aluminum_splint:e57fafc7",
+      "name": "Aluminum splint",
+      "amount": 50000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "medical_family_nearest_mp",
+      "confidence": "low",
+      "categoryDiscount": 0.4,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:stimulant:3_b_tg_stimulant_injector:de80eb78",
+        "armory:stimulant:2a2_b_tg_stimulant_injector:e9e9bfa9",
+        "armory:stimulant:meldonin_injector:bd0bcb39"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        49610.72958338668,
+        49610.72958338668,
+        40645.47692573613
+      ],
+      "tuningRangeRoubles": [
+        35000,
+        65000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:injury_treatment:cat_hemostatic_tourniquet:58bcf737",
+      "name": "CAT hemostatic tourniquet",
+      "amount": 45000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "medical_family_nearest_mp",
+      "confidence": "low",
+      "categoryDiscount": 0.4,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:stimulant:3_b_tg_stimulant_injector:de80eb78",
+        "armory:stimulant:2a2_b_tg_stimulant_injector:e9e9bfa9",
+        "armory:stimulant:meldonin_injector:bd0bcb39"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        46947.6477861571,
+        46947.6477861571,
+        38463.64588536194
+      ],
+      "tuningRangeRoubles": [
+        30000,
+        60000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:injury_treatment:esmarch_tourniquet:c6f102a9",
+      "name": "Esmarch tourniquet",
+      "amount": 45000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "medical_family_nearest_mp",
+      "confidence": "low",
+      "categoryDiscount": 0.4,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:stimulant:3_b_tg_stimulant_injector:de80eb78",
+        "armory:stimulant:2a2_b_tg_stimulant_injector:e9e9bfa9",
+        "armory:stimulant:meldonin_injector:bd0bcb39"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        42857.14285714286,
+        42857.14285714286,
+        35112.34415883917
+      ],
+      "tuningRangeRoubles": [
+        30000,
+        60000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:injury_treatment:army_bandage:7de89aa4",
+      "name": "Army bandage",
+      "amount": 40000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "medical_family_nearest_mp",
+      "confidence": "low",
+      "categoryDiscount": 0.4,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:stimulant:3_b_tg_stimulant_injector:de80eb78",
+        "armory:stimulant:2a2_b_tg_stimulant_injector:e9e9bfa9",
+        "armory:stimulant:meldonin_injector:bd0bcb39"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        42426.406871192856,
+        42426.406871192856,
+        34759.447321299456
+      ],
+      "tuningRangeRoubles": [
+        30000,
+        50000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:injury_treatment:aseptic_bandage:3f661cf3",
+      "name": "Aseptic bandage",
+      "amount": 30000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "medical_family_nearest_mp",
+      "confidence": "low",
+      "categoryDiscount": 0.4,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:stimulant:3_b_tg_stimulant_injector:de80eb78",
+        "armory:stimulant:2a2_b_tg_stimulant_injector:e9e9bfa9",
+        "armory:stimulant:meldonin_injector:bd0bcb39"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        30304.576336566326,
+        30304.576336566326,
+        30000.0
+      ],
+      "tuningRangeRoubles": [
+        20000,
+        40000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:injury_treatment:immobilizing_splint:ee187214",
+      "name": "Immobilizing splint",
+      "amount": 30000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "medical_family_nearest_mp",
+      "confidence": "low",
+      "categoryDiscount": 0.4,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:stimulant:3_b_tg_stimulant_injector:de80eb78",
+        "armory:stimulant:2a2_b_tg_stimulant_injector:e9e9bfa9",
+        "armory:stimulant:meldonin_injector:bd0bcb39"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        30000.0,
+        30000.0,
+        30000.0
+      ],
+      "tuningRangeRoubles": [
+        20000,
+        40000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:pills:augmentin_antibiotic_pills:428564e1",
+      "name": "Augmentin antibiotic pills",
+      "amount": 85000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "medical_family_nearest_mp",
+      "confidence": "low",
+      "categoryDiscount": 0.5,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:stimulant:meldonin_injector:bd0bcb39",
+        "armory:stimulant:3_b_tg_stimulant_injector:de80eb78",
+        "armory:stimulant:2a2_b_tg_stimulant_injector:e9e9bfa9"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        69673.89794459988,
+        85042.00642707612,
+        85042.00642707612
+      ],
+      "tuningRangeRoubles": [
+        60000,
+        110000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:pills:analgin_painkillers:820e9981",
+      "name": "Analgin painkillers",
+      "amount": 80000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "medical_family_nearest_mp",
+      "confidence": "low",
+      "categoryDiscount": 0.5,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:stimulant:3_b_tg_stimulant_injector:de80eb78",
+        "armory:stimulant:2a2_b_tg_stimulant_injector:e9e9bfa9",
+        "armory:stimulant:meldonin_injector:bd0bcb39"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        78733.59887517357,
+        78733.59887517357,
+        64505.49514661203
+      ],
+      "tuningRangeRoubles": [
+        55000,
+        105000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    },
+    {
+      "recordId": "armory:stimulant:morphine_injector:fbe687d5",
+      "name": "Morphine injector",
+      "amount": 155000,
+      "currency": "RUB",
+      "basis": "estimated_mod_default",
+      "method": "same_category_nearest_mp",
+      "confidence": "medium",
+      "categoryDiscount": 1.0,
+      "mpScalingExponent": 0.5,
+      "comparators": [
+        "armory:stimulant:adrenaline_injector:c5966112",
+        "armory:stimulant:ahf1_m_stimulant_injector:046065de",
+        "armory:stimulant:perfotoran_blue_blood_stimulant_injector:06fe011b"
+      ],
+      "comparatorEstimatesBeforeRounding": [
+        151173.42075034638,
+        153191.84683097163,
+        217631.06683100187
+      ],
+      "tuningRangeRoubles": [
+        110000,
+        200000
+      ],
+      "scope": "one_time_armory_access_price_not_consumable_market_price"
+    }
+  ],
+  "suspectMpProposals": [
+    {
+      "recordId": "armory:assault_rifle:steyr_aug_a3_5_56x45_assault_rifle:5787f01e",
+      "field": "mp",
+      "sourceValue": 30093,
+      "estimate": 3093,
+      "comparators": [
+        "armory:assault_rifle:steyr_aug_a3_5_56x45_assault_rifle_black:b3f058bc"
+      ],
+      "confidence": "medium",
+      "rationale": "Same base rifle variant; source outlier is not treated as a verified typo correction."
+    },
+    {
+      "recordId": "armory:stimulant:p22_product_22_stimulant_injector:85c1c39c",
+      "field": "mp",
+      "sourceValue": 0,
+      "estimate": 145,
+      "comparators": [
+        "armory:stimulant:adrenaline_injector:c5966112",
+        "armory:stimulant:ahf1_m_stimulant_injector:046065de",
+        "armory:stimulant:meldonin_injector:bd0bcb39",
+        "armory:stimulant:3_b_tg_stimulant_injector:de80eb78",
+        "armory:stimulant:2a2_b_tg_stimulant_injector:e9e9bfa9"
+      ],
+      "confidence": "low",
+      "rationale": "Provisional nonzero value from comparable 150,000 RUB stimulant unlocks; effect strength needs playtesting."
+    }
+  ],
+  "arenaStashSaleEstimates": {
+    "rows": [
+      {
+        "itemLabel": "Sealed Gear Case (Battle Pass: Season 0)",
+        "currency": "GP",
+        "priceByRefLoyalty": {
+          "1": 50,
+          "2": 55,
+          "3": 63,
+          "4": 75
+        },
+        "basis": "estimated_mod_default",
+        "confidence": "low",
+        "categoryFactor": 0.7
+      },
+      {
+        "itemLabel": "Sealed Gear Case (Rare)",
+        "currency": "GP",
+        "priceByRefLoyalty": {
+          "1": 45,
+          "2": 50,
+          "3": 56,
+          "4": 68
+        },
+        "basis": "estimated_mod_default",
+        "confidence": "low",
+        "categoryFactor": 0.6
+      },
+      {
+        "itemLabel": "Sealed Valuables Case (Rare)",
+        "currency": "GP",
+        "priceByRefLoyalty": {
+          "1": 60,
+          "2": 66,
+          "3": 75,
+          "4": 90
+        },
+        "basis": "estimated_mod_default",
+        "confidence": "low",
+        "categoryFactor": 0.8
+      },
+      {
+        "itemLabel": "Sealed Supply Case (Rare)",
+        "currency": "GP",
+        "priceByRefLoyalty": {
+          "1": 30,
+          "2": 33,
+          "3": 38,
+          "4": 45
+        },
+        "basis": "estimated_mod_default",
+        "confidence": "low",
+        "categoryFactor": 0.4
+      },
+      {
+        "itemLabel": "Sealed Weapon Case (Rare)",
+        "currency": "GP",
+        "priceByRefLoyalty": {
+          "1": 50,
+          "2": 55,
+          "3": 63,
+          "4": 75
+        },
+        "basis": "estimated_mod_default",
+        "confidence": "low",
+        "categoryFactor": 0.7
+      },
+      {
+        "itemLabel": "Red Christmas Ball Ornament",
+        "currency": "GP",
+        "priceByRefLoyalty": {
+          "1": 10,
+          "2": 11,
+          "3": 13,
+          "4": 15
+        },
+        "basis": "estimated_mod_default",
+        "confidence": "low",
+        "categoryFactor": 0.14
+      },
+      {
+        "itemLabel": "Silver Christmas Ball Ornament",
+        "currency": "GP",
+        "priceByRefLoyalty": {
+          "1": 5,
+          "2": 6,
+          "3": 6,
+          "4": 8
+        },
+        "basis": "estimated_mod_default",
+        "confidence": "low",
+        "categoryFactor": 0.07
+      },
+      {
+        "itemLabel": "Purple Christmas Ball Ornament",
+        "currency": "GP",
+        "priceByRefLoyalty": {
+          "1": 15,
+          "2": 17,
+          "3": 19,
+          "4": 23
+        },
+        "basis": "estimated_mod_default",
+        "confidence": "low",
+        "categoryFactor": 0.21
+      }
+    ],
+    "anchorMedianGpArmoryPrice": 72.5,
+    "anchorRecordIds": [
+      "armory:assault_rifle:custom_guns_nl545_di_5_45x39_assault_rifle:d6328b34",
+      "armory:assault_rifle:custom_guns_nl545_gp_5_45x39_assault_rifle:d976b0f7",
+      "armory:assault_rifle:kalashnikov_ak_12_5_45x39_assault_rifle:4cca8799",
+      "armory:assault_rifle:ash_12_12_7x55_assault_rifle:987dcb02",
+      "armory:assault_rifle:desert_tech_mdr_7_62x51_assault_rifle:1d6f1301",
+      "armory:assault_rifle:rifle_dynamics_rd_704_7_62x39_assault_rifle:d45cfadc",
+      "armory:assault_rifle:aklys_defense_velociraptor_300_blackout_assault_rifle:eb8c4a53",
+      "armory:smg:hk_mp7a1_4_6x30_submachine_gun:53b21255",
+      "armory:smg:b_t_mp9_n_9x19_submachine_gun:def34824",
+      "armory:smg:fn_p90_5_7x28_submachine_gun:0475db2a",
+      "armory:shotgun:mp_155_12ga_semi_automatic_shotgun:af2c8902",
+      "armory:shotgun:saiga_12k_ver_10_12ga_semi_automatic_shotgun:7260405d",
+      "armory:lmg:kalashnikov_pkp_7_62x54r_infantry_machine_gun_pecheneg:b4e9a54e",
+      "armory:marksman_rifle:theakguy_ak_50_50_bmg_sniper_rifle:a1d92734",
+      "armory:marksman_rifle:hk_g28_7_62x51_marksman_rifle:1aac0a56",
+      "armory:marksman_rifle:knight_s_armament_company_sr_25_7_62x51_marksman_rifle:db4e99e7",
+      "armory:marksman_rifle:svds_7_62x54r_sniper_rifle:2ebfcd58",
+      "armory:bolt_action_rifle:accuracy_international_axmc_338_lm_bolt_action_sniper_rifle:fc29b247",
+      "armory:bolt_action_rifle:orsis_t_5000m_7_62x51_bolt_action_sniper_rifle:f9b85663",
+      "armory:pistol:magnum_research_desert_eagle_l5_357_pistol:4db56289",
+      "armory:melee:uvsr_taiga_1_survival_machete:27ad5351",
+      "armory:body_armor:fort_redut_m_body_armor:70ef7c07",
+      "armory:body_armor:fort_defender_2_body_armor:3bb6bb4e",
+      "armory:body_armor:iotv_gen4_body_armor_high_mobility_kit_multicam:106629ce",
+      "armory:body_armor:highcom_trooper_tfo_body_armor_coyote:0e17fdf5",
+      "armory:body_armor:lbt_6094a_slick_plate_carrier_coyote_tan:8e55d9d3",
+      "armory:body_armor:hexatac_hpc_plate_carrier_multicam:224898ea",
+      "armory:eyewear:johnb_liquid_dnb_glasses:222b49e7",
+      "armory:eyewear:oakley_si_batwolf_glasses:de78fed6",
+      "armory:stimulant:etg_change_regenerative_stimulant_injector:3cae5274",
+      "armory:stimulant:zagustin_hemostatic_drug_injector:a0dfff3b",
+      "armory:stimulant:sj6_tglabs_combat_stimulant_injector:b2e47722"
+    ],
+    "method": "Median observed GP access price times an explicit item-category factor; Ref multipliers 1/1.1/1.25/1.5. Selling versus unlocking are different markets; this is a conservative mod economy seed, not a live conversion formula."
+  },
+  "missingMpCategorySeeds": {
+    "helmet": {
+      "base": 520,
+      "armorClassMp": {
+        "1": 80,
+        "2": 140,
+        "3": 260,
+        "4": 520,
+        "5": 900,
+        "6": 1300
+      }
+    },
+    "helmet_attachment_armor": {
+      "base": 160,
+      "armorClassMp": {
+        "1": 40,
+        "2": 80,
+        "3": 160,
+        "4": 300,
+        "5": 500,
+        "6": 750
+      }
+    },
+    "headset": {
+      "base": 180,
+      "tiers": {
+        "basic": 120,
+        "standard": 180,
+        "premium": 250
+      }
+    },
+    "earplug": {
+      "base": 70
+    },
+    "chest_rig": {
+      "base": 160,
+      "formula": "40 + 6 * usableCells"
+    },
+    "armored_rig_empty_carrier": {
+      "base": 180,
+      "formula": "60 + 6 * usableCells; protective components priced separately"
+    },
+    "armor_plate": {
+      "base": 450,
+      "armorClassMp": {
+        "1": 60,
+        "2": 150,
+        "3": 250,
+        "4": 450,
+        "5": 800,
+        "6": 1200
+      }
+    },
+    "grenade": {
+      "base": 200,
+      "types": {
+        "flash": 60,
+        "smoke": 100,
+        "fragmentation": 200,
+        "mini_fragmentation": 240,
+        "impact": 280
+      }
+    },
+    "magazine": {
+      "base": 80,
+      "formula": "max(20, 20 + 2 * capacity); multiply 1.25 for drum"
+    },
+    "weapon_attachment": {
+      "base": 120,
+      "roles": {
+        "receiver": 0,
+        "barrel": 180,
+        "handguard": 100,
+        "stock": 140,
+        "pistol_grip": 60,
+        "foregrip": 120,
+        "muzzle_brake": 160,
+        "suppressor": 300,
+        "iron_sight": 20,
+        "reflex_sight": 100,
+        "scope_low_power": 250,
+        "scope_high_power": 450,
+        "laser": 90,
+        "flashlight": 40,
+        "combo_tactical": 120,
+        "mount": 20,
+        "adapter": 10
+      }
+    }
+  },
+  "seedBasis": {
+    "type": "engineering_design_estimate",
+    "measuredCategoryFit": false,
+    "anchors": {
+      "presetMpRange": [
+        7500,
+        10000
+      ],
+      "medianObservedMpByCategory": {
+        "assault_carbine": 3530.0,
+        "assault_rifle": 2736.5,
+        "body_armor": 1331.0,
+        "bolt_action_rifle": 1871.0,
+        "eyewear": 25.5,
+        "injury_treatment": 50,
+        "lmg": 1851,
+        "marksman_rifle": 3981,
+        "medkit": 327,
+        "melee": 1.0,
+        "pills": 117.0,
+        "pistol": 382,
+        "shotgun": 2037.5,
+        "smg": 2763,
+        "stimulant": 225.0
+      }
+    },
+    "rationale": "Keep individual utilities below major medical/weapon costs; armor scales nonlinearly; mods consume hundreds to low thousands per build. Grenade relative ordering follows the shop but conversion scale is a mod choice."
+  },
+  "notMeasured": "Missing category scores cannot be statistically fitted from other categories without their live scores and item attributes.",
+  "ownership": "These estimates are mod defaults, not claims of current BSG values."
+}

@@ -1,0 +1,43 @@
+{
+  "direction": "persistent_arena_currency_to_battle_points",
+  "rates": {
+    "source": {
+      "sourceId": "battlepass",
+      "url": "https://wikiwiki.jp/eft/Arena/バトルパス",
+      "line": 62,
+      "section": "BP",
+      "sectionPatch": null,
+      "retrievedOn": "2026-11-03"
+    },
+    "alternatives": [
+      {
+        "spend": 25000,
+        "currency": "RUB",
+        "receiveBattlePoints": 1
+      },
+      {
+        "spend": 25,
+        "currency": "GP",
+        "receiveBattlePoints": 1
+      }
+    ],
+    "currentRatesConfirmed": false
+  },
+  "dailyLimit": {
+    "latestSourced": 20,
+    "previousOfficialValue": 10,
+    "source": {
+      "sourceId": "bsg_061",
+      "url": "https://telegra.ph/Patch-Notes-061-10-15",
+      "line": 35,
+      "section": "Battle Pass balance",
+      "sectionPatch": "0.6.1",
+      "retrievedOn": "2026-11-03"
+    },
+    "takesEffect": "personal_limit_reset",
+    "supersededWikiValue": 8
+  },
+  "windowHoursWiki": 24,
+  "windowPolicy": "source_describes_login_anchored_reset_requires_verification",
+  "season": null
+}

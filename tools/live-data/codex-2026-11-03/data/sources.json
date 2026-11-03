@@ -1,0 +1,104 @@
+{
+  "compiledOn": "2026-11-03",
+  "target": "Arena 0.6-era reference with older sections and separately scoped later official patches",
+  "latestOfficialPatchAnnouncementFound": "0.6.2, installation 2026-10-29",
+  "notClaimed": "Latest server item values or full current parity",
+  "sources": [
+    {
+      "id": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "role": "community_observed_table",
+      "retrievedOn": "2026-11-03"
+    },
+    {
+      "id": "ammo",
+      "url": "https://wikiwiki.jp/eft/Arena/弾薬",
+      "role": "community_observed_table",
+      "retrievedOn": "2026-11-03"
+    },
+    {
+      "id": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "role": "community_observed_table",
+      "retrievedOn": "2026-11-03"
+    },
+    {
+      "id": "battlepass",
+      "url": "https://wikiwiki.jp/eft/Arena/バトルパス",
+      "role": "community_observed_table",
+      "retrievedOn": "2026-11-03"
+    },
+    {
+      "id": "presets",
+      "url": "https://wikiwiki.jp/eft/Arena/プリセット",
+      "role": "community_observed_table",
+      "retrievedOn": "2026-11-03"
+    },
+    {
+      "id": "teamfight",
+      "url": "https://wikiwiki.jp/eft/Arena/TEAM%20FIGHT",
+      "role": "community_observed_table",
+      "retrievedOn": "2026-11-03"
+    },
+    {
+      "id": "checkpoint",
+      "url": "https://wikiwiki.jp/eft/Arena/CHECKPOINT",
+      "role": "community_observed_table",
+      "retrievedOn": "2026-11-03"
+    },
+    {
+      "id": "lasthero",
+      "url": "https://wikiwiki.jp/eft/Arena/LAST%20HERO",
+      "role": "community_observed_table",
+      "retrievedOn": "2026-11-03"
+    },
+    {
+      "id": "shootout",
+      "url": "https://wikiwiki.jp/eft/Arena/SHOOTOUT",
+      "role": "community_observed_table",
+      "retrievedOn": "2026-11-03"
+    },
+    {
+      "id": "bsg_060",
+      "url": "https://telegra.ph/Patch-notes-060-09-17",
+      "role": "primary_patch_notes_or_announcement",
+      "retrievedOn": "2026-11-03"
+    },
+    {
+      "id": "bsg_060_announcement",
+      "url": "https://t.me/s/escapefromtarkovEN?after=6830",
+      "role": "primary_patch_notes_or_announcement",
+      "retrievedOn": "2026-11-03"
+    },
+    {
+      "id": "changelog_lead",
+      "url": "https://escapefromtarkov.fandom.com/wiki/Arena_Changelog",
+      "role": "secondary_patch_history_research_lead_only",
+      "retrievedOn": "2026-11-03"
+    },
+    {
+      "id": "bsg_recent",
+      "url": "https://t.me/s/escapefromtarkovEN?q=%23tarkovarena",
+      "role": "primary_patch_notes_or_announcement",
+      "retrievedOn": "2026-11-03"
+    },
+    {
+      "id": "bsg_061",
+      "url": "https://telegra.ph/Patch-Notes-061-10-15",
+      "role": "primary_patch_notes_or_announcement",
+      "retrievedOn": "2026-11-03"
+    },
+    {
+      "id": "bsg_0615",
+      "url": "https://telegra.ph/Patch-Notes-065-10-22",
+      "role": "primary_patch_notes_or_announcement",
+      "retrievedOn": "2026-11-03"
+    }
+  ],
+  "provenanceNotes": [
+    "Line numbers match the web extraction L0/L1 labels, not stable wiki revision identifiers.",
+    "rowSha256 hashes the stripped original PukiWiki item row; it is not an asset or game ID.",
+    "Section version markers are retained as claimed by the wiki, not independently proven client versions.",
+    "No live-client screenshots, original game database, or mod repository were supplied for this compilation."
+  ]
+}

@@ -1,0 +1,173 @@
+{
+  "status": "reference_values_not_runtime_configuration",
+  "BlastGang": {
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 6,
+      "section": "rules",
+      "sectionPatch": null,
+      "retrievedOn": "2026-11-03"
+    },
+    "teamSize": 5,
+    "teams": 2,
+    "regulationMaxRounds": 16,
+    "roundsToWin": 9,
+    "switchSidesAfterRounds": 8,
+    "startingMatchDollars": 600,
+    "roundSeconds": 105,
+    "deviceCountdownSeconds": 40,
+    "plantSecondsWiki": 4,
+    "defuseStageSecondsWiki": [
+      3,
+      3
+    ],
+    "completedDefuseStagePersistsWiki": true,
+    "deviceTerminologyConflict": "Official 0.6.0 calls the two-stage operation activation; wiki calls it defusing. Verify UI action before binding state machine.",
+    "overtime": {
+      "triggerScore": [
+        8,
+        8
+      ],
+      "startingMatchDollars": 20000,
+      "roundsPerSet": 4,
+      "switchSidesAfterRounds": 2,
+      "roundsToWinSet": 3,
+      "unrankedSets": 1,
+      "unrankedTieResult": "draw",
+      "rankedRepeatPolicy": null
+    },
+    "gearSelection": "round_shop",
+    "medicalAndGrenadeMapSpawnsWiki": false,
+    "grenadePurchaseLimits": null,
+    "evidence": "wiki_unversioned_rules_with_0_6_shop"
+  },
+  "TeamFight": {
+    "source": {
+      "sourceId": "teamfight",
+      "url": "https://wikiwiki.jp/eft/Arena/TEAM%20FIGHT",
+      "line": 6,
+      "section": "rules",
+      "sectionPatch": null,
+      "retrievedOn": "2026-11-03"
+    },
+    "teamSize": 5,
+    "teams": 2,
+    "unrankedRoundsToWin": 5,
+    "rankedRoundsToWin": null,
+    "respawnWithinRound": false,
+    "betweenRoundPresetChangeSince": "0.5.1.5",
+    "captureSecondsWiki": 10,
+    "phaseTiming": {
+      "status": "conflicting_do_not_enable",
+      "wikiOpeningPhaseSeconds": 90,
+      "wikiCapturePhaseSeconds": 43,
+      "wikiToxinDelaySeconds": 30,
+      "wikiToxinTickSeconds": 3,
+      "wikiToxinDamagePerBodyPart": 3,
+      "patchHistoryLead": "May 2026 timing changes use different event anchors; do not sum old phase durations.",
+      "verifiedTimeline": null
+    }
+  },
+  "CheckPoint": {
+    "source": {
+      "sourceId": "checkpoint",
+      "url": "https://wikiwiki.jp/eft/Arena/CHECKPOINT",
+      "line": 5,
+      "section": "rules",
+      "sectionPatch": null,
+      "retrievedOn": "2026-11-03"
+    },
+    "objectiveCount": 3,
+    "scoreToWin": 1250,
+    "timeLimitSeconds": 900,
+    "respawns": "unlimited",
+    "scorePerSecondByOwnedCount": {
+      "0": 0,
+      "1": 1,
+      "2": 2,
+      "3": 6
+    },
+    "tripleOwnedOneBeingCapturedScorePerSecond": 4,
+    "killScore": 0,
+    "ownershipPersistsUntilCaptureCompleted": true,
+    "hittingCapturerReducesCaptureProgress": true,
+    "captureRollbackAmount": null,
+    "ammoCrateCooldownSecondsApproximate": 20,
+    "evidence": "wiki_observation_unversioned"
+  },
+  "LastHero": {
+    "source": {
+      "sourceId": "lasthero",
+      "url": "https://wikiwiki.jp/eft/Arena/LAST%20HERO",
+      "line": 5,
+      "section": "rules",
+      "sectionPatch": null,
+      "retrievedOn": "2026-11-03"
+    },
+    "format": "free_for_all",
+    "timeLimitSeconds": 600,
+    "respawns": true,
+    "playerCountWiki": 6,
+    "playerCountRuntime": null,
+    "playerCountReview": "Wiki universal count requires map/patch verification; do not hardcode across maps.",
+    "evidence": "wiki_observation_unversioned"
+  },
+  "ShootOut": {
+    "source": {
+      "sourceId": "shootout",
+      "url": "https://wikiwiki.jp/eft/Arena/SHOOTOUT",
+      "line": 9,
+      "section": "rules",
+      "sectionPatch": "0.5.0_reintroduction",
+      "retrievedOn": "2026-11-03"
+    },
+    "teamSize": 2,
+    "teams": 6,
+    "players": 12,
+    "roundRobinOpponents": 5,
+    "pointsForTwoRoundWin": 3,
+    "pointsForOneOneDraw": 1,
+    "finalistTeams": 2,
+    "finalBestOf": 3,
+    "finalWinsRequired": 2,
+    "roundRobinTieBreakers": null,
+    "respawnWithinRound": false,
+    "oldSoloAndTrioModesEnabled": false,
+    "evidence": "wiki_observation_mixed_history"
+  },
+  "matchRewardFormula": {
+    "pmcXp": null,
+    "weaponXp": null,
+    "roubles": null,
+    "gp": null,
+    "crateDropOdds": null
+  },
+  "official060XpAdjustments": {
+    "source": {
+      "sourceId": "bsg_060",
+      "url": "https://telegra.ph/Patch-notes-060-09-17",
+      "line": 160,
+      "section": "experience",
+      "sectionPatch": "0.6.0",
+      "retrievedOn": "2026-11-03"
+    },
+    "locationIncreasePercent": {
+      "Fort": 35,
+      "Iceberg": 35
+    },
+    "modeIncreasePercent": {
+      "BlastGang": 35,
+      "TeamFight": 30,
+      "ShootOut": 20
+    },
+    "appliesTo": [
+      "PMC_XP",
+      "WEAPON_XP"
+    ],
+    "baseFormula": null,
+    "stackingPolicy": null,
+    "applyToBattlePassXp": false,
+    "applyBlindlyOnTopOfCurrentBase": false
+  }
+}

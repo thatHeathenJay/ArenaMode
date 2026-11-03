@@ -1,0 +1,2888 @@
+[
+  {
+    "id": "blastgang:common_grenade:model_m7290_flash_bang_grenade:bd95ce7c",
+    "side": "common",
+    "shopCategory": "GRENADE",
+    "name": "Model M7290 Flash Bang grenade",
+    "variantNames": [
+      "Model M7290 Flash Bang grenade"
+    ],
+    "price": 150,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": null,
+    "ammoDamageRaw": null,
+    "ammoPenetration": null,
+    "magazineCapacity": null,
+    "magazineCount": null,
+    "loadoutDetailsRaw": "",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 76,
+      "section": "common/GRENADE",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "bd95ce7c97220fb1e1a29fa55177a2ad84867bade528fe2c05143df5279cde47"
+    }
+  },
+  {
+    "id": "blastgang:common_grenade:m18_smoke_grenade:103ad084",
+    "side": "common",
+    "shopCategory": "GRENADE",
+    "name": "M18 smoke grenade",
+    "variantNames": [
+      "M18 smoke grenade"
+    ],
+    "price": 250,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": null,
+    "ammoDamageRaw": null,
+    "ammoPenetration": null,
+    "magazineCapacity": null,
+    "magazineCount": null,
+    "loadoutDetailsRaw": "",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 77,
+      "section": "common/GRENADE",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "103ad0840cf0f73bb570403e3e408cc8b07979d7629af12fbe525bf84459e9cc"
+    }
+  },
+  {
+    "id": "blastgang:common_grenade:v40_mini_grenade:2f041be4",
+    "side": "common",
+    "shopCategory": "GRENADE",
+    "name": "V40 Mini-Grenade",
+    "variantNames": [
+      "V40 Mini-Grenade"
+    ],
+    "price": 600,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": null,
+    "ammoDamageRaw": null,
+    "ammoPenetration": null,
+    "magazineCapacity": null,
+    "magazineCount": null,
+    "loadoutDetailsRaw": "",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 78,
+      "section": "common/GRENADE",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "2f041be48be82bdb39c04e98e3e0ed1ab5b79cdfc88e34a2712a6e52c8e5fdc0"
+    }
+  },
+  {
+    "id": "blastgang:common_helmet:crye_precision_airframe_helmet_shark:d957df52",
+    "side": "common",
+    "shopCategory": "HELMET",
+    "name": "Crye Precision AirFrame Helmet(Shark)",
+    "variantNames": [
+      "Crye Precision AirFrame Helmet(Shark)"
+    ],
+    "price": 1600,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": null,
+    "ammoDamageRaw": null,
+    "ammoPenetration": null,
+    "magazineCapacity": null,
+    "magazineCount": null,
+    "loadoutDetailsRaw": "",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 83,
+      "section": "common/HELMET",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "d957df526da32cc6ff1357966dea9f57522b0a2e29cd2cb83a95f0290ad41648"
+    }
+  },
+  {
+    "id": "blastgang:common_helmet:crye_precision_airframe_helmet_old_school_crye_precision_airframe_helmet_black_crye_precision_a:fbd999cd",
+    "side": "common",
+    "shopCategory": "HELMET",
+    "name": "Crye Precision AirFrame Helmet(Old School) / Crye Precision AirFrame Helmet(Black) / Crye Precision AirFrame Helmet(Bull)",
+    "variantNames": [
+      "Crye Precision AirFrame Helmet(Old School)",
+      "Crye Precision AirFrame Helmet(Black)",
+      "Crye Precision AirFrame Helmet(Bull)"
+    ],
+    "price": 1400,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": null,
+    "ammoDamageRaw": null,
+    "ammoPenetration": null,
+    "magazineCapacity": null,
+    "magazineCount": null,
+    "loadoutDetailsRaw": "",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 84,
+      "section": "common/HELMET",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "fbd999cd31635bee83b24aac2b9a204d269924901dac63aabf4f94d06f1bcb5e"
+    }
+  },
+  {
+    "id": "blastgang:common_helmet:crye_precision_airframe_m_lok_helmet_tan_crye_precision_airframe_m_lok_helmet_od_green:9fe17e87",
+    "side": "common",
+    "shopCategory": "HELMET",
+    "name": "Crye Precision AirFrame M-LOK Helmet(Tan) / Crye Precision AirFrame M-LOK Helmet(OD Green)",
+    "variantNames": [
+      "Crye Precision AirFrame M-LOK Helmet(Tan)",
+      "Crye Precision AirFrame M-LOK Helmet(OD Green)"
+    ],
+    "price": 1400,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": null,
+    "ammoDamageRaw": null,
+    "ammoPenetration": null,
+    "magazineCapacity": null,
+    "magazineCount": null,
+    "loadoutDetailsRaw": "",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 85,
+      "section": "common/HELMET",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "9fe17e8798f8d7eb9fed121889d1c054cc29466160ba3a9ee6a41144a611ac17"
+    }
+  },
+  {
+    "id": "blastgang:common_helmet:team_wendy_exfil_ballistic_helmet_coyote_brown:040d339c",
+    "side": "common",
+    "shopCategory": "HELMET",
+    "name": "Team Wendy EXFIL Ballistic Helmet(Coyote Brown)",
+    "variantNames": [
+      "Team Wendy EXFIL Ballistic Helmet(Coyote Brown)"
+    ],
+    "price": 1600,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": null,
+    "ammoDamageRaw": null,
+    "ammoPenetration": null,
+    "magazineCapacity": null,
+    "magazineCount": null,
+    "loadoutDetailsRaw": "",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 86,
+      "section": "common/HELMET",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "040d339c1954879a369a61d49129ed2be3c82c107afeeb6aec02563d9d2fb4aa"
+    }
+  },
+  {
+    "id": "blastgang:common_helmet:ops_core_fast_mt_super_high_cut_helmet_black:ae609c74",
+    "side": "common",
+    "shopCategory": "HELMET",
+    "name": "Ops-Core FAST MT Super High Cut helmet(Black)",
+    "variantNames": [
+      "Ops-Core FAST MT Super High Cut helmet(Black)"
+    ],
+    "price": 1600,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": null,
+    "ammoDamageRaw": null,
+    "ammoPenetration": null,
+    "magazineCapacity": null,
+    "magazineCount": null,
+    "loadoutDetailsRaw": "",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 87,
+      "section": "common/HELMET",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "ae609c743d30b8244cce32cbab2838ecb810981a64ad63c24d8460cf82de444e"
+    }
+  },
+  {
+    "id": "blastgang:common_helmet:msa_gallet_tc_800_high_cut_combat_helmet_black:66ae3718",
+    "side": "common",
+    "shopCategory": "HELMET",
+    "name": "MSA Gallet TC 800 High Cut combat helmet(Black)",
+    "variantNames": [
+      "MSA Gallet TC 800 High Cut combat helmet(Black)"
+    ],
+    "price": 1600,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": null,
+    "ammoDamageRaw": null,
+    "ammoPenetration": null,
+    "magazineCapacity": null,
+    "magazineCount": null,
+    "loadoutDetailsRaw": "",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 88,
+      "section": "common/HELMET",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "66ae37188b916028cf297d098a6dd46670b8fb40827de30283ffe4b782e6fd95"
+    }
+  },
+  {
+    "id": "blastgang:common_helmet:devtac_ronin_ballistic_helmet_devtac_ronin_ballistic_helmet_prototype_devtac_ronin_ballistic_he:d2b177b5",
+    "side": "common",
+    "shopCategory": "HELMET",
+    "name": "DevTac Ronin ballistic helmet / DevTac Ronin ballistic helmet(Prototype) / DevTac Ronin ballistic helmet(Raptor) / DevTac Ronin ballistic helmet(Olive Drab)",
+    "variantNames": [
+      "DevTac Ronin ballistic helmet",
+      "DevTac Ronin ballistic helmet(Prototype)",
+      "DevTac Ronin ballistic helmet(Raptor)",
+      "DevTac Ronin ballistic helmet(Olive Drab)"
+    ],
+    "price": 1500,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": null,
+    "ammoDamageRaw": null,
+    "ammoPenetration": null,
+    "magazineCapacity": null,
+    "magazineCount": null,
+    "loadoutDetailsRaw": "",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 89,
+      "section": "common/HELMET",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "d2b177b52294776632248e6c453afff85f2b193107cf29b7aa4c8f7c7780a085"
+    }
+  },
+  {
+    "id": "blastgang:common_helmet:diamond_age_novesteel_helmet_custos_mortis_diamond_age_novesteel_helmet_toxin_diamond_age_noves:24eaa0ec",
+    "side": "common",
+    "shopCategory": "HELMET",
+    "name": "Diamond Age NoveSteel helmet(Custos Mortis) / Diamond Age NoveSteel helmet(Toxin) / Diamond Age NoveSteel helmet(Olive Drab)",
+    "variantNames": [
+      "Diamond Age NoveSteel helmet(Custos Mortis)",
+      "Diamond Age NoveSteel helmet(Toxin)",
+      "Diamond Age NoveSteel helmet(Olive Drab)"
+    ],
+    "price": 1500,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": null,
+    "ammoDamageRaw": null,
+    "ammoPenetration": null,
+    "magazineCapacity": null,
+    "magazineCount": null,
+    "loadoutDetailsRaw": "",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 90,
+      "section": "common/HELMET",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "24eaa0ecea52f0e759aa9e5f0934b502558e3b50cb23792097e4b9f896f851e0"
+    }
+  },
+  {
+    "id": "blastgang:common_1_armor:interceptor_otv_body_armor_ucp_interceptor_otv_body_armor_woodland:55603394",
+    "side": "common",
+    "shopCategory": "1 ARMOR",
+    "name": "Interceptor OTV body armor (UCP) / Interceptor OTV body armor (Woodland)",
+    "variantNames": [
+      "Interceptor OTV body armor (UCP)",
+      "Interceptor OTV body armor (Woodland)"
+    ],
+    "price": 450,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": null,
+    "ammoDamageRaw": null,
+    "ammoPenetration": null,
+    "magazineCapacity": null,
+    "magazineCount": null,
+    "loadoutDetailsRaw": "",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 94,
+      "section": "common/1 ARMOR",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "556033943ebe01ee98ffe66cbe40f4c8072c712638a8ca49a0646e7caabd6d45"
+    }
+  },
+  {
+    "id": "blastgang:common_1_armor:nfm_thor_concealable_reinforced_vest_body_armor_nfm_thor_concealable_reinforced_vest_body_armor:2587b38a",
+    "side": "common",
+    "shopCategory": "1 ARMOR",
+    "name": "NFM THOR Concealable Reinforced Vest body armor / NFM THOR Concealable Reinforced Vest body armor (Head Eyes)",
+    "variantNames": [
+      "NFM THOR Concealable Reinforced Vest body armor",
+      "NFM THOR Concealable Reinforced Vest body armor (Head Eyes)"
+    ],
+    "price": 450,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": null,
+    "ammoDamageRaw": null,
+    "ammoPenetration": null,
+    "magazineCapacity": null,
+    "magazineCount": null,
+    "loadoutDetailsRaw": "",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 95,
+      "section": "common/1 ARMOR",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "2587b38a0b5bf7a88376810367cd7b3203155b9c382ad088fbf8a573cf8e7b1b"
+    }
+  },
+  {
+    "id": "blastgang:common_1_armor:blue_force_gear_plateminus_v2_body_armor_wolf_gray_blue_force_gear_plateminus_v2_body_armor_coy:3d98b778",
+    "side": "common",
+    "shopCategory": "1 ARMOR",
+    "name": "Blue Force Gear PLATEminus V2 body armor (Wolf Gray) / Blue Force Gear PLATEminus V2 body armor (Coyote Brown)",
+    "variantNames": [
+      "Blue Force Gear PLATEminus V2 body armor (Wolf Gray)",
+      "Blue Force Gear PLATEminus V2 body armor (Coyote Brown)"
+    ],
+    "price": 450,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": null,
+    "ammoDamageRaw": null,
+    "ammoPenetration": null,
+    "magazineCapacity": null,
+    "magazineCount": null,
+    "loadoutDetailsRaw": "",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 96,
+      "section": "common/1 ARMOR",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "3d98b778d53a395c0e679af294d03633440c95a55b4dd5a25cde89efc85dedcd"
+    }
+  },
+  {
+    "id": "blastgang:common_1_armor:highcom_trooper_tfo_body_armor_multicam_highcom_trooper_tfo_body_armor_coyote:f891a7f1",
+    "side": "common",
+    "shopCategory": "1 ARMOR",
+    "name": "HighCom Trooper TFO body armor (MultiCam) / HighCom Trooper TFO body armor (Coyote)",
+    "variantNames": [
+      "HighCom Trooper TFO body armor (MultiCam)",
+      "HighCom Trooper TFO body armor (Coyote)"
+    ],
+    "price": 400,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": null,
+    "ammoDamageRaw": null,
+    "ammoPenetration": null,
+    "magazineCapacity": null,
+    "magazineCount": null,
+    "loadoutDetailsRaw": "",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 97,
+      "section": "common/1 ARMOR",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "f891a7f1a3808d9eae764aeca4d939ed6c51700461578289e7e62594d2648f50"
+    }
+  },
+  {
+    "id": "blastgang:common_1_armor:lbt_6094a_slick_plate_carrier_black_lbt_6094a_slick_plate_carrier_coyote_tan_lbt_6094a_slick_pl:74083150",
+    "side": "common",
+    "shopCategory": "1 ARMOR",
+    "name": "LBT-6094A Slick Plate Carrier (Black) / LBT-6094A Slick Plate Carrier (Coyote Tan) / LBT-6094A Slick Plate Carrier (Olive Drab)",
+    "variantNames": [
+      "LBT-6094A Slick Plate Carrier (Black)",
+      "LBT-6094A Slick Plate Carrier (Coyote Tan)",
+      "LBT-6094A Slick Plate Carrier (Olive Drab)"
+    ],
+    "price": 400,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": null,
+    "ammoDamageRaw": null,
+    "ammoPenetration": null,
+    "magazineCapacity": null,
+    "magazineCount": null,
+    "loadoutDetailsRaw": "",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 98,
+      "section": "common/1 ARMOR",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "740831507338511f673631eb74eada9d0ae95c23f1e1bd456361239af8170e10"
+    }
+  },
+  {
+    "id": "blastgang:common_1_armor:hexatac_hpc_plate_carrier_multicam_black_hexatac_hpc_plate_carrier_multicam:bdaf0325",
+    "side": "common",
+    "shopCategory": "1 ARMOR",
+    "name": "Hexatac HPC Plate Carrier (MultiCam Black) / Hexatac HPC Plate Carrier (MultiCam)",
+    "variantNames": [
+      "Hexatac HPC Plate Carrier (MultiCam Black)",
+      "Hexatac HPC Plate Carrier (MultiCam)"
+    ],
+    "price": 350,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": null,
+    "ammoDamageRaw": null,
+    "ammoPenetration": null,
+    "magazineCapacity": null,
+    "magazineCount": null,
+    "loadoutDetailsRaw": "",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 99,
+      "section": "common/1 ARMOR",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "bdaf032510bc8610849e8a3dce2b109f11bb865c87d87bf1a36403d420f37923"
+    }
+  },
+  {
+    "id": "blastgang:common_1_armor:5_11_tactical_hexgrid_plate_carrier:e35035db",
+    "side": "common",
+    "shopCategory": "1 ARMOR",
+    "name": "5.11 Tactical Hexgrid plate carrier",
+    "variantNames": [
+      "5.11 Tactical Hexgrid plate carrier"
+    ],
+    "price": 350,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": null,
+    "ammoDamageRaw": null,
+    "ammoPenetration": null,
+    "magazineCapacity": null,
+    "magazineCount": null,
+    "loadoutDetailsRaw": "",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 100,
+      "section": "common/1 ARMOR",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "e35035dbb8fb7c30c35735371062ca11344ce6c133a3e3714f0b39004d492c7a"
+    }
+  },
+  {
+    "id": "blastgang:common_2_armor:fort_redut_m_body_armor_fort_redut_m_body_armor_sk_woodland_fort_redut_m_body_armor_black_fort_:2263299d",
+    "side": "common",
+    "shopCategory": "2 ARMOR",
+    "name": "FORT Redut-M body armor / FORT Redut-M body armor (SK Woodland) / FORT Redut-M body armor (Black) / FORT Redut-M body armor (Prisoner of the Arena)",
+    "variantNames": [
+      "FORT Redut-M body armor",
+      "FORT Redut-M body armor (SK Woodland)",
+      "FORT Redut-M body armor (Black)",
+      "FORT Redut-M body armor (Prisoner of the Arena)"
+    ],
+    "price": 1200,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": null,
+    "ammoDamageRaw": null,
+    "ammoPenetration": null,
+    "magazineCapacity": null,
+    "magazineCount": null,
+    "loadoutDetailsRaw": "",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 106,
+      "section": "common/2 ARMOR",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "2263299dbeb0c7bca42c4af25d5364fa6d068d6d95393ec116467ef922747102"
+    }
+  },
+  {
+    "id": "blastgang:common_2_armor:iotv_gen4_body_armor_high_mobility_kit_multicam:554b513b",
+    "side": "common",
+    "shopCategory": "2 ARMOR",
+    "name": "IOTV Gen4 body armor (High Mobility Kit, MultiCam)",
+    "variantNames": [
+      "IOTV Gen4 body armor (High Mobility Kit, MultiCam)"
+    ],
+    "price": 1200,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": null,
+    "ammoDamageRaw": null,
+    "ammoPenetration": null,
+    "magazineCapacity": null,
+    "magazineCount": null,
+    "loadoutDetailsRaw": "",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 107,
+      "section": "common/2 ARMOR",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "554b513b86e79b9d50c399792fdd0b554ce1a7ff585e59eb494c61520a1cf899"
+    }
+  },
+  {
+    "id": "blastgang:common_2_armor:bnti_kirasa_n_body_armor_bnti_kirasa_n_body_armor_green:23782443",
+    "side": "common",
+    "shopCategory": "2 ARMOR",
+    "name": "BNTI Kirasa-N body armor / BNTI Kirasa-N body armor (Green)",
+    "variantNames": [
+      "BNTI Kirasa-N body armor",
+      "BNTI Kirasa-N body armor (Green)"
+    ],
+    "price": 1200,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": null,
+    "ammoDamageRaw": null,
+    "ammoPenetration": null,
+    "magazineCapacity": null,
+    "magazineCount": null,
+    "loadoutDetailsRaw": "",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 108,
+      "section": "common/2 ARMOR",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "23782443b7b854a4eeb7f6af1ee48a58d622bdb3cef721e10a349ea0785e0339"
+    }
+  },
+  {
+    "id": "blastgang:common_2_armor:fort_gladiator_s_plate_carrier_gray:71c99632",
+    "side": "common",
+    "shopCategory": "2 ARMOR",
+    "name": "FORT Gladiator-S plate carrier (Gray)",
+    "variantNames": [
+      "FORT Gladiator-S plate carrier (Gray)"
+    ],
+    "price": 1200,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": null,
+    "ammoDamageRaw": null,
+    "ammoPenetration": null,
+    "magazineCapacity": null,
+    "magazineCount": null,
+    "loadoutDetailsRaw": "",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 109,
+      "section": "common/2 ARMOR",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "71c99632d9b2bac0484d77dadfec341f483ed70cf6ceb1cb1010c0b1fc903970"
+    }
+  },
+  {
+    "id": "blastgang:common_2_armor:fort_defender_2_body_armor_fort_defender_2_body_armor_flecktarn:a2dd5020",
+    "side": "common",
+    "shopCategory": "2 ARMOR",
+    "name": "FORT Defender-2 body armor / FORT Defender-2 body armor (Flecktarn)",
+    "variantNames": [
+      "FORT Defender-2 body armor",
+      "FORT Defender-2 body armor (Flecktarn)"
+    ],
+    "price": 1200,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": null,
+    "ammoDamageRaw": null,
+    "ammoPenetration": null,
+    "magazineCapacity": null,
+    "magazineCount": null,
+    "loadoutDetailsRaw": "",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 110,
+      "section": "common/2 ARMOR",
+      "sectionPatch": "0.6.0.0.47588",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "a2dd5020931d8ace8863bd05bcabf80db886c17b1b8701ea26e10f00740ae526"
+    }
+  },
+  {
+    "id": "blastgang:attacker_pistol:glock_17:23e50de2",
+    "side": "attacker",
+    "shopCategory": "PISTOL",
+    "name": "Glock 17",
+    "variantNames": [
+      "Glock 17"
+    ],
+    "price": 0,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": true,
+    "ammoNameRaw": "AP6.3",
+    "ammoDamageRaw": "50",
+    "ammoPenetration": 29,
+    "magazineCapacity": 17,
+    "magazineCount": 4,
+    "loadoutDetailsRaw": "AP6.3 (ダメージ50 貫通29) / 17連マガジンx4",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 117,
+      "section": "attacker/PISTOL",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "23e50de2d3480435de23a72aa4d9c2266d1341856e5ceaaa5771faeacfa5b45b"
+    }
+  },
+  {
+    "id": "blastgang:attacker_pistol:p226r:8c244dba",
+    "side": "attacker",
+    "shopCategory": "PISTOL",
+    "name": "P226R",
+    "variantNames": [
+      "P226R"
+    ],
+    "price": 200,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "AP6.3",
+    "ammoDamageRaw": "50",
+    "ammoPenetration": 29,
+    "magazineCapacity": 20,
+    "magazineCount": 3,
+    "loadoutDetailsRaw": "AP6.3 (ダメージ50 貫通29) / 20連マガジンx3",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 118,
+      "section": "attacker/PISTOL",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "8c244dba75debd7c75974d28657c5d80e9c47d38ee1b6de0eb9cc5a386d14d1b"
+    }
+  },
+  {
+    "id": "blastgang:attacker_pistol:m9a3:496ad313",
+    "side": "attacker",
+    "shopCategory": "PISTOL",
+    "name": "M9A3",
+    "variantNames": [
+      "M9A3"
+    ],
+    "price": 250,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "AP6.3",
+    "ammoDamageRaw": "50",
+    "ammoPenetration": 29,
+    "magazineCapacity": 17,
+    "magazineCount": 3,
+    "loadoutDetailsRaw": "AP6.3 (ダメージ50 貫通29) / 17連マガジンx3",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 119,
+      "section": "attacker/PISTOL",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "496ad313aefc5c6d2ae97fb1dc65f75508e7183059897ac73948811e70beace8"
+    }
+  },
+  {
+    "id": "blastgang:attacker_pistol:sawed_off:375adba5",
+    "side": "attacker",
+    "shopCategory": "PISTOL",
+    "name": "SAWED-OFF",
+    "variantNames": [
+      "SAWED-OFF"
+    ],
+    "price": 300,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "Flechette",
+    "ammoDamageRaw": "25x8",
+    "ammoPenetration": 31,
+    "magazineCapacity": null,
+    "magazineCount": null,
+    "loadoutDetailsRaw": "Flechette (ダメージ25x8 貫通31)",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 120,
+      "section": "attacker/PISTOL",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "375adba535d14ffe73a44865a4b870b8a66f42b75b679c7ab4e3f69ed92e3d66"
+    }
+  },
+  {
+    "id": "blastgang:attacker_pistol:tt:7e2482a7",
+    "side": "attacker",
+    "shopCategory": "PISTOL",
+    "name": "TT",
+    "variantNames": [
+      "TT"
+    ],
+    "price": 350,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "TT 855A1",
+    "ammoDamageRaw": "34",
+    "ammoPenetration": 31,
+    "magazineCapacity": 8,
+    "magazineCount": 5,
+    "loadoutDetailsRaw": "TT 855A1 (ダメージ34 貫通31) / 8連マガジンx5",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 121,
+      "section": "attacker/PISTOL",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "7e2482a7a4ce1e587665d58e750f10b1f1cae38390590b29e6ea6d1f263ce504"
+    }
+  },
+  {
+    "id": "blastgang:attacker_pistol:fn_5_7_fde:386b45eb",
+    "side": "attacker",
+    "shopCategory": "PISTOL",
+    "name": "FN 5-7 FDE",
+    "variantNames": [
+      "FN 5-7 FDE"
+    ],
+    "price": 450,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "L191",
+    "ammoDamageRaw": "53",
+    "ammoPenetration": 33,
+    "magazineCapacity": 20,
+    "magazineCount": 2,
+    "loadoutDetailsRaw": "L191 (ダメージ53 貫通33) / 20連マガジンx2",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 122,
+      "section": "attacker/PISTOL",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "386b45ebcea25a030e8f48e5c7334c1830030af07a358c1800574e46a017555c"
+    }
+  },
+  {
+    "id": "blastgang:attacker_pistol:desert_eagle_l6:cdb2591a",
+    "side": "attacker",
+    "shopCategory": "PISTOL",
+    "name": "DESERT EAGLE L6",
+    "variantNames": [
+      "DESERT EAGLE L6"
+    ],
+    "price": 500,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "FMJ",
+    "ammoDamageRaw": "85",
+    "ammoPenetration": 40,
+    "magazineCapacity": 7,
+    "magazineCount": 54,
+    "loadoutDetailsRaw": "FMJ (ダメージ85 貫通40) / 7連マガジンx54",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [
+      "suspect_magazine_quantity_54"
+    ],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 123,
+      "section": "attacker/PISTOL",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "cdb2591ada534a48b79897a9ca3faf88f22cf6933f18c949454d21878ce3f0c2"
+    }
+  },
+  {
+    "id": "blastgang:attacker_pistol:sr_1mp:76875f92",
+    "side": "attacker",
+    "shopCategory": "PISTOL",
+    "name": "SR-1MP",
+    "variantNames": [
+      "SR-1MP"
+    ],
+    "price": 600,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "BT",
+    "ammoDamageRaw": "52",
+    "ammoPenetration": 32,
+    "magazineCapacity": 18,
+    "magazineCount": 2,
+    "loadoutDetailsRaw": "BT (ダメージ52 貫通32 / 18連マガジンx2",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 124,
+      "section": "attacker/PISTOL",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "76875f927ed9e031bdb5468de78f22d79db99db5f605eec588d8655032843ae0"
+    }
+  },
+  {
+    "id": "blastgang:attacker_pistol:aps:24a682fe",
+    "side": "attacker",
+    "shopCategory": "PISTOL",
+    "name": "APS",
+    "variantNames": [
+      "APS"
+    ],
+    "price": 650,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "PBM",
+    "ammoDamageRaw": "40",
+    "ammoPenetration": 28,
+    "magazineCapacity": 20,
+    "magazineCount": 3,
+    "loadoutDetailsRaw": "PBM (ダメージ40 貫通28) / 20連マガジンx3",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 125,
+      "section": "attacker/PISTOL",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "24a682fe870dc3baa7ca569108ba10b5982ebe61177ac59bb33a6d46600591e9"
+    }
+  },
+  {
+    "id": "blastgang:attacker_eco:pp_9_klin:62e5bce2",
+    "side": "attacker",
+    "shopCategory": "ECO",
+    "name": "PP-9 KLIN",
+    "variantNames": [
+      "PP-9 KLIN"
+    ],
+    "price": 900,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "PBM",
+    "ammoDamageRaw": "40",
+    "ammoPenetration": 28,
+    "magazineCapacity": 30,
+    "magazineCount": 3,
+    "loadoutDetailsRaw": "PBM (ダメージ40 貫通28) / 30連マガジンx3",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 130,
+      "section": "attacker/ECO",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "62e5bce220640d6bd9a766cb617610d157b7dd913bcb7aa9dfdf496eb9130e79"
+    }
+  },
+  {
+    "id": "blastgang:attacker_eco:op_sks:b1ab3366",
+    "side": "attacker",
+    "shopCategory": "ECO",
+    "name": "OP-SKS",
+    "variantNames": [
+      "OP-SKS"
+    ],
+    "price": 900,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "T-45M1",
+    "ammoDamageRaw": "65",
+    "ammoPenetration": 30,
+    "magazineCapacity": 20,
+    "magazineCount": 2,
+    "loadoutDetailsRaw": "T-45M1 (ダメージ65 貫通30) / 20連マガジンx2",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 131,
+      "section": "attacker/ECO",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "b1ab3366677c73fe6017497417d7cb3a10198f0cca1aad5566e7bebb0b3d4510"
+    }
+  },
+  {
+    "id": "blastgang:attacker_eco:pp_19_01:01b16187",
+    "side": "attacker",
+    "shopCategory": "ECO",
+    "name": "PP-19-01",
+    "variantNames": [
+      "PP-19-01"
+    ],
+    "price": 1000,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "AP6.3",
+    "ammoDamageRaw": "50",
+    "ammoPenetration": 29,
+    "magazineCapacity": 30,
+    "magazineCount": 4,
+    "loadoutDetailsRaw": "AP6.3 (ダメージ50 貫通29) / 30連マガジンx4",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 132,
+      "section": "attacker/ECO",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "01b16187351b8fdb0d53657a7d59750abc3741c6837071f720b8546d7f2c8aaf"
+    }
+  },
+  {
+    "id": "blastgang:attacker_eco:vsk_94:cd900f63",
+    "side": "attacker",
+    "shopCategory": "ECO",
+    "name": "VSK-94",
+    "variantNames": [
+      "VSK-94"
+    ],
+    "price": 1100,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "SP-5",
+    "ammoDamageRaw": "75",
+    "ammoPenetration": 28,
+    "magazineCapacity": 20,
+    "magazineCount": 5,
+    "loadoutDetailsRaw": "SP-5 (ダメージ75 貫通28) / 20連マガジンx5",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [
+      "ammo_damage_differs_between_source_rows"
+    ],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 133,
+      "section": "attacker/ECO",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "cd900f631bf69b33356d956ca3cfd8f967d72ba704344c7b80c30d0a8f5de944"
+    }
+  },
+  {
+    "id": "blastgang:attacker_eco:ks_23m:250f0ffb",
+    "side": "attacker",
+    "shopCategory": "ECO",
+    "name": "KS-23M",
+    "variantNames": [
+      "KS-23M"
+    ],
+    "price": 1200,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "Shrapnel-25",
+    "ammoDamageRaw": "78x8",
+    "ammoPenetration": 10,
+    "magazineCapacity": null,
+    "magazineCount": null,
+    "loadoutDetailsRaw": "Shrapnel-25 (ダメージ78x8 貫通10)",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 134,
+      "section": "attacker/ECO",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "250f0ffb27a61b9b9b841c386dc1ff42fb05eecbedb83a1428a83f89afcc6c0f"
+    }
+  },
+  {
+    "id": "blastgang:attacker_common:mp_155:10c33463",
+    "side": "attacker",
+    "shopCategory": "COMMON",
+    "name": "MP-155",
+    "variantNames": [
+      "MP-155"
+    ],
+    "price": 1600,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "Magnum",
+    "ammoDamageRaw": "50x8",
+    "ammoPenetration": 2,
+    "magazineCapacity": null,
+    "magazineCount": null,
+    "loadoutDetailsRaw": "Magnum (ダメージ50x8 貫通2)",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [
+      "ammo_damage_differs_between_source_rows"
+    ],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 140,
+      "section": "attacker/COMMON",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "10c334633986ffce26d32be838f8fcf9e1d417eade1c0dd9403c006117c821fc"
+    }
+  },
+  {
+    "id": "blastgang:attacker_common:mpx:a7b7d54a",
+    "side": "attacker",
+    "shopCategory": "COMMON",
+    "name": "MPX",
+    "variantNames": [
+      "MPX"
+    ],
+    "price": 1700,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "AP6.3",
+    "ammoDamageRaw": "50",
+    "ammoPenetration": 29,
+    "magazineCapacity": 30,
+    "magazineCount": 3,
+    "loadoutDetailsRaw": "AP6.3 (ダメージ50 貫通29) / 30連マガジンx3",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 141,
+      "section": "attacker/COMMON",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "a7b7d54a4ed47fcd8171c767eb1c5e77a8a4dc3ef3c842941a7236f53c197244"
+    }
+  },
+  {
+    "id": "blastgang:attacker_common:akmn:17e864fc",
+    "side": "attacker",
+    "shopCategory": "COMMON",
+    "name": "AKMN",
+    "variantNames": [
+      "AKMN"
+    ],
+    "price": 1900,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "T-45M1",
+    "ammoDamageRaw": "65",
+    "ammoPenetration": 30,
+    "magazineCapacity": 30,
+    "magazineCount": 4,
+    "loadoutDetailsRaw": "T-45M1 (ダメージ65 貫通30) / 30連マガジンx4",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 142,
+      "section": "attacker/COMMON",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "17e864fc4182bacdf362807c31213e5990d3a5654f251c4565c858eeb74887f1"
+    }
+  },
+  {
+    "id": "blastgang:attacker_common:rd_704:3dea3970",
+    "side": "attacker",
+    "shopCategory": "COMMON",
+    "name": "RD-704",
+    "variantNames": [
+      "RD-704"
+    ],
+    "price": 1900,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "T-45M1",
+    "ammoDamageRaw": "65",
+    "ammoPenetration": 30,
+    "magazineCapacity": 30,
+    "magazineCount": 4,
+    "loadoutDetailsRaw": "T-45M1 (ダメージ65 貫通30) / 30連マガジンx4",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 143,
+      "section": "attacker/COMMON",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "3dea3970062c191eb99096d406a7299e30b005f7f5e5ba68c8464214cda3ac19"
+    }
+  },
+  {
+    "id": "blastgang:attacker_common:sr_3m:ec1c3900",
+    "side": "attacker",
+    "shopCategory": "COMMON",
+    "name": "SR-3M",
+    "variantNames": [
+      "SR-3M"
+    ],
+    "price": 2000,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "SP-5",
+    "ammoDamageRaw": null,
+    "ammoPenetration": 28,
+    "magazineCapacity": 30,
+    "magazineCount": 4,
+    "loadoutDetailsRaw": "SP-5 (ダメ―ジ71 貫通28) / 30連マガジンx4",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 144,
+      "section": "attacker/COMMON",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "ec1c39004b6f16eb048b76bc6b96b133cd375184222c72328cda1851b1913d84"
+    }
+  },
+  {
+    "id": "blastgang:attacker_common:mk47:18815d73",
+    "side": "attacker",
+    "shopCategory": "COMMON",
+    "name": "MK47",
+    "variantNames": [
+      "MK47"
+    ],
+    "price": 2200,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "T-45M1",
+    "ammoDamageRaw": "65",
+    "ammoPenetration": 30,
+    "magazineCapacity": 30,
+    "magazineCount": 5,
+    "loadoutDetailsRaw": "T-45M1 (ダメージ65 貫通30) / 30連マガジンx5",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 145,
+      "section": "attacker/COMMON",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "18815d73be1e9fdea0770f2cb376d907655684e48c767edd2e9c1579e8cb16e6"
+    }
+  },
+  {
+    "id": "blastgang:attacker_common:mcx:db68d5bd",
+    "side": "attacker",
+    "shopCategory": "COMMON",
+    "name": "MCX",
+    "variantNames": [
+      "MCX"
+    ],
+    "price": 2400,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "BCP FMJ",
+    "ammoDamageRaw": "60",
+    "ammoPenetration": 30,
+    "magazineCapacity": 30,
+    "magazineCount": 3,
+    "loadoutDetailsRaw": "BCP FMJ (ダメージ60 貫通30) / 30連マガジンx3",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 146,
+      "section": "attacker/COMMON",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "db68d5bd56ecd729687d763d9abc2b6d9d7466bc7c3005d124043610a0592cde"
+    }
+  },
+  {
+    "id": "blastgang:attacker_elite:ak_308:cea89805",
+    "side": "attacker",
+    "shopCategory": "ELITE",
+    "name": "AK-308",
+    "variantNames": [
+      "AK-308"
+    ],
+    "price": 3000,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "M80",
+    "ammoDamageRaw": "80",
+    "ammoPenetration": 43,
+    "magazineCapacity": 20,
+    "magazineCount": 4,
+    "loadoutDetailsRaw": "M80 (ダメージ80 貫通43) / 20連マガジンx4",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 152,
+      "section": "attacker/ELITE",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "cea898059dd65ccdd825e68791fe77f782efa5e96c787ca377c40306c5677d6b"
+    }
+  },
+  {
+    "id": "blastgang:attacker_elite:ak_12:860c2c95",
+    "side": "attacker",
+    "shopCategory": "ELITE",
+    "name": "AK-12",
+    "variantNames": [
+      "AK-12"
+    ],
+    "price": 3100,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "BP",
+    "ammoDamageRaw": "48",
+    "ammoPenetration": 45,
+    "magazineCapacity": 30,
+    "magazineCount": 5,
+    "loadoutDetailsRaw": "BP (ダメージ48 貫通45) / 30連マガジンx5",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 153,
+      "section": "attacker/ELITE",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "860c2c95f2122a4cdd1a883c3f554c31a6c0f8ef6ee1948ae1df889669609f7d"
+    }
+  },
+  {
+    "id": "blastgang:attacker_elite:mp7a1:1c7a4a70",
+    "side": "attacker",
+    "shopCategory": "ELITE",
+    "name": "MP7A1",
+    "variantNames": [
+      "MP7A1"
+    ],
+    "price": 3200,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "FMJ SX",
+    "ammoDamageRaw": "46",
+    "ammoPenetration": 40,
+    "magazineCapacity": 20,
+    "magazineCount": 4,
+    "loadoutDetailsRaw": "FMJ SX (ダメージ46 貫通40) / 20連マガジンx4",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 154,
+      "section": "attacker/ELITE",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "1c7a4a7011361533bd0b1dc51154d8d0e105e7d8560f9033183bccec251c8efc"
+    }
+  },
+  {
+    "id": "blastgang:attacker_elite:hk416:8e5754d6",
+    "side": "attacker",
+    "shopCategory": "ELITE",
+    "name": "HK416",
+    "variantNames": [
+      "HK416"
+    ],
+    "price": 3300,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "M855A1",
+    "ammoDamageRaw": "49",
+    "ammoPenetration": 44,
+    "magazineCapacity": 30,
+    "magazineCount": 4,
+    "loadoutDetailsRaw": "M855A1 (ダメージ49 貫通44) / 30連マガジンx4",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 155,
+      "section": "attacker/ELITE",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "8e5754d652e637c2cb6183a39e18cfbf195d38128c3d00f3b4c24c5e85bfd64f"
+    }
+  },
+  {
+    "id": "blastgang:attacker_elite:nl545_gp:84dc5934",
+    "side": "attacker",
+    "shopCategory": "ELITE",
+    "name": "NL545 GP",
+    "variantNames": [
+      "NL545 GP"
+    ],
+    "price": 3400,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "7N40",
+    "ammoDamageRaw": "52",
+    "ammoPenetration": 42,
+    "magazineCapacity": 30,
+    "magazineCount": 4,
+    "loadoutDetailsRaw": "7N40 (ダメージ52 貫通42) / 30連マガジンx4",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 156,
+      "section": "attacker/ELITE",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "84dc59341b91fd78f8068d28c81736433674b79a56f4245cf71d50a07a81ad74"
+    }
+  },
+  {
+    "id": "blastgang:attacker_special:saiga_12k:055c0222",
+    "side": "attacker",
+    "shopCategory": "SPECIAL",
+    "name": "SAIGA-12K",
+    "variantNames": [
+      "SAIGA-12K"
+    ],
+    "price": 2300,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "Flechette",
+    "ammoDamageRaw": "25x8",
+    "ammoPenetration": 31,
+    "magazineCapacity": 5,
+    "magazineCount": 5,
+    "loadoutDetailsRaw": "Flechette (ダメージ25x8 貫通31) / 5連マガジンx5",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 161,
+      "section": "attacker/SPECIAL",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "055c0222f6845693bce3df723e0235ca851378ac42e2ea504a12bb9a093a1b2e"
+    }
+  },
+  {
+    "id": "blastgang:attacker_special:rpdn:8fc51c9d",
+    "side": "attacker",
+    "shopCategory": "SPECIAL",
+    "name": "RPDN",
+    "variantNames": [
+      "RPDN"
+    ],
+    "price": 2900,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "T-45M1",
+    "ammoDamageRaw": "65",
+    "ammoPenetration": 30,
+    "magazineCapacity": 100,
+    "magazineCount": 1,
+    "loadoutDetailsRaw": "T-45M1 (ダメージ65 貫通30) / 100連マガジンx1",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 162,
+      "section": "attacker/SPECIAL",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "8fc51c9d54651fa0f8823ec1aee93b47a3882c7cff952fb340dae99c3ba7d2c6"
+    }
+  },
+  {
+    "id": "blastgang:attacker_special:ash_12:b6bd623f",
+    "side": "attacker",
+    "shopCategory": "SPECIAL",
+    "name": "ASH-12",
+    "variantNames": [
+      "ASH-12"
+    ],
+    "price": 3900,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "PS12B",
+    "ammoDamageRaw": "102",
+    "ammoPenetration": 45,
+    "magazineCapacity": 20,
+    "magazineCount": 2,
+    "loadoutDetailsRaw": "PS12B (ダメージ102 貫通45) / 20連マガジンx2",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 163,
+      "section": "attacker/SPECIAL",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "b6bd623fe1504563c5edc3b2f3dd4b8d7da22ac1e7e5bff97bf37999e8747016"
+    }
+  },
+  {
+    "id": "blastgang:attacker_special:pkp:d04de6d1",
+    "side": "attacker",
+    "shopCategory": "SPECIAL",
+    "name": "PKP",
+    "variantNames": [
+      "PKP"
+    ],
+    "price": 4500,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "T-46M",
+    "ammoDamageRaw": "82",
+    "ammoPenetration": 41,
+    "magazineCapacity": 100,
+    "magazineCount": 1,
+    "loadoutDetailsRaw": "T-46M (ダメージ82 貫通41) / 100連マガジンx1",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 164,
+      "section": "attacker/SPECIAL",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "d04de6d123c7fad4af13ff43dd2a9683c3842a1693efef10453657df8ecf75f2"
+    }
+  },
+  {
+    "id": "blastgang:attacker_sniper:trg_m10:17a49dc6",
+    "side": "attacker",
+    "shopCategory": "SNIPER",
+    "name": "TRG M10",
+    "variantNames": [
+      "TRG M10"
+    ],
+    "price": 3700,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "AP",
+    "ammoDamageRaw": "115",
+    "ammoPenetration": 79,
+    "magazineCapacity": 8,
+    "magazineCount": 3,
+    "loadoutDetailsRaw": "AP (ダメージ115 貫通79) / 8連マガジンx3",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 169,
+      "section": "attacker/SNIPER",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "17a49dc61d639729c75ca357acbea31359ce9baeefe8b3b785f7e93d0ec3b1b5"
+    }
+  },
+  {
+    "id": "blastgang:attacker_sniper:dvl_10:6d3f6960",
+    "side": "attacker",
+    "shopCategory": "SNIPER",
+    "name": "DVL-10",
+    "variantNames": [
+      "DVL-10"
+    ],
+    "price": 4000,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "Ball 11 LR",
+    "ammoDamageRaw": "95",
+    "ammoPenetration": 63,
+    "magazineCapacity": 10,
+    "magazineCount": 3,
+    "loadoutDetailsRaw": "Ball 11 LR (ダメージ95 貫通63) / 10連マガジンx3",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 170,
+      "section": "attacker/SNIPER",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "6d3f696014cc5a35eec8204202955c02c205ea3c77de479b7bb7ef0c396278fb"
+    }
+  },
+  {
+    "id": "blastgang:attacker_sniper:g28:8772d11f",
+    "side": "attacker",
+    "shopCategory": "SNIPER",
+    "name": "G28",
+    "variantNames": [
+      "G28"
+    ],
+    "price": 4300,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "M61",
+    "ammoDamageRaw": "73",
+    "ammoPenetration": 55,
+    "magazineCapacity": 20,
+    "magazineCount": 3,
+    "loadoutDetailsRaw": "M61 (ダメージ73 貫通55) / 20連マガジンx3",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [
+      "ammo_damage_differs_between_source_rows"
+    ],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 171,
+      "section": "attacker/SNIPER",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "8772d11f1a5599e19aa48550a5ded26d59ef65ec621a96710378a2286199b994"
+    }
+  },
+  {
+    "id": "blastgang:attacker_sniper:sv_98:f55a5aec",
+    "side": "attacker",
+    "shopCategory": "SNIPER",
+    "name": "SV-98",
+    "variantNames": [
+      "SV-98"
+    ],
+    "price": 4400,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "TC AP",
+    "ammoDamageRaw": "98",
+    "ammoPenetration": 66,
+    "magazineCapacity": 10,
+    "magazineCount": 2,
+    "loadoutDetailsRaw": "TC AP (ダメージ98 貫通66) / 10連マガジンx2",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 172,
+      "section": "attacker/SNIPER",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "f55a5aecd7f2f1a3d147b5a821c6a123b44e98e2634a37e5239d611eda47b94b"
+    }
+  },
+  {
+    "id": "blastgang:attacker_sniper:ak_50:942eadca",
+    "side": "attacker",
+    "shopCategory": "SNIPER",
+    "name": "AK-50",
+    "variantNames": [
+      "AK-50"
+    ],
+    "price": 4500,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "M33",
+    "ammoDamageRaw": "190",
+    "ammoPenetration": 56,
+    "magazineCapacity": 10,
+    "magazineCount": 3,
+    "loadoutDetailsRaw": "M33 (ダメージ190 貫通56) / 10連マガジンx3",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 173,
+      "section": "attacker/SNIPER",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "942eadca87714dabec5a7294d5ea189fc15ac9f49b929015bfe344d6d5b4b85f"
+    }
+  },
+  {
+    "id": "blastgang:attacker_sniper:mk_18_mj_246_lnir:d320c466",
+    "side": "attacker",
+    "shopCategory": "SNIPER",
+    "name": "MK-18 Mj&#246;lnir",
+    "variantNames": [
+      "MK-18 Mj&#246;lnir"
+    ],
+    "price": 5000,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "FMJ",
+    "ammoDamageRaw": "122",
+    "ammoPenetration": 47,
+    "magazineCapacity": 10,
+    "magazineCount": 1,
+    "loadoutDetailsRaw": "FMJ (ダメージ122 貫通47) / 10連マガジンx1",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 174,
+      "section": "attacker/SNIPER",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "d320c466c865b1df4d0f35391f79c6dcf08893d137c551fce570ea8f6a02ac80"
+    }
+  },
+  {
+    "id": "blastgang:defender_pistol:glock_19x:fb6d2546",
+    "side": "defender",
+    "shopCategory": "PISTOL",
+    "name": "Glock 19X",
+    "variantNames": [
+      "Glock 19X"
+    ],
+    "price": 0,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": true,
+    "ammoNameRaw": "AP6.3",
+    "ammoDamageRaw": "50",
+    "ammoPenetration": 29,
+    "magazineCapacity": 19,
+    "magazineCount": 4,
+    "loadoutDetailsRaw": "AP6.3 (ダメージ50 貫通29) / 19連マガジンx4",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 181,
+      "section": "defender/PISTOL",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "fb6d254681533b28651c5f99ec2980007ac02e608b7ceb39fcbd62421cc9af11"
+    }
+  },
+  {
+    "id": "blastgang:defender_pistol:p226r:8c244dba",
+    "side": "defender",
+    "shopCategory": "PISTOL",
+    "name": "P226R",
+    "variantNames": [
+      "P226R"
+    ],
+    "price": 200,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "AP6.3",
+    "ammoDamageRaw": "50",
+    "ammoPenetration": 29,
+    "magazineCapacity": 20,
+    "magazineCount": 3,
+    "loadoutDetailsRaw": "AP6.3 (ダメージ50 貫通29) / 20連マガジンx3",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 182,
+      "section": "defender/PISTOL",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "8c244dba75debd7c75974d28657c5d80e9c47d38ee1b6de0eb9cc5a386d14d1b"
+    }
+  },
+  {
+    "id": "blastgang:defender_pistol:m9a3:496ad313",
+    "side": "defender",
+    "shopCategory": "PISTOL",
+    "name": "M9A3",
+    "variantNames": [
+      "M9A3"
+    ],
+    "price": 250,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "AP6.3",
+    "ammoDamageRaw": "50",
+    "ammoPenetration": 29,
+    "magazineCapacity": 17,
+    "magazineCount": 3,
+    "loadoutDetailsRaw": "AP6.3 (ダメージ50 貫通29) / 17連マガジンx3",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 183,
+      "section": "defender/PISTOL",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "496ad313aefc5c6d2ae97fb1dc65f75508e7183059897ac73948811e70beace8"
+    }
+  },
+  {
+    "id": "blastgang:defender_pistol:sawed_off:375adba5",
+    "side": "defender",
+    "shopCategory": "PISTOL",
+    "name": "SAWED-OFF",
+    "variantNames": [
+      "SAWED-OFF"
+    ],
+    "price": 300,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "Flechette",
+    "ammoDamageRaw": "25x8",
+    "ammoPenetration": 31,
+    "magazineCapacity": null,
+    "magazineCount": null,
+    "loadoutDetailsRaw": "Flechette (ダメージ25x8 貫通31)",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 184,
+      "section": "defender/PISTOL",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "375adba535d14ffe73a44865a4b870b8a66f42b75b679c7ab4e3f69ed92e3d66"
+    }
+  },
+  {
+    "id": "blastgang:defender_pistol:fn_5_7_fde:386b45eb",
+    "side": "defender",
+    "shopCategory": "PISTOL",
+    "name": "FN 5-7 FDE",
+    "variantNames": [
+      "FN 5-7 FDE"
+    ],
+    "price": 450,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "L191",
+    "ammoDamageRaw": "53",
+    "ammoPenetration": 33,
+    "magazineCapacity": 20,
+    "magazineCount": 2,
+    "loadoutDetailsRaw": "L191 (ダメージ53 貫通33) / 20連マガジンx2",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 185,
+      "section": "defender/PISTOL",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "386b45ebcea25a030e8f48e5c7334c1830030af07a358c1800574e46a017555c"
+    }
+  },
+  {
+    "id": "blastgang:defender_pistol:desert_eagle_l6:b11f2635",
+    "side": "defender",
+    "shopCategory": "PISTOL",
+    "name": "DESERT EAGLE L6",
+    "variantNames": [
+      "DESERT EAGLE L6"
+    ],
+    "price": 500,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "FMJ",
+    "ammoDamageRaw": "85",
+    "ammoPenetration": 40,
+    "magazineCapacity": 7,
+    "magazineCount": 5,
+    "loadoutDetailsRaw": "FMJ (ダメージ85 貫通40) / 7連マガジンx5",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 186,
+      "section": "defender/PISTOL",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "b11f2635b889d4f489f53c4f0a799510c1fc2226b66f5f397e62116bec8ad562"
+    }
+  },
+  {
+    "id": "blastgang:defender_pistol:sr_1mp:4abeb3b7",
+    "side": "defender",
+    "shopCategory": "PISTOL",
+    "name": "SR-1MP",
+    "variantNames": [
+      "SR-1MP"
+    ],
+    "price": 600,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "BT",
+    "ammoDamageRaw": "52",
+    "ammoPenetration": 32,
+    "magazineCapacity": 18,
+    "magazineCount": 2,
+    "loadoutDetailsRaw": "BT (ダメージ52 貫通32) / 18連マガジンx2",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 187,
+      "section": "defender/PISTOL",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "4abeb3b759333d7754a5521da60ee081318884a553ecb21f219ea3f6e80b0e0a"
+    }
+  },
+  {
+    "id": "blastgang:defender_pistol:apb:fbbf1e3e",
+    "side": "defender",
+    "shopCategory": "PISTOL",
+    "name": "APB",
+    "variantNames": [
+      "APB"
+    ],
+    "price": 650,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "PBM",
+    "ammoDamageRaw": "40",
+    "ammoPenetration": 28,
+    "magazineCapacity": 20,
+    "magazineCount": 4,
+    "loadoutDetailsRaw": "PBM (ダメージ40 貫通28) / 20連マガジンx4",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 188,
+      "section": "defender/PISTOL",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "fbbf1e3e67cf00cdc7fd3abe9de14a6353318a2432875aa232b9242743848b13"
+    }
+  },
+  {
+    "id": "blastgang:defender_eco:ppsh41:62f82616",
+    "side": "defender",
+    "shopCategory": "ECO",
+    "name": "PPSH41",
+    "variantNames": [
+      "PPSH41"
+    ],
+    "price": 700,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "TT 855A1",
+    "ammoDamageRaw": "41",
+    "ammoPenetration": 31,
+    "magazineCapacity": 35,
+    "magazineCount": 5,
+    "loadoutDetailsRaw": "TT 855A1 (ダメージ41 貫通31) / 35連マガジンx5",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [
+      "ammo_damage_compare_with_ammo_table"
+    ],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 194,
+      "section": "defender/ECO",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "62f826162856499e864ee49212af08e266bc8a38d589ff59947afaa210dcd1d4"
+    }
+  },
+  {
+    "id": "blastgang:defender_eco:590a1:8f3c06f2",
+    "side": "defender",
+    "shopCategory": "ECO",
+    "name": "590A1",
+    "variantNames": [
+      "590A1"
+    ],
+    "price": 700,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "Piranha",
+    "ammoDamageRaw": "25x10",
+    "ammoPenetration": 24,
+    "magazineCapacity": null,
+    "magazineCount": null,
+    "loadoutDetailsRaw": "Piranha (ダメージ25x10 貫通24)",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 195,
+      "section": "defender/ECO",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "8f3c06f2b2ace96b54ed8c179810588d80d961715fb3cf7c3ab5523f84c1fe49"
+    }
+  },
+  {
+    "id": "blastgang:defender_eco:kedr_b:e8199525",
+    "side": "defender",
+    "shopCategory": "ECO",
+    "name": "KEDR-B",
+    "variantNames": [
+      "KEDR-B"
+    ],
+    "price": 900,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "PBM",
+    "ammoDamageRaw": "40",
+    "ammoPenetration": 28,
+    "magazineCapacity": 30,
+    "magazineCount": 4,
+    "loadoutDetailsRaw": "PBM (ダメージ40 貫通28) / 30連マガジンx4",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 196,
+      "section": "defender/ECO",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "e8199525c671e76feef8cea038f144726a383330d3ed34328b18dcb6a91332b9"
+    }
+  },
+  {
+    "id": "blastgang:defender_eco:pp_91_01:3c2eaecb",
+    "side": "defender",
+    "shopCategory": "ECO",
+    "name": "PP-91-01",
+    "variantNames": [
+      "PP-91-01"
+    ],
+    "price": 1000,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "AP6.3",
+    "ammoDamageRaw": "50",
+    "ammoPenetration": 29,
+    "magazineCapacity": 30,
+    "magazineCount": 4,
+    "loadoutDetailsRaw": "AP6.3 (ダメージ50 貫通29) / 30連マガジンx4",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [
+      "name_icon_and_ammo_caliber_mismatch"
+    ],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 197,
+      "section": "defender/ECO",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "3c2eaecbd30640cd84449612265c670c103579cf9caa0c57432031e2822d6a19"
+    }
+  },
+  {
+    "id": "blastgang:defender_eco:vpo_209:84b43ab7",
+    "side": "defender",
+    "shopCategory": "ECO",
+    "name": "VPO-209",
+    "variantNames": [
+      "VPO-209"
+    ],
+    "price": 1100,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "EKO",
+    "ammoDamageRaw": "73",
+    "ammoPenetration": 30,
+    "magazineCapacity": 20,
+    "magazineCount": 3,
+    "loadoutDetailsRaw": "EKO (ダメージ73 貫通30) / 20連マガジンx3",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 198,
+      "section": "defender/ECO",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "84b43ab7a56589d424eaf71d8daa291aca700496337fcbda1a0648a210a4e744"
+    }
+  },
+  {
+    "id": "blastgang:defender_common:mp5:229c5867",
+    "side": "defender",
+    "shopCategory": "COMMON",
+    "name": "MP5",
+    "variantNames": [
+      "MP5"
+    ],
+    "price": 1500,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "AP6.3",
+    "ammoDamageRaw": "50",
+    "ammoPenetration": 29,
+    "magazineCapacity": 30,
+    "magazineCount": 5,
+    "loadoutDetailsRaw": "AP6.3 (ダメージ50 貫通29) / 30連マガジンx5",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 204,
+      "section": "defender/COMMON",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "229c5867b3975c10c8f2bab082eed47f98fb3a6604e781bfccb2d6b10a67c701"
+    }
+  },
+  {
+    "id": "blastgang:defender_common:mp_155:6acec20f",
+    "side": "defender",
+    "shopCategory": "COMMON",
+    "name": "MP-155",
+    "variantNames": [
+      "MP-155"
+    ],
+    "price": 1600,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "Magnum",
+    "ammoDamageRaw": "40x8",
+    "ammoPenetration": 2,
+    "magazineCapacity": null,
+    "magazineCount": null,
+    "loadoutDetailsRaw": "Magnum (ダメージ40x8 貫通2)",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [
+      "ammo_damage_differs_between_source_rows"
+    ],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 205,
+      "section": "defender/COMMON",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "6acec20f733af30f4d87b4677a4a725f17212568fb36e03d5d87331552335d15"
+    }
+  },
+  {
+    "id": "blastgang:defender_common:velociraptor:541d5429",
+    "side": "defender",
+    "shopCategory": "COMMON",
+    "name": "VELOCIRAPTOR",
+    "variantNames": [
+      "VELOCIRAPTOR"
+    ],
+    "price": 1600,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "BCP FMJ",
+    "ammoDamageRaw": "60",
+    "ammoPenetration": 30,
+    "magazineCapacity": 30,
+    "magazineCount": 5,
+    "loadoutDetailsRaw": "BCP FMJ (ダメージ60 貫通30) / 30連マガジンx5",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 206,
+      "section": "defender/COMMON",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "541d5429f2a5d427c970ca4526e63e1fc7b7a7858b2918bdb3f52096870233ef"
+    }
+  },
+  {
+    "id": "blastgang:defender_common:mp9:85e5b0f2",
+    "side": "defender",
+    "shopCategory": "COMMON",
+    "name": "MP9",
+    "variantNames": [
+      "MP9"
+    ],
+    "price": 1700,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "AP6.3",
+    "ammoDamageRaw": "50",
+    "ammoPenetration": 29,
+    "magazineCapacity": 25,
+    "magazineCount": 4,
+    "loadoutDetailsRaw": "AP6.3 (ダメージ50 貫通29) / 25連マガジンx4",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 207,
+      "section": "defender/COMMON",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "85e5b0f2f10df406b1b2ce79775a99c864c4f4c47931c687957ca0faa42160fe"
+    }
+  },
+  {
+    "id": "blastgang:defender_common:as_val:d43f1909",
+    "side": "defender",
+    "shopCategory": "COMMON",
+    "name": "AS VAL",
+    "variantNames": [
+      "AS VAL"
+    ],
+    "price": 1900,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "SP-5",
+    "ammoDamageRaw": "71",
+    "ammoPenetration": 28,
+    "magazineCapacity": 30,
+    "magazineCount": 4,
+    "loadoutDetailsRaw": "SP-5 (ダメージ71 貫通28) / 30連マガジンx4",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 208,
+      "section": "defender/COMMON",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "d43f1909983d21cf532beb9cfd05438787384a000546c81b9ebbe0f3fabf4c51"
+    }
+  },
+  {
+    "id": "blastgang:defender_common:mk47:18815d73",
+    "side": "defender",
+    "shopCategory": "COMMON",
+    "name": "MK47",
+    "variantNames": [
+      "MK47"
+    ],
+    "price": 2200,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "T-45M1",
+    "ammoDamageRaw": "65",
+    "ammoPenetration": 30,
+    "magazineCapacity": 30,
+    "magazineCount": 5,
+    "loadoutDetailsRaw": "T-45M1 (ダメージ65 貫通30) / 30連マガジンx5",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 209,
+      "section": "defender/COMMON",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "18815d73be1e9fdea0770f2cb376d907655684e48c767edd2e9c1579e8cb16e6"
+    }
+  },
+  {
+    "id": "blastgang:defender_common:mcx:db68d5bd",
+    "side": "defender",
+    "shopCategory": "COMMON",
+    "name": "MCX",
+    "variantNames": [
+      "MCX"
+    ],
+    "price": 2400,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "BCP FMJ",
+    "ammoDamageRaw": "60",
+    "ammoPenetration": 30,
+    "magazineCapacity": 30,
+    "magazineCount": 3,
+    "loadoutDetailsRaw": "BCP FMJ (ダメージ60 貫通30) / 30連マガジンx3",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 210,
+      "section": "defender/COMMON",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "db68d5bd56ecd729687d763d9abc2b6d9d7466bc7c3005d124043610a0592cde"
+    }
+  },
+  {
+    "id": "blastgang:defender_elite:x_17:6211c222",
+    "side": "defender",
+    "shopCategory": "ELITE",
+    "name": "X-17",
+    "variantNames": [
+      "X-17"
+    ],
+    "price": 2800,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "M80",
+    "ammoDamageRaw": "80",
+    "ammoPenetration": 43,
+    "magazineCapacity": 20,
+    "magazineCount": 4,
+    "loadoutDetailsRaw": "M80 (ダメージ80 貫通43) / 20連マガジンx4",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 215,
+      "section": "defender/ELITE",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "6211c22261007c3ad3423f0b32f4c2c41eb94c0e8a3b8acf4d671c48ec412cee"
+    }
+  },
+  {
+    "id": "blastgang:defender_elite:aug_a3:91f5f5df",
+    "side": "defender",
+    "shopCategory": "ELITE",
+    "name": "AUG A3",
+    "variantNames": [
+      "AUG A3"
+    ],
+    "price": 2900,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "M995",
+    "ammoDamageRaw": "42",
+    "ammoPenetration": 53,
+    "magazineCapacity": 30,
+    "magazineCount": 5,
+    "loadoutDetailsRaw": "M995 (ダメージ42 貫通53) / 30連マガジンx5",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 216,
+      "section": "defender/ELITE",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "91f5f5dfcf5c23638b101a5f994234a7826eae833bcb5787eb0595c741aea310"
+    }
+  },
+  {
+    "id": "blastgang:defender_elite:mp7a2:d460ff91",
+    "side": "defender",
+    "shopCategory": "ELITE",
+    "name": "MP7A2",
+    "variantNames": [
+      "MP7A2"
+    ],
+    "price": 3100,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "FMJ SX",
+    "ammoDamageRaw": "46",
+    "ammoPenetration": 40,
+    "magazineCapacity": 20,
+    "magazineCount": 4,
+    "loadoutDetailsRaw": "FMJ SX (ダメージ46 貫通40) / 20連マガジンx4",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 217,
+      "section": "defender/ELITE",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "d460ff91b3a5cb0b16482949f8fd13807a2b2a07988a5f3a05533626801641c2"
+    }
+  },
+  {
+    "id": "blastgang:defender_elite:mdr:05cb43d2",
+    "side": "defender",
+    "shopCategory": "ELITE",
+    "name": "MDR",
+    "variantNames": [
+      "MDR"
+    ],
+    "price": 3100,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "M80",
+    "ammoDamageRaw": "80",
+    "ammoPenetration": 43,
+    "magazineCapacity": 20,
+    "magazineCount": 4,
+    "loadoutDetailsRaw": "M80 (ダメージ80 貫通43) / 20連マガジンx4",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 218,
+      "section": "defender/ELITE",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "05cb43d269a9ac64a73f730c9f774f34cf0b72aa1c5fa008594a8029055fc74c"
+    }
+  },
+  {
+    "id": "blastgang:defender_elite:m4a1:3b6a9da2",
+    "side": "defender",
+    "shopCategory": "ELITE",
+    "name": "M4A1",
+    "variantNames": [
+      "M4A1"
+    ],
+    "price": 3200,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "M855A1",
+    "ammoDamageRaw": "49",
+    "ammoPenetration": 44,
+    "magazineCapacity": 30,
+    "magazineCount": 4,
+    "loadoutDetailsRaw": "M855A1 (ダメージ49 貫通44) / 30連マガジンx4",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 219,
+      "section": "defender/ELITE",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "3b6a9da2cd2880218ef5cce2b4f8d45e75a089a12e4242a933c96300236e688b"
+    }
+  },
+  {
+    "id": "blastgang:defender_elite:nl545_di:3940c1d2",
+    "side": "defender",
+    "shopCategory": "ELITE",
+    "name": "NL545 DI",
+    "variantNames": [
+      "NL545 DI"
+    ],
+    "price": 3300,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "7N40",
+    "ammoDamageRaw": "52",
+    "ammoPenetration": 42,
+    "magazineCapacity": 30,
+    "magazineCount": 4,
+    "loadoutDetailsRaw": "7N40 (ダメージ52 貫通42) / 30連マガジンx4",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 220,
+      "section": "defender/ELITE",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "3940c1d298dfec2369f99796bacf6b6258f6c65a3e906b75c560822e6b96d7d0"
+    }
+  },
+  {
+    "id": "blastgang:defender_special:saiga_12k:3887a461",
+    "side": "defender",
+    "shopCategory": "SPECIAL",
+    "name": "SAIGA-12K",
+    "variantNames": [
+      "SAIGA-12K"
+    ],
+    "price": 2300,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "Flechette ダメージ25x8 貫通31 / 5連マガジンx5",
+    "ammoDamageRaw": "25x8",
+    "ammoPenetration": 31,
+    "magazineCapacity": 5,
+    "magazineCount": 5,
+    "loadoutDetailsRaw": "Flechette ダメージ25x8 貫通31 / 5連マガジンx5",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 226,
+      "section": "defender/SPECIAL",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "3887a461350f75224d5f83507a315075f49fe1ca7972dda5a4b2842b8a79e57e"
+    }
+  },
+  {
+    "id": "blastgang:defender_special:rpdn:8fc51c9d",
+    "side": "defender",
+    "shopCategory": "SPECIAL",
+    "name": "RPDN",
+    "variantNames": [
+      "RPDN"
+    ],
+    "price": 2900,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "T-45M1",
+    "ammoDamageRaw": "65",
+    "ammoPenetration": 30,
+    "magazineCapacity": 100,
+    "magazineCount": 1,
+    "loadoutDetailsRaw": "T-45M1 (ダメージ65 貫通30) / 100連マガジンx1",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 227,
+      "section": "defender/SPECIAL",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "8fc51c9d54651fa0f8823ec1aee93b47a3882c7cff952fb340dae99c3ba7d2c6"
+    }
+  },
+  {
+    "id": "blastgang:defender_special:ash_12:b6bd623f",
+    "side": "defender",
+    "shopCategory": "SPECIAL",
+    "name": "ASH-12",
+    "variantNames": [
+      "ASH-12"
+    ],
+    "price": 3900,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "PS12B",
+    "ammoDamageRaw": "102",
+    "ammoPenetration": 45,
+    "magazineCapacity": 20,
+    "magazineCount": 2,
+    "loadoutDetailsRaw": "PS12B (ダメージ102 貫通45) / 20連マガジンx2",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 228,
+      "section": "defender/SPECIAL",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "b6bd623fe1504563c5edc3b2f3dd4b8d7da22ac1e7e5bff97bf37999e8747016"
+    }
+  },
+  {
+    "id": "blastgang:defender_special:pkp:d04de6d1",
+    "side": "defender",
+    "shopCategory": "SPECIAL",
+    "name": "PKP",
+    "variantNames": [
+      "PKP"
+    ],
+    "price": 4500,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "T-46M",
+    "ammoDamageRaw": "82",
+    "ammoPenetration": 41,
+    "magazineCapacity": 100,
+    "magazineCount": 1,
+    "loadoutDetailsRaw": "T-46M (ダメージ82 貫通41) / 100連マガジンx1",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 229,
+      "section": "defender/SPECIAL",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "d04de6d123c7fad4af13ff43dd2a9683c3842a1693efef10453657df8ecf75f2"
+    }
+  },
+  {
+    "id": "blastgang:defender_sniper:axmc:ca11e940",
+    "side": "defender",
+    "shopCategory": "SNIPER",
+    "name": "AXMC",
+    "variantNames": [
+      "AXMC"
+    ],
+    "price": 3800,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "AP",
+    "ammoDamageRaw": "115",
+    "ammoPenetration": 79,
+    "magazineCapacity": 10,
+    "magazineCount": 2,
+    "loadoutDetailsRaw": "AP (ダメージ115 貫通79) / 10連マガジンx2",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 235,
+      "section": "defender/SNIPER",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "ca11e94001001bd7a95145dbbdb2ec9db9ce642b97b3c69fcb8c2e87e7a6be2d"
+    }
+  },
+  {
+    "id": "blastgang:defender_sniper:t_5000m:4281b14f",
+    "side": "defender",
+    "shopCategory": "SNIPER",
+    "name": "T-5000M",
+    "variantNames": [
+      "T-5000M"
+    ],
+    "price": 4100,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "Ball 11 LR",
+    "ammoDamageRaw": "95",
+    "ammoPenetration": 63,
+    "magazineCapacity": 5,
+    "magazineCount": 3,
+    "loadoutDetailsRaw": "Ball 11 LR (ダメージ95 貫通63) / 5連マガジンx3",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 236,
+      "section": "defender/SNIPER",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "4281b14f9bca27d15f17a4e79a0cdf6045851ad7530aa88376dcbc96f6017eeb"
+    }
+  },
+  {
+    "id": "blastgang:defender_sniper:g28:8772d11f",
+    "side": "defender",
+    "shopCategory": "SNIPER",
+    "name": "G28",
+    "variantNames": [
+      "G28"
+    ],
+    "price": 4300,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "M61",
+    "ammoDamageRaw": "73",
+    "ammoPenetration": 55,
+    "magazineCapacity": 20,
+    "magazineCount": 3,
+    "loadoutDetailsRaw": "M61 (ダメージ73 貫通55) / 20連マガジンx3",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [
+      "ammo_damage_differs_between_source_rows"
+    ],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 237,
+      "section": "defender/SNIPER",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "8772d11f1a5599e19aa48550a5ded26d59ef65ec621a96710378a2286199b994"
+    }
+  },
+  {
+    "id": "blastgang:defender_sniper:sv_98:f55a5aec",
+    "side": "defender",
+    "shopCategory": "SNIPER",
+    "name": "SV-98",
+    "variantNames": [
+      "SV-98"
+    ],
+    "price": 4400,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "TC AP",
+    "ammoDamageRaw": "98",
+    "ammoPenetration": 66,
+    "magazineCapacity": 10,
+    "magazineCount": 2,
+    "loadoutDetailsRaw": "TC AP (ダメージ98 貫通66) / 10連マガジンx2",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 238,
+      "section": "defender/SNIPER",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "f55a5aecd7f2f1a3d147b5a821c6a123b44e98e2634a37e5239d611eda47b94b"
+    }
+  },
+  {
+    "id": "blastgang:defender_sniper:ak_50:942eadca",
+    "side": "defender",
+    "shopCategory": "SNIPER",
+    "name": "AK-50",
+    "variantNames": [
+      "AK-50"
+    ],
+    "price": 4500,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "M33",
+    "ammoDamageRaw": "190",
+    "ammoPenetration": 56,
+    "magazineCapacity": 10,
+    "magazineCount": 3,
+    "loadoutDetailsRaw": "M33 (ダメージ190 貫通56) / 10連マガジンx3",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 239,
+      "section": "defender/SNIPER",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "942eadca87714dabec5a7294d5ea189fc15ac9f49b929015bfe344d6d5b4b85f"
+    }
+  },
+  {
+    "id": "blastgang:defender_sniper:mk_18_mj_246_lnir:d320c466",
+    "side": "defender",
+    "shopCategory": "SNIPER",
+    "name": "MK-18 Mj&#246;lnir",
+    "variantNames": [
+      "MK-18 Mj&#246;lnir"
+    ],
+    "price": 5000,
+    "currency": "BLASTGANG_MATCH_DOLLARS",
+    "isInitialWeapon": false,
+    "ammoNameRaw": "FMJ",
+    "ammoDamageRaw": "122",
+    "ammoPenetration": 47,
+    "magazineCapacity": 10,
+    "magazineCount": 1,
+    "loadoutDetailsRaw": "FMJ (ダメージ122 貫通47) / 10連マガジンx1",
+    "gameTemplateIds": null,
+    "evidenceStatus": "wiki_transcribed",
+    "reviewFlags": [],
+    "source": {
+      "sourceId": "blastgang",
+      "url": "https://wikiwiki.jp/eft/Arena/BLASTGANG",
+      "line": 240,
+      "section": "defender/SNIPER",
+      "sectionPatch": "0.6.0.0.47752",
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "d320c466c865b1df4d0f35391f79c6dcf08893d137c551fce570ea8f6a02ac80"
+    }
+  }
+]

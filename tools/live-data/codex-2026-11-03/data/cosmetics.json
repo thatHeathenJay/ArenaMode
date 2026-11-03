@@ -1,0 +1,1062 @@
+[
+  {
+    "id": "armory:weapon_camo:battlepass_0_abstract_1:7b750997",
+    "name": "BattlePass 0 Abstract 1",
+    "category": "weapon_camo",
+    "unlock": {
+      "raw": "バトルパス Level150",
+      "hints": [
+        {
+          "kind": "battle_pass_level",
+          "season": null,
+          "level": 150
+        }
+      ],
+      "hintsAreExhaustive": false,
+      "status": "requires_rule_mapping"
+    },
+    "purchase": {
+      "amount": 10,
+      "currency": "BATTLE_POINTS",
+      "raw": "10BP",
+      "status": "listed"
+    },
+    "mp": null,
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed_unversioned",
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 909,
+      "section": "武器迷彩",
+      "sectionPatch": null,
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "7b75099720f8e0fcffaf6a73b6a321f961c4454462ccce6de13539101ddd3823"
+    }
+  },
+  {
+    "id": "armory:weapon_camo:battlepass_0_abstract_2:e6116ba1",
+    "name": "BattlePass 0 Abstract 2",
+    "category": "weapon_camo",
+    "unlock": {
+      "raw": "バトルパス Level150",
+      "hints": [
+        {
+          "kind": "battle_pass_level",
+          "season": null,
+          "level": 150
+        }
+      ],
+      "hintsAreExhaustive": false,
+      "status": "requires_rule_mapping"
+    },
+    "purchase": {
+      "amount": 10,
+      "currency": "BATTLE_POINTS",
+      "raw": "10BP",
+      "status": "listed"
+    },
+    "mp": null,
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed_unversioned",
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 912,
+      "section": "武器迷彩",
+      "sectionPatch": null,
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "e6116ba19a4c511d89804f614062ee8fda4d4209e79f2952c9fa99dc34ab4044"
+    }
+  },
+  {
+    "id": "armory:weapon_camo:battlepass_0_abstract_3:f9925466",
+    "name": "BattlePass 0 Abstract 3",
+    "category": "weapon_camo",
+    "unlock": {
+      "raw": "バトルパス Level150",
+      "hints": [
+        {
+          "kind": "battle_pass_level",
+          "season": null,
+          "level": 150
+        }
+      ],
+      "hintsAreExhaustive": false,
+      "status": "requires_rule_mapping"
+    },
+    "purchase": {
+      "amount": 10,
+      "currency": "BATTLE_POINTS",
+      "raw": "10BP",
+      "status": "listed"
+    },
+    "mp": null,
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed_unversioned",
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 915,
+      "section": "武器迷彩",
+      "sectionPatch": null,
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "f99254668d1a8de8b4f051cb69428cd5b824bdc2e8484faeaa0f74faf7ee3931"
+    }
+  },
+  {
+    "id": "armory:weapon_camo:tiger_stripe_desert:b7592189",
+    "name": "Tiger Stripe Desert",
+    "category": "weapon_camo",
+    "unlock": {
+      "raw": "バトルパス Level77",
+      "hints": [
+        {
+          "kind": "battle_pass_level",
+          "season": null,
+          "level": 77
+        }
+      ],
+      "hintsAreExhaustive": false,
+      "status": "requires_rule_mapping"
+    },
+    "purchase": {
+      "amount": 6,
+      "currency": "BATTLE_POINTS",
+      "raw": "6BP",
+      "status": "listed"
+    },
+    "mp": null,
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed_unversioned",
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 918,
+      "section": "武器迷彩",
+      "sectionPatch": null,
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "b75921892cf67c4505bf4bd5823bf1ec0fd6a149b3be7ca16132ef112a0c522c"
+    }
+  },
+  {
+    "id": "armory:weapon_camo:m90_urban:192abb6c",
+    "name": "M90 Urban",
+    "category": "weapon_camo",
+    "unlock": {
+      "raw": "バトルパス Level142",
+      "hints": [
+        {
+          "kind": "battle_pass_level",
+          "season": null,
+          "level": 142
+        }
+      ],
+      "hintsAreExhaustive": false,
+      "status": "requires_rule_mapping"
+    },
+    "purchase": {
+      "amount": 8,
+      "currency": "BATTLE_POINTS",
+      "raw": "8BP",
+      "status": "listed"
+    },
+    "mp": null,
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed_unversioned",
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 921,
+      "section": "武器迷彩",
+      "sectionPatch": null,
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "192abb6c004b1d6547fd146d2e185074037fc4ef258e74269b22cc8cc4901eb3"
+    }
+  },
+  {
+    "id": "armory:weapon_camo:solid_turquoise:3c94cf96",
+    "name": "Solid Turquoise",
+    "category": "weapon_camo",
+    "unlock": {
+      "raw": "バトルパス Level47",
+      "hints": [
+        {
+          "kind": "battle_pass_level",
+          "season": null,
+          "level": 47
+        }
+      ],
+      "hintsAreExhaustive": false,
+      "status": "requires_rule_mapping"
+    },
+    "purchase": {
+      "amount": 6,
+      "currency": "BATTLE_POINTS",
+      "raw": "6BP",
+      "status": "listed"
+    },
+    "mp": null,
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed_unversioned",
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 924,
+      "section": "武器迷彩",
+      "sectionPatch": null,
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "3c94cf96bb63d034e03975d3b1f693b01d3639e928c174bf14bb90f2cc564147"
+    }
+  },
+  {
+    "id": "armory:weapon_camo:urban_digital:c281a437",
+    "name": "Urban Digital",
+    "category": "weapon_camo",
+    "unlock": {
+      "raw": "バトルパス Level130",
+      "hints": [
+        {
+          "kind": "battle_pass_level",
+          "season": null,
+          "level": 130
+        }
+      ],
+      "hintsAreExhaustive": false,
+      "status": "requires_rule_mapping"
+    },
+    "purchase": {
+      "amount": 7,
+      "currency": "BATTLE_POINTS",
+      "raw": "7BP",
+      "status": "listed"
+    },
+    "mp": null,
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed_unversioned",
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 927,
+      "section": "武器迷彩",
+      "sectionPatch": null,
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "c281a437db6f65fe8aeefe977a540499095d47dab25cf10f0e9f4618021c00af"
+    }
+  },
+  {
+    "id": "armory:weapon_camo:m90_desert:d3c80882",
+    "name": "M90 Desert",
+    "category": "weapon_camo",
+    "unlock": {
+      "raw": "バトルパス Level11",
+      "hints": [
+        {
+          "kind": "battle_pass_level",
+          "season": null,
+          "level": 11
+        }
+      ],
+      "hintsAreExhaustive": false,
+      "status": "requires_rule_mapping"
+    },
+    "purchase": {
+      "amount": 5,
+      "currency": "BATTLE_POINTS",
+      "raw": "5BP",
+      "status": "listed"
+    },
+    "mp": null,
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed_unversioned",
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 930,
+      "section": "武器迷彩",
+      "sectionPatch": null,
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "d3c808829478eb561afb518861684142d8352519fa4b2059909d267883bfdb37"
+    }
+  },
+  {
+    "id": "armory:weapon_camo:solid_plum:17a35481",
+    "name": "Solid Plum",
+    "category": "weapon_camo",
+    "unlock": {
+      "raw": "バトルパス Level100",
+      "hints": [
+        {
+          "kind": "battle_pass_level",
+          "season": null,
+          "level": 100
+        }
+      ],
+      "hintsAreExhaustive": false,
+      "status": "requires_rule_mapping"
+    },
+    "purchase": {
+      "amount": 7,
+      "currency": "BATTLE_POINTS",
+      "raw": "7BP",
+      "status": "listed"
+    },
+    "mp": null,
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed_unversioned",
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 933,
+      "section": "武器迷彩",
+      "sectionPatch": null,
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "17a35481a5473ddfd4d572348e257afdafcfc5794aa2cd022355aa8d772b6429"
+    }
+  },
+  {
+    "id": "armory:weapon_camo:hexagon_grid_2_green:7d0d89cf",
+    "name": "Hexagon Grid 2 Green",
+    "category": "weapon_camo",
+    "unlock": {
+      "raw": "バトルパス Level42",
+      "hints": [
+        {
+          "kind": "battle_pass_level",
+          "season": null,
+          "level": 42
+        }
+      ],
+      "hintsAreExhaustive": false,
+      "status": "requires_rule_mapping"
+    },
+    "purchase": {
+      "amount": 6,
+      "currency": "BATTLE_POINTS",
+      "raw": "6BP",
+      "status": "listed"
+    },
+    "mp": null,
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed_unversioned",
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 936,
+      "section": "武器迷彩",
+      "sectionPatch": null,
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "7d0d89cf962be184cdd1c50fe54525f1dd09b9b0123262decdeade1fb06455ba"
+    }
+  },
+  {
+    "id": "armory:weapon_camo:multicam_black:16bb412b",
+    "name": "MultiCam Black",
+    "category": "weapon_camo",
+    "unlock": {
+      "raw": "バトルパス Level57",
+      "hints": [
+        {
+          "kind": "battle_pass_level",
+          "season": null,
+          "level": 57
+        }
+      ],
+      "hintsAreExhaustive": false,
+      "status": "requires_rule_mapping"
+    },
+    "purchase": {
+      "amount": 6,
+      "currency": "BATTLE_POINTS",
+      "raw": "6BP",
+      "status": "listed"
+    },
+    "mp": null,
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed_unversioned",
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 939,
+      "section": "武器迷彩",
+      "sectionPatch": null,
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "16bb412b8aaf6c12875d95c1b05758ccdf852eed8dfb23ef0c45ec158e6baa89"
+    }
+  },
+  {
+    "id": "armory:weapon_camo:solid_yellow:4687ebd4",
+    "name": "Solid Yellow",
+    "category": "weapon_camo",
+    "unlock": {
+      "raw": "バトルパス Level22",
+      "hints": [
+        {
+          "kind": "battle_pass_level",
+          "season": null,
+          "level": 22
+        }
+      ],
+      "hintsAreExhaustive": false,
+      "status": "requires_rule_mapping"
+    },
+    "purchase": {
+      "amount": 6,
+      "currency": "BATTLE_POINTS",
+      "raw": "6BP",
+      "status": "listed"
+    },
+    "mp": null,
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed_unversioned",
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 942,
+      "section": "武器迷彩",
+      "sectionPatch": null,
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "4687ebd4949bc95b14304d6602b54ea7fd6afc3a817fa6151d39eaccdb6393c5"
+    }
+  },
+  {
+    "id": "armory:weapon_camo:japanese_flecktarn:68644bb2",
+    "name": "Japanese Flecktarn",
+    "category": "weapon_camo",
+    "unlock": {
+      "raw": "バトルパス Level64",
+      "hints": [
+        {
+          "kind": "battle_pass_level",
+          "season": null,
+          "level": 64
+        }
+      ],
+      "hintsAreExhaustive": false,
+      "status": "requires_rule_mapping"
+    },
+    "purchase": {
+      "amount": 6,
+      "currency": "BATTLE_POINTS",
+      "raw": "6BP",
+      "status": "listed"
+    },
+    "mp": null,
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed_unversioned",
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 945,
+      "section": "武器迷彩",
+      "sectionPatch": null,
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "68644bb24aed0a7662f3712f8c29904cea1e4e38c140d42e723933d0b121e987"
+    }
+  },
+  {
+    "id": "armory:weapon_camo:olive_drab:8293af49",
+    "name": "Olive Drab",
+    "category": "weapon_camo",
+    "unlock": {
+      "raw": "バトルパス Level6",
+      "hints": [
+        {
+          "kind": "battle_pass_level",
+          "season": null,
+          "level": 6
+        }
+      ],
+      "hintsAreExhaustive": false,
+      "status": "requires_rule_mapping"
+    },
+    "purchase": {
+      "amount": 5,
+      "currency": "BATTLE_POINTS",
+      "raw": "5BP",
+      "status": "listed"
+    },
+    "mp": null,
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed_unversioned",
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 948,
+      "section": "武器迷彩",
+      "sectionPatch": null,
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "8293af495ad068ee3402ccf1588135af487e4be87c9f3d9b4e42f99bbe1adce5"
+    }
+  },
+  {
+    "id": "armory:weapon_camo:a_tacs_ghost:4c0bd5eb",
+    "name": "A-TACS Ghost",
+    "category": "weapon_camo",
+    "unlock": {
+      "raw": "バトルパス Level26",
+      "hints": [
+        {
+          "kind": "battle_pass_level",
+          "season": null,
+          "level": 26
+        }
+      ],
+      "hintsAreExhaustive": false,
+      "status": "requires_rule_mapping"
+    },
+    "purchase": {
+      "amount": 6,
+      "currency": "BATTLE_POINTS",
+      "raw": "6BP",
+      "status": "listed"
+    },
+    "mp": null,
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed_unversioned",
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 951,
+      "section": "武器迷彩",
+      "sectionPatch": null,
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "4c0bd5eb9eb6f62803059f5983df09cb41ca60e9d6fae3fd0673e346889ad79e"
+    }
+  },
+  {
+    "id": "armory:weapon_camo:urban_flecktarn:c77881ae",
+    "name": "Urban Flecktarn",
+    "category": "weapon_camo",
+    "unlock": {
+      "raw": "バトルパス Level106",
+      "hints": [
+        {
+          "kind": "battle_pass_level",
+          "season": null,
+          "level": 106
+        }
+      ],
+      "hintsAreExhaustive": false,
+      "status": "requires_rule_mapping"
+    },
+    "purchase": {
+      "amount": 7,
+      "currency": "BATTLE_POINTS",
+      "raw": "7BP",
+      "status": "listed"
+    },
+    "mp": null,
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed_unversioned",
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 954,
+      "section": "武器迷彩",
+      "sectionPatch": null,
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "c77881aef853060cb223f13eee0bbafebe031e0d292ff2d18229c6563f9b6ef6"
+    }
+  },
+  {
+    "id": "armory:weapon_camo:stripes_blue:aaa8eb00",
+    "name": "Stripes Blue",
+    "category": "weapon_camo",
+    "unlock": {
+      "raw": "バトルパス Level89",
+      "hints": [
+        {
+          "kind": "battle_pass_level",
+          "season": null,
+          "level": 89
+        }
+      ],
+      "hintsAreExhaustive": false,
+      "status": "requires_rule_mapping"
+    },
+    "purchase": {
+      "amount": 7,
+      "currency": "BATTLE_POINTS",
+      "raw": "7BP",
+      "status": "listed"
+    },
+    "mp": null,
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed_unversioned",
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 957,
+      "section": "武器迷彩",
+      "sectionPatch": null,
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "aaa8eb008ef8bc677d9c127628d2057c3cd41a38fe7ccb02579ef7baa0c66fad"
+    }
+  },
+  {
+    "id": "armory:weapon_camo:splinter_spripe_green:4d266a9d",
+    "name": "Splinter Spripe Green",
+    "category": "weapon_camo",
+    "unlock": {
+      "raw": "バトルパス Level122",
+      "hints": [
+        {
+          "kind": "battle_pass_level",
+          "season": null,
+          "level": 122
+        }
+      ],
+      "hintsAreExhaustive": false,
+      "status": "requires_rule_mapping"
+    },
+    "purchase": {
+      "amount": 7,
+      "currency": "BATTLE_POINTS",
+      "raw": "7BP",
+      "status": "listed"
+    },
+    "mp": null,
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed_unversioned",
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 960,
+      "section": "武器迷彩",
+      "sectionPatch": null,
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "4d266a9d35bb346b95d4af39dff22cd8ea4894da5d2c32992cadddaf041aac11"
+    }
+  },
+  {
+    "id": "armory:weapon_camo:desert_night_camo_fde:60313b1e",
+    "name": "Desert Night Camo FDE",
+    "category": "weapon_camo",
+    "unlock": {
+      "raw": "バトルパス Level67",
+      "hints": [
+        {
+          "kind": "battle_pass_level",
+          "season": null,
+          "level": 67
+        }
+      ],
+      "hintsAreExhaustive": false,
+      "status": "requires_rule_mapping"
+    },
+    "purchase": {
+      "amount": 6,
+      "currency": "BATTLE_POINTS",
+      "raw": "6BP",
+      "status": "listed"
+    },
+    "mp": null,
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed_unversioned",
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 963,
+      "section": "武器迷彩",
+      "sectionPatch": null,
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "60313b1e43e4bd8a94ca2793f67fc902dd784a231efeab2ec28c313141eabe36"
+    }
+  },
+  {
+    "id": "armory:weapon_camo:solid_white:854b4c02",
+    "name": "Solid White",
+    "category": "weapon_camo",
+    "unlock": {
+      "raw": "バトルパス Level18",
+      "hints": [
+        {
+          "kind": "battle_pass_level",
+          "season": null,
+          "level": 18
+        }
+      ],
+      "hintsAreExhaustive": false,
+      "status": "requires_rule_mapping"
+    },
+    "purchase": {
+      "amount": 4,
+      "currency": "BATTLE_POINTS",
+      "raw": "4BP",
+      "status": "listed"
+    },
+    "mp": null,
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed_unversioned",
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 966,
+      "section": "武器迷彩",
+      "sectionPatch": null,
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "854b4c023063083eb0b889c7a88760977f047e87898cc3bba018e7d847297c4e"
+    }
+  },
+  {
+    "id": "armory:weapon_camo:hexagon_grid_1_yellow_1:d4a528d5",
+    "name": "Hexagon Grid 1 Yellow 1",
+    "category": "weapon_camo",
+    "unlock": {
+      "raw": "バトルパス Level134",
+      "hints": [
+        {
+          "kind": "battle_pass_level",
+          "season": null,
+          "level": 134
+        }
+      ],
+      "hintsAreExhaustive": false,
+      "status": "requires_rule_mapping"
+    },
+    "purchase": {
+      "amount": 7,
+      "currency": "BATTLE_POINTS",
+      "raw": "7BP",
+      "status": "listed"
+    },
+    "mp": null,
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed_unversioned",
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 969,
+      "section": "武器迷彩",
+      "sectionPatch": null,
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "d4a528d51837248fd7a914c0a36434350244fa2081a61e77e858ebf4e407e006"
+    }
+  },
+  {
+    "id": "armory:weapon_camo:urban_triangles:32879322",
+    "name": "Urban Triangles",
+    "category": "weapon_camo",
+    "unlock": {
+      "raw": "バトルパス Level118",
+      "hints": [
+        {
+          "kind": "battle_pass_level",
+          "season": null,
+          "level": 118
+        }
+      ],
+      "hintsAreExhaustive": false,
+      "status": "requires_rule_mapping"
+    },
+    "purchase": {
+      "amount": 7,
+      "currency": "BATTLE_POINTS",
+      "raw": "7BP",
+      "status": "listed"
+    },
+    "mp": null,
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed_unversioned",
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 972,
+      "section": "武器迷彩",
+      "sectionPatch": null,
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "328793221154cef27bd91512c60d455f7103c2b82393c05394f983e65808dbd0"
+    }
+  },
+  {
+    "id": "armory:weapon_camo:graffiti_acs_white:72a844bd",
+    "name": "Graffiti ACS White",
+    "category": "weapon_camo",
+    "unlock": {
+      "raw": "Twitchスペシャルイベント / 現在は取得不可",
+      "hints": [],
+      "hintsAreExhaustive": false,
+      "status": "requires_rule_mapping"
+    },
+    "purchase": {
+      "amount": null,
+      "currency": null,
+      "raw": "-",
+      "status": "not_specified"
+    },
+    "mp": null,
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed_unversioned",
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 975,
+      "section": "武器迷彩",
+      "sectionPatch": null,
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "72a844bd86335ebfb292a17ff05cdcf75e85353df2ec9792984b666f913ac201"
+    }
+  },
+  {
+    "id": "armory:weapon_camo:amoeba_green:cf5e53b1",
+    "name": "Amoeba Green",
+    "category": "weapon_camo",
+    "unlock": {
+      "raw": "Twitchスペシャルイベント / 現在は取得不可",
+      "hints": [],
+      "hintsAreExhaustive": false,
+      "status": "requires_rule_mapping"
+    },
+    "purchase": {
+      "amount": null,
+      "currency": null,
+      "raw": "-",
+      "status": "not_specified"
+    },
+    "mp": null,
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed_unversioned",
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 978,
+      "section": "武器迷彩",
+      "sectionPatch": null,
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "cf5e53b18b0ece4f7ead7ddc104e173070bb005e566212195b24bb787703ba44"
+    }
+  },
+  {
+    "id": "armory:weapon_camo:hexagon_grid_acs:78400839",
+    "name": "Hexagon Grid ACS",
+    "category": "weapon_camo",
+    "unlock": {
+      "raw": "Twitchスペシャルイベント / 現在は取得不可",
+      "hints": [],
+      "hintsAreExhaustive": false,
+      "status": "requires_rule_mapping"
+    },
+    "purchase": {
+      "amount": null,
+      "currency": null,
+      "raw": "-",
+      "status": "not_specified"
+    },
+    "mp": null,
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed_unversioned",
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 981,
+      "section": "武器迷彩",
+      "sectionPatch": null,
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "7840083962caf1d21bf1e68d0f9e711cd64d6e225ac4a604d7b2b13318aee4b3"
+    }
+  },
+  {
+    "id": "armory:weapon_camo:stripes_gold:765584f1",
+    "name": "Stripes Gold",
+    "category": "weapon_camo",
+    "unlock": {
+      "raw": "武器タスクの完了",
+      "hints": [],
+      "hintsAreExhaustive": false,
+      "status": "requires_rule_mapping"
+    },
+    "purchase": {
+      "amount": null,
+      "currency": null,
+      "raw": "-",
+      "status": "not_specified"
+    },
+    "mp": null,
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed_unversioned",
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 984,
+      "section": "武器迷彩",
+      "sectionPatch": null,
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "765584f10e1959038ab101fadeedef2e2e28e1e5440832bee6972fce18b5f939"
+    }
+  },
+  {
+    "id": "armory:weapon_camo:amoeba_urban:2dd146da",
+    "name": "Amoeba Urban",
+    "category": "weapon_camo",
+    "unlock": {
+      "raw": "Twitchスペシャルイベント / 現在は取得不可",
+      "hints": [],
+      "hintsAreExhaustive": false,
+      "status": "requires_rule_mapping"
+    },
+    "purchase": {
+      "amount": null,
+      "currency": null,
+      "raw": "-",
+      "status": "not_specified"
+    },
+    "mp": null,
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed_unversioned",
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 987,
+      "section": "武器迷彩",
+      "sectionPatch": null,
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "2dd146da9afcfab8b1c15e60220f57000ec1be5726e5fbe020ef9b545a4f91a1"
+    }
+  },
+  {
+    "id": "armory:weapon_camo:tiger_stripe_green:3c025480",
+    "name": "Tiger Stripe Green",
+    "category": "weapon_camo",
+    "unlock": {
+      "raw": "Twitchスペシャルイベント / 現在は取得不可",
+      "hints": [],
+      "hintsAreExhaustive": false,
+      "status": "requires_rule_mapping"
+    },
+    "purchase": {
+      "amount": null,
+      "currency": null,
+      "raw": "-",
+      "status": "not_specified"
+    },
+    "mp": null,
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed_unversioned",
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 990,
+      "section": "武器迷彩",
+      "sectionPatch": null,
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "3c025480b124491993a2d3e2ea4fc05b990d9e82ace4db36f1bab160a30684d1"
+    }
+  },
+  {
+    "id": "armory:weapon_camo:solid_cybergreen:9f3635f3",
+    "name": "Solid Cybergreen",
+    "category": "weapon_camo",
+    "unlock": {
+      "raw": "Twitchスペシャルイベント / 現在は取得不可",
+      "hints": [],
+      "hintsAreExhaustive": false,
+      "status": "requires_rule_mapping"
+    },
+    "purchase": {
+      "amount": null,
+      "currency": null,
+      "raw": "-",
+      "status": "not_specified"
+    },
+    "mp": null,
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed_unversioned",
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 993,
+      "section": "武器迷彩",
+      "sectionPatch": null,
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "9f3635f3cabc87647bf5197ff18fa1772de1462f6f493fc0c066df568884be84"
+    }
+  },
+  {
+    "id": "armory:weapon_camo:tiger_stripe_twitch:249dc53e",
+    "name": "Tiger Stripe Twitch",
+    "category": "weapon_camo",
+    "unlock": {
+      "raw": "Twitchスペシャルイベント / 現在は取得不可",
+      "hints": [],
+      "hintsAreExhaustive": false,
+      "status": "requires_rule_mapping"
+    },
+    "purchase": {
+      "amount": null,
+      "currency": null,
+      "raw": "-",
+      "status": "not_specified"
+    },
+    "mp": null,
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed_unversioned",
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 996,
+      "section": "武器迷彩",
+      "sectionPatch": null,
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "249dc53e6848b1f3da5474528ef34cd615b75732b034d8ed23520f3ea9f6ed47"
+    }
+  },
+  {
+    "id": "armory:weapon_camo:hexagon_grid_gold:3b3729b7",
+    "name": "Hexagon Grid Gold",
+    "category": "weapon_camo",
+    "unlock": {
+      "raw": "武器タスクの完了",
+      "hints": [],
+      "hintsAreExhaustive": false,
+      "status": "requires_rule_mapping"
+    },
+    "purchase": {
+      "amount": null,
+      "currency": null,
+      "raw": "-",
+      "status": "not_specified"
+    },
+    "mp": null,
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed_unversioned",
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 999,
+      "section": "武器迷彩",
+      "sectionPatch": null,
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "3b3729b7e7386126fe8cdef90e71b144f7a9ab9eb28614386debbe32af0508f9"
+    }
+  },
+  {
+    "id": "armory:weapon_camo:gold_triangles:1f0cad99",
+    "name": "Gold Triangles",
+    "category": "weapon_camo",
+    "unlock": {
+      "raw": "武器タスクの完了",
+      "hints": [],
+      "hintsAreExhaustive": false,
+      "status": "requires_rule_mapping"
+    },
+    "purchase": {
+      "amount": null,
+      "currency": null,
+      "raw": "-",
+      "status": "not_specified"
+    },
+    "mp": null,
+    "gameTemplateId": null,
+    "evidenceStatus": "wiki_transcribed_unversioned",
+    "source": {
+      "sourceId": "armory",
+      "url": "https://wikiwiki.jp/eft/Arena/Armory",
+      "line": 1002,
+      "section": "武器迷彩",
+      "sectionPatch": null,
+      "retrievedOn": "2026-11-03",
+      "rowSha256": "1f0cad99cd8acc384fee1a5a19800a434eed36cd514b72e6ea7b5b59f1a8dd59"
+    }
+  }
+]

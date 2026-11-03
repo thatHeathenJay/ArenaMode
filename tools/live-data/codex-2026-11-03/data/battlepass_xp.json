@@ -1,0 +1,460 @@
+{
+  "rows": [
+    {
+      "mode": "TeamFight",
+      "event": "victory",
+      "amount": 300,
+      "unit": "BATTLE_PASS_XP",
+      "evidenceStatus": "wiki_table_marked_under_verification",
+      "source": {
+        "sourceId": "battlepass",
+        "url": "https://wikiwiki.jp/eft/Arena/バトルパス",
+        "line": 22,
+        "section": "Battle Pass experience balancing",
+        "sectionPatch": null,
+        "retrievedOn": "2026-11-03"
+      }
+    },
+    {
+      "mode": "TeamFight",
+      "event": "defeat",
+      "amount": 200,
+      "unit": "BATTLE_PASS_XP",
+      "evidenceStatus": "wiki_table_marked_under_verification",
+      "source": {
+        "sourceId": "battlepass",
+        "url": "https://wikiwiki.jp/eft/Arena/バトルパス",
+        "line": 23,
+        "section": "Battle Pass experience balancing",
+        "sectionPatch": null,
+        "retrievedOn": "2026-11-03"
+      }
+    },
+    {
+      "mode": "TeamFight",
+      "event": "objective_capture",
+      "amount": 25,
+      "unit": "BATTLE_PASS_XP",
+      "evidenceStatus": "wiki_table_marked_under_verification",
+      "source": {
+        "sourceId": "battlepass",
+        "url": "https://wikiwiki.jp/eft/Arena/バトルパス",
+        "line": 24,
+        "section": "Battle Pass experience balancing",
+        "sectionPatch": null,
+        "retrievedOn": "2026-11-03"
+      }
+    },
+    {
+      "mode": "TeamFight",
+      "event": "kill",
+      "amount": 10,
+      "unit": "BATTLE_PASS_XP",
+      "evidenceStatus": "wiki_table_marked_under_verification",
+      "source": {
+        "sourceId": "battlepass",
+        "url": "https://wikiwiki.jp/eft/Arena/バトルパス",
+        "line": 25,
+        "section": "Battle Pass experience balancing",
+        "sectionPatch": null,
+        "retrievedOn": "2026-11-03"
+      }
+    },
+    {
+      "mode": "TeamFight",
+      "event": "kill_assist",
+      "amount": 2,
+      "unit": "BATTLE_PASS_XP",
+      "evidenceStatus": "wiki_table_marked_under_verification",
+      "source": {
+        "sourceId": "battlepass",
+        "url": "https://wikiwiki.jp/eft/Arena/バトルパス",
+        "line": 26,
+        "section": "Battle Pass experience balancing",
+        "sectionPatch": null,
+        "retrievedOn": "2026-11-03"
+      }
+    },
+    {
+      "mode": "TeamFight",
+      "event": "round_mvp",
+      "amount": 25,
+      "unit": "BATTLE_PASS_XP",
+      "evidenceStatus": "wiki_table_marked_under_verification",
+      "source": {
+        "sourceId": "battlepass",
+        "url": "https://wikiwiki.jp/eft/Arena/バトルパス",
+        "line": 27,
+        "section": "Battle Pass experience balancing",
+        "sectionPatch": null,
+        "retrievedOn": "2026-11-03"
+      }
+    },
+    {
+      "mode": "TeamFight",
+      "event": "match_mvp",
+      "amount": 100,
+      "unit": "BATTLE_PASS_XP",
+      "evidenceStatus": "wiki_table_marked_under_verification",
+      "source": {
+        "sourceId": "battlepass",
+        "url": "https://wikiwiki.jp/eft/Arena/バトルパス",
+        "line": 28,
+        "section": "Battle Pass experience balancing",
+        "sectionPatch": null,
+        "retrievedOn": "2026-11-03"
+      }
+    },
+    {
+      "mode": "BlastGang",
+      "event": "victory",
+      "amount": 350,
+      "unit": "BATTLE_PASS_XP",
+      "evidenceStatus": "wiki_table_marked_under_verification",
+      "source": {
+        "sourceId": "battlepass",
+        "url": "https://wikiwiki.jp/eft/Arena/バトルパス",
+        "line": 31,
+        "section": "Battle Pass experience balancing",
+        "sectionPatch": null,
+        "retrievedOn": "2026-11-03"
+      }
+    },
+    {
+      "mode": "BlastGang",
+      "event": "defeat",
+      "amount": 250,
+      "unit": "BATTLE_PASS_XP",
+      "evidenceStatus": "wiki_table_marked_under_verification",
+      "source": {
+        "sourceId": "battlepass",
+        "url": "https://wikiwiki.jp/eft/Arena/バトルパス",
+        "line": 32,
+        "section": "Battle Pass experience balancing",
+        "sectionPatch": null,
+        "retrievedOn": "2026-11-03"
+      }
+    },
+    {
+      "mode": "BlastGang",
+      "event": "device_plant",
+      "amount": 40,
+      "unit": "BATTLE_PASS_XP",
+      "evidenceStatus": "wiki_table_marked_under_verification",
+      "source": {
+        "sourceId": "battlepass",
+        "url": "https://wikiwiki.jp/eft/Arena/バトルパス",
+        "line": 33,
+        "section": "Battle Pass experience balancing",
+        "sectionPatch": null,
+        "retrievedOn": "2026-11-03"
+      }
+    },
+    {
+      "mode": "BlastGang",
+      "event": "device_deactivation",
+      "amount": 30,
+      "unit": "BATTLE_PASS_XP",
+      "evidenceStatus": "wiki_table_marked_under_verification",
+      "source": {
+        "sourceId": "battlepass",
+        "url": "https://wikiwiki.jp/eft/Arena/バトルパス",
+        "line": 34,
+        "section": "Battle Pass experience balancing",
+        "sectionPatch": null,
+        "retrievedOn": "2026-11-03"
+      }
+    },
+    {
+      "mode": "BlastGang",
+      "event": "kill",
+      "amount": 10,
+      "unit": "BATTLE_PASS_XP",
+      "evidenceStatus": "wiki_table_marked_under_verification",
+      "source": {
+        "sourceId": "battlepass",
+        "url": "https://wikiwiki.jp/eft/Arena/バトルパス",
+        "line": 35,
+        "section": "Battle Pass experience balancing",
+        "sectionPatch": null,
+        "retrievedOn": "2026-11-03"
+      }
+    },
+    {
+      "mode": "BlastGang",
+      "event": "kill_assist",
+      "amount": 2,
+      "unit": "BATTLE_PASS_XP",
+      "evidenceStatus": "wiki_table_marked_under_verification",
+      "source": {
+        "sourceId": "battlepass",
+        "url": "https://wikiwiki.jp/eft/Arena/バトルパス",
+        "line": 36,
+        "section": "Battle Pass experience balancing",
+        "sectionPatch": null,
+        "retrievedOn": "2026-11-03"
+      }
+    },
+    {
+      "mode": "BlastGang",
+      "event": "round_mvp",
+      "amount": 25,
+      "unit": "BATTLE_PASS_XP",
+      "evidenceStatus": "wiki_table_marked_under_verification",
+      "source": {
+        "sourceId": "battlepass",
+        "url": "https://wikiwiki.jp/eft/Arena/バトルパス",
+        "line": 37,
+        "section": "Battle Pass experience balancing",
+        "sectionPatch": null,
+        "retrievedOn": "2026-11-03"
+      }
+    },
+    {
+      "mode": "BlastGang",
+      "event": "match_mvp",
+      "amount": 125,
+      "unit": "BATTLE_PASS_XP",
+      "evidenceStatus": "wiki_table_marked_under_verification",
+      "source": {
+        "sourceId": "battlepass",
+        "url": "https://wikiwiki.jp/eft/Arena/バトルパス",
+        "line": 38,
+        "section": "Battle Pass experience balancing",
+        "sectionPatch": null,
+        "retrievedOn": "2026-11-03"
+      }
+    },
+    {
+      "mode": "CheckPoint",
+      "event": "victory",
+      "amount": 200,
+      "unit": "BATTLE_PASS_XP",
+      "evidenceStatus": "wiki_table_marked_under_verification",
+      "source": {
+        "sourceId": "battlepass",
+        "url": "https://wikiwiki.jp/eft/Arena/バトルパス",
+        "line": 41,
+        "section": "Battle Pass experience balancing",
+        "sectionPatch": null,
+        "retrievedOn": "2026-11-03"
+      }
+    },
+    {
+      "mode": "CheckPoint",
+      "event": "defeat",
+      "amount": 150,
+      "unit": "BATTLE_PASS_XP",
+      "evidenceStatus": "wiki_table_marked_under_verification",
+      "source": {
+        "sourceId": "battlepass",
+        "url": "https://wikiwiki.jp/eft/Arena/バトルパス",
+        "line": 42,
+        "section": "Battle Pass experience balancing",
+        "sectionPatch": null,
+        "retrievedOn": "2026-11-03"
+      }
+    },
+    {
+      "mode": "CheckPoint",
+      "event": "objective_capture",
+      "amount": 5,
+      "unit": "BATTLE_PASS_XP",
+      "evidenceStatus": "wiki_table_marked_under_verification",
+      "source": {
+        "sourceId": "battlepass",
+        "url": "https://wikiwiki.jp/eft/Arena/バトルパス",
+        "line": 43,
+        "section": "Battle Pass experience balancing",
+        "sectionPatch": null,
+        "retrievedOn": "2026-11-03"
+      }
+    },
+    {
+      "mode": "CheckPoint",
+      "event": "kill",
+      "amount": 5,
+      "unit": "BATTLE_PASS_XP",
+      "evidenceStatus": "wiki_table_marked_under_verification",
+      "source": {
+        "sourceId": "battlepass",
+        "url": "https://wikiwiki.jp/eft/Arena/バトルパス",
+        "line": 44,
+        "section": "Battle Pass experience balancing",
+        "sectionPatch": null,
+        "retrievedOn": "2026-11-03"
+      }
+    },
+    {
+      "mode": "CheckPoint",
+      "event": "kill_assist",
+      "amount": 1,
+      "unit": "BATTLE_PASS_XP",
+      "evidenceStatus": "wiki_table_marked_under_verification",
+      "source": {
+        "sourceId": "battlepass",
+        "url": "https://wikiwiki.jp/eft/Arena/バトルパス",
+        "line": 45,
+        "section": "Battle Pass experience balancing",
+        "sectionPatch": null,
+        "retrievedOn": "2026-11-03"
+      }
+    },
+    {
+      "mode": "CheckPoint",
+      "event": "match_mvp",
+      "amount": 50,
+      "unit": "BATTLE_PASS_XP",
+      "evidenceStatus": "wiki_table_marked_under_verification",
+      "source": {
+        "sourceId": "battlepass",
+        "url": "https://wikiwiki.jp/eft/Arena/バトルパス",
+        "line": 46,
+        "section": "Battle Pass experience balancing",
+        "sectionPatch": null,
+        "retrievedOn": "2026-11-03"
+      }
+    },
+    {
+      "mode": "LastHero",
+      "event": "1st_place",
+      "amount": 200,
+      "unit": "BATTLE_PASS_XP",
+      "evidenceStatus": "wiki_table_marked_under_verification",
+      "source": {
+        "sourceId": "battlepass",
+        "url": "https://wikiwiki.jp/eft/Arena/バトルパス",
+        "line": 49,
+        "section": "Battle Pass experience balancing",
+        "sectionPatch": null,
+        "retrievedOn": "2026-11-03"
+      }
+    },
+    {
+      "mode": "LastHero",
+      "event": "2nd_place",
+      "amount": 180,
+      "unit": "BATTLE_PASS_XP",
+      "evidenceStatus": "wiki_table_marked_under_verification",
+      "source": {
+        "sourceId": "battlepass",
+        "url": "https://wikiwiki.jp/eft/Arena/バトルパス",
+        "line": 50,
+        "section": "Battle Pass experience balancing",
+        "sectionPatch": null,
+        "retrievedOn": "2026-11-03"
+      }
+    },
+    {
+      "mode": "LastHero",
+      "event": "3rd_place",
+      "amount": 160,
+      "unit": "BATTLE_PASS_XP",
+      "evidenceStatus": "wiki_table_marked_under_verification",
+      "source": {
+        "sourceId": "battlepass",
+        "url": "https://wikiwiki.jp/eft/Arena/バトルパス",
+        "line": 51,
+        "section": "Battle Pass experience balancing",
+        "sectionPatch": null,
+        "retrievedOn": "2026-11-03"
+      }
+    },
+    {
+      "mode": "LastHero",
+      "event": "4th_place",
+      "amount": 150,
+      "unit": "BATTLE_PASS_XP",
+      "evidenceStatus": "wiki_table_marked_under_verification",
+      "source": {
+        "sourceId": "battlepass",
+        "url": "https://wikiwiki.jp/eft/Arena/バトルパス",
+        "line": 52,
+        "section": "Battle Pass experience balancing",
+        "sectionPatch": null,
+        "retrievedOn": "2026-11-03"
+      }
+    },
+    {
+      "mode": "LastHero",
+      "event": "5th_place",
+      "amount": 140,
+      "unit": "BATTLE_PASS_XP",
+      "evidenceStatus": "wiki_table_marked_under_verification",
+      "source": {
+        "sourceId": "battlepass",
+        "url": "https://wikiwiki.jp/eft/Arena/バトルパス",
+        "line": 53,
+        "section": "Battle Pass experience balancing",
+        "sectionPatch": null,
+        "retrievedOn": "2026-11-03"
+      }
+    },
+    {
+      "mode": "LastHero",
+      "event": "6th_place",
+      "amount": 130,
+      "unit": "BATTLE_PASS_XP",
+      "evidenceStatus": "wiki_table_marked_under_verification",
+      "source": {
+        "sourceId": "battlepass",
+        "url": "https://wikiwiki.jp/eft/Arena/バトルパス",
+        "line": 54,
+        "section": "Battle Pass experience balancing",
+        "sectionPatch": null,
+        "retrievedOn": "2026-11-03"
+      }
+    },
+    {
+      "mode": "LastHero",
+      "event": "kill",
+      "amount": 5,
+      "unit": "BATTLE_PASS_XP",
+      "evidenceStatus": "wiki_table_marked_under_verification",
+      "source": {
+        "sourceId": "battlepass",
+        "url": "https://wikiwiki.jp/eft/Arena/バトルパス",
+        "line": 55,
+        "section": "Battle Pass experience balancing",
+        "sectionPatch": null,
+        "retrievedOn": "2026-11-03"
+      }
+    },
+    {
+      "mode": "LastHero",
+      "event": "kill_assist",
+      "amount": 1,
+      "unit": "BATTLE_PASS_XP",
+      "evidenceStatus": "wiki_table_marked_under_verification",
+      "source": {
+        "sourceId": "battlepass",
+        "url": "https://wikiwiki.jp/eft/Arena/バトルパス",
+        "line": 56,
+        "section": "Battle Pass experience balancing",
+        "sectionPatch": null,
+        "retrievedOn": "2026-11-03"
+      }
+    },
+    {
+      "mode": "LastHero",
+      "event": "match_mvp",
+      "amount": 50,
+      "unit": "BATTLE_PASS_XP",
+      "evidenceStatus": "wiki_table_marked_under_verification",
+      "source": {
+        "sourceId": "battlepass",
+        "url": "https://wikiwiki.jp/eft/Arena/バトルパス",
+        "line": 57,
+        "section": "Battle Pass experience balancing",
+        "sectionPatch": null,
+        "retrievedOn": "2026-11-03"
+      }
+    }
+  ],
+  "currentPatchConfirmed": false,
+  "shootoutValues": null,
+  "isPmcXp": false,
+  "isWeaponXp": false,
+  "isSpendableBattlePoints": false,
+  "stackingAndEventModifiersVerified": false
+}
