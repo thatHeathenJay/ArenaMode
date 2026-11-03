@@ -30,7 +30,7 @@ internal sealed class ArenaMainMenuOverlay : MonoBehaviour
         ["arena/info/Total GLP"] = "TOTAL GLP", ["arena/info/Main GLP Scores"] = "MAIN GLP SCORES",
         ["QuestWidget/Objectives"] = "OBJECTIVES",
     };
-    private static readonly string[] Dimmed = { "PresetsButton", "ArmoryButton", "MerchantsButton", "CareerButton" };
+    private static readonly string[] Dimmed = { "ArmoryButton", "MerchantsButton", "CareerButton" };
     private static readonly string[] Hidden =
     {
         "PatchNewsButton", "PatchNewsButtonTarget", "ArenaQuestsWidgetDropdown", "SurveyButton", "SquadPanel",
@@ -117,6 +117,7 @@ internal sealed class ArenaMainMenuOverlay : MonoBehaviour
             BindProfile(menu);
             var buttons = ArenaUiBuilder.Find(menu, "ArenaMainMenuLeftPanel/MainMenuSimpleButtons");
             Wire(buttons, "MatchingButtons/StartMatchingButton", Play);
+            Wire(buttons, "Aresenal_Trading/PresetsButton", ArenaPresetsScreen.Show);
             Wire(buttons, "Settings_Quit/SettingsButton", OpenSettings);
             Wire(buttons, "Settings_Quit/QuitButton", Quit);
             foreach (var name in Dimmed)
@@ -155,6 +156,7 @@ internal sealed class ArenaMainMenuOverlay : MonoBehaviour
         Visible = false;
         try { _preview?.Dispose(); } catch { /* already gone */ }
         _preview = null;
+        ArenaPresetsScreen.Hide();
         _menu = null;
         _taskbar = null;
         if (_taskbarHidden && MonoBehaviourSingleton<PreloaderUI>.Instantiated)

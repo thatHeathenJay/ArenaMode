@@ -24,6 +24,8 @@ public static class ArenaContext
 
     /// <summary>Authored kit source; raid-owned variants never overwrite this or config/kits.json.</summary>
     public static string KitsJson { get; internal set; } = "[]";
+    /// <summary>Metascore table (config/metascore.json), served verbatim for the preset screens.</summary>
+    public static string MetascoreJson { get; internal set; } = "{}";
 
     /// <summary>
     /// Gun Game weapon ladder, same shape as a kit but carrying only a primary

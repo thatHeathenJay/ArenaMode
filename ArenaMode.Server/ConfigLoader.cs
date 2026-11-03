@@ -54,6 +54,12 @@ public class ConfigLoader(ModHelper modHelper, ISptLogger<ConfigLoader> logger) 
                 logger.Warning("[ArenaMode] config/kits.json missing — kit catalog is empty, arena respawns will be naked.");
             }
 
+            var metascoreFile = Path.Combine(configDir, "metascore.json");
+            if (File.Exists(metascoreFile))
+                ArenaContext.MetascoreJson = File.ReadAllText(metascoreFile);
+            else
+                logger.Warning("[ArenaMode] config/metascore.json missing — preset screens show no metascore.");
+
             // Gun Game's weapon ladder. Optional: without it the mode falls back
             // to the kit catalog, which is what it used before the ladder existed.
             var ladderFile = Path.Combine(configDir, "ladder.json");

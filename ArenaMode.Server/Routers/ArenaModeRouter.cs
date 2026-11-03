@@ -126,6 +126,10 @@ public sealed class ArenaModeRouter : StaticRouter
                 new ValueTask<string>(Sessions?.GetKits(sessionId) ?? ArenaContext.KitsJson)),
 
         new RouteAction<EmptyRequestData>(
+            Protocol.MetascoreRoute,
+            (url, info, sessionId, output, _) => new ValueTask<string>(ArenaContext.MetascoreJson)),
+
+        new RouteAction<EmptyRequestData>(
             Protocol.LadderRoute,
             (url, info, sessionId, output, _) =>
                 new ValueTask<string>(Sessions?.GetLadder(sessionId) ?? ArenaContext.LadderJson)),

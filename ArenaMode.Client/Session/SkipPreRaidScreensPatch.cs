@@ -42,7 +42,12 @@ internal static class SkipPreRaidScreensPatch
     // Co-op arena never skips: the confirmation screen is where Fika puts its Host/Join lobby, and a Fika raid
     // without a lobby has no ServerId (CoopHandler is destroyed, "Preparing the game" never ends).
     private static bool WouldBeArena(RaidSettings settings)
-        => Settings.SkipPreRaidScreens.Value && !ArenaCoop.IsAvailable && ArenaClaim.WouldTakeOver(settings);
+        => Settings.SkipPreRaidScreens.Value && ArenaClaim.WouldTakeOver(settings);
+
+    // Under Fika the confirmation screen hosts the lobby (host / join), so only that step keeps showing in co-op;
+    // game settings and insurance are skipped either way.
+    private static bool WouldSkipConfirmation(RaidSettings settings)
+        => WouldBeArena(settings) && !ArenaCoop.IsAvailable;
 
     private sealed class ArenaSkipPreRaidScreensSkipGameSettingsPatch : ModulePatch
     {
@@ -143,7 +148,7 @@ internal static class SkipPreRaidScreensPatch
                 if (PitFireTeamCompat.IsInstalled)
                     return true;
 
-                if (!WouldBeArena(__instance.raidSettings_0))
+                if (!WouldSkipConfirmation(__instance.raidSettings_0))
                     return true;
 
                 // method_27 is what the confirmation screen's Ready button calls.
