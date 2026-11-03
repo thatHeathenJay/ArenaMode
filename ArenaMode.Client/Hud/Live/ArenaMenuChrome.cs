@@ -25,7 +25,7 @@ internal static class ArenaMenuChrome
     private static readonly Dictionary<string, string> English = new(StringComparer.OrdinalIgnoreCase)
     {
         ["arena/matching/Type"] = "TYPE", ["arena/matching/Rules"] = "RULES", ["arena/matching/Maps"] = "LOCATIONS",
-        ["arena/info/Kills"] = "KILLS", ["arena/info/Headshots"] = "HEADSHOTS", ["arena/info/KD Ratio"] = "K/D",
+        ["arena/info/Kills"] = "KILLS", ["arena/info/Headshots"] = "HEADSHOTS", ["arena/info/Headshoots"] = "HEADSHOTS", ["arena/info/KD Ratio"] = "K/D",
         ["arena/info/Matches"] = "MATCHES", ["arena/info/Win Matches"] = "MATCHES WON", ["arena/info/Win Rate"] = "WIN RATE",
         ["arena/info/MVP"] = "MATCH MVP", ["arena/info/BattlePoints"] = "BP", ["arena/info/GP"] = "GP",
         ["arena/info/Rubles"] = "ROUBLES", ["arena/info/Total GLP"] = "TOTAL ARP", ["arena/info/GLP Left"] = "ARP LEFT",
@@ -206,5 +206,32 @@ internal static class ArenaMenuChrome
             foreach (var child in children)
                 if (child is JObject c && Find(c, name) is { } found) return found;
         return null;
+    }
+}
+
+/// <summary>Full-screen black while EFT's own side / map screens are driven through (they would flash otherwise).</summary>
+internal static class ArenaCurtain
+{
+    private static GameObject _go;
+
+    internal static void Show()
+    {
+        if (_go != null) return;
+        _go = new GameObject("ArenaCurtain", typeof(RectTransform));
+        _go.layer = 5;
+        _go.transform.SetParent(Plugin.Instance.transform, false);
+        var canvas = _go.AddComponent<Canvas>();
+        canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+        canvas.sortingOrder = 1000;
+        canvas.overrideSorting = true;
+        var image = _go.AddComponent<Image>();
+        image.color = Color.black;
+        image.raycastTarget = true;
+    }
+
+    internal static void Hide()
+    {
+        if (_go != null) UnityEngine.Object.Destroy(_go);
+        _go = null;
     }
 }

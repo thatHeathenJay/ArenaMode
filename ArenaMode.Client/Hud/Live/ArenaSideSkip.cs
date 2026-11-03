@@ -93,6 +93,7 @@ internal static class ArenaSideSkip
         if (location == null || screen._acceptButton == null)
         {
             Plugin.ModLogger.LogWarning($"Arena battle flow: location '{locationId}' or the Next button is unavailable; showing EFT's map screen.");
+            ArenaCurtain.Hide();
             yield break;
         }
         if (!string.Equals(screen.SelectedLocation?.Id, locationId, StringComparison.OrdinalIgnoreCase))
@@ -101,10 +102,16 @@ internal static class ArenaSideSkip
         if (screen == null || !string.Equals(screen.SelectedLocation?.Id, locationId, StringComparison.OrdinalIgnoreCase))
         {
             Plugin.ModLogger.LogWarning($"Arena battle flow: '{locationId}' was not accepted for this mode; showing EFT's map screen.");
+            ArenaCurtain.Hide();
             yield break;
         }
         _cameFromLocation = false;                          // going forward: the side screen must not bounce back
         screen._acceptButton.OnClick?.Invoke();
+        // The curtain drops once EFT has moved on from its map screen (or after a moment, whatever happens).
+        float until = Time.unscaledTime + 4f;
+        while (screen != null && screen.isActiveAndEnabled && Time.unscaledTime < until) yield return null;
+        yield return null;
+        ArenaCurtain.Hide();
     }
 
     private static IEnumerator SelectArenaAndAdvance(MatchMakerSideSelectionScreen screen)
@@ -116,6 +123,7 @@ internal static class ArenaSideSkip
         if (!Session.ArenaMenuSelection.IsSelected)
         {
             Plugin.ModLogger.LogWarning("Arena side skip: ARENA was not accepted; staying on the side screen so the notice shows.");
+            ArenaCurtain.Hide();
             yield break;
         }
         screen._nextButton?.OnClick?.Invoke();

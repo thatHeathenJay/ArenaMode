@@ -173,8 +173,8 @@ internal sealed class ArenaUiBuilder
             {
                 var group = go.AddComponent<CanvasGroup>();
                 group.alpha = f.Value<float?>("m_Alpha") ?? 1f;
-                group.interactable = false;
-                group.blocksRaycasts = false;
+                group.interactable = true;
+                group.blocksRaycasts = true;
                 break;
             }
             case "UnityEngine.UI.Mask":

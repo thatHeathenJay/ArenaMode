@@ -41,7 +41,8 @@ internal sealed class ArenaMainMenuOverlay : MonoBehaviour
         "ArenaQuestsWidgetDropdown/NewCountContainer", "ArenaQuestsWidgetDropdown/ReadyCountContainer",
         BattlePass + "/BackgroundsContainer/MultiplyIcon", BattlePass + "/BackgroundsContainer/LevelUpGlow",
         BattlePass + "/BackgroundsContainer/HoverNotMaxLevel", BattlePass + "/Content/Progress/ProgressContainer/Progress/PositiveChangeValue",
-        "AccountInfoPanel/GLP Scores Big", "ProfileInfoPanel/InfoGroup/RankNameGroup",
+        "AccountInfoPanel", "ArenaMainMenuLeftPanel/MainMenuSimpleButtons/Aresenal_Trading/PresetsButton/EventIcon",
+        "ProfileInfoPanel/InfoGroup/RankNameGroup",
         "ProfileInfoPanel/InfoGroup/TcBlock", "ProfileInfoPanel/RankImageFroup",
     };
 
@@ -60,6 +61,9 @@ internal sealed class ArenaMainMenuOverlay : MonoBehaviour
 
     private Canvas _canvas;
     private GraphicRaycaster _raycaster;
+    private GameObject _versionLabel;
+    private bool _wasInMenu;
+    private int _rehideFrames;
 
     private void Update()
     {
@@ -78,6 +82,10 @@ internal sealed class ArenaMainMenuOverlay : MonoBehaviour
         bool wanted = inMenu || inSettings;
         if (wanted && _canvasGo == null) Show();
         else if (!wanted && _canvasGo != null) Hide();
+        // EFT re-enables its logo, labels and taskbar whenever its menu screen comes back (e.g. from Settings).
+        if (inMenu && !_wasInMenu) _rehideFrames = 90;
+        _wasInMenu = inMenu;
+        if (_canvasGo != null && inMenu && _rehideFrames-- > 0) RehideStock();
         // Live's matchmaking and preset screens replace the menu over the same 3D scene.
         bool drawn = inMenu && !ArenaBattleFlow.Visible && !ArenaPresetListScreen.Visible && !ArenaPresetsScreen.Visible;
         if (_canvas != null)
@@ -85,6 +93,7 @@ internal sealed class ArenaMainMenuOverlay : MonoBehaviour
             _canvas.enabled = drawn;
             if (_raycaster != null) _raycaster.enabled = drawn;
         }
+        if (_versionLabel != null && _versionLabel.activeSelf != drawn) _versionLabel.SetActive(drawn);
         if (_preview != null && drawn && Input.GetMouseButton(0) && Input.mousePosition.x > Screen.width * 0.55f)
             _preview.Rotate(-Input.GetAxis("Mouse X"), 1f);
     }
@@ -139,16 +148,15 @@ internal sealed class ArenaMainMenuOverlay : MonoBehaviour
                         var group = rect.gameObject.AddComponent<CanvasGroup>();
                         group.alpha = 0.35f;
                         group.interactable = group.blocksRaycasts = false;
+                        var idle = ArenaUiBuilder.TryFind(rect, "IconContainer/IconIdle")?.GetComponent<Image>();
+                        if (idle != null) idle.color = Color.white;
                     }
             }
 
             _taskbar = Object.FindObjectOfType<MenuTaskBar>();   // before it is hidden: Settings drives its toggle
-            HideStockMenu();
+            RehideStock();
             if (MonoBehaviourSingleton<PreloaderUI>.Instantiated)
-            {
-                MonoBehaviourSingleton<PreloaderUI>.Instance.SetMenuTaskBarVisibility(false);
-                _taskbarHidden = true;
-            }
+                _versionLabel = Traverse.Create(MonoBehaviourSingleton<PreloaderUI>.Instance).Field("_alphaVersionLabel").GetValue<LocalizedText>()?.gameObject;
             _modelHost = ArenaUiBuilder.TryFind(menu, "PlayerModelImage");
             ShowCharacter();
             Visible = true;
@@ -175,6 +183,8 @@ internal sealed class ArenaMainMenuOverlay : MonoBehaviour
         if (_taskbarHidden && MonoBehaviourSingleton<PreloaderUI>.Instantiated)
             MonoBehaviourSingleton<PreloaderUI>.Instance.SetMenuTaskBarVisibility(true);
         _taskbarHidden = false;
+        if (_versionLabel != null) _versionLabel.SetActive(true);
+        _versionLabel = null;
         if (_canvasGo != null) Object.Destroy(_canvasGo);
         _canvasGo = null;
         _canvas = null;
@@ -206,6 +216,16 @@ internal sealed class ArenaMainMenuOverlay : MonoBehaviour
     /// <summary>Battle pass widget, tasks widget and party slots as a fresh live account shows them.</summary>
     private void BindWidgets(ArenaUiBuilder builder, RectTransform menu)
     {
+        // The widget is live's size but reads large next to the button list; three quarters sits better.
+        var container = ArenaUiBuilder.TryFind(menu, "ArenaMainMenuLeftPanel/WidgetContainer");
+        if (container != null)
+        {
+            container.pivot = new Vector2(0f, 0.5f);
+            container.localScale = Vector3.one * 0.72f;
+            var element = container.gameObject.AddComponent<LayoutElement>();
+            element.preferredHeight = element.minHeight = 116f * 0.72f;
+            container.sizeDelta = new Vector2(container.sizeDelta.x, 116f * 0.72f);
+        }
         var pass = ArenaUiBuilder.TryFind(menu, BattlePass);
         if (pass != null)
         {
@@ -231,8 +251,8 @@ internal sealed class ArenaMainMenuOverlay : MonoBehaviour
         {
             foreach (var state in new[] { "GroupButton/HoverState", "GroupButton/DisableState" })
                 ArenaUiBuilder.SetActive(squad, state, false);
-            var container = ArenaUiBuilder.TryFind(squad, "ArenaGroupPanel/GroupContainer");
-            if (container != null) ArenaMenuChrome.BuildParty(builder, _pack.Layout("ArenaMainMenu"), container, SessionProfile());
+            var slots = ArenaUiBuilder.TryFind(squad, "ArenaGroupPanel/GroupContainer");
+            if (slots != null) ArenaMenuChrome.BuildParty(builder, _pack.Layout("ArenaMainMenu"), slots, SessionProfile());
         }
     }
 
@@ -264,6 +284,17 @@ internal sealed class ArenaMainMenuOverlay : MonoBehaviour
     /// EFT re-drives the screen's own fade group every frame, so each child gets its own group instead; the scene
     /// logo, warning labels, version label and Fika's player panel are plain objects switched off while we are up.
     /// </summary>
+    private void RehideStock()
+    {
+        if (_menu == null) return;
+        HideStockMenu();
+        if (MonoBehaviourSingleton<PreloaderUI>.Instantiated)
+        {
+            MonoBehaviourSingleton<PreloaderUI>.Instance.SetMenuTaskBarVisibility(false);
+            _taskbarHidden = true;
+        }
+    }
+
     private void HideStockMenu()
     {
         foreach (Transform child in _menu.transform)
@@ -396,6 +427,14 @@ internal sealed class ArenaMenuButton : MonoBehaviour, IPointerEnterHandler, IPo
     private Color _labelColor;
     private GameObject _hoverState;
     private float _hoverAlpha = 1f;
+    private bool _selected;
+
+    /// <summary>Keeps the hover image lit regardless of the pointer (the selected map plate).</summary>
+    internal bool Selected
+    {
+        get => _selected;
+        set { _selected = value; Tint(0f); }
+    }
 
     /// <param name="hover">Image faded in under the pointer instead of the "Background" child.</param>
     /// <param name="tintLabel">False keeps the label colour (dark text on a plate).</param>
@@ -435,6 +474,7 @@ internal sealed class ArenaMenuButton : MonoBehaviour, IPointerEnterHandler, IPo
 
     private void Tint(float alpha)
     {
+        if (_selected) alpha = 1f;
         if (_hoverState != null) _hoverState.SetActive(alpha > 0f);
         if (_background != null) _background.color = new Color(1f, 1f, 1f, alpha * _hoverAlpha);
         if (_highlight != null) _highlight.color = new Color(1f, 1f, 1f, alpha);
