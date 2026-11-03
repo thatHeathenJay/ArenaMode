@@ -55,6 +55,90 @@ internal sealed class ArenaCharacterPreview : IDisposable
         catch { Dispose(); throw; }
     }
 
+    /// <summary>
+    /// Standalone preview for screens without a native model view (the Arena main menu): own camera and key light on
+    /// the preview layer, the image stretched over <paramref name="host"/>. No native post-processing is copied.
+    /// </summary>
+    public ArenaCharacterPreview(Profile profile, RectTransform host, Action onUnavailable)
+    {
+        _onUnavailable = onUnavailable;
+        try
+        {
+            if (profile?.Customization == null || host == null)
+                throw new InvalidOperationException("Profile customization or host is unavailable.");
+            var visual = new PlayerVisualRepresentation(new PlayerInfo { Side = profile.Info.Side },
+                new BodyCustomization(profile.Customization), ArenaPreviewEquipment.Build(profile.Info.Side));
+            CreateStandaloneView(host);
+            CreateStandaloneCamera();
+            if (!_lifetime.TryBeginLoad()) throw new InvalidOperationException("Preview load already started.");
+            _ = Load(visual);
+        }
+        catch { Dispose(); throw; }
+    }
+
+    private void CreateStandaloneView(RectTransform host)
+    {
+        _view = new GameObject("ArenaCharacterPreview", typeof(RectTransform));
+        _view.SetActive(false);
+        var rect = (RectTransform)_view.transform;
+        rect.SetParent(host, false);
+        rect.anchorMin = Vector2.zero;
+        rect.anchorMax = Vector2.one;
+        rect.offsetMin = rect.offsetMax = Vector2.zero;
+        var raw = _view.AddComponent<RawImage>();
+        raw.raycastTarget = false;
+        raw.enabled = false; // A texture-less RawImage would cover the menu white while loading.
+        _image = _view.AddComponent<CameraImage>();
+        _image.TextureDepth = 24;
+        _image.TextureFormat = RenderTextureFormat.ARGB32;
+        _image.RenderTextureReadWrite = RenderTextureReadWrite.Default;
+        _image.Antialiasing = 2;
+        _viewLifetime = _view.AddComponent<ArenaPreviewLifetime>();
+        _viewLifetime.OnHidden = Dispose;
+        _rotator = _view.AddComponent<EFT.Utilities.XCoordRotation>();
+        _view.SetActive(true);
+    }
+
+    private void CreateStandaloneCamera()
+    {
+        _world = new GameObject("ArenaCharacterPreviewWorld");
+        _world.SetActive(false);
+        _world.transform.position = new Vector3(128f, -128f, 128f);
+        Object.DontDestroyOnLoad(_world);
+        var cameraObject = new GameObject("ArenaCharacterCamera");
+        cameraObject.transform.SetParent(_world.transform, false);
+        _camera = cameraObject.AddComponent<Camera>();
+        _camera.enabled = false;
+        _camera.targetTexture = null;
+        _camera.clearFlags = CameraClearFlags.SolidColor;
+        _camera.backgroundColor = new Color(0f, 0f, 0f, 0f);
+        _camera.cullingMask = 1 << LayersMaskController.WeaponPreview;
+        _camera.fieldOfView = 24f;
+        _camera.nearClipPlane = 0.1f;
+        _camera.farClipPlane = 25f;
+        _camera.allowHDR = false;
+        // The body is created at local (0, -1, 5): frame it from slightly above, looking a touch down.
+        cameraObject.transform.localPosition = new Vector3(0f, 0.15f, 0f);
+        cameraObject.transform.localRotation = Quaternion.Euler(3f, 0f, 0f);
+        var keyObject = new GameObject("Arena key light");
+        keyObject.transform.SetParent(_world.transform, false);
+        keyObject.transform.localRotation = Quaternion.Euler(35f, -30f, 0f);
+        var key = keyObject.AddComponent<Light>();
+        key.type = LightType.Directional;
+        key.cullingMask = 1 << LayersMaskController.WeaponPreview;
+        key.intensity = 1.1f;
+        key.color = new Color(1f, 0.96f, 0.9f);
+        var fillObject = new GameObject("Arena fill light");
+        fillObject.transform.SetParent(_world.transform, false);
+        fillObject.transform.localRotation = Quaternion.Euler(10f, 150f, 0f);
+        var fill = fillObject.AddComponent<Light>();
+        fill.type = LightType.Directional;
+        fill.cullingMask = 1 << LayersMaskController.WeaponPreview;
+        fill.intensity = 0.45f;
+        fill.color = new Color(0.75f, 0.85f, 1f);
+        _world.SetActive(true);
+    }
+
     private void CreateView(MatchMakerSideSelectionScreen screen, CameraImage source)
     {
         _view = new GameObject("ArenaCharacterPreview", typeof(RectTransform));
@@ -168,7 +252,7 @@ internal sealed class ArenaCharacterPreview : IDisposable
             _loader.ModelPlayerPoser.gameObject.SetActive(true);
             _loader.CreateWeapon(.3f, true, weapon, LayersMaskController.WeaponPreview);
             _rotator.Init(_loader.ModelPlayerPoser.transform);
-            _spinner.Close();
+            if (_spinner != null) _spinner.Close();
             _ready = true;
             if (_view.activeInHierarchy) _image.InitCamera(_camera);
             var renderers = _loader.ModelPlayerPoser.GetComponentsInChildren<Renderer>();

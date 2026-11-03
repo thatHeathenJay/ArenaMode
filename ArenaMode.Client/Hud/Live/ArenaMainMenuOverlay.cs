@@ -51,19 +51,35 @@ internal sealed class ArenaMainMenuOverlay : MonoBehaviour
 
     internal static bool Visible { get; private set; }
 
+    private static readonly EEftScreenType? SettingsScreen =
+        Enum.TryParse(typeof(EEftScreenType).Name == "EEftScreenType" ? "Settings" : "", out EEftScreenType parsed) ? parsed : null;
+
+    private Canvas _canvas;
+    private GraphicRaycaster _raycaster;
+
     private void Update()
     {
-        bool wanted = false;
+        bool inMenu = false, inSettings = false;
         try
         {
             var screens = EftScreenManager.Instance;
-            wanted = ArenaUiPack.IsAvailable && screens != null && screens.CheckCurrentScreen(EEftScreenType.MainMenu)
-                     && !Singleton<GameWorld>.Instantiated;
+            if (ArenaUiPack.IsAvailable && screens != null && !Singleton<GameWorld>.Instantiated)
+            {
+                inMenu = screens.CheckCurrentScreen(EEftScreenType.MainMenu);
+                // Settings opens over the menu in live: keep EFT's menu hidden underneath, draw nothing of ours.
+                inSettings = SettingsScreen is EEftScreenType settings && screens.CheckCurrentScreen(settings);
+            }
         }
         catch { /* screen manager not ready */ }
+        bool wanted = inMenu || inSettings;
         if (wanted && _canvasGo == null) Show();
         else if (!wanted && _canvasGo != null) Hide();
-        if (_preview != null && Input.GetMouseButton(0) && Input.mousePosition.x > Screen.width * 0.55f)
+        if (_canvas != null)
+        {
+            _canvas.enabled = inMenu;
+            if (_raycaster != null) _raycaster.enabled = inMenu;
+        }
+        if (_preview != null && inMenu && Input.GetMouseButton(0) && Input.mousePosition.x > Screen.width * 0.55f)
             _preview.Rotate(-Input.GetAxis("Mouse X"), 1f);
     }
 
@@ -84,11 +100,12 @@ internal sealed class ArenaMainMenuOverlay : MonoBehaviour
             canvas.renderMode = RenderMode.ScreenSpaceOverlay;
             canvas.sortingOrder = 500;
             canvas.overrideSorting = true;
+            _canvas = canvas;
             var scaler = _canvasGo.AddComponent<CanvasScaler>();
             scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
             scaler.referenceResolution = new Vector2(1920f, 1080f);
             scaler.matchWidthOrHeight = 0.5f;
-            _canvasGo.AddComponent<GraphicRaycaster>();
+            _raycaster = _canvasGo.AddComponent<GraphicRaycaster>();
 
             var menu = builder.Build(_pack.Layout("ArenaMainMenu"), _canvasGo.transform);
             foreach (var path in Hidden) ArenaUiBuilder.SetActive(menu, path, false);
@@ -144,6 +161,8 @@ internal sealed class ArenaMainMenuOverlay : MonoBehaviour
         _taskbarHidden = false;
         if (_canvasGo != null) Object.Destroy(_canvasGo);
         _canvasGo = null;
+        _canvas = null;
+        _raycaster = null;
         _pack?.Dispose();
         _pack = null;
     }
@@ -238,18 +257,13 @@ internal sealed class ArenaMainMenuOverlay : MonoBehaviour
         if (_modelHost == null) return;
         try
         {
-            MatchMakerSideSelectionScreen screen = null;
-            foreach (var candidate in Resources.FindObjectsOfTypeAll<MatchMakerSideSelectionScreen>())
-                if (candidate != null && candidate.gameObject.scene.IsValid()) { screen = candidate; break; }
             var profile = SessionProfile();
-            if (screen == null || profile == null)
+            if (profile == null)
             {
-                Plugin.ModLogger.LogInfo("Arena main menu: no side-selection screen or profile yet; character skipped.");
+                Plugin.ModLogger.LogInfo("Arena main menu: no profile yet; character skipped.");
                 return;
             }
-            _preview = new Session.ArenaCharacterPreview(screen, profile, () => Plugin.ModLogger.LogWarning("Arena main menu character unavailable."));
-            _preview.HoldForFlow(null);
-            _preview.ShowAt(_modelHost, _modelHost);
+            _preview = new Session.ArenaCharacterPreview(profile, _modelHost, () => Plugin.ModLogger.LogWarning("Arena main menu character unavailable."));
         }
         catch (Exception ex)
         {
