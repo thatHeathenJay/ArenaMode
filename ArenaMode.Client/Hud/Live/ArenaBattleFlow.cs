@@ -76,6 +76,15 @@ internal sealed class ArenaBattleFlow : MonoBehaviour
     private static ArenaBattleFlow _instance;
     private static string _lastLocation = Maps[0].Id;
 
+    /// <summary>Set once a match was started through this flow; backing out of what follows returns to SELECT ARENA.</summary>
+    internal static bool UsedThisSession;
+
+    internal static void ReopenAtMap()
+    {
+        Show();
+        if (_instance != null) _instance.Open(Step.Map);
+    }
+
     /// <summary>Location chosen on SELECT ARENA, consumed by ArenaSideSkip on EFT's location screen.</summary>
     internal static string PendingLocationId;
 
@@ -220,7 +229,6 @@ internal sealed class ArenaBattleFlow : MonoBehaviour
                 continue;
             }
             Clickable(card, "ClickHandler", null);                          // already selected: the click only sounds
-            BuildRespawnsToggle(card);
         }
 
         var info = ArenaUiBuilder.Find(screen, "Mode Description");
@@ -244,26 +252,24 @@ internal sealed class ArenaBattleFlow : MonoBehaviour
         var players = _builder.Build(Find(layout, "PlayersTemplate"), ArenaUiBuilder.Find(settings, "IconsPanel/Players/PlayersList"));
         players.gameObject.SetActive(true);
         players.GetComponent<TextMeshProUGUI>().text = "5x5";
+        BuildRespawnsToggle(settings);
 
         FlowButton(screen, "NextButton", () => Open(Step.Map));
         FlowButton(screen, "BackButton", () => Open(Step.GameType));
     }
 
     /// <summary>TeamFight's one option: Respawns on (kill count, continuous respawns) or off (live rounds).</summary>
-    private void BuildRespawnsToggle(RectTransform card)
+    private void BuildRespawnsToggle(RectTransform settingsBlock)
     {
-        var holder = ArenaUiBuilder.TryFind(card, "SubModes/SubModesHolder");
-        if (holder == null) return;
-        ArenaUiBuilder.SetActive(card, "SubModes/Underline", true);
-        var toggle = NewRect("RespawnsToggle", holder);
-        toggle.sizeDelta = new Vector2(150f, 26f);
+        var toggle = NewRect("RespawnsToggle", settingsBlock);
+        toggle.sizeDelta = new Vector2(500f, 30f);
         var element = toggle.gameObject.AddComponent<LayoutElement>();
-        element.preferredWidth = 150f; element.preferredHeight = 26f;
+        element.preferredWidth = 500f; element.preferredHeight = 30f; element.minHeight = 30f;
         var hit = toggle.gameObject.AddComponent<Image>();
         hit.color = Color.clear; hit.raycastTarget = true;
-        _respawnsLabel = HudStyle.CreateText(toggle, "Label", 15f, TextAlignmentOptions.MidlineLeft);
+        _respawnsLabel = HudStyle.CreateText(toggle, "Label", 16f, TextAlignmentOptions.MidlineLeft);
         ArenaUiBuilder.Stretch(_respawnsLabel.rectTransform);
-        _respawnsLabel.rectTransform.offsetMin = new Vector2(6f, 0f);
+        _respawnsLabel.rectTransform.offsetMin = new Vector2(12f, 0f);
         RefreshRespawnsToggle();
         toggle.gameObject.AddComponent<ArenaMenuButton>().Init(toggle, () =>
         {
@@ -299,6 +305,7 @@ internal sealed class ArenaBattleFlow : MonoBehaviour
         fitter.aspectMode = AspectRatioFitter.AspectMode.HeightControlsWidth;
         fitter.aspectRatio = 1f;
         _pins = ArenaUiBuilder.Find(mapImage, "LocationsContainer");
+        _pins.SetAsLastSibling();
         foreach (var map in Maps) BuildPin(map.Id, map.Name, map.At, map.Hover, map.Idle, map.Selected);
 
         _description = ArenaUiBuilder.Find(screen, "Description");
@@ -325,7 +332,7 @@ internal sealed class ArenaBattleFlow : MonoBehaviour
     {
         var pin = NewRect(id, _pins);
         pin.anchorMin = pin.anchorMax = at;
-        pin.sizeDelta = new Vector2(80f, 80f);
+        pin.sizeDelta = new Vector2(120f, 120f);
         var hit = pin.gameObject.AddComponent<Image>();
         hit.color = Color.clear;
         hit.raycastTarget = true;
@@ -383,6 +390,7 @@ internal sealed class ArenaBattleFlow : MonoBehaviour
         Settings.TrySelectGameMode(ArenaModeCatalog.TeamDeathmatchId);   // TeamFight is the fork's team deathmatch
         Hide();
         PendingLocationId = id;
+        UsedThisSession = true;
         Plugin.ModLogger.LogInfo($"Arena battle flow: TeamFight on {id}, starting matchmaking.");
         ArenaMainMenuOverlay.StartStockMatchmaking();
     }

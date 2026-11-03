@@ -59,7 +59,15 @@ internal static class ArenaSideSkip
             if (ArenaUiPack.IsAvailable && __instance?._conditions != null) __instance._conditions.gameObject.SetActive(false);
             // The Arena battle flow already chose the location: select it here and go on, as live never shows this screen.
             string pending = ArenaBattleFlow.PendingLocationId;
-            if (pending == null || __instance == null) return;
+            if (__instance == null) return;
+            if (pending == null)
+            {
+                // Backing out of the Fika screen lands here; live goes back to SELECT ARENA, so do we.
+                if (!ArenaBattleFlow.UsedThisSession || !ArenaUiPack.IsAvailable) return;
+                Plugin.Instance.StartCoroutine(Press(__instance._backButton));
+                ArenaBattleFlow.ReopenAtMap();
+                return;
+            }
             ArenaBattleFlow.PendingLocationId = null;
             Plugin.Instance.StartCoroutine(SelectLocationAndAccept(__instance, pending));
         }
