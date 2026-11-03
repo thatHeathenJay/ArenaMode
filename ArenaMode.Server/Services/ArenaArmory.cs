@@ -51,6 +51,9 @@ public class ArenaArmory(TemplateTable templateTable, GlobalTable globalTable, L
                     foreach (var c in liveClasses) classes.Add(c?.GetValue<string>() ?? "");
                 string? name = null;
                 names?.TryGetValue(tpl + " ShortName", out name);
+                JsonArray? presetNodes = null;
+                if (slot is "FirstPrimaryWeapon" or "Holster")
+                    try { presetNodes = ArenaPresetEditor.PresetNodes(template.Id, slot); if (presetNodes.Count < 2) presetNodes = null; } catch { presetNodes = null; }
                 armory.Add(new JsonObject
                 {
                     ["tpl"] = tpl,
@@ -61,6 +64,7 @@ public class ArenaArmory(TemplateTable templateTable, GlobalTable globalTable, L
                     ["classes"] = classes,
                     ["unlock"] = live?["unlock"]?.GetValue<string>() ?? "",
                     ["name"] = name ?? template.Name ?? tpl,
+                    ["items"] = presetNodes,
                 });
             }
             ArenaContext.ArmoryJson = armory.ToJsonString();

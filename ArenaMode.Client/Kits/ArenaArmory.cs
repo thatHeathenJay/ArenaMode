@@ -20,6 +20,8 @@ internal static class ArenaArmory
         internal double Score;
         internal bool Live;
         internal HashSet<string> Classes = new(StringComparer.OrdinalIgnoreCase);
+        /// <summary>Weapons: the game's default preset for the item (root parented to "root"), for a full icon.</summary>
+        internal List<KitItemNode> Items;
 
         internal bool AllowedFor(string classId)
             => Classes.Count == 0 || Classes.Contains(classId);
@@ -45,6 +47,8 @@ internal static class ArenaArmory
                     };
                     if (node["classes"] is JArray classes)
                         foreach (var c in classes) entry.Classes.Add(c.ToString());
+                    if (node["items"] is JArray items)
+                        try { entry.Items = items.ToObject<List<KitItemNode>>(); } catch { /* bare icon */ }
                     list.Add(entry);
                 }
                 Plugin.ModLogger.LogInfo($"Arena armory: {list.Count} items.");
@@ -54,8 +58,9 @@ internal static class ArenaArmory
         }
     }
 
+    /// <summary>Armory items for a slot; a class limits them to its own, null lists all. Live-ranked first.</summary>
     internal static IEnumerable<Entry> ForSlot(string slot, string classId)
-        => Entries.Where(e => e.Slot == slot && e.AllowedFor(classId))
+        => Entries.Where(e => e.Slot == slot && (classId == null || e.AllowedFor(classId)))
             .OrderByDescending(e => e.Live).ThenBy(e => e.Score).ThenBy(e => e.Name);
 
     /// <summary>create (KitId = the preset to copy), swap (KitId, Slot, Tpl) or delete (KitId). Null on success.</summary>

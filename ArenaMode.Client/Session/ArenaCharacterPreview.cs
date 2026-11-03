@@ -101,13 +101,20 @@ internal sealed class ArenaCharacterPreview : IDisposable
         _view.SetActive(true);
     }
 
+    private static readonly bool[] SlotsTaken = new bool[4];
+    private int _slot = -1;
+
     private void CreateStandaloneCamera()
     {
         _world = new GameObject("ArenaCharacterPreviewWorld");
         _world.SetActive(false);
         // Well away from the matchmaker preview's corner (128, -128, 128): both use the preview layer and a 25 m
-        // far plane, so two bodies in one spot would show in each other's camera.
-        _world.transform.position = new Vector3(-192f, -128f, -192f);
+        // far plane, so two bodies in one spot would show in each other's camera. Each live standalone preview
+        // (main menu, preset screen) takes its own 64 m slot for the same reason.
+        _slot = 0;
+        while (_slot < SlotsTaken.Length - 1 && SlotsTaken[_slot]) _slot++;
+        SlotsTaken[_slot] = true;
+        _world.transform.position = new Vector3(-192f - 64f * _slot, -128f, -192f);
         Object.DontDestroyOnLoad(_world);
         var cameraObject = new GameObject("ArenaCharacterCamera");
         cameraObject.transform.SetParent(_world.transform, false);
@@ -369,6 +376,7 @@ internal sealed class ArenaCharacterPreview : IDisposable
         Safe(() => { if (_spinner != null) _spinner.Close(); });
         Safe(() => { if (_view != null) Object.Destroy(_view); });
         Safe(() => { if (_world != null) Object.Destroy(_world); });
+        if (_slot >= 0) { SlotsTaken[_slot] = false; _slot = -1; }
         Safe(() => { if (_filterMaterial != null) Object.Destroy(_filterMaterial); });
         _view = null;
         _world = null;

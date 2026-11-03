@@ -42,6 +42,13 @@ internal static class ArenaMetascore
 
     internal static void Reset() => _items = null;
 
+    /// <summary>One item's metascore (0 when unscored).</summary>
+    internal static double ItemScore(string tpl)
+    {
+        EnsureLoaded();
+        return tpl != null && _items.TryGetValue(tpl, out var entry) ? entry.Score : 0d;
+    }
+
     private static void EnsureLoaded()
     {
         if (_items != null) return;

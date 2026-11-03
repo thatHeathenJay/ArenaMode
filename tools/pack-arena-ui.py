@@ -10,7 +10,7 @@ import io, json, os, re, shutil, struct, sys
 sys.stdout.reconfigure(encoding='utf-8', errors='replace')
 
 LAYOUTS = ['ArenaCheckPointWidget', 'ArenaRoundGoalWidget', 'KillLogItemPrefab', 'ArenaTeamTabWidget', 'Arena Final Countdown', 'ArenaBattleBackgroundPanel', 'ArenaMainMenu', 'DeathInfoPanel', 'ArenaPresetCustomizationScreen', 'ArenaBuildEditorScreen', 'ArenaResultScreen', 'ArenaPresetViewScreen',
-           'ArenaRoundInfoWidget', 'ArenaRoundInfoItem', 'ArenaFinalResultWidget']
+           'ArenaRoundInfoWidget', 'ArenaRoundInfoItem', 'ArenaFinalResultWidget', 'APCItemViewBig', 'APCItemViewSmall']
 WEAPON = '5422acb9af1c889c16000029'
 
 # In-match sounds. Hit marker clips are downmixed to mono and cut to one second for the client's PCM loader

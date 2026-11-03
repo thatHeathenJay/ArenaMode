@@ -201,6 +201,14 @@ public static class ArenaPresetEditor
         foreach (var n in Subtree(nodes, node["_id"]!.GetValue<string>())) nodes.Remove(n);
     }
 
+    /// <summary>An item's default preset nodes, root parented to "root" in the given slot (the armory's weapon icons).</summary>
+    internal static JsonArray PresetNodes(MongoId tpl, string slot)
+    {
+        var nodes = new JsonArray();
+        Graft(nodes, tpl, "root", slot);
+        return nodes;
+    }
+
     /// <summary>The item's own default preset (attachments and all) under the equipment root; a bare item otherwise.</summary>
     private static string Graft(JsonArray nodes, MongoId tpl, string rootId, string slot)
     {
