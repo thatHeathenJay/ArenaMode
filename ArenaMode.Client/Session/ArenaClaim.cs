@@ -26,6 +26,6 @@ internal static class ArenaClaim
         if (!ArenaMenuSelection.IsMapAvailable(settings.SelectedLocation?.Id))
             return false;
 
-        return !FikaCompatCheck.IsFikaLoaded && ArenaServerClient.IsServerModAvailable;
+        return !Compat.ArenaCoop.BlocksArena && ArenaServerClient.IsServerModAvailable;
     }
 }

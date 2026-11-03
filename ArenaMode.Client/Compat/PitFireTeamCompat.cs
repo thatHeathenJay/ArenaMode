@@ -323,7 +323,7 @@ internal static partial class PitFireTeamCompat
         return PitFireTeamSelectionPolicy.Evaluate(new PitFireTeamSelectionInput
         {
             Contract = contract,
-            IsFika = FikaCompatCheck.IsFikaLoaded,
+            IsFika = ArenaCoop.BlocksArena,
             IsCoop = raidSettings?.RaidMode == ERaidMode.Coop,
             GameMode = Settings.GameMode?.Value,
             CurrentPlayerAccountId = currentAccountId,

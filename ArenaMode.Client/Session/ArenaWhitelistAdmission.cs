@@ -595,8 +595,10 @@ internal static class ArenaWhitelistAdmission
 
     // ------------------------------------------------------------------ units
 
+    /// <summary>Fika present without the ArenaMode.Fika companion: the stock refusal applies.</summary>
     private static bool HasFika()
     {
+        if (Compat.ArenaCoop.IsAvailable) return false;
         foreach (var guid in Chainloader.PluginInfos.Keys)
             if (ArenaWhitelistPolicy.IsFikaGuid(guid)) return true;
         return false;

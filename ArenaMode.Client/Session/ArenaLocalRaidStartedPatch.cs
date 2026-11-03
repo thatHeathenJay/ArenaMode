@@ -82,7 +82,7 @@ internal sealed class ArenaLocalRaidStartedPatch : ModulePatch
                 return true;
             }
 
-            if (FikaCompatCheck.IsFikaLoaded)
+            if (Compat.ArenaCoop.BlocksArena)
                 throw new InvalidOperationException("Arena is unavailable with Fika.");
 
             var compatibilityRejection = ArenaMenuSelection.CompatibilityRejection;

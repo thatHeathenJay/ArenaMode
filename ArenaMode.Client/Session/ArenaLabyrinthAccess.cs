@@ -52,5 +52,5 @@ internal static class ArenaLabyrinthAccess
            && ArenaMenuSelection.CanStart
            && ArenaMenuSelection.IsMapAvailable(location.Id)
            && ArenaServerClient.IsServerModAvailable
-           && !FikaCompatCheck.IsFikaLoaded;
+           && !Compat.ArenaCoop.BlocksArena;
 }

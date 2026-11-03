@@ -402,7 +402,7 @@ public static class ArenaSession
         ActiveMode = null;
         LastRaidWasArena = false;
 
-        if (FikaCompatCheck.IsFikaLoaded)
+        if (Compat.ArenaCoop.BlocksArena)
         {
             Kits.KitBundlePreloader.DiscardRaidStart("Fika raid rejected");
             GunGameLadderSelection = null;
