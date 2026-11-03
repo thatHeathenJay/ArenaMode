@@ -32,6 +32,7 @@ public class ArenaArmory(TemplateTable templateTable, GlobalTable globalTable, L
         ("Throwable", new MongoId("543be6564bdc2df4348b4568")),
         ("Meds", new MongoId("543be5664bdc2dd4348b4569")),
         ("Ammo", new MongoId("5485a8684bdc2da71d8b4567")),
+        ("Mods", new MongoId("5448fe124bdc2da5018b4567")),      // weapon attachments and magazines
     };
 
     public Task OnLoadAsync(CancellationToken cancellationToken)

@@ -131,9 +131,20 @@ internal sealed class ArenaPresetListScreen : MonoBehaviour
             tab.gameObject.AddComponent<ArenaMenuButton>().Init(tab, () => SelectClass(captured));
             _tabs[id] = tab;
         }
-        // Live's other tabs: favourites, collections and the BlastGang shop do not exist here.
+        // Live's favourites tab; collections and the BlastGang shop do not exist here.
         ArenaUiBuilder.SetActive(tabs, "AllRounderTab", false);
-        ArenaUiBuilder.SetActive(tabs, "FavoriteTab", false);
+        var favorite = ArenaUiBuilder.TryFind(tabs, "FavoriteTab");
+        if (favorite != null)
+        {
+            favorite.gameObject.SetActive(true);
+            favorite.anchoredPosition = new Vector2(925.5f, -44f);
+            ArenaUiBuilder.SetActive(favorite, "HoverState", false);
+            ArenaUiBuilder.SetActive(favorite, "DisableState", false);
+            var favHit = favorite.GetComponent<Image>() ?? favorite.gameObject.AddComponent<Image>();
+            favHit.color = Color.clear; favHit.raycastTarget = true;
+            favorite.gameObject.AddComponent<ArenaMenuButton>().Init(favorite, () => SelectClass(FavoritesPage));
+            _tabs[FavoritesPage] = favorite;
+        }
         foreach (var disabled in new[] { "CollectionsTab", "BlastGangShopTab" })
         {
             var tab = ArenaUiBuilder.TryFind(tabs, disabled);
@@ -174,6 +185,8 @@ internal sealed class ArenaPresetListScreen : MonoBehaviour
         Plugin.ModLogger.LogInfo("Arena presets list shown.");
     }
 
+    private const string FavoritesPage = "favorites";
+
     private void SelectClass(string classId)
     {
         _class = classId;
@@ -189,6 +202,32 @@ internal sealed class ArenaPresetListScreen : MonoBehaviour
             page.gameObject.SetActive(id == classId);
             if (id == classId) FillPage(page, classId);
         }
+        if (_tabs.TryGetValue(FavoritesPage, out var favoriteTab))
+        {
+            ArenaUiBuilder.SetActive(favoriteTab, "SelectedState", classId == FavoritesPage);
+            ArenaUiBuilder.SetActive(favoriteTab, "IdleState", classId != FavoritesPage);
+        }
+        var favoritesPage = ArenaUiBuilder.TryFind(_viewers, "Favorite");
+        if (favoritesPage != null)
+        {
+            favoritesPage.gameObject.SetActive(classId == FavoritesPage);
+            if (classId == FavoritesPage) FillPage(favoritesPage, null);
+        }
+    }
+
+    // ------------------------------------------------------------ favourites
+
+    internal static HashSet<string> Favorites()
+        => new((Settings.FavoritePresets?.Value ?? "").Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(x => x.Trim()), StringComparer.OrdinalIgnoreCase);
+
+    internal static bool IsFavorite(string kitId) => kitId != null && Favorites().Contains(kitId);
+
+    internal static void ToggleFavorite(string kitId)
+    {
+        if (string.IsNullOrEmpty(kitId) || Settings.FavoritePresets == null) return;
+        var set = Favorites();
+        if (!set.Remove(kitId)) set.Add(kitId);
+        Settings.FavoritePresets.Value = string.Join(",", set);
     }
 
     // ---------------------------------------------------------------- pages
@@ -196,12 +235,15 @@ internal sealed class ArenaPresetListScreen : MonoBehaviour
     private void FillPage(RectTransform page, string classId)
     {
         var content = ArenaUiBuilder.Find(page, "Scroll View/Viewport/Content");
-        var kits = KitCatalog.Kits.Where(k => ClassOf(k.Id) == classId).OrderBy(k => k.Order).ToList();
+        var favorites = Favorites();
+        var kits = (classId == null
+            ? KitCatalog.Kits.Where(k => favorites.Contains(k.Id)).OrderBy(k => ClassOf(k.Id)).ThenBy(k => k.Order)
+            : KitCatalog.Kits.Where(k => ClassOf(k.Id) == classId).OrderBy(k => k.Order)).ToList();
         var baseKits = kits.Where(k => !IsCustom(k.Id)).ToList();
         var customKits = kits.Where(k => IsCustom(k.Id)).ToList();
         float total = 0f;
         total += FillSection(ArenaUiBuilder.Find(content, "Base"), "Base", classId, baseKits, false);
-        total += FillSection(ArenaUiBuilder.Find(content, "Custom"), "Custom", classId, customKits, true);
+        total += FillSection(ArenaUiBuilder.Find(content, "Custom"), "Custom", classId, customKits, classId != null);
         content.sizeDelta = new Vector2(content.sizeDelta.x, total);
         var fitter = content.GetComponent<ContentSizeFitter>() ?? content.gameObject.AddComponent<ContentSizeFitter>();
         fitter.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
@@ -216,7 +258,7 @@ internal sealed class ArenaPresetListScreen : MonoBehaviour
         var name = ArenaUiBuilder.TryFind(typeInfo, "Name")?.GetComponent<TextMeshProUGUI>();
         if (name != null) name.text = title;
         var icon = ArenaUiBuilder.TryFind(typeInfo, "Icon")?.GetComponent<Image>();
-        if (icon != null) icon.sprite = ClassSprite(classId) ?? icon.sprite;
+        if (icon != null) { var sprite = classId == null ? null : ClassSprite(classId); icon.sprite = sprite ?? icon.sprite; icon.enabled = sprite != null; }
         ArenaUiBuilder.SetActive(section, "Title/Content/Panel", false);
         ArenaUiBuilder.SetActive(section, "CustomPresetTutorialStepRect", false);
 
@@ -277,7 +319,20 @@ internal sealed class ArenaPresetListScreen : MonoBehaviour
         ArenaUiBuilder.SetActive(header, "HeaderIcons/NewIcon", false);
         ArenaUiBuilder.SetActive(header, "HoverSelectedBackground", false);
         ArenaUiBuilder.SetActive(header, "ModeSwitchButton", false);
-        ArenaUiBuilder.SetActive(header, "FavoriteButton", false);
+        // Live's favourite star: lit when starred, dim otherwise; its own click, so the card does not open.
+        var star = ArenaUiBuilder.TryFind(header, "FavoriteButton");
+        if (star != null)
+        {
+            bool starred = IsFavorite(kit.Id);
+            ArenaUiBuilder.SetActive(star, "SelectedState", starred);
+            ArenaUiBuilder.SetActive(star, "NormalState", !starred);
+            var normal = ArenaUiBuilder.TryFind(star, "NormalState")?.GetComponent<Image>();
+            if (normal != null) normal.color = new Color(1f, 1f, 1f, 0.35f);
+            var starHit = star.GetComponent<Image>() ?? star.gameObject.AddComponent<Image>();
+            starHit.color = Color.clear; starHit.raycastTarget = true;
+            string starredId = kit.Id;
+            star.gameObject.AddComponent<ArenaMenuButton>().Init(star, () => { ToggleFavorite(starredId); Refresh(); });
+        }
         ArenaUiBuilder.SetActive(header, "Separator", false);
         var title = ArenaUiBuilder.TryFind(header, "Title")?.GetComponent<TextMeshProUGUI>();
         if (title != null) { title.text = (kit.Name ?? kit.Id).ToUpperInvariant(); title.rectTransform.offsetMin = new Vector2(10f, title.rectTransform.offsetMin.y); }

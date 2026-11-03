@@ -25,6 +25,7 @@ public static class Settings
 {
     public static ConfigEntry<string> Maps { get; private set; }
     public static ConfigEntry<string> SelectedKit { get; private set; }
+    public static ConfigEntry<string> FavoritePresets { get; private set; }
     public static ConfigEntry<bool> RandomKit { get; private set; }
     public static ConfigEntry<float> SpawnProtectionSeconds { get; private set; }
     public static ConfigEntry<bool> DisableLabyrinthSpawnTraps { get; private set; }
@@ -612,6 +613,9 @@ public static class Settings
             true,
             "Draw a random kit for every life instead of a fixed one, avoiding the " +
             "same loadout twice in a row. Overrides SelectedKit while on.");
+
+        FavoritePresets = config.Bind("Kits", "FavoritePresets", "",
+            "Preset ids starred on the Presets screen, comma separated.");
 
         SelectedKit = config.Bind(
             "Kits",

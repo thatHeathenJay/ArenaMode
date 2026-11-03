@@ -43,10 +43,11 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
         ["Wearings"] = new[] { "ArmorVest", "TacticalVest", "Headwear", "Earpiece", "Eyewear", "FaceCover" },
         ["Meds"] = new[] { "Meds" },
         ["Ammo"] = new[] { "Ammo" },
+        ["Mods"] = new[] { "Mods" },
     };
     private static readonly (string Tab, string Key)[] ItemTabs =
     {
-        ("WeaponTab", "Weapons"), ("WearingsTab", "Wearings"), ("MedsTab", "Meds"), ("AmmoTab", "Ammo"),
+        ("WeaponTab", "Weapons"), ("WearingsTab", "Wearings"), ("MedsTab", "Meds"), ("ModsTab", "Mods"), ("AmmoTab", "Ammo"),
     };
     private static readonly EquipmentSlot[] WearingSlots =
     {
@@ -66,6 +67,8 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
     private JObject _apcLayout, _viewLayout, _cardBig, _cardSmall;
     private RectTransform _viewBody, _customBody, _gears, _items, _presetList, _nameField, _viewTab, _customTab, _removeButton;
     private TextMeshProUGUI _status, _presetName;
+    private RectTransform _favoriteToggle;
+    private Slot _modSlot;
     private Image _classIcon;
     private bool _customization;
     private string _itemsTab = "Weapons";
@@ -215,7 +218,18 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
         _status = ArenaUiBuilder.Text(midline, "StatusPanel/Title");
         _presetName = ArenaUiBuilder.Text(midline, "NameFieldContainer/NameField/Text Area/Text");
         _classIcon = ArenaUiBuilder.TryFind(midline, "NameFieldContainer/ClassIconContainer/ClassIcon")?.GetComponent<Image>();
-        ArenaUiBuilder.SetActive(midline, "NameFieldContainer/FavoriteToggle", false);
+        _favoriteToggle = ArenaUiBuilder.TryFind(midline, "NameFieldContainer/FavoriteToggle");
+        if (_favoriteToggle != null)
+        {
+            var favHit = _favoriteToggle.GetComponent<Image>() ?? _favoriteToggle.gameObject.AddComponent<Image>();
+            favHit.color = Color.clear; favHit.raycastTarget = true;
+            _favoriteToggle.gameObject.AddComponent<ArenaMenuButton>().Init(_favoriteToggle, () =>
+            {
+                if (_shown == null) return;
+                ArenaPresetListScreen.ToggleFavorite(_shown.Id);
+                RefreshStatus();
+            });
+        }
         ArenaUiBuilder.SetActive(midline, "NameFieldContainer/NameField/Text Area/Placeholder", false);
         // The name field doubles as the preset switcher: click to list every preset.
         _nameField = ArenaUiBuilder.Find(midline, "NameFieldContainer");
@@ -385,6 +399,12 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
         _status.color = inBand ? Text : Bad;
         _presetName.text = _shown == null ? "" : (_shown.Name ?? _shown.Id);
         if (_classIcon != null) _classIcon.sprite = ClassSprite(_class) ?? _classIcon.sprite;
+        if (_favoriteToggle != null)
+        {
+            bool starred = _shown != null && ArenaPresetListScreen.IsFavorite(_shown.Id);
+            ArenaUiBuilder.SetActive(_favoriteToggle, "ActiveIcon", starred);
+            ArenaUiBuilder.SetActive(_favoriteToggle, "IdleIcon", !starred);
+        }
         if (_removeButton != null)
         {
             bool custom = _shown != null && IsCustom(_shown.Id);
@@ -573,6 +593,8 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
                 SetText(cell, "Header/RightHeader/MetaScore/MetaScoreValue", filled ? ArenaMetascore.ItemScore(item.TemplateId).ToString("N0") : "0");
                 var oldHit = cell.GetComponent<ArenaMenuButton>();
                 if (oldHit != null) Destroy(oldHit);
+                var target = cell.GetComponent<ArenaDropTarget>() ?? cell.gameObject.AddComponent<ArenaDropTarget>();
+                target.Tag = "slot:" + slot;
                 if (WeaponSlots.Contains(slot) || WearingSlots.Contains(slot))
                 {
                     var hit = cell.GetComponent<Image>() ?? cell.gameObject.AddComponent<Image>();
@@ -610,6 +632,14 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
         foreach (Transform child in content)
             if (!child.name.EndsWith("Template") && child.name != "ArenaSearchableSlotView") Destroy(child.gameObject);
         ArenaUiBuilder.SetActive(content, "ArenaSearchableSlotView", false);
+        if (customization)
+        {
+            var panel = content.parent?.parent?.parent as RectTransform ?? content;
+            var panelHit = panel.GetComponent<Image>() ?? panel.gameObject.AddComponent<Image>();
+            panelHit.raycastTarget = true;
+            if (panelHit.sprite == null && panelHit.color == Color.white) panelHit.color = Color.clear;
+            (panel.GetComponent<ArenaDropTarget>() ?? panel.gameObject.AddComponent<ArenaDropTarget>()).Tag = "supplies";
+        }
         if (_equipment == null) return;
         const float cell = 58f;
         var removable = new HashSet<string>((_shown?.Fill?.RigContents ?? new List<KitStackedItem>()).Select(r => r.Tpl), StringComparer.Ordinal);
@@ -678,6 +708,11 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
                     {
                         string tpl = item.TemplateId;
                         slot.gameObject.AddComponent<ArenaMenuButton>().Init(slot, () => Remove(tpl));
+                        // Dragging a supply out of the rig throws it away, as in live.
+                        slot.gameObject.AddComponent<ArenaDragSource>().Init(image, (RectTransform)transform, dropped =>
+                        {
+                            if (dropped != "supplies") Remove(tpl);
+                        });
                     }
                 }
             }
@@ -743,7 +778,8 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
                 string captured = classId;
                 node.gameObject.AddComponent<ArenaMenuButton>().Init(node, () => { _filterClass = captured; BindItemsPanel(); });
             }
-        foreach (var panel in new[] { "WeaponsPanel", "WearingsPanel", "MedsPanel", "AmmoPanel" })
+        (_items.GetComponent<ArenaDropTarget>() ?? _items.gameObject.AddComponent<ArenaDropTarget>()).Tag = "armory";
+        foreach (var panel in new[] { "WeaponsPanel", "WearingsPanel", "MedsPanel", "AmmoPanel", "ModsPanel" })
         {
             var content = ArenaUiBuilder.Find(_items, panel + "/Content");
             ArenaUiBuilder.SetActive(content, "SortButton", false);
@@ -802,12 +838,13 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
                 ArenaUiBuilder.SetActive(node, "Hover", false);
                 ArenaUiBuilder.SetActive(node, "Disabled", false);
             }
-        foreach (var panel in new[] { "WeaponsPanel", "WearingsPanel", "MedsPanel", "AmmoPanel" })
+        foreach (var panel in new[] { "WeaponsPanel", "WearingsPanel", "MedsPanel", "AmmoPanel", "ModsPanel" })
             ArenaUiBuilder.SetActive(_items, panel, panel == _itemsTab + "Panel");
 
         bool big = _itemsTab == "Weapons";
         var grid = (RectTransform)ArenaUiBuilder.Find(_items, _itemsTab + "Panel/Content/Scroll Area").GetChild(0);
         foreach (Transform child in grid) Destroy(child.gameObject);
+        if (_itemsTab == "Mods") { BindModsPanel(grid); return; }
         var slots = _focusSlot.HasValue ? new[] { _focusSlot.Value.ToString() } : TabSlots[_itemsTab];
         // What the preset already carries: gear by slot, loaded rounds, rig supplies.
         var current = new HashSet<string>(StringComparer.Ordinal);
@@ -880,11 +917,141 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
             return;
         }
         var captured = entry;
-        card.gameObject.AddComponent<ArenaMenuButton>().Init(card, () =>
+        card.gameObject.AddComponent<ArenaMenuButton>().Init(card, () => Place(slot, captured));
+        var cardIcon = imageNode?.GetComponent<Image>();
+        if (cardIcon != null)
+            card.gameObject.AddComponent<ArenaDragSource>().Init(cardIcon, (RectTransform)transform, dropped =>
+            {
+                if (dropped == null || dropped == "armory") return;
+                if (dropped == "supplies") { if (slot is "Meds" or "Throwable" or "Ammo") Place(slot, captured); return; }
+                if (dropped.StartsWith("slot:") && (slot == dropped.Substring(5) || (slot == "Mods" && dropped == "slot:FirstPrimaryWeapon"))) Place(slot, captured);
+            });
+    }
+
+    /// <summary>One armory item lands where it belongs: a gear slot, the supplies, the ammo, or the weapon's slot.</summary>
+    private void Place(string slot, ArenaArmory.Entry entry)
+    {
+        if (slot is "Meds" or "Throwable") Add(entry);
+        else if (slot == "Mods") { if (_modSlot != null && ItemIn(EquipmentSlot.FirstPrimaryWeapon) is CompoundItem weapon) Swap(ModPath(weapon, _modSlot), entry); }
+        else Swap(slot, entry);
+    }
+
+    // ---------------------------------------------------------------- mods
+
+    /// <summary>
+    /// Live's Mods tab, on the preset's primary: the weapon's slots as cards first (the selected one marked), then
+    /// every armory attachment that slot accepts; an EMPTY card clears an optional slot.
+    /// </summary>
+    private void BindModsPanel(RectTransform grid)
+    {
+        if (ItemIn(EquipmentSlot.FirstPrimaryWeapon) is not CompoundItem weapon)
         {
-            if (slot is "Meds" or "Throwable") Add(captured);
-            else Swap(slot, captured);
-        });
+            var none = HudStyle.CreateText(grid, "None", 16f, TextAlignmentOptions.Midline);
+            none.text = "No primary weapon in this preset."; none.color = Muted;
+            return;
+        }
+        var slots = weapon.AllSlots.Where(s => s != null && s.ID != null && !s.ID.StartsWith("patron", StringComparison.Ordinal) && s.ID != "cartridges").ToList();
+        if (_modSlot == null || !slots.Contains(_modSlot)) _modSlot = slots.FirstOrDefault(s => s.ContainedItem != null) ?? slots.FirstOrDefault();
+        foreach (var slot in slots)
+        {
+            var card = _builder.Build(_cardSmall, grid);
+            card.gameObject.SetActive(true);
+            var up = ArenaUiBuilder.Find(card, "UpPanel");
+            foreach (var path in new[] { "RightHeader/Arrow", "RightHeader/NewLevelMarker", "RightHeader/IncompatibilityMarker", "Star", "MetaverseIcon" })
+                ArenaUiBuilder.SetActive(up, path, false);
+            var item = slot.ContainedItem;
+            SetText(up, "RightHeader/MetaScore/MetaScoreValue", item == null ? "" : ArenaMetascore.ItemScore(item.TemplateId).ToString("N0"));
+            var slotNode = ArenaUiBuilder.Find(card, "Slot");
+            ArenaUiBuilder.SetActive(slotNode, "SecondBackground", ReferenceEquals(slot, _modSlot));
+            foreach (var path in new[] { "Loader", "APCProgressionInfo", "APCLevelProgression", "Buy/BuyButton", "Buy/PriceObject", "Buy/WtRaceContainer", "Buy/Lock", "APCClassesInfo" })
+                ArenaUiBuilder.SetActive(slotNode, path, false);
+            var info = ArenaUiBuilder.Find(slotNode, "APCItemInfo");
+            SetText(info, "ItemName", SlotLabel(slot.ID));
+            ArenaUiBuilder.SetActive(info, "FirstLine", item != null);
+            if (item != null) SetText(info, "FirstLine/Value", item.ShortName.Localized());
+            ArenaUiBuilder.SetActive(info, "SecondLine", false);
+            ArenaUiBuilder.SetActive(info, "ThirdLine", false);
+            var imageNode = ArenaUiBuilder.TryFind(slotNode, "ItemImage");
+            if (imageNode != null)
+            {
+                imageNode.gameObject.SetActive(item != null);
+                if (item != null)
+                {
+                    var image = imageNode.GetComponent<Image>() ?? imageNode.gameObject.AddComponent<Image>();
+                    image.raycastTarget = false;
+                    ArenaItemIcon.Bind(image, item, imageNode.sizeDelta.x - 8f, imageNode.sizeDelta.y - 8f);
+                }
+            }
+            ArenaUiTheme.Rule(card, "SlotEdge", ReferenceEquals(slot, _modSlot) ? ArenaUiTheme.WithAlpha(Gold, 0.8f) : ArenaUiTheme.WithAlpha(Gold, 0.25f), inset: 2f, thickness: 1f);
+            var hit = card.GetComponent<Image>() ?? card.gameObject.AddComponent<Image>();
+            hit.raycastTarget = true;
+            var captured = slot;
+            card.gameObject.AddComponent<ArenaMenuButton>().Init(card, () => { _modSlot = captured; BindItemsPanel(); });
+        }
+        if (_modSlot == null) return;
+        string search = _search.Trim();
+        if (!_modSlot.Required && _modSlot.ContainedItem != null)
+        {
+            var empty = _builder.Build(_cardSmall, grid);
+            empty.gameObject.SetActive(true);
+            foreach (var path in new[] { "UpPanel", "Slot/APCClassesInfo", "Slot/Buy", "Slot/Loader", "Slot/APCLevelProgression", "Slot/APCProgressionInfo", "Slot/ItemImage" })
+                ArenaUiBuilder.SetActive(empty, path, false);
+            SetText(ArenaUiBuilder.Find(empty, "Slot/APCItemInfo"), "ItemName", "EMPTY");
+            foreach (var path in new[] { "FirstLine", "SecondLine", "ThirdLine" }) ArenaUiBuilder.SetActive(ArenaUiBuilder.Find(empty, "Slot/APCItemInfo"), path, false);
+            var emptyHit = empty.GetComponent<Image>() ?? empty.gameObject.AddComponent<Image>();
+            emptyHit.raycastTarget = true;
+            empty.gameObject.AddComponent<ArenaMenuButton>().Init(empty, () =>
+            {
+                if (!EnsureCustom()) return;
+                if (!string.IsNullOrEmpty(ArenaArmory.Edit("swap", _shown.Id, ModPath(weapon, _modSlot), ""))) return;
+                ReloadShown();
+            });
+        }
+        string currentTpl = _modSlot.ContainedItem?.TemplateId;
+        foreach (var entry in ArenaArmory.ForSlot("Mods", null))
+        {
+            if (search.Length > 0 && (entry.Name ?? "").IndexOf(search, StringComparison.OrdinalIgnoreCase) < 0) continue;
+            var candidate = ArmoryItem(entry);
+            if (candidate == null || !Accepts(_modSlot, candidate)) continue;
+            BuildCard(grid, _cardSmall, entry, "Mods", entry.Tpl == currentTpl);
+        }
+    }
+
+    private static string SlotLabel(string slotId)
+    {
+        string label = slotId ?? "";
+        if (label.StartsWith("mod_", StringComparison.Ordinal)) label = label.Substring(4);
+        return label.Replace('_', ' ').ToUpperInvariant();
+    }
+
+    /// <summary>The slot's own filters against the item's template family (the live editor's compatibility rule).</summary>
+    private static bool Accepts(Slot slot, Item item)
+    {
+        if (slot?.Filters == null || item?.Template == null) return false;
+        var family = new HashSet<string>(StringComparer.Ordinal);
+        for (var template = item.Template; template != null; template = template.Parent) family.Add(template._id.ToString());
+        bool allowed = false;
+        foreach (var filter in slot.Filters)
+        {
+            if (filter == null) continue;
+            if (filter.ExcludedFilter != null && filter.ExcludedFilter.Any(x => family.Contains(x.ToString()))) return false;
+            if (filter.Filter != null && filter.Filter.Any(x => family.Contains(x.ToString()))) allowed = true;
+        }
+        return allowed;
+    }
+
+    /// <summary>"mod:primary/&lt;slot&gt;/..." from the weapon down to the slot, for the server's attachment swap.</summary>
+    private static string ModPath(CompoundItem weapon, Slot target)
+    {
+        var ids = new List<string> { target.ID };
+        Item owner = target.ParentItem;
+        for (int guard = 0; owner != null && !ReferenceEquals(owner, weapon) && guard < 16; guard++)
+        {
+            if (owner.Parent?.Container is not Slot parentSlot) return null;
+            ids.Insert(0, parentSlot.ID);
+            owner = parentSlot.ParentItem;
+        }
+        return "mod:primary/" + string.Join("/", ids);
     }
 
     /// <summary>Edits land on a custom preset: a stock one is copied first, as live does.</summary>
@@ -902,7 +1069,7 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
 
     private void Swap(string slot, ArenaArmory.Entry entry)
     {
-        if (!EnsureCustom()) return;
+        if (slot == null || !EnsureCustom()) return;
         if (!string.IsNullOrEmpty(ArenaArmory.Edit("swap", _shown.Id, slot, entry.Tpl))) return;
         ReloadShown();
     }

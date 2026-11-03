@@ -110,6 +110,7 @@ public static class ArenaPresetEditor
                 {
                     case "create": Create(customs, kitId ?? ""); break;
                     case "swap" when slot == "Ammo": SwapAmmo(customs, kitId ?? "", tpl ?? ""); break;
+                    case "swap" when slot != null && slot.StartsWith("mod:", StringComparison.Ordinal): SwapMod(customs, kitId ?? "", slot, tpl ?? ""); break;
                     case "swap": Swap(customs, kitId ?? "", slot ?? "", tpl ?? ""); break;
                     case "add": AddSupply(customs, kitId ?? "", tpl ?? ""); break;
                     case "remove": RemoveSupply(customs, kitId ?? "", tpl ?? ""); break;
@@ -224,6 +225,83 @@ public static class ArenaPresetEditor
                 if (templates.Items.TryGetValue(new MongoId(entry["tpl"]?.GetValue<string>() ?? ""), out var carried)
                     && SlotOf(carried.Id) == "Ammo" && carried.Properties?.Caliber == calibre)
                     entry["tpl"] = tpl;
+    }
+
+    /// <summary>
+    /// Replaces one attachment of the preset's weapon. The path is "mod:primary/&lt;slot&gt;[/&lt;slot&gt;...]" (or
+    /// "mod:holster/..."): every segment but the last walks into the mod sitting in that slot, the last names the
+    /// slot to fill. An empty template clears an optional slot. Magazines arrive loaded with the weapon's round.
+    /// </summary>
+    private static void SwapMod(JsonArray customs, string kitId, string path, string tpl)
+    {
+        var kit = CustomKit(customs, kitId);
+        var templates = _templates ?? throw new InvalidOperationException("templates unavailable");
+        var nodes = kit["items"] as JsonArray ?? throw new InvalidOperationException("preset has no items");
+        var rootId = nodes.FirstOrDefault(n => n?["parentId"] == null)?["_id"]?.GetValue<string>() ?? "";
+        var segments = path.Substring(4).Split('/', StringSplitOptions.RemoveEmptyEntries);
+        if (segments.Length < 2) throw new InvalidOperationException("bad attachment path");
+        var weapon = segments[0] == "holster" ? EquipmentNode(nodes, rootId, "Holster") : EquipmentNode(nodes, rootId, "FirstPrimaryWeapon", "SecondPrimaryWeapon");
+        var current = weapon ?? throw new InvalidOperationException("the preset has no weapon there");
+        for (int i = 1; i < segments.Length - 1; i++)
+        {
+            string parent = current["_id"]!.GetValue<string>();
+            current = nodes.OfType<JsonObject>().FirstOrDefault(n => n["parentId"]?.GetValue<string>() == parent && n["slotId"]?.GetValue<string>() == segments[i])
+                      ?? throw new InvalidOperationException("attachment path not found");
+        }
+        string slotName = segments[^1];
+        string parentId = current["_id"]!.GetValue<string>();
+        var parentTemplate = TemplateOf(current) ?? throw new InvalidOperationException("unknown parent item");
+        var slotDef = parentTemplate.Properties?.Slots?.FirstOrDefault(s => s.Name == slotName) ?? throw new InvalidOperationException("no such slot");
+        var existing = nodes.OfType<JsonObject>().FirstOrDefault(n => n["parentId"]?.GetValue<string>() == parentId && n["slotId"]?.GetValue<string>() == slotName);
+        string? ammo = null;
+        if (existing != null)
+        {
+            var subtree = Subtree(nodes, existing["_id"]!.GetValue<string>());
+            ammo = subtree.FirstOrDefault(n => n["slotId"]?.GetValue<string>() == "cartridges")?["_tpl"]?.GetValue<string>();
+            foreach (var n in subtree) nodes.Remove(n);
+        }
+        if (string.IsNullOrEmpty(tpl))
+        {
+            if (slotDef.Required == true) throw new InvalidOperationException("that slot cannot be empty");
+            TrimSupplies(kit);
+            return;
+        }
+        if (!templates.Items.TryGetValue(new MongoId(tpl), out var template)) throw new InvalidOperationException("unknown item");
+        if (!SlotAccepts(slotDef, template)) throw new InvalidOperationException("that attachment does not fit this slot");
+        string id = NewId();
+        nodes.Add(Node(id, tpl, parentId, slotName));
+        if (template.Properties?.Cartridges?.Any() == true)
+        {
+            string weaponId = weapon["_id"]!.GetValue<string>();
+            ammo ??= Subtree(nodes, weaponId).FirstOrDefault(n => n["slotId"]?.GetValue<string>() is "cartridges" or "patron_in_weapon")?["_tpl"]?.GetValue<string>();
+            ammo ??= PickAmmo(TemplateOf(weapon)?.Properties?.Caliber, ClassOf(kitId), null);
+            if (ammo != null)
+            {
+                int capacity = Math.Max(1, (int)(template.Properties.Cartridges.First().MaxCount ?? 1));
+                var rounds = Node(NewId(), ammo, id, "cartridges");
+                rounds["upd"] = new JsonObject { ["StackObjectsCount"] = capacity };
+                nodes.Add(rounds);
+            }
+        }
+        TrimSupplies(kit);
+    }
+
+    private static bool SlotAccepts(SPTarkov.Server.Core.Models.Eft.Common.Tables.Slot slotDef, TemplateItem template)
+    {
+        var family = new HashSet<string>(StringComparer.Ordinal);
+        var node = template.Id;
+        for (int depth = 0; depth < 16; depth++)
+        {
+            family.Add(node.ToString());
+            if (!_templates!.Items.TryGetValue(node, out var item) || item.Parent == default) break;
+            node = item.Parent;
+        }
+        bool allowed = false;
+        foreach (var filter in slotDef.Properties?.Filters ?? [])
+        {
+            if (filter.Filter?.Any(x => family.Contains(x.ToString())) == true) allowed = true;
+        }
+        return allowed;
     }
 
     private static (int W, int H) SizeOf(TemplateItem template)
