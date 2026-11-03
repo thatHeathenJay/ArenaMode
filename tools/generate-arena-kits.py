@@ -124,6 +124,27 @@ def score_of(out, fill):
     return round(total)
 
 
+def footprint(tpl):
+    p = items.get(tpl, {}).get('_props', {})
+    return max(1, p.get('Width', 1) * p.get('Height', 1))
+
+
+def fit_rig(rig_tpl, mag_tpl, meds):
+    """Spare magazines and rig medicine that actually fit the rig's cells (the entry kit refuses to start when a
+    required supply has no cell). Order: grenade cell, medicine, then as many spare magazines as remain (at least
+    one); medicine is trimmed from the back when even that does not fit."""
+    cells = gk.cells(rig_tpl)
+    meds = list(meds)
+    mag_fp = footprint(mag_tpl)
+    while meds and cells - 1 - sum(footprint(m) for m in meds) < mag_fp:
+        if len(meds) == 1:
+            break
+        meds.pop()
+    room = cells - 1 - sum(footprint(m) for m in meds)
+    spares = max(1, min(5, room // mag_fp)) if room >= mag_fp else 1
+    return spares, meds
+
+
 def build(cls, tier, preset_id, ammo, armor_target, used_helmets, used_ears):
     preset = glob['ItemPresets'][preset_id]
     root_id = uuid.uuid4().hex[:24]
@@ -152,8 +173,11 @@ def build(cls, tier, preset_id, ammo, armor_target, used_helmets, used_ears):
         if slot == 'TacticalVest':
             rig_tpl = tpl
     if rig_tpl is None:
+        # Plain rig beside body armour: near the wanted size, never below what the supplies need.
         want = 20 - (armor_target - 2) * 2
-        rig_tpl = min(gk.plain_rigs, key=lambda t: abs(gk.cells(t) - want))
+        need = 1 + sum(footprint(m) for m in gk.tier_list(gk.RIG_MEDICAL, armor_target)) + 3 * footprint(mag['_tpl'])
+        candidates = [t for t in gk.plain_rigs if gk.cells(t) >= need] or gk.plain_rigs
+        rig_tpl = min(candidates, key=lambda t: abs(gk.cells(t) - max(want, need)))
         out.append(dict(_id=uuid.uuid4().hex[:24], _tpl=rig_tpl, parentId=root_id, slotId='TacticalVest'))
     helmet = pick_helmet(cls, armor_target, used_helmets)
     if helmet:
@@ -166,8 +190,9 @@ def build(cls, tier, preset_id, ammo, armor_target, used_helmets, used_ears):
     out.append(dict(_id=uuid.uuid4().hex[:24], _tpl=gk.POCKETS, parentId=root_id, slotId='Pockets'))
     gk.stock_medicine(out, armor_target)
 
-    fill = dict(spareMagazines=gk.spare_capacity(rig_tpl, mag['_tpl']),
-                rigContents=[dict(tpl=t, count=1) for t in gk.tier_list(gk.RIG_MEDICAL, armor_target)]
+    spares, meds = fit_rig(rig_tpl, mag['_tpl'], gk.tier_list(gk.RIG_MEDICAL, armor_target))
+    fill = dict(spareMagazines=spares,
+                rigContents=[dict(tpl=t, count=1) for t in meds]
                 + [dict(tpl=GRENADE, count=1, optionalQuickUseOnly=True)])
     label = CLASSES['classes'][cls]['label']
     short = loc.get(weapon['_tpl'] + ' ShortName', gk.nm(weapon['_tpl']))
@@ -175,7 +200,7 @@ def build(cls, tier, preset_id, ammo, armor_target, used_helmets, used_ears):
                items=out, fill=fill)
     armour_name = gk.nm(armor[1][0]) if armor else '-'
     print(f"{kit['id']:12} {short:14} {armour_name[:30]:30} {gk.nm(rig_tpl)[:24]:24} "
-          f"{(gk.nm(helmet[0]) if helmet else '-')[:22]:22} mags {fill['spareMagazines']}  MP {score_of(out, fill):>6}")
+          f"{(gk.nm(helmet[0]) if helmet else '-')[:22]:22} cells {gk.cells(rig_tpl):>2} mags {fill['spareMagazines']} meds {len(meds)}  MP {score_of(out, fill):>6}")
     return kit
 
 
