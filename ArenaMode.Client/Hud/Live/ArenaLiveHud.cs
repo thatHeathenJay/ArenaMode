@@ -42,7 +42,8 @@ internal static class ArenaLiveHud
     private static ArenaFriendlyMarkers _markers;
 
     // Score strip (ArenaCheckPointWidget) + objective line (ArenaRoundGoalWidget).
-    private static TextMeshProUGUI _leftScore, _rightScore, _timer, _goal;
+    private static TextMeshProUGUI _leftScore, _rightScore, _timer;
+    private static bool _goalAnnounced;
 
     // Kill log rows (KillLogItemPrefab).
     private static RectTransform _killLogRoot;
@@ -122,8 +123,9 @@ internal static class ArenaLiveHud
         _tabRows.Clear();
         _tabVersion = -1;
         _noticeOverride = null;
+        _goalAnnounced = false;
         _resultShownAt = -1f;
-        _leftScore = _rightScore = _timer = _goal = _noticeText = _tabLeftScore = _tabRightScore = _resultText = null;
+        _leftScore = _rightScore = _timer = _noticeText = _tabLeftScore = _tabRightScore = _resultText = null;
         _killLogRoot = _notice = _tab = _rowTemplate = _leftList = _rightList = _result = null;
     }
 
@@ -163,7 +165,6 @@ internal static class ArenaLiveHud
 
         BuildTab((RectTransform)_tabCanvasGo.transform, tdm);   // first: the result card borrows its mode logo
         BuildScoreStrip(root, tdm);
-        BuildGoal(root);
         BuildKillLog(root);
         BuildNotice(root);
         BuildResult(root);
@@ -209,18 +210,6 @@ internal static class ArenaLiveHud
         _timer = ArenaUiBuilder.Text(content, "Timer/Label");
         _leftScore.text = _rightScore.text = "0";
         _timer.text = "00:00";
-    }
-
-    private static void BuildGoal(RectTransform root)
-    {
-        var widget = _builder.Build(_pack.Layout("ArenaRoundGoalWidget"), root);
-        ArenaUiBuilder.Stretch(widget);
-        var main = ArenaUiBuilder.Find(widget, "MainContent");
-        main.anchoredPosition = new Vector2(-5f, -55f); // under the score strip
-        ArenaUiBuilder.SetActive(main, "ArenaRoundGoalitemTimerMain", false);
-        ArenaUiBuilder.SetActive(main, "ArenaRoundGoalitemCapturePoint", false);
-        _goal = ArenaUiBuilder.Text(main, "ArenaRoundGoalitemInfoMain/TaskContainer/TaskPanel/Description");
-        _goal.text = "";
     }
 
     private static void BuildKillLog(RectTransform root)
@@ -319,9 +308,14 @@ internal static class ArenaLiveHud
         _rightScore.text = opponent.ToString();
         double seconds = snapshot.Countdown ?? snapshot.SecondsRemaining ?? _match.Elapsed;
         _timer.text = Clock(seconds);
-        _goal.text = snapshot.KillsRemaining is int remaining
-            ? $"Score {Math.Max(friendly, opponent) + remaining} points"
-            : "Eliminate the enemy team";
+        if (snapshot.Live && !_goalAnnounced)
+        {
+            _goalAnnounced = true;
+            OnTextCallout(snapshot.KillsRemaining is int remaining
+                ? $"Score {Math.Max(friendly, opponent) + remaining} points to win"
+                : "Eliminate the enemy team");
+            _noticeUntil = Time.unscaledTime + 4f;
+        }
     }
 
     private static string Clock(double seconds)
