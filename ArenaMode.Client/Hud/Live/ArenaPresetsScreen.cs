@@ -36,6 +36,18 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
         ("forth line/On Back Slot", EquipmentSlot.FirstPrimaryWeapon), ("forth line/Scabbard Slot", EquipmentSlot.Scabbard),
     };
     private static readonly EquipmentSlot[] WeaponSlots = { EquipmentSlot.FirstPrimaryWeapon, EquipmentSlot.Holster };
+    // Armory tab -> the server's armory slots it lists.
+    private static readonly Dictionary<string, string[]> TabSlots = new()
+    {
+        ["Weapons"] = new[] { "FirstPrimaryWeapon", "Holster", "Throwable" },
+        ["Wearings"] = new[] { "ArmorVest", "TacticalVest", "Headwear", "Earpiece", "Eyewear", "FaceCover" },
+        ["Meds"] = new[] { "Meds" },
+        ["Ammo"] = new[] { "Ammo" },
+    };
+    private static readonly (string Tab, string Key)[] ItemTabs =
+    {
+        ("WeaponTab", "Weapons"), ("WearingsTab", "Wearings"), ("MedsTab", "Meds"), ("AmmoTab", "Ammo"),
+    };
     private static readonly EquipmentSlot[] WearingSlots =
     {
         EquipmentSlot.ArmorVest, EquipmentSlot.TacticalVest, EquipmentSlot.Headwear, EquipmentSlot.Earpiece,
@@ -57,6 +69,8 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
     private Image _classIcon;
     private bool _customization;
     private string _itemsTab = "Weapons";
+    private string _filterClass;      // armory class filter; null = every class
+    private string _search = "";
     private EquipmentSlot? _focusSlot;
     private string _class = "assault";
     private KitDefinition _shown;
@@ -144,7 +158,7 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
         fill.gameObject.AddComponent<Image>().color = new Color(0.03f, 0.035f, 0.04f, 1f);
         var backdrop = _builder.Build(_pack.Layout("ArenaBattleBackgroundPanel"), root);
         ArenaUiBuilder.Stretch(backdrop);
-        backdrop.GetComponentInChildren<Image>().color = new Color(1f, 1f, 1f, 0.3f);
+        backdrop.GetComponentInChildren<Image>().color = new Color(1f, 1f, 1f, 0.08f);
         var glows = _builder.Build(Find(_viewLayout, "ScreenGlows"), root);
         ArenaUiBuilder.Stretch(glows);
 
@@ -333,6 +347,7 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
         _equipment = null;
         if (kit == null) { RefreshStatus(); return; }
         _class = ClassOf(kit.Id) ?? "assault";
+        _filterClass = _class;
         var profile = SessionProfile();
         try { if (profile != null) _equipment = TeamArenaEntryKit.Prepare(profile, kit); }
         catch (Exception ex) { Plugin.ModLogger.LogWarning($"Arena preset screen: could not build '{kit.Id}': {ex.Message}"); }
@@ -428,7 +443,7 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
             });
         }
 
-        BindContainers(ArenaUiBuilder.Find(_viewBody, "Containers Panel/Scrollview Parent/Containers Scrollview/Content"));
+        BindContainers(ArenaUiBuilder.Find(_viewBody, "Containers Panel/Scrollview Parent/Containers Scrollview/Content"), false);
         ArenaUiBuilder.SetActive(_viewBody, "Containers Panel/Scrollbar", false);
         BindModelAndStats();
     }
@@ -477,7 +492,7 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
     private void BindCustomization()
     {
         BindCells(ArenaUiBuilder.Find(_gears, "Gear Panel/Gears"), true);
-        BindContainers(ArenaUiBuilder.Find(_gears, "Containers Panel/Scrollview Parent/Containers Scrollview/Content"));
+        BindContainers(ArenaUiBuilder.Find(_gears, "Containers Panel/Scrollview Parent/Containers Scrollview/Content"), true);
         ArenaUiBuilder.SetActive(_gears, "Containers Panel/Horizontal Scrollbar", false);
         ArenaUiBuilder.SetActive(_gears, "Containers Panel/ArenaVertical Scrollbar", false);
 
@@ -576,48 +591,95 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
         BindItemsPanel();
     }
 
-    private void BindContainers(RectTransform content)
+    /// <summary>
+    /// Live's per-container view: every rig and pocket grid drawn cell by cell with its items in place. In
+    /// customization the supplies the preset added (its rig contents) can be clicked off again.
+    /// </summary>
+    private void BindContainers(RectTransform content, bool customization)
     {
         foreach (Transform child in content)
             if (!child.name.EndsWith("Template") && child.name != "ArenaSearchableSlotView") Destroy(child.gameObject);
         ArenaUiBuilder.SetActive(content, "ArenaSearchableSlotView", false);
         if (_equipment == null) return;
-        var items = new List<Item>();
+        const float cell = 58f;
+        var removable = new HashSet<string>((_shown?.Fill?.RigContents ?? new List<KitStackedItem>()).Select(r => r.Tpl), StringComparer.Ordinal);
+        int index = 0;
         foreach (var container in KitBuilder.GridContainersOf(_equipment))
         {
             if (ReferenceEquals(container, _equipment.GetSlot(EquipmentSlot.SecuredContainer)?.ContainedItem)) continue;
-            foreach (var g in container.Grids) items.AddRange(g.Items);
-        }
-        var title = HudStyle.CreateText(content, "Title", 14f, TextAlignmentOptions.MidlineLeft);
-        title.text = "RIG AND POCKETS";
-        title.color = Muted;
-        title.gameObject.AddComponent<LayoutElement>().preferredHeight = 28f;
-        var grid = NewRect("Grid", content);
-        var layout = grid.gameObject.AddComponent<GridLayoutGroup>();
-        layout.cellSize = new Vector2(96f, 96f);
-        layout.spacing = new Vector2(6f, 6f);
-        layout.padding = new RectOffset(8, 8, 4, 4);
-        layout.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
-        layout.constraintCount = 4;
-        grid.gameObject.AddComponent<ContentSizeFitter>().verticalFit = ContentSizeFitter.FitMode.PreferredSize;
-        foreach (var item in items)
-        {
-            var cell = NewRect("Cell " + item.TemplateId, grid);
-            cell.gameObject.AddComponent<Image>().color = new Color(0.08f, 0.1f, 0.12f, 0.9f);
-            ArenaUiTheme.Rule(cell, "Edge", ArenaUiTheme.Edge, inset: 0f, thickness: 1f);
-            var icon = NewRect("ItemIcon", cell);
-            icon.anchorMin = icon.anchorMax = new Vector2(0.5f, 0.5f); icon.pivot = new Vector2(0.5f, 0.5f);
-            var image = icon.gameObject.AddComponent<Image>();
-            image.raycastTarget = false;
-            ArenaItemIcon.Bind(image, item, 84f, 84f);
-            if (item.StackObjectsCount > 1)
+            index++;
+            string name = "CONTAINER";
+            try { name = container.ShortName.Localized().ToUpperInvariant(); } catch { /* unnamed */ }
+            var title = HudStyle.CreateText(content, "Title " + index, 14f, TextAlignmentOptions.MidlineLeft);
+            title.text = name; title.color = Muted;
+            title.gameObject.AddComponent<LayoutElement>().preferredHeight = 28f;
+            var row = NewRect("Grids " + index, content);
+            var rowLayout = row.gameObject.AddComponent<HorizontalLayoutGroup>();
+            rowLayout.spacing = 8f; rowLayout.padding = new RectOffset(8, 8, 2, 6);
+            rowLayout.childForceExpandWidth = rowLayout.childForceExpandHeight = false;
+            rowLayout.childControlWidth = rowLayout.childControlHeight = false;
+            rowLayout.childAlignment = TextAnchor.UpperLeft;
+            float rowHeight = 0f;
+            int gridIndex = 0;
+            foreach (var grid in container.Grids)
             {
-                var count = HudStyle.CreateText(cell, "Count", 13f, TextAlignmentOptions.BottomRight);
-                count.text = item.StackObjectsCount.ToString();
-                ArenaUiBuilder.Stretch(count.rectTransform);
-                count.rectTransform.offsetMin = new Vector2(0f, 3f); count.rectTransform.offsetMax = new Vector2(-5f, 0f);
+                int w = Math.Max(1, grid.GridWidth), h = Math.Max(1, grid.GridHeight);
+                var panel = NewRect("Grid " + gridIndex++, row);
+                panel.sizeDelta = new Vector2(w * cell, h * cell);
+                var element = panel.gameObject.AddComponent<LayoutElement>();
+                element.preferredWidth = w * cell; element.preferredHeight = h * cell;
+                rowHeight = Mathf.Max(rowHeight, h * cell);
+                for (int x = 0; x < w; x++)
+                    for (int y = 0; y < h; y++)
+                    {
+                        var back = NewRect($"Cell {x},{y}", panel);
+                        Place(back, x, y, 1, 1, cell);
+                        var backImage = back.gameObject.AddComponent<Image>();
+                        backImage.color = new Color(0.08f, 0.1f, 0.12f, 0.9f); backImage.raycastTarget = false;
+                        ArenaUiTheme.Rule(back, "Edge", ArenaUiTheme.Edge, inset: 0f, thickness: 1f);
+                    }
+                foreach (KeyValuePair<Item, LocationInGrid> pair in grid.ItemCollection)
+                {
+                    var item = pair.Key;
+                    var location = pair.Value;
+                    var size = item.CalculateCellSize();
+                    int iw = Math.Max(1, size.X), ih = Math.Max(1, size.Y);
+                    if (location.r == ItemRotation.Vertical) (iw, ih) = (ih, iw);
+                    var slot = NewRect("Item " + item.Id, panel);
+                    Place(slot, location.x, location.y, iw, ih, cell);
+                    bool canRemove = customization && removable.Contains(item.TemplateId);
+                    var fill = slot.gameObject.AddComponent<Image>();
+                    fill.color = canRemove ? new Color(0.2f, 0.24f, 0.27f, 0.95f) : new Color(0.14f, 0.17f, 0.2f, 0.95f);
+                    fill.raycastTarget = canRemove;
+                    ArenaUiTheme.Rule(slot, "Edge", canRemove ? ArenaUiTheme.WithAlpha(Gold, 0.5f) : ArenaUiTheme.Edge, inset: 0f, thickness: 1f);
+                    var icon = NewRect("ItemIcon", slot);
+                    icon.anchorMin = icon.anchorMax = new Vector2(0.5f, 0.5f); icon.pivot = new Vector2(0.5f, 0.5f);
+                    var image = icon.gameObject.AddComponent<Image>();
+                    image.raycastTarget = false;
+                    ArenaItemIcon.Bind(image, item, iw * cell - 6f, ih * cell - 6f);
+                    if (item.StackObjectsCount > 1)
+                    {
+                        var count = HudStyle.CreateText(slot, "Count", 13f, TextAlignmentOptions.BottomRight);
+                        count.text = item.StackObjectsCount.ToString();
+                        ArenaUiBuilder.Stretch(count.rectTransform);
+                        count.rectTransform.offsetMin = new Vector2(0f, 3f); count.rectTransform.offsetMax = new Vector2(-5f, 0f);
+                    }
+                    if (canRemove)
+                    {
+                        string tpl = item.TemplateId;
+                        slot.gameObject.AddComponent<ArenaMenuButton>().Init(slot, () => Remove(tpl));
+                    }
+                }
             }
+            row.gameObject.AddComponent<LayoutElement>().preferredHeight = rowHeight + 8f;
         }
+    }
+
+    private static void Place(RectTransform rect, int x, int y, int w, int h, float cell)
+    {
+        rect.anchorMin = rect.anchorMax = new Vector2(0f, 1f); rect.pivot = new Vector2(0f, 1f);
+        rect.anchoredPosition = new Vector2(x * cell, -y * cell);
+        rect.sizeDelta = new Vector2(w * cell, h * cell);
     }
 
     // -------------------------------------------------------------- armory
@@ -631,11 +693,10 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
             if (node == null) continue;
             ArenaUiBuilder.SetActive(node, "PurchasedMarker", false);
             ArenaUiBuilder.SetActive(node, "HoverState", false);
-            bool supported = tab == "WeaponTab" || tab == "WearingsTab";
-            if (!supported) { ArenaUiBuilder.SetActive(node, "Disabled", true); ArenaUiBuilder.SetActive(node, "IdleState", false); continue; }
+            string target = ItemTabs.FirstOrDefault(t => t.Tab == tab).Key;
+            if (target == null) { ArenaUiBuilder.SetActive(node, "Disabled", true); ArenaUiBuilder.SetActive(node, "IdleState", false); continue; }
             var hit = node.GetComponent<Image>() ?? node.gameObject.AddComponent<Image>();
             hit.color = Color.clear; hit.raycastTarget = true;
-            string target = tab == "WeaponTab" ? "Weapons" : "Wearings";
             node.gameObject.AddComponent<ArenaMenuButton>().Init(node, () =>
             {
                 _itemsTab = target; _focusSlot = null;
@@ -648,7 +709,31 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
         SetText(filters, "PurchaseDropdown/Label", "All");
         ArenaUiBuilder.SetActive(filters, "PurchaseDropdown/Template", false);
         ArenaUiBuilder.SetActive(filters, "Toggles", true);
-        foreach (var panel in new[] { "WeaponsPanel", "WearingsPanel" })
+        var search = ArenaUiBuilder.TryFind(filters, "SearchField");
+        if (search != null)
+        {
+            var placeholder = ArenaUiBuilder.TryFind(search, "Text Area/Placeholder")?.GetComponent<TextMeshProUGUI>();
+            if (placeholder != null) placeholder.text = "Enter name";
+            var field = search.gameObject.AddComponent<TMP_InputField>();
+            field.textViewport = ArenaUiBuilder.TryFind(search, "Text Area");
+            field.textComponent = ArenaUiBuilder.TryFind(search, "Text Area/Text")?.GetComponent<TextMeshProUGUI>();
+            field.placeholder = placeholder;
+            field.onValueChanged.AddListener(value => { _search = value ?? ""; BindItemsPanel(); });
+            var searchImage = search.GetComponent<Image>() ?? search.gameObject.AddComponent<Image>();
+            searchImage.raycastTarget = true;
+        }
+        var toggles = ArenaUiBuilder.TryFind(filters, "Toggles");
+        if (toggles != null)
+            foreach (var (toggle, classId) in ClassToggles)
+            {
+                var node = ArenaUiBuilder.TryFind(toggles, toggle);
+                if (node == null) continue;
+                var toggleHit = node.GetComponent<Image>() ?? node.gameObject.AddComponent<Image>();
+                toggleHit.color = Color.clear; toggleHit.raycastTarget = true;
+                string captured = classId;
+                node.gameObject.AddComponent<ArenaMenuButton>().Init(node, () => { _filterClass = captured; BindItemsPanel(); });
+            }
+        foreach (var panel in new[] { "WeaponsPanel", "WearingsPanel", "MedsPanel", "AmmoPanel" })
         {
             var content = ArenaUiBuilder.Find(_items, panel + "/Content");
             ArenaUiBuilder.SetActive(content, "SortButton", false);
@@ -657,6 +742,8 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
             ArenaUiBuilder.SetActive(_items, panel + "/Loader", false);
             var area = ArenaUiBuilder.Find(content, "Scroll Area");
             if (area.GetComponent<Mask>() == null) area.gameObject.AddComponent<Mask>().showMaskGraphic = false;
+            var areaImage = area.GetComponent<Image>() ?? area.gameObject.AddComponent<Image>();
+            areaImage.raycastTarget = true;     // wheel events over empty grid space still reach the scroll rect
             var grid = (RectTransform)area.GetChild(0);
             grid.anchorMin = new Vector2(0f, 1f); grid.anchorMax = new Vector2(1f, 1f); grid.pivot = new Vector2(0.5f, 1f);
             grid.anchoredPosition = Vector2.zero; grid.sizeDelta = Vector2.zero;
@@ -668,15 +755,26 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
             layout.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
             layout.constraintCount = big ? 2 : 5;
             grid.gameObject.AddComponent<ContentSizeFitter>().verticalFit = ContentSizeFitter.FitMode.PreferredSize;
+            // The ripped Scroll Area carries its own Canvas + raycaster; nested canvases break wheel routing here.
+            var raycaster = area.GetComponent<GraphicRaycaster>();
+            if (raycaster != null) DestroyImmediate(raycaster);
+            var nested = area.GetComponent<Canvas>();
+            if (nested != null) DestroyImmediate(nested);
             var scroll = area.gameObject.AddComponent<ScrollRect>();
             scroll.viewport = area; scroll.content = grid; scroll.horizontal = false; scroll.scrollSensitivity = 40f;
+            scroll.movementType = ScrollRect.MovementType.Clamped;
         }
     }
+
+    private static readonly (string Toggle, string ClassId)[] ClassToggles =
+    {
+        ("AssaultToggle", "assault"), ("CQBToggle", "enforcer"), ("ScoutToggle", "scout"), ("MarksmanToggle", "marksman"), ("AllRounderToggle", null),
+    };
 
     private void BindItemsPanel()
     {
         var selector = ArenaUiBuilder.Find(_items, "ItemsGroupSelector");
-        foreach (var (tab, key) in new[] { ("WeaponTab", "Weapons"), ("WearingsTab", "Wearings") })
+        foreach (var (tab, key) in ItemTabs)
         {
             var node = ArenaUiBuilder.TryFind(selector, tab);
             if (node == null) continue;
@@ -685,30 +783,45 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
         }
         var toggles = ArenaUiBuilder.TryFind(_items, "FiltersPanel/Toggles");
         if (toggles != null)
-            foreach (var (toggle, classId) in new[] { ("AssaultToggle", "assault"), ("CQBToggle", "enforcer"), ("ScoutToggle", "scout"), ("MarksmanToggle", "marksman"), ("AllRounderToggle", "") })
+            foreach (var (toggle, classId) in ClassToggles)
             {
                 var node = ArenaUiBuilder.TryFind(toggles, toggle);
                 if (node == null) continue;
-                ArenaUiBuilder.SetActive(node, "Selected", classId == _class);
-                ArenaUiBuilder.SetActive(node, "Idle", classId != _class);
+                ArenaUiBuilder.SetActive(node, "Selected", classId == _filterClass);
+                ArenaUiBuilder.SetActive(node, "Idle", classId != _filterClass);
                 ArenaUiBuilder.SetActive(node, "Hover", false);
                 ArenaUiBuilder.SetActive(node, "Disabled", false);
             }
-        foreach (var panel in new[] { "WeaponsPanel", "WearingsPanel" })
+        foreach (var panel in new[] { "WeaponsPanel", "WearingsPanel", "MedsPanel", "AmmoPanel" })
             ArenaUiBuilder.SetActive(_items, panel, panel == _itemsTab + "Panel");
 
-        bool weapons = _itemsTab == "Weapons";
+        bool big = _itemsTab == "Weapons";
         var grid = (RectTransform)ArenaUiBuilder.Find(_items, _itemsTab + "Panel/Content/Scroll Area").GetChild(0);
         foreach (Transform child in grid) Destroy(child.gameObject);
-        var slots = _focusSlot.HasValue ? new[] { _focusSlot.Value } : weapons ? WeaponSlots : WearingSlots;
-        var current = new HashSet<string>(slots.Select(s => ItemIn(s)?.TemplateId.ToString()).Where(t => t != null), StringComparer.Ordinal);
+        var slots = _focusSlot.HasValue ? new[] { _focusSlot.Value.ToString() } : TabSlots[_itemsTab];
+        // What the preset already carries: gear by slot, loaded rounds, rig supplies.
+        var current = new HashSet<string>(StringComparer.Ordinal);
+        foreach (var (_, slot) in Cells) if (ItemIn(slot) is { } worn) current.Add(worn.TemplateId);
+        foreach (var node in _shown?.Items ?? new List<KitItemNode>())
+            if (node.SlotId == "cartridges" || (node.SlotId?.StartsWith("patron_in_weapon") ?? false)) current.Add(node.Tpl);
+        foreach (var supply in _shown?.Fill?.RigContents ?? new List<KitStackedItem>()) current.Add(supply.Tpl);
+        var calibres = new HashSet<string>(StringComparer.Ordinal);
+        foreach (var slot in WeaponSlots)
+            try { if ((ItemIn(slot) as Weapon)?.AmmoCaliber is { } calibre) calibres.Add(calibre); } catch { /* none */ }
+        string search = _search.Trim();
         foreach (var slot in slots)
-            foreach (var entry in ArenaArmory.ForSlot(slot.ToString(), null))
-                BuildCard(grid, weapons ? _cardBig : _cardSmall, entry, slot, current.Contains(entry.Tpl));
-        grid.anchoredPosition = Vector2.zero;
+            foreach (var entry in ArenaArmory.ForSlot(slot, _filterClass))
+            {
+                if (slot == "Ammo" && (entry.Caliber == null || !calibres.Contains(entry.Caliber))) continue;
+                if (search.Length > 0 && (entry.Name ?? "").IndexOf(search, StringComparison.OrdinalIgnoreCase) < 0) continue;
+                BuildCard(grid, big ? _cardBig : _cardSmall, entry, slot, current.Contains(entry.Tpl));
+            }
+        LayoutRebuilder.ForceRebuildLayoutImmediate(grid);
+        var scrollRect = grid.parent.GetComponent<ScrollRect>();
+        if (scrollRect != null) scrollRect.verticalNormalizedPosition = 1f;
     }
 
-    private void BuildCard(RectTransform grid, JObject layout, ArenaArmory.Entry entry, EquipmentSlot slot, bool isCurrent)
+    private void BuildCard(RectTransform grid, JObject layout, ArenaArmory.Entry entry, string slot, bool isCurrent)
     {
         var card = _builder.Build(layout, grid);
         card.gameObject.SetActive(true);
@@ -726,10 +839,10 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
         var info = ArenaUiBuilder.Find(slotNode, "APCItemInfo");
         SetText(info, "ItemName", entry.Name ?? entry.Tpl);
         var item = ArmoryItem(entry);
-        string caliber = null;
-        try { caliber = (item as Weapon)?.AmmoCaliber?.Replace("Caliber", ""); } catch { /* none */ }
-        ArenaUiBuilder.SetActive(info, "FirstLine", !string.IsNullOrEmpty(caliber));
-        if (!string.IsNullOrEmpty(caliber)) SetText(info, "FirstLine/Value", caliber);
+        string line = null;
+        try { line = (item as Weapon)?.AmmoCaliber?.Replace("Caliber", "") ?? entry.Caliber?.Replace("Caliber", ""); } catch { /* none */ }
+        ArenaUiBuilder.SetActive(info, "FirstLine", !string.IsNullOrEmpty(line));
+        if (!string.IsNullOrEmpty(line)) SetText(info, "FirstLine/Value", line);
         ArenaUiBuilder.SetActive(info, "SecondLine", false);
         ArenaUiBuilder.SetActive(info, "ThirdLine", false);
         var classes = ArenaUiBuilder.Find(slotNode, "APCClassesInfo");
@@ -748,29 +861,53 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
             var size = imageNode.sizeDelta;
             ArenaItemIcon.Bind(image, item, size.x - 8f, size.y - 8f);
         }
+        // Every card is a raycast target, locked ones too: the mouse wheel only scrolls over something it can hit.
+        var hit = card.GetComponent<Image>() ?? card.gameObject.AddComponent<Image>();
+        hit.raycastTarget = true;
         if (!allowed)
         {
             card.gameObject.AddComponent<CanvasGroup>().alpha = 0.45f;
             return;
         }
-        var hit = card.GetComponent<Image>() ?? card.gameObject.AddComponent<Image>();
-        hit.raycastTarget = true;
         var captured = entry;
-        card.gameObject.AddComponent<ArenaMenuButton>().Init(card, () => Swap(slot, captured));
+        card.gameObject.AddComponent<ArenaMenuButton>().Init(card, () =>
+        {
+            if (slot is "Meds" or "Throwable") Add(captured);
+            else Swap(slot, captured);
+        });
     }
 
-    private void Swap(EquipmentSlot slot, ArenaArmory.Entry entry)
+    /// <summary>Edits land on a custom preset: a stock one is copied first, as live does.</summary>
+    private bool EnsureCustom()
     {
-        if (_shown == null) return;
-        if (!IsCustom(_shown.Id))
-        {
-            string baseId = _shown.Id;
-            if (!string.IsNullOrEmpty(ArenaArmory.Edit("create", baseId))) return;
-            var created = KitCatalog.Kits.Where(k => IsCustom(k.Id) && k.Base == baseId).OrderBy(k => k.Order).LastOrDefault();
-            if (created == null) return;
-            _shown = created;
-        }
-        if (!string.IsNullOrEmpty(ArenaArmory.Edit("swap", _shown.Id, slot.ToString(), entry.Tpl))) return;
+        if (_shown == null) return false;
+        if (IsCustom(_shown.Id)) return true;
+        string baseId = _shown.Id;
+        if (!string.IsNullOrEmpty(ArenaArmory.Edit("create", baseId))) return false;
+        var created = KitCatalog.Kits.Where(k => IsCustom(k.Id) && k.Base == baseId).OrderBy(k => k.Order).LastOrDefault();
+        if (created == null) return false;
+        _shown = created;
+        return true;
+    }
+
+    private void Swap(string slot, ArenaArmory.Entry entry)
+    {
+        if (!EnsureCustom()) return;
+        if (!string.IsNullOrEmpty(ArenaArmory.Edit("swap", _shown.Id, slot, entry.Tpl))) return;
+        ReloadShown();
+    }
+
+    private void Add(ArenaArmory.Entry entry)
+    {
+        if (!EnsureCustom()) return;
+        if (!string.IsNullOrEmpty(ArenaArmory.Edit("add", _shown.Id, entry.Slot, entry.Tpl))) return;
+        ReloadShown();
+    }
+
+    private void Remove(string tpl)
+    {
+        if (!EnsureCustom()) return;
+        if (!string.IsNullOrEmpty(ArenaArmory.Edit("remove", _shown.Id, "Meds", tpl))) return;
         ReloadShown();
     }
 

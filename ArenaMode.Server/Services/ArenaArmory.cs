@@ -29,6 +29,9 @@ public class ArenaArmory(TemplateTable templateTable, GlobalTable globalTable, L
         ("Earpiece", new MongoId("5645bcb74bdc2ded0b8b4578")),
         ("Eyewear", new MongoId("5448e5724bdc2ddf718b4568")),
         ("FaceCover", new MongoId("5a341c4686f77469e155819e")),
+        ("Throwable", new MongoId("543be6564bdc2df4348b4568")),
+        ("Meds", new MongoId("543be5664bdc2dd4348b4569")),
+        ("Ammo", new MongoId("5485a8684bdc2da71d8b4567")),
     };
 
     public Task OnLoadAsync(CancellationToken cancellationToken)
@@ -65,6 +68,7 @@ public class ArenaArmory(TemplateTable templateTable, GlobalTable globalTable, L
                     ["unlock"] = live?["unlock"]?.GetValue<string>() ?? "",
                     ["name"] = name ?? template.Name ?? tpl,
                     ["items"] = presetNodes,
+                    ["caliber"] = template.Properties?.Caliber,
                 });
             }
             ArenaContext.ArmoryJson = armory.ToJsonString();

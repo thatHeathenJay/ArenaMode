@@ -103,7 +103,10 @@ public static class ArenaPresetEditor
                 switch (action)
                 {
                     case "create": Create(customs, kitId ?? ""); break;
+                    case "swap" when slot == "Ammo": SwapAmmo(customs, kitId ?? "", tpl ?? ""); break;
                     case "swap": Swap(customs, kitId ?? "", slot ?? "", tpl ?? ""); break;
+                    case "add": AddSupply(customs, kitId ?? "", tpl ?? ""); break;
+                    case "remove": RemoveSupply(customs, kitId ?? "", tpl ?? ""); break;
                     case "delete":
                         for (int i = customs.Count - 1; i >= 0; i--)
                             if (customs[i]?["id"]?.GetValue<string>() == kitId) customs.RemoveAt(i);
@@ -178,6 +181,111 @@ public static class ArenaPresetEditor
         if (slot is "FirstPrimaryWeapon" or "Holster")
             ArmWeapon(nodes, template, newRootId, oldAmmo, ClassOf(kitId));
         FillPlates(nodes);
+    }
+
+    private static JsonObject CustomKit(JsonArray customs, string kitId)
+        => customs.FirstOrDefault(k => k?["id"]?.GetValue<string>() == kitId) as JsonObject
+           ?? throw new InvalidOperationException("custom preset not found");
+
+    /// <summary>Loads every magazine and chamber of the weapon that fires this round's calibre with it.</summary>
+    private static void SwapAmmo(JsonArray customs, string kitId, string tpl)
+    {
+        var kit = CustomKit(customs, kitId);
+        var templates = _templates ?? throw new InvalidOperationException("templates unavailable");
+        if (!templates.Items.TryGetValue(new MongoId(tpl), out var round) || SlotOf(round.Id) != "Ammo")
+            throw new InvalidOperationException("not a round");
+        string? calibre = round.Properties?.Caliber;
+        var nodes = kit["items"] as JsonArray ?? throw new InvalidOperationException("preset has no items");
+        var rootId = nodes.FirstOrDefault(n => n?["parentId"] == null)?["_id"]?.GetValue<string>() ?? "";
+        bool loaded = false;
+        foreach (var weapon in nodes.OfType<JsonObject>().Where(n => n["parentId"]?.GetValue<string>() == rootId
+                     && n["slotId"]?.GetValue<string>() is "FirstPrimaryWeapon" or "SecondPrimaryWeapon" or "Holster").ToList())
+        {
+            if (!templates.Items.TryGetValue(new MongoId(weapon["_tpl"]!.GetValue<string>()), out var weaponTemplate)
+                || weaponTemplate.Properties?.Caliber != calibre) continue;
+            foreach (var node in Subtree(nodes, weapon["_id"]!.GetValue<string>()))
+            {
+                if (node["slotId"]?.GetValue<string>() is not { } slotId) continue;
+                if (slotId == "cartridges" || slotId.StartsWith("patron_in_weapon", StringComparison.Ordinal) || slotId.StartsWith("camora", StringComparison.Ordinal))
+                { node["_tpl"] = tpl; loaded = true; }
+            }
+        }
+        if (!loaded) throw new InvalidOperationException("no weapon in this preset fires that calibre");
+        // Loose rounds the preset carries in the rig follow the weapon.
+        if (kit["fill"]?["rigContents"] is JsonArray contents)
+            foreach (var entry in contents.OfType<JsonObject>())
+                if (templates.Items.TryGetValue(new MongoId(entry["tpl"]?.GetValue<string>() ?? ""), out var carried)
+                    && SlotOf(carried.Id) == "Ammo" && carried.Properties?.Caliber == calibre)
+                    entry["tpl"] = tpl;
+    }
+
+    private static int CellsOf(TemplateItem template)
+        => Math.Max(1, (int)(template.Properties?.Width ?? 1)) * Math.Max(1, (int)(template.Properties?.Height ?? 1));
+
+    private static int GridCellsOf(TemplateItem? template)
+    {
+        int cells = 0;
+        foreach (var grid in template?.Properties?.Grids ?? [])
+            cells += (int)(grid.Properties?.CellsH ?? 0) * (int)(grid.Properties?.CellsV ?? 0);
+        return cells;
+    }
+
+    /// <summary>Rig and pocket cells the preset's supplies (spare magazines, rig contents) still leave free.</summary>
+    private static int FreeCells(JsonObject kit)
+    {
+        var templates = _templates!;
+        var nodes = kit["items"] as JsonArray ?? new JsonArray();
+        var rootId = nodes.FirstOrDefault(n => n?["parentId"] == null)?["_id"]?.GetValue<string>() ?? "";
+        int capacity = 0;
+        foreach (var slot in new[] { "TacticalVest", "Pockets" })
+        {
+            var node = nodes.FirstOrDefault(n => n?["parentId"]?.GetValue<string>() == rootId && n?["slotId"]?.GetValue<string>() == slot);
+            if (node == null) { if (slot == "Pockets") capacity += 4; continue; }
+            templates.Items.TryGetValue(new MongoId(node["_tpl"]!.GetValue<string>()), out var template);
+            capacity += GridCellsOf(template);
+        }
+        int used = 0;
+        var fill = kit["fill"] as JsonObject;
+        int spare = fill?["spareMagazines"]?.GetValue<int>() ?? 0;
+        var weapon = nodes.FirstOrDefault(n => n?["parentId"]?.GetValue<string>() == rootId && n?["slotId"]?.GetValue<string>() is "FirstPrimaryWeapon" or "SecondPrimaryWeapon");
+        var magazine = weapon == null ? null : nodes.FirstOrDefault(n => n?["parentId"]?.GetValue<string>() == weapon["_id"]?.GetValue<string>() && n?["slotId"]?.GetValue<string>() == "mod_magazine");
+        if (magazine != null && templates.Items.TryGetValue(new MongoId(magazine["_tpl"]!.GetValue<string>()), out var magazineTemplate))
+            used += spare * CellsOf(magazineTemplate);
+        else used += spare;     // loose ammunition stacks
+        foreach (var entry in (fill?["rigContents"] as JsonArray)?.OfType<JsonObject>() ?? [])
+        {
+            if (!templates.Items.TryGetValue(new MongoId(entry["tpl"]?.GetValue<string>() ?? ""), out var template)) continue;
+            int count = entry["optionalQuickUseOnly"]?.GetValue<bool>() == true ? 1 : Math.Max(1, entry["count"]?.GetValue<int>() ?? 1);
+            used += count * CellsOf(template);
+        }
+        return capacity - used;
+    }
+
+    /// <summary>Adds one of a med, stimulant or grenade to the preset's rig contents, if it still fits.</summary>
+    private static void AddSupply(JsonArray customs, string kitId, string tpl)
+    {
+        var kit = CustomKit(customs, kitId);
+        var templates = _templates ?? throw new InvalidOperationException("templates unavailable");
+        if (!templates.Items.TryGetValue(new MongoId(tpl), out var template) || SlotOf(template.Id) is not ("Meds" or "Throwable" or "Ammo"))
+            throw new InvalidOperationException("not a carried supply");
+        if (FreeCells(kit) < CellsOf(template)) throw new InvalidOperationException("no room left in the rig or pockets");
+        var fill = kit["fill"] as JsonObject ?? (JsonObject)(kit["fill"] = new JsonObject { ["spareMagazines"] = 3 });
+        var contents = fill["rigContents"] as JsonArray ?? (JsonArray)(fill["rigContents"] = new JsonArray());
+        var existing = contents.OfType<JsonObject>().FirstOrDefault(e => e["tpl"]?.GetValue<string>() == tpl && e["optionalQuickUseOnly"]?.GetValue<bool>() != true);
+        if (existing != null) existing["count"] = (existing["count"]?.GetValue<int>() ?? 1) + 1;
+        else contents.Add(new JsonObject { ["tpl"] = tpl, ["count"] = 1 });
+    }
+
+    private static void RemoveSupply(JsonArray customs, string kitId, string tpl)
+    {
+        var kit = CustomKit(customs, kitId);
+        if (kit["fill"]?["rigContents"] is not JsonArray contents) return;
+        var entry = contents.OfType<JsonObject>().OrderBy(e => e["optionalQuickUseOnly"]?.GetValue<bool>() == true)
+            .FirstOrDefault(e => e["tpl"]?.GetValue<string>() == tpl);
+        if (entry == null) return;
+        int count = entry["count"]?.GetValue<int>() ?? 1;
+        if (count > 1 && entry["optionalQuickUseOnly"]?.GetValue<bool>() != true) entry["count"] = count - 1;
+        else contents.Remove(entry);
     }
 
     private static List<JsonObject> Subtree(JsonArray nodes, string rootId)

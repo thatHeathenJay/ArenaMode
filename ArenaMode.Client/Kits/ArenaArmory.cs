@@ -16,7 +16,7 @@ internal static class ArenaArmory
 {
     internal sealed class Entry
     {
-        internal string Tpl, Slot, Bar, Name, Unlock;
+        internal string Tpl, Slot, Bar, Name, Unlock, Caliber;
         internal double Score;
         internal bool Live;
         internal HashSet<string> Classes = new(StringComparer.OrdinalIgnoreCase);
@@ -44,6 +44,7 @@ internal static class ArenaArmory
                         Tpl = node.Value<string>("tpl"), Slot = node.Value<string>("slot"), Bar = node.Value<string>("bar") ?? "firepower",
                         Name = node.Value<string>("name"), Unlock = node.Value<string>("unlock") ?? "",
                         Score = node.Value<double?>("score") ?? 0, Live = node.Value<bool?>("live") ?? false,
+                        Caliber = node.Value<string>("caliber"),
                     };
                     if (node["classes"] is JArray classes)
                         foreach (var c in classes) entry.Classes.Add(c.ToString());
