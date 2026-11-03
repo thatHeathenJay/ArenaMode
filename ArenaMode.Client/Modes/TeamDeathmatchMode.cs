@@ -593,6 +593,7 @@ public sealed partial class TeamDeathmatchMode : IArenaMode
     {
         if (_failure != null || ObserveNativeStop()) return;
         _failure = reason;
+        ReleaseRoundMarker();
         ReleaseDomination();
         ReleaseMonitors();
         ArenaTeamBoxRuntime.ReleaseGates(_game, _world, _spawnGateEpoch, "ArenaMode Team DM failure");
@@ -629,6 +630,7 @@ public sealed partial class TeamDeathmatchMode : IArenaMode
 
     public void OnMatchEnd()
     {
+        ReleaseRoundMarker();
         ReleaseDomination();
         ReleaseMonitors();
         ClearSpawnShields();

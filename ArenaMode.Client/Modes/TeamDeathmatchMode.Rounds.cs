@@ -81,6 +81,50 @@ public sealed partial class TeamDeathmatchMode
         _rounds.Update(Time.time, Time.deltaTime, ready, usecAlive, bearAlive, usecOnPoint, bearOnPoint);
         if (_rounds.Phase != before) OnRoundPhaseChanged(before, _rounds.Phase);
         if (_rounds.Phase != before || Time.time - _roundStateSentAt >= 1f) BroadcastRounds();
+        UpdateRoundMarker();
+    }
+
+    private GameObject _roundMarker;
+
+    /// <summary>A visible capture zone at the point while it is up: a flat disc on the floor and a beacon above it.</summary>
+    private void UpdateRoundMarker()
+    {
+        bool show = IsRounds && _roundPoint.HasValue && _rounds.Phase == TeamFightPhase.Live && _rounds.PointActive && !HasResult;
+        if (!show) { ReleaseRoundMarker(); return; }
+        if (_roundMarker == null)
+        {
+            _roundMarker = new GameObject("ArenaTeamFightPoint");
+            _roundMarker.transform.position = _roundPoint.Value;
+            var shader = Shader.Find("Sprites/Default") ?? Shader.Find("Unlit/Color");
+            foreach (var (name, scale, offset) in new[]
+            {
+                ("Disc", new Vector3(CaptureRadius * 2f, 0.03f, CaptureRadius * 2f), new Vector3(0f, 0.05f, 0f)),
+                ("Beacon", new Vector3(0.35f, 40f, 0.35f), new Vector3(0f, 40f, 0f)),
+            })
+            {
+                var part = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
+                part.name = name;
+                UnityEngine.Object.Destroy(part.GetComponent<Collider>());
+                part.transform.SetParent(_roundMarker.transform, false);
+                part.transform.localPosition = offset;
+                part.transform.localScale = scale;
+                var renderer = part.GetComponent<Renderer>();
+                if (shader != null) renderer.material = new Material(shader);
+                renderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+                renderer.receiveShadows = false;
+            }
+        }
+        bool? friendlyCapturing = _rounds.CaptureUsec == null ? null : _rounds.CaptureUsec == (_population?.LocalUsec == true);
+        var colour = friendlyCapturing == null ? new Color(1f, 1f, 1f, 0.35f)
+            : friendlyCapturing == true ? new Color(0.3f, 0.75f, 1f, 0.45f) : new Color(1f, 0.35f, 0.3f, 0.45f);
+        foreach (var renderer in _roundMarker.GetComponentsInChildren<Renderer>()) renderer.material.color = colour;
+    }
+
+    private void ReleaseRoundMarker()
+    {
+        if (_roundMarker == null) return;
+        UnityEngine.Object.Destroy(_roundMarker);
+        _roundMarker = null;
     }
 
     private void CountAlive(out int usecAlive, out int bearAlive, out int usecOnPoint, out int bearOnPoint)
@@ -168,6 +212,7 @@ public sealed partial class TeamDeathmatchMode
         _rounds.Apply(state, Time.time);
         if (_rounds.Phase != before) OnRoundPhaseLocal(before, _rounds.Phase);
         _mirrorMatchLive = state.MatchLive;
+        UpdateRoundMarker();
     }
 
     private bool _mirrorMatchLive;
