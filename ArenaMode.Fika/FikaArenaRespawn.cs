@@ -143,8 +143,18 @@ internal static class FikaArenaRespawn
         try
         {
             var health = player.ActiveHealthController;
+            // Effects live per body part (contusion on the head, bleeds on limbs, the vignettes they drive): clear
+            // every part, not just Common, or the screen keeps last life's effects.
+            foreach (EBodyPart part in Enum.GetValues(typeof(EBodyPart)))
+            {
+                try { health.RemoveNegativeEffects(part); } catch { /* part without effects */ }
+                try { health.RemoveBleedingEffects(part); } catch { /* none */ }
+                if (part != EBodyPart.Common) { try { health.FullRestoreBodyPart(part); } catch { /* none */ } }
+            }
+            try { health.RemoveIntoxication(); } catch { /* none */ }
+            try { health.RemoveMedEffect(); } catch { /* none */ }
+            try { health.RemoveMisfireEffect(); } catch { /* none */ }
             health.RestoreFullHealth();
-            health.RemoveNegativeEffects(EBodyPart.Common);
             AccessTools.Method(typeof(Player), "UpdateSpeedLimitByHealth")?.Invoke(player, null);
         }
         catch (Exception ex) { Plugin.Log.LogWarning($"Co-op arena: health restore incomplete: {ex.Message}"); }
