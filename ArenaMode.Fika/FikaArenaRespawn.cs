@@ -78,6 +78,7 @@ internal static class FikaArenaRespawn
             ArenaEvents.RaisePlayerRespawned(player);
             ArenaMatchService.Current?.Mode?.OnLocalRespawn(player);
             Plugin.Log.LogInfo($"Co-op arena respawn at {position} ({Vector3.Distance(position, corpsePosition):F0} m from the corpse).");
+            player.StartCoroutine(Settle(player));
         }
         finally
         {
@@ -123,6 +124,23 @@ internal static class FikaArenaRespawn
             return (avoid + Vector3.up, Quaternion.identity);
         }
         return (best.Position, best.Rotation);
+    }
+
+    /// <summary>
+    /// Delayed damage, effect residues and hits in the frames around the teleport can land after the first restore,
+    /// so it runs again once things settle, under a short spawn protection (live Arena shields fresh spawns too).
+    /// </summary>
+    private static IEnumerator Settle(FikaPlayer player)
+    {
+        const float protection = 2f;
+        float started = Time.time;
+        try { player.ActiveHealthController.SetDamageCoeff(0f); } catch { /* unavailable */ }
+        yield return new WaitForSeconds(0.5f);
+        if (player == null || !ArenaCoop.RespawnsActive) yield break;
+        RestoreHealth(player);
+        FikaArenaPatches.ClearDeathCameraEffects();
+        while (Time.time - started < protection && ArenaCoop.RespawnsActive && player != null) yield return null;
+        try { if (player != null) player.ActiveHealthController.SetDamageCoeff(1f); } catch { /* unavailable */ }
     }
 
     /// <summary>Fika's downed state puts the player prone and un-downing leaves them there.</summary>

@@ -75,7 +75,7 @@ internal static class FikaArenaPatches
     }
 
     /// <summary>Fika's downed state fades and blurs the camera; the killcam (or the respawn) needs a clear view.</summary>
-    private static void ClearDeathCameraEffects()
+    internal static void ClearDeathCameraEffects()
     {
         try
         {
