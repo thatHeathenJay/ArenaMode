@@ -48,15 +48,16 @@ internal static class FikaArenaRespawn
             if (!ArenaCoop.RespawnsActive || player == null || !player.Downed)
                 yield break;        // match ended or the player left: Fika's own flow takes over
 
-            var (position, rotation) = PickSpawn(corpsePosition);
+            var (position, rotation) = PickSpawn(player, corpsePosition);
             player.ToggleDowned(false);
+            yield return null;                  // let the character controller leave the downed state first
             player.Teleport(position);
             player.Transform.rotation = rotation;
             player.ActiveHealthController.RestoreFullHealth();
             RestoreKitInPlace(player);
             ArenaEvents.RaisePlayerRespawned(player);
             ArenaMatchService.Current?.Mode?.OnLocalRespawn(player);
-            Plugin.Log.LogDebug($"Co-op arena respawn at {position}.");
+            Plugin.Log.LogInfo($"Co-op arena respawn at {position} ({Vector3.Distance(position, corpsePosition):F0} m from the corpse).");
         }
         finally
         {
@@ -64,21 +65,34 @@ internal static class FikaArenaRespawn
         }
     }
 
-    private static (Vector3, Quaternion) PickSpawn(Vector3 avoid)
+    /// <summary>
+    /// A native player spawn point for the local side, through the same spawn system the solo respawn uses (so Team
+    /// DM team boxes and area filters apply), preferring one at least 25 m from the corpse. Scene markers are not
+    /// used: the ported Arena maps define their spawns in location data, not as scene objects.
+    /// </summary>
+    private static (Vector3, Quaternion) PickSpawn(Player player, Vector3 avoid)
     {
-        var candidates = new List<ISpawnPoint>();
-        foreach (var marker in LocationScene.GetAllObjects<SpawnPointMarker>(false))
+        var game = Comfort.Common.Singleton<AbstractGame>.Instance as BaseLocalGame<EftGamePlayerOwner>;
+        var spawnSystem = game != null ? Redeploy.Core.Spawning.SpawnSystemCache.GetOrCreate(game) : null;
+        if (spawnSystem == null)
         {
-            ISpawnPoint p = marker.SpawnPoint;
-            if (p == null || (p.Categories & ESpawnCategoryMask.Player) == 0) continue;
-            candidates.Add(p);
-        }
-        if (candidates.Count == 0)
+            Plugin.Log.LogWarning("Co-op arena respawn: no spawn system; staying near the corpse.");
             return (avoid + Vector3.up, Quaternion.identity);
-        var far = candidates.FindAll(p => Vector3.Distance(p.Position, avoid) >= 25f);
-        var pool = far.Count > 0 ? far : candidates;
-        var pick = pool[UnityEngine.Random.Range(0, pool.Count)];
-        return (pick.Position, pick.Rotation);
+        }
+        ISpawnPoint best = null;
+        for (int i = 0; i < 8; i++)
+        {
+            var point = spawnSystem.SelectSpawnPoint(ESpawnCategory.Player, player.Profile.Info.Side, null, null, null, null, player.ProfileId);
+            if (point == null) continue;
+            best ??= point;
+            if (Vector3.Distance(point.Position, avoid) >= 25f) { best = point; break; }
+        }
+        if (best == null)
+        {
+            Plugin.Log.LogWarning("Co-op arena respawn: the spawn system returned no player point; staying near the corpse.");
+            return (avoid + Vector3.up, Quaternion.identity);
+        }
+        return (best.Position, best.Rotation);
     }
 
     /// <summary>Refill what a kit respawn would have handed out fresh, without replacing a single item.</summary>
