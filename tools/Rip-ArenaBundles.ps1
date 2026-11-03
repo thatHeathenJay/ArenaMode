@@ -33,8 +33,10 @@ $bundles = @(
     'assets/content/audio/startmission/introanim/introanimsoundlibrary.bundle'        # deploy intro sounds
 ) + $Extra
 
+# All three sections must exist: AssetRipper dereferences each when it logs its configuration, before any file loads.
 $settings = @{
     Import = @{ StreamingAssetsMode = 0 }
+    Processing = @{ EnableStaticMeshSeparation = $false }
     Export = @{ SaveSettingsToDisk = $true }
 }
 $settings | ConvertTo-Json -Depth 4 | Set-Content -Encoding ascii (Join-Path (Split-Path $ripper) 'AssetRipper.Settings.json')
