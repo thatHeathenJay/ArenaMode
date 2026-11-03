@@ -61,14 +61,23 @@ try {
         Get-Content $stdout, $stderr -ErrorAction SilentlyContinue | Select-Object -Last 40
         throw "AssetRipper did not start (exit code $($proc.ExitCode)); see $stdout"
     }
-    $body = 'Path=' + [uri]::EscapeDataString($stage)
-    Invoke-WebRequest "$base/LoadFolder" -Method Post -Body $body -ContentType 'application/x-www-form-urlencoded' -UseBasicParsing -TimeoutSec 7200 -SkipHttpErrorCheck | Out-Null
-    Write-Host 'Loaded. Exporting (audio clips as wav/ogg, prefabs as YAML)...'
+    # A folder of bare bundles is not a game structure (the folder loader crashes on it); each bundle is loaded as a
+    # standalone file and exported into its own subfolder.
     $project = Join-Path $Out 'project'
     if (Test-Path $project) { Remove-Item -Recurse -Force $project }
-    $body = 'Path=' + [uri]::EscapeDataString($project)
-    Invoke-WebRequest "$base/Export/UnityProject" -Method Post -Body $body -ContentType 'application/x-www-form-urlencoded' -UseBasicParsing -TimeoutSec 7200 -SkipHttpErrorCheck | Out-Null
-    Write-Host "Done. Output: $project  (ExportedProject\Assets\AudioClip ...)"
+    foreach ($file in Get-ChildItem $stage -File) {
+        Write-Host "Loading $($file.Name) ($([math]::Round($file.Length / 1MB)) MB)..."
+        $body = 'Path=' + [uri]::EscapeDataString($file.FullName)
+        Invoke-WebRequest "$base/LoadFile" -Method Post -Body $body -ContentType 'application/x-www-form-urlencoded' -UseBasicParsing -TimeoutSec 7200 -SkipHttpErrorCheck -MaximumRedirection 5 | Out-Null
+        $target = Join-Path $project ([IO.Path]::GetFileNameWithoutExtension($file.Name))
+        New-Item -ItemType Directory -Force $target | Out-Null
+        $body = 'Path=' + [uri]::EscapeDataString($target)
+        Invoke-WebRequest "$base/Export/UnityProject" -Method Post -Body $body -ContentType 'application/x-www-form-urlencoded' -UseBasicParsing -TimeoutSec 7200 -SkipHttpErrorCheck -MaximumRedirection 5 | Out-Null
+        $clips = @(Get-ChildItem (Join-Path $target 'ExportedProject\Assets\AudioClip') -File -ErrorAction SilentlyContinue | Where-Object Extension -ne '.meta')
+        Write-Host "  exported: $($clips.Count) audio clip(s) -> $target"
+        Invoke-WebRequest "$base/Reset" -Method Post -UseBasicParsing -TimeoutSec 600 -SkipHttpErrorCheck -MaximumRedirection 5 | Out-Null
+    }
+    Write-Host "Done. Output: $project"
 } finally {
     if (-not $proc.HasExited) { Stop-Process -Id $proc.Id -Force }
 }
