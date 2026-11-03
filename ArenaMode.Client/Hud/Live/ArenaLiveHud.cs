@@ -85,6 +85,9 @@ internal static class ArenaLiveHud
             match.OnKill += OnKill;
             match.OnCallout += OnAwardCallout;
             ArenaEvents.OnLocalDamageDealt += OnDamage;
+            ArenaEvents.OnPlayerDied += OnLocalDied;
+            ArenaEvents.OnPlayerRespawned += OnLocalRespawned;
+            ArenaDeathCard.Reset();
             ArenaLiveAnnouncer.Attach(match, tdm);
             Plugin.ModLogger.LogInfo("Arena live HUD attached from " + ArenaUiPack.Directory);
             return true;
@@ -104,7 +107,10 @@ internal static class ArenaLiveHud
             _match.OnKill -= OnKill;
             _match.OnCallout -= OnAwardCallout;
             ArenaEvents.OnLocalDamageDealt -= OnDamage;
+            ArenaEvents.OnPlayerDied -= OnLocalDied;
+            ArenaEvents.OnPlayerRespawned -= OnLocalRespawned;
         }
+        ArenaDeathCard.Hide();
         _match = null;
         _tdm = null;
         ArenaLiveAnnouncer.Detach();
@@ -502,6 +508,16 @@ internal static class ArenaLiveHud
         if (string.IsNullOrEmpty(label)) return;
         _noticeOverride = label.ToUpperInvariant();
         _noticeUntil = Time.unscaledTime + NoticeSeconds;
+    }
+
+    private static void OnLocalDied(Player player)
+    {
+        if (player != null && player.IsYourPlayer) ArenaDeathCard.Show();
+    }
+
+    private static void OnLocalRespawned(Player player)
+    {
+        if (player != null && player.IsYourPlayer) ArenaDeathCard.Hide();
     }
 
     private static void OnDamage(ArenaDamage damage)
