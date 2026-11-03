@@ -280,7 +280,9 @@ internal sealed class ArenaMainMenuOverlay : MonoBehaviour
 
     private void Play() => _menu?._playButton?.OnClick?.Invoke();
 
-    private void Quit() => _menu?._exitButton?.OnClick?.Invoke();
+    // EFT's exit path first warns about the hideout generator; Arena has no hideout. ponytail: plain quit until the
+    // Arena exit popup (ArenaExitGamePopup in the rip) replaces the confirmation.
+    private void Quit() => Application.Quit();
 
     private void OpenSettings()
     {
