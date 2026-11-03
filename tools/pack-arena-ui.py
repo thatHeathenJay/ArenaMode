@@ -9,7 +9,7 @@ import io, json, os, re, shutil, struct, sys
 
 sys.stdout.reconfigure(encoding='utf-8', errors='replace')
 
-LAYOUTS = ['ArenaCheckPointWidget', 'ArenaRoundGoalWidget', 'KillLogItemPrefab', 'ArenaTeamTabWidget',
+LAYOUTS = ['ArenaCheckPointWidget', 'ArenaRoundGoalWidget', 'KillLogItemPrefab', 'ArenaTeamTabWidget', 'Arena Final Countdown', 'ArenaBattleBackgroundPanel',
            'ArenaRoundInfoWidget', 'ArenaRoundInfoItem', 'ArenaFinalResultWidget']
 WEAPON = '5422acb9af1c889c16000029'
 
