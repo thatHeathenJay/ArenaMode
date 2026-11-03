@@ -117,9 +117,10 @@ internal sealed class ArenaCharacterPreview : IDisposable
         _camera.nearClipPlane = 0.1f;
         _camera.farClipPlane = 25f;
         _camera.allowHDR = false;
-        // The body is created at local (0, -1, 5): frame it from slightly above, looking a touch down.
-        cameraObject.transform.localPosition = new Vector3(0f, 0.15f, 0f);
-        cameraObject.transform.localRotation = Quaternion.Euler(3f, 0f, 0f);
+        // The body stands at local (0, -1, 5), feet at -1, head near 0.8. Live frames it from mid-thigh up with the
+        // chest centred, so the camera sits 3 m in front at chest height.
+        cameraObject.transform.localPosition = new Vector3(0f, 0.2f, 1.9f);
+        cameraObject.transform.localRotation = Quaternion.identity;
         var keyObject = new GameObject("Arena key light");
         keyObject.transform.SetParent(_world.transform, false);
         keyObject.transform.localRotation = Quaternion.Euler(35f, -30f, 0f);
