@@ -6,23 +6,23 @@
    "recordId": "armory:assault_rifle:custom_guns_nl545_di_5_45x39_assault_rifle:d6328b34",
    "displayName": "Custom Guns NL545 (DI) 5.45x39 assault rifle",
    "gameTemplateIds": [
-    "628b5638ad252a16da6dd245"
+    "68c2940aecc41cc5490bd40e"
    ],
-   "candidateName": "SAG AK-545 5.45x39 carbine",
-   "score": 0.336,
-   "how": "fuzzy",
-   "mappingStatus": "review"
+   "candidateName": "Custom Guns NL545 (GP) 5.45x39 assault rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
   },
   {
    "recordId": "armory:assault_rifle:custom_guns_nl545_gp_5_45x39_assault_rifle:d976b0f7",
    "displayName": "Custom Guns NL545 (GP) 5.45x39 assault rifle",
    "gameTemplateIds": [
-    "628b5638ad252a16da6dd245"
+    "68c2940aecc41cc5490bd40e"
    ],
-   "candidateName": "SAG AK-545 5.45x39 carbine",
-   "score": 0.336,
-   "how": "fuzzy",
-   "mappingStatus": "review"
+   "candidateName": "Custom Guns NL545 (GP) 5.45x39 assault rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
   },
   {
    "recordId": "armory:assault_rifle:kalashnikov_ak_12_5_45x39_assault_rifle:4cca8799",
@@ -116,12 +116,12 @@
    "recordId": "armory:assault_rifle:kalashnikov_ak_308_7_62x51_assault_rifle:97fbd31d",
    "displayName": "Kalashnikov AK-308 7.62x51 assault rifle",
    "gameTemplateIds": [
-    "5ac66d725acfc43b321d4b60"
+    "689166b6c2d6fa42e7044756"
    ],
-   "candidateName": "Kalashnikov AK-104 7.62x39 assault rifle",
-   "score": 0.586,
-   "how": "fuzzy",
-   "mappingStatus": "review"
+   "candidateName": "Kalashnikov AK-308 7.62x51 assault rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
   },
   {
    "recordId": "armory:assault_rifle:kalashnikov_akmn_7_62x39_assault_rifle:57ea05bb",
@@ -204,11 +204,11 @@
    "recordId": "armory:assault_rifle:colt_m16a1_5_56x45_assault_rifle:b4c8ee22",
    "displayName": "Colt M16A1 5.56x45 assault rifle",
    "gameTemplateIds": [
-    "5447a9cd4bdc2dbd208b4567"
+    "68a639748e1fe612970728e9"
    ],
-   "candidateName": "Colt M4A1 5.56x45 assault rifle",
-   "score": 0.705,
-   "how": "fuzzy",
+   "candidateName": "Colt M16A1 5.56x45 assault rifle",
+   "score": 1.0,
+   "how": "exact",
    "mappingStatus": "mapped"
   },
   {
@@ -787,12 +787,12 @@
    "recordId": "armory:marksman_rifle:tkpd_9_3x64_carbine:cd95cd4e",
    "displayName": "TKPD 9.3x64 carbine",
    "gameTemplateIds": [
-    "5c07c60e0db834002330051f"
+    "68aee763130c00663d08aea8"
    ],
-   "candidateName": "ADAR 2-15 5.56x45 carbine",
-   "score": 0.364,
-   "how": "fuzzy",
-   "mappingStatus": "review"
+   "candidateName": "TKPD 9.3x64 carbine",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
   },
   {
    "recordId": "armory:marksman_rifle:hk_g28_7_62x51_marksman_rifle:1aac0a56",
@@ -974,11 +974,11 @@
    "recordId": "armory:assault_carbine:as_val_mod_4_9x39_special_assault_rifle:2a3ea7e5",
    "displayName": "AS VAL MOD.4 9x39 special assault rifle",
    "gameTemplateIds": [
-    "57c44b372459772d2b39b8ce"
+    "6871284e9a353bb50606f3ed"
    ],
-   "candidateName": "AS VAL 9x39 special assault rifle",
-   "score": 0.832,
-   "how": "fuzzy",
+   "candidateName": "AS VAL MOD.4 9x39 special assault rifle",
+   "score": 1.0,
+   "how": "exact",
    "mappingStatus": "mapped"
   },
   {
@@ -1788,12 +1788,12 @@
    "recordId": "armory:body_armor:6b45_body_armor_emr:d5129c1f",
    "displayName": "6B45 body armor(EMR)",
    "gameTemplateIds": [
-    "5df8a2ca86f7740bfe6df777"
+    "68948b118c57a8a52301d7ae"
    ],
-   "candidateName": "6B2 body armor (Flora)",
-   "score": 0.286,
-   "how": "fuzzy",
-   "mappingStatus": "review"
+   "candidateName": "6B45 armored rig (Assault)",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
   },
   {
    "recordId": "armory:body_armor:interceptor_otv_body_armor_ucp:bfbb4734",
@@ -2151,10 +2151,10 @@
    "recordId": "armory:eyewear:wiley_x_spear_ballistic_goggles_black:4c0c94f0",
    "displayName": "Wiley X SPEAR ballistic goggles (Black)",
    "gameTemplateIds": [
-    "61c18d83b00456371a66814b"
+    "689b3fffa1295e322207a677"
    ],
-   "candidateName": "Gas welder safety goggles",
-   "score": 0.313,
+   "candidateName": "Gatorz Specter MILSPEC ballistic glasses",
+   "score": 0.333,
    "how": "fuzzy",
    "mappingStatus": "review"
   },
@@ -2162,10 +2162,10 @@
    "recordId": "armory:eyewear:wiley_x_spear_ballistic_goggles_black:41b01cb9",
    "displayName": "Wiley X SPEAR ballistic goggles (Black)",
    "gameTemplateIds": [
-    "61c18d83b00456371a66814b"
+    "689b3fffa1295e322207a677"
    ],
-   "candidateName": "Gas welder safety goggles",
-   "score": 0.313,
+   "candidateName": "Gatorz Specter MILSPEC ballistic glasses",
+   "score": 0.333,
    "how": "fuzzy",
    "mappingStatus": "review"
   },
@@ -2470,23 +2470,23 @@
    "recordId": "ammo:7_62x25mm:7_62x25mm_tt_m995:8a142886",
    "displayName": "7.62x25mm TT M995",
    "gameTemplateIds": [
-    "5735ff5c245977640e39ba7e"
+    "68c15f77ed3d7df9220debd6"
    ],
-   "candidateName": "7.62x25mm TT FMJ43",
-   "score": 0.345,
-   "how": "fuzzy",
-   "mappingStatus": "review"
+   "candidateName": "7.62x25mm TT M995",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
   },
   {
    "recordId": "ammo:7_62x25mm:7_62x25mm_tt_m855a1:a9b046dd",
    "displayName": "7.62x25mm TT M855A1",
    "gameTemplateIds": [
-    "5735fdcd2459776445391d61"
+    "68c15a033173b556890b5959"
    ],
-   "candidateName": "7.62x25mm TT AKBS",
-   "score": 0.333,
-   "how": "fuzzy",
-   "mappingStatus": "review"
+   "candidateName": "7.62x25mm TT M855A1",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
   },
   {
    "recordId": "ammo:7_62x25mm:7_62x25mm_tt_pst_gzh:a94c799d",
@@ -3086,34 +3086,34 @@
    "recordId": "ammo:308_marlin_express:308_me:55f44a2e",
    "displayName": ".308 ME",
    "gameTemplateIds": [
-    "5f0596629e22f464da6bbdd9"
+    "67c540c3d0538d12ec036c08"
    ],
-   "candidateName": ".366 TKM AP-M",
-   "score": 0.095,
-   "how": "fuzzy",
-   "mappingStatus": "review"
+   "candidateName": ".308 ME",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
   },
   {
    "recordId": "ammo:308_marlin_express:308_me_lokt:8410e095",
    "displayName": ".308 ME LOKT",
    "gameTemplateIds": [
-    "62330c18744e5e31df12f516"
+    "67c540cfb032bbdb530201b8"
    ],
-   "candidateName": ".357 Magnum JHP",
-   "score": 0.063,
-   "how": "fuzzy",
-   "mappingStatus": "review"
+   "candidateName": ".308 ME LOKT",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
   },
   {
    "recordId": "ammo:9_3x64mm:9_3x64mm_fmj:24f20d9b",
    "displayName": "9.3x64mm FMJ",
    "gameTemplateIds": [
-    "6576f96220d53a5b8f3e395e"
+    "68bac6ca653ee6b1e406d978"
    ],
-   "candidateName": "9x39mm FMJ",
-   "score": 0.225,
-   "how": "fuzzy",
-   "mappingStatus": "review"
+   "candidateName": "9.3x64mm FMJ",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
   },
   {
    "recordId": "ammo:338_lapua_magnum:338_lapua_magnum_ap:b1723509",
@@ -3355,7 +3355,7 @@
    "candidateName": "Diamond Age Bastion helmet (Black)",
    "score": 0.593,
    "how": "fuzzy",
-   "mappingStatus": "review"
+   "mappingStatus": "mapped"
   },
   {
    "recordId": "blastgang:common_1_armor:interceptor_otv_body_armor_ucp_interceptor_otv_body_armor_woodland:55603394",
@@ -3383,10 +3383,10 @@
    "recordId": "blastgang:common_1_armor:blue_force_gear_plateminus_v2_body_armor_wolf_gray_blue_force_gear_plateminus_v2_body_armor_coy:3d98b778",
    "displayName": "Blue Force Gear PLATEminus V2 body armor (Wolf Gray) / Blue Force Gear PLATEminus V2 body armor (Coyote Brown)",
    "gameTemplateIds": [
-    "68a99207aa809946e507c2f6"
+    "64be7095047e826eae02b0c1"
    ],
-   "candidateName": "Stich Profi Plate Carrier V2 (MARPAT Woodland)",
-   "score": 0.212,
+   "candidateName": "Zulu Nylon Gear M4 Reduced Signature Chest Rig (Ranger Green)",
+   "score": 0.222,
    "how": "fuzzy",
    "mappingStatus": "review"
   },
@@ -3716,7 +3716,7 @@
     "65290f395ae2ae97b80fdf2d"
    ],
    "candidateName": "SIG MCX-SPEAR 6.8x51 assault rifle",
-   "score": 0.513,
+   "score": 0.363,
    "how": "fuzzy",
    "mappingStatus": "review"
   },
@@ -3724,12 +3724,12 @@
    "recordId": "blastgang:attacker_elite:ak_308:cea89805",
    "displayName": "AK-308",
    "gameTemplateIds": [
-    "6499849fc93611967b034949"
+    "689166b6c2d6fa42e7044756"
    ],
-   "candidateName": "Kalashnikov AK-12 5.45x39 assault rifle",
-   "score": 0.222,
-   "how": "fuzzy",
-   "mappingStatus": "review"
+   "candidateName": "Kalashnikov AK-308 7.62x51 assault rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
   },
   {
    "recordId": "blastgang:attacker_elite:ak_12:860c2c95",
@@ -3760,7 +3760,7 @@
     "5bb2475ed4351e00853264e3"
    ],
    "candidateName": "HK 416A5 5.56x45 assault rifle",
-   "score": 0.498,
+   "score": 0.348,
    "how": "fuzzy",
    "mappingStatus": "review"
   },
@@ -3768,12 +3768,12 @@
    "recordId": "blastgang:attacker_elite:nl545_gp:84dc5934",
    "displayName": "NL545 GP",
    "gameTemplateIds": [
-    "618428466ef05c2ce828f218"
+    "68c2940aecc41cc5490bd40e"
    ],
-   "candidateName": "FN SCAR-L 5.56x45 assault rifle (FDE)",
-   "score": 0.215,
-   "how": "fuzzy",
-   "mappingStatus": "review"
+   "candidateName": "Custom Guns NL545 (GP) 5.45x39 assault rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
   },
   {
    "recordId": "blastgang:attacker_special:saiga_12k:055c0222",
@@ -4002,7 +4002,7 @@
     "57f3c6bd24597738e730fa2f"
    ],
    "candidateName": "PP-91-01 Kedr-B 9x18PM submachine gun",
-   "score": 0.636,
+   "score": 0.486,
    "how": "fuzzy",
    "mappingStatus": "mapped"
   },
@@ -4013,7 +4013,7 @@
     "57f3c6bd24597738e730fa2f"
    ],
    "candidateName": "PP-91-01 Kedr-B 9x18PM submachine gun",
-   "score": 0.764,
+   "score": 0.614,
    "how": "fuzzy",
    "mappingStatus": "mapped"
   },
@@ -4057,7 +4057,7 @@
     "674d6121c09f69dfb201a888"
    ],
    "candidateName": "Aklys Defense Velociraptor .300 Blackout assault rifle",
-   "score": 0.588,
+   "score": 0.438,
    "how": "fuzzy",
    "mappingStatus": "review"
   },
@@ -4101,7 +4101,7 @@
     "65290f395ae2ae97b80fdf2d"
    ],
    "candidateName": "SIG MCX-SPEAR 6.8x51 assault rifle",
-   "score": 0.513,
+   "score": 0.363,
    "how": "fuzzy",
    "mappingStatus": "review"
   },
@@ -4164,12 +4164,12 @@
    "recordId": "blastgang:defender_elite:nl545_di:3940c1d2",
    "displayName": "NL545 DI",
    "gameTemplateIds": [
-    "618428466ef05c2ce828f218"
+    "68c16b9ab6b75a8a480520a6"
    ],
-   "candidateName": "FN SCAR-L 5.56x45 assault rifle (FDE)",
-   "score": 0.215,
-   "how": "fuzzy",
-   "mappingStatus": "review"
+   "candidateName": "Custom Guns NL545 (DI) 5.45x39 assault rifle",
+   "score": 1.0,
+   "how": "exact",
+   "mappingStatus": "mapped"
   },
   {
    "recordId": "blastgang:defender_special:saiga_12k:3887a461",

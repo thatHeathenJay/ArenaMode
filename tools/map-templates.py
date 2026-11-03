@@ -18,6 +18,32 @@ loc = json.load(io.open(DB + r'\locales\global\en.json', encoding='utf-8-sig'))
 hb = json.load(io.open(DB + r'\templates\handbook.json', encoding='utf-8-sig'))
 price = {h['Id']: h['Price'] for h in hb['Items']}
 
+# Items added by WTT Content Backport (1.0 content): clone of a vanilla template with its own id, parent and locale.
+import glob
+WTT = ROOT + r'\SPT_Runtime\user\mods\WTT-ContentBackport\db\CustomItems'
+wtt_added = 0
+for cfg in glob.glob(WTT + r'\*.json'):
+    try:
+        d = json.load(io.open(cfg, encoding='utf-8-sig'))
+    except Exception:
+        continue
+    if not isinstance(d, dict):
+        continue
+    for tpl, e in d.items():
+        if not isinstance(e, dict) or 'itemTplToClone' not in e or tpl in items:
+            continue
+        base = items.get(e['itemTplToClone'])
+        if not base:
+            continue
+        props = dict(base['_props']); props.update(e.get('overrideProperties') or {})
+        items[tpl] = {'_id': tpl, '_type': 'Item', '_parent': e.get('parentId') or base['_parent'], '_name': tpl, '_props': props}
+        en = (e.get('locales') or {}).get('en') or {}
+        if en.get('name'):
+            loc[tpl + ' Name'] = en['name']; loc[tpl + ' ShortName'] = en.get('shortName', '')
+        price[tpl] = e.get('handbookPriceRoubles') or 0
+        wtt_added += 1
+print('WTT backport items added to the pool:', wtt_added)
+
 AMMO = '5485a8684bdc2da71d8b4567'; WEAPON = '5422acb9af1c889c16000029'; ARMOR = '5448e54d4bdc2dcc718b4568'
 VEST = '5448e5284bdc2dcb718b4567'; MEDS = '543be5664bdc2dd4348b4569'; GLASSES = '5448e5724bdc2ddf718b4568'
 KNIFE = '5447e1d04bdc2dff2f8b4567'; HEADWEAR = '5a341c4086f77401f2541505'; STIM = '5448f3a64bdc2d60728b456a'
@@ -72,7 +98,7 @@ for tpl, it in items.items():
 
 def candidates(parent):
     if parent is None:
-        return [t for t, ch in pool.items() if ARMOR in ch or (VEST in ch and items[t]['_props'].get('BlocksArmorVest'))]
+        return [t for t, ch in pool.items() if ARMOR in ch or VEST in ch]
     if parent in (STIM, MEDS):
         return [t for t, ch in pool.items() if STIM in ch or MEDS in ch or DRUGS in ch]
     return [t for t, ch in pool.items() if parent in ch]
@@ -154,8 +180,21 @@ for rec in ammo:
     add('ammo', rec, [rec['name'], rec['caliber'] + ' ' + rec['name']], ammo_cands, cal_bonus(rec), bar=0.55)
 
 shop = json.load(io.open(os.path.join(PKG, 'blastgang_shop.json'), encoding='utf-8'))
+def shop_bonus(rec):
+    cal = norm(rec.get('ammoNameRaw') or '').replace(' ', '')
+    cal = re.sub(r'^([0-9.x]+(?:mm)?).*$', r'\1', cal).replace('mm', '')
+
+    def f(t):
+        wc = norm(items[t]['_props'].get('ammoCaliber', '')).replace('caliber', '').replace(' ', '').replace('mm', '')
+        if not cal or not wc:
+            return 0
+        return 0.2 if cal in wc or wc in cal else -0.15
+    return f
+
+
 for rec in shop:
-    add('blastgang', rec, [rec['name']] + rec.get('variantNames', []), candidates(SHOP_PARENT.get(rec['shopCategory'], WEAPON)))
+    parent = SHOP_PARENT.get(rec['shopCategory'], WEAPON)
+    add('blastgang', rec, [rec['name']] + rec.get('variantNames', []), candidates(parent), shop_bonus(rec) if parent == WEAPON else None, bar=0.45)
 
 json.dump({'targetSptVersion': '4.1.6', 'generatedBy': 'tools/map-templates.py', 'mappings': out},
           io.open(os.path.join(PKG, 'template_mapping.filled.json'), 'w', encoding='utf-8'), indent=1, ensure_ascii=False)
