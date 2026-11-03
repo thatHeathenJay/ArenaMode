@@ -53,6 +53,15 @@ foreach ($f in $stubFiles) {
 foreach ($dll in Get-ChildItem $eftManaged -Filter *.dll) {
     New-Item -ItemType HardLink -Path "$stub\EscapeFromTarkovArena_Data\Managed\$($dll.Name)" -Target $dll.FullName | Out-Null
 }
+# TextMeshPro: the Unity 6 layout differs from the EFT client (TMP 3.0.6), so swap in the shim built from tools\TmpShim
+# (dotnet build -c Release there). Remove the hardlink first: copying over a hardlink would overwrite the EFT DLL.
+$shim = Join-Path $PSScriptRoot 'TmpShim\bin\Unity.TextMeshPro.dll'
+if (Test-Path $shim) {
+    $target = "$stub\EscapeFromTarkovArena_Data\Managed\Unity.TextMeshPro.dll"
+    Remove-Item -Force $target
+    Copy-Item $shim $target
+    Write-Host 'Using TextMeshPro layout shim.'
+} else { Write-Warning "TMP shim not built ($shim); text components will not deserialize." }
 Write-Host "Stub game folder: $stub ($($stubFiles.Count) hardlinks)"
 
 New-Item -ItemType Directory -Force $Out | Out-Null
