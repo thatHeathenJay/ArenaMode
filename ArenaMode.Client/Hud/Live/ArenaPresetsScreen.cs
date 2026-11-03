@@ -588,7 +588,19 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
                 ArenaUiBuilder.SetActive(cell, state, false);
             if (customization)
             {
-                ArenaUiBuilder.SetActive(cell, "Header/RightHeader/Arrow", false);
+                // Live's header arrow on a weapon cell opens the build editor for that weapon.
+                bool weaponCell = filled && (slot == EquipmentSlot.FirstPrimaryWeapon || slot == EquipmentSlot.Holster);
+                ArenaUiBuilder.SetActive(cell, "Header/RightHeader/Arrow", weaponCell);
+                var arrow = ArenaUiBuilder.TryFind(cell, "Header/RightHeader/Arrow");
+                if (arrow != null && weaponCell)
+                {
+                    var oldArrow = arrow.GetComponent<ArenaMenuButton>();
+                    if (oldArrow != null) Destroy(oldArrow);
+                    var arrowImage = arrow.GetComponent<Image>();
+                    if (arrowImage != null) arrowImage.raycastTarget = true;
+                    bool holsterCell = slot == EquipmentSlot.Holster;
+                    arrow.gameObject.AddComponent<ArenaMenuButton>().Init(arrow, () => OpenBuildEditor(holsterCell));
+                }
                 SetText(cell, "Header/RightHeader/MetaScore/MetaScoreValue", filled ? ArenaMetascore.ItemScore(item.TemplateId).ToString("N0") : "0");
                 var oldHit = cell.GetComponent<ArenaMenuButton>();
                 if (oldHit != null) Destroy(oldHit);
@@ -937,12 +949,12 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
     // ---------------------------------------------------------------- mods
 
     /// <summary>Live's weapon build editor on this preset's primary; a stock preset becomes a custom one first.</summary>
-    private void OpenBuildEditor()
+    private void OpenBuildEditor(bool holster = false)
     {
         if (!EnsureCustom()) return;
-        if (ItemIn(EquipmentSlot.FirstPrimaryWeapon) == null) return;
+        if (ItemIn(holster ? EquipmentSlot.Holster : EquipmentSlot.FirstPrimaryWeapon) == null) return;
         gameObject.SetActive(false);
-        ArenaBuildEditor.Show(_shown, () =>
+        ArenaBuildEditor.Show(_shown, holster, () =>
         {
             if (this == null || _instance != this) return;
             gameObject.SetActive(true);
@@ -967,7 +979,7 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
     }
 
     /// <summary>"mod:primary/&lt;slot&gt;/..." from the weapon down to the slot, for the server's attachment swap.</summary>
-    internal static string ModPath(CompoundItem weapon, Slot target)
+    internal static string ModPath(CompoundItem weapon, Slot target, bool holster = false)
     {
         var ids = new List<string> { target.ID };
         Item owner = target.ParentItem;
@@ -977,7 +989,7 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
             ids.Insert(0, parentSlot.ID);
             owner = parentSlot.ParentItem;
         }
-        return "mod:primary/" + string.Join("/", ids);
+        return (holster ? "mod:holster/" : "mod:primary/") + string.Join("/", ids);
     }
 
     /// <summary>Edits land on a custom preset: a stock one is copied first, as live does.</summary>

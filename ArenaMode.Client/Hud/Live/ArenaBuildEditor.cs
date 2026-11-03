@@ -46,13 +46,17 @@ internal sealed class ArenaBuildEditor : MonoBehaviour
 
     internal static bool Visible => _instance != null;
 
-    internal static void Show(KitDefinition kit, Action onClosed)
+    private bool _holster;
+
+    /// <summary>Opens on the preset's primary, or on its pistol when <paramref name="holster"/> is set.</summary>
+    internal static void Show(KitDefinition kit, bool holster, Action onClosed)
     {
         if (_instance != null || kit == null || !ArenaUiPack.IsAvailable) return;
         var go = new GameObject("ArenaBuildEditor");
         go.transform.SetParent(Plugin.Instance.transform, false);
         _instance = go.AddComponent<ArenaBuildEditor>();
         _instance._kit = kit;
+        _instance._holster = holster;
         _instance._onClosed = onClosed;
         try { _instance.Build(); }
         catch (Exception ex)
@@ -210,7 +214,7 @@ internal sealed class ArenaBuildEditor : MonoBehaviour
     private void LoadWeapon()
     {
         _weapon = null;
-        try { _weapon = KitBuilder.BuildPrimaryWeapon(_kit, 0, out _); }
+        try { _weapon = KitBuilder.BuildPrimaryWeapon(_holster ? HolsterAsPrimary(_kit) : _kit, 0, out _); }
         catch (Exception ex) { Plugin.ModLogger.LogWarning("Arena build editor: could not build the weapon: " + ex.Message); }
         var header = ArenaUiBuilder.Find(_screen, "ModificationState/Header");
         string name = "";
@@ -404,7 +408,7 @@ internal sealed class ArenaBuildEditor : MonoBehaviour
     {
         if (_dropdown != null) _dropdown.gameObject.SetActive(false);
         _open = null;
-        string path = ArenaPresetsScreen.ModPath(_weapon, slot);
+        string path = ArenaPresetsScreen.ModPath(_weapon, slot, _holster);
         if (path == null) return;
         if (!string.IsNullOrEmpty(ArenaArmory.Edit("swap", _kit.Id, path, tpl))) return;
         Reload();
@@ -413,7 +417,7 @@ internal sealed class ArenaBuildEditor : MonoBehaviour
     private void ResetToDefault()
     {
         if (_weapon == null) return;
-        if (!string.IsNullOrEmpty(ArenaArmory.Edit("swap", _kit.Id, "FirstPrimaryWeapon", _weapon.TemplateId))) return;
+        if (!string.IsNullOrEmpty(ArenaArmory.Edit("swap", _kit.Id, _holster ? "Holster" : "FirstPrimaryWeapon", _weapon.TemplateId))) return;
         Reload();
     }
 
@@ -474,6 +478,30 @@ internal sealed class ArenaBuildEditor : MonoBehaviour
     }
 
     // ---------------------------------------------------------------- helpers
+
+    /// <summary>The preset's pistol subtree as a kit of its own, so the primary-weapon builder can build it.</summary>
+    private static KitDefinition HolsterAsPrimary(KitDefinition kit)
+    {
+        var root = kit.Items.FirstOrDefault(n => string.Equals(n.SlotId, "Holster", StringComparison.OrdinalIgnoreCase));
+        if (root == null) return new KitDefinition { Id = kit.Id, Items = new List<KitItemNode>() };
+        var ids = new HashSet<string>(StringComparer.Ordinal) { root.Id };
+        bool grew = true;
+        while (grew)
+        {
+            grew = false;
+            foreach (var node in kit.Items)
+                if (node.ParentId != null && ids.Contains(node.ParentId) && ids.Add(node.Id)) grew = true;
+        }
+        return new KitDefinition
+        {
+            Id = kit.Id,
+            Items = kit.Items.Where(n => ids.Contains(n.Id)).Select(n => new KitItemNode
+            {
+                Id = n.Id, Tpl = n.Tpl, ParentId = n.ParentId, Upd = n.Upd,
+                SlotId = ReferenceEquals(n, root) ? "FirstPrimaryWeapon" : n.SlotId,
+            }).ToList(),
+        };
+    }
 
     private static float Safe(Func<float> read) { try { return read(); } catch { return 0f; } }
     private static string Safe(Func<string> read) { try { return read() ?? ""; } catch { return ""; } }

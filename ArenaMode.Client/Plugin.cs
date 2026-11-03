@@ -184,6 +184,7 @@ public class Plugin : BaseUnityPlugin
         gameObject.AddComponent<ArenaController>();
         gameObject.AddComponent<Hud.Live.ArenaMainMenuOverlay>();
         gameObject.AddComponent<Hud.Live.ArenaBattleMenu>();
+        gameObject.AddComponent<Hud.Live.ArenaSettingsSkin>();
         gameObject.AddComponent<Combat.Akimbo.ArenaAkimbo>();
         gameObject.AddComponent<Areas.ArenaAreaCapture>();
         gameObject.AddComponent<Pickups.ArenaPickupCapture>();
