@@ -13,13 +13,16 @@ internal static class ArenaLiveSounds
     private static readonly Dictionary<string, AudioClip> Cache = new(StringComparer.OrdinalIgnoreCase);
     private static readonly ArenaMasterAudioOutput Output = new();
 
-    internal static void Play(string file, float volume = 1f)
+    /// <param name="output">A separate output keeps speech from being cut by stings; null = the shared one.</param>
+    /// <param name="onStarted">Called with the clip length in seconds when playback starts.</param>
+    internal static void Play(string file, float volume = 1f, ArenaMasterAudioOutput output = null, Action<float> onStarted = null)
     {
+        output ??= Output;
         try
         {
             if (Cache.TryGetValue(file, out var clip))
             {
-                if (clip != null) Output.TryPlay(clip, volume, out _);
+                if (clip != null && output.TryPlay(clip, volume, out _)) onStarted?.Invoke(clip.length);
                 return;
             }
             string path = Path.Combine(ArenaUiPack.Directory, "sounds", file);
@@ -35,7 +38,7 @@ internal static class ArenaLiveSounds
                     var loaded = DownloadHandlerAudioClip.GetContent(request);
                     loaded.name = "Arena UI " + file;
                     Cache[file] = loaded;
-                    Output.TryPlay(loaded, volume, out _);
+                    if (output.TryPlay(loaded, volume, out _)) onStarted?.Invoke(loaded.length);
                 }
                 finally { request.Dispose(); }
             };

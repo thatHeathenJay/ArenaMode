@@ -1,7 +1,7 @@
 """Builds the arena-ui pack the client HUD renders from: the in-match layouts (tools/arena-ui-export.py JSON),
 every texture they reference, and the weapon silhouettes the kill log names by SPT short name.
 
-  py pack-arena-ui.py <arena-ui json dir> <rip Assets dir> <out dir> [--db <SPT database dir>]
+  py pack-arena-ui.py <arena-ui json dir> <rip Assets dir> <out dir> [--db <SPT database dir>] [--bundles <bundle rip project dir>]
 
 The output goes next to the client DLL (BepInEx/plugins/maschine-ArenaMode/arena-ui). It is built from the
 player's own EFT: Arena install and is never committed or shipped."""
@@ -66,6 +66,54 @@ def fix_wav(src, dst):
         f.write(b'data' + struct.pack('<I', len(data)) + data)
 
 
+# Live commentator (arenaspeakertagbankmanagereng.bundle via Rip-ArenaBundles.ps1): the families Team Fight uses,
+# capped per family so the pack stays small (~500 KB per line).
+COMMENTATOR = ['start', 'first_blood', 'player_death', 'tm_player_death_red', 'tm_player_death_blue', 'killing_streak',
+               'tm_sweep_team', 'blue_team_lead_match_start', 'blue_team_lead_match_middle', 'blue_team_lead_match_end',
+               'red_team_lead_match_start', 'red_team_lead_match_middle', 'red_team_lead_match_end',
+               '3_min_left', '1_min_left', 'end_of_time', 'eng_final_battle', 'eng_match_end_blue', 'eng_match_end_red',
+               'low_death_intensity', 'high_death_intensity', 'count_down']
+COMMENTATOR_VARIANTS = 6
+STINGS = {'arenasoundeffectswrapper': ['win_shield.ogg', 'loose_shield.ogg', 'draw_shield.wav', 'big_score.wav',
+                                       'small_score_2.wav', 'result_music_start.wav', 'result_music_loop.wav',
+                                       'result_music_end_winner.wav', 'result_music_end_looser.wav', 'final_screen.ogg'],
+          'arenasoundeffectstagbankmanager': ['asrena_start_signal_dry.wav']}
+
+
+def pack_bundles(bundles, out):
+    """Commentator lines and result stings from the bundle rip into sounds/commentator and sounds/."""
+    sounds = os.path.join(out, 'sounds')
+    voice = os.path.join(sounds, 'commentator')
+    os.makedirs(voice, exist_ok=True)
+    count = 0
+    clips = os.path.join(bundles, 'arenaspeakertagbankmanagereng', 'ExportedProject', 'Assets', 'AudioClip')
+    names = sorted(n for n in os.listdir(clips) if n.endswith('.wav')) if os.path.isdir(clips) else []
+    for family in COMMENTATOR:
+        prefix = 'eng_commentator_' + family + '_'
+        picked = [n for n in names if n.startswith(prefix) and n[len(prefix):-4].isdigit()][:COMMENTATOR_VARIANTS]
+        if not picked and family == 'count_down':
+            picked = [n for n in names if n.startswith('eng_commentator_count_down')]
+        for i, n in enumerate(picked, start=1):
+            # every file ends in _NN so the client can split family and variant
+            name = n if n[len(prefix):-4].isdigit() else f'eng_commentator_{family}_{i:02d}.wav'
+            fix_wav(os.path.join(clips, n), os.path.join(voice, name)); count += 1
+    draws = [n for n in names if n.startswith('eng_clash_draw_')][:COMMENTATOR_VARIANTS]
+    for n in draws:
+        fix_wav(os.path.join(clips, n), os.path.join(voice, 'eng_commentator_draw_' + n[len('eng_clash_draw_'):])); count += 1
+    for bundle, files in STINGS.items():
+        folder = os.path.join(bundles, bundle, 'ExportedProject', 'Assets', 'AudioClip')
+        for name in files:
+            src = os.path.join(folder, name)
+            if not os.path.isfile(src):
+                continue
+            if name.endswith('.wav'):
+                fix_wav(src, os.path.join(sounds, name))
+            else:
+                shutil.copyfile(src, os.path.join(sounds, name))
+            count += 1
+    return count
+
+
 def pack_sounds(assets, out):
     clips = os.path.join(assets, 'AudioClip')
     sounds = os.path.join(out, 'sounds')
@@ -98,9 +146,11 @@ def sprite_refs(node, out):
 
 def main():
     args = sys.argv[1:]
-    db = None
+    db = bundles = None
     if '--db' in args:
         i = args.index('--db'); db = args[i + 1]; del args[i:i + 2]
+    if '--bundles' in args:
+        i = args.index('--bundles'); bundles = args[i + 1]; del args[i:i + 2]
     if len(args) != 3:
         print(__doc__); sys.exit(2)
     layouts, assets, out = args
@@ -142,7 +192,8 @@ def main():
                 if not os.path.exists(dst):
                     shutil.copyfile(src, dst); weapons += 1
     sounds = pack_sounds(assets, out)
-    print(f'{len(LAYOUTS)} layouts, {len(refs) - len(missing)} textures, {weapons} weapon silhouettes, {sounds} sounds -> {out}')
+    voice = pack_bundles(bundles, out) if bundles else 0
+    print(f'{len(LAYOUTS)} layouts, {len(refs) - len(missing)} textures, {weapons} weapon silhouettes, {sounds} sounds, {voice} bundle clips -> {out}')
     if missing:
         print('missing textures:', *missing, sep='\n  ')
 
