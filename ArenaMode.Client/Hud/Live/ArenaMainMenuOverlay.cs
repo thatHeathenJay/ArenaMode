@@ -373,6 +373,7 @@ internal sealed class ArenaMenuButton : MonoBehaviour, IPointerEnterHandler, IPo
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        Plugin.ModLogger.LogDebug($"Arena click: {name} (canvas {GetComponentInParent<Canvas>()?.rootCanvas?.name}, hit {eventData.pointerCurrentRaycast.gameObject?.name})");
         ArenaLiveSounds.Play("arena_button_click.wav", 0.8f);
         try { _action?.Invoke(); }
         catch (Exception ex) { Plugin.ModLogger.LogWarning("Arena main menu action failed: " + ex.Message); }

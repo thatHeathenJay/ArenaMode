@@ -108,6 +108,13 @@ internal sealed class ArenaPresetListScreen : MonoBehaviour
         scaler.matchWidthOrHeight = 0.5f;
         gameObject.AddComponent<GraphicRaycaster>();
 
+        // Nothing underneath (the main menu) may take a click while the list is up.
+        var blocker = (RectTransform)new GameObject("Blocker", typeof(RectTransform)).transform;
+        blocker.gameObject.layer = 5;
+        blocker.SetParent(transform, false);
+        ArenaUiBuilder.Stretch(blocker);
+        var blockerImage = blocker.gameObject.AddComponent<Image>();
+        blockerImage.color = Color.clear; blockerImage.raycastTarget = true;
         _root = _builder.Build(_layout, transform);
         ArenaUiBuilder.Stretch(_root);
         foreach (var path in new[] { "Mask", "InteractionBlocker", "ScreenEntryTutorialStep", "Header/ViewTabs", "Header/PresetTabs/ClassTypesTutorialStepRect" })
@@ -273,6 +280,7 @@ internal sealed class ArenaPresetListScreen : MonoBehaviour
         var profile = SessionProfile();
         foreach (var kit in kits) BuildCard(grid, kit, profile);
         if (custom) BuildCreateCard(grid, classId);
+        Plugin.ModLogger.LogDebug($"Arena presets list: {title} section, {kits.Count} cards" + (custom ? " + create" : "") + $" for {classId ?? "favorites"}.");
 
         int count = kits.Count + (custom ? 1 : 0);
         int rows = Math.Max(1, (count + 4) / 5);
