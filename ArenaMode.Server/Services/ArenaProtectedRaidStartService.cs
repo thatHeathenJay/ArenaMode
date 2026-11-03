@@ -137,6 +137,15 @@ public sealed class ArenaProtectedRaidStartService(
                         request,
                         transactionTimeout.Token);
 
+                // A co-op server (Fika) serves the location it generated at lobby creation, before this session
+                // was armed, so the generation postfix never mutated it. Mutate that object in place now and adopt
+                // it as the exact clone; joining clients get the same object from the match.
+                if (response.LocationLoot is SPTarkov.Server.Core.Models.Eft.Common.LocationBase served
+                    && !sessions.IsStashedLocationClone(sessionId, served))
+                {
+                    Patches.ArenaGenerateLocationAndLootPatch.Apply(sessionId, request.Location ?? served.Id ?? string.Empty, served);
+                }
+
                 // Do not return an unrestricted location after the bounded
                 // filter failed. The finally block settles native work before
                 // exact-token failed-start recovery may restore the snapshot.

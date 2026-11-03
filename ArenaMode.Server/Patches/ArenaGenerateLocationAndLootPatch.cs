@@ -24,6 +24,15 @@ public sealed class ArenaGenerateLocationAndLootPatch : AbstractPatch
 
     [PatchPostfix]
     public static void Postfix(MongoId sessionId, string name, LocationBase __result)
+        => Apply(sessionId, name, __result);
+
+    /// <summary>
+    /// Mutates a freshly generated location for the armed arena session and stashes it as the exact clone.
+    /// Also called from the protected raid start when a co-op server (Fika) answers with a location it generated
+    /// earlier, at lobby creation, which this postfix never saw: the mutation is applied in place to that object,
+    /// so the host and every joining client receive the arena version.
+    /// </summary>
+    public static void Apply(MongoId sessionId, string name, LocationBase __result)
     {
         var sessions = ArenaContext.Sessions;
         if (sessions == null || !sessions.IsInRaid(sessionId))

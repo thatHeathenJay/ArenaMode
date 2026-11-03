@@ -1419,6 +1419,16 @@ public class ArenaSessionService
 
     /// <summary>Remember the per-raid LocationBase clone so the hostility postfix can
     /// verify by reference that it is adjusting OUR arena clone, not a normal raid's.</summary>
+    public bool IsStashedLocationClone(MongoId sessionId, object? candidate)
+    {
+        lock (_lock)
+        {
+            return candidate != null
+                   && _sessions.TryGetValue(sessionId.ToString(), out var entry)
+                   && ReferenceEquals(entry.LocationClone, candidate);
+        }
+    }
+
     public void StashLocationClone(MongoId sessionId, object clone)
     {
         lock (_lock)
