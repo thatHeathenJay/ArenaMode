@@ -31,7 +31,7 @@ internal static class ArenaGameType
     /// </summary>
     internal static bool IsBotGameOf(object botGame, object game)
         => ReferenceEquals(botGame, game)
-           || (Comfort.Common.Singleton<EFT.IBotGame>.Instantiated && ReferenceEquals(botGame, Comfort.Common.Singleton<EFT.IBotGame>.Instance));
+           || (Comfort.Common.Singleton<IBotGame>.Instantiated && ReferenceEquals(botGame, Comfort.Common.Singleton<IBotGame>.Instance));
 
     /// <summary>A method declared on the concrete game class, falling back to the inherited one.</summary>
     internal static System.Reflection.MethodInfo Method(string name, Type[] parameters = null)
