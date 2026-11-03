@@ -196,6 +196,8 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
         BuildItemsPanel();
 
         BuildHeader(root);
+        ArenaMenuChrome.BuildFooter(_pack, root, SessionProfile(), () => { Hide(); ArenaPresetListScreen.Hide(); },
+            ArenaMainMenuOverlay.ShowSettings, () => { });
 
         string selected = Settings.SelectedKit.Value;
         var selectedKit = _initial

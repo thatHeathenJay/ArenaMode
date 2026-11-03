@@ -119,6 +119,7 @@ internal sealed class ArenaPresetListScreen : MonoBehaviour
         ArenaUiBuilder.Stretch(_root);
         foreach (var path in new[] { "Mask", "InteractionBlocker", "ScreenEntryTutorialStep", "Header/ViewTabs", "Header/PresetTabs/ClassTypesTutorialStepRect" })
             ArenaUiBuilder.SetActive(_root, path, false);
+        ArenaMenuChrome.BuildFooter(_pack, _root, SessionProfile(), Hide, ArenaMainMenuOverlay.ShowSettings, () => { });
 
         var tabs = ArenaUiBuilder.Find(_root, "Header/PresetTabs");
         foreach (var (id, tabName, _, label) in Classes)
