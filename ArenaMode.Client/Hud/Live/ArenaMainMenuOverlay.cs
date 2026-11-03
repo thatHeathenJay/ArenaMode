@@ -1,6 +1,7 @@
 using Comfort.Common;
 using EFT;
 using EFT.UI;
+using EFT.UI.Matchmaker;
 using EFT.UI.Screens;
 using HarmonyLib;
 using System;
@@ -41,8 +42,12 @@ internal sealed class ArenaMainMenuOverlay : MonoBehaviour
     private GameObject _canvasGo;
     private ArenaUiPack _pack;
     private MenuScreen _menu;
-    private CanvasGroup _menuGroup;
-    private bool _taskbarHidden, _anchorsLogged;
+    private MenuTaskBar _taskbar;
+    private readonly List<CanvasGroup> _addedGroups = new();
+    private readonly List<GameObject> _hiddenObjects = new();
+    private bool _taskbarHidden;
+    private Session.ArenaCharacterPreview _preview;
+    private RectTransform _modelHost;
 
     internal static bool Visible { get; private set; }
 
@@ -58,6 +63,8 @@ internal sealed class ArenaMainMenuOverlay : MonoBehaviour
         catch { /* screen manager not ready */ }
         if (wanted && _canvasGo == null) Show();
         else if (!wanted && _canvasGo != null) Hide();
+        if (_preview != null && Input.GetMouseButton(0) && Input.mousePosition.x > Screen.width * 0.55f)
+            _preview.Rotate(-Input.GetAxis("Mouse X"), 1f);
     }
 
     private void OnDestroy() => Hide();
@@ -102,15 +109,15 @@ internal sealed class ArenaMainMenuOverlay : MonoBehaviour
                     }
             }
 
-            _menuGroup = _menu.GetComponent<CanvasGroup>() ?? _menu.gameObject.AddComponent<CanvasGroup>();
-            _menuGroup.alpha = 0f;
-            _menuGroup.blocksRaycasts = false;
+            _taskbar = Object.FindObjectOfType<MenuTaskBar>();   // before it is hidden: Settings drives its toggle
+            HideStockMenu();
             if (MonoBehaviourSingleton<PreloaderUI>.Instantiated)
             {
                 MonoBehaviourSingleton<PreloaderUI>.Instance.SetMenuTaskBarVisibility(false);
                 _taskbarHidden = true;
             }
-            PlaceCharacter();
+            _modelHost = ArenaUiBuilder.TryFind(menu, "PlayerModelImage");
+            ShowCharacter();
             Visible = true;
             Plugin.ModLogger.LogInfo("Arena main menu shown over EFT's.");
         }
@@ -124,13 +131,14 @@ internal sealed class ArenaMainMenuOverlay : MonoBehaviour
     private void Hide()
     {
         Visible = false;
-        if (_menuGroup != null)
-        {
-            _menuGroup.alpha = 1f;
-            _menuGroup.blocksRaycasts = true;
-        }
-        _menuGroup = null;
+        try { _preview?.Dispose(); } catch { /* already gone */ }
+        _preview = null;
+        foreach (var group in _addedGroups) if (group != null) Object.Destroy(group);
+        _addedGroups.Clear();
+        foreach (var go in _hiddenObjects) if (go != null) go.SetActive(true);
+        _hiddenObjects.Clear();
         _menu = null;
+        _taskbar = null;
         if (_taskbarHidden && MonoBehaviourSingleton<PreloaderUI>.Instantiated)
             MonoBehaviourSingleton<PreloaderUI>.Instance.SetMenuTaskBarVisibility(true);
         _taskbarHidden = false;
@@ -144,9 +152,7 @@ internal sealed class ArenaMainMenuOverlay : MonoBehaviour
 
     private static void BindProfile(RectTransform menu)
     {
-        Profile profile = null;
-        try { profile = SPT.Reflection.Utils.ClientAppUtils.GetMainApp()?.GetClientBackEndSession()?.Profile; }
-        catch { /* no session yet */ }
+        var profile = SessionProfile();
         var info = ArenaUiBuilder.Find(menu, "ProfileInfoPanel/InfoGroup");
         ArenaUiBuilder.Text(info, "PlayerNameLabel").text = profile?.Nickname ?? "";
         ArenaUiBuilder.Text(info, "MoneyBlock/Money").text = Roubles(profile).ToString("N0");
@@ -185,6 +191,80 @@ internal sealed class ArenaMainMenuOverlay : MonoBehaviour
         button.Init(node, action);
     }
 
+    /// <summary>
+    /// EFT re-drives the screen's own fade group every frame, so each child gets its own group instead; the scene
+    /// logo, warning labels, version label and Fika's player panel are plain objects switched off while we are up.
+    /// </summary>
+    private void HideStockMenu()
+    {
+        foreach (Transform child in _menu.transform)
+        {
+            var group = child.GetComponent<CanvasGroup>();
+            if (group == null) { group = child.gameObject.AddComponent<CanvasGroup>(); _addedGroups.Add(group); }
+            group.alpha = 0f;
+            group.blocksRaycasts = false;
+        }
+        HideObject(_menu._warningGameObject);
+        HideObject(_menu._alphaWarningGameObject);
+        foreach (var root in Object.FindObjectsOfType<EnvironmentUIRoot>())
+        {
+            HideObject(Traverse.Create(root).Field("_regularLogo").GetValue<GameObject>());
+            HideObject(Traverse.Create(root).Field("_pveLogo").GetValue<GameObject>());
+        }
+        if (MonoBehaviourSingleton<PreloaderUI>.Instantiated)
+            HideObject(Traverse.Create(MonoBehaviourSingleton<PreloaderUI>.Instance).Field("_alphaVersionLabel").GetValue<LocalizedText>()?.gameObject);
+        try
+        {
+            var fikaMenu = AccessTools.TypeByName("Fika.Core.UI.Custom.MainMenuUIScript");
+            var instance = fikaMenu == null ? null : AccessTools.Property(fikaMenu, "Instance")?.GetValue(null) as MonoBehaviour;
+            if (instance != null) HideObject(instance.gameObject);
+        }
+        catch { /* no Fika */ }
+    }
+
+    private void HideObject(GameObject go)
+    {
+        if (go == null || !go.activeSelf) return;
+        go.SetActive(false);
+        _hiddenObjects.Add(go);
+    }
+
+    /// <summary>
+    /// The stock 0.16 menu has no character; live keeps one on the right. The mod's own character preview (a
+    /// separate camera around the native side-selection model view) renders the profile into the layout's model image.
+    /// </summary>
+    private void ShowCharacter()
+    {
+        if (_modelHost == null) return;
+        try
+        {
+            MatchMakerSideSelectionScreen screen = null;
+            foreach (var candidate in Resources.FindObjectsOfTypeAll<MatchMakerSideSelectionScreen>())
+                if (candidate != null && candidate.gameObject.scene.IsValid()) { screen = candidate; break; }
+            var profile = SessionProfile();
+            if (screen == null || profile == null)
+            {
+                Plugin.ModLogger.LogInfo("Arena main menu: no side-selection screen or profile yet; character skipped.");
+                return;
+            }
+            _preview = new Session.ArenaCharacterPreview(screen, profile, () => Plugin.ModLogger.LogWarning("Arena main menu character unavailable."));
+            _preview.HoldForFlow(null);
+            _preview.ShowAt(_modelHost, _modelHost);
+        }
+        catch (Exception ex)
+        {
+            Plugin.ModLogger.LogWarning("Arena main menu character failed: " + ex.Message);
+            try { _preview?.Dispose(); } catch { /* ignore */ }
+            _preview = null;
+        }
+    }
+
+    private static Profile SessionProfile()
+    {
+        try { return SPT.Reflection.Utils.ClientAppUtils.GetMainApp()?.GetClientBackEndSession()?.Profile; }
+        catch { return null; }
+    }
+
     private void Play() => _menu?._playButton?.OnClick?.Invoke();
 
     private void Quit() => _menu?._exitButton?.OnClick?.Invoke();
@@ -193,42 +273,19 @@ internal sealed class ArenaMainMenuOverlay : MonoBehaviour
     {
         try
         {
-            var taskbar = Object.FindObjectOfType<MenuTaskBar>();
-            var toggles = Traverse.Create(taskbar).Field("_toggleButtons").GetValue<Dictionary<EMenuType, AnimatedToggle>>();
-            if (toggles != null && toggles.TryGetValue(EMenuType.Settings, out var toggle) && toggle != null)
-                toggle.isOn = true;
+            var toggles = _taskbar == null ? null : Traverse.Create(_taskbar).Field("_toggleButtons").GetValue<Dictionary<EMenuType, AnimatedToggle>>();
+            if (toggles == null) { Plugin.ModLogger.LogWarning("Arena main menu: taskbar toggles unavailable."); return; }
+            if (!toggles.TryGetValue(EMenuType.Settings, out var toggle) || toggle == null)
+            {
+                Plugin.ModLogger.LogWarning("Arena main menu: no Settings toggle; taskbar has " + string.Join(", ", toggles.Keys));
+                return;
+            }
+            toggle.isOn = false;
+            toggle.isOn = true;
         }
         catch (Exception ex) { Plugin.ModLogger.LogWarning("Arena main menu: settings unavailable: " + ex.Message); }
     }
 
-    /// <summary>Live keeps the character on the right. The menu scene anchors it by a ScreenPositionAnchor.</summary>
-    private void PlaceCharacter()
-    {
-        try
-        {
-            foreach (var root in Object.FindObjectsOfType<EnvironmentUIRoot>())
-            {
-                if (root.ScreenAnchors == null) continue;
-                foreach (var anchor in root.ScreenAnchors)
-                {
-                    if (anchor == null) continue;
-                    var t = Traverse.Create(anchor);
-                    var alignment = t.Field("_alignment").GetValue<TextAnchor>();
-                    var position = t.Field("_position").GetValue<Vector2>();
-                    if (!_anchorsLogged)
-                        Plugin.ModLogger.LogInfo($"Arena menu anchor: {root.name}/{anchor.name} alignment={alignment} position={position}");
-                    if (anchor.name.IndexOf("player", StringComparison.OrdinalIgnoreCase) >= 0
-                        || anchor.name.IndexOf("character", StringComparison.OrdinalIgnoreCase) >= 0)
-                    {
-                        t.Field("_alignment").SetValue(TextAnchor.MiddleRight);
-                        t.Field("_position").SetValue(new Vector2(-0.25f, position.y));
-                    }
-                }
-            }
-            _anchorsLogged = true;
-        }
-        catch (Exception ex) { Plugin.ModLogger.LogWarning("Arena main menu: character placement skipped: " + ex.Message); }
-    }
 }
 
 /// <summary>Arena's animated menu button: label only at rest, background and highlight icon on hover.</summary>
