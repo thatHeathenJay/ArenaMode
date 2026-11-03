@@ -118,7 +118,7 @@ internal sealed class ArenaMainMenuOverlay : MonoBehaviour
             }
             BindProfile(menu);
             var buttons = ArenaUiBuilder.Find(menu, "ArenaMainMenuLeftPanel/MainMenuSimpleButtons");
-            Wire(buttons, "MatchingButtons/StartMatchingButton", Play);
+            Wire(buttons, "MatchingButtons/StartMatchingButton", ArenaBattleFlow.Show);
             Wire(buttons, "Aresenal_Trading/PresetsButton", ArenaPresetListScreen.Show);
             Wire(buttons, "Settings_Quit/SettingsButton", OpenSettings);
             Wire(buttons, "Settings_Quit/QuitButton", Quit);
@@ -159,6 +159,7 @@ internal sealed class ArenaMainMenuOverlay : MonoBehaviour
         try { _preview?.Dispose(); } catch { /* already gone */ }
         _preview = null;
         ArenaPresetsScreen.Hide();
+        ArenaBattleFlow.Hide();
         ArenaPresetListScreen.Hide();
         ArenaResultOverlay.Hide();
         _menu = null;
@@ -312,6 +313,13 @@ internal sealed class ArenaMainMenuOverlay : MonoBehaviour
     }
 
     private void Play() => _menu?._playButton?.OnClick?.Invoke();
+
+    /// <summary>EFT's stock play path (the menu's Play button); the Arena battle flow ends here.</summary>
+    internal static void StartStockMatchmaking()
+    {
+        var overlay = Plugin.Instance?.GetComponent<ArenaMainMenuOverlay>();
+        if (overlay != null) overlay.Play();
+    }
 
     // EFT's exit path first warns about the hideout generator; Arena has no hideout. ponytail: plain quit until the
     // Arena exit popup (ArenaExitGamePopup in the rip) replaces the confirmation.
