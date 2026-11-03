@@ -1,6 +1,8 @@
+using ArenaMode.Bots;
 using ArenaMode.Compat;
 using ArenaMode.Config;
 using ArenaMode.Effects;
+using ArenaMode.Session;
 using EFT;
 using System;
 using System.Collections.Generic;
@@ -27,6 +29,10 @@ public sealed partial class TeamDeathmatchMode
     private TeamFightPhase _lastRoundPhase = TeamFightPhase.Assembling;
     private float _roundStateSentAt;
     private bool _roundsAnnouncedLive;
+    private readonly List<DominationObjectivePoint> _roundObjectives = new();
+    private bool _roundBridge;
+    private float _roundLiveAt = -1f, _learnGatesAt = -1f;
+    private Vector3? _rushPoint;
 
     /// <summary>Live TeamFight rules (rounds, one life, capture point) instead of continuous respawns.</summary>
     public bool IsRounds => _roundsMode && _rounds != null;
@@ -47,8 +53,71 @@ public sealed partial class TeamDeathmatchMode
         _rounds = new TeamFightRoundPolicy(Settings.TeamFightRoundsToWin.Value, Settings.TeamFightOpeningSeconds.Value,
             Settings.TeamFightCaptureSeconds.Value, Settings.TeamFightCaptureWindowSeconds.Value);
         _roundPoint = PickRoundPoint();
+        ArenaRoundReset.Reset();
+        // Bots leave the spawn through the Domination objective layer: a point mid-way between the teams for the
+        // opening seconds, then the capture point while it is up.
+        if (ArenaCoop.IsAuthority && DominationObjectiveBridge.Available)
+        {
+            try { DominationObjectiveBridge.Begin(_match, _game, _world); _roundBridge = true; }
+            catch (Exception ex) { Plugin.ModLogger.LogWarning("TeamFight: objective layer unavailable, bots keep native pacing: " + ex.Message); }
+        }
+        else if (ArenaCoop.IsAuthority)
+            Plugin.ModLogger.LogWarning("TeamFight: no Arena BigBrain objective layer; bots keep native pacing off spawn.");
         Plugin.ModLogger.LogInfo($"TeamFight: first to {_rounds.RoundsToWin} rounds; point after {_rounds.OpeningSeconds}s"
             + (_roundPoint.HasValue ? $" at {_roundPoint.Value}" : " (no capture point on this map)") + ".");
+    }
+
+    private void ReleaseRoundBridge()
+    {
+        if (!_roundBridge) return;
+        _roundBridge = false;
+        _roundObjectives.Clear();
+        try { DominationObjectiveBridge.Stop(); } catch { /* already gone */ }
+    }
+
+    /// <summary>Where the bots are sent: mid-way between the teams while the round opens, the point while it is up.</summary>
+    private void DriveRoundBots()
+    {
+        if (!_roundBridge) return;
+        _roundObjectives.Clear();
+        if (_rounds.Phase == TeamFightPhase.Live && !HasResult)
+        {
+            if (_rounds.PointActive && _roundPoint.HasValue)
+                _roundObjectives.Add(new DominationObjectivePoint("point", _roundPoint.Value, _rounds.CaptureUsec, false));
+            else if (_rushPoint.HasValue && Time.time - _roundLiveAt < Settings.TeamFightRushSeconds.Value)
+                _roundObjectives.Add(new DominationObjectivePoint("rush", _rushPoint.Value, null, false));
+        }
+        try { DominationObjectiveBridge.Update(_roundObjectives, _bots.Where(Alive).ToList(), _roundObjectives.Count > 0); }
+        catch (Exception ex) { Plugin.ModLogger.LogDebug("TeamFight: objective update failed: " + ex.Message); }
+    }
+
+    /// <summary>The middle of the arena as the two teams stand at the start: the mean of each side's positions, halved.</summary>
+    private Vector3? ComputeRushPoint()
+    {
+        Vector3 usecSum = Vector3.zero, bearSum = Vector3.zero;
+        int usecCount = 0, bearCount = 0;
+        foreach (var player in _world?.AllAlivePlayersList ?? new List<Player>())
+        {
+            if (player == null || player.HealthController?.IsAlive != true) continue;
+            var side = ArenaSession.TeamDeathmatchBodySide(player, _game, _world);
+            if (side == EPlayerSide.Usec) { usecSum += player.Position; usecCount++; }
+            else if (side == EPlayerSide.Bear) { bearSum += player.Position; bearCount++; }
+        }
+        if (usecCount == 0 || bearCount == 0) return _roundPoint;
+        var middle = (usecSum / usecCount + bearSum / bearCount) * 0.5f;
+        if (Physics.Raycast(middle + Vector3.up * 3f, Vector3.down, out var hit, 12f, LayersMaskController.HighPolyWithTerrainMask))
+            middle = hit.point;
+        return middle;
+    }
+
+    /// <summary>Per-client housekeeping that waits on the clock (gate learning after the first opening).</summary>
+    private void TickRoundReset()
+    {
+        if (_learnGatesAt > 0f && Time.time >= _learnGatesAt)
+        {
+            _learnGatesAt = -1f;
+            ArenaRoundReset.LearnGates();
+        }
     }
 
     private Vector3? PickRoundPoint()
@@ -82,6 +151,8 @@ public sealed partial class TeamDeathmatchMode
         if (_rounds.Phase != before) OnRoundPhaseChanged(before, _rounds.Phase);
         if (_rounds.Phase != before || Time.time - _roundStateSentAt >= 1f) BroadcastRounds();
         UpdateRoundMarker();
+        DriveRoundBots();
+        TickRoundReset();
     }
 
     private GameObject _roundMarker;
@@ -165,6 +236,11 @@ public sealed partial class TeamDeathmatchMode
             foreach (var bot in _bots.Where(Alive).ToList())
                 if (!Retire(bot, "round over")) break;
         }
+        if (now == TeamFightPhase.Live)
+        {
+            _roundLiveAt = Time.time;
+            _rushPoint = ComputeRushPoint();
+        }
         OnRoundPhaseLocal(before, now);
     }
 
@@ -181,11 +257,19 @@ public sealed partial class TeamDeathmatchMode
                 catch (Exception ex) { Plugin.ModLogger.LogWarning("TeamFight: round reset failed: " + ex.Message); }
             }
             _roundsAnnouncedLive = false;
+            if (_rounds.Round > 1)
+            {
+                // The arena as the round found it: doors shut, last round's bodies gone.
+                ArenaRoundReset.CloseDoors();
+                CorpseCleanupService.ClearAllSoon("round reset");
+            }
+            else ArenaRoundReset.Snapshot();
         }
         if (now == TeamFightPhase.Live && !_roundsAnnouncedLive)
         {
             _roundsAnnouncedLive = true;
-            if (_rounds.Round > 1) _match?.ReportAnnouncerCue(ArenaAnnouncerCue.RoundStart);
+            if (_rounds.Round > 1) { _match?.ReportAnnouncerCue(ArenaAnnouncerCue.RoundStart); ArenaRoundReset.OpenGates(); }
+            else _learnGatesAt = Time.time + 8f;        // the first gate release has finished animating by then
         }
     }
 
@@ -221,10 +305,14 @@ public sealed partial class TeamDeathmatchMode
     /// Co-op client tick: no bots to spawn or retire here (the host owns them); sides come from profiles, the
     /// scoreboard roster from the bodies in the world, and the match clock from the host.
     /// </summary>
+    private readonly Dictionary<string, (ArenaScoreboardActor Actor, bool Friendly)> _mirrorSeats = new(StringComparer.Ordinal);
+
     private void MirrorTick()
     {
+        TickRoundReset();
         var friendly = new List<ArenaScoreboardActor>();
         var opposing = new List<ArenaScoreboardActor>();
+        var present = new HashSet<string>(StringComparer.Ordinal);
         foreach (var player in _world?.AllAlivePlayersList ?? new List<Player>())
         {
             if (player == null || ReferenceEquals(player, _local) || string.IsNullOrEmpty(player.ProfileId)) continue;
@@ -238,7 +326,15 @@ public sealed partial class TeamDeathmatchMode
             }
             string seat = player.IsAI ? (usec ? "usec-" : "bear-") + player.ProfileId : null;
             var actor = ArenaMatchService.SnapshotActor(player, seat);
-            if (actor != null) (usec == _population.LocalUsec ? friendly : opposing).Add(actor);
+            if (actor == null) continue;
+            (usec == _population.LocalUsec ? friendly : opposing).Add(actor);
+            if (seat != null) { present.Add(seat); _mirrorSeats[seat] = (actor, usec == _population.LocalUsec); }
+        }
+        foreach (var pair in _mirrorSeats)
+        {
+            if (present.Contains(pair.Key)) continue;
+            var a = pair.Value.Actor;
+            (pair.Value.Friendly ? friendly : opposing).Add(new ArenaScoreboardActor(a.ProfileId, a.DisplayName, a.RoleLabel, false, pair.Key));
         }
         if (!_match.Scoreboard.TrySynchronizeRoster(1, ArenaMatchService.SnapshotActor(_local), friendly, opposing, out var problem))
             Plugin.ModLogger.LogDebug("TeamFight mirror roster: " + problem);

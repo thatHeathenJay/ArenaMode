@@ -139,6 +139,8 @@ internal sealed class ArenaBattleFlow : MonoBehaviour
     private static void Start(string locationId, bool returnToMap)
     {
         Settings.TrySelectGameMode(ArenaModeCatalog.TeamDeathmatchId);   // TeamFight is the fork's team deathmatch
+        if (!ArenaParticipantSettings.TrySelect(locationId, ArenaModeCatalog.TeamDeathmatchId, 10))
+            Plugin.ModLogger.LogWarning($"Arena battle flow: could not set 5v5 participants for {locationId}; the participant setting applies.");
         Hide();
         PendingLocationId = locationId;
         UsedThisSession = true;

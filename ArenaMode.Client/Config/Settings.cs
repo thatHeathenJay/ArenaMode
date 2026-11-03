@@ -210,6 +210,7 @@ public static class Settings
     public static ConfigEntry<int> TeamFightOpeningSeconds { get; private set; }
     public static ConfigEntry<int> TeamFightCaptureSeconds { get; private set; }
     public static ConfigEntry<int> TeamFightCaptureWindowSeconds { get; private set; }
+    public static ConfigEntry<int> TeamFightRushSeconds { get; private set; }
     public static ConfigEntry<int> TeamDeathmatchTimeLimitSeconds { get; private set; }
     public static ConfigEntry<int> DominationScoreLimit { get; private set; }
     public static ConfigEntry<int> DominationTimeLimitSeconds { get; private set; }
@@ -1245,8 +1246,10 @@ public static class Settings
         TeamFightRespawns = config.Bind("TeamFight", "Respawns", false,
             "TeamFight with respawns: a continuous kill-count match (the Team Deathmatch rules below). " +
             "Off = live TeamFight: one life per round, best of rounds, capture point after the opening phase.");
-        TeamFightRoundsToWin = config.Bind("TeamFight", "RoundsToWin", 5,
-            new ConfigDescription("Round wins that take the match (live unranked TeamFight: 5).", new AcceptableValueRange<int>(1, 9)));
+        TeamFightRoundsToWin = config.Bind("TeamFight", "RoundsToWin", 3,
+            new ConfigDescription("Round wins that take the match (3 = best of 5).", new AcceptableValueRange<int>(1, 9)));
+        TeamFightRushSeconds = config.Bind("TeamFight", "RushSeconds", 15,
+            new ConfigDescription("Seconds after a round starts during which bots push to the middle of the arena before fighting tactically.", new AcceptableValueRange<int>(0, 120)));
         TeamFightOpeningSeconds = config.Bind("TeamFight", "OpeningSeconds", 90,
             new ConfigDescription("Seconds into a round before the capture point appears.", new AcceptableValueRange<int>(0, 600)));
         TeamFightCaptureSeconds = config.Bind("TeamFight", "CaptureSeconds", 10,

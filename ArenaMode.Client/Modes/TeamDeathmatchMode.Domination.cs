@@ -33,7 +33,7 @@ public sealed partial class TeamDeathmatchMode
     private int MatchCountdownRemaining(float now) => IsDomination
         ? _dominationRules?.CountdownRemaining(now) ?? 0 : _rules?.CountdownRemaining(now) ?? 0;
     internal string ObjectiveStatusLine => _domination?.StatusLine ?? "";
-    internal int ObjectiveCount => _dominationRules?.Points.Count ?? 0;
+    internal int ObjectiveCount => IsDomination ? _dominationRules?.Points.Count ?? 0 : _roundObjectives.Count;
     internal bool CanPlacePickup(Vector3 floor) => !IsDomination
         || ObjectiveHudVisible && _domination?.AllowsPickup(floor) == true;
     internal bool ObjectiveHudVisible => IsDomination && !_ended && !_nativeStopObserved

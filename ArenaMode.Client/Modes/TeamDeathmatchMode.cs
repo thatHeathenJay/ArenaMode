@@ -441,6 +441,10 @@ public sealed partial class TeamDeathmatchMode : IArenaMode
     // body it replaces, so the enemy team's kills survive their deaths instead of leaving with each corpse.
     private readonly Dictionary<string, string> _seatById = new Dictionary<string, string>(StringComparer.Ordinal);
 
+    /// <summary>What a seat looks like to the players: the first occupant's name, carried by every replacement.</summary>
+    private sealed class Seat { public string Name, Label, LastProfileId; }
+    private readonly Dictionary<string, Seat> _seats = new Dictionary<string, Seat>(StringComparer.Ordinal);
+
     private string SeatFor(BotOwner bot, bool usec)
     {
         if (_seatById.TryGetValue(bot.ProfileId, out string seat)) return seat;
@@ -454,6 +458,17 @@ public sealed partial class TeamDeathmatchMode : IArenaMode
         foreach (string previous in _seatById.Where(pair => pair.Value == seat).Select(pair => pair.Key).ToList())
             _seatById.Remove(previous);
         _seatById[bot.ProfileId] = seat;
+        var player = bot.GetPlayer;
+        if (_seats.TryGetValue(seat, out var record))
+        {
+            // Live keeps the same ten names all match; the replacement body wears the seat's name everywhere
+            // (team table, kill feed, death card).
+            record.LastProfileId = bot.ProfileId;
+            try { if (player?.Profile?.Info != null && player.Profile.Info.Nickname != record.Name) player.Profile.Info.Nickname = record.Name; }
+            catch (Exception ex) { Plugin.ModLogger.LogDebug("Team Deathmatch: seat rename skipped: " + ex.Message); }
+        }
+        else
+            _seats[seat] = new Seat { Name = RoleClassifier.DisplayName(player), Label = RoleClassifier.Label(player), LastProfileId = bot.ProfileId };
         return seat;
     }
 
@@ -463,13 +478,16 @@ public sealed partial class TeamDeathmatchMode : IArenaMode
         if (_population == null || _match == null || _local == null || !IsCurrentRaid() || HasResult) return true;
         var friendly = new List<ArenaScoreboardActor>();
         var opposing = new List<ArenaScoreboardActor>();
-        foreach (BotOwner bot in _bots.Where(Alive).Concat(_bots.Where(bot => !Alive(bot))))
+        var occupied = new Dictionary<string, BotOwner>(StringComparer.Ordinal);
+        foreach (BotOwner bot in _bots.Where(Alive))
+            if (bot?.GetPlayer != null && _usecById.TryGetValue(bot.ProfileId, out bool usec)) occupied[SeatFor(bot, usec)] = bot;
+        // Every seat ever taken stays on the table: occupied ones as the living body, the rest as the dead.
+        foreach (var pair in _seats)
         {
-            if (bot == null || bot.GetPlayer == null || !_usecById.TryGetValue(bot.ProfileId, out bool usec)) continue;
-            string seat = Alive(bot) ? SeatFor(bot, usec)
-                : _seatById.TryGetValue(bot.ProfileId, out string kept) ? kept : null;
-            if (seat == null) continue;   // a dead body whose seat a replacement already took
-            var actor = ArenaMatchService.SnapshotActor(bot.GetPlayer, seat);
+            bool usec = pair.Key.StartsWith("usec-", StringComparison.Ordinal);
+            var actor = occupied.TryGetValue(pair.Key, out var bot)
+                ? ArenaMatchService.SnapshotActor(bot.GetPlayer, pair.Key)
+                : new ArenaScoreboardActor(pair.Value.LastProfileId, pair.Value.Name, pair.Value.Label, false, pair.Key);
             if (actor != null) (usec == _population.LocalUsec ? friendly : opposing).Add(actor);
         }
         return _match.Scoreboard.TrySynchronizeRoster(1, ArenaMatchService.SnapshotActor(_local),
@@ -631,6 +649,7 @@ public sealed partial class TeamDeathmatchMode : IArenaMode
     public void OnMatchEnd()
     {
         ReleaseRoundMarker();
+        ReleaseRoundBridge();
         ReleaseDomination();
         ReleaseMonitors();
         ClearSpawnShields();
