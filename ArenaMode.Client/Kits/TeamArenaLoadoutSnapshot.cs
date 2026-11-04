@@ -544,6 +544,13 @@ public sealed class TeamArenaLoadoutSnapshot
             foreach (Slot source in oldPockets.Slots.Where(slot => slot.IsSpecial && slot.ContainedItem != null))
             {
                 Slot destination = newPockets?.Slots.FirstOrDefault(slot => slot.ID == source.ID);
+                if (destination == null && newPockets != null && newPockets.TemplateId != oldPockets.TemplateId)
+                {
+                    // Live's standard pockets have no special slots: what the profile keeps in its own stays
+                    // home, exactly as the respawn path discards it, and the server's profile brings it back.
+                    Plugin.ModLogger.LogDebug($"Entry kit: '{source.ID}' stays with the profile's own pockets.");
+                    continue;
+                }
                 AddTransfer(plan, source, destination, $"Pockets/{source.ID}");
             }
         }
