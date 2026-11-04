@@ -114,6 +114,16 @@ public static class ArenaPresetEditor
                     case "swap": Swap(customs, kitId ?? "", slot ?? "", tpl ?? ""); break;
                     case "add": AddSupply(customs, kitId ?? "", tpl ?? ""); break;
                     case "remove": RemoveSupply(customs, kitId ?? "", tpl ?? ""); break;
+                    case "clear":
+                        {
+                            if (slot is null or "FirstPrimaryWeapon" or "Pockets") throw new InvalidOperationException("that slot cannot be empty");
+                            var kitNode = CustomKit(customs, kitId ?? "");
+                            var kitNodes = kitNode["items"] as JsonArray ?? throw new InvalidOperationException("preset has no items");
+                            string kitRoot = kitNodes.FirstOrDefault(n => n?["parentId"] == null)?["_id"]?.GetValue<string>() ?? "";
+                            RemoveSlot(kitNodes, kitRoot, slot);
+                            TrimSupplies(kitNode);
+                            break;
+                        }
                     case "rename":
                         {
                             string name = (tpl ?? "").Trim();

@@ -502,7 +502,8 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
             try
             {
                 _editor = new ArenaKitInventoryEditor(_shown, _equipment, SessionProfile(),
-                    ArenaUiBuilder.Find(_gears, "Gear Panel"), (RectTransform)containers.parent, holster => OpenBuildEditor(holster));
+                    ArenaUiBuilder.Find(_gears, "Gear Panel"), (RectTransform)containers.parent, holster => OpenBuildEditor(holster),
+                    () => { CloseEditor(false); BindCustomization(); });
             }
             catch (Exception ex)
             {

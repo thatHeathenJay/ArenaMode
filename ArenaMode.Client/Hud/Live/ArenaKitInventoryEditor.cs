@@ -50,9 +50,12 @@ internal sealed class ArenaKitInventoryEditor : IDisposable
 
     internal ItemController Controller => _controller;
 
+    private readonly Action _rebuild;
+
     internal ArenaKitInventoryEditor(KitDefinition kit, InventoryEquipment equipment, Profile profile,
-        RectTransform gearHost, RectTransform containersHost, Action<bool> openBuild)
+        RectTransform gearHost, RectTransform containersHost, Action<bool> openBuild, Action rebuild = null)
     {
+        _rebuild = rebuild;
         _kit = kit ?? throw new ArgumentNullException(nameof(kit));
         _equipment = equipment ?? throw new ArgumentNullException(nameof(equipment));
         _profile = profile;
@@ -241,7 +244,8 @@ internal sealed class ArenaKitInventoryEditor : IDisposable
             {
                 string now = _equipment.GetSlot(slot)?.ContainedItem?.TemplateId;
                 string was = kit.Items.FirstOrDefault(n => n.ParentId == root.Id && string.Equals(n.SlotId, slot.ToString(), StringComparison.OrdinalIgnoreCase))?.Tpl;
-                if (now == null || string.Equals(now, was, StringComparison.OrdinalIgnoreCase)) continue;
+                if (string.Equals(now, was, StringComparison.OrdinalIgnoreCase)) continue;
+                if (now == null) { if (was != null && ArenaArmory.Edit("clear", kit.Id, slot.ToString()) == null) sent++; continue; }
                 if (ArenaArmory.Edit("swap", kit.Id, slot.ToString(), now) == null) sent++;
             }
             kit = Latest();
@@ -367,6 +371,49 @@ internal sealed class ArenaKitInventoryEditor : IDisposable
         if (_patched) return;
         _patched = true;
         new ScorePatch().Enable();
+        new RightClickPatch().Enable();
+    }
+
+    /// <summary>Right click on anything worn or carried takes it off (live's context "unequip"); views rebuild.</summary>
+    private bool TryRemove(Item item)
+    {
+        if (item == null || ReferenceEquals(item, _equipment) || item.Parent == null) return false;
+        if (!_equipment.GetAllItems().Contains(item)) return false;
+        try
+        {
+            switch (item.Parent)
+            {
+                case GridItemAddress grid:
+                    if (grid.Grid.Remove(item, false).Failed) return false;
+                    break;
+                case SlotItemAddress slotAddress:
+                    var slot = slotAddress.Slot;
+                    if (slot.Required || slot.ID == "Pockets" || slot.ID == EquipmentSlot.FirstPrimaryWeapon.ToString()) return false;
+                    if (slot.RemoveItemWithoutRestrictions().Failed) return false;
+                    break;
+                default: return false;
+            }
+        }
+        catch (Exception ex) { Plugin.ModLogger.LogDebug("Arena kit editor: remove failed: " + ex.Message); return false; }
+        Plugin.ModLogger.LogDebug($"Arena kit editor: removed {item.TemplateId}.");
+        _rebuild?.Invoke();
+        return true;
+    }
+
+    private sealed class RightClickPatch : ModulePatch
+    {
+        protected override MethodBase GetTargetMethod() => AccessTools.Method(typeof(ItemView), nameof(ItemView.OnClick),
+            new[] { typeof(UnityEngine.EventSystems.PointerEventData.InputButton), typeof(Vector2), typeof(bool) });
+
+        [PatchPrefix]
+        private static bool Prefix(ItemView __instance, UnityEngine.EventSystems.PointerEventData.InputButton button)
+        {
+            var editor = Current;
+            if (editor == null || button != UnityEngine.EventSystems.PointerEventData.InputButton.Right) return true;
+            Item item = null;
+            try { item = __instance.Item; } catch { /* no item */ }
+            return !editor.TryRemove(item);
+        }
     }
 
     /// <summary>Every item view in the editor's armory carries its metascore, where a price would sit elsewhere.</summary>
