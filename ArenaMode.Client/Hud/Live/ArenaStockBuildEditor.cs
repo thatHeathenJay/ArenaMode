@@ -205,7 +205,7 @@ internal static class ArenaStockBuildEditor
             if (_overlay != null) { UnityEngine.Object.Destroy(_overlay.gameObject); _overlay = null; }
             try
             {
-                var body = Traverse.Create(__instance).Field("_itemBody").GetValue<Item>() as CompoundItem;
+                var body = Traverse.Create(__instance).Field("Item").GetValue<Item>() as CompoundItem;
                 if (body != null) Apply(body);
                 else Plugin.ModLogger.LogWarning("Arena build editor: the build screen holds no weapon; nothing applied.");
             }
@@ -343,7 +343,7 @@ internal sealed class ArenaBuildScoreOverlay : MonoBehaviour
     private void Refresh()
     {
         CompoundItem body = null;
-        try { body = _screen == null ? null : Traverse.Create(_screen).Field("_itemBody").GetValue<Item>() as CompoundItem; } catch { /* closing */ }
+        try { body = _screen == null ? null : Traverse.Create(_screen).Field("Item").GetValue<Item>() as CompoundItem; } catch { /* closing */ }
         var score = ArenaStockBuildEditor.CurrentScore(body);
         float max = Mathf.Max(ArenaMetascore.BandMax, 1f);
         ArenaPresetsScreen.FillBar(_bars[0], score.Firepower, max, "", "");

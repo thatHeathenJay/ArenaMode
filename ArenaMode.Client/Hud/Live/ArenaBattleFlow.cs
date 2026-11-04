@@ -436,38 +436,64 @@ internal sealed class ArenaBattleFlow : MonoBehaviour
     private readonly Dictionary<string, RectTransform> _plates = new(StringComparer.OrdinalIgnoreCase);
     private string _hoverMap;
 
+    private const string PlateAtlas = "Texture2D/Matchmaker_MapButton_Background2.png";
+    private static readonly float[] PlateOrange = { 490.0761f, 0.07413995f, 219.84775f, 99.84974f };   // ticked (glow)
+    private static readonly float[] PlateGrey = { 302.0761f, 32.042908f, 155.84775f, 35.880974f };    // under the pointer
+
+    /// <summary>
+    /// Live's location plate, drawn from its sprites: the pin symbol, the name, and the mode tags underneath; the
+    /// orange glowing plate when ticked, the grey plate under the pointer, bare text otherwise.
+    /// </summary>
     private void BuildPlate(JObject template, string id, string name, Vector2 at, float[] icon)
     {
-        var plate = _builder.Build(template, _pins);
-        plate.name = id;
-        plate.gameObject.SetActive(true);
+        var plate = NewRect(id, _pins);
         plate.anchorMin = plate.anchorMax = at;
         plate.pivot = new Vector2(15f / 186f, 0.5f);                       // the pin symbol sits on the spot
         plate.anchoredPosition = Vector2.zero;
-        // The rip already holds the authored geometry; live's layout groups would re-derive it from sliced
-        // sprite borders and blow the plate up, so they stay off (the mode tag row keeps its own).
-        foreach (var group in plate.GetComponentsInChildren<LayoutGroup>(true))
-            if (group.name != "AvailbaleModesContiainer" && group.name != "AvailableModeTemplate") group.enabled = false;
-        foreach (var fitter in plate.GetComponentsInChildren<ContentSizeFitter>(true)) fitter.enabled = false;
-        ArenaUiBuilder.Text(plate, "Button/MapButton/View/Label").text = name.ToUpperInvariant();
-        var symbol = ArenaUiBuilder.TryFind(plate, "Button/IconHandler/Available Icon")?.GetComponent<Image>();
-        if (symbol != null)
+        plate.sizeDelta = new Vector2(186f, 34f);
+        var hit = plate.gameObject.AddComponent<Image>();
+        hit.color = Color.clear; hit.raycastTarget = true;
+
+        Image Part(string node, float[] rect, Vector2 anchor, Vector2 pos, Vector2 size)
         {
-            symbol.sprite = _pack.Sprite(SpriteRef(MapIcons, name, icon, 100f)) ?? symbol.sprite;
-            symbol.rectTransform.sizeDelta = new Vector2(icon[2], icon[3]);
+            var image = NewRect(node, plate).gameObject.AddComponent<Image>();
+            image.sprite = _pack.Sprite(SpriteRef(PlateAtlas, node, rect, 100f));
+            image.raycastTarget = false;
+            image.rectTransform.anchorMin = image.rectTransform.anchorMax = anchor;
+            image.rectTransform.pivot = new Vector2(0.5f, 0.5f);
+            image.rectTransform.anchoredPosition = pos;
+            image.rectTransform.sizeDelta = size;
+            return image;
         }
-        ArenaUiBuilder.SetActive(plate, "Button/IconHandler/Scanline Icon", false);
-        var selected = ArenaUiBuilder.TryFind(plate, "Button/MapButton/View")?.GetComponent<Image>();
-        if (selected != null) selected.enabled = true;
-        // Live's tags under the plate: one colour-coded abbreviation per mode the arena runs.
-        var tags = ArenaUiBuilder.Find(plate, "AvailbaleModesContiainer");
-        var tag = _builder.Build(ArenaMenuChrome.Find(template, "AvailableModeTemplate"), tags);
-        tag.gameObject.SetActive(true);
-        ArenaUiBuilder.Text(tag, "Text").text = "TF";
-        var tagImage = tag.GetComponent<Image>();
-        if (tagImage != null) tagImage.sprite = _pack.Sprite(ArenaMenuChrome.TagSprite(ArenaMenuChrome.TagTeamFight)) ?? tagImage.sprite;
+        // The plate images cover the name part (x 30..186); the orange one carries its glow around it.
+        Part("Orange", PlateOrange, new Vector2(0f, 0.5f), new Vector2(108f, 0f), new Vector2(220f, 100f)).enabled = false;
+        Part("Grey", PlateGrey, new Vector2(0f, 0.5f), new Vector2(108f, 0f), new Vector2(156f, 36f)).enabled = false;
+        var symbol = NewRect("Pin", plate).gameObject.AddComponent<Image>();
+        symbol.sprite = _pack.Sprite(SpriteRef(MapIcons, name, icon, 100f));
+        symbol.raycastTarget = false;
+        symbol.rectTransform.anchorMin = symbol.rectTransform.anchorMax = new Vector2(0f, 0.5f);
+        symbol.rectTransform.pivot = new Vector2(0.5f, 0.5f);
+        symbol.rectTransform.anchoredPosition = new Vector2(15f, 0f);
+        symbol.rectTransform.sizeDelta = new Vector2(icon[2], icon[3]);
+        var label = HudStyle.CreateText(plate, "Label", 20f, TextAlignmentOptions.MidlineLeft);
+        label.text = name.ToUpperInvariant();
+        label.characterSpacing = 4f; label.enableWordWrapping = false; label.overflowMode = TextOverflowModes.Overflow;
+        label.rectTransform.anchorMin = new Vector2(0f, 0f); label.rectTransform.anchorMax = new Vector2(1f, 1f);
+        label.rectTransform.offsetMin = new Vector2(42f, 0f); label.rectTransform.offsetMax = new Vector2(-4f, 0f);
+        // Mode tags under the plate: one colour-coded abbreviation per mode the arena runs (TeamFight only here).
+        var tag = NewRect("Tag TF", plate).gameObject.AddComponent<Image>();
+        tag.sprite = _pack.Sprite(ArenaMenuChrome.TagSprite(ArenaMenuChrome.TagTeamFight));
+        tag.type = Image.Type.Sliced; tag.raycastTarget = false;
+        tag.rectTransform.anchorMin = tag.rectTransform.anchorMax = new Vector2(0f, 0f);
+        tag.rectTransform.pivot = new Vector2(0f, 1f);
+        tag.rectTransform.anchoredPosition = new Vector2(34f, -2f);
+        tag.rectTransform.sizeDelta = new Vector2(34f, 17f);
+        var tagText = HudStyle.CreateText(tag.rectTransform, "Text", 10f, TextAlignmentOptions.Midline);
+        tagText.text = "TF"; tagText.color = new Color(0.07f, 0.078f, 0.078f, 1f);
+        ArenaUiBuilder.Stretch(tagText.rectTransform);
+
         _plates[id] = plate;
-        Clickable(plate, "ClickHandler", () => ToggleLocation(id), null, false);
+        Clickable(plate, null, () => ToggleLocation(id), null, false);
         plate.GetComponent<ArenaMenuButton>().Hovered = over =>
         {
             _hoverMap = over ? id : (_hoverMap == id ? null : _hoverMap);
@@ -482,13 +508,11 @@ internal sealed class ArenaBattleFlow : MonoBehaviour
         foreach (var pair in _plates)
         {
             bool on = SelectedMaps.Contains(pair.Key), hover = pair.Key == _hoverMap;
-            var orange = ArenaUiBuilder.TryFind(pair.Value, "Button/MapButton/View")?.GetComponent<Image>();
-            if (orange != null) orange.color = new Color(1f, 1f, 1f, on ? 1f : 0f);
-            var grey = ArenaUiBuilder.TryFind(pair.Value, "Button/MapButton/BG")?.GetComponent<Image>();
-            if (grey != null) grey.color = new Color(1f, 1f, 1f, !on && hover ? 1f : 0f);
-            var scan = ArenaUiBuilder.TryFind(pair.Value, "Button/MapButton/ScanlineBackground")?.GetComponent<Image>();
-            if (scan != null) scan.color = new Color(1f, 1f, 1f, 0f);
-            var label = ArenaUiBuilder.TryFind(pair.Value, "Button/MapButton/View/Label")?.GetComponent<TextMeshProUGUI>();
+            var orange = pair.Value.Find("Orange")?.GetComponent<Image>();
+            if (orange != null) orange.enabled = on;
+            var grey = pair.Value.Find("Grey")?.GetComponent<Image>();
+            if (grey != null) grey.enabled = !on && hover;
+            var label = pair.Value.Find("Label")?.GetComponent<TextMeshProUGUI>();
             if (label != null) label.color = on || hover ? new Color(0.07f, 0.078f, 0.078f, 1f) : Color.white;
         }
         Header("TF", ArenaMenuChrome.TagTeamFight,
@@ -560,7 +584,7 @@ internal sealed class ArenaBattleFlow : MonoBehaviour
 
     private static void Clickable(RectTransform node, string hitPath, Action action, Image hover = null, bool tintLabel = true)
     {
-        var hit = ArenaUiBuilder.TryFind(node, hitPath) ?? node;
+        var hit = (hitPath == null ? null : ArenaUiBuilder.TryFind(node, hitPath)) ?? node;
         var image = hit.GetComponent<Image>();
         if (image == null)
         {
