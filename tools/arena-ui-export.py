@@ -91,8 +91,13 @@ class Rip:
         # Script identities for assemblies AssetRipper did not emit stubs for (uGUI, TextMeshPro, EFT packages):
         # computed from the MonoScript list extracted from the game files (tools/arena-monoscripts.json).
         self.script_by_guid = {}
-        ms_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', '..', 'arena-src', 'arena-monoscripts.json')
-        if os.path.exists(ms_path):
+        here = os.path.dirname(os.path.abspath(__file__))
+        # Next to this script (the friend pack ships it there), else the dev tree's Tools/arena-src.
+        ms_path = next((c for c in (os.path.join(here, 'arena-monoscripts.json'),
+                                    os.path.join(here, '..', '..', '..', 'arena-src', 'arena-monoscripts.json')) if os.path.exists(c)), None)
+        if ms_path is None:
+            print('WARNING: arena-monoscripts.json not found; component types will export as MonoBehaviour', file=sys.stderr)
+        if ms_path:
             self.script_by_file_id = {}
             for m in json.load(io.open(ms_path, encoding='utf-8')):
                 full = (m['namespace'] + '.' if m['namespace'] else '') + m['class']
