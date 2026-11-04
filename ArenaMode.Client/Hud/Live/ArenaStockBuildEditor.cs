@@ -62,10 +62,12 @@ internal static class ArenaStockBuildEditor
         _armory = new HashSet<string>(ArenaArmory.Entries.Select(e => e.Tpl), StringComparer.Ordinal);
         foreach (var tpl in _original.Values) if (tpl.Length > 0) _armory.Add(tpl);   // the kit's own parts stay usable
         Active = true;
+        ArenaPresetListScreen.SetDrawn(false);
         try { context.EditWeaponBuild(weapon); }
         catch (Exception ex)
         {
             Active = false;
+            ArenaPresetListScreen.SetDrawn(true);
             Plugin.ModLogger.LogWarning("Arena build editor: EFT's build screen refused the weapon: " + ex.Message);
             return false;
         }
@@ -199,6 +201,7 @@ internal static class ArenaStockBuildEditor
         {
             if (!Active) return;
             Active = false;
+            ArenaPresetListScreen.SetDrawn(true);
             if (_overlay != null) { UnityEngine.Object.Destroy(_overlay.gameObject); _overlay = null; }
             try
             {

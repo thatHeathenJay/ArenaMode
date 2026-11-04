@@ -47,14 +47,21 @@ internal sealed class ArenaUiBuilder
                 }
         // A SoftMask node's Image is the mask shape, never drawn by itself; without the (skipped) SoftMask the white
         // mask texture would paint over the panel.
-        if (node["components"] is JArray all && all.Any(x => x is JObject o && (o.Value<string>("type") ?? "").EndsWith("SoftMask")))
+        bool softMask = node["components"] is JArray all && all.Any(x => x is JObject o && (o.Value<string>("type") ?? "").EndsWith("SoftMask"));
+        if (softMask)
         {
             var masked = go.GetComponent<Image>();
             if (masked != null) masked.enabled = false;
         }
         if (node["children"] is JArray children)
             foreach (var child in children)
-                if (child is JObject c) Build(c, rect);
+                if (child is JObject c)
+                {
+                    var built = Build(c, rect);
+                    // The mask's gradient (about half alpha over its area) is what keeps live's tint and grid faint.
+                    if (softMask && built.GetComponent<Image>() is { } tinted)
+                        tinted.color = new Color(tinted.color.r, tinted.color.g, tinted.color.b, tinted.color.a * 0.5f);
+                }
 
         // EFT.UI.LocalizedText sits on the text itself or on a button whose "Label" child carries the text.
         if (localizationKey != null)

@@ -48,6 +48,16 @@ internal sealed class ArenaPresetListScreen : MonoBehaviour
 
     internal static bool Visible => _instance != null;
 
+    /// <summary>Draws (and takes clicks) or not, without being rebuilt: EFT's build screen opens over it.</summary>
+    internal static void SetDrawn(bool drawn)
+    {
+        if (_instance == null) return;
+        var canvas = _instance.GetComponent<Canvas>();
+        if (canvas != null) canvas.enabled = drawn;
+        var raycaster = _instance.GetComponent<GraphicRaycaster>();
+        if (raycaster != null) raycaster.enabled = drawn;
+    }
+
     internal static void Show()
     {
         if (_instance != null || !ArenaUiPack.IsAvailable) return;

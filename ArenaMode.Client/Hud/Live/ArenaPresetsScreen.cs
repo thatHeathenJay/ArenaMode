@@ -647,6 +647,18 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
         foreach (Transform child in content)
             if (!child.name.EndsWith("Template") && child.name != "ArenaSearchableSlotView") Destroy(child.gameObject);
         ArenaUiBuilder.SetActive(content, "ArenaSearchableSlotView", false);
+        // The list is as wide as its panel; blocks take their height from their layout elements.
+        var listGroup = content.GetComponent<VerticalLayoutGroup>();
+        if (listGroup != null)
+        {
+            listGroup.childControlWidth = listGroup.childControlHeight = true;
+            listGroup.childForceExpandWidth = true; listGroup.childForceExpandHeight = false;
+            listGroup.spacing = 6f;
+        }
+        content.anchorMin = new Vector2(0f, 1f); content.anchorMax = new Vector2(1f, 1f); content.pivot = new Vector2(0.5f, 1f);
+        content.anchoredPosition = Vector2.zero; content.sizeDelta = new Vector2(0f, content.sizeDelta.y);
+        float listWidth = ((RectTransform)content.parent).rect.width;
+        if (listWidth < 100f) listWidth = 540f;
         if (customization)
         {
             var panel = content.parent?.parent?.parent as RectTransform ?? content;
@@ -686,7 +698,7 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
             headName.text = name; headName.color = Muted;
             var row = NewRect("Grids " + index, content);
             // Grids flow left to right and wrap, so every grid of a rig shows (one row was clipped by the panel).
-            float maxWidth = content.rect.width > 100f ? content.rect.width - 16f : 430f;
+            float maxWidth = listWidth - 24f;
             float cursorX = 8f, cursorY = 2f, lineHeight = 0f;
             int gridIndex = 0;
             foreach (var grid in container.Grids)
@@ -856,6 +868,7 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
             if (raycaster != null) DestroyImmediate(raycaster);
             var nested = area.GetComponent<Canvas>();
             if (nested != null) DestroyImmediate(nested);
+            areaImage.color = Color.clear;       // live masks this graphic out; raycasts still land on it
             var scroll = area.gameObject.AddComponent<ScrollRect>();
             scroll.viewport = area; scroll.content = grid; scroll.horizontal = false; scroll.scrollSensitivity = 40f;
             scroll.movementType = ScrollRect.MovementType.Clamped;

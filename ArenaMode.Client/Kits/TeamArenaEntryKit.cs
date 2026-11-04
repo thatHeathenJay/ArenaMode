@@ -34,8 +34,12 @@ public static class TeamArenaEntryKit
 
         var equipment = factory.CreateItem(factory.NextId, source.TemplateId, null) as InventoryEquipment
                         ?? throw new InvalidOperationException("entry kit could not create equipment root");
-        var pockets = factory.CreateItem(factory.NextId, oldPockets.TemplateId, null) as CompoundItem
-                      ?? throw new InvalidOperationException("entry kit could not create source pocket template");
+        // Live hands every fighter the same four-cell pockets; the profile's own (special slots, extra cells) stay home.
+        string pocketsTpl = nodes.Values.FirstOrDefault(n => n.ParentId == root.Id
+            && string.Equals(n.SlotId, "Pockets", StringComparison.OrdinalIgnoreCase))?.Tpl ?? oldPockets.TemplateId;
+        bool ownPockets = string.Equals(pocketsTpl, oldPockets.TemplateId, StringComparison.OrdinalIgnoreCase);
+        var pockets = factory.CreateItem(factory.NextId, pocketsTpl, null) as CompoundItem
+                      ?? throw new InvalidOperationException("entry kit could not create the pocket template");
         Slot pocketSlot = equipment.GetSlot(EquipmentSlot.Pockets)
                           ?? throw new InvalidOperationException("entry kit equipment has no pocket slot");
         var pocketAdd = pocketSlot.AddWithoutRestrictions(pockets);
@@ -51,7 +55,7 @@ public static class TeamArenaEntryKit
             if (nodes.TryGetValue(node.ParentId ?? "", out KitItemNode parent)
                 && parent.ParentId == root.Id
                 && string.Equals(parent.SlotId, "Pockets", StringComparison.OrdinalIgnoreCase)
-                && oldPockets.Slots.Any(slot => slot.IsSpecial && slot.ID == node.SlotId))
+                && ownPockets && oldPockets.Slots.Any(slot => slot.IsSpecial && slot.ID == node.SlotId))
                 skipped.Add(node.Id);
         }
         bool changed;
@@ -160,12 +164,13 @@ public static class TeamArenaEntryKit
             throw new InvalidOperationException("entry kit root is not detached");
         CompoundItem oldPockets = source.GetSlot(EquipmentSlot.Pockets)?.ContainedItem as CompoundItem;
         CompoundItem pockets = equipment.GetSlot(EquipmentSlot.Pockets)?.ContainedItem as CompoundItem;
-        if (oldPockets == null || pockets == null || pockets.TemplateId != oldPockets.TemplateId)
-            throw new InvalidOperationException("entry kit changed the pocket template");
+        if (oldPockets == null || pockets == null)
+            throw new InvalidOperationException("entry kit has no pockets");
         foreach (EquipmentSlot slot in ProtectedSlots)
             if (equipment.GetSlot(slot) == null || equipment.GetSlot(slot).ContainedItem != null)
                 throw new InvalidOperationException("entry kit protected destination is occupied or missing");
-        foreach (Slot special in oldPockets.Slots.Where(slot => slot.IsSpecial))
+        bool samePockets = pockets.TemplateId == oldPockets.TemplateId;
+        foreach (Slot special in samePockets ? oldPockets.Slots.Where(slot => slot.IsSpecial) : Enumerable.Empty<Slot>())
         {
             Slot destination = pockets.Slots.FirstOrDefault(slot => slot.ID == special.ID);
             if (destination == null || !destination.IsSpecial || destination.ContainedItem != null)
