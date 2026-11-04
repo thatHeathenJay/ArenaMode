@@ -79,13 +79,15 @@ public class ArenaArmory(TemplateTable templateTable, GlobalTable globalTable, L
             foreach (var template in templateTable.Items.Values)
             {
                 string tpl = template.Id.ToString();
-                if (listed.Contains(tpl) || ArenaPresetEditor.SlotOf(template.Id) != "Plates") continue;
+                // Plates, and the wearables the metascore never priced (masks, half masks, hats, glasses): cosmetic, score 0.
+                string? extraSlot = ArenaPresetEditor.SlotOf(template.Id);
+                if (listed.Contains(tpl) || extraSlot is not ("Plates" or "FaceCover" or "Headwear" or "Eyewear" or "Earpiece")) continue;
                 if (templateTable.Handbook?.Items?.Any(i => i.Id == template.Id) != true) continue;
                 string? name = null;
                 names?.TryGetValue(tpl + " ShortName", out name);
                 armory.Add(new JsonObject
                 {
-                    ["tpl"] = tpl, ["slot"] = "Plates", ["bar"] = "defense", ["score"] = 0d, ["live"] = false,
+                    ["tpl"] = tpl, ["slot"] = extraSlot, ["bar"] = "defense", ["score"] = 0d, ["live"] = false,
                     ["classes"] = new JsonArray(), ["unlock"] = "", ["name"] = name ?? template.Name ?? tpl, ["items"] = null, ["caliber"] = null,
                 });
             }
