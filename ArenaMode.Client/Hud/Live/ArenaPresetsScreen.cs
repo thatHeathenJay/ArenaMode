@@ -81,6 +81,7 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
     private KitDefinition _shown;
     private Session.ArenaCharacterPreview _preview;
     private InventoryEquipment _equipment;
+    private ArenaKitInventoryEditor _editor;     // EFT's inventory UI over the kit while CUSTOMIZATION is up
 
     internal static bool Visible => _instance != null;
 
@@ -108,8 +109,20 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
         if (_instance == null) return;
         var instance = _instance;
         _instance = null;
+        instance.CloseEditor(true);
         Destroy(instance.gameObject);
         ArenaPresetListScreen.Refresh();
+    }
+
+    /// <summary>Tears the EFT editor down; with <paramref name="apply"/> its changes go to the server first.</summary>
+    private void CloseEditor(bool apply)
+    {
+        var editor = _editor;
+        _editor = null;
+        if (editor == null) return;
+        try { if (apply) editor.Apply(); }
+        catch (Exception ex) { Plugin.ModLogger.LogWarning("Arena preset screen: applying the kit failed: " + ex.Message); }
+        try { editor.Dispose(); } catch { /* gone */ }
     }
 
     private KitDefinition _initial;
@@ -117,6 +130,7 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
 
     private void OnDestroy()
     {
+        CloseEditor(false);
         try { _preview?.Dispose(); } catch { /* gone */ }
         _preview = null;
         _pack?.Dispose();
@@ -313,6 +327,13 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
 
     private void SetTab(bool customization)
     {
+        if (_customization && !customization && _editor != null)
+        {
+            // Leaving CUSTOMIZATION: what was dragged around becomes the preset, then the view rebuilds from it.
+            bool changed = _editor.Apply();
+            CloseEditor(false);
+            if (changed) { ReloadShown(); SetTab(false); return; }
+        }
         _customization = customization;
         _viewBody.gameObject.SetActive(!customization);
         _gears.anchoredPosition = new Vector2(customization ? 0f : 700f, 0f);
@@ -376,6 +397,7 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
 
     private void ShowPreset(KitDefinition kit)
     {
+        CloseEditor(false);
         _shown = kit;
         _focusSlot = null;
         try { _preview?.Dispose(); } catch { /* gone */ }
@@ -472,9 +494,33 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
 
     private void BindCustomization()
     {
-        BindCells(ArenaUiBuilder.Find(_gears, "Gear Panel/Gears"), _customization);
+        var gearsNode = ArenaUiBuilder.Find(_gears, "Gear Panel/Gears");
         var containers = ArenaUiBuilder.Find(_gears, "Containers Panel/Scrollview Parent/Containers Scrollview");
-        BindContainers(ArenaUiBuilder.Find(containers, "Content"), _customization);
+        bool eft = _customization && _shown != null && _equipment != null && IsCustom(_shown.Id);
+        if (eft && _editor == null)
+        {
+            try
+            {
+                _editor = new ArenaKitInventoryEditor(_shown, _equipment, SessionProfile(),
+                    ArenaUiBuilder.Find(_gears, "Gear Panel"), (RectTransform)containers.parent, EftArmoryHost());
+            }
+            catch (Exception ex)
+            {
+                Plugin.ModLogger.LogWarning("Arena preset screen: EFT inventory editor unavailable, ripped cells instead: " + ex);
+                _editor = null;
+            }
+        }
+        else if (!eft) CloseEditor(false);
+        bool viaEft = _editor != null;
+        gearsNode.gameObject.SetActive(!viaEft);
+        containers.gameObject.SetActive(!viaEft);
+        if (!viaEft)
+        {
+            BindCells(gearsNode, _customization);
+            BindContainers(ArenaUiBuilder.Find(containers, "Content"), _customization);
+        }
+        if (_customization && _shown != null && !IsCustom(_shown.Id) && _editor == null)
+            Plugin.ModLogger.LogDebug("Arena preset screen: a stock preset is read-only until copied.");
         ArenaUiBuilder.SetActive(_gears, "Containers Panel/Horizontal Scrollbar", false);
         var containerScroll = containers.GetComponent<ScrollRect>();
         if (containerScroll == null)
@@ -932,15 +978,28 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
         foreach (var slot in WeaponSlots)
             try { if ((ItemIn(slot) as Weapon)?.AmmoCaliber is { } calibre) calibres.Add(calibre); } catch { /* none */ }
         string search = _search.Trim();
+        var eftItems = _editor != null ? new List<Item>() : null;
+        if (eftItems != null && _itemsTab == "Wearings") slots = slots.Concat(new[] { "Plates" }).ToArray();
         foreach (var slot in slots)
             foreach (var entry in ArenaArmory.ForSlot(slot, _filterClass))
             {
                 if (slot == "Ammo" && (entry.Caliber == null || !calibres.Contains(entry.Caliber))) continue;
-                if (slot == "Plates" && !Accepts(plateSlot, ArmoryItem(entry))) continue;
-                if (slot == "Mods" && (magazineSlot == null || !Accepts(magazineSlot, ArmoryItem(entry)))) continue;
+                if (eftItems == null && slot == "Plates" && !Accepts(plateSlot, ArmoryItem(entry))) continue;
+                if (eftItems == null && slot == "Mods" && (magazineSlot == null || !Accepts(magazineSlot, ArmoryItem(entry)))) continue;
                 if (search.Length > 0 && (entry.Name ?? "").IndexOf(search, StringComparison.OrdinalIgnoreCase) < 0) continue;
-                BuildCard(grid, big ? _cardBig : _cardSmall, entry, slot, current.Contains(entry.Tpl));
+                if (eftItems != null) { var made = ArmoryItem(entry); if (made != null) eftItems.Add(made); }
+                else BuildCard(grid, big ? _cardBig : _cardSmall, entry, slot, current.Contains(entry.Tpl));
             }
+        var eftHost = EftArmoryHost();
+        eftHost.gameObject.SetActive(eftItems != null);
+        if (eftItems != null)
+        {
+            // The whole armory grid lives in one host; the per-tab scroll areas stay empty while EFT's grid is up.
+            foreach (var p in new[] { "WeaponsPanel", "WearingsPanel", "MedsPanel", "AmmoPanel", "ModsPanel" })
+                ArenaUiBuilder.SetActive(_items, p, false);
+            _editor.ShowArmory(eftItems);
+            return;
+        }
         LayoutRebuilder.ForceRebuildLayoutImmediate(grid);
         var scrollRect = grid.parent.GetComponent<ScrollRect>();
         if (scrollRect != null) scrollRect.verticalNormalizedPosition = 1f;
@@ -1156,6 +1215,27 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
         if (!EnsureCustom()) return;
         if (!string.IsNullOrEmpty(ArenaArmory.Edit("remove", _shown.Id, "Meds", tpl))) return;
         ReloadShown();
+    }
+
+    /// <summary>Where EFT's armory grid sits: over the items panel's list area, scrolling on its own.</summary>
+    private RectTransform EftArmoryHost()
+    {
+        var existing = ArenaUiBuilder.TryFind(_items, "EftArmory");
+        if (existing != null) return existing;
+        var host = NewRect("EftArmory", _items);
+        host.anchorMin = new Vector2(0f, 0f); host.anchorMax = new Vector2(1f, 1f);
+        host.offsetMin = new Vector2(12f, 8f); host.offsetMax = new Vector2(-12f, -172f);
+        var hit = host.gameObject.AddComponent<Image>();
+        hit.color = Color.clear; hit.raycastTarget = true;
+        host.gameObject.AddComponent<RectMask2D>();
+        var content = NewRect("Content", host);
+        content.anchorMin = new Vector2(0f, 1f); content.anchorMax = new Vector2(1f, 1f); content.pivot = new Vector2(0.5f, 1f);
+        content.anchoredPosition = Vector2.zero; content.sizeDelta = new Vector2(0f, 2000f);
+        var scroll = host.gameObject.AddComponent<ScrollRect>();
+        scroll.viewport = host; scroll.content = content; scroll.horizontal = false; scroll.scrollSensitivity = 40f;
+        scroll.movementType = ScrollRect.MovementType.Clamped;
+        host.gameObject.SetActive(false);
+        return content;
     }
 
     /// <summary>An item instance for the card icon: a weapon from its default preset nodes, anything else bare.</summary>
