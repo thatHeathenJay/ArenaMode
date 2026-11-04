@@ -502,7 +502,7 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
             try
             {
                 _editor = new ArenaKitInventoryEditor(_shown, _equipment, SessionProfile(),
-                    ArenaUiBuilder.Find(_gears, "Gear Panel"), (RectTransform)containers.parent, EftArmoryHost());
+                    ArenaUiBuilder.Find(_gears, "Gear Panel"), (RectTransform)containers.parent, holster => OpenBuildEditor(holster));
             }
             catch (Exception ex)
             {
@@ -978,28 +978,19 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
         foreach (var slot in WeaponSlots)
             try { if ((ItemIn(slot) as Weapon)?.AmmoCaliber is { } calibre) calibres.Add(calibre); } catch { /* none */ }
         string search = _search.Trim();
-        var eftItems = _editor != null ? new List<Item>() : null;
-        if (eftItems != null && _itemsTab == "Wearings") slots = slots.Concat(new[] { "Plates" }).ToArray();
+        bool eft = _editor != null;
+        if (eft && _itemsTab == "Wearings" && plateSlot == null) slots = slots.Concat(new[] { "Plates" }).ToArray();
+        var anyPlateSlots = eft ? AllPlateSlots() : new List<(Slot Slot, bool Rig)>();
         foreach (var slot in slots)
             foreach (var entry in ArenaArmory.ForSlot(slot, _filterClass))
             {
                 if (slot == "Ammo" && (entry.Caliber == null || !calibres.Contains(entry.Caliber))) continue;
-                if (eftItems == null && slot == "Plates" && !Accepts(plateSlot, ArmoryItem(entry))) continue;
-                if (eftItems == null && slot == "Mods" && (magazineSlot == null || !Accepts(magazineSlot, ArmoryItem(entry)))) continue;
+                if (slot == "Plates" && plateSlot != null && !Accepts(plateSlot, ArmoryItem(entry))) continue;
+                if (slot == "Plates" && plateSlot == null && !anyPlateSlots.Any(p => Accepts(p.Slot, ArmoryItem(entry)))) continue;
+                if (slot == "Mods" && (magazineSlot == null || !Accepts(magazineSlot, ArmoryItem(entry)))) continue;
                 if (search.Length > 0 && (entry.Name ?? "").IndexOf(search, StringComparison.OrdinalIgnoreCase) < 0) continue;
-                if (eftItems != null) { var made = ArmoryItem(entry); if (made != null) eftItems.Add(made); }
-                else BuildCard(grid, big ? _cardBig : _cardSmall, entry, slot, current.Contains(entry.Tpl));
+                BuildCard(grid, big ? _cardBig : _cardSmall, entry, slot, current.Contains(entry.Tpl));
             }
-        var eftHost = EftArmoryHost();
-        eftHost.gameObject.SetActive(eftItems != null);
-        if (eftItems != null)
-        {
-            // The whole armory grid lives in one host; the per-tab scroll areas stay empty while EFT's grid is up.
-            foreach (var p in new[] { "WeaponsPanel", "WearingsPanel", "MedsPanel", "AmmoPanel", "ModsPanel" })
-                ArenaUiBuilder.SetActive(_items, p, false);
-            _editor.ShowArmory(eftItems);
-            return;
-        }
         LayoutRebuilder.ForceRebuildLayoutImmediate(grid);
         var scrollRect = grid.parent.GetComponent<ScrollRect>();
         if (scrollRect != null) scrollRect.verticalNormalizedPosition = 1f;
@@ -1068,10 +1059,36 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
     /// <summary>One armory item lands where it belongs: a gear slot, the supplies, the ammo, or the weapon's slot.</summary>
     private void Place(string slot, ArenaArmory.Entry entry)
     {
+        // Whatever was dragged around on EFT's panels becomes the preset first; the card's change lands on top.
+        if (_editor != null) CloseEditor(true);
         if (slot is "Meds" or "Throwable") Add(entry);
         else if (slot == "Mods") Swap("mod:primary/mod_magazine", entry);
-        else if (slot == "Plates") Swap((_focusSlot == EquipmentSlot.TacticalVest ? "mod:rig/" : "mod:armor/") + _focusPlate, entry);
+        else if (slot == "Plates" && _focusPlate != null) Swap((_focusSlot == EquipmentSlot.TacticalVest ? "mod:rig/" : "mod:armor/") + _focusPlate, entry);
+        else if (slot == "Plates")
+        {
+            var item = ArmoryItem(entry);
+            var target = AllPlateSlots().FirstOrDefault(p => Accepts(p.Slot, item));
+            if (target.Slot == null) { Plugin.ModLogger.LogInfo("Arena preset screen: no plate slot takes " + entry.Name); return; }
+            Swap((target.Rig ? "mod:rig/" : "mod:armor/") + target.Slot.ID, entry);
+        }
         else Swap(slot, entry);
+    }
+
+    /// <summary>Every plate slot on the worn armor and rig, armor first.</summary>
+    private List<(Slot Slot, bool Rig)> AllPlateSlots()
+    {
+        var list = new List<(Slot, bool)>();
+        foreach (var (slotType, rig) in new[] { (EquipmentSlot.ArmorVest, false), (EquipmentSlot.TacticalVest, true) })
+        {
+            if (ItemIn(slotType) is not CompoundItem worn) continue;
+            try
+            {
+                foreach (var slot in worn.AllSlots)
+                    if (ReferenceEquals(slot.ParentItem, worn) && slot.ID.IndexOf("plate", StringComparison.OrdinalIgnoreCase) >= 0) list.Add((slot, rig));
+            }
+            catch { /* no slots */ }
+        }
+        return list;
     }
 
     /// <summary>The plate slots of the focused armor or rig (front, back, sides), none when nothing plated is focused.</summary>
@@ -1140,6 +1157,7 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
     private void OpenBuildEditor(bool holster = false)
     {
         if (!EnsureCustom()) return;
+        if (_editor != null) { CloseEditor(true); ReloadShown(); }
         if (ItemIn(holster ? EquipmentSlot.Holster : EquipmentSlot.FirstPrimaryWeapon) == null) return;
         gameObject.SetActive(false);
         Action back = () =>

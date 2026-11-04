@@ -11,6 +11,7 @@ using System.Linq;
 using System.Reflection;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using Object = UnityEngine.Object;
 
 namespace ArenaMode.Hud.Live;
@@ -50,7 +51,7 @@ internal sealed class ArenaKitInventoryEditor : IDisposable
     internal ItemController Controller => _controller;
 
     internal ArenaKitInventoryEditor(KitDefinition kit, InventoryEquipment equipment, Profile profile,
-        RectTransform gearHost, RectTransform containersHost, RectTransform armoryHost)
+        RectTransform gearHost, RectTransform containersHost, Action<bool> openBuild)
     {
         _kit = kit ?? throw new ArgumentNullException(nameof(kit));
         _equipment = equipment ?? throw new ArgumentNullException(nameof(equipment));
@@ -74,7 +75,8 @@ internal sealed class ArenaKitInventoryEditor : IDisposable
                     ?? throw new InvalidOperationException("EFT's inventory items panel is not loaded in this scene");
         BuildGear(panel, gearHost, ui);
         BuildContainers(panel, containersHost, ui);
-        BuildArmory(armoryHost, ui);
+        BuildButtons(openBuild);
+        Plugin.Instance.StartCoroutine(SettleLayout());
         Current = this;
         Plugin.ModLogger.LogInfo($"Arena kit editor: EFT inventory UI on '{_kit.Id}' ({_slotViews.Count} slot views).");
     }
@@ -119,9 +121,20 @@ internal sealed class ArenaKitInventoryEditor : IDisposable
         _containers = Object.Instantiate(template, host, false);
         _containers.name = "ArenaKitContainers";
         var rect = (RectTransform)_containers.transform;
-        rect.anchorMin = new Vector2(0f, 1f); rect.anchorMax = new Vector2(1f, 1f); rect.pivot = new Vector2(0.5f, 1f);
-        rect.anchoredPosition = Vector2.zero; rect.sizeDelta = new Vector2(0f, 0f);
+        rect.anchorMin = new Vector2(0f, 1f); rect.anchorMax = new Vector2(0f, 1f); rect.pivot = new Vector2(0f, 1f);
+        rect.anchoredPosition = new Vector2(8f, -8f);
+        rect.sizeDelta = new Vector2(Mathf.Max(300f, host.rect.width / 0.92f - 16f), 100f);
         rect.localScale = Vector3.one * 0.92f;
+        // The rig's grids grow the panel: it sizes to its content and stacks its slot views top-down.
+        var fitter = _containers.GetComponent<ContentSizeFitter>() ?? _containers.gameObject.AddComponent<ContentSizeFitter>();
+        fitter.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
+        var column = _containers._slotViewsContainer.GetComponent<VerticalLayoutGroup>()
+                     ?? _containers._slotViewsContainer.gameObject.AddComponent<VerticalLayoutGroup>();
+        column.childForceExpandHeight = false; column.childControlHeight = true; column.spacing = 12f;
+        column.childAlignment = TextAnchor.UpperLeft;
+        var columnRect = (RectTransform)_containers._slotViewsContainer;
+        var columnFitter = columnRect.GetComponent<ContentSizeFitter>() ?? columnRect.gameObject.AddComponent<ContentSizeFitter>();
+        columnFitter.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
         _containers.gameObject.SetActive(true);
         foreach (Transform old in _containers._slotViewsContainer) Object.Destroy(old.gameObject);
         foreach (var slotType in ContainerSlots)
@@ -132,6 +145,40 @@ internal sealed class ArenaKitInventoryEditor : IDisposable
             view.transform.SetParent(_containers._slotViewsContainer, false);
             view.Show(slot, _context, _controller, ui, _profile?.Skills, null, false);
             _slotViews.Add(view);
+        }
+    }
+
+    /// <summary>Live's build-editor arrow, as a BUILD tag on the two weapon slots.</summary>
+    private void BuildButtons(Action<bool> openBuild)
+    {
+        if (openBuild == null || _gear == null) return;
+        foreach (var (view, holster) in new[] { (_gear._primaryWeaponSlot, false), (_gear._holsterSlot, true) })
+        {
+            if (view == null || !view.gameObject.activeSelf) continue;
+            var rect = new GameObject("ArenaBuild", typeof(RectTransform)).GetComponent<RectTransform>();
+            rect.gameObject.layer = 5;
+            rect.SetParent(view.transform, false);
+            rect.anchorMin = rect.anchorMax = new Vector2(1f, 1f); rect.pivot = new Vector2(1f, 1f);
+            rect.anchoredPosition = new Vector2(-4f, -4f); rect.sizeDelta = new Vector2(84f, 24f);
+            var fill = rect.gameObject.AddComponent<UnityEngine.UI.Image>();
+            fill.color = new Color(0.79f, 0.54f, 0f, 0.25f); fill.raycastTarget = true;
+            var label = HudStyle.CreateText(rect, "Label", 13f, TextAlignmentOptions.Midline);
+            label.text = "BUILD \u203A"; label.color = new Color(0.98f, 0.9f, 0.7f);
+            ArenaUiBuilder.Stretch(label.rectTransform);
+            bool captured = holster;
+            rect.gameObject.AddComponent<ArenaMenuButton>().Init(rect, () => openBuild(captured), null, false);
+        }
+    }
+
+    /// <summary>EFT's slot views fill their grids a frame after Show; the layout is rebuilt once they have.</summary>
+    private System.Collections.IEnumerator SettleLayout()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            yield return null;
+            if (_disposed || _containers == null) yield break;
+            UnityEngine.UI.LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)_containers._slotViewsContainer);
+            UnityEngine.UI.LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)_containers.transform);
         }
     }
 
