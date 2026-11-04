@@ -20,6 +20,15 @@ internal static class ArenaKitPortraits
     private static readonly Queue<(KitDefinition Kit, Profile Profile, InventoryEquipment Equipment, RectTransform Host, Action<Texture2D> Done)> Pending = new();
     private static bool _running;
 
+    internal static int Count => Cache.Count;
+
+    internal static void Clear()
+    {
+        Pending.Clear();
+        foreach (var texture in Cache.Values) if (texture != null) Object.Destroy(texture);
+        Cache.Clear();
+    }
+
     internal static Texture2D Get(string kitId)
         => kitId != null && Cache.TryGetValue(kitId, out var texture) && texture != null ? texture : null;
 
@@ -48,7 +57,9 @@ internal static class ArenaKitPortraits
             var job = Pending.Dequeue();
             if (job.Host == null) continue;                                 // the card is gone
             if (Get(job.Kit.Id) is { } cached) { job.Done(cached); continue; }
+            if (!ArenaPresetListScreen.Visible) { Pending.Clear(); break; }   // nothing to show them on
             yield return Capture(job);
+            yield return null;
         }
         _running = false;
     }

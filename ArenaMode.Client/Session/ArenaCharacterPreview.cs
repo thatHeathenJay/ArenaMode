@@ -105,6 +105,8 @@ internal sealed class ArenaCharacterPreview : IDisposable
     }
 
     private static readonly bool[] SlotsTaken = new bool[4];
+    /// <summary>Standalone previews alive right now (diagnostics).</summary>
+    internal static int LiveCount => SlotsTaken.Count(t => t);
     private int _slot = -1;
 
     private void CreateStandaloneCamera()

@@ -395,7 +395,21 @@ internal sealed class ArenaMainMenuOverlay : MonoBehaviour
 
     // EFT's exit path first warns about the hideout generator; Arena has no hideout. ponytail: plain quit until the
     // Arena exit popup (ArenaExitGamePopup in the rip) replaces the confirmation.
-    private void Quit() => ArenaExitPopup.Show("EXIT", "Are you sure you want to exit?", "YES", "NO", Application.Quit);
+    private void Quit() => ArenaExitPopup.Show("EXIT", "Are you sure you want to exit?", "YES", "NO", QuitNow);
+
+    /// <summary>Our screens, previews and portraits go first, with a memory line in the log, then the game quits.</summary>
+    private void QuitNow()
+    {
+        try
+        {
+            long managed = GC.GetTotalMemory(false) >> 20, unity = UnityEngine.Profiling.Profiler.GetTotalAllocatedMemoryLong() >> 20;
+            Plugin.ModLogger.LogInfo($"Arena quit: managed {managed} MB, unity {unity} MB, portraits {ArenaKitPortraits.Count}, previews {Session.ArenaCharacterPreview.LiveCount}.");
+            Hide();
+            ArenaKitPortraits.Clear();
+        }
+        catch (Exception ex) { Plugin.ModLogger.LogDebug("Arena quit cleanup: " + ex.Message); }
+        Application.Quit();
+    }
 
     /// <summary>EFT's settings screen over the menu (the live bottom bar's gear).</summary>
     internal static void ShowSettings() => Plugin.Instance?.GetComponent<ArenaMainMenuOverlay>()?.OpenSettings();
