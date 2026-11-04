@@ -89,7 +89,7 @@ public sealed partial class TeamDeathmatchMode
                     _roundObjectives.Add(new DominationObjectivePoint("lane-" + i, _rushLanes[i], null, false));
         }
         try { DominationObjectiveBridge.Update(_roundObjectives, _bots.Where(Alive).ToList(), _roundObjectives.Count > 0); }
-        catch (Exception ex) { Plugin.ModLogger.LogDebug("TeamFight: objective update failed: " + ex.Message); }
+        catch (Exception ex) { Plugin.ModLogger.LogWarning("TeamFight: objective update failed: " + ex.Message); }
     }
 
     /// <summary>
@@ -132,7 +132,7 @@ public sealed partial class TeamDeathmatchMode
             _rushLanes.Add(point);
         }
         if (_rushLanes.Count == 0 && _roundPoint.HasValue) _rushLanes.Add(_roundPoint.Value);
-        Plugin.ModLogger.LogDebug($"TeamFight: {_rushLanes.Count} opening lanes {spacing:F0} m apart across {middle}.");
+        Plugin.ModLogger.LogInfo($"TeamFight: {_rushLanes.Count} opening lanes {spacing:F0} m apart across {middle}.");
     }
 
     /// <summary>Per-client housekeeping that waits on the clock (gate learning after the first opening).</summary>

@@ -102,7 +102,7 @@ public static class DominationObjectiveBridge
     private static bool Context()
         => Available && _match != null && _game != null && _world != null
             && ReferenceEquals(ArenaMatchService.Current, _match)
-            && _match.Mode is TeamDeathmatchMode mode && mode.IsDomination && mode.IsSearchActive
+            && _match.Mode is TeamDeathmatchMode mode && (mode.IsDomination || mode.IsRounds) && mode.IsSearchActive
             && !_match.Mode.IsComplete && _game.Status == GameStatus.Started
             && Singleton<AbstractGame>.Instantiated && Singleton<GameWorld>.Instantiated
             && ReferenceEquals(Singleton<AbstractGame>.Instance, _game)
