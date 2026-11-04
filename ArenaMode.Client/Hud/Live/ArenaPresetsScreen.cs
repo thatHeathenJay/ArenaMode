@@ -914,7 +914,6 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
             if (raycaster != null) DestroyImmediate(raycaster);
             var nested = area.GetComponent<Canvas>();
             if (nested != null) DestroyImmediate(nested);
-            areaImage.color = Color.clear;       // live masks this graphic out; raycasts still land on it
             var scroll = area.gameObject.AddComponent<ScrollRect>();
             scroll.viewport = area; scroll.content = grid; scroll.horizontal = false; scroll.scrollSensitivity = 40f;
             scroll.movementType = ScrollRect.MovementType.Clamped;

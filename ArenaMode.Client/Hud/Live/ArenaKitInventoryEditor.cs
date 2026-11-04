@@ -125,16 +125,10 @@ internal sealed class ArenaKitInventoryEditor : IDisposable
         rect.anchoredPosition = new Vector2(8f, -8f);
         rect.sizeDelta = new Vector2(Mathf.Max(300f, host.rect.width / 0.92f - 16f), 100f);
         rect.localScale = Vector3.one * 0.92f;
-        // The rig's grids grow the panel: it sizes to its content and stacks its slot views top-down.
-        var fitter = _containers.GetComponent<ContentSizeFitter>() ?? _containers.gameObject.AddComponent<ContentSizeFitter>();
-        fitter.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
-        var column = _containers._slotViewsContainer.GetComponent<VerticalLayoutGroup>()
-                     ?? _containers._slotViewsContainer.gameObject.AddComponent<VerticalLayoutGroup>();
-        column.childForceExpandHeight = false; column.childControlHeight = true; column.spacing = 12f;
-        column.childAlignment = TextAnchor.UpperLeft;
-        var columnRect = (RectTransform)_containers._slotViewsContainer;
-        var columnFitter = columnRect.GetComponent<ContentSizeFitter>() ?? columnRect.gameObject.AddComponent<ContentSizeFitter>();
-        columnFitter.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
+        rect.sizeDelta = new Vector2(rect.sizeDelta.x, 900f);
+        foreach (var group in _containers.GetComponentsInChildren<LayoutGroup>(true)) group.enabled = false;
+        foreach (var fit in _containers.GetComponentsInChildren<ContentSizeFitter>(true)) fit.enabled = false;
+        _containers._slotViewsContainer.gameObject.AddComponent<ArenaStacker>();
         _containers.gameObject.SetActive(true);
         foreach (Transform old in _containers._slotViewsContainer) Object.Destroy(old.gameObject);
         foreach (var slotType in ContainerSlots)
@@ -170,15 +164,27 @@ internal sealed class ArenaKitInventoryEditor : IDisposable
         }
     }
 
-    /// <summary>EFT's slot views fill their grids a frame after Show; the layout is rebuilt once they have.</summary>
     private System.Collections.IEnumerator SettleLayout()
     {
-        for (int i = 0; i < 3; i++)
+        yield break;
+    }
+
+    /// <summary>Stacks its children top-down by their rendered bounds (EFT's slot views grow after they show).</summary>
+    private sealed class ArenaStacker : MonoBehaviour
+    {
+        private void LateUpdate()
         {
-            yield return null;
-            if (_disposed || _containers == null) yield break;
-            UnityEngine.UI.LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)_containers._slotViewsContainer);
-            UnityEngine.UI.LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)_containers.transform);
+            float cursor = 0f;
+            foreach (Transform t in transform)
+            {
+                if (t is not RectTransform child || !child.gameObject.activeSelf) continue;
+                var bounds = RectTransformUtility.CalculateRelativeRectTransformBounds(child, child);
+                if (bounds.size.y < 1f) continue;
+                child.anchorMin = child.anchorMax = new Vector2(0f, 1f);
+                var wanted = new Vector2(-bounds.min.x, -cursor - bounds.max.y);
+                if ((child.anchoredPosition - wanted).sqrMagnitude > 0.25f) child.anchoredPosition = wanted;
+                cursor += bounds.size.y + 14f;
+            }
         }
     }
 
@@ -267,6 +273,14 @@ internal sealed class ArenaKitInventoryEditor : IDisposable
             var was2 = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
             foreach (var supply in kit.Fill?.RigContents ?? new List<KitStackedItem>())
                 was2[supply.Tpl] = was2.TryGetValue(supply.Tpl, out int c) ? c + 1 : 1;
+            // Items the kit itself places inside the rig or pockets (grenades, authored meds) are not supplies to add.
+            var rigIds = new HashSet<string>(kit.Items.Where(n => n.ParentId == root.Id
+                && n.SlotId is "TacticalVest" or "Pockets").Select(n => n.Id), StringComparer.Ordinal);
+            foreach (var node in kit.Items)
+                if (node.ParentId != null && rigIds.Contains(node.ParentId) && (node.SlotId ?? "").IndexOf("plate", StringComparison.OrdinalIgnoreCase) < 0)
+                    was2[node.Tpl] = was2.TryGetValue(node.Tpl, out int c2) ? c2 + 1 : 1;
+            foreach (var tpl in now2.Keys.ToList())
+                if (Comfort.Common.Singleton<ItemFactory>.Instance?.CreateItem(MongoID.Generate(), tpl, null) is Magazine or ThrowWeap) now2.Remove(tpl);
             foreach (var tpl in now2.Keys.Union(was2.Keys, StringComparer.OrdinalIgnoreCase).ToList())
             {
                 int have = now2.TryGetValue(tpl, out int a) ? a : 0, had = was2.TryGetValue(tpl, out int b) ? b : 0;
@@ -296,6 +310,7 @@ internal sealed class ArenaKitInventoryEditor : IDisposable
                      .OrderBy(kv => kv.Key.Count(c => c == '/')).ThenBy(kv => kv.Key, StringComparer.Ordinal))
         {
             if (platesOnly && change.Key.IndexOf("plate", StringComparison.OrdinalIgnoreCase) < 0) continue;
+            if (change.Value.Length == 0 && !was.ContainsKey(change.Key)) continue;      // empty then, empty now
             if (change.Key.StartsWith("cartridges", StringComparison.Ordinal) || change.Key.Contains("/cartridges")) continue;
             if (ArenaArmory.Edit("swap", kit.Id, prefix + change.Key, change.Value) == null) sent++;
         }
