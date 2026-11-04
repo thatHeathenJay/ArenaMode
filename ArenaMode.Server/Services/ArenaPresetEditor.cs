@@ -114,6 +114,13 @@ public static class ArenaPresetEditor
                     case "swap": Swap(customs, kitId ?? "", slot ?? "", tpl ?? ""); break;
                     case "add": AddSupply(customs, kitId ?? "", tpl ?? ""); break;
                     case "remove": RemoveSupply(customs, kitId ?? "", tpl ?? ""); break;
+                    case "rename":
+                        {
+                            string name = (tpl ?? "").Trim();
+                            if (name.Length == 0 || name.Length > 24) throw new InvalidOperationException("name must be 1 to 24 characters");
+                            CustomKit(customs, kitId ?? "")["name"] = name;
+                            break;
+                        }
                     case "delete":
                         for (int i = customs.Count - 1; i >= 0; i--)
                             if (customs[i]?["id"]?.GetValue<string>() == kitId) customs.RemoveAt(i);

@@ -66,7 +66,9 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
     private ArenaUiBuilder _builder;
     private JObject _apcLayout, _viewLayout, _cardBig, _cardSmall;
     private RectTransform _viewBody, _customBody, _gears, _items, _presetList, _nameField, _viewTab, _customTab, _removeButton;
-    private TextMeshProUGUI _status, _presetName;
+    private TextMeshProUGUI _status;
+    private TMP_InputField _nameInput;
+    private RectTransform _saveButton;
     private RectTransform _favoriteToggle;
     private Image _classIcon;
     private bool _customization;
@@ -126,16 +128,13 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (_presetList != null && _presetList.gameObject.activeSelf) _presetList.gameObject.SetActive(false);
-            else Hide();
+            if (_nameInput != null && _nameInput.isFocused) { _nameInput.DeactivateInputField(); return; }
+            Hide();
             return;
         }
-        if (!_customization && _preview != null && Input.GetMouseButton(0))
-        {
-            var mouse = Input.mousePosition;
-            float x = mouse.x / Screen.width, y = mouse.y / Screen.height;
-            if (x > 0.34f && x < 0.66f && y < 0.9f) _preview.Rotate(-Input.GetAxis("Mouse X"), 1f);
-        }
+        if (!_customization && _preview != null && Input.GetMouseButton(0) && _viewBody != null
+            && RectTransformUtility.RectangleContainsScreenPoint(_viewBody, Input.mousePosition))
+            _preview.Rotate(-Input.GetAxis("Mouse X"), 1f);
     }
 
     // ---------------------------------------------------------------- build
@@ -174,17 +173,20 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
         var glows = _builder.Build(Find(_viewLayout, "ScreenGlows"), root);
         ArenaUiBuilder.Stretch(glows);
 
-        // VIEW: Arena's preset view body (gear panel, model, containers).
-        _viewBody = _builder.Build(Find(_viewLayout, "Body"), root);
-        _viewBody.anchorMin = new Vector2(0.5f, 1f); _viewBody.anchorMax = new Vector2(0.5f, 1f);
-        _viewBody.pivot = new Vector2(0.5f, 1f); _viewBody.anchoredPosition = new Vector2(0f, -70f);
-        _viewBody.sizeDelta = new Vector2(1918f, 900f);
-
-        // CUSTOMIZATION: Arena's gear-and-containers panel beside its items panel.
+        // Live's tab body: the model panel (VIEW), the gear-and-containers panel (both tabs), the items panel
+        // (CUSTOMIZATION), side by side as its TabsContainer lays them out.
         _customBody = NewRect("Customization", root);
         _customBody.anchorMin = new Vector2(0.5f, 1f); _customBody.anchorMax = new Vector2(0.5f, 1f);
         _customBody.pivot = new Vector2(0.5f, 1f); _customBody.anchoredPosition = new Vector2(0f, -60f);
         _customBody.sizeDelta = new Vector2(1890f, 960f);
+        _viewBody = _builder.Build(Find(_apcLayout, "PlayerCameraUIOverlay"), _customBody);
+        _viewBody.anchorMin = new Vector2(0f, 1f); _viewBody.anchorMax = new Vector2(0f, 1f); _viewBody.pivot = new Vector2(0f, 1f);
+        _viewBody.anchoredPosition = Vector2.zero; _viewBody.sizeDelta = new Vector2(700f, 960f);
+        ArenaUiBuilder.SetActive(_viewBody, "ZoomSlider", false);          // no zoom on the preview camera
+        ArenaUiBuilder.SetActive(_viewBody, "ClothingSwitcher", false);    // clothing comes with camouflage
+        var modelHost = ArenaUiBuilder.Find(_viewBody, "PlayerImage/PlayerModelImage");
+        ArenaUiBuilder.SetActive(modelHost, "HoverArea", false);
+        ArenaUiBuilder.Stretch(modelHost);
         _gears = _builder.Build(Find(_apcLayout, "GearsAndContainers"), _customBody);
         _gears.anchorMin = new Vector2(0f, 1f); _gears.anchorMax = new Vector2(0f, 1f); _gears.pivot = new Vector2(0f, 1f);
         _gears.anchoredPosition = Vector2.zero; _gears.sizeDelta = new Vector2(1190f, 960f);
@@ -196,10 +198,6 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
         _items = ArenaUiBuilder.Find(itemsBackground, "APCItemsPanel");
         BuildItemsPanel();
 
-        // Live's palette: the panel backgrounds are the dark navy of the rest of the UI, not the bright tile.
-        foreach (var image in root.GetComponentsInChildren<Image>(true))
-            if (image.sprite != null && image.sprite.name.StartsWith("ArenaPresetViewScreen_Backgrounds", StringComparison.Ordinal))
-                image.color = new Color(0.09f, 0.11f, 0.13f, 1f);
         BuildHeader(root);
         ArenaMenuChrome.BuildFooter(_pack, root, SessionProfile(), () => { Hide(); ArenaPresetListScreen.Hide(); },
             ArenaMainMenuOverlay.ShowSettings, () => { });
@@ -222,7 +220,17 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
         var midline = ArenaUiBuilder.Find(header, "HeaderLeftContent/MidlineInfo");
         ArenaUiBuilder.SetActive(midline, "TutorialButton", false);
         _status = ArenaUiBuilder.Text(midline, "StatusPanel/Title");
-        _presetName = ArenaUiBuilder.Text(midline, "NameFieldContainer/NameField/Text Area/Text");
+        var nameNode = ArenaUiBuilder.Find(midline, "NameFieldContainer/NameField");
+        var namePlaceholder = ArenaUiBuilder.TryFind(nameNode, "Text Area/Placeholder")?.GetComponent<TextMeshProUGUI>();
+        if (namePlaceholder != null) namePlaceholder.text = "Enter preset name";
+        _nameInput = nameNode.gameObject.AddComponent<TMP_InputField>();
+        _nameInput.textViewport = ArenaUiBuilder.TryFind(nameNode, "Text Area");
+        _nameInput.textComponent = ArenaUiBuilder.TryFind(nameNode, "Text Area/Text")?.GetComponent<TextMeshProUGUI>();
+        _nameInput.placeholder = namePlaceholder;
+        _nameInput.characterLimit = 24;
+        _nameInput.onSubmit.AddListener(_ => CommitName());
+        var nameImage = nameNode.GetComponent<Image>() ?? nameNode.gameObject.AddComponent<Image>();
+        nameImage.color = Color.clear; nameImage.raycastTarget = true;
         _classIcon = ArenaUiBuilder.TryFind(midline, "NameFieldContainer/ClassIconContainer/ClassIcon")?.GetComponent<Image>();
         _favoriteToggle = ArenaUiBuilder.TryFind(midline, "NameFieldContainer/FavoriteToggle");
         if (_favoriteToggle != null)
@@ -236,28 +244,12 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
                 RefreshStatus();
             });
         }
-        ArenaUiBuilder.SetActive(midline, "NameFieldContainer/NameField/Text Area/Placeholder", false);
-        // The name field doubles as the preset switcher: click to list every preset.
         _nameField = ArenaUiBuilder.Find(midline, "NameFieldContainer");
-        var nameHit = _nameField.GetComponent<Image>() ?? _nameField.gameObject.AddComponent<Image>();
-        nameHit.raycastTarget = true;
-        _nameField.gameObject.AddComponent<ArenaMenuButton>().Init(_nameField, TogglePresetList);
-        _presetList = NewRect("PresetList", root);
-        _presetList.anchorMin = _presetList.anchorMax = new Vector2(0.5f, 0.5f);
-        _presetList.pivot = new Vector2(0f, 1f);
-        _presetList.sizeDelta = new Vector2(380f, 0f);
-        var listFill = _presetList.gameObject.AddComponent<Image>();
-        listFill.color = new Color(0.05f, 0.06f, 0.07f, 0.97f);
-        var listLayout = _presetList.gameObject.AddComponent<VerticalLayoutGroup>();
-        listLayout.childForceExpandWidth = true; listLayout.childForceExpandHeight = false;
-        listLayout.childControlWidth = true; listLayout.childControlHeight = true;
-        _presetList.gameObject.AddComponent<ContentSizeFitter>().verticalFit = ContentSizeFitter.FitMode.PreferredSize;
-        ArenaUiTheme.Rule(_presetList, "Edge", ArenaUiTheme.Edge, inset: 0f, thickness: 1f);
-        _presetList.gameObject.SetActive(false);
 
-        // Live's header buttons: copy (customize into a custom preset), delete (custom presets); save is implicit.
+        // Live's header buttons: save (the name), copy (customize into a custom preset), delete (custom presets).
         var buttons = ArenaUiBuilder.Find(midline, "ButtonsPreset");
-        ArenaUiBuilder.SetActive(buttons, "SaveButton", false);
+        _saveButton = ArenaUiBuilder.Find(buttons, "SaveButton");
+        HeaderButton(_saveButton, CommitName);
         var copy = ArenaUiBuilder.Find(buttons, "CopyPresetButton");
         ArenaUiBuilder.SetActive(copy, "Content", false);
         HeaderButton(copy, () =>
@@ -323,19 +315,33 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
     {
         _customization = customization;
         _viewBody.gameObject.SetActive(!customization);
-        _customBody.gameObject.SetActive(customization);
+        _gears.anchoredPosition = new Vector2(customization ? 0f : 700f, 0f);
+        _items.parent.gameObject.SetActive(customization);
         ArenaUiBuilder.SetActive(_viewTab, "SelectedState", !customization);
         ArenaUiBuilder.SetActive(_viewTab, "IdleState", customization);
         ArenaUiBuilder.SetActive(_customTab, "SelectedState", customization);
         ArenaUiBuilder.SetActive(_customTab, "IdleState", !customization);
-        if (customization) BindCustomization();
-        else BindView();
+        BindCustomization();
+        if (!customization) BindModel();
+        else { try { _preview?.Dispose(); } catch { /* gone */ } _preview = null; }
     }
 
     // ------------------------------------------------------------- presets
 
+    /// <summary>The name field's text becomes the custom preset's name (live's save).</summary>
+    private void CommitName()
+    {
+        if (_shown == null || !IsCustom(_shown.Id) || _nameInput == null) return;
+        string name = (_nameInput.text ?? "").Trim();
+        if (name.Length == 0 || name == (_shown.Name ?? "")) { RefreshStatus(); return; }
+        if (!string.IsNullOrEmpty(ArenaArmory.Edit("rename", _shown.Id, null, name))) { RefreshStatus(); return; }
+        ReloadShown();
+        ArenaPresetListScreen.Refresh();
+    }
+
     private void TogglePresetList()
     {
+        if (_presetList == null) return;
         if (_presetList.gameObject.activeSelf) { _presetList.gameObject.SetActive(false); return; }
         foreach (Transform child in _presetList) Destroy(child.gameObject);
         var root = (RectTransform)transform;
@@ -403,7 +409,17 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
         bool inBand = _shown != null && InBand(ArenaMetascore.Score(_shown));
         _status.text = !inBand ? "NOT READY" : selected ? "READY FOR BATTLE" : "PRESET PREVIEW";
         _status.color = inBand ? Text : Bad;
-        _presetName.text = _shown == null ? "" : (_shown.Name ?? _shown.Id);
+        if (_nameInput != null)
+        {
+            bool custom = _shown != null && IsCustom(_shown.Id);
+            _nameInput.SetTextWithoutNotify(_shown == null ? "" : (_shown.Name ?? _shown.Id));
+            _nameInput.readOnly = !custom;                 // stock presets keep their names
+            if (_saveButton != null)
+            {
+                ArenaUiBuilder.SetActive(_saveButton, "Idle", custom);
+                ArenaUiBuilder.SetActive(_saveButton, "Disabled", !custom);
+            }
+        }
         if (_classIcon != null) _classIcon.sprite = ClassSprite(_class) ?? _classIcon.sprite;
         if (_favoriteToggle != null)
         {
@@ -437,59 +453,10 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
 
     // ---------------------------------------------------------------- view
 
-    private void BindView()
+    /// <summary>The character wearing the preset in live's model panel (VIEW tab).</summary>
+    private void BindModel()
     {
-        var content = ArenaUiBuilder.Find(_viewBody, "Gear Panel/Scrollview/Content");
-        ArenaUiBuilder.SetActive(_viewBody, "Gear Panel/Health Parameters", false);
-        ArenaUiBuilder.SetActive(_viewBody, "Gear Panel/Scrollbar", false);
-        BindCells(content, false);
-
-        var bottom = ArenaUiBuilder.Find(_viewBody, "Gear Panel/BottomPanel");
-        float weight = 0f;
-        try { weight = _equipment?.TotalWeight ?? 0f; } catch { /* unavailable */ }
-        ArenaUiBuilder.Text(bottom, "SimpleWeightPanel/Value").text = $"{weight:0.0} KG";
-        ArenaUiBuilder.SetActive(bottom, "PricePanel/ShopPrice", false);
-        ArenaUiBuilder.SetActive(bottom, "PricePanel/LockedText", false);
-        ArenaUiBuilder.SetActive(bottom, "PricePanel/FreeText", false);
-        var old = bottom.Find("Select");
-        if (old != null) Destroy(old.gameObject);
-        if (_shown != null)
-        {
-            bool active = !Settings.RandomKit.Value && string.Equals(Settings.SelectedKit.Value, _shown.Id, StringComparison.OrdinalIgnoreCase);
-            var button = NewRect("Select", bottom);
-            button.anchorMin = button.anchorMax = new Vector2(1f, 0.5f); button.pivot = new Vector2(1f, 0.5f);
-            button.anchoredPosition = new Vector2(-16f, 0f); button.sizeDelta = new Vector2(240f, 48f);
-            var fill = button.gameObject.AddComponent<Image>();
-            fill.color = active ? new Color(0.79f, 0.54f, 0f, 0.18f) : new Color(0.52f, 0.60f, 0.67f, 0.12f);
-            fill.raycastTarget = true;
-            ArenaUiTheme.Rule(button, "Edge", active ? ArenaUiTheme.WithAlpha(Gold, 0.8f) : ArenaUiTheme.Edge, inset: 0f, thickness: 1f);
-            var label = HudStyle.CreateText(button, "Label", 22f, TextAlignmentOptions.Midline);
-            label.text = active ? "SELECTED" : "SELECT";
-            label.color = active ? Gold : Text;
-            ArenaUiBuilder.Stretch(label.rectTransform);
-            button.gameObject.AddComponent<ArenaMenuButton>().Init(button, () =>
-            {
-                if (_shown == null) return;
-                Settings.SelectedKit.Value = _shown.Id;
-                Settings.RandomKit.Value = false;
-                Plugin.ModLogger.LogInfo($"Arena preset selected: {_shown.Id}");
-                ArenaMainMenuOverlay.RefreshCharacter();
-                RefreshStatus();
-                BindView();
-            });
-        }
-
-        BindContainers(ArenaUiBuilder.Find(_viewBody, "Containers Panel/Scrollview Parent/Containers Scrollview/Content"), false);
-        ArenaUiBuilder.SetActive(_viewBody, "Containers Panel/Scrollbar", false);
-        BindModelAndStats();
-    }
-
-    private void BindModelAndStats()
-    {
-        var overlay = ArenaUiBuilder.Find(_viewBody, "PlayerCameraUIOverlay");
-        foreach (var path in new[] { "BlockedHighlight", "BlockedPreset", "RankingPresetHeader", "AddToFavorite" })
-            ArenaUiBuilder.SetActive(overlay, path, false);
-        var host = ArenaUiBuilder.Find(overlay, "PlayerModelImage");
+        var host = ArenaUiBuilder.Find(_viewBody, "PlayerImage/PlayerModelImage");
         foreach (Transform child in host) Destroy(child.gameObject);
         try { _preview?.Dispose(); } catch { /* gone */ }
         _preview = null;
@@ -499,38 +466,27 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
             try { _preview = new Session.ArenaCharacterPreview(profile, host, () => { }, _equipment); }
             catch (Exception ex) { Plugin.ModLogger.LogWarning("Arena preset screen: model unavailable: " + ex.Message); }
         }
-
-        var header = ArenaUiBuilder.Find(overlay, "ClassPresetHeader");
-        ArenaUiBuilder.Text(header, "NameInfo/ClassName").text = _shown == null ? "" : (_shown.Name ?? _shown.Id).ToUpperInvariant();
-        ArenaUiBuilder.SetActive(header, "PresetRatingAndRankDescription", false);
-        var classIcon = ArenaUiBuilder.TryFind(header, "ClassImage")?.GetComponent<Image>();
-        if (classIcon != null) classIcon.sprite = ClassSprite(_class) ?? classIcon.sprite;
-
-        // Metascore summary at the bottom-left of the model panel, clear of the character.
-        var stats = ArenaUiBuilder.Find(overlay, "Stats");
-        foreach (Transform child in stats) Destroy(child.gameObject);
-        stats.anchorMin = stats.anchorMax = new Vector2(0f, 0f); stats.pivot = new Vector2(0f, 0f);
-        stats.anchoredPosition = new Vector2(24f, 40f); stats.sizeDelta = new Vector2(380f, 0f);
-        if (_shown == null) return;
-        var score = ArenaMetascore.Score(_shown);
-        var total = HudStyle.CreateText(stats, "Total", 15f, TextAlignmentOptions.MidlineLeft);
-        total.text = $"METASCORE {score.Total:N0}   ·   BAND {ArenaMetascore.BandMin:N0} – {ArenaMetascore.BandMax:N0}";
-        total.color = InBand(score) ? Text : Bad;
-        total.gameObject.AddComponent<LayoutElement>().preferredHeight = 26f;
-        var detail = HudStyle.CreateText(stats, "Detail", 13f, TextAlignmentOptions.MidlineLeft);
-        detail.text = $"FIREPOWER {score.Firepower:N0}   DEFENSE {score.Defense:N0}   UTILITY {score.Utility:N0}";
-        detail.color = Muted;
-        detail.gameObject.AddComponent<LayoutElement>().preferredHeight = 22f;
     }
 
     // ------------------------------------------------------- customization
 
     private void BindCustomization()
     {
-        BindCells(ArenaUiBuilder.Find(_gears, "Gear Panel/Gears"), true);
-        BindContainers(ArenaUiBuilder.Find(_gears, "Containers Panel/Scrollview Parent/Containers Scrollview/Content"), true);
+        BindCells(ArenaUiBuilder.Find(_gears, "Gear Panel/Gears"), _customization);
+        var containers = ArenaUiBuilder.Find(_gears, "Containers Panel/Scrollview Parent/Containers Scrollview");
+        BindContainers(ArenaUiBuilder.Find(containers, "Content"), _customization);
         ArenaUiBuilder.SetActive(_gears, "Containers Panel/Horizontal Scrollbar", false);
-        ArenaUiBuilder.SetActive(_gears, "Containers Panel/ArenaVertical Scrollbar", false);
+        var containerScroll = containers.GetComponent<ScrollRect>();
+        if (containerScroll == null)
+        {
+            containerScroll = containers.gameObject.AddComponent<ScrollRect>();
+            containerScroll.viewport = (RectTransform)containers.parent; containerScroll.content = ArenaUiBuilder.Find(containers, "Content");
+            containerScroll.horizontal = false; containerScroll.scrollSensitivity = 40f;
+            containerScroll.movementType = ScrollRect.MovementType.Clamped;
+            var containerHit = containers.GetComponent<Image>() ?? containers.gameObject.AddComponent<Image>();
+            containerHit.raycastTarget = true;
+            WireScrollbar(containerScroll, ArenaUiBuilder.TryFind(_gears, "Containers Panel/ArenaVertical Scrollbar"));
+        }
 
         var score = _shown == null ? default : ArenaMetascore.Score(_shown);
         int max = Math.Max(ArenaMetascore.BandMax, 1);
@@ -545,6 +501,25 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
         FillBar(ArenaUiBuilder.TryFind(_gears, "BottomPanel/WeightBar"), weight, 40f, "", "", null, $"{weight:0.0}");
 
         BindItemsPanel();
+    }
+
+    /// <summary>Live's vertical scrollbar (ripped as plain images) driving a ScrollRect; hidden while nothing overflows.</summary>
+    private static void WireScrollbar(ScrollRect scroll, RectTransform bar)
+    {
+        if (scroll == null || bar == null) return;
+        bar.gameObject.SetActive(true);
+        var handle = ArenaUiBuilder.TryFind(bar, "Sliding Area/Handle") ?? ArenaUiBuilder.TryFind(bar, "Handle");
+        if (handle == null) return;
+        var scrollbar = bar.GetComponent<Scrollbar>() ?? bar.gameObject.AddComponent<Scrollbar>();
+        scrollbar.direction = Scrollbar.Direction.BottomToTop;
+        scrollbar.handleRect = handle;
+        scrollbar.targetGraphic = handle.GetComponent<Image>();
+        var handleImage = handle.GetComponent<Image>();
+        if (handleImage != null) { handleImage.raycastTarget = true; if (handleImage.color.a < 0.05f) handleImage.color = new Color(0.69f, 0.73f, 0.76f, 0.9f); }
+        var track = bar.GetComponent<Image>();
+        if (track != null) track.raycastTarget = true;
+        scroll.verticalScrollbar = scrollbar;
+        scroll.verticalScrollbarVisibility = ScrollRect.ScrollbarVisibility.AutoHide;
     }
 
     internal static void FillBar(RectTransform bar, float value, float max, string min, string maxLabel, Color? colour = null, string shown = null)
@@ -859,7 +834,7 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
             var content = ArenaUiBuilder.Find(_items, panel + "/Content");
             ArenaUiBuilder.SetActive(content, "SortButton", false);
             ArenaUiBuilder.SetActive(content, "Filter Panel", false);
-            ArenaUiBuilder.SetActive(content, "ArenaVertical Scrollbar", false);
+
             ArenaUiBuilder.SetActive(_items, panel + "/Loader", false);
             var area = ArenaUiBuilder.Find(content, "Scroll Area");
             if (area.GetComponent<Mask>() == null) area.gameObject.AddComponent<Mask>().showMaskGraphic = false;
@@ -884,6 +859,7 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
             var scroll = area.gameObject.AddComponent<ScrollRect>();
             scroll.viewport = area; scroll.content = grid; scroll.horizontal = false; scroll.scrollSensitivity = 40f;
             scroll.movementType = ScrollRect.MovementType.Clamped;
+            WireScrollbar(scroll, ArenaUiBuilder.TryFind(content, "ArenaVertical Scrollbar"));
         }
     }
 

@@ -1,6 +1,7 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -44,6 +45,13 @@ internal sealed class ArenaUiBuilder
                         Plugin.ModLogger.LogWarning($"Arena UI: {type} on {go.name} skipped: {ex.Message}");
                     }
                 }
+        // A SoftMask node's Image is the mask shape, never drawn by itself; without the (skipped) SoftMask the white
+        // mask texture would paint over the panel.
+        if (node["components"] is JArray all && all.Any(x => x is JObject o && (o.Value<string>("type") ?? "").EndsWith("SoftMask")))
+        {
+            var masked = go.GetComponent<Image>();
+            if (masked != null) masked.enabled = false;
+        }
         if (node["children"] is JArray children)
             foreach (var child in children)
                 if (child is JObject c) Build(c, rect);
