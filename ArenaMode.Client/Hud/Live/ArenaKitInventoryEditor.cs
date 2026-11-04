@@ -67,7 +67,13 @@ internal sealed class ArenaKitInventoryEditor : IDisposable
         var hidden = new CornucopiaGrid(Guid.NewGuid().ToString(), 1, 1, true, Array.Empty<ItemFilter>(), _stash);
         _stash.Grids = new Grid[] { _armoryGrid, hidden };
         _controller = new ItemController(_stash, profile?.Id ?? "arena", "arena kit editor", false);
-        if (_equipment.CurrentAddress != null) throw new InvalidOperationException("the kit equipment is already placed somewhere");
+        // A previous editor over the same equipment left it in its hidden grid; take it back before re-owning it.
+        if (_equipment.CurrentAddress is GridItemAddress previous)
+        {
+            var taken = previous.Grid.RemoveWithoutRestrictions(_equipment);
+            if (taken.Failed) throw new InvalidOperationException("the kit equipment could not be taken back: " + taken.Error);
+        }
+        else if (_equipment.CurrentAddress != null) throw new InvalidOperationException("the kit equipment is already placed somewhere");
         var placed = hidden.AddAnywhere(_equipment, EErrorHandlingType.Ignore);
         if (placed.Failed) throw new InvalidOperationException("the kit equipment could not be owned: " + placed.Error);
         _context = new DefaultItemContext(_equipment, EItemViewType.Inventory);
@@ -358,6 +364,9 @@ internal sealed class ArenaKitInventoryEditor : IDisposable
         _slotViews.Clear();
         try { _armory?.Close(); } catch { /* gone */ }
         try { ItemUiContext.Instance?.UnregisterView(_context); } catch { /* older signature */ }
+        // Release the equipment so another editor (or the entry kit) can own it again.
+        try { if (_equipment.CurrentAddress is GridItemAddress address && ReferenceEquals(address.Grid.ParentItem, _stash)) address.Grid.RemoveWithoutRestrictions(_equipment); }
+        catch (Exception ex) { Plugin.ModLogger.LogDebug("Arena kit editor: equipment release: " + ex.Message); }
         if (_gear != null) Object.Destroy(_gear.gameObject);
         if (_containers != null) Object.Destroy(_containers.gameObject);
         if (_armory != null) Object.Destroy(_armory.gameObject);
@@ -396,8 +405,14 @@ internal sealed class ArenaKitInventoryEditor : IDisposable
         }
         catch (Exception ex) { Plugin.ModLogger.LogDebug("Arena kit editor: remove failed: " + ex.Message); return false; }
         Plugin.ModLogger.LogDebug($"Arena kit editor: removed {item.TemplateId}.");
-        _rebuild?.Invoke();
+        if (_rebuild != null) Plugin.Instance.StartCoroutine(RebuildNextFrame(_rebuild));
         return true;
+    }
+
+    private static System.Collections.IEnumerator RebuildNextFrame(Action rebuild)
+    {
+        yield return null;          // EFT's click handler and the removed item's view finish first
+        try { rebuild(); } catch (Exception ex) { Plugin.ModLogger.LogWarning("Arena kit editor: rebuild failed: " + ex.Message); }
     }
 
     private sealed class RightClickPatch : ModulePatch
