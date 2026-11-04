@@ -23,11 +23,12 @@ internal sealed class ArenaPresetListScreen : MonoBehaviour
 {
     private static readonly (string Id, string Tab, string Viewer, string Label)[] Classes =
     {
-        ("assault", "AssaultTab", "Assault", "ASSAULT"), ("enforcer", "CqbTab", "Cqb", "CQB"),
+        ("assault", "AssaultTab", "Assault", "ASSAULT"), ("enforcer", "CqbTab", "Cqb", "ENFORCER"),
         ("scout", "ScoutTab", "Scout", "SCOUT"), ("marksman", "MarksmanTab", "Marksman", "MARKSMAN"),
     };
     private static readonly Color Text = new(0.882f, 0.933f, 0.957f, 1f);
     private static readonly Color Bad = new(0.85f, 0.25f, 0.25f, 1f);
+    private static readonly Color Muted = new(0.69f, 0.729f, 0.757f, 1f);
     private const float CardW = 306f, CardH = 287f, GapX = 55f, GapY = 50f, PadTop = 111f, PadBottom = 30f;
 
     private static ArenaPresetListScreen _instance;
@@ -36,6 +37,10 @@ internal sealed class ArenaPresetListScreen : MonoBehaviour
     private JObject _layout, _card, _header, _items, _footer, _frame, _visual, _create;
     /// <summary>Live's eye toggle on every card: the character still (default) or the kit's items.</summary>
     private static bool _itemsMode;
+    /// <summary>Live's "expand / collapse" on the Standard section.</summary>
+    private static bool _standardCollapsed;
+    /// <summary>Custom presets per class until progression unlocks more (live: 1 free, 2 bought).</summary>
+    private const int CustomSlots = 3;
     private RectTransform _root, _viewers;
     private readonly Dictionary<string, RectTransform> _tabs = new(StringComparer.Ordinal);
     private readonly List<InventoryEquipment> _built = new();
@@ -271,9 +276,36 @@ internal sealed class ArenaPresetListScreen : MonoBehaviour
         if (icon != null) { var sprite = classId == null ? null : ClassSprite(classId); icon.sprite = sprite ?? icon.sprite; icon.enabled = sprite != null; }
         ArenaUiBuilder.SetActive(section, "Title/Content/Panel", false);
         ArenaUiBuilder.SetActive(section, "CustomPresetTutorialStepRect", false);
+        bool collapsed = !custom && _standardCollapsed;
+        var titleBar = ArenaUiBuilder.Find(section, "Title");
+        var oldToggle = titleBar.Find("Collapse");
+        if (oldToggle != null) Destroy(oldToggle.gameObject);
+        if (!custom)
+        {
+            // Live folds the Standard section away behind "expand / collapse" at the right of its title.
+            var toggle = HudStyle.CreateText(titleBar, "Collapse", 16f, TextAlignmentOptions.MidlineRight);
+            toggle.text = collapsed ? "expand  \u25BE" : "collapse  \u25B4";
+            toggle.color = Muted;
+            ArenaUiBuilder.Stretch(toggle.rectTransform);
+            toggle.rectTransform.offsetMax = new Vector2(-40f, 0f);
+            var titleHit = titleBar.GetComponent<Image>() ?? titleBar.gameObject.AddComponent<Image>();
+            if (titleHit.sprite == null) titleHit.color = Color.clear;
+            titleHit.raycastTarget = true;
+            var oldButton = titleBar.GetComponent<ArenaMenuButton>();
+            if (oldButton != null) Destroy(oldButton);
+            titleBar.gameObject.AddComponent<ArenaMenuButton>().Init(titleBar, () => { _standardCollapsed = !_standardCollapsed; Refresh(); }, null, false);
+        }
 
         var grid = ArenaUiBuilder.Find(section, "PresetsContainerGrid");
         foreach (Transform child in grid) Destroy(child.gameObject);
+        grid.gameObject.SetActive(!collapsed);
+        if (collapsed)
+        {
+            section.sizeDelta = new Vector2(section.sizeDelta.x, 71f);
+            var folded = section.GetComponent<LayoutElement>() ?? section.gameObject.AddComponent<LayoutElement>();
+            folded.preferredHeight = 71f; folded.minHeight = 71f;
+            return 71f;
+        }
         var layout = grid.GetComponent<GridLayoutGroup>() ?? grid.gameObject.AddComponent<GridLayoutGroup>();
         layout.cellSize = new Vector2(CardW, CardH); layout.spacing = new Vector2(GapX, GapY);
         layout.padding = new RectOffset(70, 0, (int)PadTop, (int)PadBottom);
@@ -282,10 +314,11 @@ internal sealed class ArenaPresetListScreen : MonoBehaviour
 
         var profile = SessionProfile();
         foreach (var kit in kits) BuildCard(grid, kit, profile);
-        if (custom) BuildCreateCard(grid, classId);
+        bool canCreate = custom && kits.Count < CustomSlots;
+        if (canCreate) BuildCreateCard(grid, classId);
         Plugin.ModLogger.LogDebug($"Arena presets list: {title} section, {kits.Count} cards" + (custom ? " + create" : "") + $" for {classId ?? "favorites"}.");
 
-        int count = kits.Count + (custom ? 1 : 0);
+        int count = kits.Count + (canCreate ? 1 : 0);
         int rows = Math.Max(1, (count + 4) / 5);
         float gridHeight = PadTop + rows * CardH + (rows - 1) * GapY + PadBottom;
         grid.sizeDelta = new Vector2(grid.sizeDelta.x, gridHeight);

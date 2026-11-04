@@ -430,6 +430,9 @@ internal sealed class ArenaMenuButton : MonoBehaviour, IPointerEnterHandler, IPo
     private float _hoverAlpha = 1f;
     private bool _selected;
 
+    /// <summary>Pointer enter (true) / exit (false), for callers that draw their own hover state.</summary>
+    internal Action<bool> Hovered;
+
     /// <summary>Keeps the hover image lit regardless of the pointer (the selected map plate).</summary>
     internal bool Selected
     {
@@ -459,11 +462,16 @@ internal sealed class ArenaMenuButton : MonoBehaviour, IPointerEnterHandler, IPo
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        Hovered?.Invoke(true);
         Tint(1f);
         ArenaLiveSounds.Play("arena_button_over.wav", 0.6f);
     }
 
-    public void OnPointerExit(PointerEventData eventData) => Tint(0f);
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        Hovered?.Invoke(false);
+        Tint(0f);
+    }
 
     public void OnPointerClick(PointerEventData eventData)
     {

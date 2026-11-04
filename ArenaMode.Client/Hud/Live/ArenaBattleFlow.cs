@@ -213,10 +213,10 @@ internal sealed class ArenaBattleFlow : MonoBehaviour
         return _screen;
     }
 
-    private void Header(string modeTag, float? tagX, string location)
+    private void Header(string modeTag, float? tagX, IReadOnlyList<string> locations)
     {
         if (_header != null) Destroy(_header.gameObject);
-        _header = ArenaMenuChrome.BuildHeader(_pack, _screen, "UNRANKED", modeTag, tagX, location);
+        _header = ArenaMenuChrome.BuildHeader(_pack, _screen, "UNRANKED", modeTag, tagX, locations);
     }
 
     // ---------------------------------------------- SELECT UNRANKED GAME MODE
@@ -426,8 +426,15 @@ internal sealed class ArenaBattleFlow : MonoBehaviour
 
         FlowButton(screen, "NextButton", StartMatch);
         FlowButton(screen, "BackButton", () => Open(Step.GameMode));
-        SelectLocation(_lastLocation);
+        if (SelectedMaps.Count == 0) foreach (var map in Maps) SelectedMaps.Add(map.Id);
+        RefreshPlates();
+        ShowDescription(_lastLocation);
     }
+
+    /// <summary>Arenas ticked for matchmaking, as live's multi-select; NEXT draws one of them.</summary>
+    private static readonly HashSet<string> SelectedMaps = new(StringComparer.OrdinalIgnoreCase);
+    private readonly Dictionary<string, RectTransform> _plates = new(StringComparer.OrdinalIgnoreCase);
+    private string _hoverMap;
 
     private void BuildPlate(JObject template, string id, string name, Vector2 at, float[] icon)
     {
@@ -435,7 +442,7 @@ internal sealed class ArenaBattleFlow : MonoBehaviour
         plate.name = id;
         plate.gameObject.SetActive(true);
         plate.anchorMin = plate.anchorMax = at;
-        plate.pivot = new Vector2(0.5f, 0.5f);
+        plate.pivot = new Vector2(15f / 186f, 0.5f);                       // the pin symbol sits on the spot
         plate.anchoredPosition = Vector2.zero;
         // The rip already holds the authored geometry; live's layout groups would re-derive it from sliced
         // sprite borders and blow the plate up, so they stay off (the mode tag row keeps its own).
@@ -443,29 +450,68 @@ internal sealed class ArenaBattleFlow : MonoBehaviour
             if (group.name != "AvailbaleModesContiainer" && group.name != "AvailableModeTemplate") group.enabled = false;
         foreach (var fitter in plate.GetComponentsInChildren<ContentSizeFitter>(true)) fitter.enabled = false;
         ArenaUiBuilder.Text(plate, "Button/MapButton/View/Label").text = name.ToUpperInvariant();
-        ArenaUiBuilder.SetActive(plate, "Button/IconHandler", false);     // live's plates carry no pin symbol
+        var symbol = ArenaUiBuilder.TryFind(plate, "Button/IconHandler/Available Icon")?.GetComponent<Image>();
+        if (symbol != null)
+        {
+            symbol.sprite = _pack.Sprite(SpriteRef(MapIcons, name, icon, 100f)) ?? symbol.sprite;
+            symbol.rectTransform.sizeDelta = new Vector2(icon[2], icon[3]);
+        }
+        ArenaUiBuilder.SetActive(plate, "Button/IconHandler/Scanline Icon", false);
         var selected = ArenaUiBuilder.TryFind(plate, "Button/MapButton/View")?.GetComponent<Image>();
-        if (selected != null) { selected.enabled = true; selected.color = new Color(1f, 1f, 1f, 0f); }
+        if (selected != null) selected.enabled = true;
+        // Live's tags under the plate: one colour-coded abbreviation per mode the arena runs.
         var tags = ArenaUiBuilder.Find(plate, "AvailbaleModesContiainer");
         var tag = _builder.Build(ArenaMenuChrome.Find(template, "AvailableModeTemplate"), tags);
         tag.gameObject.SetActive(true);
-        ArenaUiBuilder.Text(tag, "Text").text = "TF " + TeamSizeFor(id) + "x" + TeamSizeFor(id);
+        ArenaUiBuilder.Text(tag, "Text").text = "TF";
         var tagImage = tag.GetComponent<Image>();
         if (tagImage != null) tagImage.sprite = _pack.Sprite(ArenaMenuChrome.TagSprite(ArenaMenuChrome.TagTeamFight)) ?? tagImage.sprite;
-        Clickable(plate, "ClickHandler", () => SelectLocation(id), selected, false);   // orange under the pointer and when chosen
+        _plates[id] = plate;
+        Clickable(plate, "ClickHandler", () => ToggleLocation(id), null, false);
+        plate.GetComponent<ArenaMenuButton>().Hovered = over =>
+        {
+            _hoverMap = over ? id : (_hoverMap == id ? null : _hoverMap);
+            if (over) ShowDescription(id);
+            RefreshPlates();
+        };
     }
 
-    private void SelectLocation(string id)
+    /// <summary>Orange plate when ticked, grey under the pointer, bare pin and name otherwise.</summary>
+    private void RefreshPlates()
+    {
+        foreach (var pair in _plates)
+        {
+            bool on = SelectedMaps.Contains(pair.Key), hover = pair.Key == _hoverMap;
+            var orange = ArenaUiBuilder.TryFind(pair.Value, "Button/MapButton/View")?.GetComponent<Image>();
+            if (orange != null) orange.color = new Color(1f, 1f, 1f, on ? 1f : 0f);
+            var grey = ArenaUiBuilder.TryFind(pair.Value, "Button/MapButton/BG")?.GetComponent<Image>();
+            if (grey != null) grey.color = new Color(1f, 1f, 1f, !on && hover ? 1f : 0f);
+            var scan = ArenaUiBuilder.TryFind(pair.Value, "Button/MapButton/ScanlineBackground")?.GetComponent<Image>();
+            if (scan != null) scan.color = new Color(1f, 1f, 1f, 0f);
+            var label = ArenaUiBuilder.TryFind(pair.Value, "Button/MapButton/View/Label")?.GetComponent<TextMeshProUGUI>();
+            if (label != null) label.color = on || hover ? new Color(0.07f, 0.078f, 0.078f, 1f) : Color.white;
+        }
+        Header("TF", ArenaMenuChrome.TagTeamFight,
+            Maps.Where(m => SelectedMaps.Contains(m.Id)).Select(m => m.Name).ToList());
+    }
+
+    private void ToggleLocation(string id)
+    {
+        if (SelectedMaps.Contains(id))
+        {
+            if (SelectedMaps.Count > 1) SelectedMaps.Remove(id);   // at least one arena stays ticked
+        }
+        else SelectedMaps.Add(id);
+        _lastLocation = id;
+        RefreshPlates();
+        ShowDescription(id);
+    }
+
+    private void ShowDescription(string id)
     {
         var map = Maps.FirstOrDefault(m => m.Id == id);
         if (map.Id == null) map = Maps[0];
-        _location = _lastLocation = map.Id;
-        foreach (Transform pin in _pins)
-        {
-            var button = pin.GetComponent<ArenaMenuButton>();
-            if (button != null) button.Selected = pin.name == map.Id;
-        }
-
+        _location = map.Id;
         ArenaUiBuilder.Text(_description, "TitleBlock/NameBlock/Location Name").text = map.Name.ToUpperInvariant();
         if (_playersValue != null) { int size = TeamSizeFor(map.Id); _playersValue.text = $"{size}x{size}"; }
         var icon = ArenaUiBuilder.TryFind(_description, "TitleBlock/NameBlock/MapIco")?.GetComponent<Image>();
@@ -482,13 +528,17 @@ internal sealed class ArenaBattleFlow : MonoBehaviour
         var banner = ArenaUiBuilder.TryFind(_description, "MapPreview/Banner")?.GetComponent<Image>();
         var art = LocationBanner(map.Id) ?? _pack.WholeTexture($"Texture2D/ArenaBackgroundPanel_{map.Banner}.png");
         if (banner != null && art != null) banner.sprite = art;
-        ArenaUiBuilder.SetActive(_screen, "MapsCounter", false);          // live's multi-map counter; one map here
-        Header("TF", ArenaMenuChrome.TagTeamFight, map.Name);
+        ArenaUiBuilder.SetActive(_screen, "MapsCounter", false);          // live's multi-map counter; the strip lists them
     }
 
+    /// <summary>NEXT: one of the ticked arenas, as live's matchmaker would pick.</summary>
     private void StartMatch()
     {
-        if (_location != null) Start(_location, true);
+        var ticked = Maps.Where(m => SelectedMaps.Contains(m.Id)).ToList();
+        if (ticked.Count == 0) return;
+        var map = ticked[UnityEngine.Random.Range(0, ticked.Count)];
+        Plugin.ModLogger.LogInfo($"Arena battle flow: {ticked.Count} arena(s) ticked, drew {map.Id}.");
+        Start(map.Id, true);
     }
 
     // ---------------------------------------------------------------- helpers

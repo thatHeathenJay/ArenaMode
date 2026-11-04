@@ -19,8 +19,8 @@ internal static class ArenaMenuChrome
 
     // Mode tag tiles in AllScreens_ModeStatistic_backgrounds (x of each 34x24 tile, measured from the rip).
     // ponytail: colour per mode picked by eye from live; swap the x when a live table turns up.
-    internal const float TagTeamFight = 165f, TagCheckPoint = 85f, TagLastHero = 325f, TagShootOut = 45f,
-        TagBlastGang = 205f, TagBloodlust = 245f;
+    internal const float TagTeamFight = 165f, TagCheckPoint = 85f, TagLastHero = 205f, TagShootOut = 45f,
+        TagBlastGang = 245f, TagBloodlust = 285f;
 
     private static readonly Dictionary<string, string> English = new(StringComparer.OrdinalIgnoreCase)
     {
@@ -42,7 +42,7 @@ internal static class ArenaMenuChrome
 
     /// <summary>The breadcrumb strip. Null arguments hide that group (nothing chosen yet).</summary>
     internal static RectTransform BuildHeader(ArenaUiPack pack, Transform parent, string type, string modeTag,
-        float? tagX, string location)
+        float? tagX, IReadOnlyList<string> locations)
     {
         var builder = new ArenaUiBuilder(pack, Localize);
         var layout = pack.Layout("MatchInfoPanel");
@@ -73,17 +73,22 @@ internal static class ArenaMenuChrome
         }
 
         var maps = ArenaUiBuilder.Find(content, "Maps");
-        maps.gameObject.SetActive(location != null);
-        if (location != null)
+        bool anyLocation = locations != null && locations.Count > 0;
+        maps.gameObject.SetActive(anyLocation);
+        if (anyLocation)
         {
-            var plate = builder.Build(Find(layout, "MapTemplate"), ArenaUiBuilder.Find(maps, "Group/MapsList"));
-            plate.gameObject.SetActive(true);
-            ArenaUiBuilder.Text(plate, "Title").text = location.ToUpperInvariant();
+            var list = ArenaUiBuilder.Find(maps, "Group/MapsList");
+            foreach (var location in locations)
+            {
+                var plate = builder.Build(Find(layout, "MapTemplate"), list);
+                plate.gameObject.SetActive(true);
+                ArenaUiBuilder.Text(plate, "Title").text = location.ToUpperInvariant();
+            }
         }
         // The glows mark the step being chosen: the last filled group.
         ArenaUiBuilder.SetActive(ranking, "RankedGlow", modeTag == null);
-        ArenaUiBuilder.SetActive(rules, "ModeGlow", modeTag != null && location == null);
-        ArenaUiBuilder.SetActive(maps, "MapGlow", location != null);
+        ArenaUiBuilder.SetActive(rules, "ModeGlow", modeTag != null && !anyLocation);
+        ArenaUiBuilder.SetActive(maps, "MapGlow", anyLocation);
         return header;
     }
 
