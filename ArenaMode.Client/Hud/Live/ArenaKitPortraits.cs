@@ -56,7 +56,11 @@ internal static class ArenaKitPortraits
     private static IEnumerator Capture((KitDefinition Kit, Profile Profile, InventoryEquipment Equipment, RectTransform Host, Action<Texture2D> Done) job)
     {
         Session.ArenaCharacterPreview preview;
-        try { preview = new Session.ArenaCharacterPreview(job.Profile, job.Host, () => { }, job.Equipment); }
+        try
+        {
+            preview = new Session.ArenaCharacterPreview(job.Profile, job.Host, () => { }, job.Equipment);
+            preview.Frame(new Vector3(0f, 0.05f, 1.25f));   // head to knees in a 306x221 card
+        }
         catch (Exception ex)
         {
             Plugin.ModLogger.LogDebug($"Arena portraits: '{job.Kit.Id}' preview failed: {ex.Message}");

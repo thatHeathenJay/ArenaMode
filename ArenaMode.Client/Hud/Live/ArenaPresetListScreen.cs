@@ -341,11 +341,11 @@ internal sealed class ArenaPresetListScreen : MonoBehaviour
         ArenaUiBuilder.SetActive(card, "HoverSelectedBackground", false);
         var container = ArenaUiBuilder.Find(card, "ConstructorContainer");
         var group = container.GetComponent<VerticalLayoutGroup>();
-        if (group != null)
+        if (group != null) Destroy(group);     // the parts are placed by hand below; the group mis-sized the body
+        static void Slab(RectTransform part, float top, float height)
         {
-            group.childControlHeight = false; group.childControlWidth = false;
-            group.childForceExpandHeight = false; group.childForceExpandWidth = false;
-            group.childAlignment = TextAnchor.UpperCenter;
+            part.anchorMin = new Vector2(0.5f, 1f); part.anchorMax = new Vector2(0.5f, 1f); part.pivot = new Vector2(0.5f, 1f);
+            part.anchoredPosition = new Vector2(0f, -top); part.sizeDelta = new Vector2(306f, height);
         }
 
         InventoryEquipment equipment = null;
@@ -358,7 +358,7 @@ internal sealed class ArenaPresetListScreen : MonoBehaviour
         // Header: name; live's favourite star and view switch are not in play here.
         var header = _builder.Build(_header, container);
         header.gameObject.SetActive(true);
-        header.anchoredPosition = Vector2.zero;
+        Slab(header, 0f, 34f);
         ArenaUiBuilder.SetActive(header, "TimerPanel", false);
         ArenaUiBuilder.SetActive(header, "HeaderIcons/NewIcon", false);
         ArenaUiBuilder.SetActive(header, "HoverSelectedBackground", false);
@@ -392,9 +392,8 @@ internal sealed class ArenaPresetListScreen : MonoBehaviour
 
         // Body: the character wearing the kit (a still), or the items when the eye is switched.
         var body = NewRect("Body", container);
-        body.sizeDelta = new Vector2(306f, 221f);
-        var bodyElement = body.gameObject.AddComponent<LayoutElement>();
-        bodyElement.preferredWidth = 306f; bodyElement.preferredHeight = 221f;
+        Slab(body, 34f, 221f);
+        body.gameObject.AddComponent<RectMask2D>();     // the still is clipped to the card
         var items = _builder.Build(_items, body);
         items.gameObject.SetActive(_itemsMode);
         items.anchorMin = items.anchorMax = new Vector2(0.5f, 1f); items.pivot = new Vector2(0.5f, 1f);
@@ -432,7 +431,7 @@ internal sealed class ArenaPresetListScreen : MonoBehaviour
         // Footer: VIEW on standard presets, EDIT on custom ones; its own click opens the preset.
         var footer = _builder.Build(_footer, container);
         footer.gameObject.SetActive(true);
-        footer.anchoredPosition = Vector2.zero;
+        Slab(footer, 255f, 32f);
         ArenaUiBuilder.SetActive(footer, "InsprectModification/HoveredState", false);
         ArenaUiBuilder.SetActive(footer, "InsprectModification/DisableState", false);
         bool custom = IsCustom(kit.Id);

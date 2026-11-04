@@ -338,6 +338,12 @@ internal sealed class ArenaCharacterPreview : IDisposable
         if (_ready) _image.InitCamera(_camera);
     }
 
+    /// <summary>Moves the preview camera (local to the preview world); portraits frame closer than the menu.</summary>
+    internal void Frame(Vector3 cameraLocalPosition)
+    {
+        if (_camera != null) _camera.transform.localPosition = cameraLocalPosition;
+    }
+
     public void Rotate(float delta, float speed)
     {
         if (!_ready || !IsAvailable) return;
