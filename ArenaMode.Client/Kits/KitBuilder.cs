@@ -623,7 +623,10 @@ public static class KitBuilder
                 }
                 if (!AddToAnyGrid(entry.OptionalQuickUseOnly ? grenadeContainers : containers, item, out var reason))
                 {
-                    if (strict && !entry.OptionalQuickUseOnly)
+                    // Authored kits must fit by construction; a custom preset's overflow (the server's packer and this
+                    // one can disagree by a cell) drops the supply instead of losing the whole kit.
+                    bool custom = kit.Id != null && kit.Id.StartsWith("custom-", StringComparison.Ordinal);
+                    if (strict && !entry.OptionalQuickUseOnly && !custom)
                         throw new InvalidOperationException($"Entry kit required supply '{entry.Tpl}' did not fit: {reason}");
                     if (entry.OptionalQuickUseOnly)
                         Plugin.ModLogger.LogDebug($"Kit: optional grenade {Describe(item)} skipped; no compatible quick-use space ({reason}).");
