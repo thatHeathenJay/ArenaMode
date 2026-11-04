@@ -450,10 +450,22 @@ public static class ArenaPresetEditor
     private static void RemoveSupply(JsonArray customs, string kitId, string tpl)
     {
         var kit = CustomKit(customs, kitId);
-        if (kit["fill"]?["rigContents"] is not JsonArray contents) return;
-        var entry = contents.OfType<JsonObject>().OrderBy(e => e["optionalQuickUseOnly"]?.GetValue<bool>() == true)
+        var contents = kit["fill"]?["rigContents"] as JsonArray;
+        var entry = contents?.OfType<JsonObject>().OrderBy(e => e["optionalQuickUseOnly"]?.GetValue<bool>() == true)
             .FirstOrDefault(e => e["tpl"]?.GetValue<string>() == tpl);
-        if (entry == null) return;
+        if (entry == null)
+        {
+            // Not a fill supply: the authored kit may carry it as an item inside the rig or pockets (default meds).
+            if (kit["items"] is not JsonArray nodes) return;
+            string rootId = nodes.FirstOrDefault(n => n?["parentId"] == null)?["_id"]?.GetValue<string>() ?? "";
+            var holders = nodes.OfType<JsonObject>().Where(n => n["parentId"]?.GetValue<string>() == rootId
+                && n["slotId"]?.GetValue<string>() is "TacticalVest" or "Pockets").Select(n => n["_id"]!.GetValue<string>()).ToHashSet(StringComparer.Ordinal);
+            var carried = nodes.OfType<JsonObject>().FirstOrDefault(n => holders.Contains(n["parentId"]?.GetValue<string>() ?? "")
+                && n["_tpl"]?.GetValue<string>() == tpl && (n["slotId"]?.GetValue<string>() ?? "").IndexOf("plate", StringComparison.OrdinalIgnoreCase) < 0);
+            if (carried == null) return;
+            foreach (var n in Subtree(nodes, carried["_id"]!.GetValue<string>())) nodes.Remove(n);
+            return;
+        }
         int count = entry["count"]?.GetValue<int>() ?? 1;
         if (count > 1 && entry["optionalQuickUseOnly"]?.GetValue<bool>() != true) entry["count"] = count - 1;
         else contents.Remove(entry);
