@@ -74,6 +74,7 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
     private string _filterClass;      // armory class filter; null = every class
     private string _search = "";
     private EquipmentSlot? _focusSlot;
+    private string _focusPlate;            // plate slot id of the focused armor / rig being edited
     private string _class = "assault";
     private KitDefinition _shown;
     private Session.ArenaCharacterPreview _preview;
@@ -183,15 +184,15 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
         _customBody = NewRect("Customization", root);
         _customBody.anchorMin = new Vector2(0.5f, 1f); _customBody.anchorMax = new Vector2(0.5f, 1f);
         _customBody.pivot = new Vector2(0.5f, 1f); _customBody.anchoredPosition = new Vector2(0f, -60f);
-        _customBody.sizeDelta = new Vector2(1890f, 1000f);
+        _customBody.sizeDelta = new Vector2(1890f, 960f);
         _gears = _builder.Build(Find(_apcLayout, "GearsAndContainers"), _customBody);
         _gears.anchorMin = new Vector2(0f, 1f); _gears.anchorMax = new Vector2(0f, 1f); _gears.pivot = new Vector2(0f, 1f);
-        _gears.anchoredPosition = Vector2.zero; _gears.sizeDelta = new Vector2(1190f, 1000f);
+        _gears.anchoredPosition = Vector2.zero; _gears.sizeDelta = new Vector2(1190f, 960f);
         ArenaUiBuilder.SetActive(_gears, "DiscardItemView", false);
         ArenaUiBuilder.SetActive(_gears, "PointerBlocker", false);
         var itemsBackground = _builder.Build(Find(_apcLayout, "ItemsPanelBackground"), _customBody);
         itemsBackground.anchorMin = new Vector2(0f, 1f); itemsBackground.anchorMax = new Vector2(0f, 1f); itemsBackground.pivot = new Vector2(0f, 1f);
-        itemsBackground.anchoredPosition = new Vector2(1190f, 0f); itemsBackground.sizeDelta = new Vector2(700f, 1000f);
+        itemsBackground.anchoredPosition = new Vector2(1190f, 0f); itemsBackground.sizeDelta = new Vector2(700f, 960f);
         _items = ArenaUiBuilder.Find(itemsBackground, "APCItemsPanel");
         BuildItemsPanel();
 
@@ -548,16 +549,35 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
         bar.gameObject.SetActive(true);
         ArenaUiBuilder.SetActive(bar, "Tooltip", false);
         ArenaUiBuilder.SetActive(bar, "BarImage (1)", false);
+        float amount = Mathf.Clamp01(value / Mathf.Max(1f, max));
         var fill = ArenaUiBuilder.TryFind(bar, "BarImage")?.GetComponent<Image>();
         if (fill != null)
         {
             fill.type = Image.Type.Filled; fill.fillMethod = Image.FillMethod.Horizontal;
-            fill.fillAmount = Mathf.Clamp01(value / Mathf.Max(1f, max));
+            fill.fillAmount = amount;
             if (colour.HasValue) fill.color = colour.Value;
         }
-        SetText(bar, "IndicatorContainer/MiddleBar/Separator/MinValue", min);
-        SetText(bar, "IndicatorContainer/RightBorder/Separator/MaxValue", maxLabel);
-        SetText(bar, "ValuePlaceholder/ValueHandler/CurrentValueField", shown ?? value.ToString("N0"));
+        SetText(bar, "IndicatorContainer/MiddleBar/Separator/MinValue", string.IsNullOrEmpty(min) ? "0" : min);
+        SetText(bar, "IndicatorContainer/RightBorder/Separator/MaxValue", string.IsNullOrEmpty(maxLabel) ? max.ToString("N0") : maxLabel);
+        // Live positions the value above the end of the fill from code; the rip carries no rect for it.
+        var handler = ArenaUiBuilder.TryFind(bar, "ValuePlaceholder/ValueHandler");
+        if (handler != null) ArenaUiBuilder.Stretch(handler);
+        var current = ArenaUiBuilder.TryFind(bar, "ValuePlaceholder/ValueHandler/CurrentValueField");
+        if (current != null)
+        {
+            current.gameObject.SetActive(true);
+            current.anchorMin = current.anchorMax = new Vector2(amount, 1f);
+            current.pivot = new Vector2(0.5f, 0f);
+            current.anchoredPosition = Vector2.zero;
+            current.sizeDelta = new Vector2(96f, 14f);
+            var text = current.GetComponent<TextMeshProUGUI>();
+            if (text != null)
+            {
+                text.alignment = TextAlignmentOptions.Bottom;
+                text.enableWordWrapping = false;
+                text.text = shown ?? value.ToString("N0");
+            }
+        }
         SetText(bar, "ValuePlaceholder/ValueHandler/TipValueField", "");
     }
 
@@ -631,7 +651,10 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
     private void FocusSlot(EquipmentSlot slot)
     {
         _focusSlot = _focusSlot == slot ? null : slot;
+        _focusPlate = null;
         _itemsTab = WeaponSlots.Contains(slot) ? "Weapons" : "Wearings";
+        Plugin.ModLogger.LogDebug($"Arena presets: focus {(_focusSlot.HasValue ? slot.ToString() : "none")}; "
+            + $"{(_focusSlot.HasValue ? ArenaArmory.ForSlot(slot.ToString(), _filterClass).Count() : 0)} armory items, {PlateSlots().Count} plate slots.");
         BindCells(ArenaUiBuilder.Find(_gears, "Gear Panel/Gears"), true);
         BindItemsPanel();
     }
@@ -667,29 +690,29 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
             title.text = name; title.color = Muted;
             title.gameObject.AddComponent<LayoutElement>().preferredHeight = 28f;
             var row = NewRect("Grids " + index, content);
-            var rowLayout = row.gameObject.AddComponent<HorizontalLayoutGroup>();
-            rowLayout.spacing = 8f; rowLayout.padding = new RectOffset(8, 8, 2, 6);
-            rowLayout.childForceExpandWidth = rowLayout.childForceExpandHeight = false;
-            rowLayout.childControlWidth = rowLayout.childControlHeight = false;
-            rowLayout.childAlignment = TextAnchor.UpperLeft;
-            float rowHeight = 0f;
+            // Grids flow left to right and wrap, so every grid of a rig shows (one row was clipped by the panel).
+            float maxWidth = content.rect.width > 100f ? content.rect.width - 16f : 430f;
+            float cursorX = 8f, cursorY = 2f, lineHeight = 0f;
             int gridIndex = 0;
             foreach (var grid in container.Grids)
             {
                 int w = Math.Max(1, grid.GridWidth), h = Math.Max(1, grid.GridHeight);
+                float gw = w * cell, gh = h * cell;
+                if (cursorX > 8f && cursorX + gw > maxWidth) { cursorX = 8f; cursorY += lineHeight + 8f; lineHeight = 0f; }
                 var panel = NewRect("Grid " + gridIndex++, row);
-                panel.sizeDelta = new Vector2(w * cell, h * cell);
-                var element = panel.gameObject.AddComponent<LayoutElement>();
-                element.preferredWidth = w * cell; element.preferredHeight = h * cell;
-                rowHeight = Mathf.Max(rowHeight, h * cell);
+                panel.anchorMin = panel.anchorMax = new Vector2(0f, 1f); panel.pivot = new Vector2(0f, 1f);
+                panel.anchoredPosition = new Vector2(cursorX, -cursorY);
+                panel.sizeDelta = new Vector2(gw, gh);
+                cursorX += gw + 8f;
+                lineHeight = Mathf.Max(lineHeight, gh);
                 for (int x = 0; x < w; x++)
                     for (int y = 0; y < h; y++)
                     {
                         var back = NewRect($"Cell {x},{y}", panel);
                         Place(back, x, y, 1, 1, cell);
                         var backImage = back.gameObject.AddComponent<Image>();
-                        backImage.color = new Color(0.08f, 0.1f, 0.12f, 0.9f); backImage.raycastTarget = false;
-                        ArenaUiTheme.Rule(back, "Edge", ArenaUiTheme.Edge, inset: 0f, thickness: 1f);
+                        backImage.color = new Color(0.1f, 0.12f, 0.14f, 0.85f); backImage.raycastTarget = false;
+                        ArenaUiTheme.Rule(back, "Edge", ArenaUiTheme.WithAlpha(ArenaUiTheme.Muted, 0.35f), inset: 0f, thickness: 1f);
                     }
                 foreach (KeyValuePair<Item, LocationInGrid> pair in grid.ItemCollection)
                 {
@@ -729,7 +752,7 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
                     }
                 }
             }
-            row.gameObject.AddComponent<LayoutElement>().preferredHeight = rowHeight + 8f;
+            row.gameObject.AddComponent<LayoutElement>().preferredHeight = cursorY + lineHeight + 8f;
         }
     }
 
@@ -757,8 +780,7 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
             hit.color = Color.clear; hit.raycastTarget = true;
             node.gameObject.AddComponent<ArenaMenuButton>().Init(node, () =>
             {
-                if (target == "Mods") { OpenBuildEditor(); return; }
-                _itemsTab = target; _focusSlot = null;
+                _itemsTab = target; _focusSlot = null; _focusPlate = null;
                 BindCells(ArenaUiBuilder.Find(_gears, "Gear Panel/Gears"), true);
                 BindItemsPanel();
             });
@@ -856,14 +878,27 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
             ArenaUiBuilder.SetActive(_items, panel, panel == _itemsTab + "Panel");
 
         bool big = _itemsTab == "Weapons";
-        var grid = (RectTransform)ArenaUiBuilder.Find(_items, _itemsTab + "Panel/Content/Scroll Area").GetChild(0);
+        var contentNode = ArenaUiBuilder.Find(_items, _itemsTab + "Panel/Content");
+        var grid = (RectTransform)ArenaUiBuilder.Find(contentNode, "Scroll Area").GetChild(0);
         foreach (Transform child in grid) Destroy(child.gameObject);
-        var slots = _focusSlot.HasValue ? new[] { _focusSlot.Value.ToString() } : TabSlots[_itemsTab];
+        // Plates: the focused armor or rig lists its plate slots on a strip above the items; one selected lists plates.
+        var plateSlots = PlateSlots();
+        if (_focusPlate != null && plateSlots.All(s => s.ID != _focusPlate)) _focusPlate = null;
+        var oldStrip = contentNode.Find("PlateStrip");
+        if (oldStrip != null) Destroy(oldStrip.gameObject);
+        var scrollArea = ArenaUiBuilder.Find(contentNode, "Scroll Area");
+        scrollArea.offsetMax = new Vector2(scrollArea.offsetMax.x, plateSlots.Count > 0 ? -36f : -0.7f);
+        if (plateSlots.Count > 0) BuildPlateStrip(contentNode, plateSlots);
+        var plateSlot = plateSlots.FirstOrDefault(s => s.ID == _focusPlate);
+        Slot magazineSlot = null;
+        try { magazineSlot = (ItemIn(EquipmentSlot.FirstPrimaryWeapon) as CompoundItem)?.AllSlots.FirstOrDefault(s => s.ID == "mod_magazine"); } catch { /* none */ }
+        var slots = plateSlot != null ? new[] { "Plates" } : _focusSlot.HasValue ? new[] { _focusSlot.Value.ToString() } : TabSlots[_itemsTab];
         // What the preset already carries: gear by slot, loaded rounds, rig supplies.
         var current = new HashSet<string>(StringComparer.Ordinal);
         foreach (var (_, slot) in Cells) if (ItemIn(slot) is { } worn) current.Add(worn.TemplateId);
         foreach (var node in _shown?.Items ?? new List<KitItemNode>())
-            if (node.SlotId == "cartridges" || (node.SlotId?.StartsWith("patron_in_weapon") ?? false)) current.Add(node.Tpl);
+            if (node.SlotId == "cartridges" || node.SlotId == "mod_magazine" || (node.SlotId?.StartsWith("patron_in_weapon") ?? false)) current.Add(node.Tpl);
+        if (plateSlot?.ContainedItem != null) current.Add(plateSlot.ContainedItem.TemplateId);
         foreach (var supply in _shown?.Fill?.RigContents ?? new List<KitStackedItem>()) current.Add(supply.Tpl);
         var calibres = new HashSet<string>(StringComparer.Ordinal);
         foreach (var slot in WeaponSlots)
@@ -873,6 +908,8 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
             foreach (var entry in ArenaArmory.ForSlot(slot, _filterClass))
             {
                 if (slot == "Ammo" && (entry.Caliber == null || !calibres.Contains(entry.Caliber))) continue;
+                if (slot == "Plates" && !Accepts(plateSlot, ArmoryItem(entry))) continue;
+                if (slot == "Mods" && (magazineSlot == null || !Accepts(magazineSlot, ArmoryItem(entry)))) continue;
                 if (search.Length > 0 && (entry.Name ?? "").IndexOf(search, StringComparison.OrdinalIgnoreCase) < 0) continue;
                 BuildCard(grid, big ? _cardBig : _cardSmall, entry, slot, current.Contains(entry.Tpl));
             }
@@ -945,7 +982,69 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
     private void Place(string slot, ArenaArmory.Entry entry)
     {
         if (slot is "Meds" or "Throwable") Add(entry);
+        else if (slot == "Mods") Swap("mod:primary/mod_magazine", entry);
+        else if (slot == "Plates") Swap((_focusSlot == EquipmentSlot.TacticalVest ? "mod:rig/" : "mod:armor/") + _focusPlate, entry);
         else Swap(slot, entry);
+    }
+
+    /// <summary>The plate slots of the focused armor or rig (front, back, sides), none when nothing plated is focused.</summary>
+    private List<Slot> PlateSlots()
+    {
+        var list = new List<Slot>();
+        if (_focusSlot is not (EquipmentSlot.ArmorVest or EquipmentSlot.TacticalVest)) return list;
+        if (ItemIn(_focusSlot.Value) is not CompoundItem worn) return list;
+        try
+        {
+            foreach (var slot in worn.AllSlots)
+                if (ReferenceEquals(slot.ParentItem, worn) && slot.ID.IndexOf("plate", StringComparison.OrdinalIgnoreCase) >= 0) list.Add(slot);
+        }
+        catch { /* no slots */ }
+        return list;
+    }
+
+    private static string PlateLabel(string slotId) => slotId.ToLowerInvariant() switch
+    {
+        "front_plate" => "FRONT", "back_plate" => "BACK", "left_side_plate" => "LEFT", "right_side_plate" => "RIGHT",
+        _ => slotId.Replace("_", " ").ToUpperInvariant(),
+    };
+
+    /// <summary>One button per plate slot above the wearings list; the chosen one lists the plates that fit it.</summary>
+    private void BuildPlateStrip(RectTransform parent, List<Slot> plateSlots)
+    {
+        var strip = NewRect("PlateStrip", parent);
+        strip.anchorMin = new Vector2(0f, 1f); strip.anchorMax = Vector2.one; strip.pivot = new Vector2(0.5f, 1f);
+        strip.anchoredPosition = Vector2.zero; strip.sizeDelta = new Vector2(0f, 34f);
+        var layout = strip.gameObject.AddComponent<HorizontalLayoutGroup>();
+        layout.padding = new RectOffset(44, 8, 4, 4); layout.spacing = 6f;
+        layout.childForceExpandWidth = layout.childForceExpandHeight = false;
+        layout.childControlWidth = false; layout.childControlHeight = true;
+        var caption = HudStyle.CreateText(strip, "Caption", 13f, TextAlignmentOptions.MidlineLeft);
+        caption.text = "PLATES"; caption.color = Muted;
+        caption.gameObject.AddComponent<LayoutElement>().preferredWidth = 58f;
+        foreach (var slot in plateSlots)
+        {
+            string id = slot.ID;
+            bool selected = id == _focusPlate;
+            string name = "—";
+            try { if (slot.ContainedItem != null) name = slot.ContainedItem.ShortName.Localized(); } catch { /* unnamed */ }
+            var button = NewRect("Plate " + id, strip);
+            button.gameObject.AddComponent<LayoutElement>().preferredWidth = 128f;
+            var fill = button.gameObject.AddComponent<Image>();
+            fill.color = selected ? new Color(0.79f, 0.54f, 0f, 0.18f) : new Color(0.52f, 0.60f, 0.67f, 0.12f);
+            fill.raycastTarget = true;
+            ArenaUiTheme.Rule(button, "Edge", selected ? ArenaUiTheme.WithAlpha(Gold, 0.8f) : ArenaUiTheme.Edge, inset: 0f, thickness: 1f);
+            var label = HudStyle.CreateText(button, "Label", 12f, TextAlignmentOptions.Midline);
+            label.text = $"{PlateLabel(id)}: {name}";
+            label.color = selected ? Gold : Text;
+            label.enableWordWrapping = false; label.overflowMode = TextOverflowModes.Ellipsis;
+            ArenaUiBuilder.Stretch(label.rectTransform);
+            label.rectTransform.offsetMin = new Vector2(4f, 0f); label.rectTransform.offsetMax = new Vector2(-4f, 0f);
+            button.gameObject.AddComponent<ArenaMenuButton>().Init(button, () =>
+            {
+                _focusPlate = _focusPlate == id ? null : id;
+                BindItemsPanel();
+            });
+        }
     }
 
     // ---------------------------------------------------------------- mods

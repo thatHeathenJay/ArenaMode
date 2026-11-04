@@ -130,7 +130,10 @@ public static class KitCatalog
         {
             var invalid = KitBuilder.ValidateKit(kit);
             if (invalid.Count == 0)
+            {
+                Plugin.ModLogger.LogInfo($"Arena kit: '{kit.Id}' (selected '{wanted}', {_kits.Count} in catalog).");
                 return kit;
+            }
 
             Plugin.ModLogger.LogError(
                 $"Kit '{kit.Id}' skipped — unknown templates: {string.Join(", ", invalid)}");

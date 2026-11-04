@@ -240,8 +240,15 @@ public static class ArenaPresetEditor
         var rootId = nodes.FirstOrDefault(n => n?["parentId"] == null)?["_id"]?.GetValue<string>() ?? "";
         var segments = path.Substring(4).Split('/', StringSplitOptions.RemoveEmptyEntries);
         if (segments.Length < 2) throw new InvalidOperationException("bad attachment path");
-        var weapon = segments[0] == "holster" ? EquipmentNode(nodes, rootId, "Holster") : EquipmentNode(nodes, rootId, "FirstPrimaryWeapon", "SecondPrimaryWeapon");
-        var current = weapon ?? throw new InvalidOperationException("the preset has no weapon there");
+        // mod:primary|holster/... edits a weapon; mod:armor|rig/... edits the plates of the armor or the rig.
+        var weapon = segments[0] switch
+        {
+            "holster" => EquipmentNode(nodes, rootId, "Holster"),
+            "armor" => EquipmentNode(nodes, rootId, "ArmorVest"),
+            "rig" => EquipmentNode(nodes, rootId, "TacticalVest"),
+            _ => EquipmentNode(nodes, rootId, "FirstPrimaryWeapon", "SecondPrimaryWeapon"),
+        };
+        var current = weapon ?? throw new InvalidOperationException("the preset has nothing equipped there");
         for (int i = 1; i < segments.Length - 1; i++)
         {
             string parent = current["_id"]!.GetValue<string>();

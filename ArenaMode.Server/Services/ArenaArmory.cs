@@ -32,6 +32,7 @@ public class ArenaArmory(TemplateTable templateTable, GlobalTable globalTable, L
         ("Throwable", new MongoId("543be6564bdc2df4348b4568")),
         ("Meds", new MongoId("543be5664bdc2dd4348b4569")),
         ("Ammo", new MongoId("5485a8684bdc2da71d8b4567")),
+        ("Plates", new MongoId("644120aa86ffbe10ee032b6f")),    // armor plates (before Mods: they are not attachments)
         ("Mods", new MongoId("5448fe124bdc2da5018b4567")),      // weapon attachments and magazines
     };
 
@@ -43,8 +44,10 @@ public class ArenaArmory(TemplateTable templateTable, GlobalTable globalTable, L
             var items = ArenaPresetEditor.Metascore;
             var armory = new JsonArray();
             var names = localeTable.Global.TryGetValue("en", out var lazy) ? lazy.Value : null;
+            var listed = new HashSet<string>(StringComparer.Ordinal);
             foreach (var (tpl, entry) in items)
             {
+                listed.Add(tpl);
                 if (!templateTable.Items.TryGetValue(new MongoId(tpl), out var template)) continue;
                 string? slot = ArenaPresetEditor.SlotOf(template.Id);
                 if (slot == null) continue;
@@ -70,6 +73,20 @@ public class ArenaArmory(TemplateTable templateTable, GlobalTable globalTable, L
                     ["name"] = name ?? template.Name ?? tpl,
                     ["items"] = presetNodes,
                     ["caliber"] = template.Properties?.Caliber,
+                });
+            }
+            // Every armor plate the game has, scored where the metascore knows it: live lets any plate be chosen.
+            foreach (var template in templateTable.Items.Values)
+            {
+                string tpl = template.Id.ToString();
+                if (listed.Contains(tpl) || ArenaPresetEditor.SlotOf(template.Id) != "Plates") continue;
+                if (templateTable.Handbook?.Items?.Any(i => i.Id == template.Id) != true) continue;
+                string? name = null;
+                names?.TryGetValue(tpl + " ShortName", out name);
+                armory.Add(new JsonObject
+                {
+                    ["tpl"] = tpl, ["slot"] = "Plates", ["bar"] = "defense", ["score"] = 0d, ["live"] = false,
+                    ["classes"] = new JsonArray(), ["unlock"] = "", ["name"] = name ?? template.Name ?? tpl, ["items"] = null, ["caliber"] = null,
                 });
             }
             ArenaContext.ArmoryJson = armory.ToJsonString();
