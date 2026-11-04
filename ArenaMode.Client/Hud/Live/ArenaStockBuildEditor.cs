@@ -265,6 +265,7 @@ internal sealed class ArenaBuildScoreOverlay : MonoBehaviour
     private EditBuildScreen _screen;
     private ArenaUiPack _pack;
     private readonly RectTransform[] _bars = new RectTransform[4];
+    private RectTransform _panel, _characteristics;
     private float _nextTick;
 
     internal static ArenaBuildScoreOverlay Show(EditBuildScreen screen)
@@ -294,8 +295,13 @@ internal sealed class ArenaBuildScoreOverlay : MonoBehaviour
             ?? throw new InvalidOperationException("APCMetascoreBar missing from the rip");
         var panel = new GameObject("Bars", typeof(RectTransform)).GetComponent<RectTransform>();
         panel.SetParent(transform, false);
-        panel.anchorMin = panel.anchorMax = new Vector2(0f, 0f); panel.pivot = new Vector2(0f, 0f);
-        panel.anchoredPosition = new Vector2(40f, 70f); panel.sizeDelta = new Vector2(330f, 150f);
+        panel.anchorMin = panel.anchorMax = new Vector2(0.5f, 0.5f); panel.pivot = new Vector2(0f, 0f);
+        panel.anchoredPosition = new Vector2(-920f, -470f); panel.sizeDelta = new Vector2(330f, 150f);
+        _panel = panel;
+        // Live's bottom bar replaces EFT's taskbar under the build screen.
+        Profile profile = null;
+        try { profile = SPT.Reflection.Utils.ClientAppUtils.GetMainApp()?.GetClientBackEndSession()?.Profile; } catch { /* none */ }
+        ArenaMenuChrome.BuildFooter(_pack, transform, profile, null, ArenaMainMenuOverlay.ShowSettings, null);
         for (int i = 0; i < 4; i++)
         {
             var bar = builder.Build(layout, panel);
@@ -310,9 +316,28 @@ internal sealed class ArenaBuildScoreOverlay : MonoBehaviour
 
     private void Update()
     {
+        Place();
         if (Time.unscaledTime < _nextTick) return;
         _nextTick = Time.unscaledTime + 0.5f;
+        if (MonoBehaviourSingleton<PreloaderUI>.Instantiated)
+            MonoBehaviourSingleton<PreloaderUI>.Instance.SetMenuTaskBarVisibility(false);
         Refresh();
+    }
+
+    /// <summary>The bars sit just above EFT's characteristics panel, wherever its expanding list puts its top edge.</summary>
+    private void Place()
+    {
+        if (_panel == null || _screen == null) return;
+        if (_characteristics == null)
+            _characteristics = _screen.GetComponentsInChildren<RectTransform>(true)
+                .FirstOrDefault(r => r.name.IndexOf("Characteristic", StringComparison.OrdinalIgnoreCase) >= 0);
+        if (_characteristics == null || !_characteristics.gameObject.activeInHierarchy) return;
+        var corners = new Vector3[4];
+        _characteristics.GetWorldCorners(corners);                       // 1 = top-left
+        var camera = _characteristics.GetComponentInParent<Canvas>()?.rootCanvas?.worldCamera;
+        var screenPoint = RectTransformUtility.WorldToScreenPoint(camera, corners[1]);
+        if (RectTransformUtility.ScreenPointToLocalPointInRectangle((RectTransform)transform, screenPoint, null, out var local))
+            _panel.anchoredPosition = new Vector2(local.x, local.y + 12f);
     }
 
     private void Refresh()
