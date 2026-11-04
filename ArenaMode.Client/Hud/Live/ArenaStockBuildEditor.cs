@@ -11,6 +11,7 @@ using System.Linq;
 using System.Reflection;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace ArenaMode.Hud.Live;
 
@@ -30,6 +31,9 @@ internal static class ArenaStockBuildEditor
     private static Action _onClosed;
     private static Dictionary<string, string> _original;
     private static HashSet<string> _armory;
+    private static double _originalTreeScore;
+    private static ArenaMetascore.KitScore _baseline;
+    private static ArenaBuildScoreOverlay _overlay;
 
     /// <summary>False when the stock screen cannot be used here (no item context yet, weapon failed to build).</summary>
     internal static bool TryShow(KitDefinition kit, bool holster, Action onClosed)
@@ -53,6 +57,8 @@ internal static class ArenaStockBuildEditor
         _holster = holster;
         _onClosed = onClosed;
         _original = Snapshot(weapon);
+        _originalTreeScore = TreeScore(weapon);
+        try { _baseline = ArenaMetascore.Score(kit); } catch { _baseline = default; }
         _armory = new HashSet<string>(ArenaArmory.Entries.Select(e => e.Tpl), StringComparer.Ordinal);
         foreach (var tpl in _original.Values) if (tpl.Length > 0) _armory.Add(tpl);   // the kit's own parts stay usable
         Active = true;
@@ -102,6 +108,26 @@ internal static class ArenaStockBuildEditor
         }
     }
 
+    private static double TreeScore(CompoundItem root)
+    {
+        double total = 0d;
+        try
+        {
+            total += ArenaMetascore.ItemScore(root.TemplateId);
+            foreach (var slot in root.AllSlots)
+                if (slot.ContainedItem != null) total += ArenaMetascore.ItemScore(slot.ContainedItem.TemplateId);
+        }
+        catch { /* partial */ }
+        return total;
+    }
+
+    /// <summary>The preset's score with the weapon as it stands on the screen: firepower follows the build.</summary>
+    internal static ArenaMetascore.KitScore CurrentScore(CompoundItem body)
+    {
+        int delta = body == null ? 0 : (int)Math.Round(TreeScore(body) - _originalTreeScore);
+        return new ArenaMetascore.KitScore(_baseline.Firepower + delta, _baseline.Defense, _baseline.Utility);
+    }
+
     /// <summary>Slots that differ from the opened weapon, parents before children, as server swaps.</summary>
     private static void Apply(CompoundItem body)
     {
@@ -133,6 +159,8 @@ internal static class ArenaStockBuildEditor
         {
             if (!Active || __instance == null) return;
             var t = Traverse.Create(__instance);
+            try { _overlay = ArenaBuildScoreOverlay.Show(__instance); }
+            catch (Exception ex) { Plugin.ModLogger.LogDebug("Arena build editor: score bars unavailable: " + ex.Message); }
             // Builds, assembling, publishing and the name field are stash features; the arena kit is the build.
             foreach (var field in new[] { "_newBuildButton", "_openBuildButton", "_saveAsBuildButton", "_selectItemButton",
                 "_findPartsButton", "_publishButton", "_deleteBuildButton", "_saveButton", "_assembleButton", "_buildName",
@@ -171,6 +199,7 @@ internal static class ArenaStockBuildEditor
         {
             if (!Active) return;
             Active = false;
+            if (_overlay != null) { UnityEngine.Object.Destroy(_overlay.gameObject); _overlay = null; }
             try
             {
                 var body = Traverse.Create(__instance).Field("_itemBody").GetValue<Item>() as CompoundItem;
@@ -224,5 +253,82 @@ internal static class ArenaStockBuildEditor
             label.text = ArenaMetascore.ItemScore(item.TemplateId).ToString("N0");
             label.color = allowed ? new Color(0.35f, 0.8f, 0.75f) : ArenaUiTheme.Muted;
         }
+    }
+}
+
+/// <summary>Live's four metascore bars at the bottom left of the weapon build screen, following the build.</summary>
+internal sealed class ArenaBuildScoreOverlay : MonoBehaviour
+{
+    private EditBuildScreen _screen;
+    private ArenaUiPack _pack;
+    private readonly RectTransform[] _bars = new RectTransform[4];
+    private float _nextTick;
+
+    internal static ArenaBuildScoreOverlay Show(EditBuildScreen screen)
+    {
+        if (!ArenaUiPack.IsAvailable) return null;
+        var go = new GameObject("ArenaBuildScoreOverlay");
+        go.transform.SetParent(Plugin.Instance.transform, false);
+        var overlay = go.AddComponent<ArenaBuildScoreOverlay>();
+        overlay._screen = screen;
+        overlay.Build();
+        return overlay;
+    }
+
+    private void Build()
+    {
+        _pack = new ArenaUiPack();
+        var builder = new ArenaUiBuilder(_pack, _ => null);
+        var canvas = gameObject.AddComponent<Canvas>();
+        canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+        canvas.sortingOrder = 545;
+        canvas.overrideSorting = true;
+        var scaler = gameObject.AddComponent<CanvasScaler>();
+        scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
+        scaler.referenceResolution = new Vector2(1920f, 1080f);
+        scaler.matchWidthOrHeight = 0.5f;
+        var layout = ArenaMenuChrome.Find(_pack.Layout("ArenaPresetCustomizationScreen"), "APCMetascoreBar")
+            ?? throw new InvalidOperationException("APCMetascoreBar missing from the rip");
+        var panel = new GameObject("Bars", typeof(RectTransform)).GetComponent<RectTransform>();
+        panel.SetParent(transform, false);
+        panel.anchorMin = panel.anchorMax = new Vector2(0f, 0f); panel.pivot = new Vector2(0f, 0f);
+        panel.anchoredPosition = new Vector2(40f, 70f); panel.sizeDelta = new Vector2(330f, 150f);
+        for (int i = 0; i < 4; i++)
+        {
+            var bar = builder.Build(layout, panel);
+            bar.name = "Bar" + i;
+            bar.anchorMin = bar.anchorMax = new Vector2(0f, 1f); bar.pivot = new Vector2(0f, 1f);
+            bar.anchoredPosition = new Vector2(30f, -(i * 36f) - 10f);
+            bar.sizeDelta = new Vector2(290f, 12f);
+            _bars[i] = bar;
+        }
+        Refresh();
+    }
+
+    private void Update()
+    {
+        if (Time.unscaledTime < _nextTick) return;
+        _nextTick = Time.unscaledTime + 0.5f;
+        Refresh();
+    }
+
+    private void Refresh()
+    {
+        CompoundItem body = null;
+        try { body = _screen == null ? null : Traverse.Create(_screen).Field("_itemBody").GetValue<Item>() as CompoundItem; } catch { /* closing */ }
+        var score = ArenaStockBuildEditor.CurrentScore(body);
+        float max = Mathf.Max(ArenaMetascore.BandMax, 1f);
+        ArenaPresetsScreen.FillBar(_bars[0], score.Firepower, max, "", "");
+        ArenaPresetsScreen.FillBar(_bars[1], score.Defense, max, "", "");
+        ArenaPresetsScreen.FillBar(_bars[2], score.Utility, max, "", "");
+        bool inBand = score.Total >= ArenaMetascore.BandMin && score.Total <= ArenaMetascore.BandMax;
+        ArenaPresetsScreen.FillBar(_bars[3], score.Total, max, ArenaMetascore.BandMin.ToString("N0"), ArenaMetascore.BandMax.ToString("N0"),
+            inBand ? null : new Color(0.85f, 0.25f, 0.25f, 1f));
+    }
+
+    private void OnDestroy()
+    {
+        _pack?.Dispose();
+        _pack = null;
     }
 }

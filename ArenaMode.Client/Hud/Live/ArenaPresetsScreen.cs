@@ -196,6 +196,10 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
         _items = ArenaUiBuilder.Find(itemsBackground, "APCItemsPanel");
         BuildItemsPanel();
 
+        // Live's palette: the panel backgrounds are the dark navy of the rest of the UI, not the bright tile.
+        foreach (var image in root.GetComponentsInChildren<Image>(true))
+            if (image.sprite != null && image.sprite.name.StartsWith("ArenaPresetViewScreen_Backgrounds", StringComparison.Ordinal))
+                image.color = new Color(0.09f, 0.11f, 0.13f, 1f);
         BuildHeader(root);
         ArenaMenuChrome.BuildFooter(_pack, root, SessionProfile(), () => { Hide(); ArenaPresetListScreen.Hide(); },
             ArenaMainMenuOverlay.ShowSettings, () => { });
@@ -543,7 +547,7 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
         BindItemsPanel();
     }
 
-    private static void FillBar(RectTransform bar, float value, float max, string min, string maxLabel, Color? colour = null, string shown = null)
+    internal static void FillBar(RectTransform bar, float value, float max, string min, string maxLabel, Color? colour = null, string shown = null)
     {
         if (bar == null) return;
         bar.gameObject.SetActive(true);
@@ -686,9 +690,25 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
             index++;
             string name = "CONTAINER";
             try { name = container.ShortName.Localized().ToUpperInvariant(); } catch { /* unnamed */ }
-            var title = HudStyle.CreateText(content, "Title " + index, 14f, TextAlignmentOptions.MidlineLeft);
-            title.text = name; title.color = Muted;
-            title.gameObject.AddComponent<LayoutElement>().preferredHeight = 28f;
+            // Live heads each container block with the container's own metascore; the name sits at the right.
+            var head = NewRect("Title " + index, content);
+            head.gameObject.AddComponent<LayoutElement>().preferredHeight = 24f;
+            var headBack = head.gameObject.AddComponent<Image>();
+            headBack.color = new Color(0f, 0f, 0f, 0.45f); headBack.raycastTarget = false;
+            var headIcon = NewRect("Icon", head).gameObject.AddComponent<Image>();
+            headIcon.rectTransform.anchorMin = headIcon.rectTransform.anchorMax = new Vector2(0f, 0.5f);
+            headIcon.rectTransform.pivot = new Vector2(0f, 0.5f); headIcon.rectTransform.anchoredPosition = new Vector2(10f, 0f);
+            headIcon.rectTransform.sizeDelta = new Vector2(16f, 16f);
+            headIcon.sprite = ScoreSprite(); headIcon.raycastTarget = false; headIcon.enabled = headIcon.sprite != null;
+            var headScore = HudStyle.CreateText(head, "Score", 13f, TextAlignmentOptions.MidlineLeft);
+            ArenaUiBuilder.Stretch(headScore.rectTransform);
+            headScore.rectTransform.offsetMin = new Vector2(32f, 0f);
+            headScore.text = ArenaMetascore.ItemScore(container.TemplateId).ToString("N0");
+            headScore.color = Text;
+            var headName = HudStyle.CreateText(head, "Name", 12f, TextAlignmentOptions.MidlineRight);
+            ArenaUiBuilder.Stretch(headName.rectTransform);
+            headName.rectTransform.offsetMax = new Vector2(-10f, 0f);
+            headName.text = name; headName.color = Muted;
             var row = NewRect("Grids " + index, content);
             // Grids flow left to right and wrap, so every grid of a rig shows (one row was clipped by the panel).
             float maxWidth = content.rect.width > 100f ? content.rect.width - 16f : 430f;
@@ -754,6 +774,25 @@ internal sealed class ArenaPresetsScreen : MonoBehaviour
             }
             row.gameObject.AddComponent<LayoutElement>().preferredHeight = cursorY + lineHeight + 8f;
         }
+    }
+
+    private Sprite _scoreSprite;
+
+    /// <summary>The metascore glyph from the rip's bar icon.</summary>
+    private Sprite ScoreSprite()
+    {
+        if (_scoreSprite != null) return _scoreSprite;
+        try
+        {
+            var bar = Find(_apcLayout, "APCMetascoreBar");
+            var icon = bar == null ? null : Find(bar, "Icon");
+            if (icon?["components"] is JArray components)
+                foreach (var component in components)
+                    if (component is JObject c && (c.Value<string>("type") ?? "").EndsWith(".Image") && c["fields"]?["m_Sprite"] is JObject sprite)
+                        return _scoreSprite = _pack.Sprite(sprite);
+        }
+        catch { /* no glyph */ }
+        return null;
     }
 
     private static void Place(RectTransform rect, int x, int y, int w, int h, float cell)

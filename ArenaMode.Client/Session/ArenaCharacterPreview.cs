@@ -34,6 +34,9 @@ internal sealed class ArenaCharacterPreview : IDisposable
     private EFT.Utilities.XCoordRotation _rotator;
 
     public bool IsAvailable => !_lifetime.IsDisposed && _view != null && _world != null;
+    internal bool IsReady => _ready && IsAvailable;
+    /// <summary>The live render target once the body is loaded (for one-off portraits).</summary>
+    internal RenderTexture CurrentTexture => _view != null ? _view.GetComponent<RawImage>()?.texture as RenderTexture : null;
 
     public ArenaCharacterPreview(MatchMakerSideSelectionScreen screen, Profile profile, Action onUnavailable)
     {

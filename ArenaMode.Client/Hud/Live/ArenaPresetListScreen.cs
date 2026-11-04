@@ -34,6 +34,8 @@ internal sealed class ArenaPresetListScreen : MonoBehaviour
     private ArenaUiPack _pack;
     private ArenaUiBuilder _builder;
     private JObject _layout, _card, _header, _items, _footer, _frame, _visual, _create;
+    /// <summary>Live's eye toggle on every card: the character still (default) or the kit's items.</summary>
+    private static bool _itemsMode;
     private RectTransform _root, _viewers;
     private readonly Dictionary<string, RectTransform> _tabs = new(StringComparer.Ordinal);
     private readonly List<InventoryEquipment> _built = new();
@@ -250,7 +252,7 @@ internal sealed class ArenaPresetListScreen : MonoBehaviour
         var baseKits = kits.Where(k => !IsCustom(k.Id)).ToList();
         var customKits = kits.Where(k => IsCustom(k.Id)).ToList();
         float total = 0f;
-        total += FillSection(ArenaUiBuilder.Find(content, "Base"), "Base", classId, baseKits, false);
+        total += FillSection(ArenaUiBuilder.Find(content, "Base"), "Standard", classId, baseKits, false);
         total += FillSection(ArenaUiBuilder.Find(content, "Custom"), "Custom", classId, customKits, classId != null);
         content.sizeDelta = new Vector2(content.sizeDelta.x, total);
         var fitter = content.GetComponent<ContentSizeFitter>() ?? content.gameObject.AddComponent<ContentSizeFitter>();
@@ -327,7 +329,16 @@ internal sealed class ArenaPresetListScreen : MonoBehaviour
         ArenaUiBuilder.SetActive(header, "TimerPanel", false);
         ArenaUiBuilder.SetActive(header, "HeaderIcons/NewIcon", false);
         ArenaUiBuilder.SetActive(header, "HoverSelectedBackground", false);
-        ArenaUiBuilder.SetActive(header, "ModeSwitchButton", false);
+        // Live's eye: switches every card between the character still and the items.
+        var eye = ArenaUiBuilder.TryFind(header, "ModeSwitchButton");
+        if (eye != null)
+        {
+            ArenaUiBuilder.SetActive(eye, "NormalState", !_itemsMode);
+            ArenaUiBuilder.SetActive(eye, "SelecredState", _itemsMode);
+            var eyeHit = eye.GetComponent<Image>() ?? eye.gameObject.AddComponent<Image>();
+            eyeHit.color = Color.clear; eyeHit.raycastTarget = true;
+            eye.gameObject.AddComponent<ArenaMenuButton>().Init(eye, () => { _itemsMode = !_itemsMode; Refresh(); }, null, false);
+        }
         // Live's favourite star: lit when starred, dim otherwise; its own click, so the card does not open.
         var star = ArenaUiBuilder.TryFind(header, "FavoriteButton");
         if (star != null)
@@ -346,25 +357,64 @@ internal sealed class ArenaPresetListScreen : MonoBehaviour
         var title = ArenaUiBuilder.TryFind(header, "Title")?.GetComponent<TextMeshProUGUI>();
         if (title != null) { title.text = (kit.Name ?? kit.Id).ToUpperInvariant(); title.rectTransform.offsetMin = new Vector2(10f, title.rectTransform.offsetMin.y); }
 
-        // Items: weapon + ammo, then armour, grenade, medicine, other.
-        var items = _builder.Build(_items, container);
-        items.gameObject.SetActive(true);
+        // Body: the character wearing the kit (a still), or the items when the eye is switched.
+        var body = NewRect("Body", container);
+        body.sizeDelta = new Vector2(306f, 221f);
+        var bodyElement = body.gameObject.AddComponent<LayoutElement>();
+        bodyElement.preferredWidth = 306f; bodyElement.preferredHeight = 221f;
+        var items = _builder.Build(_items, body);
+        items.gameObject.SetActive(_itemsMode);
+        items.anchorMin = items.anchorMax = new Vector2(0.5f, 1f); items.pivot = new Vector2(0.5f, 1f);
         items.anchoredPosition = Vector2.zero;
         FillItems(items, equipment, kit);
+        if (!_itemsMode)
+        {
+            var portraitHost = NewRect("PortraitHost", body);
+            ArenaUiBuilder.Stretch(portraitHost);
+            var portrait = NewRect("Portrait", body).gameObject.AddComponent<RawImage>();
+            ArenaUiBuilder.Stretch(portrait.rectTransform);
+            portrait.raycastTarget = false;
+            portrait.enabled = false;
+            ArenaKitPortraits.Request(kit, profile, equipment, portraitHost, texture =>
+            {
+                if (portrait == null) return;
+                portrait.texture = texture;
+                portrait.enabled = texture != null;
+            });
+        }
+        // Metascore under the header, as live prints it ("10 979.1").
+        var scoreRow = NewRect("Score", body);
+        scoreRow.anchorMin = scoreRow.anchorMax = new Vector2(0f, 1f); scoreRow.pivot = new Vector2(0f, 1f);
+        scoreRow.anchoredPosition = new Vector2(8f, -4f); scoreRow.sizeDelta = new Vector2(200f, 20f);
+        var scoreIcon = NewRect("Icon", scoreRow).gameObject.AddComponent<Image>();
+        scoreIcon.rectTransform.anchorMin = scoreIcon.rectTransform.anchorMax = new Vector2(0f, 0.5f);
+        scoreIcon.rectTransform.pivot = new Vector2(0f, 0.5f); scoreIcon.rectTransform.sizeDelta = new Vector2(18f, 18f);
+        scoreIcon.sprite = ScoreSprite(); scoreIcon.raycastTarget = false; scoreIcon.enabled = scoreIcon.sprite != null;
+        var scoreText = HudStyle.CreateText(scoreRow, "Value", 14f, TextAlignmentOptions.MidlineLeft);
+        ArenaUiBuilder.Stretch(scoreText.rectTransform);
+        scoreText.rectTransform.offsetMin = new Vector2(22f, 0f);
+        scoreText.text = score.Total.ToString("N1");
+        scoreText.color = ready ? Text : Bad;
 
-        // Footer: custom presets edit, base presets report readiness (live's footer strings).
+        // Footer: VIEW on standard presets, EDIT on custom ones; its own click opens the preset.
         var footer = _builder.Build(_footer, container);
         footer.gameObject.SetActive(true);
         footer.anchoredPosition = Vector2.zero;
         ArenaUiBuilder.SetActive(footer, "InsprectModification/HoveredState", false);
         ArenaUiBuilder.SetActive(footer, "InsprectModification/DisableState", false);
-        var footerText = ArenaUiBuilder.TryFind(footer, "InsprectModification/IdleState/InspectText")?.GetComponent<TextMeshProUGUI>();
-        if (footerText != null)
+        bool custom = IsCustom(kit.Id);
+        foreach (var state in new[] { "IdleState", "HoveredState" })
         {
-            footerText.text = IsCustom(kit.Id) ? "EDIT" : ready ? "READY" : "NOT READY";
-            footerText.color = ready || IsCustom(kit.Id) ? Text : Bad;
+            var footerText = ArenaUiBuilder.TryFind(footer, "InsprectModification/" + state + "/InspectText")?.GetComponent<TextMeshProUGUI>();
+            if (footerText != null) footerText.text = custom ? "EDIT" : "VIEW";
+            ArenaUiBuilder.SetActive(footer, "InsprectModification/" + state + "/IconImage", true);
         }
-        ArenaUiBuilder.SetActive(footer, "InsprectModification/IdleState/IconImage", IsCustom(kit.Id));
+        var footerButton = ArenaUiBuilder.Find(footer, "InsprectModification");
+        var footerHit = footerButton.GetComponent<Image>() ?? footerButton.gameObject.AddComponent<Image>();
+        footerHit.color = Color.clear; footerHit.raycastTarget = true;
+        var opened = kit;
+        footerButton.gameObject.AddComponent<ArenaMenuButton>().Init(footerButton, () => ArenaPresetsScreen.Show(opened, IsCustom(opened.Id)),
+            null, false, ArenaUiBuilder.TryFind(footer, "InsprectModification/HoveredState"));
 
         var frame = _builder.Build(_frame, card);
         frame.gameObject.SetActive(true);
@@ -376,10 +426,48 @@ internal sealed class ArenaPresetListScreen : MonoBehaviour
         ArenaUiBuilder.SetActive(visual, "PresetBlockPanel", false);
         ArenaUiBuilder.SetActive(visual, "AdditionalFrame", selected);
 
+        // The card itself selects the preset; hover lights the card and header as live does.
         var hit = card.GetComponent<Image>() ?? card.gameObject.AddComponent<Image>();
         hit.color = Color.clear; hit.raycastTarget = true;
         var captured = kit;
-        card.gameObject.AddComponent<ArenaMenuButton>().Init(card, () => ArenaPresetsScreen.Show(captured, IsCustom(captured.Id)));
+        var cardHover = ArenaUiBuilder.TryFind(card, "HoverSelectedBackground");
+        if (cardHover != null) cardHover.gameObject.SetActive(true);
+        card.gameObject.AddComponent<ArenaMenuButton>().Init(card, () =>
+        {
+            Settings.SelectedKit.Value = captured.Id;
+            Settings.RandomKit.Value = false;
+            Plugin.ModLogger.LogInfo($"Arena preset selected: {captured.Id}");
+            ArenaMainMenuOverlay.RefreshCharacter();
+            Refresh();
+        }, cardHover?.GetComponent<Image>(), false, ArenaUiBuilder.TryFind(header, "HoverSelectedBackground"));
+    }
+
+    private static RectTransform NewRect(string name, Transform parent)
+    {
+        var go = new GameObject(name, typeof(RectTransform));
+        go.layer = 5;
+        var rect = (RectTransform)go.transform;
+        rect.SetParent(parent, false);
+        return rect;
+    }
+
+    private Sprite _scoreSprite;
+
+    /// <summary>The metascore glyph, taken from the customization screen's bar icon.</summary>
+    private Sprite ScoreSprite()
+    {
+        if (_scoreSprite != null) return _scoreSprite;
+        try
+        {
+            var bar = ArenaMenuChrome.Find(_pack.Layout("ArenaPresetCustomizationScreen"), "APCMetascoreBar");
+            var icon = bar == null ? null : ArenaMenuChrome.Find(bar, "Icon");
+            if (icon?["components"] is JArray components)
+                foreach (var component in components)
+                    if (component is JObject c && (c.Value<string>("type") ?? "").EndsWith(".Image") && c["fields"]?["m_Sprite"] is JObject sprite)
+                        return _scoreSprite = _pack.Sprite(sprite);
+        }
+        catch { /* no glyph */ }
+        return null;
     }
 
     private void FillItems(RectTransform items, InventoryEquipment equipment, KitDefinition kit)

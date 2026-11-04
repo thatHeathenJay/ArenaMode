@@ -73,6 +73,7 @@ internal static class ArenaArmory
             var response = JObject.Parse(RequestHandler.PostJson(Protocol.PresetEditRoute, request.ToString()));
             string error = response.Value<string>("error");
             KitCatalog.Preload();
+            Hud.Live.ArenaKitPortraits.Invalidate(kitId);   // the card's still is stale once the preset changed
             if (error != null) Plugin.ModLogger.LogWarning($"Arena preset {action} failed: {error}");
             return error;
         }
