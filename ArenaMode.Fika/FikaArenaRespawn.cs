@@ -1,4 +1,5 @@
 using ArenaMode.Compat;
+using ArenaMode.Bots;
 using ArenaMode.Events;
 using ArenaMode.Kits;
 using ArenaMode.Modes;
@@ -108,6 +109,18 @@ internal static class FikaArenaRespawn
     /// </summary>
     private static (Vector3, Quaternion) PickSpawn(Player player, Vector3 avoid)
     {
+        // Live TeamFight rounds start from the team boxes: back to the side's own box, with the team.
+        try
+        {
+            if (ArenaMatchService.Current?.Mode is TeamDeathmatchMode { IsRounds: true } && ArenaTeamBoxRuntime.IsRequired
+                && Singleton<AbstractGame>.Instance is LocalGame local)
+            {
+                var box = ArenaTeamBoxRuntime.PickRespawn(local, avoid);
+                Plugin.Log.LogInfo($"Co-op arena: round start in the team box at {box.position}.");
+                return box;
+            }
+        }
+        catch (Exception ex) { Plugin.Log.LogWarning("Co-op arena: team box unavailable for the round start, spawn system instead: " + ex.Message); }
         var game = Singleton<AbstractGame>.Instance as BaseLocalGame<EftGamePlayerOwner>;
         var spawnSystem = game != null ? Redeploy.Core.Spawning.SpawnSystemCache.GetOrCreate(game) : null;
         if (spawnSystem == null)
